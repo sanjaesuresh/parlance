@@ -1,11 +1,5 @@
-//
-//  Parlance__AI_Speech_CoachApp.swift
-//  Parlance: AI Speech Coach
-//
-//  Created by Sanjae Suresh on 2026-04-02.
-//
-
 import SwiftUI
+import SwiftData
 
 @main
 struct Parlance__AI_Speech_CoachApp: App {
@@ -13,5 +7,6 @@ struct Parlance__AI_Speech_CoachApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(PersistenceService.shared.container)
     }
 }
