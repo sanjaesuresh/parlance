@@ -154,7 +154,7 @@ enum SpeechAnalyzer {
     ]
 
     private static let starPatterns: [String: [String]] = [
-        "situation": ["when i", "at my previous", "in that role", "at"],
+        "situation": ["when i", "at my previous", "in that role", "at my company", "at the time"],
         "task": ["i was responsible for", "my goal was", "i needed to", "i had to"],
         "action": ["i decided", "i then", "what i did", "i reached out", "i built", "i led"],
         "result": ["as a result", "this led to", "the outcome was", "we achieved", "it resulted in", "by the end"]
@@ -242,7 +242,11 @@ enum SpeechAnalyzer {
 
         var uniqueWeakWordsUsed = 0
         for weak in weakWords {
-            if lower.contains(weak) { uniqueWeakWordsUsed += 1 }
+            let pattern = "\\b\(NSRegularExpression.escapedPattern(for: weak))\\b"
+            if let regex = try? NSRegularExpression(pattern: pattern, options: []),
+               regex.firstMatch(in: lower, range: NSRange(lower.startIndex..., in: lower)) != nil {
+                uniqueWeakWordsUsed += 1
+            }
         }
 
         if uniqueWeakWordsUsed == 0 {

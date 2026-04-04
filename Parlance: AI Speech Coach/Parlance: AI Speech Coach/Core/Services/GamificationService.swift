@@ -33,6 +33,7 @@ enum GamificationService {
         }
 
         user.longestStreak = max(user.longestStreak, user.currentStreak)
+        user.lastSessionDate = .now
     }
 
     static func incrementDailySessionCount(for user: User) {

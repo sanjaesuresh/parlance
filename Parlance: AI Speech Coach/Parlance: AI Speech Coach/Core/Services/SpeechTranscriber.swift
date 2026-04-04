@@ -20,12 +20,16 @@ final class SpeechTranscriber {
         request.shouldReportPartialResults = false
 
         return try await withCheckedThrowingContinuation { continuation in
+            var didResume = false
             recognizer.recognitionTask(with: request) { result, error in
+                guard !didResume else { return }
                 if let error {
+                    didResume = true
                     continuation.resume(throwing: TranscriptionError.recognitionFailed(error.localizedDescription))
                     return
                 }
                 if let result, result.isFinal {
+                    didResume = true
                     continuation.resume(returning: result.bestTranscription.formattedString)
                 }
             }

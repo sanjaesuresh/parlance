@@ -27,7 +27,7 @@ enum SessionMode: String, CaseIterable, Codable {
     var accentColor: Color {
         switch self {
         case .interview: AppColors.gold
-        case .pitch: Color(hex: "#E8A838")
+        case .pitch: Color(hex: "#E89020")
         case .keynote: AppColors.purple
         case .casual: AppColors.teal
         }
