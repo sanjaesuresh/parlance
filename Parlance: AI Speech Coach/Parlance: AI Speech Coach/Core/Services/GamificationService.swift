@@ -16,6 +16,7 @@ enum GamificationService {
         guard let lastDate = user.lastSessionDate else {
             user.currentStreak = 1
             user.longestStreak = max(user.longestStreak, 1)
+            user.lastSessionDate = .now
             return
         }
 
