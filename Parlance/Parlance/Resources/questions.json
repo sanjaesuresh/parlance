@@ -1,0 +1,5202 @@
+[
+  {
+    "id": "interview_1-2_001",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Tell me about yourself and your background.",
+    "tips": [
+      "Keep it under 2 minutes",
+      "Focus on relevant experience",
+      "End with why you're excited about this role"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Basic self-introduction, low pressure"
+  },
+  {
+    "id": "interview_1-2_002",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What are your greatest strengths?",
+    "tips": [
+      "Pick 2-3 strengths relevant to the role",
+      "Give a brief example for each",
+      "Tie strengths back to the job"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple self-assessment question"
+  },
+  {
+    "id": "interview_1-2_003",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Why are you interested in this position?",
+    "tips": [
+      "Research the company beforehand",
+      "Connect your skills to the role",
+      "Show genuine enthusiasm"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Standard motivation question"
+  },
+  {
+    "id": "interview_1-2_004",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What is your biggest weakness?",
+    "tips": [
+      "Choose a real but manageable weakness",
+      "Explain what you're doing to improve",
+      "Avoid cliché answers like perfectionism"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Classic self-awareness question"
+  },
+  {
+    "id": "interview_1-2_005",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Where do you see yourself in five years?",
+    "tips": [
+      "Show ambition but be realistic",
+      "Align goals with the company's direction",
+      "Focus on skills you want to develop"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Forward-looking career question"
+  },
+  {
+    "id": "interview_1-2_006",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Why did you leave your last job?",
+    "tips": [
+      "Stay positive about past employers",
+      "Focus on growth opportunities",
+      "Keep the answer brief and forward-looking"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Common transition question"
+  },
+  {
+    "id": "interview_1-2_007",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What do you know about our company?",
+    "tips": [
+      "Mention specific products or initiatives",
+      "Show you've done recent research",
+      "Connect company values to yours"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Research-based question"
+  },
+  {
+    "id": "interview_1-2_008",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How would your friends describe you?",
+    "tips": [
+      "Be authentic and specific",
+      "Choose traits relevant to work",
+      "Give a brief anecdote if possible"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Personality assessment question"
+  },
+  {
+    "id": "interview_1-2_009",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What are your salary expectations?",
+    "tips": [
+      "Research market rates beforehand",
+      "Give a range rather than a fixed number",
+      "Express flexibility and focus on the role"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Practical negotiation question"
+  },
+  {
+    "id": "interview_1-2_010",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Do you have any questions for us?",
+    "tips": [
+      "Prepare 2-3 thoughtful questions",
+      "Ask about team culture or growth",
+      "Avoid questions about salary in first round"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Closing interview question"
+  },
+  {
+    "id": "interview_1-2_011",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Tell me about your educational background.",
+    "tips": [
+      "Highlight relevant coursework or projects",
+      "Connect education to career goals",
+      "Mention any honors or achievements briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Standard background question"
+  },
+  {
+    "id": "interview_1-2_012",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What motivates you at work?",
+    "tips": [
+      "Be specific about what drives you",
+      "Connect motivation to the role",
+      "Give a real example"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Self-awareness question"
+  },
+  {
+    "id": "interview_1-2_013",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you handle stress?",
+    "tips": [
+      "Describe a healthy coping strategy",
+      "Give a specific example",
+      "Show you remain productive under pressure"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Basic resilience question"
+  },
+  {
+    "id": "interview_1-2_014",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What is your ideal work environment?",
+    "tips": [
+      "Be honest but flexible",
+      "Align with the company culture",
+      "Mention collaboration or independence as appropriate"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Culture fit question"
+  },
+  {
+    "id": "interview_1-2_015",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Tell me about a hobby or interest outside work.",
+    "tips": [
+      "Choose something that shows positive traits",
+      "Keep it brief and enthusiastic",
+      "Connect it to transferable skills if natural"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Icebreaker question"
+  },
+  {
+    "id": "interview_1-2_016",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What makes you a good fit for this role?",
+    "tips": [
+      "Match your skills to the job description",
+      "Give 2-3 concrete reasons",
+      "End with enthusiasm for the opportunity"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Summary pitch question"
+  },
+  {
+    "id": "interview_1-2_017",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you prioritize your work?",
+    "tips": [
+      "Describe a simple system you use",
+      "Give an example of prioritizing tasks",
+      "Mention flexibility when priorities shift"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Basic organizational question"
+  },
+  {
+    "id": "interview_1-2_018",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What is your communication style?",
+    "tips": [
+      "Be self-aware and specific",
+      "Give an example of effective communication",
+      "Show adaptability to different audiences"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Soft skills question"
+  },
+  {
+    "id": "interview_1-2_019",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Why should we hire you?",
+    "tips": [
+      "Summarize your top 2-3 qualifications",
+      "Show understanding of the role",
+      "Express confidence without arrogance"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Direct value proposition question"
+  },
+  {
+    "id": "interview_1-2_020",
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Describe your typical workday.",
+    "tips": [
+      "Structure your answer chronologically",
+      "Highlight productive habits",
+      "Show time management awareness"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Routine and habits question"
+  },
+  {
+    "id": "interview_3-4_001",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you worked on a team to achieve a goal.",
+    "tips": [
+      "Use the STAR framework",
+      "Clarify your specific contribution",
+      "Quantify the outcome if possible"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Behavioral teamwork question requiring structure"
+  },
+  {
+    "id": "interview_3-4_002",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a challenge you faced at work and how you overcame it.",
+    "tips": [
+      "Choose a meaningful challenge",
+      "Focus on your problem-solving process",
+      "Share the positive outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Problem-solving behavioral question"
+  },
+  {
+    "id": "interview_3-4_003",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of when you had to learn something quickly.",
+    "tips": [
+      "Describe the context and urgency",
+      "Explain your learning strategy",
+      "Share the result of your quick learning"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Adaptability behavioral question"
+  },
+  {
+    "id": "interview_3-4_004",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you received constructive criticism.",
+    "tips": [
+      "Show openness to feedback",
+      "Describe what you changed",
+      "Explain the positive impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Growth mindset question"
+  },
+  {
+    "id": "interview_3-4_005",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a situation where you had to meet a tight deadline.",
+    "tips": [
+      "Set the scene with specifics",
+      "Walk through your approach",
+      "Quantify the results"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Time management behavioral question"
+  },
+  {
+    "id": "interview_3-4_006",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you disagreed with a coworker.",
+    "tips": [
+      "Show respectful communication",
+      "Explain how you found common ground",
+      "Focus on the professional outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Conflict resolution question"
+  },
+  {
+    "id": "interview_3-4_007",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of a goal you set and achieved.",
+    "tips": [
+      "Make the goal specific and measurable",
+      "Describe the steps you took",
+      "Share what you learned"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Goal-setting behavioral question"
+  },
+  {
+    "id": "interview_3-4_008",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you went above and beyond at work.",
+    "tips": [
+      "Choose a specific, impactful example",
+      "Explain your motivation",
+      "Quantify the extra value you delivered"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Initiative behavioral question"
+  },
+  {
+    "id": "interview_3-4_009",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a mistake you made and what you learned.",
+    "tips": [
+      "Be honest about the mistake",
+      "Focus on the learning, not the blame",
+      "Show how you applied the lesson"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Accountability question"
+  },
+  {
+    "id": "interview_3-4_010",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "How have you handled a situation with an unhappy customer?",
+    "tips": [
+      "Describe the customer's concern specifically",
+      "Walk through your de-escalation steps",
+      "Share the resolution and any follow-up"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Customer service behavioral question"
+  },
+  {
+    "id": "interview_3-4_011",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a project you're most proud of.",
+    "tips": [
+      "Set context for why it mattered",
+      "Detail your specific role and actions",
+      "Share measurable results or impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Achievement-focused question"
+  },
+  {
+    "id": "interview_3-4_012",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to adapt to change.",
+    "tips": [
+      "Describe the unexpected change",
+      "Explain your adjustment strategy",
+      "Highlight the positive outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Change management question"
+  },
+  {
+    "id": "interview_3-4_013",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of when you showed leadership.",
+    "tips": [
+      "Leadership doesn't require a title",
+      "Focus on influence and initiative",
+      "Describe the team impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Emerging leadership question"
+  },
+  {
+    "id": "interview_3-4_014",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe how you handle multiple priorities.",
+    "tips": [
+      "Give a specific multi-task scenario",
+      "Explain your prioritization method",
+      "Show the successful outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Organization behavioral question"
+  },
+  {
+    "id": "interview_3-4_015",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you improved a process.",
+    "tips": [
+      "Identify the original inefficiency",
+      "Describe your improvement idea",
+      "Quantify time or cost savings"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Process improvement question"
+  },
+  {
+    "id": "interview_3-4_016",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a situation where you had to persuade someone.",
+    "tips": [
+      "Set up the disagreement context",
+      "Explain your persuasion approach",
+      "Share the resolution"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Influence behavioral question"
+  },
+  {
+    "id": "interview_3-4_017",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about working with a difficult team member.",
+    "tips": [
+      "Stay professional and specific",
+      "Focus on your approach, not their faults",
+      "Describe the resolution"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Interpersonal skills question"
+  },
+  {
+    "id": "interview_3-4_018",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of creative problem-solving.",
+    "tips": [
+      "Describe the constraint or obstacle",
+      "Explain your creative approach",
+      "Share the unconventional solution"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Creativity behavioral question"
+  },
+  {
+    "id": "interview_3-4_019",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to make a quick decision.",
+    "tips": [
+      "Set the urgency context",
+      "Walk through your decision process",
+      "Explain the outcome and any learnings"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Decision-making question"
+  },
+  {
+    "id": "interview_3-4_020",
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about mentoring or helping a colleague.",
+    "tips": [
+      "Describe what the colleague needed",
+      "Explain your coaching approach",
+      "Share the colleague's growth or success"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Mentorship behavioral question"
+  },
+  {
+    "id": "interview_5-6_001",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you led a cross-functional project.",
+    "tips": [
+      "Clarify stakeholders and their interests",
+      "Explain how you aligned different teams",
+      "Share measurable project outcomes"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Multi-stakeholder leadership scenario"
+  },
+  {
+    "id": "interview_5-6_002",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about resolving a conflict between team members.",
+    "tips": [
+      "Describe both perspectives fairly",
+      "Explain your mediation approach",
+      "Share the resolution and team impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Complex conflict resolution scenario"
+  },
+  {
+    "id": "interview_5-6_003",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How did you handle a project that was failing?",
+    "tips": [
+      "Be honest about the warning signs",
+      "Describe your turnaround strategy",
+      "Quantify recovery results"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Crisis management question"
+  },
+  {
+    "id": "interview_5-6_004",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe implementing a significant change in your team.",
+    "tips": [
+      "Explain why the change was needed",
+      "Walk through your change management steps",
+      "Address resistance and outcomes"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Change leadership question"
+  },
+  {
+    "id": "interview_5-6_005",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to deliver bad news.",
+    "tips": [
+      "Set context for the situation",
+      "Explain your communication approach",
+      "Describe how you managed the aftermath"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Difficult communication scenario"
+  },
+  {
+    "id": "interview_5-6_006",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Give an example of data-driven decision making.",
+    "tips": [
+      "Describe the data you gathered",
+      "Explain your analysis process",
+      "Share how data changed the outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Analytical decision-making question"
+  },
+  {
+    "id": "interview_5-6_007",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe managing competing stakeholder priorities.",
+    "tips": [
+      "Identify the conflicting priorities",
+      "Explain your negotiation approach",
+      "Show how you found alignment"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Stakeholder management question"
+  },
+  {
+    "id": "interview_5-6_008",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about building a team from scratch.",
+    "tips": [
+      "Describe your hiring criteria and process",
+      "Explain how you established team culture",
+      "Share team performance metrics"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Team building question"
+  },
+  {
+    "id": "interview_5-6_009",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How did you handle scope creep on a major project?",
+    "tips": [
+      "Identify how scope expanded",
+      "Describe your boundary-setting approach",
+      "Share project outcome despite challenges"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Project management question"
+  },
+  {
+    "id": "interview_5-6_010",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you championed diversity or inclusion.",
+    "tips": [
+      "Be specific about the initiative",
+      "Explain your approach and challenges",
+      "Share measurable impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "DEI leadership question"
+  },
+  {
+    "id": "interview_5-6_011",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about negotiating resources for your team.",
+    "tips": [
+      "Describe what your team needed",
+      "Explain your business case",
+      "Share the negotiation outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Resource advocacy question"
+  },
+  {
+    "id": "interview_5-6_012",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How did you develop an underperforming team member?",
+    "tips": [
+      "Describe the performance gap",
+      "Explain your coaching approach",
+      "Share the improvement trajectory"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Performance management question"
+  },
+  {
+    "id": "interview_5-6_013",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a strategic decision that had long-term impact.",
+    "tips": [
+      "Set the context and options",
+      "Explain your decision rationale",
+      "Share the long-term results"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Strategic thinking question"
+  },
+  {
+    "id": "interview_5-6_014",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about managing remote or distributed teams.",
+    "tips": [
+      "Describe the team structure",
+      "Explain your communication strategy",
+      "Share how you maintained productivity"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Remote leadership question"
+  },
+  {
+    "id": "interview_5-6_015",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How did you balance technical debt with new features?",
+    "tips": [
+      "Describe the trade-off context",
+      "Explain your prioritization framework",
+      "Share the balanced outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Technical leadership question"
+  },
+  {
+    "id": "interview_5-6_016",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe scaling a process as your organization grew.",
+    "tips": [
+      "Identify what stopped working at scale",
+      "Explain your redesign approach",
+      "Share efficiency improvements"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Scaling question"
+  },
+  {
+    "id": "interview_5-6_017",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you influenced without authority.",
+    "tips": [
+      "Describe the organizational dynamics",
+      "Explain your influence strategy",
+      "Share the outcome of your influence"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Lateral leadership question"
+  },
+  {
+    "id": "interview_5-6_018",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How did you handle ethical concerns in a project?",
+    "tips": [
+      "Describe the ethical dilemma",
+      "Explain your decision process",
+      "Share how you maintained integrity"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Ethics and integrity question"
+  },
+  {
+    "id": "interview_5-6_019",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe building consensus across departments.",
+    "tips": [
+      "Identify the departments and their concerns",
+      "Explain your alignment strategy",
+      "Share the unified outcome"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Cross-functional alignment question"
+  },
+  {
+    "id": "interview_5-6_020",
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about pivoting strategy based on new information.",
+    "tips": [
+      "Describe the original plan and new data",
+      "Explain your pivot decision process",
+      "Share results of the new direction"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Strategic adaptability question"
+  },
+  {
+    "id": "interview_7-8_001",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How would you transform an underperforming division?",
+    "tips": [
+      "Start with diagnosis before prescription",
+      "Outline a phased transformation plan",
+      "Address people, process, and culture"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Senior leadership transformation scenario"
+  },
+  {
+    "id": "interview_7-8_002",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe your approach to organizational restructuring.",
+    "tips": [
+      "Explain the business drivers for change",
+      "Walk through your restructuring framework",
+      "Address communication and morale"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Executive-level restructuring question"
+  },
+  {
+    "id": "interview_7-8_003",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you build and maintain executive relationships?",
+    "tips": [
+      "Describe your stakeholder mapping approach",
+      "Explain how you build trust at the top",
+      "Share examples of productive partnerships"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Executive relationship management"
+  },
+  {
+    "id": "interview_7-8_004",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about driving cultural change across an organization.",
+    "tips": [
+      "Describe the culture you wanted to build",
+      "Explain your multi-level approach",
+      "Share metrics of cultural shift"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Organizational culture question"
+  },
+  {
+    "id": "interview_7-8_005",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How would you handle a board-level disagreement?",
+    "tips": [
+      "Describe the nature of the disagreement",
+      "Explain your diplomatic approach",
+      "Show how you reached resolution"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Board dynamics question"
+  },
+  {
+    "id": "interview_7-8_006",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe building a talent pipeline for critical roles.",
+    "tips": [
+      "Explain your succession planning approach",
+      "Walk through development programs",
+      "Share retention and promotion metrics"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Talent strategy question"
+  },
+  {
+    "id": "interview_7-8_007",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you balance short-term results with long-term strategy?",
+    "tips": [
+      "Describe a specific tension point",
+      "Explain your balancing framework",
+      "Show outcomes on both time horizons"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Strategic balance question"
+  },
+  {
+    "id": "interview_7-8_008",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about managing through a company crisis.",
+    "tips": [
+      "Describe the crisis and its scope",
+      "Explain your crisis management approach",
+      "Share stakeholder communication strategy"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Crisis leadership question"
+  },
+  {
+    "id": "interview_7-8_009",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How would you evaluate and enter a new market?",
+    "tips": [
+      "Describe your market analysis framework",
+      "Explain competitive positioning",
+      "Walk through go-to-market strategy"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Market strategy question"
+  },
+  {
+    "id": "interview_7-8_010",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe integrating teams after a merger or acquisition.",
+    "tips": [
+      "Address cultural and process differences",
+      "Explain your integration roadmap",
+      "Share retention and performance outcomes"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "M&A integration question"
+  },
+  {
+    "id": "interview_7-8_011",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you develop your leadership team?",
+    "tips": [
+      "Describe your assessment approach",
+      "Explain development programs",
+      "Share team growth metrics"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Executive development question"
+  },
+  {
+    "id": "interview_7-8_012",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about making a unpopular but necessary decision.",
+    "tips": [
+      "Describe the business necessity",
+      "Explain your communication strategy",
+      "Share the long-term validation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Courage in leadership question"
+  },
+  {
+    "id": "interview_7-8_013",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How would you present a failed initiative to the board?",
+    "tips": [
+      "Own the failure with data",
+      "Explain root causes and learnings",
+      "Present the path forward"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Executive accountability question"
+  },
+  {
+    "id": "interview_7-8_014",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe your approach to innovation governance.",
+    "tips": [
+      "Balance creativity with risk management",
+      "Explain funding and evaluation frameworks",
+      "Share innovation portfolio outcomes"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Innovation management question"
+  },
+  {
+    "id": "interview_7-8_015",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you ensure alignment across a large organization?",
+    "tips": [
+      "Describe your communication cadence",
+      "Explain goal-setting and OKR approach",
+      "Share alignment measurement methods"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Organizational alignment question"
+  },
+  {
+    "id": "interview_7-8_016",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about navigating regulatory challenges.",
+    "tips": [
+      "Describe the regulatory landscape",
+      "Explain your compliance strategy",
+      "Show how you turned constraints into advantages"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Regulatory strategy question"
+  },
+  {
+    "id": "interview_7-8_017",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How would you rebuild trust after a major setback?",
+    "tips": [
+      "Acknowledge the trust breach openly",
+      "Describe concrete trust-building actions",
+      "Share metrics of trust recovery"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Trust restoration question"
+  },
+  {
+    "id": "interview_7-8_018",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe managing a multi-million dollar budget.",
+    "tips": [
+      "Explain your financial oversight approach",
+      "Walk through trade-off decisions",
+      "Share ROI achievements"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Financial management question"
+  },
+  {
+    "id": "interview_7-8_019",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you evaluate strategic partnerships?",
+    "tips": [
+      "Describe your partnership assessment criteria",
+      "Explain due diligence process",
+      "Share partnership outcome examples"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Strategic partnerships question"
+  },
+  {
+    "id": "interview_7-8_020",
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about building competitive advantage in a crowded market.",
+    "tips": [
+      "Analyze the competitive landscape",
+      "Explain your differentiation strategy",
+      "Share market share or positioning gains"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Competitive strategy question"
+  },
+  {
+    "id": "interview_9-10_001",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Articulate your vision for the future of this industry.",
+    "tips": [
+      "Ground vision in current trends and data",
+      "Paint a vivid picture of the future state",
+      "Connect vision to actionable strategy"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "C-suite visionary thinking required"
+  },
+  {
+    "id": "interview_9-10_002",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you present our five-year strategy to investors?",
+    "tips": [
+      "Lead with the compelling narrative",
+      "Back every claim with data and milestones",
+      "Address risks proactively and candidly"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Board-level strategic presentation"
+  },
+  {
+    "id": "interview_9-10_003",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe how you would navigate a hostile takeover attempt.",
+    "tips": [
+      "Address fiduciary duties first",
+      "Explain defensive strategy options",
+      "Balance shareholder value with company mission"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Extreme corporate governance scenario"
+  },
+  {
+    "id": "interview_9-10_004",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you build a company culture that scales globally?",
+    "tips": [
+      "Define non-negotiable cultural values",
+      "Explain localization vs. standardization",
+      "Share metrics of global cultural health"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Global leadership at scale"
+  },
+  {
+    "id": "interview_9-10_005",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Present your approach to disrupting an established industry.",
+    "tips": [
+      "Identify the incumbent vulnerabilities",
+      "Articulate your disruptive advantage",
+      "Address timing and resource requirements"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Visionary disruption question"
+  },
+  {
+    "id": "interview_9-10_006",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you communicate a major pivot to all stakeholders?",
+    "tips": [
+      "Sequence communications strategically",
+      "Tailor messages for each audience",
+      "Build narrative from crisis to opportunity"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Executive communication mastery"
+  },
+  {
+    "id": "interview_9-10_007",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe rebuilding a company's reputation after a scandal.",
+    "tips": [
+      "Acknowledge the damage honestly",
+      "Present a phased reputation recovery plan",
+      "Address systemic changes to prevent recurrence"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Reputation crisis management"
+  },
+  {
+    "id": "interview_9-10_008",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you balance innovation investment against profitability?",
+    "tips": [
+      "Present your innovation portfolio framework",
+      "Explain risk-adjusted return thinking",
+      "Share how you've navigated this tension before"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "CEO-level resource allocation"
+  },
+  {
+    "id": "interview_9-10_009",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Articulate how you would position a company for an IPO.",
+    "tips": [
+      "Walk through IPO readiness criteria",
+      "Explain narrative and positioning strategy",
+      "Address governance and compliance requirements"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "IPO preparation leadership"
+  },
+  {
+    "id": "interview_9-10_010",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you lead through an industry-wide disruption?",
+    "tips": [
+      "Analyze the disruption's implications",
+      "Present adaptive strategy framework",
+      "Address organizational resilience"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Transformational leadership scenario"
+  },
+  {
+    "id": "interview_9-10_011",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe your philosophy on corporate social responsibility.",
+    "tips": [
+      "Connect CSR to business strategy",
+      "Present measurable impact goals",
+      "Address stakeholder expectations"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Values-driven leadership question"
+  },
+  {
+    "id": "interview_9-10_012",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you evaluate and acquire technology companies?",
+    "tips": [
+      "Explain your M&A evaluation framework",
+      "Address technical due diligence approach",
+      "Walk through integration planning"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Technology M&A strategy"
+  },
+  {
+    "id": "interview_9-10_013",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Present your approach to building an innovation ecosystem.",
+    "tips": [
+      "Describe partnerships and venture relationships",
+      "Explain internal innovation programs",
+      "Share ecosystem value creation metrics"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Ecosystem strategy question"
+  },
+  {
+    "id": "interview_9-10_014",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you handle a major cybersecurity breach?",
+    "tips": [
+      "Address immediate response protocol",
+      "Explain stakeholder communication plan",
+      "Present long-term security transformation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Crisis leadership under extreme pressure"
+  },
+  {
+    "id": "interview_9-10_015",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe your approach to ESG strategy and reporting.",
+    "tips": [
+      "Connect ESG to business value creation",
+      "Explain measurement and reporting framework",
+      "Address investor and regulator expectations"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Modern corporate governance question"
+  },
+  {
+    "id": "interview_9-10_016",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you build resilience into organizational strategy?",
+    "tips": [
+      "Define resilience across multiple dimensions",
+      "Explain scenario planning approach",
+      "Share examples of resilience in action"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Strategic resilience at enterprise scale"
+  },
+  {
+    "id": "interview_9-10_017",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Present your approach to digital transformation of a legacy business.",
+    "tips": [
+      "Assess current digital maturity",
+      "Present phased transformation roadmap",
+      "Address cultural and technical change management"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Enterprise transformation question"
+  },
+  {
+    "id": "interview_9-10_018",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you manage a activist investor situation?",
+    "tips": [
+      "Understand the activist's thesis",
+      "Present proactive engagement strategy",
+      "Balance long-term vision with short-term pressure"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Investor relations mastery"
+  },
+  {
+    "id": "interview_9-10_019",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe building a world-class executive team.",
+    "tips": [
+      "Explain your hiring philosophy for C-suite",
+      "Address team dynamics and composition",
+      "Share team performance and retention outcomes"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Executive team building"
+  },
+  {
+    "id": "interview_9-10_020",
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you ensure ethical AI deployment in your organization?",
+    "tips": [
+      "Present AI governance framework",
+      "Address bias, transparency, and accountability",
+      "Balance innovation speed with responsible deployment"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Modern technology ethics question"
+  },
+  {
+    "id": "pitch_1-2_001",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Describe your product or service in 30 seconds.",
+    "tips": [
+      "Lead with the problem you solve",
+      "State your solution in one clear sentence",
+      "End with who it's for"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Basic elevator pitch"
+  },
+  {
+    "id": "pitch_1-2_002",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "What problem does your product solve?",
+    "tips": [
+      "Name the problem in concrete terms",
+      "Describe who experiences this problem",
+      "Quantify the pain if possible"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Problem statement pitch"
+  },
+  {
+    "id": "pitch_1-2_003",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Who is your target customer?",
+    "tips": [
+      "Be specific about demographics or role",
+      "Describe their daily frustration",
+      "Explain why they'd pay for your solution"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Customer identification pitch"
+  },
+  {
+    "id": "pitch_1-2_004",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "What makes your product different?",
+    "tips": [
+      "Name one key differentiator",
+      "Compare briefly to alternatives",
+      "State the benefit, not just the feature"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Basic differentiation pitch"
+  },
+  {
+    "id": "pitch_1-2_005",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "How does your product work?",
+    "tips": [
+      "Use simple, non-technical language",
+      "Walk through 3 steps max",
+      "End with the user's outcome"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Product explanation pitch"
+  },
+  {
+    "id": "pitch_1-2_006",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Why should someone buy your product today?",
+    "tips": [
+      "Create urgency with a real reason",
+      "State the immediate benefit",
+      "Include a simple call to action"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple sales pitch"
+  },
+  {
+    "id": "pitch_1-2_007",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Describe the value your service provides.",
+    "tips": [
+      "Lead with the outcome, not features",
+      "Use a concrete example or scenario",
+      "Quantify the value if possible"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Value proposition pitch"
+  },
+  {
+    "id": "pitch_1-2_008",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your favorite app to a friend.",
+    "tips": [
+      "Start with why you love it",
+      "Describe one killer feature",
+      "Explain how it changed your routine"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual recommendation pitch"
+  },
+  {
+    "id": "pitch_1-2_009",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Explain why someone should switch to your product.",
+    "tips": [
+      "Acknowledge what they currently use",
+      "Name the specific improvement",
+      "Make switching sound easy"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Switching pitch"
+  },
+  {
+    "id": "pitch_1-2_010",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Describe your business in one sentence.",
+    "tips": [
+      "Include who, what, and why",
+      "Avoid jargon and buzzwords",
+      "Make it memorable"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "One-liner pitch"
+  },
+  {
+    "id": "pitch_1-2_011",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "What inspired you to create this product?",
+    "tips": [
+      "Share a brief personal story",
+      "Connect the story to the problem",
+      "Show genuine passion"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Origin story pitch"
+  },
+  {
+    "id": "pitch_1-2_012",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "How would you pitch this to your grandmother?",
+    "tips": [
+      "Use everyday language only",
+      "Focus on the human benefit",
+      "Keep it under 20 seconds"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simplicity challenge pitch"
+  },
+  {
+    "id": "pitch_1-2_013",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "What's the biggest benefit of your product?",
+    "tips": [
+      "State it in one clear sentence",
+      "Back it up with a quick example",
+      "Make it relatable to everyday life"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Core benefit pitch"
+  },
+  {
+    "id": "pitch_1-2_014",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a product improvement to your manager.",
+    "tips": [
+      "State the problem clearly",
+      "Present your proposed solution",
+      "Estimate the impact"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Internal pitch"
+  },
+  {
+    "id": "pitch_1-2_015",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Describe your product's best feature.",
+    "tips": [
+      "Name the feature simply",
+      "Explain what it does for the user",
+      "Share a brief use case"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Feature highlight pitch"
+  },
+  {
+    "id": "pitch_1-2_016",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Why is now the right time for this product?",
+    "tips": [
+      "Point to a recent market shift",
+      "Show growing demand or awareness",
+      "Connect timing to your advantage"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Timing pitch"
+  },
+  {
+    "id": "pitch_1-2_017",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a subscription model for your service.",
+    "tips": [
+      "Explain the ongoing value",
+      "Compare to one-time alternatives",
+      "Make the price feel small"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Subscription pitch"
+  },
+  {
+    "id": "pitch_1-2_018",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "How would you introduce your product at a meetup?",
+    "tips": [
+      "Start with a relatable problem",
+      "Share your solution casually",
+      "Invite questions or feedback"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Networking pitch"
+  },
+  {
+    "id": "pitch_1-2_019",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "What would you tell a skeptical friend about your product?",
+    "tips": [
+      "Acknowledge their skepticism",
+      "Share one undeniable proof point",
+      "Let the result speak for itself"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Skeptic conversion pitch"
+  },
+  {
+    "id": "pitch_1-2_020",
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Describe your product using only three words, then expand.",
+    "tips": [
+      "Choose three impactful words",
+      "Expand each into a brief sentence",
+      "Create a memorable tagline"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Constraint-based pitch exercise"
+  },
+  {
+    "id": "pitch_3-4_001",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Present a 60-second pitch to a potential angel investor.",
+    "tips": [
+      "Hook with the market opportunity size",
+      "Explain your solution and traction",
+      "State your ask and use of funds"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Angel investor pitch with structure"
+  },
+  {
+    "id": "pitch_3-4_002",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'We already have a solution for that.'",
+    "tips": [
+      "Acknowledge their current solution",
+      "Identify a specific gap or pain point",
+      "Position your product as the upgrade"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Objection handling scenario"
+  },
+  {
+    "id": "pitch_3-4_003",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your product to a different industry than your core market.",
+    "tips": [
+      "Research the new industry's pain points",
+      "Adapt your value proposition",
+      "Use their language, not yours"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Market adaptation pitch"
+  },
+  {
+    "id": "pitch_3-4_004",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Present your competitive advantage to a potential partner.",
+    "tips": [
+      "Map the competitive landscape briefly",
+      "Highlight your unique positioning",
+      "Explain the partnership opportunity"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Partnership pitch"
+  },
+  {
+    "id": "pitch_3-4_005",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a premium tier of your product.",
+    "tips": [
+      "Describe who the premium user is",
+      "List 3 premium-exclusive benefits",
+      "Justify the price with ROI"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Upsell pitch"
+  },
+  {
+    "id": "pitch_3-4_006",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Explain your business model to a non-technical audience.",
+    "tips": [
+      "Use a familiar analogy",
+      "Walk through how money flows",
+      "Show why it's sustainable"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Business model explanation"
+  },
+  {
+    "id": "pitch_3-4_007",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'This seems too expensive.'",
+    "tips": [
+      "Reframe price as investment",
+      "Compare to cost of not solving the problem",
+      "Offer a proof point or guarantee"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Price objection handling"
+  },
+  {
+    "id": "pitch_3-4_008",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your product's roadmap for the next year.",
+    "tips": [
+      "Start with current strengths",
+      "Highlight 3 key upcoming features",
+      "Connect roadmap to customer needs"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Product roadmap pitch"
+  },
+  {
+    "id": "pitch_3-4_009",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Present customer testimonial evidence to a prospect.",
+    "tips": [
+      "Choose a testimonial from a similar customer",
+      "Quote specific results and metrics",
+      "Connect their success to the prospect's situation"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Social proof pitch"
+  },
+  {
+    "id": "pitch_3-4_010",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a freemium model to your team.",
+    "tips": [
+      "Explain the free tier's purpose",
+      "Describe conversion triggers",
+      "Project conversion rate and revenue"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Internal strategy pitch"
+  },
+  {
+    "id": "pitch_3-4_011",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'We need to think about it.'",
+    "tips": [
+      "Ask what specifically needs consideration",
+      "Offer to address specific concerns now",
+      "Propose a concrete next step with timeline"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Stalling objection handling"
+  },
+  {
+    "id": "pitch_3-4_012",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your product at a trade show booth.",
+    "tips": [
+      "Lead with a hook question",
+      "Deliver value in 30 seconds",
+      "Qualify the lead and capture contact info"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Trade show pitch"
+  },
+  {
+    "id": "pitch_3-4_013",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Present ROI calculations to a potential buyer.",
+    "tips": [
+      "State the investment clearly",
+      "Break down return by category",
+      "Show time to positive ROI"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "ROI presentation pitch"
+  },
+  {
+    "id": "pitch_3-4_014",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a pilot program to a skeptical enterprise.",
+    "tips": [
+      "Propose a low-risk trial structure",
+      "Define clear success metrics",
+      "Explain the path from pilot to full deployment"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Enterprise pilot pitch"
+  },
+  {
+    "id": "pitch_3-4_015",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'Your competitor has more features.'",
+    "tips": [
+      "Acknowledge the feature gap honestly",
+      "Reframe around value and outcomes",
+      "Highlight where you outperform"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Feature comparison objection"
+  },
+  {
+    "id": "pitch_3-4_016",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your product's integration capabilities.",
+    "tips": [
+      "Name key integrations by name",
+      "Explain the setup process simply",
+      "Describe the workflow improvement"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Integration pitch"
+  },
+  {
+    "id": "pitch_3-4_017",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Present a case study to close a deal.",
+    "tips": [
+      "Match case study to prospect's industry",
+      "Walk through problem, solution, results",
+      "End with a parallel to their situation"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Case study presentation"
+  },
+  {
+    "id": "pitch_3-4_018",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your team's expertise alongside the product.",
+    "tips": [
+      "Highlight relevant team credentials",
+      "Connect expertise to product quality",
+      "Share a team-driven customer success story"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Team credibility pitch"
+  },
+  {
+    "id": "pitch_3-4_019",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'We tried something similar and it failed.'",
+    "tips": [
+      "Acknowledge the past experience",
+      "Ask what specifically went wrong",
+      "Explain how your approach differs"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Past failure objection"
+  },
+  {
+    "id": "pitch_3-4_020",
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a product bundle to increase deal size.",
+    "tips": [
+      "Explain the bundle components",
+      "Show the combined value proposition",
+      "Highlight the bundle discount or bonus"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Bundle upsell pitch"
+  },
+  {
+    "id": "pitch_5-6_001",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Deliver a seed-stage pitch to a room of VCs.",
+    "tips": [
+      "Open with a compelling market insight",
+      "Show early traction and metrics",
+      "Present team credibility and ask"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Seed-stage investor pitch"
+  },
+  {
+    "id": "pitch_5-6_002",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Handle a hostile question about your burn rate.",
+    "tips": [
+      "Stay calm and transparent",
+      "Contextualize burn with growth metrics",
+      "Show the path to profitability"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Tough investor Q&A scenario"
+  },
+  {
+    "id": "pitch_5-6_003",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch a strategic partnership to a larger company.",
+    "tips": [
+      "Lead with what's in it for them",
+      "Show complementary strengths",
+      "Propose clear partnership terms"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Strategic partnership negotiation"
+  },
+  {
+    "id": "pitch_5-6_004",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Present competitive analysis during a sales presentation.",
+    "tips": [
+      "Be fair and factual about competitors",
+      "Use a framework that favors your strengths",
+      "Let data speak rather than attacking"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Competitive sales presentation"
+  },
+  {
+    "id": "pitch_5-6_005",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch a price increase to existing customers.",
+    "tips": [
+      "Explain the value improvements",
+      "Show ROI at the new price point",
+      "Offer loyalty incentives or grandfathering"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Price increase communication"
+  },
+  {
+    "id": "pitch_5-6_006",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Handle the objection: 'Your company is too small for us.'",
+    "tips": [
+      "Acknowledge the concern directly",
+      "Reframe small as agile and dedicated",
+      "Offer references from similar-sized clients"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Company size objection handling"
+  },
+  {
+    "id": "pitch_5-6_007",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Deliver a product demo that tells a story.",
+    "tips": [
+      "Build a narrative around a real use case",
+      "Show the problem before the solution",
+      "End with the transformation moment"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Story-driven demo pitch"
+  },
+  {
+    "id": "pitch_5-6_008",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your product to a C-suite audience.",
+    "tips": [
+      "Lead with business impact, not features",
+      "Use their KPIs and language",
+      "Keep it to 3 key points max"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Executive-level sales pitch"
+  },
+  {
+    "id": "pitch_5-6_009",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Handle multiple objections in a single meeting.",
+    "tips": [
+      "Prioritize the most critical objection",
+      "Address each concisely with evidence",
+      "Redirect to shared goals and next steps"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Multi-objection sales scenario"
+  },
+  {
+    "id": "pitch_5-6_010",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch a white-label version of your product.",
+    "tips": [
+      "Explain the white-label opportunity",
+      "Show customization capabilities",
+      "Present the revenue sharing model"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "White-label partnership pitch"
+  },
+  {
+    "id": "pitch_5-6_011",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Present your go-to-market strategy to investors.",
+    "tips": [
+      "Define target segments clearly",
+      "Walk through acquisition channels",
+      "Show unit economics and CAC/LTV"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "GTM strategy presentation"
+  },
+  {
+    "id": "pitch_5-6_012",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch during a chance encounter with a target buyer.",
+    "tips": [
+      "Have a 15-second hook ready",
+      "Adapt to their immediate interest",
+      "Exchange contact info with a clear next step"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Impromptu networking pitch"
+  },
+  {
+    "id": "pitch_5-6_013",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Handle the objection: 'We need IT approval first.'",
+    "tips": [
+      "Respect the process sincerely",
+      "Offer to present to IT directly",
+      "Provide security and compliance documentation"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "IT gatekeeping objection"
+  },
+  {
+    "id": "pitch_5-6_014",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your product's data security to an enterprise.",
+    "tips": [
+      "Lead with compliance certifications",
+      "Explain data handling and encryption",
+      "Share your security track record"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Security-focused pitch"
+  },
+  {
+    "id": "pitch_5-6_015",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Present a multi-year contract proposal.",
+    "tips": [
+      "Show increasing value over time",
+      "Explain year-over-year benefits",
+      "Offer multi-year discount structure"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Long-term contract pitch"
+  },
+  {
+    "id": "pitch_5-6_016",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your product against an open-source alternative.",
+    "tips": [
+      "Acknowledge open-source advantages honestly",
+      "Highlight support, reliability, and TCO",
+      "Show hidden costs of self-management"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Open-source comparison pitch"
+  },
+  {
+    "id": "pitch_5-6_017",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Handle the objection: 'Our team won't adopt this.'",
+    "tips": [
+      "Ask about current adoption challenges",
+      "Share your onboarding and support process",
+      "Offer a change management partnership"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Adoption objection handling"
+  },
+  {
+    "id": "pitch_5-6_018",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your product to a non-English speaking market.",
+    "tips": [
+      "Research cultural business norms",
+      "Simplify language and use visuals",
+      "Address localization capabilities"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Cross-cultural pitch"
+  },
+  {
+    "id": "pitch_5-6_019",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Present your customer success methodology.",
+    "tips": [
+      "Walk through onboarding to value realization",
+      "Show retention and expansion metrics",
+      "Share customer satisfaction scores"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Customer success pitch"
+  },
+  {
+    "id": "pitch_5-6_020",
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch a co-marketing opportunity to a complementary brand.",
+    "tips": [
+      "Identify the shared audience",
+      "Propose specific co-marketing activities",
+      "Show mutual benefit with projected reach"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Co-marketing partnership pitch"
+  },
+  {
+    "id": "pitch_7-8_001",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Deliver a Series A pitch to a top-tier VC firm.",
+    "tips": [
+      "Open with market timing and urgency",
+      "Show hockey-stick growth metrics",
+      "Present a defensible moat and expansion plan"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Series A investor pitch at scale"
+  },
+  {
+    "id": "pitch_7-8_002",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Handle aggressive pushback from a hostile investor.",
+    "tips": [
+      "Maintain composure and acknowledge the point",
+      "Redirect with data and conviction",
+      "Show resilience without defensiveness"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "High-pressure investor Q&A"
+  },
+  {
+    "id": "pitch_7-8_003",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch an enterprise deal worth over $1M.",
+    "tips": [
+      "Build the business case with executive language",
+      "Show ROI at enterprise scale with specifics",
+      "Address implementation and change management"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Enterprise mega-deal pitch"
+  },
+  {
+    "id": "pitch_7-8_004",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Present your expansion into an adjacent market.",
+    "tips": [
+      "Show evidence of market demand",
+      "Explain your competitive advantage in the new space",
+      "Address resource allocation and risk"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Market expansion pitch"
+  },
+  {
+    "id": "pitch_7-8_005",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch to a prospect who is loyal to your competitor.",
+    "tips": [
+      "Respect their current relationship",
+      "Identify the unmet need your competitor misses",
+      "Propose a side-by-side evaluation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Competitor displacement pitch"
+  },
+  {
+    "id": "pitch_7-8_006",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Handle the objection: 'Your product isn't enterprise-ready.'",
+    "tips": [
+      "Ask what enterprise-ready means to them",
+      "Map your capabilities to their requirements",
+      "Propose a structured evaluation process"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Enterprise readiness objection"
+  },
+  {
+    "id": "pitch_7-8_007",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Deliver a pitch at a major industry conference.",
+    "tips": [
+      "Open with a provocative industry insight",
+      "Connect the insight to your solution",
+      "End with a memorable call to action"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Conference stage pitch"
+  },
+  {
+    "id": "pitch_7-8_008",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch a platform play to existing point-solution customers.",
+    "tips": [
+      "Show the platform vision and roadmap",
+      "Demonstrate integration benefits",
+      "Present migration path and incentives"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Platform evolution pitch"
+  },
+  {
+    "id": "pitch_7-8_009",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Handle objections from a 10-person buying committee.",
+    "tips": [
+      "Identify each stakeholder's priority",
+      "Address concerns systematically by role",
+      "Build consensus toward a champion"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Committee selling scenario"
+  },
+  {
+    "id": "pitch_7-8_010",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch your company's acquisition to a strategic buyer.",
+    "tips": [
+      "Lead with strategic fit and synergies",
+      "Present financial performance and projections",
+      "Address integration considerations"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "M&A sell-side pitch"
+  },
+  {
+    "id": "pitch_7-8_011",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Present your international expansion strategy to the board.",
+    "tips": [
+      "Show market research by region",
+      "Explain localization and compliance approach",
+      "Present financial projections and milestones"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Board-level expansion pitch"
+  },
+  {
+    "id": "pitch_7-8_012",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch a technology pivot to existing investors.",
+    "tips": [
+      "Explain why the pivot is necessary",
+      "Show evidence supporting the new direction",
+      "Present revised milestones and timeline"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Investor pivot communication"
+  },
+  {
+    "id": "pitch_7-8_013",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Handle the objection: 'Your churn rate concerns us.'",
+    "tips": [
+      "Acknowledge the metric transparently",
+      "Explain root causes and your improvement plan",
+      "Show month-over-month retention improvement"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Churn rate investor objection"
+  },
+  {
+    "id": "pitch_7-8_014",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch a channel partnership to a major distributor.",
+    "tips": [
+      "Show demand data in their territory",
+      "Explain margin and incentive structure",
+      "Present marketing and sales support"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Distribution partnership pitch"
+  },
+  {
+    "id": "pitch_7-8_015",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Present customer expansion revenue to investors.",
+    "tips": [
+      "Break down expansion by type: upsell, cross-sell",
+      "Show net revenue retention rate",
+      "Explain the expansion playbook"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Expansion revenue pitch"
+  },
+  {
+    "id": "pitch_7-8_016",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch your product as a category creator.",
+    "tips": [
+      "Define the new category clearly",
+      "Show why existing categories don't fit",
+      "Present the category growth trajectory"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Category creation pitch"
+  },
+  {
+    "id": "pitch_7-8_017",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Handle the objection: 'We just went through a vendor change.'",
+    "tips": [
+      "Empathize with change fatigue",
+      "Propose a longer timeline with low commitment",
+      "Show the cost of waiting"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Change fatigue objection"
+  },
+  {
+    "id": "pitch_7-8_018",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch a joint venture to a competing company.",
+    "tips": [
+      "Identify the shared opportunity",
+      "Explain how collaboration beats competition here",
+      "Propose governance and IP terms"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Coopetition pitch"
+  },
+  {
+    "id": "pitch_7-8_019",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Present your company's defensible moat to investors.",
+    "tips": [
+      "Name each moat component specifically",
+      "Show evidence of competitive protection",
+      "Explain how the moat deepens over time"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Competitive moat pitch"
+  },
+  {
+    "id": "pitch_7-8_020",
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch a product sunset to affected customers.",
+    "tips": [
+      "Lead with empathy and transparency",
+      "Explain the migration path clearly",
+      "Offer migration support and incentives"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Product sunset communication"
+  },
+  {
+    "id": "pitch_9-10_001",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Deliver a Series B+ pitch to a room of institutional investors.",
+    "tips": [
+      "Open with a vision of market transformation",
+      "Present unit economics proving the model works at scale",
+      "Show the path to market leadership"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Late-stage institutional investor pitch"
+  },
+  {
+    "id": "pitch_9-10_002",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Handle a hostile audience questioning your market thesis.",
+    "tips": [
+      "Stay grounded in data and conviction",
+      "Address each challenge with specific evidence",
+      "Turn hostility into engagement through respect"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Adversarial pitch environment"
+  },
+  {
+    "id": "pitch_9-10_003",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch a $100M enterprise transformation deal.",
+    "tips": [
+      "Build the C-suite business case for transformation",
+      "Show industry benchmarks and competitive urgency",
+      "Present phased implementation with clear milestones"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Mega-enterprise transformation pitch"
+  },
+  {
+    "id": "pitch_9-10_004",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Present your IPO roadshow narrative.",
+    "tips": [
+      "Craft a compelling origin-to-future story",
+      "Present financials that inspire confidence",
+      "Address market risks with clear mitigation strategies"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "IPO roadshow preparation"
+  },
+  {
+    "id": "pitch_9-10_005",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch to sovereign wealth fund investors.",
+    "tips": [
+      "Understand long-term investment horizon perspective",
+      "Present decade-scale market opportunity",
+      "Address geopolitical and regulatory considerations"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Sovereign wealth fund pitch"
+  },
+  {
+    "id": "pitch_9-10_006",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Handle the toughest question: 'Why will you win and not the incumbents?'",
+    "tips": [
+      "Acknowledge incumbent advantages honestly",
+      "Present your asymmetric advantage",
+      "Show evidence of incumbent disruption in progress"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Ultimate competitive challenge"
+  },
+  {
+    "id": "pitch_9-10_007",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch a moonshot initiative to your board.",
+    "tips": [
+      "Ground the vision in achievable milestones",
+      "Present risk-reward analysis transparently",
+      "Show why incremental approaches will fail"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Moonshot innovation pitch"
+  },
+  {
+    "id": "pitch_9-10_008",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Deliver a pitch that changes how the audience sees an industry.",
+    "tips": [
+      "Start with a counterintuitive insight",
+      "Build the case with irrefutable evidence",
+      "End with a bold call to action"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Paradigm-shifting pitch"
+  },
+  {
+    "id": "pitch_9-10_009",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch a merger of equals to both company's boards.",
+    "tips": [
+      "Show 1+1=3 value creation",
+      "Address cultural integration honestly",
+      "Present governance structure for the combined entity"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Merger of equals pitch"
+  },
+  {
+    "id": "pitch_9-10_010",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Handle real-time competitive news during your pitch.",
+    "tips": [
+      "Acknowledge the news immediately and honestly",
+      "Reframe it within your strategic context",
+      "Show why your thesis remains strong"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Real-time crisis pitch adaptation"
+  },
+  {
+    "id": "pitch_9-10_011",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch a market-creating product to skeptical analysts.",
+    "tips": [
+      "Define the new market with clear boundaries",
+      "Present demand evidence from adjacent markets",
+      "Show your first-mover advantage strategy"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Market creation pitch to skeptics"
+  },
+  {
+    "id": "pitch_9-10_012",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Present a restructuring plan to distressed investors.",
+    "tips": [
+      "Lead with honest assessment of the situation",
+      "Present a credible turnaround plan",
+      "Show early wins and momentum indicators"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Distressed company pitch"
+  },
+  {
+    "id": "pitch_9-10_013",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch your vision to attract world-class talent.",
+    "tips": [
+      "Paint a vivid picture of the mission",
+      "Show the impact of the work they'll do",
+      "Describe the culture and growth opportunity"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Talent attraction pitch"
+  },
+  {
+    "id": "pitch_9-10_014",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Handle investor concerns about your TAM calculation.",
+    "tips": [
+      "Walk through your bottoms-up TAM methodology",
+      "Show evidence from comparable markets",
+      "Present conservative and optimistic scenarios"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "TAM defense pitch"
+  },
+  {
+    "id": "pitch_9-10_015",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch a platform ecosystem to potential developers.",
+    "tips": [
+      "Show the developer opportunity clearly",
+      "Present tools, documentation, and support",
+      "Share developer success stories and economics"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Platform ecosystem pitch"
+  },
+  {
+    "id": "pitch_9-10_016",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Deliver a pitch that overcomes a failed previous round.",
+    "tips": [
+      "Address the elephant in the room directly",
+      "Show what's changed since the last attempt",
+      "Present new evidence of product-market fit"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Redemption pitch after failure"
+  },
+  {
+    "id": "pitch_9-10_017",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch your sustainability strategy to ESG-focused investors.",
+    "tips": [
+      "Connect sustainability to business performance",
+      "Present measurable ESG metrics and targets",
+      "Show authentic commitment beyond greenwashing"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "ESG investor pitch"
+  },
+  {
+    "id": "pitch_9-10_018",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Handle due diligence concerns about team depth.",
+    "tips": [
+      "Acknowledge the concern and your plan",
+      "Present hiring pipeline and advisory board",
+      "Show team's track record of attracting talent"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Team depth due diligence"
+  },
+  {
+    "id": "pitch_9-10_019",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Pitch a vertical SaaS platform to industry incumbents.",
+    "tips": [
+      "Speak their industry language fluently",
+      "Show deep understanding of their workflows",
+      "Present ROI in their specific metrics"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Vertical SaaS pitch mastery"
+  },
+  {
+    "id": "pitch_9-10_020",
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Deliver the closing pitch of a year-long enterprise sales cycle.",
+    "tips": [
+      "Reference the full journey and shared discovery",
+      "Summarize value in their strategic context",
+      "Make the ask with confidence and specificity"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Enterprise close after long cycle"
+  },
+  {
+    "id": "keynote_1-2_001",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Introduce yourself at a small meetup.",
+    "tips": [
+      "State your name and what you do",
+      "Share one interesting fact about yourself",
+      "Smile and make eye contact"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple self-intro, low stakes"
+  },
+  {
+    "id": "keynote_1-2_002",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Give a short toast at a friend's birthday.",
+    "tips": [
+      "Keep it personal but brief",
+      "Share one specific memory",
+      "End with a warm wish"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual toast, familiar audience"
+  },
+  {
+    "id": "keynote_1-2_003",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Announce a team achievement at a meeting.",
+    "tips": [
+      "State the achievement clearly",
+      "Credit the team specifically",
+      "Express genuine pride"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple announcement to peers"
+  },
+  {
+    "id": "keynote_1-2_004",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Welcome attendees to a small event.",
+    "tips": [
+      "Greet warmly and set expectations",
+      "Give a brief agenda overview",
+      "Generate excitement for what's ahead"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Basic event opening"
+  },
+  {
+    "id": "keynote_1-2_005",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Share a fun fact about a topic you know well.",
+    "tips": [
+      "Pick something surprising",
+      "Explain why it's interesting",
+      "Connect it to your audience's world"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual knowledge sharing"
+  },
+  {
+    "id": "keynote_1-2_006",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Describe your favorite vacation to a group.",
+    "tips": [
+      "Set the scene vividly",
+      "Share one highlight moment",
+      "End with why it was special"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual storytelling practice"
+  },
+  {
+    "id": "keynote_1-2_007",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Give a one-minute update on a project.",
+    "tips": [
+      "State progress in 2-3 bullet points",
+      "Highlight one win",
+      "Mention next steps briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Brief status update"
+  },
+  {
+    "id": "keynote_1-2_008",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Introduce a speaker at a small event.",
+    "tips": [
+      "State the speaker's name and credentials",
+      "Share why they're relevant to this audience",
+      "Generate anticipation for their talk"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple speaker introduction"
+  },
+  {
+    "id": "keynote_1-2_009",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Thank volunteers at a community event.",
+    "tips": [
+      "Acknowledge specific contributions",
+      "Share the impact of their work",
+      "Express sincere gratitude"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Gratitude speech"
+  },
+  {
+    "id": "keynote_1-2_010",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Share your New Year's resolution with a group.",
+    "tips": [
+      "State your goal clearly",
+      "Explain why it matters to you",
+      "Share your plan to achieve it"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Personal goal sharing"
+  },
+  {
+    "id": "keynote_1-2_011",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Announce a change at a team standup.",
+    "tips": [
+      "State the change simply",
+      "Explain the reason briefly",
+      "Address immediate concerns"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Low-stakes announcement"
+  },
+  {
+    "id": "keynote_1-2_012",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Describe your dream project to colleagues.",
+    "tips": [
+      "Paint a vivid picture of the vision",
+      "Explain what excites you about it",
+      "Invite them to imagine being part of it"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Aspirational sharing"
+  },
+  {
+    "id": "keynote_1-2_013",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Give a brief recap of a conference you attended.",
+    "tips": [
+      "Share 2-3 key takeaways",
+      "Mention one session that stood out",
+      "Explain how it's relevant to the team"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Event recap presentation"
+  },
+  {
+    "id": "keynote_1-2_014",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Introduce your department to new hires.",
+    "tips": [
+      "Describe what your team does",
+      "Share the team's biggest achievement",
+      "Welcome them warmly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Orientation introduction"
+  },
+  {
+    "id": "keynote_1-2_015",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Share a lesson you learned this month.",
+    "tips": [
+      "Describe the situation briefly",
+      "State the lesson clearly",
+      "Explain how you'll apply it"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Reflective sharing"
+  },
+  {
+    "id": "keynote_1-2_016",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Propose an activity for a team outing.",
+    "tips": [
+      "State your suggestion with enthusiasm",
+      "Explain why it would be fun for everyone",
+      "Address potential concerns preemptively"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual persuasion"
+  },
+  {
+    "id": "keynote_1-2_017",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Describe a book that changed your perspective.",
+    "tips": [
+      "Name the book and its main idea",
+      "Share how it changed your thinking",
+      "Recommend it with a specific reason"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Recommendation speech"
+  },
+  {
+    "id": "keynote_1-2_018",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Give a brief farewell to a departing colleague.",
+    "tips": [
+      "Share a specific positive memory",
+      "Acknowledge their contribution",
+      "Wish them well on their next chapter"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Farewell mini-speech"
+  },
+  {
+    "id": "keynote_1-2_019",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Announce a new policy in a positive way.",
+    "tips": [
+      "State the policy simply",
+      "Explain the positive intent behind it",
+      "Invite questions warmly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Positive framing practice"
+  },
+  {
+    "id": "keynote_1-2_020",
+    "mode": "keynote",
+    "difficultyBand": "1-2",
+    "question": "Share your weekend highlight with the team.",
+    "tips": [
+      "Pick the most interesting moment",
+      "Describe it with sensory details",
+      "Connect it to something relatable"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual storytelling"
+  },
+  {
+    "id": "keynote_3-4_001",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Give a 3-minute presentation on a topic you know well.",
+    "tips": [
+      "Structure with opening, body, and close",
+      "Include one data point or statistic",
+      "End with a clear takeaway"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Short structured presentation"
+  },
+  {
+    "id": "keynote_3-4_002",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Deliver a wedding toast for a close friend.",
+    "tips": [
+      "Open with how you met the couple",
+      "Share a specific meaningful story",
+      "End with heartfelt wishes for their future"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Emotional speech with structure"
+  },
+  {
+    "id": "keynote_3-4_003",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Present quarterly results to your department.",
+    "tips": [
+      "Lead with the headline number",
+      "Provide context for ups and downs",
+      "End with the plan going forward"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Departmental update presentation"
+  },
+  {
+    "id": "keynote_3-4_004",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Introduce a panel discussion at a company event.",
+    "tips": [
+      "Introduce each panelist with a key credential",
+      "Set the topic and why it matters",
+      "Pose the opening question"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Panel introduction and moderation"
+  },
+  {
+    "id": "keynote_3-4_005",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Give an acceptance speech for an award.",
+    "tips": [
+      "Express genuine surprise and gratitude",
+      "Thank specific people who helped",
+      "Share what the recognition means to you"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Award acceptance speech"
+  },
+  {
+    "id": "keynote_3-4_006",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Present a new initiative to your organization.",
+    "tips": [
+      "Start with the why: what problem it solves",
+      "Explain the initiative in clear steps",
+      "Rally people to get involved"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Initiative launch presentation"
+  },
+  {
+    "id": "keynote_3-4_007",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Deliver a motivational talk to a sports team.",
+    "tips": [
+      "Acknowledge recent challenges",
+      "Remind them of their strengths",
+      "End with a rallying call to action"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Motivational team speech"
+  },
+  {
+    "id": "keynote_3-4_008",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Give a lightning talk at a tech meetup.",
+    "tips": [
+      "Open with a provocative question",
+      "Deliver 3 key insights quickly",
+      "End with a memorable one-liner"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Lightning talk format"
+  },
+  {
+    "id": "keynote_3-4_009",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Present a charity case to potential donors.",
+    "tips": [
+      "Share a compelling beneficiary story",
+      "Present the need with clear data",
+      "Make the ask specific and actionable"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Fundraising presentation"
+  },
+  {
+    "id": "keynote_3-4_010",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Emcee a company holiday party.",
+    "tips": [
+      "Set a festive and inclusive tone",
+      "Transition smoothly between segments",
+      "Keep energy high with humor and warmth"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Event hosting practice"
+  },
+  {
+    "id": "keynote_3-4_011",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Give a retirement speech for a mentor.",
+    "tips": [
+      "Share your personal connection",
+      "Highlight their professional legacy",
+      "Inspire the audience with their example"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Tribute speech"
+  },
+  {
+    "id": "keynote_3-4_012",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Present a product launch to the sales team.",
+    "tips": [
+      "Build excitement about the product",
+      "Explain key features and benefits",
+      "Equip them with selling points"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Internal product launch"
+  },
+  {
+    "id": "keynote_3-4_013",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Deliver a safety briefing in an engaging way.",
+    "tips": [
+      "Make it relevant with a real scenario",
+      "Present key points memorably",
+      "End with a call to personal responsibility"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Mandatory topic, engaging delivery"
+  },
+  {
+    "id": "keynote_3-4_014",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Give a commencement-style speech to new team members.",
+    "tips": [
+      "Welcome them warmly to the team",
+      "Share advice you wish you'd had",
+      "Inspire them with what's possible here"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Inspirational onboarding speech"
+  },
+  {
+    "id": "keynote_3-4_015",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Present a retrospective on a completed project.",
+    "tips": [
+      "Summarize what was accomplished",
+      "Share key learnings honestly",
+      "Celebrate the team's contributions"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Project retrospective presentation"
+  },
+  {
+    "id": "keynote_3-4_016",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Deliver a tribute at a memorial service.",
+    "tips": [
+      "Share specific memories with warmth",
+      "Capture the person's essence in a story",
+      "End with their lasting impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Memorial tribute speech"
+  },
+  {
+    "id": "keynote_3-4_017",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Give a persuasive pitch for a team process change.",
+    "tips": [
+      "Present the current pain point",
+      "Propose the change with clear benefits",
+      "Address anticipated resistance"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive internal presentation"
+  },
+  {
+    "id": "keynote_3-4_018",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Host a Q&A session after a company announcement.",
+    "tips": [
+      "Summarize the announcement briefly",
+      "Invite questions warmly",
+      "Handle difficult questions with transparency"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Q&A facilitation"
+  },
+  {
+    "id": "keynote_3-4_019",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Present a competitor analysis to leadership.",
+    "tips": [
+      "Structure the comparison objectively",
+      "Highlight competitive advantages",
+      "Recommend strategic responses"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Analytical presentation"
+  },
+  {
+    "id": "keynote_3-4_020",
+    "mode": "keynote",
+    "difficultyBand": "3-4",
+    "question": "Deliver a year-in-review speech for your team.",
+    "tips": [
+      "Highlight key milestones chronologically",
+      "Celebrate specific team member contributions",
+      "Set the vision for next year"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Year-end review speech"
+  },
+  {
+    "id": "keynote_5-6_001",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a 10-minute conference talk on your area of expertise.",
+    "tips": [
+      "Open with a story that hooks the audience",
+      "Present 3 key insights with supporting evidence",
+      "Close with an actionable takeaway"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Conference-level structured talk"
+  },
+  {
+    "id": "keynote_5-6_002",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give a persuasive speech to change minds on a controversial topic.",
+    "tips": [
+      "Acknowledge the opposing viewpoint fairly",
+      "Build your argument with logic and emotion",
+      "End with a specific call to action"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive speech with nuance"
+  },
+  {
+    "id": "keynote_5-6_003",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Moderate a heated panel discussion.",
+    "tips": [
+      "Set ground rules for respectful debate",
+      "Ask provocative but fair questions",
+      "Manage time and balance voices"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Panel moderation under tension"
+  },
+  {
+    "id": "keynote_5-6_004",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a crisis communication to a large audience.",
+    "tips": [
+      "Lead with empathy and facts",
+      "Be transparent about what you know and don't know",
+      "Outline immediate next steps and support"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Crisis communication speech"
+  },
+  {
+    "id": "keynote_5-6_005",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give a keynote at an industry association meeting.",
+    "tips": [
+      "Open with an industry-wide challenge",
+      "Present your perspective backed by data",
+      "End with a vision for collective action"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Industry keynote presentation"
+  },
+  {
+    "id": "keynote_5-6_006",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Present a TEDx-style talk on a personal passion.",
+    "tips": [
+      "Start with a personal story that draws listeners in",
+      "Build to a surprising insight or revelation",
+      "End with a universal lesson"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "TED-style narrative structure"
+  },
+  {
+    "id": "keynote_5-6_007",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a town hall address during organizational change.",
+    "tips": [
+      "Acknowledge uncertainty and emotions",
+      "Present the change rationale clearly",
+      "Provide a timeline and answer questions"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Change management town hall"
+  },
+  {
+    "id": "keynote_5-6_008",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give a graduation speech at a local school.",
+    "tips": [
+      "Connect with the graduates' experience",
+      "Share wisdom without being preachy",
+      "End with an inspiring forward-looking message"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Commencement speech"
+  },
+  {
+    "id": "keynote_5-6_009",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Present research findings to a mixed audience.",
+    "tips": [
+      "Make complex data accessible",
+      "Use analogies for technical concepts",
+      "Highlight practical implications"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Research presentation for general audience"
+  },
+  {
+    "id": "keynote_5-6_010",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a speech launching a social impact campaign.",
+    "tips": [
+      "Tell a story that creates emotional connection",
+      "Present the problem with urgency",
+      "Invite participation with specific actions"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Campaign launch speech"
+  },
+  {
+    "id": "keynote_5-6_011",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give an impromptu speech when asked to speak unexpectedly.",
+    "tips": [
+      "Take a breath and organize 3 quick points",
+      "Use a personal anecdote as your anchor",
+      "Close with a clear, concise message"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Impromptu speaking challenge"
+  },
+  {
+    "id": "keynote_5-6_012",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Present a vision speech for a nonprofit's annual gala.",
+    "tips": [
+      "Paint a picture of the impact achieved",
+      "Share beneficiary stories with permission",
+      "Inspire donations with a compelling vision"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Gala fundraising speech"
+  },
+  {
+    "id": "keynote_5-6_013",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a closing keynote that energizes the audience.",
+    "tips": [
+      "Reference themes from the event",
+      "Synthesize key insights into a narrative",
+      "End with a memorable and energizing call to action"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Closing keynote that inspires action"
+  },
+  {
+    "id": "keynote_5-6_014",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give a speech honoring a colleague's career achievement.",
+    "tips": [
+      "Research their accomplishments thoroughly",
+      "Share a personal story that reveals character",
+      "Connect their achievement to larger values"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Professional tribute speech"
+  },
+  {
+    "id": "keynote_5-6_015",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Present a post-mortem on a high-profile failure.",
+    "tips": [
+      "Own the failure with dignity",
+      "Walk through root causes analytically",
+      "Present lessons learned and path forward"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Failure post-mortem presentation"
+  },
+  {
+    "id": "keynote_5-6_016",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a persuasive speech for budget allocation.",
+    "tips": [
+      "Build the business case with data",
+      "Appeal to strategic priorities",
+      "Propose specific allocations with expected returns"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Budget advocacy speech"
+  },
+  {
+    "id": "keynote_5-6_017",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give a talk that bridges two different communities.",
+    "tips": [
+      "Understand both communities' perspectives",
+      "Find common ground and shared values",
+      "Propose collaborative opportunities"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Bridge-building speech"
+  },
+  {
+    "id": "keynote_5-6_018",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Present a controversial recommendation to leadership.",
+    "tips": [
+      "Lay out the evidence methodically",
+      "Acknowledge risks and alternatives considered",
+      "Make the recommendation with conviction"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Courageous recommendation speech"
+  },
+  {
+    "id": "keynote_5-6_019",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Deliver a motivational speech during a tough quarter.",
+    "tips": [
+      "Acknowledge the difficulty honestly",
+      "Remind the team of their capabilities",
+      "Present a credible path to improvement"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Motivational leadership speech"
+  },
+  {
+    "id": "keynote_5-6_020",
+    "mode": "keynote",
+    "difficultyBand": "5-6",
+    "question": "Give an informative talk that makes a dry topic fascinating.",
+    "tips": [
+      "Open with a surprising hook related to the topic",
+      "Use storytelling to illustrate key points",
+      "Leave the audience wanting to learn more"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Engaging presentation on dry subject"
+  },
+  {
+    "id": "keynote_7-8_001",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a main-stage keynote at a major tech conference.",
+    "tips": [
+      "Open with a bold, counterintuitive statement",
+      "Support your thesis with a 3-part narrative arc",
+      "Close with a vision that inspires action at scale"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Major conference keynote delivery"
+  },
+  {
+    "id": "keynote_7-8_002",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a TED talk that introduces a new concept.",
+    "tips": [
+      "Start with a personal moment of discovery",
+      "Build the concept through progressive revelation",
+      "End with how this concept changes everything"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "TED-caliber concept introduction"
+  },
+  {
+    "id": "keynote_7-8_003",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Moderate a high-stakes debate between industry leaders.",
+    "tips": [
+      "Prepare incisive questions that create insight",
+      "Manage powerful personalities diplomatically",
+      "Synthesize the debate for the audience"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Elite debate moderation"
+  },
+  {
+    "id": "keynote_7-8_004",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a commencement address at a university.",
+    "tips": [
+      "Connect with diverse graduates authentically",
+      "Share wisdom through compelling narratives",
+      "Deliver a message that stands the test of time"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "University commencement address"
+  },
+  {
+    "id": "keynote_7-8_005",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a keynote on the future of your industry.",
+    "tips": [
+      "Ground predictions in current trend data",
+      "Challenge conventional wisdom with evidence",
+      "Paint a vivid picture of the future state"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Futurist industry keynote"
+  },
+  {
+    "id": "keynote_7-8_006",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Present to the United Nations or equivalent body.",
+    "tips": [
+      "Address the global significance of your topic",
+      "Use data that transcends cultural boundaries",
+      "Propose actionable international cooperation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International policy presentation"
+  },
+  {
+    "id": "keynote_7-8_007",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a speech that turns a crisis into a rallying moment.",
+    "tips": [
+      "Acknowledge the gravity of the situation",
+      "Reframe the crisis as an opportunity",
+      "Unite the audience around a common purpose"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Crisis-to-rally transformation speech"
+  },
+  {
+    "id": "keynote_7-8_008",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a book launch talk that sells the ideas, not just the book.",
+    "tips": [
+      "Share the insight that drove you to write",
+      "Deliver your most powerful chapter as a speech",
+      "Leave the audience wanting the rest of the story"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Book launch keynote"
+  },
+  {
+    "id": "keynote_7-8_009",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a provocative industry speech that shifts perspective.",
+    "tips": [
+      "Challenge a widely-held industry belief",
+      "Present evidence that demands a new lens",
+      "Propose a new paradigm with actionable steps"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Perspective-shifting industry speech"
+  },
+  {
+    "id": "keynote_7-8_010",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a memorial keynote for a public figure.",
+    "tips": [
+      "Balance personal and public significance",
+      "Capture the person's legacy in vivid stories",
+      "Inspire the audience to carry their mission forward"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Public memorial keynote"
+  },
+  {
+    "id": "keynote_7-8_011",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Present a manifesto for change in your field.",
+    "tips": [
+      "State your thesis boldly and clearly",
+      "Build the case with undeniable evidence",
+      "Call the audience to specific action"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Manifesto presentation"
+  },
+  {
+    "id": "keynote_7-8_012",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a speech that unifies divided stakeholders.",
+    "tips": [
+      "Acknowledge each group's legitimate concerns",
+      "Find the higher shared purpose",
+      "Propose a path that creates shared wins"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Unification speech for divided audience"
+  },
+  {
+    "id": "keynote_7-8_013",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a keynote that integrates live demonstration.",
+    "tips": [
+      "Weave demo seamlessly into narrative",
+      "Have backup plans for technical failures",
+      "Let the demo illustrate your key point"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Demo-integrated keynote"
+  },
+  {
+    "id": "keynote_7-8_014",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Present a moonshot vision to inspire an organization.",
+    "tips": [
+      "Start from current reality honestly",
+      "Build to an audacious but achievable vision",
+      "Map the journey from here to there"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Moonshot vision presentation"
+  },
+  {
+    "id": "keynote_7-8_015",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a farewell address leaving a leadership role.",
+    "tips": [
+      "Reflect on accomplishments with humility",
+      "Thank those who made it possible",
+      "Set the stage for your successor's success"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Leadership farewell address"
+  },
+  {
+    "id": "keynote_7-8_016",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a speech that makes a complex topic accessible.",
+    "tips": [
+      "Start with what the audience already understands",
+      "Build complexity gradually through analogy",
+      "End with the insight that changes understanding"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Complexity simplification keynote"
+  },
+  {
+    "id": "keynote_7-8_017",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Present at a global summit on a pressing issue.",
+    "tips": [
+      "Frame the urgency with data and stories",
+      "Present your proposal as practical and necessary",
+      "Build coalition through your closing call to action"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Global summit presentation"
+  },
+  {
+    "id": "keynote_7-8_018",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a product vision keynote like a tech CEO.",
+    "tips": [
+      "Open with the user's transformation story",
+      "Reveal product innovations with drama and purpose",
+      "Close with the bigger picture of what this means"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Product vision keynote"
+  },
+  {
+    "id": "keynote_7-8_019",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Give a speech that turns data into a compelling narrative.",
+    "tips": [
+      "Open with the human story behind the numbers",
+      "Let data reveal its story progressively",
+      "Close with what the data demands we do"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Data storytelling keynote"
+  },
+  {
+    "id": "keynote_7-8_020",
+    "mode": "keynote",
+    "difficultyBand": "7-8",
+    "question": "Deliver a culture speech that defines a new era.",
+    "tips": [
+      "Articulate the values that will guide the future",
+      "Use stories that embody each value",
+      "Challenge the audience to live these values daily"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Culture-defining keynote"
+  },
+  {
+    "id": "keynote_9-10_001",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a paradigm-shifting keynote that redefines an industry.",
+    "tips": [
+      "Challenge the fundamental assumption of the field",
+      "Present a new framework backed by irrefutable evidence",
+      "End with a vision that makes the old paradigm obsolete"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Industry-redefining keynote mastery"
+  },
+  {
+    "id": "keynote_9-10_002",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give a speech that will be quoted for decades.",
+    "tips": [
+      "Craft a core message with poetic precision",
+      "Build the argument to an emotional crescendo",
+      "Deliver the defining line with perfect timing"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Legacy speech craftsmanship"
+  },
+  {
+    "id": "keynote_9-10_003",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver the opening keynote at the world's largest conference.",
+    "tips": [
+      "Set the tone for an entire event with your opening",
+      "Weave multiple themes that speakers will build on",
+      "Create a shared experience the audience will remember"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Marquee opening keynote"
+  },
+  {
+    "id": "keynote_9-10_004",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give a crisis speech that calms a nation.",
+    "tips": [
+      "Lead with empathy and calm authority",
+      "Present the situation with radical transparency",
+      "Unite the audience with shared purpose and hope"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "National crisis communication"
+  },
+  {
+    "id": "keynote_9-10_005",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a speech accepting a lifetime achievement award.",
+    "tips": [
+      "Trace your journey with humility and gratitude",
+      "Credit those who shaped your path",
+      "Leave a challenge for the next generation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Lifetime achievement address"
+  },
+  {
+    "id": "keynote_9-10_006",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Present a vision that inspires a movement.",
+    "tips": [
+      "Articulate the injustice or gap that demands action",
+      "Paint a vivid picture of the better world possible",
+      "Give the audience their role in making it real"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Movement-inspiring oratory"
+  },
+  {
+    "id": "keynote_9-10_007",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give the closing keynote that ties together an entire conference.",
+    "tips": [
+      "Synthesize themes from multiple sessions",
+      "Reveal a pattern the audience hasn't seen",
+      "Send everyone home with a single powerful takeaway"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Conference synthesis closing keynote"
+  },
+  {
+    "id": "keynote_9-10_008",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a masterclass in storytelling from stage.",
+    "tips": [
+      "Layer stories within stories for depth",
+      "Use pacing, pause, and vocal variety as instruments",
+      "Build to a revelation that changes the room's energy"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Masterclass storytelling performance"
+  },
+  {
+    "id": "keynote_9-10_009",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give a speech in a second language to a foreign audience.",
+    "tips": [
+      "Show respect for the audience's culture",
+      "Use simplicity as a strength, not a limitation",
+      "Connect through universal human experiences"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Cross-cultural keynote mastery"
+  },
+  {
+    "id": "keynote_9-10_010",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a speech that turns opponents into allies.",
+    "tips": [
+      "Open by honoring the opposition's perspective",
+      "Find the shared values beneath the disagreement",
+      "Propose a path that serves both sides' core needs"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Adversary-to-ally transformation speech"
+  },
+  {
+    "id": "keynote_9-10_011",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Present a new scientific paradigm to a skeptical audience.",
+    "tips": [
+      "Acknowledge the power of the existing paradigm",
+      "Present anomalies that the old paradigm can't explain",
+      "Reveal how the new paradigm resolves every anomaly"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Scientific paradigm shift keynote"
+  },
+  {
+    "id": "keynote_9-10_012",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give an inaugural address for a major leadership role.",
+    "tips": [
+      "Acknowledge the weight of responsibility",
+      "Set your vision with clarity and conviction",
+      "Invite collective effort toward the shared goal"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Inaugural address mastery"
+  },
+  {
+    "id": "keynote_9-10_013",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a eulogy that celebrates a complex life.",
+    "tips": [
+      "Honor complexity without sanitizing",
+      "Find the through-line that defined the person",
+      "End with their lasting gift to those who knew them"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Complex eulogy delivery"
+  },
+  {
+    "id": "keynote_9-10_014",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give a spontaneous speech at a historic moment.",
+    "tips": [
+      "Read the room and meet the emotional moment",
+      "Speak from authentic conviction, not prepared notes",
+      "Create a moment of shared meaning"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Historic moment impromptu speech"
+  },
+  {
+    "id": "keynote_9-10_015",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a speech that reframes failure as fuel.",
+    "tips": [
+      "Own a significant failure with radical honesty",
+      "Walk through the transformation that followed",
+      "Prove that the failure was the necessary catalyst"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Failure-to-fuel transformation speech"
+  },
+  {
+    "id": "keynote_9-10_016",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Present a century-scale vision for humanity.",
+    "tips": [
+      "Ground audacious vision in current trajectories",
+      "Make the distant future feel personal and urgent",
+      "Inspire immediate action toward long-term goals"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Civilizational vision keynote"
+  },
+  {
+    "id": "keynote_9-10_017",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give a speech that bridges art and business.",
+    "tips": [
+      "Show how creative thinking drives business innovation",
+      "Use artistic examples to illuminate business principles",
+      "Leave the audience seeing both domains differently"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Art-business synthesis keynote"
+  },
+  {
+    "id": "keynote_9-10_018",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver the final keynote of your career.",
+    "tips": [
+      "Distill a career's worth of wisdom into core truths",
+      "Share the moments that taught you the most",
+      "Pass the torch with grace and generosity"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Career capstone keynote"
+  },
+  {
+    "id": "keynote_9-10_019",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Give a speech that makes a room of strangers feel like family.",
+    "tips": [
+      "Create shared experience through interactive storytelling",
+      "Build vulnerability that invites reciprocity",
+      "Close with a moment of genuine human connection"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Connection-building mastery"
+  },
+  {
+    "id": "keynote_9-10_020",
+    "mode": "keynote",
+    "difficultyBand": "9-10",
+    "question": "Deliver a speech worthy of being a world leader's address.",
+    "tips": [
+      "Speak to universal human aspirations",
+      "Address immediate challenges with long-term vision",
+      "Close with a call that transcends borders and backgrounds"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "World-leader caliber address"
+  },
+  {
+    "id": "casual_1-2_001",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain your job to a 10-year-old.",
+    "tips": [
+      "Use words they'd understand",
+      "Compare it to something in their world",
+      "Keep it to 3 sentences or fewer"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple explanation challenge"
+  },
+  {
+    "id": "casual_1-2_002",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your favorite meal and why you love it.",
+    "tips": [
+      "Use sensory details: taste, smell, texture",
+      "Share a memory associated with it",
+      "Make the listener want to try it"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual descriptive practice"
+  },
+  {
+    "id": "casual_1-2_003",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain how your phone works to someone from the 1800s.",
+    "tips": [
+      "Start with what they already know",
+      "Build up to the concept step by step",
+      "Use analogies to their world"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Fun explanation exercise"
+  },
+  {
+    "id": "casual_1-2_004",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone why they should visit your hometown.",
+    "tips": [
+      "Pick 2-3 specific highlights",
+      "Share a personal story about one",
+      "Be enthusiastic without overselling"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual recommendation practice"
+  },
+  {
+    "id": "casual_1-2_005",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your morning routine.",
+    "tips": [
+      "Walk through it step by step",
+      "Add one interesting detail or quirk",
+      "Keep the pace conversational"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Routine description practice"
+  },
+  {
+    "id": "casual_1-2_006",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain the rules of your favorite game or sport.",
+    "tips": [
+      "Start with the objective",
+      "Explain 3 basic rules simply",
+      "Give an example of exciting gameplay"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Simple instruction practice"
+  },
+  {
+    "id": "casual_1-2_007",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe the best day you've had this year.",
+    "tips": [
+      "Set the scene with specifics",
+      "Describe how it made you feel",
+      "End with why it was meaningful"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Personal narrative practice"
+  },
+  {
+    "id": "casual_1-2_008",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain why you chose your current career path.",
+    "tips": [
+      "Share the moment you decided",
+      "Explain what attracted you to it",
+      "Describe what you enjoy most now"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Career story practice"
+  },
+  {
+    "id": "casual_1-2_009",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your ideal weekend.",
+    "tips": [
+      "Paint a vivid picture of activities",
+      "Include who you'd spend it with",
+      "Explain what makes it ideal for you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Aspirational description"
+  },
+  {
+    "id": "casual_1-2_010",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain a trending topic to someone who's been offline.",
+    "tips": [
+      "Give the context first",
+      "Explain why people care",
+      "Share your perspective briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "News explanation practice"
+  },
+  {
+    "id": "casual_1-2_011",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your favorite season and why.",
+    "tips": [
+      "Use sensory details about the weather",
+      "Share what you love doing in that season",
+      "Connect it to a favorite memory"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Preference explanation"
+  },
+  {
+    "id": "casual_1-2_012",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain how to make your favorite simple recipe.",
+    "tips": [
+      "List ingredients briefly",
+      "Walk through steps in order",
+      "Share a tip for best results"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Instruction practice"
+  },
+  {
+    "id": "casual_1-2_013",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe the view from your window right now.",
+    "tips": [
+      "Start with the big picture",
+      "Zoom into interesting details",
+      "Share what feeling it gives you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Observational description"
+  },
+  {
+    "id": "casual_1-2_014",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain why a movie you love is worth watching.",
+    "tips": [
+      "Avoid spoilers while building intrigue",
+      "Share what makes it special to you",
+      "Describe the feeling it creates"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Recommendation pitch"
+  },
+  {
+    "id": "casual_1-2_015",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your pet or a pet you'd love to have.",
+    "tips": [
+      "Share their personality, not just appearance",
+      "Tell one funny or endearing story",
+      "Explain what they mean or would mean to you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Affectionate description"
+  },
+  {
+    "id": "casual_1-2_016",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain a family tradition to an outsider.",
+    "tips": [
+      "Describe what happens during the tradition",
+      "Explain its origin or significance",
+      "Share why it matters to you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Cultural explanation"
+  },
+  {
+    "id": "casual_1-2_017",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe someone who inspires you.",
+    "tips": [
+      "Explain who they are briefly",
+      "Share what specifically inspires you",
+      "Describe how they've influenced you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Inspirational description"
+  },
+  {
+    "id": "casual_1-2_018",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain how to get to your favorite local spot.",
+    "tips": [
+      "Give landmarks, not just street names",
+      "Describe what they'll find when they arrive",
+      "Share why it's worth the trip"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Direction-giving practice"
+  },
+  {
+    "id": "casual_1-2_019",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe what you'd do with an unexpected day off.",
+    "tips": [
+      "Be specific about activities",
+      "Include at least one indulgence",
+      "Explain why this day would recharge you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Spontaneous planning"
+  },
+  {
+    "id": "casual_1-2_020",
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain a word from another language that has no English equivalent.",
+    "tips": [
+      "Give the word and its language",
+      "Describe the concept it captures",
+      "Give an example of when you'd use it"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Concept explanation practice"
+  },
+  {
+    "id": "casual_3-4_001",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Argue for or against remote work.",
+    "tips": [
+      "State your position clearly upfront",
+      "Give 2-3 supporting reasons with examples",
+      "Acknowledge the strongest counterargument"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Basic argument construction"
+  },
+  {
+    "id": "casual_3-4_002",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain a complex concept from your field to a friend.",
+    "tips": [
+      "Start with why it matters in everyday life",
+      "Use one strong analogy",
+      "Check understanding before adding detail"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Expert-to-layperson translation"
+  },
+  {
+    "id": "casual_3-4_003",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Debate: Is social media more helpful or harmful?",
+    "tips": [
+      "Define what you mean by helpful/harmful",
+      "Give concrete examples for your side",
+      "Anticipate and address the other side"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Structured debate practice"
+  },
+  {
+    "id": "casual_3-4_004",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why a historical event matters today.",
+    "tips": [
+      "Briefly set the historical context",
+      "Draw clear parallels to current events",
+      "State the lesson we should take from it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Historical relevance argument"
+  },
+  {
+    "id": "casual_3-4_005",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Persuade someone to try a new hobby.",
+    "tips": [
+      "Describe the benefits specifically",
+      "Share your personal experience with it",
+      "Make getting started sound easy"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Casual persuasion practice"
+  },
+  {
+    "id": "casual_3-4_006",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain the pros and cons of a recent technology.",
+    "tips": [
+      "Name the technology and its purpose",
+      "Give 2 clear pros with examples",
+      "Give 2 clear cons with examples"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Balanced analysis practice"
+  },
+  {
+    "id": "casual_3-4_007",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you changed your mind about something.",
+    "tips": [
+      "Explain your original belief",
+      "Describe what changed your perspective",
+      "Reflect on what you learned"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Intellectual flexibility narrative"
+  },
+  {
+    "id": "casual_3-4_008",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Argue whether college is still worth the investment.",
+    "tips": [
+      "State your position with a reason",
+      "Support with data or experience",
+      "Address the strongest objection"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Contemporary debate topic"
+  },
+  {
+    "id": "casual_3-4_009",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why a specific skill is underrated.",
+    "tips": [
+      "Name the skill and define it",
+      "Give examples of when it's valuable",
+      "Explain why people overlook it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive argument practice"
+  },
+  {
+    "id": "casual_3-4_010",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Debate: Should we prioritize space exploration or ocean research?",
+    "tips": [
+      "Pick a side and commit to it",
+      "Give 3 specific supporting arguments",
+      "Acknowledge what the other side gets right"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Fun debate exercise"
+  },
+  {
+    "id": "casual_3-4_011",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain a conspiracy theory and why people believe it.",
+    "tips": [
+      "Present the theory factually",
+      "Analyze the psychological appeal",
+      "Distinguish belief from evidence"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Analytical explanation practice"
+  },
+  {
+    "id": "casual_3-4_012",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Persuade a friend to read a book you love.",
+    "tips": [
+      "Hook them with the central premise",
+      "Share one scene without spoiling",
+      "Explain what they'll gain from reading it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive recommendation"
+  },
+  {
+    "id": "casual_3-4_013",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain how a common household item works.",
+    "tips": [
+      "Pick something people use daily",
+      "Walk through the mechanism simply",
+      "Connect to the science behind it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Technical explanation practice"
+  },
+  {
+    "id": "casual_3-4_014",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Debate: Is it better to be a specialist or generalist?",
+    "tips": [
+      "Define both approaches clearly",
+      "Argue for your preferred approach",
+      "Use your career as an example"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Career philosophy debate"
+  },
+  {
+    "id": "casual_3-4_015",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why a particular city is special.",
+    "tips": [
+      "Go beyond tourist attractions",
+      "Share cultural or community aspects",
+      "Make the listener feel they know the place"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Place advocacy practice"
+  },
+  {
+    "id": "casual_3-4_016",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Argue for or against a four-day work week.",
+    "tips": [
+      "State your position with evidence",
+      "Address productivity concerns",
+      "Acknowledge quality of life implications"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Policy argument practice"
+  },
+  {
+    "id": "casual_3-4_017",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain a scientific concept using only everyday objects.",
+    "tips": [
+      "Choose the concept and state it simply",
+      "Use physical objects as analogies",
+      "Build complexity gradually"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Analogy-building exercise"
+  },
+  {
+    "id": "casual_3-4_018",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Debate: Are books better than movies?",
+    "tips": [
+      "Compare as forms of storytelling",
+      "Give specific examples for your side",
+      "Acknowledge what the other medium does better"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Media comparison debate"
+  },
+  {
+    "id": "casual_3-4_019",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why a particular tradition should or shouldn't change.",
+    "tips": [
+      "Describe the tradition clearly",
+      "Present your argument for change or preservation",
+      "Address cultural sensitivity respectfully"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Cultural argument practice"
+  },
+  {
+    "id": "casual_3-4_020",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Persuade someone to donate to a cause you care about.",
+    "tips": [
+      "Make the need tangible and urgent",
+      "Share your personal connection to the cause",
+      "Make the ask specific and actionable"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Cause advocacy practice"
+  },
+  {
+    "id": "casual_5-6_001",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the trolley problem and argue your position.",
+    "tips": [
+      "Present the dilemma clearly",
+      "State your position with philosophical reasoning",
+      "Address the strongest counterargument thoughtfully"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Ethical reasoning and articulation"
+  },
+  {
+    "id": "casual_5-6_002",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Debate both sides of universal basic income.",
+    "tips": [
+      "Present the strongest case for UBI",
+      "Then present the strongest case against",
+      "Share which side you lean toward and why"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Dual-perspective argumentation"
+  },
+  {
+    "id": "casual_5-6_003",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain artificial intelligence to someone who fears it.",
+    "tips": [
+      "Acknowledge their concerns as valid",
+      "Distinguish AI hype from reality",
+      "Present a balanced view of risks and benefits"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Complex topic with emotional audience"
+  },
+  {
+    "id": "casual_5-6_004",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue whether privacy or security should take priority.",
+    "tips": [
+      "Define what you mean by both terms",
+      "Build a logical case for your position",
+      "Address the trade-offs honestly"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Nuanced policy debate"
+  },
+  {
+    "id": "casual_5-6_005",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of compound interest to make someone excited about saving.",
+    "tips": [
+      "Start with a vivid example, not math",
+      "Show the long-term impact dramatically",
+      "Make it personal to their situation"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Making abstract concepts tangible"
+  },
+  {
+    "id": "casual_5-6_006",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Debate: Should art be publicly funded?",
+    "tips": [
+      "Define what public funding means",
+      "Argue your position with cultural and economic evidence",
+      "Address the opposition's best point"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Cultural policy debate"
+  },
+  {
+    "id": "casual_5-6_007",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain blockchain to a skeptic without using jargon.",
+    "tips": [
+      "Start with the problem it solves",
+      "Use a physical-world analogy",
+      "Address common skepticisms fairly"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Technical explanation for skeptics"
+  },
+  {
+    "id": "casual_5-6_008",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue for or against genetic engineering in food.",
+    "tips": [
+      "Present the science accurately and simply",
+      "Build your case with health and environmental evidence",
+      "Address safety and ethical concerns"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Science policy argument"
+  },
+  {
+    "id": "casual_5-6_009",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why empathy is a competitive advantage in business.",
+    "tips": [
+      "Define what empathy looks like in practice",
+      "Give 2-3 business case examples",
+      "Counter the 'soft skill' dismissal"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Business philosophy argument"
+  },
+  {
+    "id": "casual_5-6_010",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Debate: Is technology making us more or less connected?",
+    "tips": [
+      "Define what real connection means to you",
+      "Support your position with specific examples",
+      "Acknowledge the complexity of the issue"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Modern philosophy debate"
+  },
+  {
+    "id": "casual_5-6_011",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain a geopolitical conflict to someone unfamiliar with the region.",
+    "tips": [
+      "Give essential historical context concisely",
+      "Present multiple perspectives fairly",
+      "Avoid taking sides while being clear"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Geopolitical explanation practice"
+  },
+  {
+    "id": "casual_5-6_012",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue whether happiness or meaning is more important in life.",
+    "tips": [
+      "Define both concepts carefully",
+      "Build your case with examples and philosophy",
+      "Show how they can complement each other"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Philosophical argument practice"
+  },
+  {
+    "id": "casual_5-6_013",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain climate change solutions to a disengaged audience.",
+    "tips": [
+      "Start with what affects them personally",
+      "Present solutions that feel achievable",
+      "End with their specific role and impact"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Engagement on complex topic"
+  },
+  {
+    "id": "casual_5-6_014",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Debate: Should voting be mandatory?",
+    "tips": [
+      "Present the democratic theory behind your position",
+      "Address practical implementation concerns",
+      "Consider cultural differences in your argument"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Democratic theory debate"
+  },
+  {
+    "id": "casual_5-6_015",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain how cognitive biases affect everyday decisions.",
+    "tips": [
+      "Name 2-3 biases with everyday examples",
+      "Show how they operate unconsciously",
+      "Suggest practical ways to counteract them"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Cognitive science explanation"
+  },
+  {
+    "id": "casual_5-6_016",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue for or against the gig economy.",
+    "tips": [
+      "Define the gig economy clearly",
+      "Present economic and social evidence",
+      "Address both worker and consumer perspectives"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Economic debate practice"
+  },
+  {
+    "id": "casual_5-6_017",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why storytelling is the most powerful communication tool.",
+    "tips": [
+      "Give examples from different domains",
+      "Explain the neuroscience of stories briefly",
+      "Demonstrate by telling a brief illustrative story"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Meta-communication argument"
+  },
+  {
+    "id": "casual_5-6_018",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Debate: Is meritocracy achievable?",
+    "tips": [
+      "Define meritocracy precisely",
+      "Present evidence for and against its achievability",
+      "Address systemic factors thoughtfully"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Social theory debate"
+  },
+  {
+    "id": "casual_5-6_019",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of opportunity cost to improve someone's decisions.",
+    "tips": [
+      "Define it with a relatable everyday example",
+      "Show how ignoring it leads to poor decisions",
+      "Give a framework for applying it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Economic concept explanation"
+  },
+  {
+    "id": "casual_5-6_020",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue whether social media platforms should be regulated.",
+    "tips": [
+      "Frame the regulation question specifically",
+      "Build your case with recent examples",
+      "Address free speech concerns directly"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Technology policy argument"
+  },
+  {
+    "id": "casual_7-8_001",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain quantum computing to a dinner party audience.",
+    "tips": [
+      "Use a vivid analogy for qubits vs bits",
+      "Describe what it could change in simple terms",
+      "Make people feel smarter, not confused"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Expert explanation for sophisticated audience"
+  },
+  {
+    "id": "casual_7-8_002",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Debate the ethics of autonomous weapons.",
+    "tips": [
+      "Present the technological reality",
+      "Argue your ethical position with frameworks",
+      "Address humanitarian and strategic implications"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "High-stakes ethical debate"
+  },
+  {
+    "id": "casual_7-8_003",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why democracy is fragile and worth protecting.",
+    "tips": [
+      "Use historical examples of democratic decline",
+      "Connect to current threats without partisanship",
+      "End with what individuals can do"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political philosophy argument"
+  },
+  {
+    "id": "casual_7-8_004",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Teach a complex topic using only questions.",
+    "tips": [
+      "Start with what the listener already knows",
+      "Build understanding through Socratic questioning",
+      "Guide them to the insight themselves"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Socratic teaching method"
+  },
+  {
+    "id": "casual_7-8_005",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Argue whether consciousness can be replicated in machines.",
+    "tips": [
+      "Define consciousness carefully",
+      "Present philosophical and scientific perspectives",
+      "Acknowledge the limits of current understanding"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Philosophy of mind debate"
+  },
+  {
+    "id": "casual_7-8_006",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the refugee crisis to someone with no context.",
+    "tips": [
+      "Start with human stories, not statistics",
+      "Provide geopolitical context simply",
+      "Address common misconceptions with facts"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Complex humanitarian topic explanation"
+  },
+  {
+    "id": "casual_7-8_007",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Debate: Is economic growth compatible with environmental sustainability?",
+    "tips": [
+      "Present the tension clearly with evidence",
+      "Argue your position with specific solutions",
+      "Address the strongest counterpoint"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Economics-environment intersection"
+  },
+  {
+    "id": "casual_7-8_008",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain how misinformation spreads and how to combat it.",
+    "tips": [
+      "Describe the psychology of belief formation",
+      "Explain algorithmic amplification simply",
+      "Provide actionable media literacy strategies"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Information literacy explanation"
+  },
+  {
+    "id": "casual_7-8_009",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Argue for a radical change to the education system.",
+    "tips": [
+      "Identify the specific failure you'd address",
+      "Present your alternative with evidence",
+      "Address implementation and transition challenges"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Education reform argument"
+  },
+  {
+    "id": "casual_7-8_010",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the concept of privilege without alienating your audience.",
+    "tips": [
+      "Lead with empathy for all experiences",
+      "Use structural rather than personal framing",
+      "Focus on systems, not blame"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Sensitive topic, skilled delivery"
+  },
+  {
+    "id": "casual_7-8_011",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Debate: Should we colonize Mars?",
+    "tips": [
+      "Present the scientific and existential case",
+      "Address resource allocation concerns",
+      "Balance aspiration with practical analysis"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Science and philosophy debate"
+  },
+  {
+    "id": "casual_7-8_012",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain complex financial instruments in plain language.",
+    "tips": [
+      "Start with the basic concept they derive from",
+      "Build complexity one layer at a time",
+      "Show how they affect ordinary people"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Financial literacy explanation"
+  },
+  {
+    "id": "casual_7-8_013",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Argue whether free will is an illusion.",
+    "tips": [
+      "Present the neuroscience evidence",
+      "Address the philosophical implications",
+      "Explain what it means for moral responsibility"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Deep philosophical debate"
+  },
+  {
+    "id": "casual_7-8_014",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why trust is the foundation of civilization.",
+    "tips": [
+      "Build the argument from first principles",
+      "Use examples from history and daily life",
+      "Show what happens when trust breaks down"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Foundational concept argument"
+  },
+  {
+    "id": "casual_7-8_015",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Debate: Should billionaires exist?",
+    "tips": [
+      "Define the question precisely",
+      "Present economic and ethical arguments",
+      "Address both wealth creation and distribution"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Economic inequality debate"
+  },
+  {
+    "id": "casual_7-8_016",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain how language shapes thought.",
+    "tips": [
+      "Present the Sapir-Whorf hypothesis simply",
+      "Give cross-cultural examples",
+      "Show practical implications for communication"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Linguistics concept explanation"
+  },
+  {
+    "id": "casual_7-8_017",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Argue for the importance of failure in innovation.",
+    "tips": [
+      "Challenge the success-only narrative",
+      "Present specific innovation examples born from failure",
+      "Explain the psychological mechanisms at work"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Innovation philosophy argument"
+  },
+  {
+    "id": "casual_7-8_018",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the trolley problem variants and their implications.",
+    "tips": [
+      "Present escalating dilemmas clearly",
+      "Show how each variant reveals different moral intuitions",
+      "Connect to real-world ethical decisions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Advanced ethics explanation"
+  },
+  {
+    "id": "casual_7-8_019",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Debate: Is objectivity in journalism possible?",
+    "tips": [
+      "Define objectivity precisely",
+      "Present arguments from media theory",
+      "Propose practical standards for fair journalism"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Media theory debate"
+  },
+  {
+    "id": "casual_7-8_020",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain game theory in a way that changes someone's approach to negotiation.",
+    "tips": [
+      "Present the core concepts with vivid examples",
+      "Show the real-world applications",
+      "Give actionable negotiation strategies"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Applied theory explanation"
+  },
+  {
+    "id": "casual_9-10_001",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the nature of time to a curious non-physicist.",
+    "tips": [
+      "Start with everyday experience of time",
+      "Introduce counterintuitive physics concepts gradually",
+      "End with the philosophical questions that remain open"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Expert-level concept, accessible delivery"
+  },
+  {
+    "id": "casual_9-10_002",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Debate whether morality is objective or subjective.",
+    "tips": [
+      "Present the strongest case for moral realism",
+      "Present the strongest case for moral relativism",
+      "Reveal your position only after steelmanning both"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Advanced philosophical debate"
+  },
+  {
+    "id": "casual_9-10_003",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the meaning of life using only first principles.",
+    "tips": [
+      "Start from basic facts about existence",
+      "Build logical steps toward meaning-making",
+      "End with a framework, not a prescription"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Existential philosophy argument"
+  },
+  {
+    "id": "casual_9-10_004",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Debate: Has the internet been net positive for humanity?",
+    "tips": [
+      "Define your evaluation framework",
+      "Present evidence across social, economic, and political domains",
+      "Synthesize into a nuanced conclusion"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Civilization-scale impact assessment"
+  },
+  {
+    "id": "casual_9-10_005",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain how to think about thinking.",
+    "tips": [
+      "Introduce metacognition accessibly",
+      "Describe cognitive tools and frameworks",
+      "Make the audience immediately better thinkers"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Meta-cognitive mastery explanation"
+  },
+  {
+    "id": "casual_9-10_006",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Argue whether beauty is objective or subjective.",
+    "tips": [
+      "Present evidence from neuroscience and philosophy",
+      "Address cultural variation and universal patterns",
+      "Build to a nuanced synthesis"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Aesthetics philosophy debate"
+  },
+  {
+    "id": "casual_9-10_007",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the ship of Theseus and its implications for identity.",
+    "tips": [
+      "Present the paradox clearly and engagingly",
+      "Explore multiple philosophical responses",
+      "Connect to modern identity questions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Identity philosophy explanation"
+  },
+  {
+    "id": "casual_9-10_008",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Debate: Should we try to achieve immortality?",
+    "tips": [
+      "Address the medical and ethical dimensions",
+      "Present philosophical arguments about mortality's role",
+      "Consider societal implications deeply"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Existential technology debate"
+  },
+  {
+    "id": "casual_9-10_009",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of emergence to illuminate how simple rules create complex systems.",
+    "tips": [
+      "Use vivid examples from nature",
+      "Show emergence in human society",
+      "Explain why it matters for understanding the world"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Complex systems explanation"
+  },
+  {
+    "id": "casual_9-10_010",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Argue for a new human right that doesn't currently exist.",
+    "tips": [
+      "Identify the right and why it's needed",
+      "Build the philosophical and practical case",
+      "Address objections and implementation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Rights philosophy argument"
+  },
+  {
+    "id": "casual_9-10_011",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the Fermi Paradox and what it means for humanity.",
+    "tips": [
+      "Present the paradox dramatically",
+      "Walk through major proposed solutions",
+      "Share what you think the answer reveals about us"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Cosmological philosophy explanation"
+  },
+  {
+    "id": "casual_9-10_012",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Debate: Is suffering necessary for growth?",
+    "tips": [
+      "Define suffering and growth carefully",
+      "Present evidence from psychology and philosophy",
+      "Address the danger of romanticizing suffering"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Psychology-philosophy intersection"
+  },
+  {
+    "id": "casual_9-10_013",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain how metaphors shape our reality.",
+    "tips": [
+      "Show metaphors operating in everyday language",
+      "Demonstrate how they guide thought and policy",
+      "Reveal the metaphors that most constrain us"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Cognitive linguistics mastery"
+  },
+  {
+    "id": "casual_9-10_014",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Argue whether progress is inevitable or fragile.",
+    "tips": [
+      "Define progress with specific metrics",
+      "Present historical evidence of both advancement and regression",
+      "Build to a nuanced thesis about progress conditions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Historical philosophy argument"
+  },
+  {
+    "id": "casual_9-10_015",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the difference between intelligence and wisdom.",
+    "tips": [
+      "Define each precisely with examples",
+      "Show where they diverge in practice",
+      "Argue why wisdom matters more in our era"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Conceptual distinction mastery"
+  },
+  {
+    "id": "casual_9-10_016",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Debate: Is it ethical to create superintelligent AI?",
+    "tips": [
+      "Present the potential benefits and existential risks",
+      "Apply ethical frameworks to the question",
+      "Propose governance principles for development"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "AI ethics frontier debate"
+  },
+  {
+    "id": "casual_9-10_017",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain Gödel's incompleteness theorems to show the limits of logic.",
+    "tips": [
+      "Make the theorems intuitive with an analogy",
+      "Explain why they shook mathematics to its core",
+      "Connect to broader questions about knowledge"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Mathematical philosophy explanation"
+  },
+  {
+    "id": "casual_9-10_018",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Argue for or against the simulation hypothesis.",
+    "tips": [
+      "Present the logical argument clearly",
+      "Address the evidence for and against",
+      "Explore the implications if true or false"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Reality philosophy debate"
+  },
+  {
+    "id": "casual_9-10_019",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain how to have a productive conversation with someone you disagree with.",
+    "tips": [
+      "Present the psychology of disagreement",
+      "Offer concrete conversational techniques",
+      "Model the approach in your own delivery"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Meta-communication mastery"
+  },
+  {
+    "id": "casual_9-10_020",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Deliver an improvised 2-minute speech on a random topic with depth and clarity.",
+    "tips": [
+      "Structure your thoughts in the first 5 seconds",
+      "Use a clear thesis-evidence-conclusion framework",
+      "Bring genuine insight even on an unfamiliar topic"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Elite impromptu speaking mastery"
+  }
+]
