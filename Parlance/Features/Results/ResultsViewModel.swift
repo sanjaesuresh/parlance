@@ -2,6 +2,7 @@ import SwiftUI
 import Combine
 import SwiftData
 
+@MainActor
 final class ResultsViewModel: ObservableObject {
     @Published var isRetryingFeedback = false
 
