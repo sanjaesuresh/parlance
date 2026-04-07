@@ -1,1 +1,8 @@
 Parlance: AI Speech Coach/.git
+
+# macOS
+.DS_Store
+
+# Xcode user data
+xcuserdata/
+*.xcuserstate

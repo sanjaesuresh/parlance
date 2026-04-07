@@ -32,8 +32,8 @@ final class PersistenceService {
         return try? context.fetch(descriptor).first
     }
 
-    func createUser(name: String, avatar: String) -> User {
-        let user = User(displayName: name, avatarEmoji: avatar, hasCompletedSetup: true)
+    func createUser(name: String, username: String = "", location: String? = nil, occupation: String? = nil, avatar: String) -> User {
+        let user = User(displayName: name, username: username, location: location, occupation: occupation, avatarEmoji: avatar, hasCompletedSetup: true)
         context.insert(user)
         try? context.save()
         return user

@@ -5198,5 +5198,713 @@
     ],
     "targetDuration": 120,
     "difficultyNote": "Elite impromptu speaking mastery"
+  },
+
+  {
+    "id": "debate_1-2_001",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should schools require students to wear uniforms? Argue for one side.",
+    "tips": ["State your position clearly upfront", "Give one strong reason with an example", "Keep it simple and direct"],
+    "targetDuration": 45,
+    "difficultyNote": "Familiar topic, low stakes"
+  },
+  {
+    "id": "debate_1-2_002",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to work from home or in an office? Pick a side and argue it.",
+    "tips": ["Choose one side firmly", "Use your own experience as evidence", "Anticipate one counterpoint"],
+    "targetDuration": 45,
+    "difficultyNote": "Relatable everyday topic"
+  },
+  {
+    "id": "debate_1-2_003",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should tipping be mandatory at restaurants? Defend your position.",
+    "tips": ["Open with a clear stance", "Support with a practical reason", "Keep your tone conversational"],
+    "targetDuration": 45,
+    "difficultyNote": "Common opinion topic"
+  },
+  {
+    "id": "debate_3-4_001",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should social media platforms be held responsible for misinformation? Argue your case.",
+    "tips": ["Define what 'responsible' means in your argument", "Give a specific example", "Address the strongest counterargument"],
+    "targetDuration": 60,
+    "difficultyNote": "Requires nuanced reasoning"
+  },
+  {
+    "id": "debate_3-4_002",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is a college degree still worth the cost? Make your argument.",
+    "tips": ["Use data or examples to support your claim", "Acknowledge the other side briefly", "End with a strong closing statement"],
+    "targetDuration": 60,
+    "difficultyNote": "Multi-faceted issue"
+  },
+  {
+    "id": "debate_3-4_003",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should governments ban single-use plastics entirely? Defend your position.",
+    "tips": ["Frame the problem before your solution", "Use cause-and-effect reasoning", "Propose a realistic implementation"],
+    "targetDuration": 60,
+    "difficultyNote": "Policy argument requiring evidence"
+  },
+  {
+    "id": "debate_5-6_001",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is universal basic income a viable economic policy? Argue for or against.",
+    "tips": ["Lead with your strongest economic argument", "Address feasibility concerns", "Use real-world examples from pilot programs"],
+    "targetDuration": 75,
+    "difficultyNote": "Complex economic topic"
+  },
+  {
+    "id": "debate_5-6_002",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should AI-generated art be eligible for copyright protection? Take a position.",
+    "tips": ["Define what makes something 'creative work'", "Address both artist and technology perspectives", "Build your argument logically"],
+    "targetDuration": 75,
+    "difficultyNote": "Emerging tech ethics debate"
+  },
+  {
+    "id": "debate_5-6_003",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is space exploration a good use of public funding when there are problems on Earth? Argue your side.",
+    "tips": ["Acknowledge the tension directly", "Use specific examples of benefits or opportunity costs", "Build toward a compelling conclusion"],
+    "targetDuration": 75,
+    "difficultyNote": "Requires balancing competing priorities"
+  },
+  {
+    "id": "debate_7-8_001",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should democratic nations intervene militarily to protect human rights abroad? Defend your position with specific examples.",
+    "tips": ["Establish a clear ethical framework first", "Use historical examples precisely", "Address the sovereignty counterargument head-on"],
+    "targetDuration": 90,
+    "difficultyNote": "Geopolitics with ethical complexity"
+  },
+  {
+    "id": "debate_7-8_002",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should there be limits on free speech to prevent hate speech? Build a rigorous argument.",
+    "tips": ["Define your terms precisely", "Distinguish between legal and moral arguments", "Steelman the opposing view before dismantling it"],
+    "targetDuration": 90,
+    "difficultyNote": "Constitutional and philosophical debate"
+  },
+  {
+    "id": "debate_7-8_003",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is economic growth fundamentally incompatible with environmental sustainability? Make your case.",
+    "tips": ["Use specific data points", "Address green growth vs. degrowth frameworks", "Conclude with a synthesis, not just a side"],
+    "targetDuration": 90,
+    "difficultyNote": "Systemic analysis required"
+  },
+  {
+    "id": "debate_9-10_001",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should we grant legal personhood to advanced AI systems? Construct a formal argument with rebuttals to the top three counterpoints.",
+    "tips": ["Build a philosophical framework for personhood", "Anticipate and dismantle objections systematically", "Close with the implications of your position"],
+    "targetDuration": 120,
+    "difficultyNote": "Frontier philosophical debate"
+  },
+  {
+    "id": "debate_9-10_002",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is surveillance justified if it demonstrably reduces crime? Present a complete argument addressing ethics, efficacy, and civil liberties.",
+    "tips": ["Separate empirical claims from value claims", "Address the slippery slope argument explicitly", "Use real-world case studies as evidence"],
+    "targetDuration": 120,
+    "difficultyNote": "Multi-dimensional policy debate"
+  },
+  {
+    "id": "debate_9-10_003",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should billionaires exist? Build a complete argument that addresses economic, moral, and systemic dimensions.",
+    "tips": ["Define your moral framework explicitly", "Use data on wealth inequality", "Address both incentive structures and systemic effects"],
+    "targetDuration": 120,
+    "difficultyNote": "High-stakes moral and economic argument"
+  },
+
+  {
+    "id": "storytelling_1-2_001",
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you learned something new for the first time.",
+    "tips": ["Set the scene briefly", "Describe what happened step by step", "End with what you learned"],
+    "targetDuration": 45,
+    "difficultyNote": "Simple personal narrative"
+  },
+  {
+    "id": "storytelling_1-2_002",
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a memorable meal you've had. What made it special?",
+    "tips": ["Use sensory details like taste and smell", "Include the people or place", "Explain why it stuck with you"],
+    "targetDuration": 45,
+    "difficultyNote": "Low-pressure sensory storytelling"
+  },
+  {
+    "id": "storytelling_1-2_003",
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a pet or animal you've encountered.",
+    "tips": ["Paint a picture of the animal", "Describe what happened", "Share how it made you feel"],
+    "targetDuration": 45,
+    "difficultyNote": "Friendly everyday topic"
+  },
+  {
+    "id": "storytelling_3-4_001",
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you stepped outside your comfort zone.",
+    "tips": ["Build tension around the decision", "Describe the emotions you felt", "Reveal how it changed you"],
+    "targetDuration": 60,
+    "difficultyNote": "Requires emotional vulnerability"
+  },
+  {
+    "id": "storytelling_3-4_002",
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a day that didn't go as planned but turned out okay.",
+    "tips": ["Set up the expectation first", "Use contrast between plan and reality", "Find the silver lining naturally"],
+    "targetDuration": 60,
+    "difficultyNote": "Narrative arc with reversal"
+  },
+  {
+    "id": "storytelling_3-4_003",
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell the story of how you met someone who became important in your life.",
+    "tips": ["Start with the first impression", "Build toward the turning point", "Explain why the relationship matters"],
+    "targetDuration": 60,
+    "difficultyNote": "Relationship-focused narrative"
+  },
+  {
+    "id": "storytelling_5-6_001",
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a failure that taught you something valuable.",
+    "tips": ["Don't shy away from the failure itself", "Show the internal shift that happened", "Connect the lesson to who you are now"],
+    "targetDuration": 75,
+    "difficultyNote": "Requires honest self-reflection"
+  },
+  {
+    "id": "storytelling_5-6_002",
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a moment when you witnessed something that changed your perspective on the world.",
+    "tips": ["Set the scene vividly", "Show the before and after of your thinking", "Make the listener feel the shift"],
+    "targetDuration": 75,
+    "difficultyNote": "Abstract insight through concrete story"
+  },
+  {
+    "id": "storytelling_5-6_003",
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to make a difficult decision with no clear right answer.",
+    "tips": ["Present the dilemma clearly", "Walk through your reasoning", "Share the outcome and whether you'd decide differently now"],
+    "targetDuration": 75,
+    "difficultyNote": "Moral complexity in personal narrative"
+  },
+  {
+    "id": "storytelling_7-8_001",
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you stood up for something you believed in, even when it was unpopular.",
+    "tips": ["Build the stakes before the confrontation", "Show internal conflict, not just external", "Land on the meaning, not just the outcome"],
+    "targetDuration": 90,
+    "difficultyNote": "High-stakes personal narrative"
+  },
+  {
+    "id": "storytelling_7-8_002",
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story that illustrates the concept of resilience, drawn from your own life.",
+    "tips": ["Choose a story with real adversity", "Show the process, not just the result", "Use pacing to build emotional impact"],
+    "targetDuration": 90,
+    "difficultyNote": "Theme-driven narrative with emotional depth"
+  },
+  {
+    "id": "storytelling_9-10_001",
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a moment of profound connection with a stranger. Make the listener feel what you felt.",
+    "tips": ["Use micro-details to create intimacy", "Control pacing for emotional beats", "End with resonance, not resolution"],
+    "targetDuration": 120,
+    "difficultyNote": "Advanced emotional storytelling"
+  },
+  {
+    "id": "storytelling_9-10_002",
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that begins with an ending. Use reverse chronology to reveal meaning.",
+    "tips": ["Open with the conclusion to hook the listener", "Peel back layers as you go backwards", "Make the origin the most powerful moment"],
+    "targetDuration": 120,
+    "difficultyNote": "Non-linear storytelling mastery"
+  },
+
+  {
+    "id": "explanation_1-2_001",
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a search engine works to someone who has never used the internet.",
+    "tips": ["Start with what problem it solves", "Use a simple analogy", "Avoid jargon completely"],
+    "targetDuration": 45,
+    "difficultyNote": "Explain a familiar concept simply"
+  },
+  {
+    "id": "explanation_1-2_002",
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why the sky is blue to a curious 8-year-old.",
+    "tips": ["Use language a child would understand", "Use a comparison they can visualize", "Keep it under a minute"],
+    "targetDuration": 45,
+    "difficultyNote": "Audience-appropriate simplification"
+  },
+  {
+    "id": "explanation_1-2_003",
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a budget is and why it matters to someone just starting their first job.",
+    "tips": ["Define it in one sentence", "Give a practical example", "Explain the benefit of having one"],
+    "targetDuration": 45,
+    "difficultyNote": "Practical concept for beginners"
+  },
+  {
+    "id": "explanation_3-4_001",
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain the difference between a virus and a bacteria to someone with no science background.",
+    "tips": ["Use a comparison to make it tangible", "Cover size, behavior, and treatment differences", "Avoid medical jargon"],
+    "targetDuration": 60,
+    "difficultyNote": "Distinguishing similar concepts"
+  },
+  {
+    "id": "explanation_3-4_002",
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how compound interest works and why it matters for saving money.",
+    "tips": ["Start with simple interest, then build up", "Use a concrete number example", "Show the long-term impact"],
+    "targetDuration": 60,
+    "difficultyNote": "Abstract financial concept made concrete"
+  },
+  {
+    "id": "explanation_3-4_003",
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how GPS navigation works on your phone.",
+    "tips": ["Start with satellites as the key idea", "Explain triangulation simply", "Connect it to the user experience"],
+    "targetDuration": 60,
+    "difficultyNote": "Technology explanation requiring analogy"
+  },
+  {
+    "id": "explanation_5-6_001",
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of inflation to a smart teenager. Include why it happens and why it matters.",
+    "tips": ["Use a real-world price example", "Explain supply and demand simply", "Connect to their daily life"],
+    "targetDuration": 75,
+    "difficultyNote": "Economic concept with cause and effect"
+  },
+  {
+    "id": "explanation_5-6_002",
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how machine learning is different from traditional programming to a non-technical manager.",
+    "tips": ["Contrast rules-based vs. pattern-based approaches", "Use a concrete business example", "Avoid all technical jargon"],
+    "targetDuration": 75,
+    "difficultyNote": "Technical concept for non-technical audience"
+  },
+  {
+    "id": "explanation_5-6_003",
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of natural selection to someone who thinks evolution means 'survival of the strongest.'",
+    "tips": ["Correct the misconception gently", "Use a specific animal example", "Emphasize adaptation over strength"],
+    "targetDuration": 75,
+    "difficultyNote": "Correcting a common misconception"
+  },
+  {
+    "id": "explanation_7-8_001",
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain blockchain technology to a skeptical business executive who thinks it's just hype.",
+    "tips": ["Start with the problem it solves, not the technology", "Use a supply chain or finance analogy", "Address the skepticism directly"],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive explanation to skeptical audience"
+  },
+  {
+    "id": "explanation_7-8_002",
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how vaccines work, including mRNA vaccines, to someone who is hesitant about getting vaccinated.",
+    "tips": ["Build trust before delivering information", "Use the immune system analogy progressively", "Address concerns without being dismissive"],
+    "targetDuration": 90,
+    "difficultyNote": "Sensitive topic requiring empathy and precision"
+  },
+  {
+    "id": "explanation_9-10_001",
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain quantum computing to a room of investors who need to understand why it matters for their portfolio, without using the word 'quantum.'",
+    "tips": ["Frame entirely around business impact", "Use layered analogies that build on each other", "Make the abstract tangible through financial implications"],
+    "targetDuration": 120,
+    "difficultyNote": "Constraint-based expert explanation"
+  },
+  {
+    "id": "explanation_9-10_002",
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of consciousness to a group of AI researchers and philosophers. Address why it's hard to define and what we do and don't know.",
+    "tips": ["Acknowledge the hard problem explicitly", "Distinguish subjective experience from behavior", "Present multiple frameworks without settling on one"],
+    "targetDuration": 120,
+    "difficultyNote": "Deep philosophical explanation to expert audience"
+  },
+
+  {
+    "id": "negotiation_1-2_001",
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're buying a used car and the seller is asking $8,000. You want to pay $6,500. Negotiate.",
+    "tips": ["Start by showing interest in the car", "Name your price confidently", "Give a reason for your offer"],
+    "targetDuration": 45,
+    "difficultyNote": "Simple price negotiation"
+  },
+  {
+    "id": "negotiation_1-2_002",
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Ask your roommate to take over a chore you usually do this week because you have a big deadline.",
+    "tips": ["Be direct about what you need", "Offer something in return", "Be respectful of their time too"],
+    "targetDuration": 45,
+    "difficultyNote": "Low-stakes personal negotiation"
+  },
+  {
+    "id": "negotiation_1-2_003",
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You received a job offer but want an extra week before your start date. Make the request.",
+    "tips": ["Express enthusiasm for the role first", "Give a reasonable reason for the delay", "Frame it as a small ask"],
+    "targetDuration": 45,
+    "difficultyNote": "Simple workplace ask"
+  },
+  {
+    "id": "negotiation_3-4_001",
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You're negotiating your salary for a new job. They offered $75,000 but you want $85,000. Make your case.",
+    "tips": ["Lead with your value, not your needs", "Use market data as leverage", "Be ready with a compromise position"],
+    "targetDuration": 60,
+    "difficultyNote": "Standard salary negotiation"
+  },
+  {
+    "id": "negotiation_3-4_002",
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your landlord wants to raise your rent by 15%. Negotiate a lower increase.",
+    "tips": ["Acknowledge their costs have gone up", "Present yourself as a reliable tenant", "Propose an alternative number with reasoning"],
+    "targetDuration": 60,
+    "difficultyNote": "Two-party negotiation with power imbalance"
+  },
+  {
+    "id": "negotiation_3-4_003",
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your team wants to push a product launch back by 2 weeks. Convince your manager this is the right call.",
+    "tips": ["Lead with the risk of launching early", "Propose a specific new timeline", "Show what the extra time buys"],
+    "targetDuration": 60,
+    "difficultyNote": "Internal stakeholder persuasion"
+  },
+  {
+    "id": "negotiation_5-6_001",
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're a freelancer and a client wants to cut your rate by 20% for a long-term contract. Negotiate terms that work for both sides.",
+    "tips": ["Reframe from rate to total value", "Offer scope or timeline flexibility instead of rate cuts", "Find the client's real constraint"],
+    "targetDuration": 75,
+    "difficultyNote": "Value-based negotiation"
+  },
+  {
+    "id": "negotiation_5-6_002",
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Two departments in your company both want the same budget allocation. You represent one side. Make your case while keeping the relationship intact.",
+    "tips": ["Acknowledge the other team's needs genuinely", "Frame your ask in terms of company-wide impact", "Propose a creative split or phased approach"],
+    "targetDuration": 75,
+    "difficultyNote": "Collaborative negotiation with constraints"
+  },
+  {
+    "id": "negotiation_7-8_001",
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a partnership deal where your startup provides technology and the other company provides distribution. They want 60/40 revenue split in their favor. Counter-propose.",
+    "tips": ["Quantify the value of your technology contribution", "Use comparables from similar deals", "Propose milestone-based adjustments"],
+    "targetDuration": 90,
+    "difficultyNote": "Complex multi-factor business negotiation"
+  },
+  {
+    "id": "negotiation_7-8_002",
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "A key employee wants to leave for a competitor. You have budget for a raise but not as much as the competing offer. Negotiate their retention.",
+    "tips": ["Understand their real motivation beyond money", "Offer non-monetary benefits strategically", "Make them feel valued, not trapped"],
+    "targetDuration": 90,
+    "difficultyNote": "Retention negotiation with emotional dynamics"
+  },
+  {
+    "id": "negotiation_9-10_001",
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're mediating a dispute between two co-founders about the company's strategic direction. One wants to focus on enterprise, the other on consumer. Find a resolution.",
+    "tips": ["Identify shared goals before addressing differences", "Propose a framework for the decision, not just a compromise", "Address the emotional undercurrent directly"],
+    "targetDuration": 120,
+    "difficultyNote": "Multi-party mediation with high stakes"
+  },
+  {
+    "id": "negotiation_9-10_002",
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You represent a small country negotiating a trade agreement with a much larger economy. They want tariff-free access to your market. Negotiate terms that protect your interests.",
+    "tips": ["Identify your unique leverage points", "Use phased implementation as a tool", "Frame concessions as mutual gains"],
+    "targetDuration": 120,
+    "difficultyNote": "Asymmetric power negotiation requiring strategy"
+  },
+
+  {
+    "id": "impromptu_1-2_001",
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What's the best season of the year and why?",
+    "tips": ["Pick one and commit", "Give 2-3 specific reasons", "Keep it light and personal"],
+    "targetDuration": 30,
+    "difficultyNote": "Simple opinion with no wrong answer"
+  },
+  {
+    "id": "impromptu_1-2_002",
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could have dinner with any person, living or dead, who would it be and why?",
+    "tips": ["Name the person immediately", "Explain what you'd want to talk about", "Keep it under a minute"],
+    "targetDuration": 30,
+    "difficultyNote": "Fun hypothetical, low pressure"
+  },
+  {
+    "id": "impromptu_1-2_003",
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What's the most useful app on your phone and why?",
+    "tips": ["Name it right away", "Give a specific use case", "Explain why it beats alternatives"],
+    "targetDuration": 30,
+    "difficultyNote": "Concrete everyday topic"
+  },
+  {
+    "id": "impromptu_3-4_001",
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "You have 60 seconds. Convince someone to visit your hometown.",
+    "tips": ["Open with a hook about what makes it unique", "Hit 2-3 specific highlights", "End with emotional appeal"],
+    "targetDuration": 45,
+    "difficultyNote": "Time-pressured persuasion"
+  },
+  {
+    "id": "impromptu_3-4_002",
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "If you had to teach a class on any subject, what would it be and how would you start the first lesson?",
+    "tips": ["Name the subject immediately", "Describe how you'd hook students", "Show passion for the topic"],
+    "targetDuration": 45,
+    "difficultyNote": "Creative thinking under time pressure"
+  },
+  {
+    "id": "impromptu_3-4_003",
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What's a common piece of advice that you think is actually wrong? Explain why.",
+    "tips": ["State the conventional wisdom first", "Give your contrarian take clearly", "Back it up with experience or reasoning"],
+    "targetDuration": 45,
+    "difficultyNote": "Contrarian argument on the spot"
+  },
+  {
+    "id": "impromptu_5-6_001",
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "You just became CEO of a major airline. What's the first thing you change and why?",
+    "tips": ["Pick one specific change", "Explain the current problem it solves", "Describe the expected impact"],
+    "targetDuration": 60,
+    "difficultyNote": "Business reasoning under pressure"
+  },
+  {
+    "id": "impromptu_5-6_002",
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "A friend says 'luck matters more than hard work.' Do you agree? You have 60 seconds to respond.",
+    "tips": ["Take a clear position immediately", "Use a specific example to illustrate", "Acknowledge nuance without waffling"],
+    "targetDuration": 60,
+    "difficultyNote": "Philosophical position under time pressure"
+  },
+  {
+    "id": "impromptu_5-6_003",
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Describe the color blue to someone who has never seen it.",
+    "tips": ["Use sensory analogies beyond sight", "Connect it to emotions and experiences", "Be creative and specific"],
+    "targetDuration": 60,
+    "difficultyNote": "Abstract creative challenge"
+  },
+  {
+    "id": "impromptu_7-8_001",
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "You're asked to give a 90-second toast at a colleague's farewell party. You barely know them. Go.",
+    "tips": ["Open with a universal workplace truth", "Pivot to something specific about the person", "End with a genuine wish for their future"],
+    "targetDuration": 75,
+    "difficultyNote": "Social impromptu with limited information"
+  },
+  {
+    "id": "impromptu_7-8_002",
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "If you could eliminate one invention from history, what would it be? Defend your choice.",
+    "tips": ["Choose something non-obvious", "Think through second-order effects", "Build a compelling case quickly"],
+    "targetDuration": 75,
+    "difficultyNote": "Complex hypothetical requiring systems thinking"
+  },
+  {
+    "id": "impromptu_9-10_001",
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You're given a random word: 'bridge.' Give a 2-minute speech that turns this word into a meaningful message.",
+    "tips": ["Use the first 5 seconds to find your angle", "Build from literal to metaphorical", "Land on a universal truth"],
+    "targetDuration": 90,
+    "difficultyNote": "Elite impromptu keyword speech"
+  },
+  {
+    "id": "impromptu_9-10_002",
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You have 90 seconds to explain why the person listening to you should care about a topic you just made up on the spot. Pick any topic and go.",
+    "tips": ["Commit to your topic in the first 3 seconds", "Use the rule of three for structure", "End with a call to action or provocative question"],
+    "targetDuration": 90,
+    "difficultyNote": "Maximum impromptu difficulty"
+  },
+
+  {
+    "id": "networking_1-2_001",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You're at a meetup and someone asks 'So, what do you do?' Give your answer.",
+    "tips": ["Keep it to 2-3 sentences", "Say what you do and why you enjoy it", "End with something that invites follow-up"],
+    "targetDuration": 30,
+    "difficultyNote": "Basic self-introduction"
+  },
+  {
+    "id": "networking_1-2_002",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Introduce yourself to someone at a coffee shop who's working on their laptop. Start a conversation naturally.",
+    "tips": ["Open with an observation, not a question about their work", "Share something about yourself briefly", "Be warm and not pushy"],
+    "targetDuration": 30,
+    "difficultyNote": "Casual social initiation"
+  },
+  {
+    "id": "networking_1-2_003",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You just joined a new team. Introduce yourself in the group chat or standup meeting.",
+    "tips": ["Name, role, and one fun fact", "Mention what you're excited to work on", "Keep it brief and friendly"],
+    "targetDuration": 30,
+    "difficultyNote": "Professional team introduction"
+  },
+  {
+    "id": "networking_3-4_001",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at a conference and spot someone whose work you admire. Introduce yourself and start a meaningful conversation.",
+    "tips": ["Reference their specific work, not just their title", "Share your relevant connection to the topic", "Ask a thoughtful question, not just compliments"],
+    "targetDuration": 45,
+    "difficultyNote": "Cold approach with someone senior"
+  },
+  {
+    "id": "networking_3-4_002",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "Deliver your 30-second elevator pitch: who you are, what you do, and what you're looking for.",
+    "tips": ["Lead with the problem you solve, not your title", "Make it specific enough to be memorable", "End with a clear ask or next step"],
+    "targetDuration": 45,
+    "difficultyNote": "Structured elevator pitch"
+  },
+  {
+    "id": "networking_3-4_003",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're reconnecting with a former colleague you haven't spoken to in 2 years. Reach out and re-establish the connection.",
+    "tips": ["Reference something specific from when you worked together", "Update them briefly on what you're doing now", "Suggest a concrete next step to catch up"],
+    "targetDuration": 45,
+    "difficultyNote": "Re-engaging a dormant connection"
+  },
+  {
+    "id": "networking_5-6_001",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're at an industry dinner and seated next to a potential mentor. Build rapport over the course of a conversation.",
+    "tips": ["Ask about their journey, not just achievements", "Find genuine common ground", "Share your own story authentically"],
+    "targetDuration": 60,
+    "difficultyNote": "Building deeper professional connection"
+  },
+  {
+    "id": "networking_5-6_002",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You want to ask someone in your network for an introduction to a specific person at their company. Make the ask.",
+    "tips": ["Explain why you want the introduction specifically", "Make it easy for them to say yes", "Offer to draft the intro email for them"],
+    "targetDuration": 60,
+    "difficultyNote": "Asking for a favor professionally"
+  },
+  {
+    "id": "networking_7-8_001",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're at a networking event with people from a completely different industry. Find common ground and make yourself memorable.",
+    "tips": ["Ask about their challenges, not their job titles", "Draw parallels between your industries", "Share a unique perspective they won't hear elsewhere"],
+    "targetDuration": 75,
+    "difficultyNote": "Cross-industry networking"
+  },
+  {
+    "id": "networking_7-8_002",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're introducing two people in your network who you think would benefit from knowing each other. Make the introduction compelling for both.",
+    "tips": ["Explain why each person would value the connection", "Highlight specific overlaps or complementary skills", "Set up a concrete reason for them to follow up"],
+    "targetDuration": 75,
+    "difficultyNote": "Connector role requiring audience awareness"
+  },
+  {
+    "id": "networking_9-10_001",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You have 2 minutes at a podium to introduce yourself to a room of 200 people at a conference. Make them want to talk to you afterwards.",
+    "tips": ["Open with a hook that creates curiosity", "Share one specific story that reveals your expertise", "Close with an invitation that makes approaching you easy"],
+    "targetDuration": 90,
+    "difficultyNote": "High-stakes public self-introduction"
+  },
+  {
+    "id": "networking_9-10_002",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You disagree with a senior leader's opinion at a networking dinner. Express your view respectfully while maintaining the relationship and your credibility.",
+    "tips": ["Validate their perspective before presenting yours", "Use questions to guide them to your reasoning", "Leave them with something to think about, not a debate to win"],
+    "targetDuration": 90,
+    "difficultyNote": "Diplomatic disagreement with power dynamics"
   }
 ]

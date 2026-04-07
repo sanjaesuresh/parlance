@@ -18,10 +18,10 @@ struct HomeView: View {
                 VStack(spacing: 20) {
                     headerRow
                     xpBar
-                    dailyChallengeCard
+                    dailyChallengeSection
                     difficultySlider
                     modeGrid
-                    weeklyStatsRow
+                    weeklyStatsSection
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -42,29 +42,60 @@ struct HomeView: View {
         }
     }
 
+    // MARK: - Header
+
     private var headerRow: some View {
-        HStack {
+        HStack(alignment: .top) {
             if let user {
-                Text("\(user.greeting), \(user.displayName)")
-                    .font(AppFonts.bodyBold(20))
-                    .foregroundStyle(AppColors.text)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(user.greeting.uppercased())
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.dim)
+                        .kerning(1.2)
+
+                    Text("\(user.displayName).")
+                        .font(AppFonts.display(28))
+                        .foregroundStyle(AppColors.text)
+                }
             }
 
             Spacer()
 
             if let user {
-                HStack(spacing: 6) {
-                    Text("🔥")
-                    Text("\(user.currentStreak)")
-                        .font(AppFonts.bodyBold(16))
-                        .foregroundStyle(AppColors.gold)
+                HStack(spacing: 10) {
+                    // Streak pill
+                    HStack(spacing: 4) {
+                        Text("\u{1F525}")
+                            .font(.system(size: 13))
+                        Text("\(user.currentStreak)")
+                            .font(AppFonts.bodyBold(13))
+                            .foregroundStyle(AppColors.gold)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(AppColors.card)
+                    .clipShape(Capsule())
+                    .overlay(
+                        Capsule()
+                            .stroke(AppColors.border, lineWidth: 1)
+                    )
 
+                    // Avatar circle
                     Text(user.avatarEmoji)
-                        .font(.system(size: 24))
+                        .font(.system(size: 18))
+                        .frame(width: 38, height: 38)
+                        .background(AppColors.card)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(AppColors.border, lineWidth: 1)
+                        )
                 }
             }
         }
     }
+
+    // MARK: - XP Bar
 
     private var xpBar: some View {
         Group {
@@ -74,77 +105,144 @@ struct HomeView: View {
         }
     }
 
-    private var dailyChallengeCard: some View {
+    // MARK: - Daily Challenge
+
+    private var dailyChallengeSection: some View {
         Group {
             if let user {
                 let mode = viewModel.dailyChallengeMode()
                 let level = user.dailyChallengeLevelLock ?? user.practiceLevel
-                DailyChallengeCard(mode: mode, level: level) {
-                    if let state = viewModel.startSession(
-                        mode: mode,
-                        user: user,
-                        persistence: .shared,
-                        wasDailyChallenge: true
-                    ) {
-                        onStartSession(state)
+                let completed = user.hasDailyChallengeCompletedToday
+
+                VStack(spacing: 10) {
+                    // Section header row with bonus text
+                    HStack {
+                        SectionHeader(title: "Today's Challenge")
+                        Spacer()
+                        if completed {
+                            Text("\u{2705} COMPLETED")
+                                .font(AppFonts.bodyBold(11))
+                                .foregroundStyle(AppColors.teal)
+                        } else {
+                            Text("+\(AppConstants.dailyChallengeXP) XP BONUS")
+                                .font(AppFonts.bodyBold(11))
+                                .foregroundStyle(AppColors.gold)
+                        }
+                    }
+
+                    DailyChallengeCard(mode: mode, level: level, completed: completed) {
+                        if !completed {
+                            if let state = viewModel.startSession(
+                                mode: mode,
+                                user: user,
+                                persistence: .shared,
+                                wasDailyChallenge: true
+                            ) {
+                                onStartSession(state)
+                            }
+                        }
                     }
                 }
             }
         }
     }
 
+    // MARK: - Difficulty Slider
+
     private var difficultySlider: some View {
-        VStack(spacing: 8) {
+        Group {
             if let user {
-                Slider(value: $sliderLevel, in: 1...10, step: 1)
-                    .tint(AppColors.gold)
-                    .onChange(of: sliderLevel) { _, newValue in
-                        user.practiceLevel = Int(newValue)
+                VStack(spacing: 12) {
+                    // Label row
+                    HStack {
+                        Text("Difficulty Level")
+                            .font(AppFonts.bodyMedium(13))
+                            .foregroundStyle(AppColors.text)
+                        Spacer()
+                        Text("\(DifficultyLevel.tier(for: Int(sliderLevel))) — Lv \(Int(sliderLevel))")
+                            .font(AppFonts.bodyBold(13))
+                            .foregroundStyle(AppColors.gold)
                     }
 
-                Text("Level \(Int(sliderLevel)) — \(DifficultyLevel.name(for: Int(sliderLevel)))")
-                    .font(AppFonts.bodyMedium(13))
-                    .foregroundStyle(AppColors.sub)
+                    Slider(value: $sliderLevel, in: 1...10, step: 1)
+                        .tint(AppColors.gold)
+                        .onChange(of: sliderLevel) { _, newValue in
+                            user.practiceLevel = Int(newValue)
+                        }
+
+                    // Tier labels spread across
+                    HStack {
+                        Text("Starter")
+                        Spacer()
+                        Text("Challenging")
+                        Spacer()
+                        Text("Intermediate")
+                        Spacer()
+                        Text("Advanced")
+                        Spacer()
+                        Text("Expert")
+                    }
+                    .font(AppFonts.body(9))
+                    .foregroundStyle(AppColors.dim)
+                }
+                .padding(16)
+                .background(AppColors.card)
+                .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+                .overlay(
+                    RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                        .stroke(AppColors.border, lineWidth: 1)
+                )
             }
         }
-        .padding(.horizontal, 4)
     }
+
+    // MARK: - Mode Grid
 
     private var modeGrid: some View {
-        ModeGridView { mode in
-            guard let user else { return }
-            if let state = viewModel.startSession(
-                mode: mode,
-                user: user,
-                persistence: .shared,
-                wasDailyChallenge: false
-            ) {
-                onStartSession(state)
+        VStack(spacing: 10) {
+            SectionHeader(title: "Practice Modes")
+
+            ModeGridView(level: Int(sliderLevel)) { mode in
+                guard let user else { return }
+                if let state = viewModel.startSession(
+                    mode: mode,
+                    user: user,
+                    persistence: .shared,
+                    wasDailyChallenge: false
+                ) {
+                    onStartSession(state)
+                }
             }
         }
     }
 
-    private var weeklyStatsRow: some View {
+    // MARK: - Weekly Stats
+
+    private var weeklyStatsSection: some View {
         let weekSessions = PersistenceService.shared.sessionsThisWeek()
         let stats = viewModel.weeklyStats(sessions: weekSessions)
 
-        return HStack(spacing: 0) {
-            statItem(value: "\(stats.count)", label: "Sessions")
-            statItem(value: "\(stats.avgScore)", label: "Avg Score")
-            statItem(value: "\(stats.bestScore)", label: "Best Score")
-            statItem(value: "\(stats.fillerTotal)", label: "Fillers")
+        return VStack(spacing: 10) {
+            SectionHeader(title: "This Week")
+
+            HStack(spacing: 0) {
+                statItem(value: "\(stats.count)", label: "Sessions")
+                statItem(value: "\(stats.avgScore)", label: "Avg Score")
+                statItem(value: "\(stats.bestScore)", label: "Best Score")
+                statItem(value: "\(stats.fillerTotal)", label: "Fillers")
+            }
+            .cardStyle()
         }
-        .cardStyle()
     }
 
     private func statItem(value: String, label: String) -> some View {
         VStack(spacing: 4) {
             Text(value)
-                .font(AppFonts.display(20))
-                .foregroundStyle(AppColors.text)
+                .font(AppFonts.display(19))
+                .foregroundStyle(AppColors.gold)
             Text(label)
-                .font(AppFonts.body(11))
-                .foregroundStyle(AppColors.sub)
+                .font(AppFonts.body(10))
+                .foregroundStyle(AppColors.dim)
         }
         .frame(maxWidth: .infinity)
     }

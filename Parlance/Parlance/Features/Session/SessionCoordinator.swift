@@ -25,11 +25,13 @@ struct SessionCoordinator: View {
                 LoadingView(
                     mode: state.mode,
                     levelName: DifficultyLevel.name(for: state.difficultyLevel),
-                    tier: DifficultyLevel.tier(for: state.difficultyLevel)
-                ) {
-                    AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
-                    phase = .recording
-                }
+                    tier: DifficultyLevel.tier(for: state.difficultyLevel),
+                    onReady: {
+                        AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
+                        phase = .recording
+                    },
+                    onCancel: { onDismiss() }
+                )
 
             case .recording:
                 RecordingView(
@@ -37,11 +39,13 @@ struct SessionCoordinator: View {
                     mode: state.mode,
                     level: state.difficultyLevel,
                     recorder: recorder,
-                    permissionsService: permissionsService
-                ) {
-                    phase = .processing
-                    Task { await processSession() }
-                }
+                    permissionsService: permissionsService,
+                    onStop: {
+                        phase = .processing
+                        Task { await processSession() }
+                    },
+                    onCancel: { onDismiss() }
+                )
 
             case .processing:
                 VStack(spacing: 16) {
@@ -57,11 +61,17 @@ struct SessionCoordinator: View {
                 ResultsView(
                     session: session,
                     question: state.question,
-                    onTryAgain: { onDismiss() },
+                    onTryAgain: { retrySession() },
                     onGoHome: { onDismiss() }
                 )
             }
         }
+    }
+
+    private func retrySession() {
+        // Reset recorder state and go back to loading → recording flow
+        recorder.deleteRecording()
+        phase = .loading
     }
 
     @MainActor
@@ -90,7 +100,8 @@ struct SessionCoordinator: View {
             metrics = SpeechAnalyzer.Metrics(
                 fillerScore: -1, fillerCount: -1,
                 paceScore: -1, wpm: 0,
-                clarityScore: -1, structureScore: -1, vocabularyScore: -1
+                clarityScore: -1, structureScore: -1, vocabularyScore: -1,
+                substanceScore: -1, wordCount: 0
             )
         } else {
             metrics = SpeechAnalyzer.analyze(transcript: transcript, duration: duration, mode: state.mode)

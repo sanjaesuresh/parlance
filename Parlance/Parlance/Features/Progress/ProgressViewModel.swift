@@ -5,7 +5,8 @@ import Combine
 final class ProgressViewModel: ObservableObject {
 
     func scoreHistory(from sessions: [Session]) -> [Int] {
-        Array(sessions.suffix(16).map(\.overallScore))
+        // sessions is sorted newest-first; take most recent 16 then reverse so chart goes oldest→newest
+        Array(sessions.prefix(16).reversed().map(\.overallScore))
     }
 
     func weeklyActivity(from sessions: [Session]) -> [Int] {

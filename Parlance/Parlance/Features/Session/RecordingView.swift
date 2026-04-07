@@ -7,50 +7,126 @@ struct RecordingView: View {
     @ObservedObject var recorder: AudioRecorder
     let permissionsService: PermissionsService
     let onStop: () -> Void
+    var onCancel: (() -> Void)?
 
     @StateObject private var viewModel = RecordingViewModel()
     @State private var showNudge = false
-    @State private var didAutoStop = false
+    @State private var didManualStop = false
+    @State private var showCancelConfirmation = false
 
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Prompt card
-                    VStack(spacing: 12) {
-                        Text(question.question)
-                            .font(AppFonts.display(22))
-                            .foregroundStyle(AppColors.text)
-                            .multilineTextAlignment(.center)
+            // Nav bar
+            HStack {
+                Button {
+                    if recorder.isRecording {
+                        showCancelConfirmation = true
+                    } else {
+                        recorder.deleteRecording()
+                        onCancel?()
+                    }
+                } label: {
+                    Text("← Back")
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.text)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                .accessibilityLabel("Go back")
 
-                        HStack(spacing: 8) {
-                            PillBadge(text: "~\(question.targetDuration)s", color: mode.accentColor)
-                            PillBadge(text: DifficultyLevel.name(for: level), color: AppColors.sub)
+                Spacer()
+
+                HStack(spacing: 7) {
+                    PillBadge(text: "\(mode.emoji) \(mode.displayName)", color: mode.accentColor, small: true)
+                    Text("Lv \(level)")
+                        .font(AppFonts.bodyMedium(10))
+                        .foregroundStyle(AppColors.sub)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 3)
+                        .background(AppColors.card)
+                        .clipShape(Capsule())
+                }
+
+                Spacer()
+
+                Spacer().frame(width: 72)
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 52)
+            .padding(.bottom, 8)
+
+            ScrollView {
+                VStack(spacing: 0) {
+                    // Prompt card
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack(spacing: 7) {
+                            Text(DifficultyLevel.tier(for: level))
+                                .font(AppFonts.bodyMedium(10))
+                                .foregroundStyle(AppColors.dim)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 3)
+                                .background(AppColors.faint)
+                                .clipShape(Capsule())
+
+                            PillBadge(text: "⏱ \(question.targetDuration)s", color: mode.accentColor, small: true)
                         }
+
+                        Text("\"\(question.question)\"")
+                            .font(AppFonts.display(19))
+                            .foregroundStyle(AppColors.text)
+                            .lineSpacing(6)
                     }
                     .padding(20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(AppColors.card)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                            .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
+                    )
+                    .padding(.horizontal, 24)
+                    .padding(.top, 8)
 
                     // Coaching tips
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 6) {
                         ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
-                            HStack(alignment: .top, spacing: 8) {
-                                Text("\(index + 1).")
-                                    .font(AppFonts.bodyMedium(14))
+                            HStack(alignment: .top, spacing: 9) {
+                                Text("\(index + 1)")
+                                    .font(AppFonts.bodyBold(9))
                                     .foregroundStyle(mode.accentColor)
+                                    .frame(width: 18, height: 18)
+                                    .background(mode.accentColor.opacity(0.15))
+                                    .clipShape(Circle())
+
                                 Text(tip)
-                                    .font(AppFonts.body(14))
+                                    .font(AppFonts.body(11))
                                     .foregroundStyle(AppColors.sub)
+                                    .lineSpacing(4)
                             }
                         }
                     }
                     .padding(.horizontal, 24)
+                    .padding(.top, 10)
 
                     // Nudge
                     if showNudge {
-                        Text("Stay deliberate — don't rush to fill silence")
-                            .font(AppFonts.body(13))
-                            .foregroundStyle(AppColors.gold.opacity(0.8))
-                            .transition(.opacity)
+                        HStack {
+                            Text("💡 Stay deliberate — don't rush to fill silence")
+                                .font(AppFonts.body(11))
+                                .foregroundStyle(mode.accentColor)
+                        }
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 10)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
+                        )
+                        .padding(.top, 16)
+                        .transition(.opacity)
                     }
 
                     // Wrap-up warning
@@ -58,6 +134,7 @@ struct RecordingView: View {
                         Text("Wrapping up in \(Int(AppConstants.maxRecordingDuration - recorder.elapsedTime))s…")
                             .font(AppFonts.bodyMedium(14))
                             .foregroundStyle(AppColors.red)
+                            .padding(.top, 12)
                     }
                 }
             }
@@ -74,13 +151,28 @@ struct RecordingView: View {
 
             // Timer
             Text(formatTime(recorder.elapsedTime))
-                .font(AppFonts.display(48))
-                .foregroundStyle(recorder.isRecording ? AppColors.gold : AppColors.sub.opacity(0.5))
-                .padding(.top, 12)
+                .font(AppFonts.display(54))
+                .foregroundStyle(recorder.isRecording ? AppColors.gold : Color(hex: "#252525"))
+                .padding(.top, 18)
+
+            // Recording indicator
+            if recorder.isRecording {
+                Text("● RECORDING")
+                    .font(AppFonts.bodyBold(11))
+                    .foregroundStyle(AppColors.gold)
+                    .opacity(0.8)
+                    .padding(.top, 4)
+            } else {
+                Text("Tap mic when ready")
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .padding(.top, 4)
+            }
 
             // Mic button
             Button {
                 if recorder.isRecording && recorder.canStop {
+                    didManualStop = true
                     let _ = recorder.stopRecording()
                     onStop()
                 } else if !recorder.isRecording {
@@ -89,24 +181,32 @@ struct RecordingView: View {
             } label: {
                 ZStack {
                     Circle()
+                        .fill((recorder.isRecording ? AppColors.red : AppColors.gold).opacity(0.1))
+                        .frame(width: 106, height: 106)
+
+                    Circle()
                         .fill(recorder.isRecording ? AppColors.red : AppColors.gold)
-                        .frame(width: 72, height: 72)
+                        .frame(width: 78, height: 78)
 
                     if recorder.isRecording {
                         RoundedRectangle(cornerRadius: 4)
                             .fill(.white)
                             .frame(width: 24, height: 24)
                     } else {
-                        Image(systemName: "play.fill")
-                            .font(.system(size: 28))
-                            .foregroundStyle(AppColors.bg)
+                        Text("🎤")
+                            .font(.system(size: 26))
                     }
                 }
             }
             .disabled(recorder.isRecording && !recorder.canStop)
             .accessibilityLabel(recorder.isRecording ? "Stop recording" : "Start recording")
-            .padding(.top, 16)
-            .padding(.bottom, 40)
+            .padding(.top, 12)
+
+            Text(recorder.isRecording ? "Tap to finish & analyze" : "Tap to start")
+                .font(AppFonts.body(11))
+                .foregroundStyle(AppColors.dim)
+                .padding(.top, 4)
+                .padding(.bottom, 40)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg)
@@ -114,13 +214,11 @@ struct RecordingView: View {
             showNudge = recorder.shouldShowNudge
         }
         .onChange(of: recorder.isRecording) { oldValue, newValue in
-            // Detect auto-stop (was recording, now stopped, and we didn't trigger it)
-            if oldValue && !newValue && !didAutoStop {
-                didAutoStop = true
+            // Auto-stop: recorder stopped itself (max duration). Manual stops are handled by the button.
+            if oldValue && !newValue && !didManualStop {
                 onStop()
             }
         }
-        // Permission pre-prompts
         .alert("Microphone Access", isPresented: $viewModel.showMicPrePrompt) {
             Button("Continue") {
                 Task { let _ = await viewModel.requestMicPermission(permissions: permissionsService) }
@@ -142,6 +240,16 @@ struct RecordingView: View {
             Button("Cancel", role: .cancel) {}
         } message: {
             Text(viewModel.permissionDeniedMessage)
+        }
+        .alert("End Session?", isPresented: $showCancelConfirmation) {
+            Button("End", role: .destructive) {
+                let _ = recorder.stopRecording()
+                recorder.deleteRecording()
+                onCancel?()
+            }
+            Button("Keep Going", role: .cancel) {}
+        } message: {
+            Text("Your recording will be discarded.")
         }
     }
 

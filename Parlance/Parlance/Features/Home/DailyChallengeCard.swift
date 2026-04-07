@@ -3,36 +3,87 @@ import SwiftUI
 struct DailyChallengeCard: View {
     let mode: SessionMode
     let level: Int
+    var completed: Bool = false
     let onTap: () -> Void
 
     var body: some View {
         Button(action: onTap) {
-            VStack(alignment: .leading, spacing: 8) {
+            ZStack(alignment: .topTrailing) {
+                // Glow circle in top-right
+                Circle()
+                    .fill(AppColors.gold.opacity(0.08))
+                    .frame(width: 130, height: 130)
+                    .offset(x: 40, y: -40)
+
                 HStack {
-                    Text("Daily Challenge")
-                        .font(AppFonts.bodyBold(18))
-                        .foregroundStyle(.white)
+                    // Left content
+                    VStack(alignment: .leading, spacing: 10) {
+                        // Pills row
+                        HStack(spacing: 8) {
+                            PillBadge(text: "\(mode.emoji) \(mode.displayName)", color: mode.accentColor, small: true)
+                            PillBadge(text: "Lv \(level)", color: AppColors.gold, small: true)
+                        }
+
+                        // Title
+                        Text("Daily Challenge")
+                            .font(AppFonts.display(18))
+                            .foregroundStyle(AppColors.text)
+
+                        // Subtitle
+                        if completed {
+                            Text("Come back tomorrow for a new one")
+                                .font(AppFonts.body(12))
+                                .foregroundStyle(AppColors.teal)
+                        } else {
+                            Text("Fresh question every session")
+                                .font(AppFonts.body(12))
+                                .foregroundStyle(AppColors.dim)
+                        }
+                    }
 
                     Spacer()
 
-                    PillBadge(text: "+\(AppConstants.dailyChallengeXP) XP", color: .white)
-                }
+                    // Play button / checkmark
+                    ZStack {
+                        Circle()
+                            .fill(completed ? AppColors.teal : AppColors.gold)
+                            .frame(width: 46, height: 46)
 
-                Text("\(mode.displayName) · Level \(level)")
-                    .font(AppFonts.body(14))
-                    .foregroundStyle(.white.opacity(0.8))
+                        if completed {
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 18, weight: .bold))
+                                .foregroundStyle(.white)
+                        } else {
+                            Image(systemName: "play.fill")
+                                .font(.system(size: 16))
+                                .foregroundStyle(Color(red: 0.09, green: 0.07, blue: 0.0))
+                        }
+                    }
+                }
             }
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 LinearGradient(
-                    colors: [AppColors.gold, AppColors.gold.opacity(0.7)],
+                    colors: [
+                        Color(red: 0.094, green: 0.071, blue: 0.0),
+                        Color(red: 0.122, green: 0.090, blue: 0.0)
+                    ],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
             )
             .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+            .overlay(
+                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                    .stroke((completed ? AppColors.teal : AppColors.gold).opacity(0.3), lineWidth: 1)
+            )
+            .opacity(completed ? 0.7 : 1.0)
         }
-        .accessibilityLabel("Daily challenge, \(mode.displayName), level \(level), plus \(AppConstants.dailyChallengeXP) XP")
+        .disabled(completed)
+        .accessibilityLabel(completed
+            ? "Daily challenge completed"
+            : "Daily challenge, \(mode.displayName), level \(level), plus \(AppConstants.dailyChallengeXP) XP"
+        )
     }
 }

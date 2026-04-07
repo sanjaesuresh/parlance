@@ -21,6 +21,12 @@ struct Rank {
         (10, "Master", 30000)
     ]
 
+    static func forLevel(_ level: Int) -> Rank? {
+        guard let entry = thresholds.first(where: { $0.level == level }) else { return nil }
+        let nextXP = thresholds.first(where: { $0.level == level + 1 })?.xp
+        return Rank(level: entry.level, name: entry.name, xpRequired: entry.xp, xpForNextRank: nextXP)
+    }
+
     static func from(xp: Int) -> Rank {
         var current = thresholds[0]
         var nextXP: Int? = thresholds[1].xp

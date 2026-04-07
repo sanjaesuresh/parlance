@@ -13,30 +13,51 @@ struct MetricCardView: View {
     }
 
     var body: some View {
-        HStack(spacing: 12) {
-            VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 0) {
+            // Top row: name + score
+            HStack {
                 Text(name)
-                    .font(AppFonts.bodyMedium(14))
+                    .font(AppFonts.bodyMedium(12))
                     .foregroundStyle(AppColors.text)
 
-                Text(tip)
-                    .font(AppFonts.body(12))
-                    .foregroundStyle(AppColors.sub)
-                    .lineLimit(2)
+                Spacer()
+
+                if score >= 0 {
+                    Text("\(score)/10")
+                        .font(AppFonts.bodyBold(12))
+                        .foregroundStyle(scoreColor)
+                } else {
+                    Text("—")
+                        .font(AppFonts.bodyBold(12))
+                        .foregroundStyle(AppColors.sub)
+                }
             }
 
-            Spacer()
-
+            // Progress bar
             if score >= 0 {
-                Text("\(score)/10")
-                    .font(AppFonts.display(20))
-                    .foregroundStyle(scoreColor)
-            } else {
-                Text("—")
-                    .font(AppFonts.display(20))
-                    .foregroundStyle(AppColors.sub)
+                ProgressBar(
+                    pct: Double(score) / 10.0 * 100.0,
+                    color: score < 5 ? AppColors.red : AppColors.gold,
+                    height: 4
+                )
+                .padding(.top, 8)
+            }
+
+            // Tip text
+            if !tip.isEmpty {
+                Text(tip)
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .lineLimit(2)
+                    .padding(.top, 7)
             }
         }
-        .cardStyle()
+        .padding(15)
+        .background(AppColors.card)
+        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .overlay(
+            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                .stroke(AppColors.border, lineWidth: 1)
+        )
     }
 }

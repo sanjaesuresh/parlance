@@ -4,6 +4,9 @@ import SwiftData
 @Model
 final class User {
     var displayName: String
+    var username: String?
+    var location: String?
+    var occupation: String?
     var avatarEmoji: String
     var joinDate: Date
     var xp: Int
@@ -20,6 +23,9 @@ final class User {
 
     init(
         displayName: String,
+        username: String? = nil,
+        location: String? = nil,
+        occupation: String? = nil,
         avatarEmoji: String,
         joinDate: Date = .now,
         xp: Int = 0,
@@ -35,6 +41,9 @@ final class User {
         dailyChallengeCompletedDate: Date? = nil
     ) {
         self.displayName = displayName
+        self.username = username
+        self.location = location
+        self.occupation = occupation
         self.avatarEmoji = avatarEmoji
         self.joinDate = joinDate
         self.xp = xp

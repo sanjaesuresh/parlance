@@ -50,7 +50,7 @@ struct ContentView: View {
 
             LeagueView()
                 .tabItem {
-                    Label("League", systemImage: "trophy")
+                    Label("Social", systemImage: "person.2")
                 }
 
             ProfileView()
