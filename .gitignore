@@ -40,6 +40,10 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+# Claude Code
+CLAUDE.md
+.claude/
+
 # Docs — specs and plans
 _docs/specs/
 _docs/plans/
