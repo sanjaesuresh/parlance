@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 import Combine
 
+@MainActor
 final class ProgressViewModel: ObservableObject {
 
     func scoreHistory(from sessions: [Session]) -> [Int] {

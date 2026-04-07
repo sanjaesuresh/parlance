@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 import Combine
 
+@MainActor
 final class HomeViewModel: ObservableObject {
     private let questionBank: QuestionBankService
     @Published var showRateLimitAlert = false
