@@ -3,7 +3,8 @@
     "allow": [
       "Bash(mkdir -p ~/.claude/commands)",
       "Bash(mkdir -p /Users/sanjaesuresh/Apps/Parlance/.claude/commands)",
-      "Bash(find /Users/sanjaesuresh/Apps/Parlance -name *.md -o -name CLAUDE.md)"
+      "Bash(find /Users/sanjaesuresh/Apps/Parlance -name *.md -o -name CLAUDE.md)",
+      "Bash(cd:*)"
     ]
   },
   "outputStyle": "default",
