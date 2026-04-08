@@ -5,19 +5,20 @@ import Combine
 
 @MainActor
 final class PermissionsService: ObservableObject {
-    @Published var microphoneStatus: AVAudioApplication.RecordPermission = AVAudioApplication.shared.recordPermission
+    @Published var microphoneStatus: AVAudioSession.RecordPermission = AVAudioSession.sharedInstance().recordPermission
     @Published var speechStatus: SFSpeechRecognizerAuthorizationStatus = SFSpeechRecognizer.authorizationStatus()
 
     var microphoneGranted: Bool { microphoneStatus == .granted }
     var speechGranted: Bool { speechStatus == .authorized }
 
     func requestMicrophone() async -> Bool {
-        do {
-            let granted = try await AVAudioApplication.requestRecordPermission()
-            microphoneStatus = AVAudioApplication.shared.recordPermission
-            return granted
-        } catch {
-            return false
+        return await withCheckedContinuation { continuation in
+            AVAudioSession.sharedInstance().requestRecordPermission { granted in
+                Task { @MainActor in
+                    self.microphoneStatus = AVAudioSession.sharedInstance().recordPermission
+                    continuation.resume(returning: granted)
+                }
+            }
         }
     }
 
