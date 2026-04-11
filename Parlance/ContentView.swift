@@ -5,6 +5,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var users: [User]
     @StateObject private var permissionsService = PermissionsService()
+    @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @State private var activeSession: ActiveSessionState?
 
     private var currentUser: User? { users.first }
@@ -24,7 +25,7 @@ struct ContentView: View {
                 mainTabView
             }
         }
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(AppTheme(rawValue: themeRaw)?.colorScheme)
         .environment(\.font, AppFonts.body(16))
         .environmentObject(permissionsService)
         .onAppear {
