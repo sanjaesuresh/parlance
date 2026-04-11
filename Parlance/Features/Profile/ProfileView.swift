@@ -8,6 +8,9 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @State private var showSafari = false
     @State private var safariURL: URL?
+    @State private var showSettings = false
+    @State private var showEditProfile = false
+    @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
 
     private var user: User? { users.first }
 
@@ -28,7 +31,6 @@ struct ProfileView: View {
                     achievementsSection
                     performanceByModeCard
                     recentSessionsSection
-                    settingsSection
                     footerSection
                 }
                 .padding(.horizontal, 16)
@@ -51,22 +53,49 @@ struct ProfileView: View {
                     SafariView(url: url)
                 }
             }
+            .sheet(isPresented: $showSettings) {
+                settingsSheet
+            }
+            .sheet(isPresented: $showEditProfile) {
+                if let user {
+                    ProfileEditSheet(user: user, onDismiss: { showEditProfile = false })
+                }
+            }
         }
     }
 
     // MARK: - Header
 
     private var headerView: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text("YOUR PROFILE")
-                .font(AppFonts.bodyMedium(11))
-                .foregroundStyle(AppColors.dim)
-                .kerning(1.2)
-            Text("Profile")
-                .font(AppFonts.display(26))
-                .foregroundStyle(AppColors.text)
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 2) {
+                Text("YOUR PROFILE")
+                    .font(AppFonts.bodyMedium(11))
+                    .foregroundStyle(AppColors.dim)
+                    .kerning(1.2)
+                Text("Profile")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            }
+
+            Spacer()
+
+            Button {
+                showSettings = true
+            } label: {
+                Image(systemName: "gearshape.fill")
+                    .font(.system(size: 18))
+                    .foregroundStyle(AppColors.sub)
+                    .frame(width: 36, height: 36)
+                    .background(AppColors.card)
+                    .clipShape(Circle())
+                    .overlay(
+                        Circle()
+                            .stroke(AppColors.border, lineWidth: 1)
+                    )
+            }
+            .accessibilityLabel("Settings")
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16)
         .padding(.top, 16)
         .padding(.bottom, 12)
@@ -115,6 +144,27 @@ struct ProfileView: View {
                     .font(AppFonts.body(13))
                     .foregroundStyle(AppColors.dim)
 
+                Button {
+                    showEditProfile = true
+                } label: {
+                    HStack(spacing: 5) {
+                        Image(systemName: "pencil")
+                            .font(.system(size: 11, weight: .semibold))
+                        Text("Edit Profile")
+                            .font(AppFonts.bodyMedium(12))
+                    }
+                    .foregroundStyle(AppColors.gold)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 7)
+                    .background(AppColors.gold.opacity(0.12))
+                    .clipShape(Capsule())
+                    .overlay(
+                        Capsule()
+                            .stroke(AppColors.gold.opacity(0.4), lineWidth: 1)
+                    )
+                }
+                .padding(.top, 2)
+
                 // Location + Occupation
                 HStack(spacing: 12) {
                     if let location = user.location, !location.isEmpty {
@@ -156,6 +206,7 @@ struct ProfileView: View {
 
     private var keyStatsGrid: some View {
         let totalSessions = sessions.count
+        let hasSessions = totalSessions > 0
         let bestScore = sessions.map(\.overallScore).max() ?? 0
         let totalMinutes = Int(sessions.map(\.duration).reduce(0, +) / 60)
         let streak = user?.currentStreak ?? 0
@@ -166,10 +217,10 @@ struct ProfileView: View {
         ]
 
         return LazyVGrid(columns: statColumns, spacing: 10) {
-            keyStatCell(value: "\(totalSessions)", label: "Total Sessions")
-            keyStatCell(value: "\(bestScore)", label: "Best Score")
-            keyStatCell(value: "\(totalMinutes)m", label: "Time Spoken")
-            keyStatCell(value: "\(streak)", label: "Day Streak")
+            keyStatCell(value: hasSessions ? "\(totalSessions)" : "—", label: "Total Sessions")
+            keyStatCell(value: hasSessions ? "\(bestScore)" : "—", label: "Best Score")
+            keyStatCell(value: hasSessions ? "\(totalMinutes)m" : "—", label: "Time Spoken")
+            keyStatCell(value: streak > 0 ? "\(streak)" : "—", label: "Day Streak")
         }
     }
 
@@ -350,58 +401,88 @@ struct ProfileView: View {
         }
     }
 
-    // MARK: - Settings
+    // MARK: - Settings Sheet
 
-    private var settingsSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Settings")
+    private var settingsSheet: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 0) {
+                    // Toggles
+                    Toggle(isOn: Binding(
+                        get: { viewModel.dailyReminderEnabled },
+                        set: { viewModel.toggleDailyReminder($0) }
+                    )) {
+                        Label("Daily Reminder", systemImage: "bell.fill")
+                            .font(AppFonts.body(14))
+                            .foregroundStyle(AppColors.text)
+                    }
+                    .tint(AppColors.gold)
+                    .padding(.vertical, 12)
 
-            VStack(spacing: 0) {
-                // Toggles
-                Toggle(isOn: Binding(
-                    get: { viewModel.dailyReminderEnabled },
-                    set: { viewModel.toggleDailyReminder($0) }
-                )) {
-                    Label("Daily Reminder", systemImage: "bell.fill")
-                        .font(AppFonts.body(14))
-                        .foregroundStyle(AppColors.text)
+                    Divider().background(AppColors.border)
+
+                    Toggle(isOn: Binding(
+                        get: { viewModel.soundEffectsEnabled },
+                        set: { viewModel.toggleSoundEffects($0) }
+                    )) {
+                        settingsLabel(emoji: "\u{1F514}", text: "Streak Notifications")
+                    }
+                    .tint(AppColors.gold)
+                    .padding(.vertical, 12)
+
+                    Divider().background(AppColors.border)
+
+                    // Theme picker
+                    HStack {
+                        Label("Appearance", systemImage: "circle.lefthalf.filled")
+                            .font(AppFonts.body(14))
+                            .foregroundStyle(AppColors.text)
+
+                        Spacer()
+
+                        Picker("Appearance", selection: $appThemeRaw) {
+                            ForEach(AppTheme.allCases, id: \.rawValue) { theme in
+                                Text(theme.displayName).tag(theme.rawValue)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        .tint(AppColors.gold)
+                    }
+                    .padding(.vertical, 12)
+
+                    Divider().background(AppColors.border)
+
+                    menuRow(icon: "lock.shield", title: "Privacy Policy") {
+                        safariURL = URL(string: "https://parlance.app/privacy")
+                        showSafari = true
+                    }
+
+                    Divider().background(AppColors.border)
+
+                    menuRow(icon: "doc.text", title: "Terms of Service") {
+                        safariURL = URL(string: "https://parlance.app/terms")
+                        showSafari = true
+                    }
+
+                    Divider().background(AppColors.border)
+
+                    menuRow(icon: "trash", title: "Reset All Data", isDestructive: true) {
+                        viewModel.showResetConfirmation = true
+                    }
                 }
-                .tint(AppColors.gold)
-                .padding(.vertical, 12)
-
-                Divider().background(AppColors.border)
-
-                Toggle(isOn: Binding(
-                    get: { viewModel.soundEffectsEnabled },
-                    set: { viewModel.toggleSoundEffects($0) }
-                )) {
-                    settingsLabel(emoji: "\u{1F514}", text: "Streak Notifications")
-                }
-                .tint(AppColors.gold)
-                .padding(.vertical, 12)
-
-                Divider().background(AppColors.border)
-
-                menuRow(icon: "lock.shield", title: "Privacy Policy") {
-                    safariURL = URL(string: "https://parlance.app/privacy")
-                    showSafari = true
-                }
-
-                Divider().background(AppColors.border)
-
-                menuRow(icon: "doc.text", title: "Terms of Service") {
-                    safariURL = URL(string: "https://parlance.app/terms")
-                    showSafari = true
-                }
-
-                Divider().background(AppColors.border)
-
-                menuRow(icon: "trash", title: "Reset All Data", isDestructive: true) {
-                    viewModel.showResetConfirmation = true
+                .padding(.horizontal, 16)
+            }
+            .background(AppColors.bg)
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Done") { showSettings = false }
+                        .foregroundStyle(AppColors.gold)
                 }
             }
         }
-        .cardStyle()
+        .presentationDetents([.medium, .large])
     }
 
     private func settingsLabel(emoji: String, text: String) -> some View {

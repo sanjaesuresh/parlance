@@ -6,6 +6,7 @@ struct RecordingView: View {
     let level: Int
     @ObservedObject var recorder: AudioRecorder
     let permissionsService: PermissionsService
+    var autoStart: Bool = false
     let onStop: () -> Void
     var onCancel: (() -> Void)?
 
@@ -13,6 +14,16 @@ struct RecordingView: View {
     @State private var showNudge = false
     @State private var didManualStop = false
     @State private var showCancelConfirmation = false
+    @State private var didAutoStart = false
+
+    private var targetProgress: Double {
+        guard question.targetDuration > 0 else { return 0 }
+        return min(1.0, recorder.elapsedTime / Double(question.targetDuration))
+    }
+
+    private var ringColor: Color {
+        recorder.elapsedTime >= Double(question.targetDuration) ? AppColors.teal : AppColors.gold
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -169,7 +180,7 @@ struct RecordingView: View {
                     .padding(.top, 4)
             }
 
-            // Mic button
+            // Mic button with target duration ring
             Button {
                 if recorder.isRecording && recorder.canStop {
                     didManualStop = true
@@ -180,9 +191,22 @@ struct RecordingView: View {
                 }
             } label: {
                 ZStack {
+                    // Background track
+                    Circle()
+                        .stroke(AppColors.border, lineWidth: 4)
+                        .frame(width: 116, height: 116)
+
+                    // Target duration progress ring
+                    Circle()
+                        .trim(from: 0, to: targetProgress)
+                        .stroke(ringColor, style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                        .rotationEffect(.degrees(-90))
+                        .frame(width: 116, height: 116)
+                        .animation(.linear(duration: 0.25), value: targetProgress)
+
                     Circle()
                         .fill((recorder.isRecording ? AppColors.red : AppColors.gold).opacity(0.1))
-                        .frame(width: 106, height: 106)
+                        .frame(width: 100, height: 100)
 
                     Circle()
                         .fill(recorder.isRecording ? AppColors.red : AppColors.gold)
@@ -202,6 +226,11 @@ struct RecordingView: View {
             .accessibilityLabel(recorder.isRecording ? "Stop recording" : "Start recording")
             .padding(.top, 12)
 
+            Text("Target: \(question.targetDuration)s")
+                .font(AppFonts.body(10))
+                .foregroundStyle(AppColors.dim)
+                .padding(.top, 6)
+
             Text(recorder.isRecording ? "Tap to finish & analyze" : "Tap to start")
                 .font(AppFonts.body(11))
                 .foregroundStyle(AppColors.dim)
@@ -210,6 +239,12 @@ struct RecordingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg)
+        .onAppear {
+            if autoStart && !didAutoStart && !recorder.isRecording {
+                didAutoStart = true
+                viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService)
+            }
+        }
         .onChange(of: recorder.elapsedTime) { _, _ in
             showNudge = recorder.shouldShowNudge
         }

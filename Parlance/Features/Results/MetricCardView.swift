@@ -23,7 +23,7 @@ struct MetricCardView: View {
                 Spacer()
 
                 if score >= 0 {
-                    Text("\(score)/10")
+                    Text("\(score * 10)%")
                         .font(AppFonts.bodyBold(12))
                         .foregroundStyle(scoreColor)
                 } else {

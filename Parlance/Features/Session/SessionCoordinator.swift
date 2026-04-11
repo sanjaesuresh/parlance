@@ -11,10 +11,13 @@ struct SessionCoordinator: View {
 
     enum SessionPhase {
         case loading
+        case countdown
         case recording
         case processing
         case results(Session)
     }
+
+    @State private var autoStartRecording = false
 
     var body: some View {
         ZStack {
@@ -24,13 +27,22 @@ struct SessionCoordinator: View {
             case .loading:
                 LoadingView(
                     mode: state.mode,
-                    levelName: DifficultyLevel.name(for: state.difficultyLevel),
-                    tier: DifficultyLevel.tier(for: state.difficultyLevel),
+                    level: state.difficultyLevel,
+                    question: state.question,
                     onReady: {
                         AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
-                        phase = .recording
+                        phase = .countdown
                     },
                     onCancel: { onDismiss() }
+                )
+
+            case .countdown:
+                CountdownView(
+                    accentColor: state.mode.accentColor,
+                    onComplete: {
+                        autoStartRecording = true
+                        phase = .recording
+                    }
                 )
 
             case .recording:
@@ -40,6 +52,7 @@ struct SessionCoordinator: View {
                     level: state.difficultyLevel,
                     recorder: recorder,
                     permissionsService: permissionsService,
+                    autoStart: autoStartRecording,
                     onStop: {
                         phase = .processing
                         Task { await processSession() }

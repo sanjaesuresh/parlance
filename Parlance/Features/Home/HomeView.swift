@@ -11,6 +11,7 @@ struct HomeView: View {
     private var user: User? { users.first }
 
     @State private var sliderLevel: Double = 1
+    @State private var cachedWeekSessions: [Session] = []
 
     var body: some View {
         NavigationStack {
@@ -33,6 +34,7 @@ struct HomeView: View {
                     viewModel.lockDailyChallengeLevel(for: user)
                     sliderLevel = Double(user.practiceLevel)
                 }
+                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
             }
             .alert("Daily Limit Reached", isPresented: $viewModel.showRateLimitAlert) {
                 Button("OK") {}
@@ -62,35 +64,22 @@ struct HomeView: View {
             Spacer()
 
             if let user {
-                HStack(spacing: 10) {
-                    // Streak pill
-                    HStack(spacing: 4) {
-                        Text("\u{1F525}")
-                            .font(.system(size: 13))
-                        Text("\(user.currentStreak)")
-                            .font(AppFonts.bodyBold(13))
-                            .foregroundStyle(AppColors.gold)
-                    }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 5)
-                    .background(AppColors.card)
-                    .clipShape(Capsule())
-                    .overlay(
-                        Capsule()
-                            .stroke(AppColors.border, lineWidth: 1)
-                    )
-
-                    // Avatar circle
-                    Text(user.avatarEmoji)
-                        .font(.system(size: 18))
-                        .frame(width: 38, height: 38)
-                        .background(AppColors.card)
-                        .clipShape(Circle())
-                        .overlay(
-                            Circle()
-                                .stroke(AppColors.border, lineWidth: 1)
-                        )
+                // Streak pill
+                HStack(spacing: 4) {
+                    Text("\u{1F525}")
+                        .font(.system(size: 13))
+                    Text("\(user.currentStreak)")
+                        .font(AppFonts.bodyBold(13))
+                        .foregroundStyle(AppColors.gold)
                 }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 5)
+                .background(AppColors.card)
+                .clipShape(Capsule())
+                .overlay(
+                    Capsule()
+                        .stroke(AppColors.border, lineWidth: 1)
+                )
             }
         }
     }
@@ -147,43 +136,68 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Difficulty Slider
+    // MARK: - Difficulty Picker
+
+    private let tiers: [(name: String, emoji: String, levels: ClosedRange<Int>)] = [
+        ("Starter", "\u{1F331}", 1...2),
+        ("Intermediate", "\u{1F4AA}", 3...4),
+        ("Challenging", "\u{1F525}", 5...6),
+        ("Advanced", "\u{26A1}", 7...8),
+        ("Expert", "\u{1F451}", 9...10)
+    ]
+
+    private var selectedTierIndex: Int {
+        tiers.firstIndex(where: { $0.levels.contains(Int(sliderLevel)) }) ?? 0
+    }
 
     private var difficultySlider: some View {
         Group {
             if let user {
                 VStack(spacing: 12) {
-                    // Label row
                     HStack {
                         Text("Difficulty Level")
                             .font(AppFonts.bodyMedium(13))
                             .foregroundStyle(AppColors.text)
                         Spacer()
-                        Text("\(DifficultyLevel.tier(for: Int(sliderLevel))) — Lv \(Int(sliderLevel))")
+                        Text("Lv \(Int(sliderLevel))")
                             .font(AppFonts.bodyBold(13))
                             .foregroundStyle(AppColors.gold)
                     }
 
-                    Slider(value: $sliderLevel, in: 1...10, step: 1)
-                        .tint(AppColors.gold)
-                        .onChange(of: sliderLevel) { _, newValue in
-                            user.practiceLevel = Int(newValue)
-                        }
+                    HStack(spacing: 6) {
+                        ForEach(Array(tiers.enumerated()), id: \.offset) { index, tier in
+                            let isSelected = index == selectedTierIndex
 
-                    // Tier labels spread across
-                    HStack {
-                        Text("Starter")
-                        Spacer()
-                        Text("Challenging")
-                        Spacer()
-                        Text("Intermediate")
-                        Spacer()
-                        Text("Advanced")
-                        Spacer()
-                        Text("Expert")
+                            Button {
+                                if isSelected {
+                                    // Toggle between the two sub-levels
+                                    let current = Int(sliderLevel)
+                                    let next = current == tier.levels.lowerBound ? tier.levels.upperBound : tier.levels.lowerBound
+                                    sliderLevel = Double(next)
+                                } else {
+                                    sliderLevel = Double(tier.levels.lowerBound)
+                                }
+                                user.practiceLevel = Int(sliderLevel)
+                            } label: {
+                                VStack(spacing: 4) {
+                                    Text(tier.emoji)
+                                        .font(.system(size: 16))
+                                    Text(tier.name)
+                                        .font(AppFonts.bodyMedium(9))
+                                        .foregroundStyle(isSelected ? AppColors.gold : AppColors.sub)
+                                        .lineLimit(1)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 10)
+                                .background(isSelected ? AppColors.gold.opacity(0.15) : AppColors.faint)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(isSelected ? AppColors.gold : Color.clear, lineWidth: 1.5)
+                                )
+                            }
+                        }
                     }
-                    .font(AppFonts.body(9))
-                    .foregroundStyle(AppColors.dim)
                 }
                 .padding(16)
                 .background(AppColors.card)
@@ -219,19 +233,36 @@ struct HomeView: View {
     // MARK: - Weekly Stats
 
     private var weeklyStatsSection: some View {
-        let weekSessions = PersistenceService.shared.sessionsThisWeek()
-        let stats = viewModel.weeklyStats(sessions: weekSessions)
+        let stats = viewModel.weeklyStats(sessions: cachedWeekSessions)
 
         return VStack(spacing: 10) {
             SectionHeader(title: "This Week")
 
-            HStack(spacing: 0) {
-                statItem(value: "\(stats.count)", label: "Sessions")
-                statItem(value: "\(stats.avgScore)", label: "Avg Score")
-                statItem(value: "\(stats.bestScore)", label: "Best Score")
-                statItem(value: "\(stats.fillerTotal)", label: "Fillers")
+            if cachedWeekSessions.isEmpty {
+                VStack(spacing: 8) {
+                    Image(systemName: "chart.bar.doc.horizontal")
+                        .font(.system(size: 24))
+                        .foregroundStyle(AppColors.dim)
+                    Text("Complete your first session to see weekly stats")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                        .multilineTextAlignment(.center)
+                    Text("Try a Daily Convo to get started")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.dim)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 18)
+                .cardStyle()
+            } else {
+                HStack(spacing: 0) {
+                    statItem(value: "\(stats.count)", label: "Sessions")
+                    statItem(value: "\(stats.avgScore)", label: "Avg Score")
+                    statItem(value: "\(stats.bestScore)", label: "Best Score")
+                    statItem(value: "\(stats.fillerTotal)", label: "Fillers")
+                }
+                .cardStyle()
             }
-            .cardStyle()
         }
     }
 

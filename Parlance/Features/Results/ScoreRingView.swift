@@ -21,9 +21,14 @@ struct ScoreRingView: View {
                 .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
                 .rotationEffect(.degrees(-90))
 
-            Text("\(score)")
-                .font(AppFonts.display(48))
-                .foregroundStyle(ringColor)
+            VStack(spacing: 0) {
+                Text("\(score)")
+                    .font(AppFonts.display(48))
+                    .foregroundStyle(ringColor)
+                Text("out of 100")
+                    .font(AppFonts.body(10))
+                    .foregroundStyle(AppColors.dim)
+            }
         }
         .frame(width: 160, height: 160)
         .accessibilityElement()

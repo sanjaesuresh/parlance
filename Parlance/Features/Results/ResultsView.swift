@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct ResultsView: View {
     @Bindable var session: Session
@@ -6,8 +7,16 @@ struct ResultsView: View {
     let onTryAgain: () -> Void
     let onGoHome: () -> Void
 
+    @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
     @StateObject private var viewModel = ResultsViewModel()
     @State private var showXPToast = true
+
+    /// Average of sessions prior to this one (exclusive of current).
+    private var priorAverage: Int? {
+        let prior = allSessions.filter { $0.id != session.id }
+        guard !prior.isEmpty else { return nil }
+        return prior.map(\.overallScore).reduce(0, +) / prior.count
+    }
 
     private var durationString: String {
         let minutes = Int(session.duration) / 60
@@ -123,6 +132,25 @@ struct ResultsView: View {
         VStack(spacing: 8) {
             ScoreRingView(score: session.overallScore)
 
+            if let avg = priorAverage {
+                let delta = session.overallScore - avg
+                HStack(spacing: 8) {
+                    Text("Your average: \(avg)")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.sub)
+
+                    if delta != 0 {
+                        Text("\(delta >= 0 ? "+" : "")\(delta) from avg")
+                            .font(AppFonts.bodyBold(10))
+                            .foregroundStyle(delta >= 0 ? AppColors.teal : AppColors.red)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background((delta >= 0 ? AppColors.teal : AppColors.red).opacity(0.15))
+                            .clipShape(Capsule())
+                    }
+                }
+            }
+
             Text(verdictText)
                 .font(AppFonts.display(22))
                 .foregroundStyle(AppColors.text)
@@ -207,6 +235,22 @@ struct ResultsView: View {
 
     @State private var transcriptExpanded = false
 
+    private var highlightedTranscript: AttributedString {
+        var attr = AttributedString(session.transcript)
+        // Base styling
+        attr.foregroundColor = Color(red: 0.73, green: 0.73, blue: 0.73)
+
+        let ranges = SpeechAnalyzer.fillerRanges(in: session.transcript)
+        for range in ranges {
+            if let attrRange = Range(range, in: attr) {
+                attr[attrRange].foregroundColor = AppColors.red
+                attr[attrRange].backgroundColor = AppColors.red.opacity(0.18)
+                attr[attrRange].font = AppFonts.bodyMedium(13)
+            }
+        }
+        return attr
+    }
+
     private var transcriptCard: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -214,6 +258,16 @@ struct ResultsView: View {
                     .font(AppFonts.bodyBold(10))
                     .foregroundStyle(AppColors.dim)
                     .kerning(0.8)
+
+                if session.fillerCount > 0 {
+                    Text("\(session.fillerCount) filler\(session.fillerCount == 1 ? "" : "s")")
+                        .font(AppFonts.bodyBold(9))
+                        .foregroundStyle(AppColors.red)
+                        .padding(.horizontal, 7)
+                        .padding(.vertical, 2)
+                        .background(AppColors.red.opacity(0.15))
+                        .clipShape(Capsule())
+                }
 
                 Spacer()
 
@@ -228,11 +282,10 @@ struct ResultsView: View {
                 }
             }
 
-            Text(session.transcript)
+            Text(highlightedTranscript)
                 .font(AppFonts.body(13))
-                .foregroundStyle(Color(red: 0.73, green: 0.73, blue: 0.73))
                 .lineSpacing(5)
-                .lineLimit(transcriptExpanded ? nil : 4)
+                .lineLimit(transcriptExpanded ? nil : 2)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(15)

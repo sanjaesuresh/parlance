@@ -2,21 +2,10 @@ import SwiftUI
 
 struct LoadingView: View {
     let mode: SessionMode
-    let levelName: String
-    let tier: String
+    let level: Int
+    let question: Question
     let onReady: () -> Void
     var onCancel: (() -> Void)?
-
-    @State private var statusIndex = 0
-    @State private var pulseScale: CGFloat = 0.8
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-
-    private let statuses = [
-        "Calibrating to your level…",
-        "Crafting your challenge…",
-        "Tailoring tips…",
-        "Almost ready…"
-    ]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -39,7 +28,16 @@ struct LoadingView: View {
 
                 Spacer()
 
-                PillBadge(text: "\(mode.emoji) \(mode.displayName)", color: mode.accentColor, small: true)
+                HStack(spacing: 7) {
+                    PillBadge(text: "\(mode.emoji) \(mode.displayName)", color: mode.accentColor, small: true)
+                    Text("Lv \(level)")
+                        .font(AppFonts.bodyMedium(10))
+                        .foregroundStyle(AppColors.sub)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 3)
+                        .background(AppColors.card)
+                        .clipShape(Capsule())
+                }
 
                 Spacer()
 
@@ -47,91 +45,93 @@ struct LoadingView: View {
             }
             .padding(.horizontal, 24)
             .padding(.top, 52)
-            .padding(.bottom, 8)
+            .padding(.bottom, 12)
 
-            Spacer()
+            ScrollView {
+                VStack(spacing: 20) {
+                    // One-liner instruction
+                    Text("Read the prompt, then tap to begin recording.")
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.sub)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 8)
 
-            // Orb animation
-            ZStack {
-                Circle()
-                    .fill(mode.accentColor.opacity(0.1))
-                    .frame(width: 100, height: 100)
-                    .scaleEffect(pulseScale)
+                    // Prompt card
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack(spacing: 7) {
+                            Text(DifficultyLevel.tier(for: level))
+                                .font(AppFonts.bodyMedium(10))
+                                .foregroundStyle(AppColors.dim)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 3)
+                                .background(AppColors.faint)
+                                .clipShape(Capsule())
 
-                Circle()
-                    .fill(mode.accentColor.opacity(0.2))
-                    .frame(width: 76, height: 76)
-                    .scaleEffect(pulseScale * 1.1)
+                            PillBadge(text: "\u{23F1} \(question.targetDuration)s", color: mode.accentColor, small: true)
+                        }
 
-                Circle()
-                    .fill(mode.accentColor.opacity(0.4))
-                    .frame(width: 52, height: 52)
-                    .scaleEffect(pulseScale * 1.2)
-                    .overlay(
-                        Text(mode.emoji)
-                            .font(.system(size: 26))
-                    )
-            }
-            .onAppear {
-                if !reduceMotion {
-                    withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true)) {
-                        pulseScale = 1.2
+                        Text("\"\(question.question)\"")
+                            .font(AppFonts.display(20))
+                            .foregroundStyle(AppColors.text)
+                            .lineSpacing(6)
                     }
+                    .padding(20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(AppColors.card)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                            .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
+                    )
+                    .padding(.horizontal, 24)
+
+                    // Coaching tips
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("COACHING TIPS")
+                            .font(AppFonts.bodyBold(10))
+                            .foregroundStyle(AppColors.dim)
+                            .kerning(1)
+
+                        ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
+                            HStack(alignment: .top, spacing: 10) {
+                                Text("\(index + 1)")
+                                    .font(AppFonts.bodyBold(10))
+                                    .foregroundStyle(mode.accentColor)
+                                    .frame(width: 20, height: 20)
+                                    .background(mode.accentColor.opacity(0.15))
+                                    .clipShape(Circle())
+
+                                Text(tip)
+                                    .font(AppFonts.body(12))
+                                    .foregroundStyle(AppColors.sub)
+                                    .lineSpacing(4)
+                            }
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 24)
                 }
+                .padding(.bottom, 140)
             }
 
-            Spacer().frame(height: 32)
+            Spacer(minLength: 0)
 
-            // Status text
-            VStack(spacing: 10) {
-                Text("Building your prompt…")
-                    .font(AppFonts.display(22))
-                    .foregroundStyle(AppColors.text)
-
-                Text(statuses[statusIndex])
-                    .font(AppFonts.body(13))
-                    .foregroundStyle(AppColors.sub)
-                    .animation(.easeInOut, value: statusIndex)
-            }
-
-            Spacer().frame(height: 28)
-
-            // Difficulty card
-            VStack(spacing: 6) {
-                Text("YOUR DIFFICULTY")
-                    .font(AppFonts.bodyMedium(10))
-                    .foregroundStyle(AppColors.dim)
-                    .kerning(1.0)
-
-                Text(tier)
+            // Tap when ready button
+            Button(action: onReady) {
+                Text("Tap when ready")
                     .font(AppFonts.bodyBold(16))
-                    .foregroundStyle(mode.accentColor)
-
-                Text(levelName)
-                    .font(AppFonts.body(11))
-                    .foregroundStyle(AppColors.dim)
+                    .foregroundStyle(AppColors.bg)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .background(AppColors.gold)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
             }
-            .padding(.horizontal, 28)
-            .padding(.vertical, 16)
-            .background(AppColors.card)
-            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-            .overlay(
-                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                    .stroke(AppColors.border, lineWidth: 1)
-            )
-
-            Spacer()
+            .padding(.horizontal, 24)
+            .padding(.bottom, 32)
+            .accessibilityLabel("Tap when ready to record")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg)
-        .onAppear {
-            Timer.scheduledTimer(withTimeInterval: 0.9, repeats: true) { _ in
-                statusIndex = (statusIndex + 1) % statuses.count
-            }
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + AppConstants.loadingMinDuration) {
-                onReady()
-            }
-        }
     }
 }

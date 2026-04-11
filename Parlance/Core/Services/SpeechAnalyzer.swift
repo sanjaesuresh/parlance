@@ -173,6 +173,24 @@ enum SpeechAnalyzer {
         ("\\bi guess\\b", "I guess")
     ]
 
+    /// Returns the character ranges (in the ORIGINAL text) matched by any filler pattern.
+    /// Used by UI to highlight fillers inline within the transcript. Ranges may overlap; callers should dedupe/sort.
+    static func fillerRanges(in text: String) -> [Range<String.Index>] {
+        let lower = text.lowercased()
+        var ranges: [Range<String.Index>] = []
+        for (pattern, _) in fillerPatterns {
+            guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { continue }
+            let nsRange = NSRange(lower.startIndex..., in: lower)
+            regex.enumerateMatches(in: lower, range: nsRange) { match, _, _ in
+                guard let m = match, let r = Range(m.range, in: text) else { return }
+                ranges.append(r)
+            }
+        }
+        // Sort by lower bound, then dedupe exact duplicates.
+        ranges.sort { $0.lowerBound < $1.lowerBound }
+        return ranges
+    }
+
     static func analyzeFillers(in text: String) -> FillerResult {
         let lower = text.lowercased()
         var totalCount = 0
