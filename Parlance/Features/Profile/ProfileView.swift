@@ -10,6 +10,7 @@ struct ProfileView: View {
     @State private var safariURL: URL?
     @State private var showSettings = false
     @State private var showEditProfile = false
+    @State private var cachedWeekSessions: [Session] = []
     @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
 
     private var user: User? { users.first }
@@ -60,6 +61,9 @@ struct ProfileView: View {
                 if let user {
                     ProfileEditSheet(user: user, onDismiss: { showEditProfile = false })
                 }
+            }
+            .onAppear {
+                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
             }
         }
     }
@@ -192,7 +196,7 @@ struct ProfileView: View {
                 HStack(spacing: 8) {
                     PillBadge(text: "\u{1F525} \(user.currentStreak)-day streak", color: AppColors.gold, small: true)
 
-                    let weeklyXP = PersistenceService.shared.sessionsThisWeek().map(\.xpEarned).reduce(0, +)
+                    let weeklyXP = cachedWeekSessions.map(\.xpEarned).reduce(0, +)
                     let tier = LeagueTier.from(weeklyXP: weeklyXP)
                     PillBadge(text: "\(tier.displayName) League", color: AppColors.purple, small: true)
                 }

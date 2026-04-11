@@ -9,16 +9,13 @@ struct LeagueView: View {
     @State private var friendSearchText = ""
     @State private var searchResults: [SocialProfile] = []
     @State private var selectedProfile: SocialProfile?
+    @State private var weekSessions: [Session] = []
 
     private enum SocialTab {
         case leaderboard, friends
     }
 
     private var user: User? { users.first }
-
-    private var weekSessions: [Session] {
-        PersistenceService.shared.sessionsThisWeek()
-    }
 
     var body: some View {
         NavigationStack {
@@ -52,6 +49,9 @@ struct LeagueView: View {
             }
             .sheet(item: $selectedProfile) { profile in
                 UserProfileDetailView(profile: profile)
+            }
+            .onAppear {
+                weekSessions = PersistenceService.shared.sessionsThisWeek()
             }
         }
     }

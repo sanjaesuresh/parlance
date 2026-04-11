@@ -5,6 +5,7 @@ struct ProgressTabView: View {
     @Query(sort: \Session.date, order: .reverse) private var sessions: [Session]
     @Query private var achievements: [Achievement]
     @StateObject private var viewModel = ProgressViewModel()
+    @State private var cachedWeekSessions: [Session] = []
 
     var body: some View {
         NavigationStack {
@@ -30,6 +31,9 @@ struct ProgressTabView: View {
             .navigationBarHidden(true)
             .safeAreaInset(edge: .top) {
                 headerView
+            }
+            .onAppear {
+                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
             }
         }
     }
@@ -72,8 +76,7 @@ struct ProgressTabView: View {
     // MARK: - Week Calendar
 
     private var weekCalendarCard: some View {
-        let weekSessions = PersistenceService.shared.sessionsThisWeek()
-        let counts = viewModel.weeklyActivity(from: weekSessions)
+        let counts = viewModel.weeklyActivity(from: cachedWeekSessions)
         let calendar = Calendar.current
         let today = calendar.component(.weekday, from: .now)
         let todayIndex = (today + 5) % 7 // Mon=0 ... Sun=6
@@ -201,8 +204,7 @@ struct ProgressTabView: View {
     // MARK: - Sessions Per Day
 
     private var sessionsPerDayCard: some View {
-        let weekSessions = PersistenceService.shared.sessionsThisWeek()
-        let counts = viewModel.weeklyActivity(from: weekSessions)
+        let counts = viewModel.weeklyActivity(from: cachedWeekSessions)
         let maxCount = max(1, counts.max() ?? 1)
         let dayLabels = ["M", "T", "W", "T", "F", "S", "S"]
         let calendar = Calendar.current
@@ -240,9 +242,8 @@ struct ProgressTabView: View {
     // MARK: - Skill Trends
 
     private var skillTrendsCard: some View {
-        let currentWeek = PersistenceService.shared.sessionsThisWeek()
-        let previousWeek = sessions.filter { session in !currentWeek.contains(where: { c in c.id == session.id }) }.prefix(20).map { $0 }
-        let trends = viewModel.skillTrends(currentWeek: currentWeek, previousWeek: previousWeek)
+        let previousWeek = sessions.filter { session in !cachedWeekSessions.contains(where: { c in c.id == session.id }) }.prefix(20).map { $0 }
+        let trends = viewModel.skillTrends(currentWeek: cachedWeekSessions, previousWeek: previousWeek)
 
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Skill Trends")
