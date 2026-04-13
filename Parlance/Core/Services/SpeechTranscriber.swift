@@ -1,4 +1,10 @@
+// Parlance/Core/Services/SpeechTranscriber.swift
 import Speech
+
+struct TranscriptionResult {
+    let transcript: String
+    let segments: [WordSegment]
+}
 
 final class SpeechTranscriber {
     enum TranscriptionError: Error {
@@ -6,7 +12,7 @@ final class SpeechTranscriber {
         case recognitionFailed(String)
     }
 
-    static func transcribe(url: URL) async throws -> String {
+    static func transcribe(url: URL) async throws -> TranscriptionResult {
         guard SFSpeechRecognizer.authorizationStatus() == .authorized else {
             throw TranscriptionError.notAvailable
         }
@@ -30,7 +36,17 @@ final class SpeechTranscriber {
                 }
                 if let result, result.isFinal {
                     didResume = true
-                    continuation.resume(returning: result.bestTranscription.formattedString)
+                    let segments: [WordSegment] = result.bestTranscription.segments.map {
+                        WordSegment(
+                            word: $0.substring,
+                            timestamp: $0.timestamp,
+                            duration: $0.duration
+                        )
+                    }
+                    continuation.resume(returning: TranscriptionResult(
+                        transcript: result.bestTranscription.formattedString,
+                        segments: segments
+                    ))
                 }
             }
         }

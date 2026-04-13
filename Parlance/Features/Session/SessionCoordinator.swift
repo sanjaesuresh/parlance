@@ -96,39 +96,55 @@ struct SessionCoordinator: View {
 
         let duration = recorder.elapsedTime
 
-        // Transcribe
-        var transcript = ""
-        do {
-            transcript = try await SpeechTranscriber.transcribe(url: audioURL)
-        } catch {
-            // Transcription failed — continue with empty transcript
-        }
+        // Transcribe + extract audio features in parallel
+        async let transcriptionTask: TranscriptionResult? = {
+            return try? await SpeechTranscriber.transcribe(url: audioURL)
+        }()
+        async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
 
-        // Delete audio file immediately
+        let (transcriptionResult, audioFeatures) = await (transcriptionTask, audioFeaturesTask)
+
+        // Delete audio file — no longer needed
         recorder.deleteRecording()
 
-        // Analyze metrics
-        let metrics: SpeechAnalyzer.Metrics
-        if transcript.isEmpty {
-            metrics = SpeechAnalyzer.Metrics(
-                fillerScore: -1, fillerCount: -1,
-                paceScore: -1, wpm: 0,
-                clarityScore: -1, structureScore: -1, vocabularyScore: -1,
-                substanceScore: -1, wordCount: 0
-            )
-        } else {
-            metrics = SpeechAnalyzer.analyze(transcript: transcript, duration: duration, mode: state.mode)
-        }
+        let transcript = transcriptionResult?.transcript ?? ""
+        let segments = transcriptionResult?.segments ?? []
 
-        let overallScore = transcript.isEmpty ? 0 : metrics.overallScore
+        // Compute timing stats from word segments
+        let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
 
-        // Best/worst moments
-        let moments = transcript.isEmpty
-            ? SpeechAnalyzer.Moments(bestTimestamp: 0, bestText: "", worstTimestamp: 0, worstText: "")
-            : SpeechAnalyzer.detectMoments(in: transcript, duration: duration)
+        // Filler count for transcript display (local, fast)
+        let fillerCount = transcript.isEmpty ? 0 : SpeechAnalyzer.analyzeFillers(in: transcript).count
 
         // Calculate XP
         let xpEarned = GamificationService.xpForSession(wasDailyChallenge: state.wasDailyChallenge)
+
+        // Fetch AI scoring — blocking call before showing results
+        let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
+        guard let url = URL(string: urlString) else {
+            onDismiss()
+            return
+        }
+        let client = ClaudeClient(baseURL: url)
+
+        let scoringResult = await FeedbackGenerator.fetchScoring(
+            client: client,
+            mode: state.mode,
+            level: state.difficultyLevel,
+            question: state.question.question,
+            transcript: transcript,
+            timingStats: timingStats,
+            audioFeatures: audioFeatures
+        )
+
+        // Fall back to a zeroed result if AI fails
+        let finalResult = scoringResult ?? ScoringResult(
+            metrics: [:],
+            overallScore: 0,
+            feedback: nil,
+            bestMoment: ScoringMoment(quote: "", reason: ""),
+            worstMoment: ScoringMoment(quote: "", reason: "")
+        )
 
         // Create session record
         let session = Session(
@@ -136,25 +152,17 @@ struct SessionCoordinator: View {
             difficultyLevel: state.difficultyLevel,
             duration: duration,
             transcript: transcript,
-            overallScore: overallScore,
-            fillerCount: metrics.fillerCount,
-            paceScore: metrics.paceScore,
-            clarityScore: metrics.clarityScore,
-            structureScore: metrics.structureScore,
-            vocabularyScore: metrics.vocabularyScore,
+            fillerCount: fillerCount,
             question: state.question.question,
-            bestMomentTimestamp: moments.bestTimestamp,
-            bestMomentText: moments.bestText,
-            worstMomentTimestamp: moments.worstTimestamp,
-            worstMomentText: moments.worstText,
+            scoringResult: finalResult,
             xpEarned: xpEarned,
             wasDailyChallenge: state.wasDailyChallenge
         )
 
-        // Track analytics
+        // Analytics
         AnalyticsService.sessionCompleted(
             mode: state.mode, level: state.difficultyLevel,
-            overallScore: overallScore, duration: duration,
+            overallScore: session.overallScore, duration: duration,
             wasDailyChallenge: state.wasDailyChallenge
         )
         if state.wasDailyChallenge {
@@ -164,56 +172,19 @@ struct SessionCoordinator: View {
         // Persist
         let persistence = PersistenceService.shared
         persistence.saveSession(session)
-
-        // Mark question seen
         persistence.markQuestionSeen(
             questionId: state.question.id,
             mode: state.mode,
             band: state.question.difficultyBand
         )
 
-        // Update user gamification
+        // Gamification
         if let user = persistence.getUser() {
             GamificationService.awardXP(to: user, wasDailyChallenge: state.wasDailyChallenge)
             GamificationService.updateStreak(for: user)
             GamificationService.incrementDailySessionCount(for: user)
-
-            // Mark daily challenge completed
-            if state.wasDailyChallenge {
-                user.dailyChallengeCompletedDate = .now
-            }
-
-            // Check achievements
+            if state.wasDailyChallenge { user.dailyChallengeCompletedDate = .now }
             checkAchievements(user: user, session: session, persistence: persistence)
-        }
-
-        // Fire AI feedback async (non-blocking)
-        if !transcript.isEmpty {
-            Task {
-                // Use baseURL init to avoid fatalError if Info.plist key missing
-                let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
-                guard let url = URL(string: urlString) else { return }
-                let client = ClaudeClient(baseURL: url)
-
-                let feedback = await FeedbackGenerator.fetchFeedback(
-                    client: client,
-                    mode: state.mode,
-                    level: state.difficultyLevel,
-                    question: state.question.question,
-                    duration: duration,
-                    overallScore: overallScore,
-                    fillerCount: metrics.fillerCount,
-                    paceScore: metrics.paceScore,
-                    clarityScore: metrics.clarityScore,
-                    structureScore: metrics.structureScore,
-                    vocabularyScore: metrics.vocabularyScore,
-                    transcript: transcript
-                )
-                await MainActor.run {
-                    session.aiCoachFeedback = feedback
-                    try? PersistenceService.shared.context.save()
-                }
-            }
         }
 
         phase = .results(session)

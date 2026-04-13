@@ -15,4 +15,5 @@ enum AppConstants {
     static let baseXP = 120
     static let dailyChallengeXP = 200
     static let feedbackTimeout: TimeInterval = 8
+    static let scoringTimeout: TimeInterval = 30
 }

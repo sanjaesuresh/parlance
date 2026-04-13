@@ -1,3 +1,4 @@
+// Parlance/Core/AI/FeedbackGenerator.swift
 import Foundation
 
 enum FeedbackGenerator {
@@ -6,76 +7,88 @@ enum FeedbackGenerator {
         mode: SessionMode,
         level: Int,
         question: String,
-        duration: TimeInterval,
-        overallScore: Int,
-        fillerCount: Int,
-        paceScore: Int,
-        clarityScore: Int,
-        structureScore: Int,
-        vocabularyScore: Int,
-        transcript: String
+        transcript: String,
+        timingStats: TimingStats,
+        audioFeatures: AudioFeatures
     ) -> String {
         let levelName = DifficultyLevel.name(for: level)
-        let excerptWords = transcript.split(separator: " ").prefix(AppConstants.transcriptExcerptLength)
-        let excerpt = excerptWords.joined(separator: " ")
-
-        return """
-        You are a direct, no-nonsense speech coach. A user just completed a \(mode.displayName) speaking session at level \(level) (\(levelName)).
-
-        They were asked: "\(question)"
-        Their recording lasted \(Int(duration)) seconds.
-        Overall score: \(overallScore)/100
-
-        Metrics:
-        - Filler words: \(fillerCount) instances
-        - Pace: \(paceScore)/10
-        - Clarity: \(clarityScore)/10
-        - Structure: \(structureScore)/10
-        - Vocabulary Strength: \(vocabularyScore)/10
-
-        Transcript excerpt: "\(excerpt)"
-
-        Return ONLY valid JSON in this exact format:
-        {
-          "feedback": "One paragraph of specific, actionable coaching feedback."
+        let metrics = MetricKey.metrics(for: mode)
+        let levelTone: String
+        switch level {
+        case 1...4: levelTone = "be constructive — acknowledge effort and point to one clear improvement"
+        case 5...6: levelTone = "be direct and specific — name what worked and what to fix"
+        default:    levelTone = "be rigorous — hold them to a high standard, be exacting"
         }
 
-        Your feedback must:
-        - Reference the actual question they were answering
-        - Acknowledge one specific strength from their performance
-        - Identify the most important area to improve
-        - Be direct and coaching-oriented — no cheerful filler phrases like "Great job!" or "Keep it up!"
-        - Be calibrated to level \(level): gentler for levels 1-4, rigorous for levels 7-10
-        - Be mode-aware: \(mode.displayName) context affects what "good" looks like
+        let metricList = metrics.map {
+            "- \($0.rawValue) (\($0.displayName)): \($0.metricDescription)"
+        }.joined(separator: "\n")
+
+        let metricsJsonTemplate = metrics.map {
+            "    \"\($0.rawValue)\": { \"score\": <0-10 int>, \"tip\": \"<one specific actionable sentence>\" }"
+        }.joined(separator: ",\n")
+
+        let transcriptSection = transcript.isEmpty
+            ? "(No transcript available — user did not speak or speech recognition failed)"
+            : "\"\(transcript)\""
+
+        return """
+        You are a direct, no-nonsense speech coach evaluating a \(mode.displayName) session.
+        Level: \(level) (\(levelName))
+        Tone for this level: \(levelTone)
+
+        Question asked:
+        "\(question)"
+
+        Transcript:
+        \(transcriptSection)
+
+        Session data:
+        - Word count: \(timingStats.wordCount)
+        - Speech-to-silence ratio: \(Int(timingStats.speechToSilenceRatio * 100))% (time actually speaking)
+        - Longest pause: \(String(format: "%.1f", timingStats.longestPauseDuration))s (after "\(timingStats.longestPauseAfterWord)")
+        - Speaking rate variation: \(String(format: "%.1f", timingStats.speakingRateStdDev)) words/10s std dev (higher = more varied pace)
+
+        Audio delivery:
+        - Pitch mean: \(String(format: "%.0f", audioFeatures.pitchMeanHz))Hz, std dev: \(String(format: "%.0f", audioFeatures.pitchStdDevHz))Hz (higher std dev = more dynamic, less monotone)
+        - Energy mean RMS: \(String(format: "%.3f", audioFeatures.energyMeanRMS)), std dev: \(String(format: "%.3f", audioFeatures.energyStdDevRMS)) (higher std dev = more energy variation)
+
+        Score these metrics for this \(mode.displayName) session:
+        \(metricList)
+
+        Return ONLY valid JSON — no markdown, no extra text, no code fences:
+        {
+          "metrics": {
+        \(metricsJsonTemplate)
+          },
+          "overallScore": <0-100 int, your holistic judgment — NOT an average>,
+          "feedback": "<one paragraph, direct coaching: reference the question, name one strength and the most important thing to fix>",
+          "bestMoment": { "quote": "<exact phrase from transcript, or empty string if no transcript>", "reason": "<why it worked>" },
+          "worstMoment": { "quote": "<exact phrase from transcript, or empty string if no transcript>", "reason": "<what to fix>" }
+        }
+
+        Rules:
+        - overallScore is YOUR judgment of overall quality, not a formula
+        - A high pitch std dev means dynamic, engaging delivery — reward it
+        - A low pitch std dev means monotone delivery — penalize engagement/delivery confidence
+        - Tips must reference what they actually said, not generic advice
+        - If transcript is empty or fewer than 10 words, score all metrics 1-2 and explain in feedback
         """
     }
 
-    static func fetchFeedback(
+    static func fetchScoring(
         client: ClaudeClient,
         mode: SessionMode,
         level: Int,
         question: String,
-        duration: TimeInterval,
-        overallScore: Int,
-        fillerCount: Int,
-        paceScore: Int,
-        clarityScore: Int,
-        structureScore: Int,
-        vocabularyScore: Int,
-        transcript: String
-    ) async -> String? {
+        transcript: String,
+        timingStats: TimingStats,
+        audioFeatures: AudioFeatures
+    ) async -> ScoringResult? {
         let prompt = buildPrompt(
             mode: mode, level: level, question: question,
-            duration: duration, overallScore: overallScore,
-            fillerCount: fillerCount, paceScore: paceScore,
-            clarityScore: clarityScore, structureScore: structureScore,
-            vocabularyScore: vocabularyScore, transcript: transcript
+            transcript: transcript, timingStats: timingStats, audioFeatures: audioFeatures
         )
-
-        do {
-            return try await client.fetchFeedback(prompt: prompt)
-        } catch {
-            return nil
-        }
+        return try? await client.fetchScoring(prompt: prompt)
     }
 }

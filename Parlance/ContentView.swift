@@ -5,6 +5,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var users: [User]
     @StateObject private var permissionsService = PermissionsService()
+    @StateObject private var networkMonitor = NetworkMonitor()
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @State private var activeSession: ActiveSessionState?
 
@@ -31,6 +32,13 @@ struct ContentView: View {
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
         }
+        .overlay {
+            if !networkMonitor.isConnected {
+                NoConnectionView()
+                    .transition(.opacity)
+            }
+        }
+        .animation(.easeInOut(duration: 0.3), value: networkMonitor.isConnected)
     }
 
     private var mainTabView: some View {
