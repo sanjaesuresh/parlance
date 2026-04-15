@@ -29,12 +29,13 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 - **On-device audio analysis** — pitch (autocorrelation) and RMS energy extracted via `vDSP`/Accelerate, giving the AI delivery data beyond text
 - **Per-word timestamps** — `SFSpeechRecognizer` segments used to detect pauses, speech-to-silence ratio, and pace variation; passed to AI for timing-aware scoring
 - **Mode-specific metrics** — 8–10 metrics per mode via `MetricKey` enum, not a one-size-fits-all formula
-- **400+ practice prompts** — bundled offline, zero API cost for question generation
+- **660+ practice prompts** — bundled offline, zero API cost for question generation
 - **Gamification** — XP, 10-level ranking system, daily streaks, achievements
 - **Daily challenge** — one featured session per day with bonus XP
 - **Weekly league** — tiered leaderboard (Bronze through Diamond)
 - **Social** — search users by username, view profiles, friends leaderboards
 - **Network gate** — full-screen offline blocker via `NWPathMonitor`; AI scoring requires connectivity
+- **Scoring retry** — if the AI call fails after recording, a dedicated error screen lets users retry scoring without re-recording
 
 ### UX
 
@@ -55,7 +56,7 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 - **AI:** Claude Haiku via Cloudflare Worker proxy — one call per session (scoring + feedback), ~$0.0006/session
 - **Audio features:** Accelerate / vDSP (pitch autocorrelation, RMS energy)
 - **Networking:** NWPathMonitor for connectivity gating
-- **Questions:** Static bundled JSON — works fully offline
+- **Questions:** Static bundled JSON (660+ prompts) — works fully offline
 
 ## Project Structure
 
@@ -75,7 +76,7 @@ Parlance/                  ← main app source
 │   ├── League/            ← social tab, leaderboards, tier info
 │   ├── Profile/           ← ProfileView, ProfileEditSheet, settings sheet
 │   └── Setup/             ← first-launch onboarding
-├── Resources/             ← questions.json (400+ prompts)
+├── Resources/             ← questions.json (660+ prompts)
 └── UI/
     ├── Components/        ← reusable SwiftUI views, NoConnectionView
     ├── Extensions/        ← Color+Hex, View+CardStyle
@@ -86,7 +87,7 @@ ParlanceUITests/
 
 ## Setup
 
-1. Open `Parlance.xcodeproj` in Xcode 16+
+1. Open `Parlance.xcodeproj` in Xcode 26+
 2. Build and run on iOS 17+ simulator or device
 3. For AI feedback: deploy the Cloudflare Worker and set `ParlanceAPIBaseURL` in Info.plist
 
@@ -99,7 +100,7 @@ _docs/
 ├── plans/        ← implementation plans (step-by-step, pre-code)
 ├── specs/        ← feature specifications (detailed behavior per screen/feature)
 ├── decisions/    ← architecture decision records
-└── user-guide/   ← end-user documentation
+└── guides/       ← engineering guide + user-facing guide
 ```
 
 ## Key Differentiators
