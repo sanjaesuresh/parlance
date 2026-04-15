@@ -14,10 +14,18 @@ struct SessionCoordinator: View {
         case countdown
         case recording
         case processing
+        case scoringFailed
         case results(Session)
     }
 
     @State private var autoStartRecording = false
+
+    // Stored so scoringFailed can retry without re-transcribing
+    @State private var pendingTranscript: String = ""
+    @State private var pendingDuration: TimeInterval = 0
+    @State private var pendingTimingStats: TimingStats = .empty
+    @State private var pendingAudioFeatures: AudioFeatures = .empty
+    @State private var pendingFillerCount: Int = 0
 
     var body: some View {
         ZStack {
@@ -70,6 +78,40 @@ struct SessionCoordinator: View {
                         .foregroundStyle(AppColors.sub)
                 }
 
+            case .scoringFailed:
+                VStack(spacing: 20) {
+                    Image(systemName: "exclamationmark.triangle")
+                        .font(.system(size: 40))
+                        .foregroundStyle(AppColors.red)
+                    Text("Scoring unavailable")
+                        .font(AppFonts.display(20))
+                        .foregroundStyle(AppColors.text)
+                    Text("Couldn't reach the scoring service.\nCheck your connection and try again.")
+                        .font(AppFonts.body(14))
+                        .foregroundStyle(AppColors.sub)
+                        .multilineTextAlignment(.center)
+                    HStack(spacing: 12) {
+                        Button("Discard") { onDismiss() }
+                            .font(AppFonts.bodyMedium(14))
+                            .foregroundStyle(AppColors.sub)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 12)
+                            .background(AppColors.card)
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                        Button("Retry") {
+                            phase = .processing
+                            Task { await scoreAndSave() }
+                        }
+                        .font(AppFonts.bodyMedium(14))
+                        .foregroundStyle(AppColors.bg)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 12)
+                        .background(AppColors.gold)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                    }
+                }
+                .padding(32)
+
             case .results(let session):
                 ResultsView(
                     session: session,
@@ -109,52 +151,60 @@ struct SessionCoordinator: View {
 
         let transcript = transcriptionResult?.transcript ?? ""
         let segments = transcriptionResult?.segments ?? []
-
-        // Compute timing stats from word segments
         let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
-
-        // Filler count for transcript display (local, fast)
         let fillerCount = transcript.isEmpty ? 0 : SpeechAnalyzer.analyzeFillers(in: transcript).count
 
-        // Calculate XP
-        let xpEarned = GamificationService.xpForSession(wasDailyChallenge: state.wasDailyChallenge)
+        // Store for retry from scoringFailed state
+        pendingTranscript = transcript
+        pendingDuration = duration
+        pendingTimingStats = timingStats
+        pendingAudioFeatures = audioFeatures
+        pendingFillerCount = fillerCount
 
-        // Fetch AI scoring — blocking call before showing results
+        await scoreAndSave()
+    }
+
+    @MainActor
+    private func scoreAndSave() async {
         let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
-        guard let url = URL(string: urlString) else {
-            onDismiss()
+        guard !urlString.isEmpty, let url = URL(string: urlString) else {
+            #if DEBUG
+            print("[Scoring] ParlanceAPIBaseURL not configured or invalid")
+            #endif
+            phase = .scoringFailed
             return
         }
         let client = ClaudeClient(baseURL: url)
 
-        let scoringResult = await FeedbackGenerator.fetchScoring(
-            client: client,
-            mode: state.mode,
-            level: state.difficultyLevel,
-            question: state.question.question,
-            transcript: transcript,
-            timingStats: timingStats,
-            audioFeatures: audioFeatures
-        )
+        let scoringResult: ScoringResult
+        do {
+            scoringResult = try await FeedbackGenerator.fetchScoring(
+                client: client,
+                mode: state.mode,
+                level: state.difficultyLevel,
+                question: state.question.question,
+                transcript: pendingTranscript,
+                timingStats: pendingTimingStats,
+                audioFeatures: pendingAudioFeatures
+            )
+        } catch {
+            #if DEBUG
+            print("[Scoring] Failed: \(error)")
+            #endif
+            phase = .scoringFailed
+            return
+        }
 
-        // Fall back to a zeroed result if AI fails
-        let finalResult = scoringResult ?? ScoringResult(
-            metrics: [:],
-            overallScore: 0,
-            feedback: nil,
-            bestMoment: ScoringMoment(quote: "", reason: ""),
-            worstMoment: ScoringMoment(quote: "", reason: "")
-        )
+        let xpEarned = GamificationService.xpForSession(wasDailyChallenge: state.wasDailyChallenge)
 
-        // Create session record
         let session = Session(
             mode: state.mode,
             difficultyLevel: state.difficultyLevel,
-            duration: duration,
-            transcript: transcript,
-            fillerCount: fillerCount,
+            duration: pendingDuration,
+            transcript: pendingTranscript,
+            fillerCount: pendingFillerCount,
             question: state.question.question,
-            scoringResult: finalResult,
+            scoringResult: scoringResult,
             xpEarned: xpEarned,
             wasDailyChallenge: state.wasDailyChallenge
         )
@@ -162,7 +212,7 @@ struct SessionCoordinator: View {
         // Analytics
         AnalyticsService.sessionCompleted(
             mode: state.mode, level: state.difficultyLevel,
-            overallScore: session.overallScore, duration: duration,
+            overallScore: session.overallScore, duration: pendingDuration,
             wasDailyChallenge: state.wasDailyChallenge
         )
         if state.wasDailyChallenge {

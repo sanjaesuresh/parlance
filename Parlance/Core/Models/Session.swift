@@ -36,10 +36,10 @@ final class Session {
     var metricTipsData: Data?
 
     // MARK: - New: AI moments
-    var bestMomentQuote: String
-    var bestMomentReason: String
-    var worstMomentQuote: String
-    var worstMomentReason: String
+    var bestMomentQuote: String = ""
+    var bestMomentReason: String = ""
+    var worstMomentQuote: String = ""
+    var worstMomentReason: String = ""
 
     // MARK: - Computed
 
@@ -50,8 +50,12 @@ final class Session {
 
     var hasTranscript: Bool { !transcript.isEmpty }
 
-    /// True if this session was scored by the new AI pipeline (has metricScoresData).
-    var isAIScored: Bool { metricScoresData != nil }
+    /// True if this session was scored by the new AI pipeline and has non-empty metric data.
+    var isAIScored: Bool {
+        guard let data = metricScoresData,
+              let scores = try? JSONDecoder().decode([String: Int].self, from: data) else { return false }
+        return !scores.isEmpty
+    }
 
     var metricScores: [String: Int] {
         get {

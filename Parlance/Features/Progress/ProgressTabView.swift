@@ -350,12 +350,26 @@ struct ProgressTabView: View {
                                     .lineLimit(2)
 
                                 // Scores row
-                                HStack(spacing: 0) {
-                                    miniMetric(label: "Filler", value: "\(session.fillerCount)", color: session.fillerCount <= 2 ? AppColors.teal : AppColors.red)
-                                    miniMetric(label: "Pace", value: "\(session.paceScore)/10", color: session.paceScore >= 7 ? AppColors.teal : AppColors.gold)
-                                    miniMetric(label: "Clarity", value: "\(session.clarityScore)/10", color: session.clarityScore >= 7 ? AppColors.teal : AppColors.gold)
-                                    miniMetric(label: "Structure", value: "\(session.structureScore)/10", color: session.structureScore >= 7 ? AppColors.teal : AppColors.gold)
-                                    miniMetric(label: "Vocab", value: "\(session.vocabularyScore)/10", color: session.vocabularyScore >= 7 ? AppColors.teal : AppColors.gold)
+                                if session.isAIScored {
+                                    let pace = session.metricScores["pace"] ?? 0
+                                    let clarity = session.metricScores["clarity"] ?? 0
+                                    let structure = session.metricScores["structure"] ?? 0
+                                    let vocab = session.metricScores["vocabulary"] ?? 0
+                                    HStack(spacing: 0) {
+                                        miniMetric(label: "Filler", value: "\(session.fillerCount)", color: session.fillerCount <= 2 ? AppColors.teal : AppColors.red)
+                                        miniMetric(label: "Pace", value: "\(pace)/10", color: pace >= 7 ? AppColors.teal : AppColors.gold)
+                                        miniMetric(label: "Clarity", value: "\(clarity)/10", color: clarity >= 7 ? AppColors.teal : AppColors.gold)
+                                        miniMetric(label: "Structure", value: "\(structure)/10", color: structure >= 7 ? AppColors.teal : AppColors.gold)
+                                        miniMetric(label: "Vocab", value: "\(vocab)/10", color: vocab >= 7 ? AppColors.teal : AppColors.gold)
+                                    }
+                                } else {
+                                    HStack(spacing: 0) {
+                                        miniMetric(label: "Filler", value: "\(session.fillerCount)", color: session.fillerCount <= 2 ? AppColors.teal : AppColors.red)
+                                        miniMetric(label: "Pace", value: "\(session.paceScore)/10", color: session.paceScore >= 7 ? AppColors.teal : AppColors.gold)
+                                        miniMetric(label: "Clarity", value: "\(session.clarityScore)/10", color: session.clarityScore >= 7 ? AppColors.teal : AppColors.gold)
+                                        miniMetric(label: "Structure", value: "\(session.structureScore)/10", color: session.structureScore >= 7 ? AppColors.teal : AppColors.gold)
+                                        miniMetric(label: "Vocab", value: "\(session.vocabularyScore)/10", color: session.vocabularyScore >= 7 ? AppColors.teal : AppColors.gold)
+                                    }
                                 }
 
                                 // AI Coach feedback

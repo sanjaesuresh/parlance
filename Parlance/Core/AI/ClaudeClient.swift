@@ -69,8 +69,14 @@ final class ClaudeClient {
 
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let http = response as? HTTPURLResponse, (200...299).contains(http.statusCode) else {
+            #if DEBUG
+            print("[ClaudeClient] Bad status. Raw:", String(data: data, encoding: .utf8) ?? "<non-UTF8>")
+            #endif
             throw URLError(.badServerResponse)
         }
+        #if DEBUG
+        print("[ClaudeClient] Raw response:", String(data: data, encoding: .utf8) ?? "<non-UTF8>")
+        #endif
         return data
     }
 }

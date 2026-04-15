@@ -1,8 +1,10 @@
+// Parlance/Features/Results/MetricCardView.swift
 import SwiftUI
 
 struct MetricCardView: View {
     let name: String
-    let score: Int
+    let description: String
+    let score: Int            // 0-10, or -1 if unavailable
     let tip: String
 
     private var scoreColor: Color {
@@ -14,11 +16,15 @@ struct MetricCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Top row: name + score
-            HStack {
-                Text(name)
-                    .font(AppFonts.bodyMedium(12))
-                    .foregroundStyle(AppColors.text)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(name)
+                        .font(AppFonts.bodyMedium(12))
+                        .foregroundStyle(AppColors.text)
+                    Text(description)
+                        .font(AppFonts.body(10))
+                        .foregroundStyle(AppColors.dim)
+                }
 
                 Spacer()
 
@@ -33,17 +39,15 @@ struct MetricCardView: View {
                 }
             }
 
-            // Progress bar
             if score >= 0 {
                 ProgressBar(
                     pct: Double(score) / 10.0 * 100.0,
-                    color: score < 5 ? AppColors.red : AppColors.gold,
+                    color: score >= 8 ? AppColors.teal : score >= 5 ? AppColors.gold : AppColors.red,
                     height: 4
                 )
                 .padding(.top, 8)
             }
 
-            // Tip text
             if !tip.isEmpty {
                 Text(tip)
                     .font(AppFonts.body(11))

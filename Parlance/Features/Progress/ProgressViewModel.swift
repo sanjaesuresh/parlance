@@ -30,20 +30,30 @@ final class ProgressViewModel: ObservableObject {
     }
 
     func skillTrends(currentWeek: [Session], previousWeek: [Session]) -> [SkillTrend] {
-        func avg(_ sessions: [Session], _ keyPath: KeyPath<Session, Int>) -> Double {
-            guard !sessions.isEmpty else { return 0 }
-            let valid = sessions.filter { $0[keyPath: keyPath] >= 0 }
-            guard !valid.isEmpty else { return 0 }
-            return Double(valid.map { $0[keyPath: keyPath] }.reduce(0, +)) / Double(valid.count)
-        }
+        let keys: [MetricKey] = MetricKey.universal
 
-        return [
-            SkillTrend(name: "Filler Words", current: avg(currentWeek, \.fillerCount), previous: avg(previousWeek, \.fillerCount)),
-            SkillTrend(name: "Pace", current: avg(currentWeek, \.paceScore), previous: avg(previousWeek, \.paceScore)),
-            SkillTrend(name: "Clarity", current: avg(currentWeek, \.clarityScore), previous: avg(previousWeek, \.clarityScore)),
-            SkillTrend(name: "Structure", current: avg(currentWeek, \.structureScore), previous: avg(previousWeek, \.structureScore)),
-            SkillTrend(name: "Vocabulary", current: avg(currentWeek, \.vocabularyScore), previous: avg(previousWeek, \.vocabularyScore))
-        ]
+        return keys.compactMap { key in
+            func avgScore(_ sessions: [Session]) -> Double {
+                let scores: [Int] = sessions.compactMap { s in
+                    if let score = s.metricScores[key.rawValue] { return score }
+                    switch key {
+                    case .pace:        return s.paceScore >= 0 ? s.paceScore : nil
+                    case .clarity:     return s.clarityScore >= 0 ? s.clarityScore : nil
+                    case .structure:   return s.structureScore >= 0 ? s.structureScore : nil
+                    case .vocabulary:  return s.vocabularyScore >= 0 ? s.vocabularyScore : nil
+                    case .fillerWords: return s.fillerCount >= 0 ? max(0, 10 - s.fillerCount) : nil
+                    default:           return nil
+                    }
+                }
+                guard !scores.isEmpty else { return 0 }
+                return Double(scores.reduce(0, +)) / Double(scores.count)
+            }
+
+            let curr = avgScore(currentWeek)
+            let prev = avgScore(previousWeek)
+            guard curr > 0 || prev > 0 else { return nil }
+            return SkillTrend(name: key.displayName, current: curr, previous: prev)
+        }
     }
 
     struct ModeBreakdown {

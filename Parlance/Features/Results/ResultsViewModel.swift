@@ -1,67 +1,47 @@
+// Parlance/Features/Results/ResultsViewModel.swift
 import SwiftUI
 import Combine
-import SwiftData
 
 @MainActor
 final class ResultsViewModel: ObservableObject {
     @Published var isRetryingFeedback = false
 
-    func retryFeedback(for session: Session, question: Question) async {
+    func retryFeedback(for session: Session, question: String) async {
         isRetryingFeedback = true
+        defer { isRetryingFeedback = false }
 
         let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
-        guard let url = URL(string: urlString) else {
-            isRetryingFeedback = false
-            return
-        }
+        guard !urlString.isEmpty, let url = URL(string: urlString) else { return }
         let client = ClaudeClient(baseURL: url)
 
-        let feedback = await FeedbackGenerator.fetchFeedback(
+        // Derive approximate timing from the stored transcript so the AI
+        // doesn't see "0 words" and fall back to scoring everything 1-2.
+        let wordCount = session.transcript.split(separator: " ").count
+        let approxTiming = TimingStats(
+            wordCount: wordCount,
+            speechToSilenceRatio: 0.75,
+            longestPauseDuration: 0,
+            longestPauseAfterWord: "",
+            speakingRateStdDev: 0
+        )
+
+        guard let result = try? await FeedbackGenerator.fetchScoring(
             client: client,
             mode: session.mode,
             level: session.difficultyLevel,
-            question: question.question,
-            duration: session.duration,
-            overallScore: session.overallScore,
-            fillerCount: session.fillerCount,
-            paceScore: session.paceScore,
-            clarityScore: session.clarityScore,
-            structureScore: session.structureScore,
-            vocabularyScore: session.vocabularyScore,
-            transcript: session.transcript
-        )
-        session.aiCoachFeedback = feedback
-        try? PersistenceService.shared.context.save()
-        isRetryingFeedback = false
-    }
+            question: question,
+            transcript: session.transcript,
+            timingStats: approxTiming,
+            audioFeatures: AudioFeatures.empty
+        ) else { return }
 
-    func fillerTip(for session: Session) -> String {
-        guard session.hasTranscript else { return "Enable speech recognition for filler word analysis." }
-        let filler = SpeechAnalyzer.analyzeFillers(in: session.transcript)
-        if let most = filler.mostFrequent {
-            return "Try to reduce your use of '\(most)' — it appeared most often."
-        }
-        return session.fillerCount == 0 ? "No filler words detected — excellent!" : "Work on reducing filler words."
-    }
-
-    func paceTip(for session: Session) -> String {
-        guard session.hasTranscript else { return "Enable speech recognition for pace analysis." }
-        let wordCount = session.transcript.split(separator: " ").count
-        return SpeechAnalyzer.analyzePace(wordCount: wordCount, duration: session.duration).tip
-    }
-
-    func clarityTip(for session: Session) -> String {
-        guard session.hasTranscript else { return "Enable speech recognition for clarity analysis." }
-        return SpeechAnalyzer.analyzeClarity(in: session.transcript).tip
-    }
-
-    func structureTip(for session: Session) -> String {
-        guard session.hasTranscript else { return "Enable speech recognition for structure analysis." }
-        return SpeechAnalyzer.analyzeStructure(in: session.transcript, mode: session.mode).tip
-    }
-
-    func vocabularyTip(for session: Session) -> String {
-        guard session.hasTranscript else { return "Enable speech recognition for vocabulary analysis." }
-        return SpeechAnalyzer.analyzeVocabulary(in: session.transcript).tip
+        session.metricScores = result.metrics.mapValues(\.score)
+        session.metricTips = result.metrics.mapValues(\.tip)
+        session.overallScore = result.overallScore
+        session.aiCoachFeedback = result.feedback
+        session.bestMomentQuote = result.bestMoment.quote
+        session.bestMomentReason = result.bestMoment.reason
+        session.worstMomentQuote = result.worstMoment.quote
+        session.worstMomentReason = result.worstMoment.reason
     }
 }

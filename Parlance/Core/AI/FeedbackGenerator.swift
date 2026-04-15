@@ -84,11 +84,11 @@ enum FeedbackGenerator {
         transcript: String,
         timingStats: TimingStats,
         audioFeatures: AudioFeatures
-    ) async -> ScoringResult? {
+    ) async throws -> ScoringResult {
         let prompt = buildPrompt(
             mode: mode, level: level, question: question,
             transcript: transcript, timingStats: timingStats, audioFeatures: audioFeatures
         )
-        return try? await client.fetchScoring(prompt: prompt)
+        return try await client.fetchScoring(prompt: prompt)
     }
 }

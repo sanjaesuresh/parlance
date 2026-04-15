@@ -46,7 +46,7 @@
     "tips": [
       "Choose a real but manageable weakness",
       "Explain what you're doing to improve",
-      "Avoid cliché answers like perfectionism"
+      "Avoid clich\u00e9 answers like perfectionism"
     ],
     "targetDuration": 60,
     "difficultyNote": "Classic self-awareness question"
@@ -5151,7 +5151,7 @@
     "id": "casual_9-10_017",
     "mode": "casual",
     "difficultyBand": "9-10",
-    "question": "Explain Gödel's incompleteness theorems to show the limits of logic.",
+    "question": "Explain G\u00f6del's incompleteness theorems to show the limits of logic.",
     "tips": [
       "Make the theorems intuitive with an analogy",
       "Explain why they shook mathematics to its core",
@@ -5199,13 +5199,16 @@
     "targetDuration": 120,
     "difficultyNote": "Elite impromptu speaking mastery"
   },
-
   {
     "id": "debate_1-2_001",
     "mode": "debate",
     "difficultyBand": "1-2",
     "question": "Should schools require students to wear uniforms? Argue for one side.",
-    "tips": ["State your position clearly upfront", "Give one strong reason with an example", "Keep it simple and direct"],
+    "tips": [
+      "State your position clearly upfront",
+      "Give one strong reason with an example",
+      "Keep it simple and direct"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Familiar topic, low stakes"
   },
@@ -5214,7 +5217,11 @@
     "mode": "debate",
     "difficultyBand": "1-2",
     "question": "Is it better to work from home or in an office? Pick a side and argue it.",
-    "tips": ["Choose one side firmly", "Use your own experience as evidence", "Anticipate one counterpoint"],
+    "tips": [
+      "Choose one side firmly",
+      "Use your own experience as evidence",
+      "Anticipate one counterpoint"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Relatable everyday topic"
   },
@@ -5223,7 +5230,11 @@
     "mode": "debate",
     "difficultyBand": "1-2",
     "question": "Should tipping be mandatory at restaurants? Defend your position.",
-    "tips": ["Open with a clear stance", "Support with a practical reason", "Keep your tone conversational"],
+    "tips": [
+      "Open with a clear stance",
+      "Support with a practical reason",
+      "Keep your tone conversational"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Common opinion topic"
   },
@@ -5232,7 +5243,11 @@
     "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Should social media platforms be held responsible for misinformation? Argue your case.",
-    "tips": ["Define what 'responsible' means in your argument", "Give a specific example", "Address the strongest counterargument"],
+    "tips": [
+      "Define what 'responsible' means in your argument",
+      "Give a specific example",
+      "Address the strongest counterargument"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Requires nuanced reasoning"
   },
@@ -5241,7 +5256,11 @@
     "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Is a college degree still worth the cost? Make your argument.",
-    "tips": ["Use data or examples to support your claim", "Acknowledge the other side briefly", "End with a strong closing statement"],
+    "tips": [
+      "Use data or examples to support your claim",
+      "Acknowledge the other side briefly",
+      "End with a strong closing statement"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Multi-faceted issue"
   },
@@ -5250,7 +5269,11 @@
     "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Should governments ban single-use plastics entirely? Defend your position.",
-    "tips": ["Frame the problem before your solution", "Use cause-and-effect reasoning", "Propose a realistic implementation"],
+    "tips": [
+      "Frame the problem before your solution",
+      "Use cause-and-effect reasoning",
+      "Propose a realistic implementation"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Policy argument requiring evidence"
   },
@@ -5259,7 +5282,11 @@
     "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Is universal basic income a viable economic policy? Argue for or against.",
-    "tips": ["Lead with your strongest economic argument", "Address feasibility concerns", "Use real-world examples from pilot programs"],
+    "tips": [
+      "Lead with your strongest economic argument",
+      "Address feasibility concerns",
+      "Use real-world examples from pilot programs"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Complex economic topic"
   },
@@ -5268,7 +5295,11 @@
     "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Should AI-generated art be eligible for copyright protection? Take a position.",
-    "tips": ["Define what makes something 'creative work'", "Address both artist and technology perspectives", "Build your argument logically"],
+    "tips": [
+      "Define what makes something 'creative work'",
+      "Address both artist and technology perspectives",
+      "Build your argument logically"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Emerging tech ethics debate"
   },
@@ -5277,7 +5308,11 @@
     "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Is space exploration a good use of public funding when there are problems on Earth? Argue your side.",
-    "tips": ["Acknowledge the tension directly", "Use specific examples of benefits or opportunity costs", "Build toward a compelling conclusion"],
+    "tips": [
+      "Acknowledge the tension directly",
+      "Use specific examples of benefits or opportunity costs",
+      "Build toward a compelling conclusion"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Requires balancing competing priorities"
   },
@@ -5286,7 +5321,11 @@
     "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Should democratic nations intervene militarily to protect human rights abroad? Defend your position with specific examples.",
-    "tips": ["Establish a clear ethical framework first", "Use historical examples precisely", "Address the sovereignty counterargument head-on"],
+    "tips": [
+      "Establish a clear ethical framework first",
+      "Use historical examples precisely",
+      "Address the sovereignty counterargument head-on"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Geopolitics with ethical complexity"
   },
@@ -5295,7 +5334,11 @@
     "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Should there be limits on free speech to prevent hate speech? Build a rigorous argument.",
-    "tips": ["Define your terms precisely", "Distinguish between legal and moral arguments", "Steelman the opposing view before dismantling it"],
+    "tips": [
+      "Define your terms precisely",
+      "Distinguish between legal and moral arguments",
+      "Steelman the opposing view before dismantling it"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Constitutional and philosophical debate"
   },
@@ -5304,7 +5347,11 @@
     "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Is economic growth fundamentally incompatible with environmental sustainability? Make your case.",
-    "tips": ["Use specific data points", "Address green growth vs. degrowth frameworks", "Conclude with a synthesis, not just a side"],
+    "tips": [
+      "Use specific data points",
+      "Address green growth vs. degrowth frameworks",
+      "Conclude with a synthesis, not just a side"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Systemic analysis required"
   },
@@ -5313,7 +5360,11 @@
     "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Should we grant legal personhood to advanced AI systems? Construct a formal argument with rebuttals to the top three counterpoints.",
-    "tips": ["Build a philosophical framework for personhood", "Anticipate and dismantle objections systematically", "Close with the implications of your position"],
+    "tips": [
+      "Build a philosophical framework for personhood",
+      "Anticipate and dismantle objections systematically",
+      "Close with the implications of your position"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Frontier philosophical debate"
   },
@@ -5322,7 +5373,11 @@
     "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Is surveillance justified if it demonstrably reduces crime? Present a complete argument addressing ethics, efficacy, and civil liberties.",
-    "tips": ["Separate empirical claims from value claims", "Address the slippery slope argument explicitly", "Use real-world case studies as evidence"],
+    "tips": [
+      "Separate empirical claims from value claims",
+      "Address the slippery slope argument explicitly",
+      "Use real-world case studies as evidence"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Multi-dimensional policy debate"
   },
@@ -5331,17 +5386,24 @@
     "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Should billionaires exist? Build a complete argument that addresses economic, moral, and systemic dimensions.",
-    "tips": ["Define your moral framework explicitly", "Use data on wealth inequality", "Address both incentive structures and systemic effects"],
+    "tips": [
+      "Define your moral framework explicitly",
+      "Use data on wealth inequality",
+      "Address both incentive structures and systemic effects"
+    ],
     "targetDuration": 120,
     "difficultyNote": "High-stakes moral and economic argument"
   },
-
   {
     "id": "storytelling_1-2_001",
     "mode": "storytelling",
     "difficultyBand": "1-2",
     "question": "Tell a story about a time you learned something new for the first time.",
-    "tips": ["Set the scene briefly", "Describe what happened step by step", "End with what you learned"],
+    "tips": [
+      "Set the scene briefly",
+      "Describe what happened step by step",
+      "End with what you learned"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Simple personal narrative"
   },
@@ -5350,7 +5412,11 @@
     "mode": "storytelling",
     "difficultyBand": "1-2",
     "question": "Describe a memorable meal you've had. What made it special?",
-    "tips": ["Use sensory details like taste and smell", "Include the people or place", "Explain why it stuck with you"],
+    "tips": [
+      "Use sensory details like taste and smell",
+      "Include the people or place",
+      "Explain why it stuck with you"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Low-pressure sensory storytelling"
   },
@@ -5359,7 +5425,11 @@
     "mode": "storytelling",
     "difficultyBand": "1-2",
     "question": "Tell a story about a pet or animal you've encountered.",
-    "tips": ["Paint a picture of the animal", "Describe what happened", "Share how it made you feel"],
+    "tips": [
+      "Paint a picture of the animal",
+      "Describe what happened",
+      "Share how it made you feel"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Friendly everyday topic"
   },
@@ -5368,7 +5438,11 @@
     "mode": "storytelling",
     "difficultyBand": "3-4",
     "question": "Tell a story about a time you stepped outside your comfort zone.",
-    "tips": ["Build tension around the decision", "Describe the emotions you felt", "Reveal how it changed you"],
+    "tips": [
+      "Build tension around the decision",
+      "Describe the emotions you felt",
+      "Reveal how it changed you"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Requires emotional vulnerability"
   },
@@ -5377,7 +5451,11 @@
     "mode": "storytelling",
     "difficultyBand": "3-4",
     "question": "Describe a day that didn't go as planned but turned out okay.",
-    "tips": ["Set up the expectation first", "Use contrast between plan and reality", "Find the silver lining naturally"],
+    "tips": [
+      "Set up the expectation first",
+      "Use contrast between plan and reality",
+      "Find the silver lining naturally"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Narrative arc with reversal"
   },
@@ -5386,7 +5464,11 @@
     "mode": "storytelling",
     "difficultyBand": "3-4",
     "question": "Tell the story of how you met someone who became important in your life.",
-    "tips": ["Start with the first impression", "Build toward the turning point", "Explain why the relationship matters"],
+    "tips": [
+      "Start with the first impression",
+      "Build toward the turning point",
+      "Explain why the relationship matters"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Relationship-focused narrative"
   },
@@ -5395,7 +5477,11 @@
     "mode": "storytelling",
     "difficultyBand": "5-6",
     "question": "Tell a story about a failure that taught you something valuable.",
-    "tips": ["Don't shy away from the failure itself", "Show the internal shift that happened", "Connect the lesson to who you are now"],
+    "tips": [
+      "Don't shy away from the failure itself",
+      "Show the internal shift that happened",
+      "Connect the lesson to who you are now"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Requires honest self-reflection"
   },
@@ -5404,7 +5490,11 @@
     "mode": "storytelling",
     "difficultyBand": "5-6",
     "question": "Describe a moment when you witnessed something that changed your perspective on the world.",
-    "tips": ["Set the scene vividly", "Show the before and after of your thinking", "Make the listener feel the shift"],
+    "tips": [
+      "Set the scene vividly",
+      "Show the before and after of your thinking",
+      "Make the listener feel the shift"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Abstract insight through concrete story"
   },
@@ -5413,7 +5503,11 @@
     "mode": "storytelling",
     "difficultyBand": "5-6",
     "question": "Tell a story about a time you had to make a difficult decision with no clear right answer.",
-    "tips": ["Present the dilemma clearly", "Walk through your reasoning", "Share the outcome and whether you'd decide differently now"],
+    "tips": [
+      "Present the dilemma clearly",
+      "Walk through your reasoning",
+      "Share the outcome and whether you'd decide differently now"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Moral complexity in personal narrative"
   },
@@ -5422,7 +5516,11 @@
     "mode": "storytelling",
     "difficultyBand": "7-8",
     "question": "Tell a story about a time you stood up for something you believed in, even when it was unpopular.",
-    "tips": ["Build the stakes before the confrontation", "Show internal conflict, not just external", "Land on the meaning, not just the outcome"],
+    "tips": [
+      "Build the stakes before the confrontation",
+      "Show internal conflict, not just external",
+      "Land on the meaning, not just the outcome"
+    ],
     "targetDuration": 90,
     "difficultyNote": "High-stakes personal narrative"
   },
@@ -5431,7 +5529,11 @@
     "mode": "storytelling",
     "difficultyBand": "7-8",
     "question": "Tell a story that illustrates the concept of resilience, drawn from your own life.",
-    "tips": ["Choose a story with real adversity", "Show the process, not just the result", "Use pacing to build emotional impact"],
+    "tips": [
+      "Choose a story with real adversity",
+      "Show the process, not just the result",
+      "Use pacing to build emotional impact"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Theme-driven narrative with emotional depth"
   },
@@ -5440,7 +5542,11 @@
     "mode": "storytelling",
     "difficultyBand": "9-10",
     "question": "Tell a story about a moment of profound connection with a stranger. Make the listener feel what you felt.",
-    "tips": ["Use micro-details to create intimacy", "Control pacing for emotional beats", "End with resonance, not resolution"],
+    "tips": [
+      "Use micro-details to create intimacy",
+      "Control pacing for emotional beats",
+      "End with resonance, not resolution"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Advanced emotional storytelling"
   },
@@ -5449,17 +5555,24 @@
     "mode": "storytelling",
     "difficultyBand": "9-10",
     "question": "Tell a story that begins with an ending. Use reverse chronology to reveal meaning.",
-    "tips": ["Open with the conclusion to hook the listener", "Peel back layers as you go backwards", "Make the origin the most powerful moment"],
+    "tips": [
+      "Open with the conclusion to hook the listener",
+      "Peel back layers as you go backwards",
+      "Make the origin the most powerful moment"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Non-linear storytelling mastery"
   },
-
   {
     "id": "explanation_1-2_001",
     "mode": "explanation",
     "difficultyBand": "1-2",
     "question": "Explain how a search engine works to someone who has never used the internet.",
-    "tips": ["Start with what problem it solves", "Use a simple analogy", "Avoid jargon completely"],
+    "tips": [
+      "Start with what problem it solves",
+      "Use a simple analogy",
+      "Avoid jargon completely"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Explain a familiar concept simply"
   },
@@ -5468,7 +5581,11 @@
     "mode": "explanation",
     "difficultyBand": "1-2",
     "question": "Explain why the sky is blue to a curious 8-year-old.",
-    "tips": ["Use language a child would understand", "Use a comparison they can visualize", "Keep it under a minute"],
+    "tips": [
+      "Use language a child would understand",
+      "Use a comparison they can visualize",
+      "Keep it under a minute"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Audience-appropriate simplification"
   },
@@ -5477,7 +5594,11 @@
     "mode": "explanation",
     "difficultyBand": "1-2",
     "question": "Explain what a budget is and why it matters to someone just starting their first job.",
-    "tips": ["Define it in one sentence", "Give a practical example", "Explain the benefit of having one"],
+    "tips": [
+      "Define it in one sentence",
+      "Give a practical example",
+      "Explain the benefit of having one"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Practical concept for beginners"
   },
@@ -5486,7 +5607,11 @@
     "mode": "explanation",
     "difficultyBand": "3-4",
     "question": "Explain the difference between a virus and a bacteria to someone with no science background.",
-    "tips": ["Use a comparison to make it tangible", "Cover size, behavior, and treatment differences", "Avoid medical jargon"],
+    "tips": [
+      "Use a comparison to make it tangible",
+      "Cover size, behavior, and treatment differences",
+      "Avoid medical jargon"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Distinguishing similar concepts"
   },
@@ -5495,7 +5620,11 @@
     "mode": "explanation",
     "difficultyBand": "3-4",
     "question": "Explain how compound interest works and why it matters for saving money.",
-    "tips": ["Start with simple interest, then build up", "Use a concrete number example", "Show the long-term impact"],
+    "tips": [
+      "Start with simple interest, then build up",
+      "Use a concrete number example",
+      "Show the long-term impact"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Abstract financial concept made concrete"
   },
@@ -5504,7 +5633,11 @@
     "mode": "explanation",
     "difficultyBand": "3-4",
     "question": "Explain how GPS navigation works on your phone.",
-    "tips": ["Start with satellites as the key idea", "Explain triangulation simply", "Connect it to the user experience"],
+    "tips": [
+      "Start with satellites as the key idea",
+      "Explain triangulation simply",
+      "Connect it to the user experience"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Technology explanation requiring analogy"
   },
@@ -5513,7 +5646,11 @@
     "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain the concept of inflation to a smart teenager. Include why it happens and why it matters.",
-    "tips": ["Use a real-world price example", "Explain supply and demand simply", "Connect to their daily life"],
+    "tips": [
+      "Use a real-world price example",
+      "Explain supply and demand simply",
+      "Connect to their daily life"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Economic concept with cause and effect"
   },
@@ -5522,7 +5659,11 @@
     "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain how machine learning is different from traditional programming to a non-technical manager.",
-    "tips": ["Contrast rules-based vs. pattern-based approaches", "Use a concrete business example", "Avoid all technical jargon"],
+    "tips": [
+      "Contrast rules-based vs. pattern-based approaches",
+      "Use a concrete business example",
+      "Avoid all technical jargon"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Technical concept for non-technical audience"
   },
@@ -5531,7 +5672,11 @@
     "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain the concept of natural selection to someone who thinks evolution means 'survival of the strongest.'",
-    "tips": ["Correct the misconception gently", "Use a specific animal example", "Emphasize adaptation over strength"],
+    "tips": [
+      "Correct the misconception gently",
+      "Use a specific animal example",
+      "Emphasize adaptation over strength"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Correcting a common misconception"
   },
@@ -5540,7 +5685,11 @@
     "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain blockchain technology to a skeptical business executive who thinks it's just hype.",
-    "tips": ["Start with the problem it solves, not the technology", "Use a supply chain or finance analogy", "Address the skepticism directly"],
+    "tips": [
+      "Start with the problem it solves, not the technology",
+      "Use a supply chain or finance analogy",
+      "Address the skepticism directly"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Persuasive explanation to skeptical audience"
   },
@@ -5549,7 +5698,11 @@
     "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain how vaccines work, including mRNA vaccines, to someone who is hesitant about getting vaccinated.",
-    "tips": ["Build trust before delivering information", "Use the immune system analogy progressively", "Address concerns without being dismissive"],
+    "tips": [
+      "Build trust before delivering information",
+      "Use the immune system analogy progressively",
+      "Address concerns without being dismissive"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Sensitive topic requiring empathy and precision"
   },
@@ -5558,7 +5711,11 @@
     "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain quantum computing to a room of investors who need to understand why it matters for their portfolio, without using the word 'quantum.'",
-    "tips": ["Frame entirely around business impact", "Use layered analogies that build on each other", "Make the abstract tangible through financial implications"],
+    "tips": [
+      "Frame entirely around business impact",
+      "Use layered analogies that build on each other",
+      "Make the abstract tangible through financial implications"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Constraint-based expert explanation"
   },
@@ -5567,17 +5724,24 @@
     "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain the concept of consciousness to a group of AI researchers and philosophers. Address why it's hard to define and what we do and don't know.",
-    "tips": ["Acknowledge the hard problem explicitly", "Distinguish subjective experience from behavior", "Present multiple frameworks without settling on one"],
+    "tips": [
+      "Acknowledge the hard problem explicitly",
+      "Distinguish subjective experience from behavior",
+      "Present multiple frameworks without settling on one"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Deep philosophical explanation to expert audience"
   },
-
   {
     "id": "negotiation_1-2_001",
     "mode": "negotiation",
     "difficultyBand": "1-2",
     "question": "You're buying a used car and the seller is asking $8,000. You want to pay $6,500. Negotiate.",
-    "tips": ["Start by showing interest in the car", "Name your price confidently", "Give a reason for your offer"],
+    "tips": [
+      "Start by showing interest in the car",
+      "Name your price confidently",
+      "Give a reason for your offer"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Simple price negotiation"
   },
@@ -5586,7 +5750,11 @@
     "mode": "negotiation",
     "difficultyBand": "1-2",
     "question": "Ask your roommate to take over a chore you usually do this week because you have a big deadline.",
-    "tips": ["Be direct about what you need", "Offer something in return", "Be respectful of their time too"],
+    "tips": [
+      "Be direct about what you need",
+      "Offer something in return",
+      "Be respectful of their time too"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Low-stakes personal negotiation"
   },
@@ -5595,7 +5763,11 @@
     "mode": "negotiation",
     "difficultyBand": "1-2",
     "question": "You received a job offer but want an extra week before your start date. Make the request.",
-    "tips": ["Express enthusiasm for the role first", "Give a reasonable reason for the delay", "Frame it as a small ask"],
+    "tips": [
+      "Express enthusiasm for the role first",
+      "Give a reasonable reason for the delay",
+      "Frame it as a small ask"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Simple workplace ask"
   },
@@ -5604,7 +5776,11 @@
     "mode": "negotiation",
     "difficultyBand": "3-4",
     "question": "You're negotiating your salary for a new job. They offered $75,000 but you want $85,000. Make your case.",
-    "tips": ["Lead with your value, not your needs", "Use market data as leverage", "Be ready with a compromise position"],
+    "tips": [
+      "Lead with your value, not your needs",
+      "Use market data as leverage",
+      "Be ready with a compromise position"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Standard salary negotiation"
   },
@@ -5613,7 +5789,11 @@
     "mode": "negotiation",
     "difficultyBand": "3-4",
     "question": "Your landlord wants to raise your rent by 15%. Negotiate a lower increase.",
-    "tips": ["Acknowledge their costs have gone up", "Present yourself as a reliable tenant", "Propose an alternative number with reasoning"],
+    "tips": [
+      "Acknowledge their costs have gone up",
+      "Present yourself as a reliable tenant",
+      "Propose an alternative number with reasoning"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Two-party negotiation with power imbalance"
   },
@@ -5622,7 +5802,11 @@
     "mode": "negotiation",
     "difficultyBand": "3-4",
     "question": "Your team wants to push a product launch back by 2 weeks. Convince your manager this is the right call.",
-    "tips": ["Lead with the risk of launching early", "Propose a specific new timeline", "Show what the extra time buys"],
+    "tips": [
+      "Lead with the risk of launching early",
+      "Propose a specific new timeline",
+      "Show what the extra time buys"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Internal stakeholder persuasion"
   },
@@ -5631,7 +5815,11 @@
     "mode": "negotiation",
     "difficultyBand": "5-6",
     "question": "You're a freelancer and a client wants to cut your rate by 20% for a long-term contract. Negotiate terms that work for both sides.",
-    "tips": ["Reframe from rate to total value", "Offer scope or timeline flexibility instead of rate cuts", "Find the client's real constraint"],
+    "tips": [
+      "Reframe from rate to total value",
+      "Offer scope or timeline flexibility instead of rate cuts",
+      "Find the client's real constraint"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Value-based negotiation"
   },
@@ -5640,7 +5828,11 @@
     "mode": "negotiation",
     "difficultyBand": "5-6",
     "question": "Two departments in your company both want the same budget allocation. You represent one side. Make your case while keeping the relationship intact.",
-    "tips": ["Acknowledge the other team's needs genuinely", "Frame your ask in terms of company-wide impact", "Propose a creative split or phased approach"],
+    "tips": [
+      "Acknowledge the other team's needs genuinely",
+      "Frame your ask in terms of company-wide impact",
+      "Propose a creative split or phased approach"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Collaborative negotiation with constraints"
   },
@@ -5649,7 +5841,11 @@
     "mode": "negotiation",
     "difficultyBand": "7-8",
     "question": "You're negotiating a partnership deal where your startup provides technology and the other company provides distribution. They want 60/40 revenue split in their favor. Counter-propose.",
-    "tips": ["Quantify the value of your technology contribution", "Use comparables from similar deals", "Propose milestone-based adjustments"],
+    "tips": [
+      "Quantify the value of your technology contribution",
+      "Use comparables from similar deals",
+      "Propose milestone-based adjustments"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Complex multi-factor business negotiation"
   },
@@ -5658,7 +5854,11 @@
     "mode": "negotiation",
     "difficultyBand": "7-8",
     "question": "A key employee wants to leave for a competitor. You have budget for a raise but not as much as the competing offer. Negotiate their retention.",
-    "tips": ["Understand their real motivation beyond money", "Offer non-monetary benefits strategically", "Make them feel valued, not trapped"],
+    "tips": [
+      "Understand their real motivation beyond money",
+      "Offer non-monetary benefits strategically",
+      "Make them feel valued, not trapped"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Retention negotiation with emotional dynamics"
   },
@@ -5667,7 +5867,11 @@
     "mode": "negotiation",
     "difficultyBand": "9-10",
     "question": "You're mediating a dispute between two co-founders about the company's strategic direction. One wants to focus on enterprise, the other on consumer. Find a resolution.",
-    "tips": ["Identify shared goals before addressing differences", "Propose a framework for the decision, not just a compromise", "Address the emotional undercurrent directly"],
+    "tips": [
+      "Identify shared goals before addressing differences",
+      "Propose a framework for the decision, not just a compromise",
+      "Address the emotional undercurrent directly"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Multi-party mediation with high stakes"
   },
@@ -5676,17 +5880,24 @@
     "mode": "negotiation",
     "difficultyBand": "9-10",
     "question": "You represent a small country negotiating a trade agreement with a much larger economy. They want tariff-free access to your market. Negotiate terms that protect your interests.",
-    "tips": ["Identify your unique leverage points", "Use phased implementation as a tool", "Frame concessions as mutual gains"],
+    "tips": [
+      "Identify your unique leverage points",
+      "Use phased implementation as a tool",
+      "Frame concessions as mutual gains"
+    ],
     "targetDuration": 120,
     "difficultyNote": "Asymmetric power negotiation requiring strategy"
   },
-
   {
     "id": "impromptu_1-2_001",
     "mode": "impromptu",
     "difficultyBand": "1-2",
     "question": "What's the best season of the year and why?",
-    "tips": ["Pick one and commit", "Give 2-3 specific reasons", "Keep it light and personal"],
+    "tips": [
+      "Pick one and commit",
+      "Give 2-3 specific reasons",
+      "Keep it light and personal"
+    ],
     "targetDuration": 30,
     "difficultyNote": "Simple opinion with no wrong answer"
   },
@@ -5695,7 +5906,11 @@
     "mode": "impromptu",
     "difficultyBand": "1-2",
     "question": "If you could have dinner with any person, living or dead, who would it be and why?",
-    "tips": ["Name the person immediately", "Explain what you'd want to talk about", "Keep it under a minute"],
+    "tips": [
+      "Name the person immediately",
+      "Explain what you'd want to talk about",
+      "Keep it under a minute"
+    ],
     "targetDuration": 30,
     "difficultyNote": "Fun hypothetical, low pressure"
   },
@@ -5704,7 +5919,11 @@
     "mode": "impromptu",
     "difficultyBand": "1-2",
     "question": "What's the most useful app on your phone and why?",
-    "tips": ["Name it right away", "Give a specific use case", "Explain why it beats alternatives"],
+    "tips": [
+      "Name it right away",
+      "Give a specific use case",
+      "Explain why it beats alternatives"
+    ],
     "targetDuration": 30,
     "difficultyNote": "Concrete everyday topic"
   },
@@ -5713,7 +5932,11 @@
     "mode": "impromptu",
     "difficultyBand": "3-4",
     "question": "You have 60 seconds. Convince someone to visit your hometown.",
-    "tips": ["Open with a hook about what makes it unique", "Hit 2-3 specific highlights", "End with emotional appeal"],
+    "tips": [
+      "Open with a hook about what makes it unique",
+      "Hit 2-3 specific highlights",
+      "End with emotional appeal"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Time-pressured persuasion"
   },
@@ -5722,7 +5945,11 @@
     "mode": "impromptu",
     "difficultyBand": "3-4",
     "question": "If you had to teach a class on any subject, what would it be and how would you start the first lesson?",
-    "tips": ["Name the subject immediately", "Describe how you'd hook students", "Show passion for the topic"],
+    "tips": [
+      "Name the subject immediately",
+      "Describe how you'd hook students",
+      "Show passion for the topic"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Creative thinking under time pressure"
   },
@@ -5731,7 +5958,11 @@
     "mode": "impromptu",
     "difficultyBand": "3-4",
     "question": "What's a common piece of advice that you think is actually wrong? Explain why.",
-    "tips": ["State the conventional wisdom first", "Give your contrarian take clearly", "Back it up with experience or reasoning"],
+    "tips": [
+      "State the conventional wisdom first",
+      "Give your contrarian take clearly",
+      "Back it up with experience or reasoning"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Contrarian argument on the spot"
   },
@@ -5740,7 +5971,11 @@
     "mode": "impromptu",
     "difficultyBand": "5-6",
     "question": "You just became CEO of a major airline. What's the first thing you change and why?",
-    "tips": ["Pick one specific change", "Explain the current problem it solves", "Describe the expected impact"],
+    "tips": [
+      "Pick one specific change",
+      "Explain the current problem it solves",
+      "Describe the expected impact"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Business reasoning under pressure"
   },
@@ -5749,7 +5984,11 @@
     "mode": "impromptu",
     "difficultyBand": "5-6",
     "question": "A friend says 'luck matters more than hard work.' Do you agree? You have 60 seconds to respond.",
-    "tips": ["Take a clear position immediately", "Use a specific example to illustrate", "Acknowledge nuance without waffling"],
+    "tips": [
+      "Take a clear position immediately",
+      "Use a specific example to illustrate",
+      "Acknowledge nuance without waffling"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Philosophical position under time pressure"
   },
@@ -5758,7 +5997,11 @@
     "mode": "impromptu",
     "difficultyBand": "5-6",
     "question": "Describe the color blue to someone who has never seen it.",
-    "tips": ["Use sensory analogies beyond sight", "Connect it to emotions and experiences", "Be creative and specific"],
+    "tips": [
+      "Use sensory analogies beyond sight",
+      "Connect it to emotions and experiences",
+      "Be creative and specific"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Abstract creative challenge"
   },
@@ -5767,7 +6010,11 @@
     "mode": "impromptu",
     "difficultyBand": "7-8",
     "question": "You're asked to give a 90-second toast at a colleague's farewell party. You barely know them. Go.",
-    "tips": ["Open with a universal workplace truth", "Pivot to something specific about the person", "End with a genuine wish for their future"],
+    "tips": [
+      "Open with a universal workplace truth",
+      "Pivot to something specific about the person",
+      "End with a genuine wish for their future"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Social impromptu with limited information"
   },
@@ -5776,7 +6023,11 @@
     "mode": "impromptu",
     "difficultyBand": "7-8",
     "question": "If you could eliminate one invention from history, what would it be? Defend your choice.",
-    "tips": ["Choose something non-obvious", "Think through second-order effects", "Build a compelling case quickly"],
+    "tips": [
+      "Choose something non-obvious",
+      "Think through second-order effects",
+      "Build a compelling case quickly"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Complex hypothetical requiring systems thinking"
   },
@@ -5785,7 +6036,11 @@
     "mode": "impromptu",
     "difficultyBand": "9-10",
     "question": "You're given a random word: 'bridge.' Give a 2-minute speech that turns this word into a meaningful message.",
-    "tips": ["Use the first 5 seconds to find your angle", "Build from literal to metaphorical", "Land on a universal truth"],
+    "tips": [
+      "Use the first 5 seconds to find your angle",
+      "Build from literal to metaphorical",
+      "Land on a universal truth"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Elite impromptu keyword speech"
   },
@@ -5794,17 +6049,24 @@
     "mode": "impromptu",
     "difficultyBand": "9-10",
     "question": "You have 90 seconds to explain why the person listening to you should care about a topic you just made up on the spot. Pick any topic and go.",
-    "tips": ["Commit to your topic in the first 3 seconds", "Use the rule of three for structure", "End with a call to action or provocative question"],
+    "tips": [
+      "Commit to your topic in the first 3 seconds",
+      "Use the rule of three for structure",
+      "End with a call to action or provocative question"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Maximum impromptu difficulty"
   },
-
   {
     "id": "networking_1-2_001",
     "mode": "networking",
     "difficultyBand": "1-2",
     "question": "You're at a meetup and someone asks 'So, what do you do?' Give your answer.",
-    "tips": ["Keep it to 2-3 sentences", "Say what you do and why you enjoy it", "End with something that invites follow-up"],
+    "tips": [
+      "Keep it to 2-3 sentences",
+      "Say what you do and why you enjoy it",
+      "End with something that invites follow-up"
+    ],
     "targetDuration": 30,
     "difficultyNote": "Basic self-introduction"
   },
@@ -5813,7 +6075,11 @@
     "mode": "networking",
     "difficultyBand": "1-2",
     "question": "Introduce yourself to someone at a coffee shop who's working on their laptop. Start a conversation naturally.",
-    "tips": ["Open with an observation, not a question about their work", "Share something about yourself briefly", "Be warm and not pushy"],
+    "tips": [
+      "Open with an observation, not a question about their work",
+      "Share something about yourself briefly",
+      "Be warm and not pushy"
+    ],
     "targetDuration": 30,
     "difficultyNote": "Casual social initiation"
   },
@@ -5822,7 +6088,11 @@
     "mode": "networking",
     "difficultyBand": "1-2",
     "question": "You just joined a new team. Introduce yourself in the group chat or standup meeting.",
-    "tips": ["Name, role, and one fun fact", "Mention what you're excited to work on", "Keep it brief and friendly"],
+    "tips": [
+      "Name, role, and one fun fact",
+      "Mention what you're excited to work on",
+      "Keep it brief and friendly"
+    ],
     "targetDuration": 30,
     "difficultyNote": "Professional team introduction"
   },
@@ -5831,7 +6101,11 @@
     "mode": "networking",
     "difficultyBand": "3-4",
     "question": "You're at a conference and spot someone whose work you admire. Introduce yourself and start a meaningful conversation.",
-    "tips": ["Reference their specific work, not just their title", "Share your relevant connection to the topic", "Ask a thoughtful question, not just compliments"],
+    "tips": [
+      "Reference their specific work, not just their title",
+      "Share your relevant connection to the topic",
+      "Ask a thoughtful question, not just compliments"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Cold approach with someone senior"
   },
@@ -5840,7 +6114,11 @@
     "mode": "networking",
     "difficultyBand": "3-4",
     "question": "Deliver your 30-second elevator pitch: who you are, what you do, and what you're looking for.",
-    "tips": ["Lead with the problem you solve, not your title", "Make it specific enough to be memorable", "End with a clear ask or next step"],
+    "tips": [
+      "Lead with the problem you solve, not your title",
+      "Make it specific enough to be memorable",
+      "End with a clear ask or next step"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Structured elevator pitch"
   },
@@ -5849,7 +6127,11 @@
     "mode": "networking",
     "difficultyBand": "3-4",
     "question": "You're reconnecting with a former colleague you haven't spoken to in 2 years. Reach out and re-establish the connection.",
-    "tips": ["Reference something specific from when you worked together", "Update them briefly on what you're doing now", "Suggest a concrete next step to catch up"],
+    "tips": [
+      "Reference something specific from when you worked together",
+      "Update them briefly on what you're doing now",
+      "Suggest a concrete next step to catch up"
+    ],
     "targetDuration": 45,
     "difficultyNote": "Re-engaging a dormant connection"
   },
@@ -5858,7 +6140,11 @@
     "mode": "networking",
     "difficultyBand": "5-6",
     "question": "You're at an industry dinner and seated next to a potential mentor. Build rapport over the course of a conversation.",
-    "tips": ["Ask about their journey, not just achievements", "Find genuine common ground", "Share your own story authentically"],
+    "tips": [
+      "Ask about their journey, not just achievements",
+      "Find genuine common ground",
+      "Share your own story authentically"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Building deeper professional connection"
   },
@@ -5867,7 +6153,11 @@
     "mode": "networking",
     "difficultyBand": "5-6",
     "question": "You want to ask someone in your network for an introduction to a specific person at their company. Make the ask.",
-    "tips": ["Explain why you want the introduction specifically", "Make it easy for them to say yes", "Offer to draft the intro email for them"],
+    "tips": [
+      "Explain why you want the introduction specifically",
+      "Make it easy for them to say yes",
+      "Offer to draft the intro email for them"
+    ],
     "targetDuration": 60,
     "difficultyNote": "Asking for a favor professionally"
   },
@@ -5876,7 +6166,11 @@
     "mode": "networking",
     "difficultyBand": "7-8",
     "question": "You're at a networking event with people from a completely different industry. Find common ground and make yourself memorable.",
-    "tips": ["Ask about their challenges, not their job titles", "Draw parallels between your industries", "Share a unique perspective they won't hear elsewhere"],
+    "tips": [
+      "Ask about their challenges, not their job titles",
+      "Draw parallels between your industries",
+      "Share a unique perspective they won't hear elsewhere"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Cross-industry networking"
   },
@@ -5885,7 +6179,11 @@
     "mode": "networking",
     "difficultyBand": "7-8",
     "question": "You're introducing two people in your network who you think would benefit from knowing each other. Make the introduction compelling for both.",
-    "tips": ["Explain why each person would value the connection", "Highlight specific overlaps or complementary skills", "Set up a concrete reason for them to follow up"],
+    "tips": [
+      "Explain why each person would value the connection",
+      "Highlight specific overlaps or complementary skills",
+      "Set up a concrete reason for them to follow up"
+    ],
     "targetDuration": 75,
     "difficultyNote": "Connector role requiring audience awareness"
   },
@@ -5894,7 +6192,11 @@
     "mode": "networking",
     "difficultyBand": "9-10",
     "question": "You have 2 minutes at a podium to introduce yourself to a room of 200 people at a conference. Make them want to talk to you afterwards.",
-    "tips": ["Open with a hook that creates curiosity", "Share one specific story that reveals your expertise", "Close with an invitation that makes approaching you easy"],
+    "tips": [
+      "Open with a hook that creates curiosity",
+      "Share one specific story that reveals your expertise",
+      "Close with an invitation that makes approaching you easy"
+    ],
     "targetDuration": 90,
     "difficultyNote": "High-stakes public self-introduction"
   },
@@ -5903,8 +6205,2404 @@
     "mode": "networking",
     "difficultyBand": "9-10",
     "question": "You disagree with a senior leader's opinion at a networking dinner. Express your view respectfully while maintaining the relationship and your credibility.",
-    "tips": ["Validate their perspective before presenting yours", "Use questions to guide them to your reasoning", "Leave them with something to think about, not a debate to win"],
+    "tips": [
+      "Validate their perspective before presenting yours",
+      "Use questions to guide them to your reasoning",
+      "Leave them with something to think about, not a debate to win"
+    ],
     "targetDuration": 90,
     "difficultyNote": "Diplomatic disagreement with power dynamics"
+  },
+  {
+    "id": "debate_1-2_004",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should video games be allowed in school during lunch breaks?",
+    "tips": [
+      "State your position in the first sentence",
+      "Give one concrete reason why",
+      "Acknowledge the other side briefly before closing"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Familiar school topic, low pressure"
+  },
+  {
+    "id": "debate_1-2_005",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to have one best friend than a large group of friends?",
+    "tips": [
+      "Commit to one side immediately",
+      "Use a personal example to support your point",
+      "Keep your reasoning tight and simple"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Personal preference topic, no wrong answer"
+  },
+  {
+    "id": "debate_1-2_006",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should kids be allowed to choose their own bedtimes?",
+    "tips": [
+      "Lead with your position",
+      "Give a reason from a child's or parent's perspective",
+      "Wrap up with a one-sentence conclusion"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Relatable everyday topic"
+  },
+  {
+    "id": "debate_1-2_007",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to live in a city than in the countryside?",
+    "tips": [
+      "Pick one and stick with it",
+      "Name one specific advantage of your choice",
+      "Address one downside briefly to show balance"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple lifestyle comparison"
+  },
+  {
+    "id": "debate_1-2_008",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should junk food be completely banned from school cafeterias?",
+    "tips": [
+      "State whether you agree or disagree",
+      "Use a concrete health or fairness reason",
+      "End with what should happen instead"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Clear-cut everyday policy"
+  },
+  {
+    "id": "debate_1-2_009",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is reading books better for you than watching movies?",
+    "tips": [
+      "Commit to one side immediately",
+      "Give one cognitive or emotional benefit",
+      "Keep examples simple and relatable"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Easy comparison, familiar context"
+  },
+  {
+    "id": "debate_1-2_010",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should children have smartphones before the age of 13?",
+    "tips": [
+      "State your position early",
+      "Use a safety or development reason",
+      "Acknowledge parents' role in the argument"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Relatable tech debate"
+  },
+  {
+    "id": "debate_1-2_011",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should plastic bags be banned in all grocery stores?",
+    "tips": [
+      "Take a clear stance",
+      "Give one environmental or practical reason",
+      "Mention what the alternative should be"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple environmental policy"
+  },
+  {
+    "id": "debate_1-2_012",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to save money than to spend it on experiences?",
+    "tips": [
+      "Pick one and defend it",
+      "Use a short personal or hypothetical example",
+      "Close with the key benefit of your choice"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Personal finance preference"
+  },
+  {
+    "id": "debate_1-2_013",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should school days be shorter than they currently are?",
+    "tips": [
+      "State your view in the opening sentence",
+      "Cite one effect on students or learning",
+      "Keep your argument focused on one main point"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "School policy, low stakes"
+  },
+  {
+    "id": "debate_1-2_014",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it more important to be kind than to be honest?",
+    "tips": [
+      "Pick one value to defend",
+      "Use a real-life scenario to illustrate",
+      "Acknowledge that both matter before landing your point"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple values debate"
+  },
+  {
+    "id": "debate_1-2_015",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should all students be required to learn a second language?",
+    "tips": [
+      "Commit to your position",
+      "Give one career or cultural benefit",
+      "Keep it to one strong argument"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "School policy, broad audience"
+  },
+  {
+    "id": "debate_1-2_016",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to live alone than to have roommates?",
+    "tips": [
+      "State your preference clearly",
+      "Name one practical reason",
+      "End with the lifestyle benefit of your choice"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Everyday lifestyle comparison"
+  },
+  {
+    "id": "debate_1-2_017",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should cars be banned from city centers?",
+    "tips": [
+      "Take a clear stance",
+      "Give one reason related to environment, safety, or convenience",
+      "Mention one trade-off to show you understand the other side"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple urban policy debate"
+  },
+  {
+    "id": "debate_1-2_018",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is cooking at home better than eating at restaurants most of the time?",
+    "tips": [
+      "Commit to one side",
+      "Give one health, cost, or lifestyle reason",
+      "Close with a short personal note"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Everyday lifestyle topic"
+  },
+  {
+    "id": "debate_1-2_019",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should physical education grades count toward your GPA?",
+    "tips": [
+      "State your position clearly",
+      "Use one reason about fairness or health",
+      "Keep the argument direct and simple"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "School fairness question"
+  },
+  {
+    "id": "debate_1-2_020",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should voting be made mandatory for all citizens?",
+    "tips": [
+      "Take a position on individual freedom vs civic duty",
+      "Give one clear reason",
+      "Acknowledge the opposing view in one sentence"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Civic responsibility topic"
+  },
+  {
+    "id": "debate_1-2_021",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to be an early riser than a night owl?",
+    "tips": [
+      "Commit to one lifestyle",
+      "Give one productivity or health benefit",
+      "Keep it personal and relatable"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple lifestyle preference"
+  },
+  {
+    "id": "debate_1-2_022",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should music lessons be required in primary school?",
+    "tips": [
+      "State your stance",
+      "Give one developmental benefit or cost argument",
+      "Close with what schools should prioritize"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "School curriculum debate"
+  },
+  {
+    "id": "debate_1-2_023",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should zoos be abolished?",
+    "tips": [
+      "Pick a side",
+      "Give one reason about animal welfare or education",
+      "Acknowledge what would replace the benefit you oppose"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Animal welfare basics"
+  },
+  {
+    "id": "debate_1-2_024",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to travel with a group than to travel solo?",
+    "tips": [
+      "Commit to one style",
+      "Name one safety or enjoyment benefit",
+      "Keep examples concrete and brief"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Personal travel preference"
+  },
+  {
+    "id": "debate_1-2_025",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should dogs be allowed in all workplaces?",
+    "tips": [
+      "State your position",
+      "Give one reason about morale, allergies, or professionalism",
+      "Close with a practical note"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Workplace comfort question"
+  },
+  {
+    "id": "debate_1-2_026",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should public transportation be free for all riders?",
+    "tips": [
+      "Take a stance on cost versus access",
+      "Give one reason about equity or funding",
+      "Acknowledge one trade-off"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple public policy"
+  },
+  {
+    "id": "debate_1-2_027",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to be a specialist than a generalist in your career?",
+    "tips": [
+      "Pick one path to defend",
+      "Give one market or fulfillment reason",
+      "Keep the argument grounded in real life"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Career path comparison"
+  },
+  {
+    "id": "debate_1-2_028",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should fast food restaurants be taxed more heavily?",
+    "tips": [
+      "State whether you support the tax or not",
+      "Give one health or economic reason",
+      "Keep your argument to one clear point"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple tax/health policy"
+  },
+  {
+    "id": "debate_1-2_029",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should children be given more household responsibilities?",
+    "tips": [
+      "Take a clear stance",
+      "Give one reason about development or fairness",
+      "Close with a brief example"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Family responsibility debate"
+  },
+  {
+    "id": "debate_1-2_030",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is technology making us less creative?",
+    "tips": [
+      "Commit to yes or no",
+      "Give one concrete example of technology helping or hurting creativity",
+      "Keep it conversational"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Technology and creativity question"
+  },
+  {
+    "id": "debate_1-2_031",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should national parks charge entry fees?",
+    "tips": [
+      "State your position on access vs funding",
+      "Give one reason about conservation or equity",
+      "End with what the alternative might be"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple environmental policy"
+  },
+  {
+    "id": "debate_1-2_032",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to learn through failure than through careful planning?",
+    "tips": [
+      "Pick one approach",
+      "Give one reason about resilience or efficiency",
+      "Use a brief relatable example"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Learning style debate"
+  },
+  {
+    "id": "debate_1-2_033",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should team sports be required for all students?",
+    "tips": [
+      "Take a clear stance",
+      "Give one benefit or reason to opt out",
+      "Acknowledge individual differences briefly"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "School activity policy"
+  },
+  {
+    "id": "debate_1-2_034",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is breakfast the most important meal of the day?",
+    "tips": [
+      "Commit to yes or no",
+      "Give one health or productivity reason",
+      "Keep it light and direct"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple health claim debate"
+  },
+  {
+    "id": "debate_1-2_035",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should smartphones be banned in restaurants?",
+    "tips": [
+      "State your view on etiquette vs freedom",
+      "Give one social or experience reason",
+      "Close with a practical note"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Everyday etiquette debate"
+  },
+  {
+    "id": "debate_1-2_036",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to own pets than not to?",
+    "tips": [
+      "Pick your position",
+      "Give one benefit or responsibility argument",
+      "Keep the examples simple"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Personal lifestyle choice"
+  },
+  {
+    "id": "debate_1-2_037",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should all schools have a dress code even if not full uniforms?",
+    "tips": [
+      "State your stance on individual expression vs community norms",
+      "Give one concrete reason",
+      "Close simply"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "School policy variation"
+  },
+  {
+    "id": "debate_1-2_038",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is watching too much TV harmful?",
+    "tips": [
+      "Take a clear position",
+      "Give one specific effect on health or time",
+      "Keep the argument focused and brief"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Media consumption basics"
+  },
+  {
+    "id": "debate_1-2_039",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Should people be allowed to bring food and drinks into movie theaters?",
+    "tips": [
+      "Pick your side",
+      "Give one reason about experience or revenue",
+      "Keep it light and fun"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Consumer choice debate"
+  },
+  {
+    "id": "debate_1-2_040",
+    "mode": "debate",
+    "difficultyBand": "1-2",
+    "question": "Is it better to have fewer, higher-quality belongings than many cheap ones?",
+    "tips": [
+      "Commit to one lifestyle",
+      "Give one practical or environmental reason",
+      "Close with the key benefit"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple consumer values"
+  },
+  {
+    "id": "debate_3-4_004",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should social media platforms be legally required to verify the age of their users?",
+    "tips": [
+      "State your position on privacy versus protection",
+      "Give one specific reason about safety or enforcement",
+      "Acknowledge the technical or civil liberties trade-off"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Social media regulation, some nuance"
+  },
+  {
+    "id": "debate_3-4_005",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is remote work more productive than working in an office?",
+    "tips": [
+      "Commit to one side based on evidence or experience",
+      "Give two supporting reasons\u2014one personal, one broader",
+      "Address the strongest counterpoint briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Workplace policy with real-world evidence"
+  },
+  {
+    "id": "debate_3-4_006",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should companies pay employees based on performance rather than seniority?",
+    "tips": [
+      "State your view on fairness versus incentives",
+      "Support with one workplace outcome reason",
+      "Acknowledge how seniority rewards loyalty"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Compensation philosophy debate"
+  },
+  {
+    "id": "debate_3-4_007",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is a college degree still worth the cost in today's economy?",
+    "tips": [
+      "Take a clear stance on ROI or opportunity cost",
+      "Cite one data point or real-world trend",
+      "Acknowledge that it depends on the field before concluding"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Education investment debate"
+  },
+  {
+    "id": "debate_3-4_008",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should fast fashion brands be held legally accountable for environmental damage?",
+    "tips": [
+      "Position yourself on regulation vs market forces",
+      "Give one environmental or labor reason",
+      "Mention enforcement challenges briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Corporate accountability debate"
+  },
+  {
+    "id": "debate_3-4_009",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is it better to specialize early in your career or stay generalist for longer?",
+    "tips": [
+      "Commit to one strategy",
+      "Give one career outcome reason",
+      "Address the risk of the path you chose"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Career strategy, moderate complexity"
+  },
+  {
+    "id": "debate_3-4_010",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should employers have the right to check their employees' social media profiles?",
+    "tips": [
+      "State your position on privacy versus employer rights",
+      "Give one clear reason",
+      "Address the line between public and private conduct"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Privacy and employment debate"
+  },
+  {
+    "id": "debate_3-4_011",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is standardized testing a fair measure of student potential?",
+    "tips": [
+      "Take a stance on objectivity versus limitation",
+      "Give one concrete critique or defense of the format",
+      "Acknowledge what standardized tests do or don't capture"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Education policy with evidence"
+  },
+  {
+    "id": "debate_3-4_012",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should a four-day work week become the standard for office workers?",
+    "tips": [
+      "State your view on productivity versus structure",
+      "Give one organizational or worker wellbeing reason",
+      "Address the sectors where this may not work"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Work culture policy debate"
+  },
+  {
+    "id": "debate_3-4_013",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is multitasking ultimately counterproductive?",
+    "tips": [
+      "Commit to yes or no with a brief rationale",
+      "Cite one cognitive or output-quality reason",
+      "Acknowledge when multitasking can be useful"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Productivity debate with research backing"
+  },
+  {
+    "id": "debate_3-4_014",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should unpaid internships be made illegal?",
+    "tips": [
+      "State your view on access versus exploitation",
+      "Give one reason about class inequality or labor value",
+      "Acknowledge the impact on small organizations"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Labor rights, moderate stakes"
+  },
+  {
+    "id": "debate_3-4_015",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is online learning as effective as in-person education?",
+    "tips": [
+      "Pick a position and state it clearly",
+      "Compare one specific learning outcome between formats",
+      "Address the type of learner for whom your argument is strongest"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Education format comparison"
+  },
+  {
+    "id": "debate_3-4_016",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should cities prioritize cycling infrastructure over expanding roads?",
+    "tips": [
+      "State your position on urban planning values",
+      "Give one reason about sustainability or congestion",
+      "Acknowledge the practical challenges of one side"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Urban mobility policy"
+  },
+  {
+    "id": "debate_3-4_017",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is it more important for companies to prioritize social impact over profit?",
+    "tips": [
+      "Commit to one priority",
+      "Give one real-world business outcome or stakeholder reason",
+      "Address the long-term sustainability of your position"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Business ethics debate"
+  },
+  {
+    "id": "debate_3-4_018",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should gambling advertising be banned entirely?",
+    "tips": [
+      "State your view on personal freedom versus harm prevention",
+      "Give one reason about addiction or normalization",
+      "Acknowledge the revenue or freedom trade-off"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Consumer protection debate"
+  },
+  {
+    "id": "debate_3-4_019",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should companies be required to achieve gender diversity on their boards?",
+    "tips": [
+      "Position yourself on mandate versus voluntary change",
+      "Give one reason about representation or performance",
+      "Acknowledge the implementation challenge"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Corporate governance debate"
+  },
+  {
+    "id": "debate_3-4_020",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is cancel culture a net positive or net negative for society?",
+    "tips": [
+      "Take a clear stance on accountability versus mob dynamics",
+      "Give one concrete effect on behavior or discourse",
+      "Address the strongest counterpoint in one sentence"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Contemporary social debate"
+  },
+  {
+    "id": "debate_3-4_021",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should sugary drinks be taxed to reduce obesity rates?",
+    "tips": [
+      "State your view on paternalism versus public health",
+      "Give one evidence-based or principled reason",
+      "Acknowledge regressive tax concerns briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Public health policy debate"
+  },
+  {
+    "id": "debate_3-4_022",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is competition in schools beneficial for students' development?",
+    "tips": [
+      "Commit to one position on motivation versus stress",
+      "Give one developmental or outcome reason",
+      "Acknowledge age-appropriate variation"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Education philosophy debate"
+  },
+  {
+    "id": "debate_3-4_023",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should the retirement age be raised given increasing life expectancy?",
+    "tips": [
+      "State your view on fiscal sustainability versus worker wellbeing",
+      "Give one demographic or economic reason",
+      "Address the differential impact on physical versus desk jobs"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Social policy with demographic context"
+  },
+  {
+    "id": "debate_3-4_024",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should companies be legally required to report their carbon footprint?",
+    "tips": [
+      "State your position on transparency versus regulatory burden",
+      "Give one reason about accountability or investor rights",
+      "Acknowledge enforcement complexity"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Corporate sustainability debate"
+  },
+  {
+    "id": "debate_3-4_025",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is it better for consumers to negotiate salary than accept the first offer?",
+    "tips": [
+      "Commit to one strategy",
+      "Give one financial or cultural reason",
+      "Acknowledge when accepting quickly makes sense"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Career negotiation debate"
+  },
+  {
+    "id": "debate_3-4_026",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should employers be required to offer mental health days as part of sick leave?",
+    "tips": [
+      "State your view on employee wellbeing versus cost",
+      "Give one productivity or retention reason",
+      "Acknowledge potential misuse concerns briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Workplace wellbeing policy"
+  },
+  {
+    "id": "debate_3-4_027",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is entrepreneurship more risky than traditional employment in the long run?",
+    "tips": [
+      "Take a clear position on risk definition",
+      "Give one financial or personal security reason",
+      "Acknowledge survivor bias or employment instability"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Career risk comparison"
+  },
+  {
+    "id": "debate_3-4_028",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should all clothing brands be required to use sustainable materials by 2035?",
+    "tips": [
+      "State your position on regulation versus innovation",
+      "Give one environmental or cost reason",
+      "Address the timeline feasibility briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Industry sustainability mandate"
+  },
+  {
+    "id": "debate_3-4_029",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should freelancers receive the same legal benefits as full-time employees?",
+    "tips": [
+      "Position yourself on worker classification",
+      "Give one reason about equity or market flexibility",
+      "Acknowledge how this might affect freelance demand"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Gig economy labor debate"
+  },
+  {
+    "id": "debate_3-4_030",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is brand loyalty ultimately bad for consumers?",
+    "tips": [
+      "Commit to your view on habit versus rational choice",
+      "Give one economic or quality reason",
+      "Acknowledge when brand loyalty is beneficial"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Consumer behavior debate"
+  },
+  {
+    "id": "debate_3-4_031",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should performance reviews be replaced with continuous real-time feedback?",
+    "tips": [
+      "State your view on feedback culture",
+      "Give one reason about timeliness or bias reduction",
+      "Acknowledge the manager workload trade-off"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Management practice debate"
+  },
+  {
+    "id": "debate_3-4_032",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should cities adopt universal basic income pilot programs?",
+    "tips": [
+      "Position yourself on the policy's merit",
+      "Give one economic or social welfare reason",
+      "Acknowledge funding or inflation concerns briefly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Social policy pilot debate"
+  },
+  {
+    "id": "debate_3-4_033",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is remote hiring as reliable as meeting candidates in person?",
+    "tips": [
+      "Commit to yes or no",
+      "Give one reason about bias reduction or culture fit",
+      "Acknowledge what's lost or gained in each format"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Hiring practice debate"
+  },
+  {
+    "id": "debate_3-4_034",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should social media platforms be allowed to run political advertising?",
+    "tips": [
+      "State your view on free speech versus misinformation risk",
+      "Give one democratic or market reason",
+      "Acknowledge the line between political speech and propaganda"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Digital democracy debate"
+  },
+  {
+    "id": "debate_3-4_035",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is it better to negotiate a raise annually than wait to be recognized?",
+    "tips": [
+      "Commit to proactive versus patient approach",
+      "Give one career advancement or relationship reason",
+      "Acknowledge when timing matters"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Career advancement strategy"
+  },
+  {
+    "id": "debate_3-4_036",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should luxury goods be taxed more heavily than necessities?",
+    "tips": [
+      "State your view on progressive consumption tax",
+      "Give one equity or economic reason",
+      "Acknowledge consumer freedom trade-offs"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Tax policy debate"
+  },
+  {
+    "id": "debate_3-4_037",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is working longer hours correlated with higher career success?",
+    "tips": [
+      "Commit to yes or no based on evidence or values",
+      "Give one productivity or sustainability reason",
+      "Acknowledge industry variation"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Work ethic versus efficiency debate"
+  },
+  {
+    "id": "debate_3-4_038",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should all companies publish their internal pay scales?",
+    "tips": [
+      "State your view on pay transparency",
+      "Give one equity or market efficiency reason",
+      "Acknowledge competitive sensitivity concerns"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Corporate transparency debate"
+  },
+  {
+    "id": "debate_3-4_039",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Is it better for society to have more small businesses than large corporations?",
+    "tips": [
+      "Pick one economic structure to defend",
+      "Give one innovation, employment, or community reason",
+      "Acknowledge the efficiency trade-off"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Economic structure debate"
+  },
+  {
+    "id": "debate_3-4_040",
+    "mode": "debate",
+    "difficultyBand": "3-4",
+    "question": "Should employers be required to offer paid parental leave to all parents?",
+    "tips": [
+      "State your view on equity versus cost",
+      "Give one developmental or retention reason",
+      "Acknowledge the challenge for small businesses"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Family policy debate"
+  },
+  {
+    "id": "debate_5-6_004",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should artificial intelligence be regulated by a single global authority rather than individual nations?",
+    "tips": [
+      "State your position on sovereignty versus coordination",
+      "Give two reasons\u2014one about enforcement effectiveness, one about geopolitical risk",
+      "Address the strongest objection to your view"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Policy complexity requiring nuanced argument"
+  },
+  {
+    "id": "debate_5-6_005",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is shareholder primacy still the right organizing principle for corporations?",
+    "tips": [
+      "Take a clear stance on stakeholder theory",
+      "Support with one governance and one societal impact argument",
+      "Address the argument that profit maximization benefits society broadly"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Corporate governance with economic theory"
+  },
+  {
+    "id": "debate_5-6_006",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should whistleblowers who expose corporate wrongdoing receive full legal immunity?",
+    "tips": [
+      "Position yourself on accountability versus legal order",
+      "Give two reasons\u2014one about public benefit, one about procedural risk",
+      "Acknowledge how to define the scope of protection"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Legal and ethical nuance required"
+  },
+  {
+    "id": "debate_5-6_007",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is remote-first culture better for long-term company culture than hybrid models?",
+    "tips": [
+      "Commit to a position on culture formation",
+      "Give two reasons grounded in collaboration or equity",
+      "Address the specific failure mode of remote-first you acknowledge"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Organizational design debate"
+  },
+  {
+    "id": "debate_5-6_008",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should governments regulate the pricing of life-saving medications?",
+    "tips": [
+      "State your view on market forces versus public health",
+      "Give two reasons\u2014one about access equity, one about R&D incentives",
+      "Address the pharmaceutical innovation trade-off directly"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Healthcare economics with competing values"
+  },
+  {
+    "id": "debate_5-6_009",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is affirmative action an effective and fair tool for reducing workplace inequality?",
+    "tips": [
+      "Take a clear stance on remediation versus merit",
+      "Give two supporting arguments, one empirical and one principled",
+      "Address the strongest counterargument before your conclusion"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Complex equity debate requiring evidence"
+  },
+  {
+    "id": "debate_5-6_010",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should major tech companies be broken up under existing antitrust law?",
+    "tips": [
+      "Position yourself on market concentration versus consumer benefit",
+      "Give two reasons\u2014one about competition, one about innovation",
+      "Address the global competitiveness concern"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Technology policy with economic depth"
+  },
+  {
+    "id": "debate_5-6_011",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is venture capital funding net positive for innovation in the long run?",
+    "tips": [
+      "Commit to your view on capital allocation efficiency",
+      "Give two reasons\u2014one about speed, one about incentive distortion",
+      "Address whether alternatives like public R&D are adequate"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Innovation economics debate"
+  },
+  {
+    "id": "debate_5-6_012",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should cities prioritize affordable housing mandates over market-rate luxury development?",
+    "tips": [
+      "State your view on housing as a right versus commodity",
+      "Give two reasons\u2014one about community stability, one about supply economics",
+      "Address the fiscal revenue trade-off"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Urban policy with economic complexity"
+  },
+  {
+    "id": "debate_5-6_013",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is the gig economy fundamentally exploitative to workers?",
+    "tips": [
+      "Take a position on flexibility versus precarity",
+      "Give two reasons\u2014one about labor rights, one about worker preferences",
+      "Address the platform perspective on enabling entrepreneurship"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Labor economics debate"
+  },
+  {
+    "id": "debate_5-6_014",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should all nations be legally required to adopt a carbon tax?",
+    "tips": [
+      "State your view on international climate governance",
+      "Give two reasons\u2014one about effectiveness, one about sovereignty",
+      "Address the competitive disadvantage concern"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Climate policy with international dimensions"
+  },
+  {
+    "id": "debate_5-6_015",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is a skills-based hiring model more equitable and effective than degree requirements?",
+    "tips": [
+      "Commit to one hiring paradigm",
+      "Give two reasons\u2014one about access equity, one about job performance",
+      "Address signaling value and the risk of subjective skills assessment"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "HR policy with equity implications"
+  },
+  {
+    "id": "debate_5-6_016",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should social media companies be legally liable for harmful content on their platforms?",
+    "tips": [
+      "Position yourself on Section 230-style immunity",
+      "Give two reasons\u2014one about accountability, one about free speech",
+      "Address the moderation feasibility challenge at scale"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Platform liability debate"
+  },
+  {
+    "id": "debate_5-6_017",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is universal healthcare economically viable without significantly increasing taxes?",
+    "tips": [
+      "Take a clear stance on healthcare system design",
+      "Give two fiscal or health outcome reasons",
+      "Address the administrative efficiency argument and its limitations"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Healthcare economics debate"
+  },
+  {
+    "id": "debate_5-6_018",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should companies be legally required to publish annual pay equity data?",
+    "tips": [
+      "State your view on transparency versus competitive sensitivity",
+      "Give two reasons\u2014one about accountability, one about market correction",
+      "Address the limitations of pay data in isolation"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Corporate equity reporting debate"
+  },
+  {
+    "id": "debate_5-6_019",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is ESG investing a genuine driver of change or primarily a marketing exercise?",
+    "tips": [
+      "Commit to a position on capital market activism",
+      "Give two reasons\u2014one about portfolio pressure, one about measurement gaps",
+      "Address the greenwashing evidence directly"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Investment ethics with evidence"
+  },
+  {
+    "id": "debate_5-6_020",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should senior corporate executives face term limits similar to political offices?",
+    "tips": [
+      "Position yourself on governance accountability",
+      "Give two reasons\u2014one about organizational renewal, one about fiduciary risk",
+      "Address the succession and institutional knowledge challenge"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Corporate governance debate"
+  },
+  {
+    "id": "debate_5-6_021",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is open-source software better for long-term innovation than proprietary software?",
+    "tips": [
+      "State your view on collaboration versus private investment",
+      "Give two reasons\u2014one about access, one about incentive structure",
+      "Address the sustainability and security challenges of open source"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Technology innovation debate"
+  },
+  {
+    "id": "debate_5-6_022",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should zero-hours contracts be banned across all industries?",
+    "tips": [
+      "Take a clear stance on labor flexibility versus security",
+      "Give two reasons\u2014one about worker rights, one about employer constraints",
+      "Address sectors where zero-hours may serve workers' preferences"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Labor policy with sector nuance"
+  },
+  {
+    "id": "debate_5-6_023",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should autonomous vehicles be approved for public roads before human-level safety is proven?",
+    "tips": [
+      "Position yourself on the precautionary principle versus progress",
+      "Give two reasons\u2014one about safety benchmarks, one about net harm reduction",
+      "Address the trolley problem and legal liability questions briefly"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Technology governance with ethics"
+  },
+  {
+    "id": "debate_5-6_024",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is merit-based pay effective at improving organizational performance long-term?",
+    "tips": [
+      "Commit to your view on incentive design",
+      "Give two reasons\u2014one about motivation, one about collaboration and culture",
+      "Address the measurement bias and gaming problems"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Management theory debate"
+  },
+  {
+    "id": "debate_5-6_025",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should cryptocurrency be taxed as currency rather than property?",
+    "tips": [
+      "State your view on how the tax treatment shapes behavior",
+      "Give two reasons\u2014one about economic function, one about enforcement fairness",
+      "Address the volatility and definitional challenges"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Financial regulation debate"
+  },
+  {
+    "id": "debate_5-6_026",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should data collected by consumer applications be treated as public infrastructure?",
+    "tips": [
+      "Position yourself on data ownership and access",
+      "Give two reasons\u2014one about innovation, one about privacy or competition",
+      "Address the practical governance challenges"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Data economics and rights debate"
+  },
+  {
+    "id": "debate_5-6_027",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is globalization net positive for middle-income workers in developed economies?",
+    "tips": [
+      "Take a clear stance on distributional effects",
+      "Give two reasons\u2014one about consumer benefit, one about wage pressure",
+      "Address the retraining and transition challenge"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Trade economics with human impact"
+  },
+  {
+    "id": "debate_5-6_028",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should the nonprofit sector face stricter accountability for the effectiveness of its capital allocation?",
+    "tips": [
+      "State your view on measuring social impact",
+      "Give two reasons\u2014one about donor expectations, one about mission integrity",
+      "Address the difficulty of standardizing outcome measurement"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Social sector effectiveness debate"
+  },
+  {
+    "id": "debate_5-6_029",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is the media's profit motive fundamentally incompatible with quality journalism?",
+    "tips": [
+      "Position yourself on the economics of truth",
+      "Give two reasons\u2014one about incentive structures, one about successful counterexamples",
+      "Address the alternative funding model question"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Media economics and democracy"
+  },
+  {
+    "id": "debate_5-6_030",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should algorithmic hiring tools be required to pass independent bias audits before deployment?",
+    "tips": [
+      "State your view on AI accountability in HR",
+      "Give two reasons\u2014one about equity, one about accuracy",
+      "Address the audit methodology challenge"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "AI ethics in practice"
+  },
+  {
+    "id": "debate_5-6_031",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is the patent system currently helping or hurting medical innovation?",
+    "tips": [
+      "Commit to a position on intellectual property in healthcare",
+      "Give two reasons\u2014one about incentives, one about access barriers",
+      "Address the generic drug market and compulsory licensing"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "IP policy with healthcare stakes"
+  },
+  {
+    "id": "debate_5-6_032",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should governments subsidize electric vehicle adoption through direct rebates?",
+    "tips": [
+      "State your view on the role of government in technology transitions",
+      "Give two reasons\u2014one about speed, one about equity or efficiency",
+      "Address the regressive nature of EV incentives at high price points"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Climate and industrial policy"
+  },
+  {
+    "id": "debate_5-6_033",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is social entrepreneurship more effective than traditional charity at solving poverty?",
+    "tips": [
+      "Position yourself on market-based versus grant-based social change",
+      "Give two reasons\u2014one about sustainability, one about scale",
+      "Address the mission drift risk in social enterprises"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Social impact theory debate"
+  },
+  {
+    "id": "debate_5-6_034",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should news media companies be legally required to label AI-generated content?",
+    "tips": [
+      "State your view on transparency in the information ecosystem",
+      "Give two reasons\u2014one about audience trust, one about quality standards",
+      "Address the practical enforcement challenges"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Media and AI policy"
+  },
+  {
+    "id": "debate_5-6_035",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is the subscription economy better for consumers than one-time purchases?",
+    "tips": [
+      "Commit to one model",
+      "Give two reasons\u2014one about cost, one about access and lock-in",
+      "Address the cumulative cost and dependency concern"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Consumer economics debate"
+  },
+  {
+    "id": "debate_5-6_036",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should companies be prohibited from using non-compete clauses for most employees?",
+    "tips": [
+      "State your view on labor mobility versus trade secret protection",
+      "Give two reasons\u2014one about worker freedom, one about innovation ecosystems",
+      "Address the narrow use-case for legitimate non-competes"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Employment law policy"
+  },
+  {
+    "id": "debate_5-6_037",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is it more effective to change corporate behavior through regulation or investor pressure?",
+    "tips": [
+      "Choose one lever of change",
+      "Give two reasons\u2014one about speed, one about accountability",
+      "Address the capture or divestment limitations of your chosen mechanism"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Governance mechanism debate"
+  },
+  {
+    "id": "debate_5-6_038",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should professional sports leagues be required to pay college athletes?",
+    "tips": [
+      "Position yourself on amateurism versus labor rights",
+      "Give two reasons\u2014one about revenue sharing, one about education mission",
+      "Address Title IX equity implications briefly"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Sports labor policy"
+  },
+  {
+    "id": "debate_5-6_039",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Is it better for cities to invest in public transit over highway infrastructure?",
+    "tips": [
+      "Commit to one infrastructure priority",
+      "Give two reasons\u2014one about climate or equity, one about economic development",
+      "Address regional variation in transit viability"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Urban infrastructure policy"
+  },
+  {
+    "id": "debate_5-6_040",
+    "mode": "debate",
+    "difficultyBand": "5-6",
+    "question": "Should pharmaceutical companies be required to fund independent drug safety trials?",
+    "tips": [
+      "State your view on industry self-regulation",
+      "Give two reasons\u2014one about bias reduction, one about cost allocation",
+      "Address the innovation funding model impact"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Healthcare industry accountability"
+  },
+  {
+    "id": "debate_7-8_004",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should governments implement a universal basic income as automation displaces workers?",
+    "tips": [
+      "Make a clear thesis on UBI as a structural solution or a distraction",
+      "Support with two arguments\u2014one about labor market dynamics, one about social cohesion",
+      "Anticipate and reframe the inflation or disincentive counterargument"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Complex economic policy with competing evidence"
+  },
+  {
+    "id": "debate_7-8_005",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is the attention economy fundamentally incompatible with democratic deliberation?",
+    "tips": [
+      "Define the tension precisely before taking a stance",
+      "Give two reasons\u2014one about information quality, one about polarization mechanisms",
+      "Address whether platform design reform is sufficient or structural change is required"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Systems-level democracy and tech debate"
+  },
+  {
+    "id": "debate_7-8_006",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should nuclear energy be treated as a cornerstone of a net-zero carbon strategy?",
+    "tips": [
+      "Take a position on risk-adjusted clean energy",
+      "Give two reasons\u2014one about baseload reliability, one about waste or proliferation",
+      "Engage directly with the cost and timeline objection"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Energy policy with technical and ethical dimensions"
+  },
+  {
+    "id": "debate_7-8_007",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should platform companies like Uber and DoorDash be legally required to classify workers as employees?",
+    "tips": [
+      "Position yourself on worker classification",
+      "Give two arguments\u2014one about rights and benefits, one about market design",
+      "Address the potential cost increases and worker preferences for flexibility"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Gig economy and labor law complexity"
+  },
+  {
+    "id": "debate_7-8_008",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is meritocracy in practice a myth that legitimizes inequality?",
+    "tips": [
+      "Commit to a position on opportunity versus outcome equality",
+      "Give two reasons\u2014one about structural barriers, one about incentive value",
+      "Address whether meritocracy as an ideal is worth preserving separately from its flawed implementation"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Sociological debate requiring conceptual precision"
+  },
+  {
+    "id": "debate_7-8_009",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should data be treated as a public utility rather than private corporate property?",
+    "tips": [
+      "Define data ownership models clearly before arguing",
+      "Give two reasons\u2014one about competition, one about democratic control",
+      "Address the innovation incentive and data quality maintenance concerns"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Data governance with political economy depth"
+  },
+  {
+    "id": "debate_7-8_010",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should nations prioritize GDP growth or ecological sustainability when they conflict?",
+    "tips": [
+      "State your position on economic frameworks",
+      "Give two reasons\u2014one about long-run viability, one about political feasibility",
+      "Address the distributional argument\u2014who suffers most from each choice"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Macroeconomic and environmental policy tension"
+  },
+  {
+    "id": "debate_7-8_011",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is representative democracy sufficient in the age of digital communication and complexity?",
+    "tips": [
+      "Take a position on institutional adaptation",
+      "Give two reasons\u2014one about representation quality, one about legitimacy",
+      "Address specific reform proposals rather than leaving the critique abstract"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Democratic theory with contemporary urgency"
+  },
+  {
+    "id": "debate_7-8_012",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should pharmaceutical companies be prohibited from patenting research funded by public grants?",
+    "tips": [
+      "Position yourself on the public-private research boundary",
+      "Give two reasons\u2014one about access equity, one about the innovation funding model",
+      "Address the argument that patents are needed to attract private capital for development"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Biomedical innovation and IP policy"
+  },
+  {
+    "id": "debate_7-8_013",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is the current higher education model economically unsustainable, and who should bear the cost?",
+    "tips": [
+      "Commit to a systemic position",
+      "Give two reasons\u2014one about value delivered, one about cost allocation",
+      "Address the credential market and what replaces it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Education economics with structural stakes"
+  },
+  {
+    "id": "debate_7-8_014",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should national borders be open to labor migration between wealthy and developing nations?",
+    "tips": [
+      "Take a clear stance on global labor markets",
+      "Give two reasons\u2014one about economic efficiency, one about brain drain or sovereignty",
+      "Address the domestic political and cultural integration challenges"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Immigration and international economics"
+  },
+  {
+    "id": "debate_7-8_015",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is it ethical for companies to use behavioral psychology to drive product engagement?",
+    "tips": [
+      "Define the ethical line between design and manipulation",
+      "Give two reasons\u2014one about consent, one about social harm",
+      "Address the market freedom and platform competition counterargument"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Technology ethics with philosophical depth"
+  },
+  {
+    "id": "debate_7-8_016",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should AI-generated content be required to carry permanent disclosure labels?",
+    "tips": [
+      "State your position on transparency in the information ecosystem",
+      "Give two reasons\u2014one about trust, one about content quality",
+      "Address the definitional and enforcement challenges at scale"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "AI policy with democratic implications"
+  },
+  {
+    "id": "debate_7-8_017",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is activist investing an effective or destructive check on corporate governance?",
+    "tips": [
+      "Position yourself on the function of shareholder activism",
+      "Give two reasons\u2014one about accountability, one about short-termism risk",
+      "Address the cases where activism has created or destroyed value"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Capital markets and governance complexity"
+  },
+  {
+    "id": "debate_7-8_018",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should governments impose a meaningful wealth tax to fund public investment?",
+    "tips": [
+      "Commit to a fiscal position",
+      "Give two reasons\u2014one about redistribution, one about capital formation",
+      "Address capital flight and enforcement feasibility directly"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Tax policy with economic trade-offs"
+  },
+  {
+    "id": "debate_7-8_019",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is long-term strategic thinking structurally incompatible with quarterly earnings capitalism?",
+    "tips": [
+      "Make a structural argument about capital market incentives",
+      "Give two reasons\u2014one about governance design, one about stakeholder misalignment",
+      "Address counterexamples like Berkshire Hathaway or patient capital models"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Corporate strategy and financial system critique"
+  },
+  {
+    "id": "debate_7-8_020",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should surveillance capitalism be regulated even if it means free services become paid?",
+    "tips": [
+      "Position yourself on the free-for-data trade-off",
+      "Give two reasons\u2014one about consumer harm, one about market distortion",
+      "Address whether regulation will actually shift to subscription models"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Platform economics and privacy policy"
+  },
+  {
+    "id": "debate_7-8_021",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should developing countries prioritize industrialization or leapfrog directly to sustainable development?",
+    "tips": [
+      "Commit to a development trajectory",
+      "Give two reasons\u2014one about sovereignty and precedent, one about resource constraints",
+      "Address the funding and technology transfer question directly"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "International development policy complexity"
+  },
+  {
+    "id": "debate_7-8_022",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is intellectual property protection currently helping or inhibiting global innovation?",
+    "tips": [
+      "Take a systemic view on IP regimes",
+      "Give two reasons\u2014one about incentive creation, one about access and diffusion barriers",
+      "Address the difference between IP in pharmaceuticals versus software versus content"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "IP economics across domains"
+  },
+  {
+    "id": "debate_7-8_023",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should private equity firms face significantly greater regulatory scrutiny?",
+    "tips": [
+      "Position yourself on capital structure and accountability",
+      "Give two reasons\u2014one about portfolio company workers, one about systemic financial risk",
+      "Address the argument that PE improves operational efficiency"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Financial sector regulation debate"
+  },
+  {
+    "id": "debate_7-8_024",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should political advertising be banned on social media platforms?",
+    "tips": [
+      "State your view on platform power and democracy",
+      "Give two reasons\u2014one about micro-targeting risk, one about free speech",
+      "Address the definitional challenge of political versus issue-based advertising"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Digital democracy policy debate"
+  },
+  {
+    "id": "debate_7-8_025",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is degrowth economics a credible policy alternative to GDP-centric governance?",
+    "tips": [
+      "Commit to a position on economic paradigm change",
+      "Give two reasons\u2014one about ecological viability, one about political economy",
+      "Address the distributional and employment consequences of degrowth"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Macroeconomic paradigm debate"
+  },
+  {
+    "id": "debate_7-8_026",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should facial recognition technology be banned from all public spaces?",
+    "tips": [
+      "Position yourself on security versus civil liberties",
+      "Give two reasons\u2014one about surveillance risk, one about existing legal safeguards",
+      "Address law enforcement use cases that generate support for the technology"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Civil liberties and technology policy"
+  },
+  {
+    "id": "debate_7-8_027",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is the nonprofit sector an effective allocator of philanthropic capital compared to government?",
+    "tips": [
+      "Take a comparative institutional stance",
+      "Give two reasons\u2014one about accountability, one about innovation versus equity",
+      "Address the democratic legitimacy argument for public allocation"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Social sector and governance comparison"
+  },
+  {
+    "id": "debate_7-8_028",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should gene editing be permitted for therapeutic purposes but prohibited for genetic enhancement?",
+    "tips": [
+      "Define the therapeutic versus enhancement distinction clearly",
+      "Give two reasons\u2014one about consent, one about inequality",
+      "Address the slippery slope and definitional enforcement challenge"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Bioethics policy with precision required"
+  },
+  {
+    "id": "debate_7-8_029",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is the free market structurally incapable of solving the housing affordability crisis alone?",
+    "tips": [
+      "Commit to a market or interventionist position",
+      "Give two reasons\u2014one about supply incentives, one about financialization",
+      "Address the zoning and land use political economy"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Housing economics with structural analysis"
+  },
+  {
+    "id": "debate_7-8_030",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should the United Nations Security Council veto power be reformed?",
+    "tips": [
+      "Take a position on multilateral governance",
+      "Give two reasons\u2014one about legitimacy, one about effectiveness in modern conflicts",
+      "Address the political feasibility and veto-holder objections"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "International relations and institutional design"
+  },
+  {
+    "id": "debate_7-8_031",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is globalization reversible, and would reversing it benefit most people?",
+    "tips": [
+      "Make a structural argument about trade dependency",
+      "Give two reasons\u2014one about economic resilience, one about geopolitical risk",
+      "Address the developing world export growth argument for globalization"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Global economics and political economy"
+  },
+  {
+    "id": "debate_7-8_032",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should governments nationalize critical digital infrastructure like cloud platforms?",
+    "tips": [
+      "Position yourself on state versus private ownership of critical systems",
+      "Give two reasons\u2014one about security and resilience, one about innovation",
+      "Address the efficiency and international competitiveness arguments against nationalization"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Critical infrastructure governance debate"
+  },
+  {
+    "id": "debate_7-8_033",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is hybrid work ultimately destroying organizational culture compared to fully in-person?",
+    "tips": [
+      "Commit to a cultural model",
+      "Give two reasons\u2014one about trust formation, one about equity and access",
+      "Address the generational and role-specific variation in hybrid effectiveness"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Organizational culture with evidence"
+  },
+  {
+    "id": "debate_7-8_034",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should the tech sector face sector-specific regulation similar to banking and healthcare?",
+    "tips": [
+      "State your view on industry-specific versus horizontal regulation",
+      "Give two reasons\u2014one about systemic risk, one about innovation trade-offs",
+      "Address the international regulatory arbitrage concern"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Technology governance framework debate"
+  },
+  {
+    "id": "debate_7-8_035",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is the current international financial architecture biased against developing economies?",
+    "tips": [
+      "Take a structural position on global economic institutions",
+      "Give two reasons\u2014one about debt dynamics, one about reserve currency power",
+      "Address the IMF conditionality and World Bank reform debates"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "International political economy depth"
+  },
+  {
+    "id": "debate_7-8_036",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should companies be required to internalize their full environmental costs through mandatory pricing?",
+    "tips": [
+      "Position yourself on externality pricing mechanisms",
+      "Give two reasons\u2014one about market efficiency, one about political economy",
+      "Address the competitiveness and trade policy implications"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Environmental economics policy"
+  },
+  {
+    "id": "debate_7-8_037",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is the current model of academic publishing compatible with scientific progress?",
+    "tips": [
+      "Commit to a position on open access versus commercial publishing",
+      "Give two reasons\u2014one about access equity, one about quality control",
+      "Address the incentive structure for researchers and institutions"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Knowledge commons policy debate"
+  },
+  {
+    "id": "debate_7-8_038",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should AI systems be granted any form of legal recognition or rights?",
+    "tips": [
+      "Define the threshold for moral or legal consideration",
+      "Give two reasons\u2014one about current AI capabilities, one about future liability",
+      "Address the corporate personhood analogy and its limits"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "AI ethics and law, advanced framing required"
+  },
+  {
+    "id": "debate_7-8_039",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Is effective altruism a coherent and sufficient framework for large-scale social change?",
+    "tips": [
+      "Position yourself on utilitarian versus structural approaches to change",
+      "Give two reasons\u2014one about measurement, one about systemic versus individual action",
+      "Address the longtermism critique and prioritization debates within EA"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Moral philosophy applied to social change"
+  },
+  {
+    "id": "debate_7-8_040",
+    "mode": "debate",
+    "difficultyBand": "7-8",
+    "question": "Should constitutional democracies impose structural limits on corporate political spending?",
+    "tips": [
+      "State your view on money as political speech",
+      "Give two reasons\u2014one about democratic equity, one about corporate rights",
+      "Address the Citizens United reasoning and its critics"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Constitutional law and democracy debate"
+  },
+  {
+    "id": "debate_9-10_004",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is liberal democracy structurally incapable of making the long-term sacrifices required for effective climate action?",
+    "tips": [
+      "Construct a precise institutional critique, not a general critique of politics",
+      "Deploy two structural arguments\u2014one about electoral cycles, one about interest group capture",
+      "Engage with the empirical counterexamples of democratic climate legislation and their limits"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Systemic analysis of democratic institutions"
+  },
+  {
+    "id": "debate_9-10_005",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should the concept of national sovereignty be subordinated to global governance mechanisms on existential risks?",
+    "tips": [
+      "Define the specific class of risks that justify sovereignty override",
+      "Give two reasons\u2014one about coordination failure, one about legitimacy of global governance",
+      "Address the authoritarian capture and democratic accountability problems with global institutions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International relations and political philosophy"
+  },
+  {
+    "id": "debate_9-10_006",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does the proliferation of large language models constitute a genuine epistemological threat to democratic society?",
+    "tips": [
+      "Precisely define the epistemological mechanism at stake",
+      "Give two reasons\u2014one about truth production, one about institutional trust",
+      "Address the information abundance versus quality distinction and historical analogies with past information revolutions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Philosophy of knowledge applied to AI"
+  },
+  {
+    "id": "debate_9-10_007",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should antitrust law be redesigned around data and attention rather than traditional price theory?",
+    "tips": [
+      "Make a conceptual argument for why traditional antitrust metrics are insufficient",
+      "Give two reasons\u2014one about market power measurement, one about consumer harm definition",
+      "Address whether existing consumer protection law can be extended without new antitrust theory"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Legal and economic theory debate"
+  },
+  {
+    "id": "debate_9-10_008",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is the concept of economic growth structurally incompatible with planetary boundaries in the long run?",
+    "tips": [
+      "Distinguish between GDP growth and material throughput carefully",
+      "Give two reasons\u2014one about decoupling evidence, one about political economy of transition",
+      "Address the distributional justice of growth-versus-sustainability trade-offs in developing versus developed contexts"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Ecological economics and development theory"
+  },
+  {
+    "id": "debate_9-10_009",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should constitutional democracies impose structural limits on market concentration in the interest of democratic equality?",
+    "tips": [
+      "Construct a theory of how economic concentration translates into political inequality",
+      "Give two reasons\u2014one about regulatory capture, one about media and narrative control",
+      "Address the efficiency arguments for scale and the constitutional limits of economic regulation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political economy and constitutional theory"
+  },
+  {
+    "id": "debate_9-10_010",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is the post-World War II international order experiencing structural collapse or adaptive evolution?",
+    "tips": [
+      "Define your unit of analysis\u2014institutions, norms, or power distributions",
+      "Give two reasons\u2014one about great power rivalry, one about institutional resilience",
+      "Address the difference between reform and replacement in multilateral governance"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International relations theory and historical analysis"
+  },
+  {
+    "id": "debate_9-10_011",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does the fiduciary model of corporate governance systematically externalize social costs that markets cannot price?",
+    "tips": [
+      "Specify which externalities are structurally invisible to fiduciary reasoning",
+      "Give two reasons\u2014one about long-horizon risks, one about non-market stakeholder harms",
+      "Address the stakeholder capitalism literature and its critics"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Corporate law and political economy"
+  },
+  {
+    "id": "debate_9-10_012",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is representative democracy as currently practiced sufficient to govern societies defined by deep technical complexity?",
+    "tips": [
+      "Distinguish representation failures from democratic legitimacy failures",
+      "Give two reasons\u2014one about epistemic challenges, one about temporal misalignment",
+      "Address technocracy as an alternative and its democratic legitimacy deficit"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Democratic theory and governance design"
+  },
+  {
+    "id": "debate_9-10_013",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should the precautionary principle govern the deployment of dual-use biotechnologies?",
+    "tips": [
+      "Define what precaution requires institutionally, not just ethically",
+      "Give two reasons\u2014one about catastrophic risk asymmetry, one about innovation cost",
+      "Address the governance vacuum between national regulation and international coordination"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Technology governance and risk theory"
+  },
+  {
+    "id": "debate_9-10_014",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is meritocracy in tension with democracy, and if so, which should be treated as the superior organizing principle?",
+    "tips": [
+      "Precisely define meritocracy and its distributional logic",
+      "Give two reasons\u2014one about how meritocracy selects elites, one about democratic accountability",
+      "Address whether meritocracy can be redesigned to reinforce rather than undermine democratic equality"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political philosophy, requires conceptual precision"
+  },
+  {
+    "id": "debate_9-10_015",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does the financialization of the economy represent a structural failure of modern capitalism or a rational evolution of capital allocation?",
+    "tips": [
+      "Define financialization specifically\u2014FIRE sector growth, rent extraction, or shareholder primacy",
+      "Give two reasons\u2014one about productive investment crowding out, one about systemic fragility",
+      "Address the counterargument that financialization has democratized capital access"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political economy and macrofinance theory"
+  },
+  {
+    "id": "debate_9-10_016",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should intellectual property regimes be fundamentally redesigned for the age of AI-generated content?",
+    "tips": [
+      "Identify specifically which IP assumptions AI challenges\u2014authorship, originality, or training data use",
+      "Give two reasons\u2014one about creator incentives, one about public domain and cultural commons",
+      "Address the international harmonization challenge and competitive IP races"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "IP theory and digital economy law"
+  },
+  {
+    "id": "debate_9-10_017",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is electoral democracy structurally incapable of representing the interests of future generations?",
+    "tips": [
+      "Specify the institutional mechanisms that create inter-temporal preference distortion",
+      "Give two reasons\u2014one about discount rates in political reasoning, one about non-voter representation",
+      "Address specific institutional innovations\u2014constitutional courts, future generations commissioners\u2014and their limits"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Intergenerational justice and institutional design"
+  },
+  {
+    "id": "debate_9-10_018",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should the digital commons be governed by democratic institutions rather than private platforms?",
+    "tips": [
+      "Define what commons governance means institutionally at digital scale",
+      "Give two reasons\u2014one about information access, one about public sphere quality",
+      "Address the operational and innovation costs of removing private platform incentives"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political theory of digital infrastructure"
+  },
+  {
+    "id": "debate_9-10_019",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is the nation-state the appropriate unit for governing global technological risks?",
+    "tips": [
+      "Identify the specific structural mismatches between national governance and transnational technology",
+      "Give two reasons\u2014one about enforcement gaps, one about coordination externalities",
+      "Address the alternatives\u2014treaty regimes, multistakeholder bodies\u2014and their accountability deficits"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Global governance and technology policy"
+  },
+  {
+    "id": "debate_9-10_020",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does the current human rights framework adequately address harms from automated decision-making systems?",
+    "tips": [
+      "Specify which rights are structurally under-protected by current frameworks",
+      "Give two reasons\u2014one about procedural rights, one about collective versus individual harm",
+      "Address the GDPR and algorithmic accountability literature and its limitations"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Human rights law and AI ethics"
+  },
+  {
+    "id": "debate_9-10_021",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should longtermism as a moral philosophy be incorporated into public policy frameworks?",
+    "tips": [
+      "Define longtermism precisely and distinguish its variants",
+      "Give two reasons\u2014one about its epistemic assumptions, one about democratic legitimacy",
+      "Address the objection that longtermism crowds out near-term suffering reduction"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Applied moral philosophy and political theory"
+  },
+  {
+    "id": "debate_9-10_022",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is the international financial system structurally biased against developing economies in ways that perpetuate underdevelopment?",
+    "tips": [
+      "Identify the specific mechanisms\u2014debt dynamics, reserve currency, capital flow liberalization",
+      "Give two reasons\u2014one about policy space constraints, one about financial contagion",
+      "Address the counterargument that integration has driven growth in emerging markets"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International political economy, deep structural analysis"
+  },
+  {
+    "id": "debate_9-10_023",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does capitalism systematically underprovide public goods, and if so, is the solution market design or political economy reform?",
+    "tips": [
+      "Define the public goods failure precisely\u2014non-excludability, non-rivalry, or coordination failures",
+      "Give two reasons\u2014one about mechanism design solutions, one about political economy barriers",
+      "Address why mixed-economy solutions have succeeded or failed historically"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Economic theory and institutional analysis"
+  },
+  {
+    "id": "debate_9-10_024",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should international law evolve to hold corporations directly accountable for crimes against humanity?",
+    "tips": [
+      "Identify the specific jurisdictional and legal gaps in current corporate accountability",
+      "Give two reasons\u2014one about deterrence, one about victim remedy",
+      "Address the state sovereignty and extraterritorial enforcement challenges"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International law and corporate accountability"
+  },
+  {
+    "id": "debate_9-10_025",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is technological unemployment a transitional adjustment challenge or a structural threat to the labor market?",
+    "tips": [
+      "Distinguish between previous automation waves and AI-driven displacement",
+      "Give two reasons\u2014one about task versus job displacement, one about wage polarization",
+      "Address the policy responses\u2014retraining, UBI, working-time reduction\u2014and their feasibility"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Labor economics and technological change theory"
+  },
+  {
+    "id": "debate_9-10_026",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does liberal political neutrality as a governing philosophy undermine the cultural conditions required for its own reproduction?",
+    "tips": [
+      "Define the paradox of liberal neutrality precisely",
+      "Give two reasons\u2014one about civic virtue requirements, one about pluralism's cultural preconditions",
+      "Address whether procedural liberalism can be supplemented without sliding into illiberalism"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political philosophy, high conceptual precision required"
+  },
+  {
+    "id": "debate_9-10_027",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should democracies treat the systematic production of disinformation as a national security threat requiring legal response?",
+    "tips": [
+      "Define disinformation operationally and distinguish it from misinformation and propaganda",
+      "Give two reasons\u2014one about democratic integrity, one about free speech limits",
+      "Address the enforcement risk of empowering governments to define truth"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Information security and constitutional law"
+  },
+  {
+    "id": "debate_9-10_028",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is effective multilateralism possible in a world of sharpening great power competition?",
+    "tips": [
+      "Define the structural constraints on multilateral cooperation precisely",
+      "Give two reasons\u2014one about institutional design, one about interest divergence",
+      "Address areas where cooperation has persisted despite rivalry and explain why"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International relations theory, high sophistication"
+  },
+  {
+    "id": "debate_9-10_029",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should AI systems that meet certain capability thresholds be subject to constitutional rights analogous to legal personhood?",
+    "tips": [
+      "Precisely define the threshold and the rights regime you're proposing or opposing",
+      "Give two reasons\u2014one about moral status criteria, one about legal system design",
+      "Address the corporate personhood analogy, its rationale, and why AI may be categorically different"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Legal philosophy and AI ethics, expert level"
+  },
+  {
+    "id": "debate_9-10_030",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is the concept of a rules-based international order a neutral framework or a mechanism for preserving Western hegemony?",
+    "tips": [
+      "Define rules-based order and whose rules are at issue",
+      "Give two reasons\u2014one about institutional design bias, one about enforcement selectivity",
+      "Address the alternative governance models proposed by revisionist powers and their democratic deficits"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International relations and postcolonial theory"
+  },
+  {
+    "id": "debate_9-10_031",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does the current structure of academic incentives systematically distort scientific knowledge production?",
+    "tips": [
+      "Identify specific structural mechanisms\u2014publish-or-perish, replication crisis, citation gaming",
+      "Give two reasons\u2014one about truth-seeking distortion, one about resource misallocation",
+      "Address the institutional reforms proposed and the political economy of changing academic incentives"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Philosophy of science and institutional economics"
+  },
+  {
+    "id": "debate_9-10_032",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should genetic enhancement be legally permissible for consenting adults making autonomous choices?",
+    "tips": [
+      "Distinguish therapeutic from enhancement interventions precisely",
+      "Give two reasons\u2014one about reproductive autonomy, one about inequality amplification",
+      "Address the collective action problem when individual rational choices produce socially harmful outcomes"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Bioethics with political philosophy implications"
+  },
+  {
+    "id": "debate_9-10_033",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is deliberative democracy a scalable institutional model for modern pluralist societies?",
+    "tips": [
+      "Define deliberative democracy precisely and distinguish it from current electoral models",
+      "Give two reasons\u2014one about cognitive diversity requirements, one about scale and representation",
+      "Address successful deliberative experiments and why they have not replaced representative institutions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Democratic theory, requires philosophical rigor"
+  },
+  {
+    "id": "debate_9-10_034",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should the international community recognize a legal duty to intervene in mass atrocity situations regardless of state consent?",
+    "tips": [
+      "Distinguish humanitarian intervention from the Responsibility to Protect framework",
+      "Give two reasons\u2014one about norm enforcement, one about sovereignty and abuse risk",
+      "Address the Security Council paralysis and the selectivity problem in intervention decisions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International law and humanitarian ethics"
+  },
+  {
+    "id": "debate_9-10_035",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is financialized housing policy incompatible with housing as a social right?",
+    "tips": [
+      "Define the financialization mechanisms that convert housing into an investment asset",
+      "Give two reasons\u2014one about price formation, one about tenure insecurity",
+      "Address the pension fund and retirement savings dimensions that complicate simple de-financialization arguments"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Housing economics and social rights theory"
+  },
+  {
+    "id": "debate_9-10_036",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Does the logic of competitive geopolitics make meaningful global climate governance structurally impossible?",
+    "tips": [
+      "Define the strategic interaction problem precisely\u2014free-rider dynamics, relative gains, carbon leakage",
+      "Give two reasons\u2014one about institutional design failures, one about domestic political constraints",
+      "Address the partial agreements and side payments that have enabled cooperation and whether they scale"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International relations and climate governance theory"
+  },
+  {
+    "id": "debate_9-10_037",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should behavioral economics findings be used by governments to 'nudge' citizens toward better outcomes?",
+    "tips": [
+      "Define nudging and distinguish it from paternalism and persuasion",
+      "Give two reasons\u2014one about autonomy and consent, one about effectiveness and equity",
+      "Address the slippery slope from nudging to manipulation and the governance accountability mechanisms needed"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Behavioral science, ethics, and public policy"
+  },
+  {
+    "id": "debate_9-10_038",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Is the regulatory capture of financial regulators by the financial industry a structural feature or a correctable failure?",
+    "tips": [
+      "Define regulatory capture operationally and distinguish it from industry expertise",
+      "Give two reasons\u2014one about structural incentives, one about the revolving door",
+      "Address the institutional design responses\u2014independence, civil society participation, international comparison\u2014and their limits"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political economy and regulatory theory"
+  },
+  {
+    "id": "debate_9-10_039",
+    "mode": "debate",
+    "difficultyBand": "9-10",
+    "question": "Should cosmopolitan obligations to global poor outweigh national obligations to citizens in political theory?",
+    "tips": [
+      "Define the competing duty frameworks\u2014special obligations, contractarianism, cosmopolitanism",
+      "Give two reasons\u2014one about moral arbitrariness of birth, one about the preconditions for effective redistribution",
+      "Address the political stability and legitimacy requirements that favor prioritizing domestic obligations"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political philosophy, expert-level normative theory"
   }
 ]

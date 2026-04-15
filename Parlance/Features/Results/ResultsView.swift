@@ -196,7 +196,7 @@ struct ResultsView: View {
 
                 if session.aiCoachFeedback == nil && !viewModel.isRetryingFeedback {
                     Button {
-                        Task { await viewModel.retryFeedback(for: session, question: question) }
+                        Task { await viewModel.retryFeedback(for: session, question: session.question) }
                     } label: {
                         Image(systemName: "arrow.clockwise")
                             .font(.system(size: 12))
@@ -300,29 +300,102 @@ struct ResultsView: View {
     // MARK: - Moments
 
     private var momentsSection: some View {
-        HStack(spacing: 10) {
-            if !session.bestMomentText.isEmpty {
-                momentCard(
-                    label: "✅ BEST MOMENT",
-                    timestamp: formatTimestamp(session.bestMomentTimestamp),
-                    text: session.bestMomentText,
-                    labelColor: AppColors.teal,
-                    bgColor: Color(red: 0.055, green: 0.102, blue: 0.078), // #0E1A14
-                    borderColor: AppColors.teal.opacity(0.3)
-                )
-            }
-
-            if !session.worstMomentText.isEmpty {
-                momentCard(
-                    label: "⚠️ WEAKEST MOMENT",
-                    timestamp: formatTimestamp(session.worstMomentTimestamp),
-                    text: session.worstMomentText,
-                    labelColor: AppColors.red,
-                    bgColor: Color(red: 0.102, green: 0.055, blue: 0.055), // #1A0E0E
-                    borderColor: AppColors.red.opacity(0.3)
-                )
+        Group {
+            if session.isAIScored {
+                if !session.bestMomentQuote.isEmpty || !session.worstMomentQuote.isEmpty {
+                    HStack(spacing: 10) {
+                        if !session.bestMomentQuote.isEmpty {
+                            aiMomentCard(
+                                label: "✅ BEST MOMENT",
+                                quote: session.bestMomentQuote,
+                                reason: session.bestMomentReason,
+                                labelColor: AppColors.teal,
+                                bgColor: Color(red: 0.055, green: 0.102, blue: 0.078),
+                                borderColor: AppColors.teal.opacity(0.3)
+                            )
+                        }
+                        if !session.worstMomentQuote.isEmpty {
+                            aiMomentCard(
+                                label: "⚠️ WEAKEST MOMENT",
+                                quote: session.worstMomentQuote,
+                                reason: session.worstMomentReason,
+                                labelColor: AppColors.red,
+                                bgColor: Color(red: 0.102, green: 0.055, blue: 0.055),
+                                borderColor: AppColors.red.opacity(0.3)
+                            )
+                        }
+                    }
+                } else {
+                    Text("No specific moments identified for this session.")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.dim)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 4)
+                }
+            } else {
+                HStack(spacing: 10) {
+                    if !session.bestMomentText.isEmpty {
+                        momentCard(
+                            label: "✅ BEST MOMENT",
+                            timestamp: formatTimestamp(session.bestMomentTimestamp),
+                            text: session.bestMomentText,
+                            labelColor: AppColors.teal,
+                            bgColor: Color(red: 0.055, green: 0.102, blue: 0.078),
+                            borderColor: AppColors.teal.opacity(0.3)
+                        )
+                    }
+                    if !session.worstMomentText.isEmpty {
+                        momentCard(
+                            label: "⚠️ WEAKEST MOMENT",
+                            timestamp: formatTimestamp(session.worstMomentTimestamp),
+                            text: session.worstMomentText,
+                            labelColor: AppColors.red,
+                            bgColor: Color(red: 0.102, green: 0.055, blue: 0.055),
+                            borderColor: AppColors.red.opacity(0.3)
+                        )
+                    }
+                }
             }
         }
+    }
+
+    private func aiMomentCard(
+        label: String,
+        quote: String,
+        reason: String,
+        labelColor: Color,
+        bgColor: Color,
+        borderColor: Color
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(label)
+                .font(AppFonts.bodyBold(10))
+                .foregroundStyle(labelColor)
+                .kerning(0.5)
+
+            Text("\u{201C}\(quote)\u{201D}")
+                .font(AppFonts.body(11))
+                .italic()
+                .foregroundStyle(Color(red: 0.73, green: 0.73, blue: 0.73))
+                .lineLimit(3)
+                .lineSpacing(2)
+
+            if !reason.isEmpty {
+                Text(reason)
+                    .font(AppFonts.body(10))
+                    .foregroundStyle(AppColors.dim)
+                    .lineLimit(2)
+                    .lineSpacing(2)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(13)
+        .background(bgColor)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(borderColor, lineWidth: 1)
+        )
     }
 
     private func momentCard(
@@ -361,13 +434,26 @@ struct ResultsView: View {
         VStack(alignment: .leading, spacing: 8) {
             SectionHeader(title: "Breakdown")
 
-            let fillerScore = session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1
-
-            MetricCardView(name: "Filler Words", score: fillerScore, tip: viewModel.fillerTip(for: session))
-            MetricCardView(name: "Pace", score: session.paceScore, tip: viewModel.paceTip(for: session))
-            MetricCardView(name: "Clarity", score: session.clarityScore, tip: viewModel.clarityTip(for: session))
-            MetricCardView(name: "Structure", score: session.structureScore, tip: viewModel.structureTip(for: session))
-            MetricCardView(name: "Vocabulary", score: session.vocabularyScore, tip: viewModel.vocabularyTip(for: session))
+            if session.isAIScored {
+                let metrics = MetricKey.metrics(for: session.mode)
+                ForEach(metrics, id: \.rawValue) { key in
+                    let score = session.metricScores[key.rawValue] ?? -1
+                    let tip = session.metricTips[key.rawValue] ?? ""
+                    MetricCardView(
+                        name: key.displayName,
+                        description: key.metricDescription,
+                        score: score,
+                        tip: tip
+                    )
+                }
+            } else {
+                let fillerScore = session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1
+                MetricCardView(name: "Filler Words", description: "Ums, uhs, and verbal crutches", score: fillerScore, tip: "")
+                MetricCardView(name: "Pace", description: "Speaking speed and rhythm", score: session.paceScore, tip: "")
+                MetricCardView(name: "Clarity", description: "How easy your words are to follow", score: session.clarityScore, tip: "")
+                MetricCardView(name: "Structure", description: "Opening, body, and closing flow", score: session.structureScore, tip: "")
+                MetricCardView(name: "Vocabulary", description: "Word choice strength and variety", score: session.vocabularyScore, tip: "")
+            }
         }
     }
 
