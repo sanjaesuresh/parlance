@@ -15,12 +15,46 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Select destination
+        id: dest
+        run: |
+          # Prefer an iOS simulator; fall back to visionOS "Designed for iPad,iPhone"
+          IOS_ID=$(xcrun simctl list devices available -j 2>/dev/null \
+            | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)
+          for runtime,devices in d['devices'].items():
+              if 'iOS' in runtime:
+                  for dev in devices:
+                      if 'iPhone' in dev.get('name','') and dev.get('isAvailable'):
+                          print(dev['udid'])
+                          exit()
+          " 2>/dev/null || true)
+
+          if [ -n "$IOS_ID" ]; then
+            echo "destination=platform=iOS Simulator,id=$IOS_ID" >> "$GITHUB_OUTPUT"
+          else
+            # No iOS simulators — use Apple Vision Pro (Designed for iPad,iPhone)
+            VISION_ID=$(xcrun simctl list devices available -j 2>/dev/null \
+              | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)
+          for runtime,devices in d['devices'].items():
+              if 'visionOS' in runtime:
+                  for dev in devices:
+                      if dev.get('isAvailable'):
+                          print(dev['udid'])
+                          exit()
+          " 2>/dev/null || true)
+            echo "destination=platform=visionOS Simulator,id=$VISION_ID" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build
         run: |
           xcodebuild build-for-testing \
             -project Parlance.xcodeproj \
             -scheme Parlance \
-            -destination "platform=iOS Simulator,name=iPhone 16" \
+            -destination "${{ steps.dest.outputs.destination }}" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
@@ -30,7 +64,7 @@ jobs:
           xcodebuild test-without-building \
             -project Parlance.xcodeproj \
             -scheme Parlance \
-            -destination "platform=iOS Simulator,name=iPhone 16" \
+            -destination "${{ steps.dest.outputs.destination }}" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
