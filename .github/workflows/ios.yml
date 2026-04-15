@@ -18,38 +18,40 @@ jobs:
       - name: Select destination
         id: dest
         run: |
-          # Prefer an iOS simulator; fall back to visionOS "Designed for iPad,iPhone"
-          IOS_ID=$(xcrun simctl list devices available -j 2>/dev/null \
-            | python3 -c "
-          import json,sys
-          d=json.load(sys.stdin)
-          for runtime,devices in d['devices'].items():
-              if 'iOS' in runtime:
-                  for dev in devices:
-                      if 'iPhone' in dev.get('name','') and dev.get('isAvailable'):
-                          print(dev['udid'])
-                          exit()
-          " 2>/dev/null || true)
+          # Only consider an iOS simulator if the runtime is actually installed.
+          # xcrun simctl list devices returns records even for runtimes that are
+          # not installed; xcrun simctl list runtimes tells us what's really there.
+          IOS_RUNTIME=$(xcrun simctl list runtimes available 2>/dev/null \
+            | grep "^iOS" | grep -v "unavailable" | head -1 \
+            | grep -oE "com\.apple\.CoreSimulator\.SimRuntime\.iOS-[0-9-]+" || true)
 
-          if [ -n "$IOS_ID" ]; then
-            echo "destination=platform=iOS Simulator,id=$IOS_ID" >> "$GITHUB_OUTPUT"
-          else
-            # No iOS simulators — use Apple Vision Pro (Designed for iPad,iPhone)
-            VISION_ID=$(xcrun simctl list devices available -j 2>/dev/null \
-              | python3 -c "
-          import json,sys
-          d=json.load(sys.stdin)
-          for runtime,devices in d['devices'].items():
-              if 'visionOS' in runtime:
-                  for dev in devices:
-                      if dev.get('isAvailable'):
-                          print(dev['udid'])
-                          exit()
-          " 2>/dev/null || true)
-            echo "destination=platform=visionOS Simulator,id=$VISION_ID" >> "$GITHUB_OUTPUT"
+          DEST=""
+          if [ -n "$IOS_RUNTIME" ]; then
+            IOS_ID=$(xcrun simctl list devices available "$IOS_RUNTIME" 2>/dev/null \
+              | grep "iPhone" | grep -v "unavailable" | head -1 \
+              | grep -oE "[0-9A-F-]{36}" || true)
+            [ -n "$IOS_ID" ] && DEST="platform=iOS Simulator,id=$IOS_ID"
           fi
 
-      - name: Build
+          if [ -z "$DEST" ]; then
+            # Fall back to visionOS simulator (supports Designed for iPad,iPhone)
+            VISION_ID=$(xcrun simctl list devices available -j 2>/dev/null \
+              | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+for runtime, devices in d['devices'].items():
+    if 'visionOS' in runtime:
+        for dev in devices:
+            if dev.get('isAvailable'):
+                print(dev['udid']); exit()
+" || true)
+            DEST="platform=visionOS Simulator,id=$VISION_ID"
+          fi
+
+          echo "destination=$DEST" >> "$GITHUB_OUTPUT"
+          echo "Selected destination: $DEST"
+
+      - name: Build for testing
         run: |
           xcodebuild build-for-testing \
             -project Parlance.xcodeproj \
@@ -58,6 +60,11 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Boot simulator
+        run: |
+          ID=$(echo "${{ steps.dest.outputs.destination }}" | grep -oE 'id=[^,]+' | cut -d= -f2)
+          xcrun simctl boot "$ID" 2>/dev/null || true
 
       - name: Test
         run: |
