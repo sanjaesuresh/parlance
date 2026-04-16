@@ -6,10 +6,12 @@ struct ProfileView: View {
     @Query(sort: \Session.date, order: .reverse) private var sessions: [Session]
     @Query(sort: \Achievement.id) private var achievements: [Achievement]
     @StateObject private var viewModel = ProfileViewModel()
+    @EnvironmentObject private var subscription: SubscriptionService
     @State private var showSafari = false
     @State private var safariURL: URL?
     @State private var showSettings = false
     @State private var showEditProfile = false
+    @State private var showPaywall = false
     @State private var cachedWeekSessions: [Session] = []
     @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
 
@@ -61,6 +63,9 @@ struct ProfileView: View {
                 if let user {
                     ProfileEditSheet(user: user, onDismiss: { showEditProfile = false })
                 }
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
             .onAppear {
                 cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
@@ -137,6 +142,16 @@ struct ProfileView: View {
                 Text(user.displayName)
                     .font(AppFonts.display(24))
                     .foregroundStyle(AppColors.text)
+
+                if subscription.isPro {
+                    Text("PRO")
+                        .font(AppFonts.bodyBold(10))
+                        .foregroundStyle(.black)
+                        .padding(.horizontal, 9)
+                        .padding(.vertical, 3)
+                        .background(AppColors.gold)
+                        .clipShape(Capsule())
+                }
 
                 if let username = user.username, !username.isEmpty {
                     Text("@\(username)")
@@ -411,6 +426,29 @@ struct ProfileView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 0) {
+                    if !subscription.isPro {
+                        Button {
+                            showSettings = false
+                            showPaywall = true
+                        } label: {
+                            HStack {
+                                Image(systemName: "crown.fill")
+                                    .foregroundStyle(AppColors.gold)
+                                    .frame(width: 24)
+                                Text("Upgrade to Pro")
+                                    .font(AppFonts.body(14))
+                                    .foregroundStyle(AppColors.gold)
+                                Spacer()
+                                Text("\u{203A}")
+                                    .font(.system(size: 18))
+                                    .foregroundStyle(AppColors.dim)
+                            }
+                            .padding(.vertical, 12)
+                        }
+
+                        Divider().background(AppColors.border)
+                    }
+
                     // Toggles
                     Toggle(isOn: Binding(
                         get: { viewModel.dailyReminderEnabled },

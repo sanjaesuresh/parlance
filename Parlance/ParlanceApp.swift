@@ -10,6 +10,7 @@ struct ParlanceApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(SubscriptionService.shared)
         }
         .modelContainer(PersistenceService.shared.container)
     }

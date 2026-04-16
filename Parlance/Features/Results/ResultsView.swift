@@ -9,7 +9,9 @@ struct ResultsView: View {
 
     @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
     @StateObject private var viewModel = ResultsViewModel()
+    @EnvironmentObject private var subscription: SubscriptionService
     @State private var showXPToast = true
+    @State private var showPaywall = false
 
     /// Average of sessions prior to this one (exclusive of current).
     private var priorAverage: Int? {
@@ -58,7 +60,14 @@ struct ResultsView: View {
                     // 7 — Breakdown section
                     breakdownSection
 
-                    // 8 — Up Next card
+                    // 8 — Tone analysis
+                    ToneAnalysisCard(
+                        isPro: subscription.isPro,
+                        emotionResult: session.emotionResult,
+                        onUpgrade: { showPaywall = true }
+                    )
+
+                    // 9 — Up Next card
                     upNextCard
                         .padding(.bottom, 60)
                 }
@@ -71,6 +80,9 @@ struct ResultsView: View {
                 XPToastView(xpEarned: session.xpEarned, isVisible: $showXPToast)
                     .padding(.bottom, 24)
             }
+        }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView()
         }
     }
 

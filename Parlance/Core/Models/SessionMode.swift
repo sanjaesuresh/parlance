@@ -85,4 +85,9 @@ enum SessionMode: String, CaseIterable, Codable {
         let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: .now) ?? 1
         return all[dayOfYear % all.count]
     }
+
+    /// Modes available on the free tier. All others require Pro.
+    static let freeModes: Set<SessionMode> = [.interview, .casual]
+
+    var isProMode: Bool { !Self.freeModes.contains(self) }
 }

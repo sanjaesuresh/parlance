@@ -7,11 +7,13 @@ struct HomeView: View {
     @Query private var users: [User]
     @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
     @StateObject private var viewModel = HomeViewModel()
+    @EnvironmentObject private var subscription: SubscriptionService
 
     private var user: User? { users.first }
 
     @State private var sliderLevel: Double = 1
     @State private var cachedWeekSessions: [Session] = []
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationStack {
@@ -38,8 +40,17 @@ struct HomeView: View {
             }
             .alert("Daily Limit Reached", isPresented: $viewModel.showRateLimitAlert) {
                 Button("OK") {}
+                if !subscription.isPro {
+                    Button("Upgrade to Pro") { showPaywall = true }
+                }
             } message: {
-                Text("You've hit your daily limit — come back tomorrow to keep your streak going.")
+                Text(subscription.isPro
+                    ? "You've completed 20 sessions today — come back tomorrow to keep your streak going."
+                    : "Free accounts are limited to \(AppConstants.freeSessionsPerDay) sessions per day. Upgrade to Pro for unlimited sessions."
+                )
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
         }
     }
@@ -125,7 +136,8 @@ struct HomeView: View {
                                 mode: mode,
                                 user: user,
                                 persistence: .shared,
-                                wasDailyChallenge: true
+                                wasDailyChallenge: true,
+                                isPro: subscription.isPro
                             ) {
                                 onStartSession(state)
                             }
@@ -167,24 +179,35 @@ struct HomeView: View {
                     HStack(spacing: 6) {
                         ForEach(Array(tiers.enumerated()), id: \.offset) { index, tier in
                             let isSelected = index == selectedTierIndex
+                            let isProTier = index >= 3
+                            let locked = isProTier && !subscription.isPro
 
                             Button {
-                                if isSelected {
+                                if locked {
+                                    showPaywall = true
+                                } else if isSelected {
                                     // Toggle between the two sub-levels
                                     let current = Int(sliderLevel)
                                     let next = current == tier.levels.lowerBound ? tier.levels.upperBound : tier.levels.lowerBound
                                     sliderLevel = Double(next)
+                                    user.practiceLevel = Int(sliderLevel)
                                 } else {
                                     sliderLevel = Double(tier.levels.lowerBound)
+                                    user.practiceLevel = Int(sliderLevel)
                                 }
-                                user.practiceLevel = Int(sliderLevel)
                             } label: {
                                 VStack(spacing: 4) {
-                                    Text(tier.emoji)
-                                        .font(.system(size: 16))
+                                    if locked {
+                                        Image(systemName: "lock.fill")
+                                            .font(.system(size: 14))
+                                            .foregroundStyle(AppColors.dim)
+                                    } else {
+                                        Text(tier.emoji)
+                                            .font(.system(size: 16))
+                                    }
                                     Text(tier.name)
                                         .font(AppFonts.bodyMedium(9))
-                                        .foregroundStyle(isSelected ? AppColors.gold : AppColors.sub)
+                                        .foregroundStyle(locked ? AppColors.dim : (isSelected ? AppColors.gold : AppColors.sub))
                                         .lineLimit(1)
                                 }
                                 .frame(maxWidth: .infinity)
@@ -195,6 +218,7 @@ struct HomeView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(isSelected ? AppColors.gold : Color.clear, lineWidth: 1.5)
                                 )
+                                .opacity(locked ? 0.5 : 1.0)
                             }
                         }
                     }
@@ -216,17 +240,25 @@ struct HomeView: View {
         VStack(spacing: 10) {
             SectionHeader(title: "Practice Modes")
 
-            ModeGridView(level: Int(sliderLevel)) { mode in
-                guard let user else { return }
-                if let state = viewModel.startSession(
-                    mode: mode,
-                    user: user,
-                    persistence: .shared,
-                    wasDailyChallenge: false
-                ) {
-                    onStartSession(state)
+            ModeGridView(
+                level: Int(sliderLevel),
+                isPro: subscription.isPro,
+                onSelect: { mode in
+                    guard let user else { return }
+                    if let state = viewModel.startSession(
+                        mode: mode,
+                        user: user,
+                        persistence: .shared,
+                        wasDailyChallenge: false,
+                        isPro: subscription.isPro
+                    ) {
+                        onStartSession(state)
+                    }
+                },
+                onSelectLocked: { _ in
+                    showPaywall = true
                 }
-            }
+            )
         }
     }
 

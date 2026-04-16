@@ -8,6 +8,7 @@ struct SessionCoordinator: View {
     @State private var phase: SessionPhase = .loading
     @StateObject private var recorder = AudioRecorder()
     @EnvironmentObject private var permissionsService: PermissionsService
+    @EnvironmentObject private var subscription: SubscriptionService
 
     enum SessionPhase {
         case loading
@@ -26,6 +27,7 @@ struct SessionCoordinator: View {
     @State private var pendingTimingStats: TimingStats = .empty
     @State private var pendingAudioFeatures: AudioFeatures = .empty
     @State private var pendingFillerCount: Int = 0
+    @State private var pendingEmotionResult: EmotionResult? = nil
 
     var body: some View {
         ZStack {
@@ -137,14 +139,36 @@ struct SessionCoordinator: View {
         }
 
         let duration = recorder.elapsedTime
+        let isPro = subscription.isPro
 
-        // Transcribe + extract audio features in parallel
-        async let transcriptionTask: TranscriptionResult? = {
-            return try? await SpeechTranscriber.transcribe(url: audioURL)
-        }()
-        async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
+        let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
+        let apiURL = URL(string: urlString)
 
-        let (transcriptionResult, audioFeatures) = await (transcriptionTask, audioFeaturesTask)
+        let transcriptionResult: TranscriptionResult?
+        let audioFeatures: AudioFeatures
+        let emotionResult: EmotionResult?
+
+        if isPro, let apiURL {
+            async let transcriptionTask: TranscriptionResult? = {
+                return try? await SpeechTranscriber.transcribe(url: audioURL)
+            }()
+            async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
+            async let emotionTask: EmotionResult? = {
+                return try? await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+            }()
+            (transcriptionResult, audioFeatures, emotionResult) = await (
+                transcriptionTask,
+                audioFeaturesTask,
+                emotionTask
+            )
+        } else {
+            async let transcriptionTask: TranscriptionResult? = {
+                return try? await SpeechTranscriber.transcribe(url: audioURL)
+            }()
+            async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
+            (transcriptionResult, audioFeatures) = await (transcriptionTask, audioFeaturesTask)
+            emotionResult = nil
+        }
 
         // Delete audio file — no longer needed
         recorder.deleteRecording()
@@ -160,6 +184,7 @@ struct SessionCoordinator: View {
         pendingTimingStats = timingStats
         pendingAudioFeatures = audioFeatures
         pendingFillerCount = fillerCount
+        pendingEmotionResult = emotionResult
 
         await scoreAndSave()
     }
@@ -185,7 +210,8 @@ struct SessionCoordinator: View {
                 question: state.question.question,
                 transcript: pendingTranscript,
                 timingStats: pendingTimingStats,
-                audioFeatures: pendingAudioFeatures
+                audioFeatures: pendingAudioFeatures,
+                emotionResult: pendingEmotionResult
             )
         } catch {
             #if DEBUG
@@ -206,7 +232,8 @@ struct SessionCoordinator: View {
             question: state.question.question,
             scoringResult: scoringResult,
             xpEarned: xpEarned,
-            wasDailyChallenge: state.wasDailyChallenge
+            wasDailyChallenge: state.wasDailyChallenge,
+            emotionResult: pendingEmotionResult
         )
 
         // Analytics

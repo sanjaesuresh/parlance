@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ModeGridView: View {
     let level: Int
+    let isPro: Bool
     let onSelect: (SessionMode) -> Void
+    let onSelectLocked: (SessionMode) -> Void
     var displayModes: [SessionMode] = SessionMode.defaultModes
 
     @State private var showAllModes = false
@@ -16,16 +18,16 @@ struct ModeGridView: View {
         VStack(spacing: 10) {
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(displayModes, id: \.self) { mode in
+                    let locked = mode.isProMode && !isPro
                     Button {
-                        onSelect(mode)
+                        if locked { onSelectLocked(mode) } else { onSelect(mode) }
                     } label: {
-                        modeCard(mode: mode)
+                        modeCard(mode: mode, locked: locked)
                     }
-                    .accessibilityLabel("\(mode.displayName) practice mode")
+                    .accessibilityLabel("\(mode.displayName) practice mode\(locked ? " — Pro required" : "")")
                 }
             }
 
-            // "More" button
             Button {
                 showAllModes = true
             } label: {
@@ -58,11 +60,12 @@ struct ModeGridView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(SessionMode.allCases, id: \.self) { mode in
+                        let locked = mode.isProMode && !isPro
                         Button {
                             showAllModes = false
-                            onSelect(mode)
+                            if locked { onSelectLocked(mode) } else { onSelect(mode) }
                         } label: {
-                            modeCard(mode: mode)
+                            modeCard(mode: mode, locked: locked)
                         }
                     }
                 }
@@ -75,10 +78,8 @@ struct ModeGridView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") {
-                        showAllModes = false
-                    }
-                    .foregroundStyle(AppColors.gold)
+                    Button("Done") { showAllModes = false }
+                        .foregroundStyle(AppColors.gold)
                 }
             }
             .toolbarBackground(AppColors.bg, for: .navigationBar)
@@ -89,14 +90,14 @@ struct ModeGridView: View {
 
     // MARK: - Mode Card
 
-    private func modeCard(mode: SessionMode) -> some View {
+    private func modeCard(mode: SessionMode, locked: Bool) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(mode.emoji)
                 .font(.system(size: 22))
 
             Text(mode.displayName)
                 .font(AppFonts.bodyMedium(13))
-                .foregroundStyle(AppColors.text)
+                .foregroundStyle(locked ? AppColors.sub : AppColors.text)
 
             Text(mode.description)
                 .font(AppFonts.body(11))
@@ -107,20 +108,36 @@ struct ModeGridView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(14)
         .overlay(alignment: .topTrailing) {
-            Text(DifficultyLevel.tier(for: level))
-                .font(AppFonts.body(9))
-                .foregroundStyle(mode.accentColor)
+            if locked {
+                HStack(spacing: 3) {
+                    Image(systemName: "lock.fill")
+                        .font(.system(size: 8, weight: .semibold))
+                    Text("PRO")
+                        .font(AppFonts.bodyBold(9))
+                }
+                .foregroundStyle(AppColors.gold)
                 .padding(.horizontal, 6)
                 .padding(.vertical, 2)
-                .background(mode.accentColor.opacity(0.12))
+                .background(AppColors.gold.opacity(0.15))
                 .clipShape(Capsule())
                 .padding(10)
+            } else {
+                Text(DifficultyLevel.tier(for: level))
+                    .font(AppFonts.body(9))
+                    .foregroundStyle(mode.accentColor)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(mode.accentColor.opacity(0.12))
+                    .clipShape(Capsule())
+                    .padding(10)
+            }
         }
-        .background(AppColors.card)
+        .background(locked ? AppColors.faint : AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                .stroke(mode.accentColor.opacity(0.28), lineWidth: 1)
+                .stroke(locked ? AppColors.border : mode.accentColor.opacity(0.28), lineWidth: 1)
         )
+        .opacity(locked ? 0.7 : 1.0)
     }
 }

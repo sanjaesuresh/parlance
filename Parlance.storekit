@@ -1,0 +1,39 @@
+{
+  "identifier": "Parlance",
+  "nonRenewingSubscriptions": [],
+  "products": [],
+  "settings": {},
+  "subscriptionGroups": [
+    {
+      "id": "parlance_pro_group",
+      "localizations": [],
+      "name": "Pro",
+      "subscriptions": [
+        {
+          "adHocOfferCodes": [],
+          "displayPrice": "9.99",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "parlance_pro_monthly",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "Full access to all Parlance Pro features",
+              "displayName": "Parlance Pro",
+              "locale": "en_US"
+            }
+          ],
+          "productID": "com.parlance.pro.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Pro Monthly",
+          "subscriptionGroupID": "parlance_pro_group",
+          "type": "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}
