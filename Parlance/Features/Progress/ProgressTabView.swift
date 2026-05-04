@@ -89,6 +89,7 @@ struct ProgressTabView: View {
                 ForEach(0..<7, id: \.self) { i in
                     let done = counts[i] > 0
                     let isToday = i == todayIndex
+                    let dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
                     VStack(spacing: 6) {
                         ZStack {
@@ -117,6 +118,12 @@ struct ProgressTabView: View {
                         }
                     }
                     .frame(maxWidth: .infinity)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(
+                        done
+                            ? "\(dayNames[i])\(isToday ? ", today" : ""), completed"
+                            : "\(dayNames[i])\(isToday ? ", today" : ""), no sessions"
+                    )
                 }
             }
         }

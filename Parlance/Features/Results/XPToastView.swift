@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct XPToastView: View {
     let xpEarned: Int
@@ -15,7 +16,9 @@ struct XPToastView: View {
                 .clipShape(Capsule())
                 .overlay(Capsule().stroke(AppColors.gold.opacity(0.3), lineWidth: 1))
                 .transition(.move(edge: .bottom).combined(with: .opacity))
+                .accessibilityLabel("You earned \(xpEarned) XP")
                 .onAppear {
+                    UIAccessibility.post(notification: .announcement, argument: "You earned \(xpEarned) XP")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         withAnimation(.easeOut(duration: 0.3)) {
                             isVisible = false

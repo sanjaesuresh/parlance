@@ -27,11 +27,11 @@ struct XPProgressBar: View {
             }
 
             if rank.isMaxRank {
-                ProgressBar(pct: 100, color: AppColors.gold)
+                ProgressBar(pct: 100, color: AppColors.gold, label: "XP progress")
             } else {
                 let nextXP = rank.xpForNextRank ?? currentXP
                 let progress = Double(currentXP - rank.xpRequired) / Double(max(1, nextXP - rank.xpRequired)) * 100
-                ProgressBar(pct: progress, color: AppColors.gold)
+                ProgressBar(pct: progress, color: AppColors.gold, label: "XP progress")
 
                 if let nextRank = Rank.forLevel(rank.level + 1) {
                     let remaining = nextXP - currentXP

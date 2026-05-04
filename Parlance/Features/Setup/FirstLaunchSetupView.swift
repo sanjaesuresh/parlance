@@ -88,18 +88,23 @@ struct FirstLaunchSetupView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
                             ForEach(avatars, id: \.self) { emoji in
-                                Text(emoji)
-                                    .font(.system(size: 36))
-                                    .frame(width: 56, height: 56)
-                                    .background(selectedAvatar == emoji ? AppColors.gold.opacity(0.2) : AppColors.card)
-                                    .clipShape(Circle())
-                                    .overlay(
-                                        Circle().stroke(
-                                            selectedAvatar == emoji ? AppColors.gold : AppColors.border,
-                                            lineWidth: selectedAvatar == emoji ? 2 : 1
+                                Button {
+                                    selectedAvatar = emoji
+                                } label: {
+                                    Text(emoji)
+                                        .font(.system(size: 36))
+                                        .frame(width: 56, height: 56)
+                                        .background(selectedAvatar == emoji ? AppColors.gold.opacity(0.2) : AppColors.card)
+                                        .clipShape(Circle())
+                                        .overlay(
+                                            Circle().stroke(
+                                                selectedAvatar == emoji ? AppColors.gold : AppColors.border,
+                                                lineWidth: selectedAvatar == emoji ? 2 : 1
+                                            )
                                         )
-                                    )
-                                    .onTapGesture { selectedAvatar = emoji }
+                                }
+                                .accessibilityLabel("\(emoji) avatar\(selectedAvatar == emoji ? ", selected" : "")")
+                                .accessibilityHint(selectedAvatar == emoji ? "" : "Double-tap to select this avatar")
                             }
                         }
                         .padding(.horizontal, 24)

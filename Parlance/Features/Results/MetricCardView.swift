@@ -43,7 +43,8 @@ struct MetricCardView: View {
                 ProgressBar(
                     pct: Double(score) / 10.0 * 100.0,
                     color: score >= 8 ? AppColors.teal : score >= 5 ? AppColors.gold : AppColors.red,
-                    height: 4
+                    height: 4,
+                    label: "\(name) score"
                 )
                 .padding(.top, 8)
             }

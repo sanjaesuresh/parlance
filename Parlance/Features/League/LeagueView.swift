@@ -140,7 +140,7 @@ struct LeagueView: View {
                             .foregroundStyle(AppColors.gold)
                     }
                 }
-                ProgressBar(pct: progress, color: AppColors.gold, height: 6)
+                ProgressBar(pct: progress, color: AppColors.gold, height: 6, label: "Tier progress")
             }
         }
         .padding(20)

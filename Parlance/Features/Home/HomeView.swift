@@ -97,6 +97,8 @@ struct HomeView: View {
                     Capsule()
                         .stroke(AppColors.border, lineWidth: 1)
                 )
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("\(user.currentStreak)-day streak")
             }
         }
     }
@@ -215,6 +217,7 @@ struct HomeView: View {
                                         .font(AppFonts.bodyMedium(9))
                                         .foregroundStyle(locked ? AppColors.dim : (isSelected ? AppColors.gold : AppColors.sub))
                                         .lineLimit(1)
+                                        .minimumScaleFactor(0.7)
                                 }
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 10)
@@ -226,6 +229,8 @@ struct HomeView: View {
                                 )
                                 .opacity(locked ? 0.5 : 1.0)
                             }
+                            .accessibilityLabel("Difficulty \(tier.name)\(isSelected ? ", currently selected" : "")")
+                            .accessibilityHint("Double-tap to select")
                         }
                     }
                 }

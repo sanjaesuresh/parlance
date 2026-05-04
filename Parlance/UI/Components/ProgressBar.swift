@@ -4,6 +4,7 @@ struct ProgressBar: View {
     let pct: Double
     var color: Color = AppColors.gold
     var height: CGFloat = 6
+    var label: String? = nil
 
     var body: some View {
         GeometryReader { geo in
@@ -19,5 +20,8 @@ struct ProgressBar: View {
             }
         }
         .frame(height: height)
+        .accessibilityElement()
+        .accessibilityLabel(label ?? "Progress")
+        .accessibilityValue("\(Int(pct.rounded()))%")
     }
 }

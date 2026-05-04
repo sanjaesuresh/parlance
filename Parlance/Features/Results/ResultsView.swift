@@ -135,6 +135,7 @@ struct ResultsView: View {
                         .stroke(AppColors.border, lineWidth: 1)
                 )
             }
+            .accessibilityLabel("Retry session")
         }
         .padding(.top, 52)
     }
@@ -540,6 +541,7 @@ extension View {
 
 struct ShimmerModifier: ViewModifier {
     @State private var phase: CGFloat = 0
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func body(content: Content) -> some View {
         content
@@ -551,6 +553,7 @@ struct ShimmerModifier: ViewModifier {
                 )
                 .offset(x: phase)
                 .onAppear {
+                    guard !reduceMotion else { return }
                     withAnimation(.linear(duration: 1.5).repeatForever(autoreverses: false)) {
                         phase = 300
                     }
