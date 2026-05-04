@@ -109,7 +109,8 @@ struct ResultsView: View {
 
             // Mode pill
             PillBadge(
-                text: "\(session.mode.emoji) \(session.mode.displayName)",
+                emoji: session.mode.emoji,
+                text: session.mode.displayName,
                 color: session.mode.accentColor,
                 small: true
             )
@@ -192,6 +193,10 @@ struct ResultsView: View {
         .padding(15)
         .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .overlay(
+            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                .stroke(AppColors.border, lineWidth: 1)
+        )
     }
 
     // MARK: - AI Coach Card
@@ -220,7 +225,7 @@ struct ResultsView: View {
             if let feedback = session.aiCoachFeedback {
                 Text(feedback)
                     .font(AppFonts.body(13))
-                    .foregroundStyle(Color(red: 0.73, green: 0.73, blue: 0.73)) // #BBB
+                    .foregroundStyle(AppColors.dim)
                     .lineSpacing(6)
             } else if viewModel.isRetryingFeedback {
                 RoundedRectangle(cornerRadius: 8)
@@ -250,7 +255,7 @@ struct ResultsView: View {
     private var highlightedTranscript: AttributedString {
         var attr = AttributedString(session.transcript)
         // Base styling
-        attr.foregroundColor = Color(red: 0.73, green: 0.73, blue: 0.73)
+        attr.foregroundColor = AppColors.dim
 
         let ranges = SpeechAnalyzer.fillerRanges(in: session.transcript)
         for range in ranges {
@@ -388,7 +393,7 @@ struct ResultsView: View {
             Text("\u{201C}\(quote)\u{201D}")
                 .font(AppFonts.body(11))
                 .italic()
-                .foregroundStyle(Color(red: 0.73, green: 0.73, blue: 0.73))
+                .foregroundStyle(AppColors.dim)
                 .lineLimit(3)
                 .lineSpacing(2)
 
@@ -426,7 +431,7 @@ struct ResultsView: View {
 
             Text("\(timestamp) — \(text)")
                 .font(AppFonts.body(11))
-                .foregroundStyle(Color(red: 0.667, green: 0.667, blue: 0.667)) // #AAA
+                .foregroundStyle(AppColors.dim)
                 .lineLimit(3)
                 .lineSpacing(2)
         }

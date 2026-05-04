@@ -209,7 +209,7 @@ struct ProfileView: View {
                 }
 
                 HStack(spacing: 8) {
-                    PillBadge(text: "\u{1F525} \(user.currentStreak)-day streak", color: AppColors.gold, small: true)
+                    PillBadge(emoji: "🔥", text: "\(user.currentStreak)-day streak", color: AppColors.gold, small: true)
 
                     let weeklyXP = cachedWeekSessions.map(\.xpEarned).reduce(0, +)
                     let tier = LeagueTier.from(weeklyXP: weeklyXP)
@@ -564,7 +564,7 @@ struct ProfileView: View {
     private var footerSection: some View {
         Text("Parlance v1.0 \u{00B7} Made with \u{1F3A4}")
             .font(AppFonts.body(10))
-            .foregroundStyle(Color(hex: "#2A2A2A"))
+            .foregroundStyle(AppColors.dim)
             .frame(maxWidth: .infinity)
             .padding(.top, 8)
     }
