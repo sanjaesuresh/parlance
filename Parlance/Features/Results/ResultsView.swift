@@ -13,12 +13,13 @@ struct ResultsView: View {
     @State private var showXPToast = true
     @State private var showPaywall = false
 
-    /// Average of sessions prior to this one (exclusive of current).
-    private var priorAverage: Int? {
-        let prior = allSessions.filter { $0.id != session.id }
-        guard !prior.isEmpty else { return nil }
-        return prior.map(\.overallScore).reduce(0, +) / prior.count
+    private enum ResultsPhase {
+        case scoreReveal, breakdown
     }
+
+    @State private var resultsPhase: ResultsPhase = .scoreReveal
+    @State private var displayedXP: Int = 0
+    @State private var cachedPriorAverage: Int? = nil
 
     private var durationString: String {
         let minutes = Int(session.duration) / 60
@@ -35,48 +36,60 @@ struct ResultsView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // 1 — Top nav bar
-                    topNavBar
+            VStack(spacing: 0) {
+                topNavBar
+                    .padding(.horizontal, 16)
 
-                    // 2 — Score hero
-                    scoreHero
+                switch resultsPhase {
+                case .scoreReveal:
+                    scoreRevealScreen
+                        .transition(.opacity)
+                case .breakdown:
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            // 1 — Score hero (without ring — that's on scoreRevealScreen)
+                            scoreHero
 
-                    // 3 — Question recap card
-                    questionRecapCard
+                            // 2 — Question recap card
+                            questionRecapCard
 
-                    // 4 — AI Coach card
-                    aiCoachCard
+                            // 3 — AI Coach card
+                            aiCoachCard
 
-                    // 5 — Your Response (transcript)
-                    if session.hasTranscript {
-                        transcriptCard
+                            // 4 — Your Response (transcript)
+                            if session.hasTranscript {
+                                transcriptCard
+                            }
+
+                            // 5 — Best / Worst moments
+                            momentsSection
+
+                            // 6 — Breakdown section
+                            breakdownSection
+
+                            // 7 — Tone analysis
+                            ToneAnalysisCard(
+                                isPro: subscription.isPro,
+                                emotionResult: session.emotionResult,
+                                onUpgrade: { showPaywall = true }
+                            )
+
+                            // 8 — Up Next card
+                            upNextCard
+                                .padding(.bottom, 60)
+                        }
+                        .padding(.horizontal, 16)
                     }
-
-                    // 6 — Best / Worst moments
-                    momentsSection
-
-                    // 7 — Breakdown section
-                    breakdownSection
-
-                    // 8 — Tone analysis
-                    ToneAnalysisCard(
-                        isPro: subscription.isPro,
-                        emotionResult: session.emotionResult,
-                        onUpgrade: { showPaywall = true }
-                    )
-
-                    // 9 — Up Next card
-                    upNextCard
-                        .padding(.bottom, 60)
+                    .background(AppColors.bg)
+                    .transition(.asymmetric(
+                        insertion: .move(edge: .bottom).combined(with: .opacity),
+                        removal: .opacity
+                    ))
                 }
-                .padding(.horizontal, 16)
             }
             .background(AppColors.bg)
 
-            // XP Toast overlay
-            if showXPToast {
+            if showXPToast && resultsPhase == .breakdown {
                 XPToastView(xpEarned: session.xpEarned, isVisible: $showXPToast)
                     .padding(.bottom, 24)
             }
@@ -84,6 +97,98 @@ struct ResultsView: View {
         .sheet(isPresented: $showPaywall) {
             PaywallView()
         }
+        .onAppear {
+            let prior = allSessions.filter { $0.id != session.id }
+            if !prior.isEmpty {
+                cachedPriorAverage = prior.map(\.overallScore).reduce(0, +) / prior.count
+            }
+        }
+    }
+
+    // MARK: - Score Reveal Screen
+
+    private var scoreRevealScreen: some View {
+        VStack(spacing: 0) {
+            Spacer()
+
+            ScoreRingView(score: session.overallScore)
+                .padding(.bottom, 20)
+
+            Text(verdictText)
+                .font(AppFonts.display(26))
+                .foregroundStyle(AppColors.text)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+
+            if let avg = cachedPriorAverage {
+                let delta = session.overallScore - avg
+                HStack(spacing: 8) {
+                    Text("Your average: \(avg)")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                    if delta != 0 {
+                        Text("\(delta >= 0 ? "+" : "")\(delta)")
+                            .font(AppFonts.bodyBold(11))
+                            .foregroundStyle(delta >= 0 ? AppColors.teal : AppColors.red)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background((delta >= 0 ? AppColors.teal : AppColors.red).opacity(0.15))
+                            .clipShape(Capsule())
+                    }
+                }
+                .padding(.top, 8)
+            }
+
+            HStack(spacing: 6) {
+                Image(systemName: "star.fill")
+                    .font(.system(size: 14))
+                    .foregroundStyle(AppColors.gold)
+                Text("+\(displayedXP) XP")
+                    .font(AppFonts.bodyBold(17))
+                    .foregroundStyle(AppColors.gold)
+            }
+            .padding(.top, 20)
+            .onAppear {
+                Task { await animateXP() }
+            }
+
+            Spacer()
+
+            Button {
+                withAnimation(.easeOut(duration: 0.35)) {
+                    resultsPhase = .breakdown
+                }
+            } label: {
+                Text("See Breakdown")
+                    .font(AppFonts.bodyBold(16))
+                    .foregroundStyle(AppColors.bg)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .background(AppColors.gold)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+            }
+            .padding(.horizontal, 32)
+            .padding(.bottom, 48)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
+    // MARK: - XP Animation
+
+    private func animateXP() async {
+        let target = session.xpEarned
+        guard target > 0 else {
+            displayedXP = 0
+            return
+        }
+        let steps = 24
+        for i in 1...steps {
+            try? await Task.sleep(nanoseconds: 55_000_000)
+            await MainActor.run {
+                displayedXP = (target * i) / steps
+            }
+        }
+        displayedXP = target
     }
 
     // MARK: - Top Nav Bar
@@ -140,13 +245,11 @@ struct ResultsView: View {
         .padding(.top, 52)
     }
 
-    // MARK: - Score Hero
+    // MARK: - Score Hero (breakdown view — no ring, just stats)
 
     private var scoreHero: some View {
         VStack(spacing: 8) {
-            ScoreRingView(score: session.overallScore)
-
-            if let avg = priorAverage {
+            if let avg = cachedPriorAverage {
                 let delta = session.overallScore - avg
                 HStack(spacing: 8) {
                     Text("Your average: \(avg)")

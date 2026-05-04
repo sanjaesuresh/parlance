@@ -12,25 +12,31 @@ struct ScoreRingView: View {
     }
 
     var body: some View {
-        ZStack {
-            Circle()
-                .stroke(AppColors.border, lineWidth: 12)
+        GeometryReader { geo in
+            let size = min(geo.size.width * 0.42, 160)
+            ZStack {
+                Circle()
+                    .stroke(AppColors.border, lineWidth: 12)
 
-            Circle()
-                .trim(from: 0, to: animatedProgress)
-                .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
-                .rotationEffect(.degrees(-90))
+                Circle()
+                    .trim(from: 0, to: animatedProgress)
+                    .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
+                    .rotationEffect(.degrees(-90))
 
-            VStack(spacing: 0) {
-                Text("\(score)")
-                    .font(AppFonts.display(48))
-                    .foregroundStyle(ringColor)
-                Text("out of 100")
-                    .font(AppFonts.body(10))
-                    .foregroundStyle(AppColors.dim)
+                VStack(spacing: 0) {
+                    Text("\(score)")
+                        .font(AppFonts.display(48))
+                        .foregroundStyle(ringColor)
+                    Text("out of 100")
+                        .font(AppFonts.body(10))
+                        .foregroundStyle(AppColors.dim)
+                }
             }
+            .frame(width: size, height: size)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(width: 160, height: 160)
+        .aspectRatio(1, contentMode: .fit)
+        .frame(maxWidth: 160)
         .accessibilityElement()
         .accessibilityLabel("Overall score \(score) out of 100")
         .onAppear {
