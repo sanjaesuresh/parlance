@@ -8,6 +8,7 @@ struct LoadingView: View {
     var onCancel: (() -> Void)?
 
     var body: some View {
+        GeometryReader { geo in
         VStack(spacing: 0) {
             // Nav bar
             HStack {
@@ -44,7 +45,7 @@ struct LoadingView: View {
                 Spacer().frame(width: 72)
             }
             .padding(.horizontal, 24)
-            .padding(.top, 52)
+            .padding(.top, geo.safeAreaInsets.top + 8)
             .padding(.bottom, 12)
 
             ScrollView {
@@ -133,5 +134,7 @@ struct LoadingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg)
+        } // GeometryReader
+        .ignoresSafeArea()
     }
 }

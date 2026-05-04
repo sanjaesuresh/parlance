@@ -15,6 +15,7 @@ struct RecordingView: View {
     @State private var didManualStop = false
     @State private var showCancelConfirmation = false
     @State private var didAutoStart = false
+    @State private var recordingDotVisible = true
 
     private var targetProgress: Double {
         guard question.targetDuration > 0 else { return 0 }
@@ -26,6 +27,7 @@ struct RecordingView: View {
     }
 
     var body: some View {
+        GeometryReader { geo in
         VStack(spacing: 0) {
             // Nav bar
             HStack {
@@ -65,7 +67,7 @@ struct RecordingView: View {
                 Spacer().frame(width: 72)
             }
             .padding(.horizontal, 24)
-            .padding(.top, 52)
+            .padding(.top, geo.safeAreaInsets.top + 8)
             .padding(.bottom, 8)
 
             ScrollView {
@@ -168,11 +170,24 @@ struct RecordingView: View {
 
             // Recording indicator
             if recorder.isRecording {
-                Text("● RECORDING")
-                    .font(AppFonts.bodyBold(11))
-                    .foregroundStyle(AppColors.gold)
-                    .opacity(0.8)
-                    .padding(.top, 4)
+                HStack(spacing: 5) {
+                    Circle()
+                        .fill(AppColors.gold)
+                        .frame(width: 7, height: 7)
+                        .opacity(recordingDotVisible ? 1 : 0)
+                        .animation(.easeInOut(duration: 0.6), value: recordingDotVisible)
+                    Text("RECORDING")
+                        .font(AppFonts.bodyBold(11))
+                        .foregroundStyle(AppColors.gold)
+                }
+                .opacity(0.8)
+                .padding(.top, 4)
+                .onAppear {
+                    let timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { _ in
+                        recordingDotVisible.toggle()
+                    }
+                    RunLoop.current.add(timer, forMode: .common)
+                }
             } else {
                 Text("Tap mic when ready")
                     .font(AppFonts.body(11))
@@ -231,14 +246,29 @@ struct RecordingView: View {
                 .foregroundStyle(AppColors.dim)
                 .padding(.top, 6)
 
-            Text(recorder.isRecording ? "Tap to finish & analyze" : "Tap to start")
-                .font(AppFonts.body(11))
-                .foregroundStyle(AppColors.dim)
-                .padding(.top, 4)
-                .padding(.bottom, 40)
+            Group {
+                if recorder.isRecording && !recorder.canStop {
+                    let remaining = Int(AppConstants.minRecordingDuration - recorder.elapsedTime) + 1
+                    Text("Stop available in \(max(0, remaining))s")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.sub)
+                } else if recorder.isRecording {
+                    Text("Tap to finish & analyze")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.dim)
+                } else {
+                    Text("Tap to start")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.dim)
+                }
+            }
+            .padding(.top, 4)
+            .padding(.bottom, 40)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg)
+        } // GeometryReader
+        .ignoresSafeArea()
         .onAppear {
             if autoStart && !didAutoStart && !recorder.isRecording {
                 didAutoStart = true
