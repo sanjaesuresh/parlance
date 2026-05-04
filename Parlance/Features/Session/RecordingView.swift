@@ -16,6 +16,7 @@ struct RecordingView: View {
     @State private var showCancelConfirmation = false
     @State private var didAutoStart = false
     @State private var recordingDotVisible = true
+    @State private var recordingDotTimer: Timer? = nil
 
     private var targetProgress: Double {
         guard question.targetDuration > 0 else { return 0 }
@@ -187,6 +188,11 @@ struct RecordingView: View {
                         recordingDotVisible.toggle()
                     }
                     RunLoop.current.add(timer, forMode: .common)
+                    recordingDotTimer = timer
+                }
+                .onDisappear {
+                    recordingDotTimer?.invalidate()
+                    recordingDotTimer = nil
                 }
             } else {
                 Text("Tap mic when ready")
