@@ -30,9 +30,44 @@ struct ResultsView: View {
 
     private var verdictText: String {
         let score = session.overallScore
-        if score >= 80 { return "Strong performance." }
-        if score >= 65 { return "Getting there." }
-        return "Room to grow."
+        if score >= 80 {
+            if let best = bestMetricName() {
+                return "Strong performance. Your \(best) stood out."
+            }
+            return "Strong performance."
+        } else if score >= 65 {
+            if let worst = worstMetricName() {
+                return "Getting there. Work on \(worst) next."
+            }
+            return "Getting there."
+        } else {
+            if let worst = worstMetricName() {
+                return "Room to grow. Focus on \(worst) first."
+            }
+            return "Room to grow."
+        }
+    }
+
+    private func bestMetricName() -> String? {
+        let scores: [(String, Int)] = [
+            ("structure", session.structureScore),
+            ("vocabulary", session.vocabularyScore),
+            ("clarity", session.clarityScore),
+            ("pace", session.paceScore),
+            ("filler control", session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1)
+        ].filter { $0.1 > 0 }
+        return scores.max(by: { $0.1 < $1.1 })?.0
+    }
+
+    private func worstMetricName() -> String? {
+        let scores: [(String, Int)] = [
+            ("structure", session.structureScore),
+            ("vocabulary", session.vocabularyScore),
+            ("clarity", session.clarityScore),
+            ("pace", session.paceScore),
+            ("filler control", session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1)
+        ].filter { $0.1 >= 0 }
+        return scores.min(by: { $0.1 < $1.1 })?.0
     }
 
     var body: some View {
@@ -103,6 +138,19 @@ struct ResultsView: View {
             if !prior.isEmpty {
                 let sum = prior.map(\.overallScore).reduce(0, +)
                 cachedPriorAverage = Int((Double(sum) / Double(prior.count)).rounded())
+            }
+            if session.hasTranscript {
+                var attr = AttributedString(session.transcript)
+                attr.foregroundColor = AppColors.dim
+                let ranges = SpeechAnalyzer.fillerRanges(in: session.transcript)
+                for range in ranges {
+                    if let attrRange = Range(range, in: attr) {
+                        attr[attrRange].foregroundColor = AppColors.red
+                        attr[attrRange].backgroundColor = AppColors.red.opacity(0.18)
+                        attr[attrRange].font = AppFonts.bodyMedium(13)
+                    }
+                }
+                cachedHighlightedTranscript = attr
             }
         }
     }
@@ -361,22 +409,7 @@ struct ResultsView: View {
     // MARK: - Transcript
 
     @State private var transcriptExpanded = false
-
-    private var highlightedTranscript: AttributedString {
-        var attr = AttributedString(session.transcript)
-        // Base styling
-        attr.foregroundColor = AppColors.dim
-
-        let ranges = SpeechAnalyzer.fillerRanges(in: session.transcript)
-        for range in ranges {
-            if let attrRange = Range(range, in: attr) {
-                attr[attrRange].foregroundColor = AppColors.red
-                attr[attrRange].backgroundColor = AppColors.red.opacity(0.18)
-                attr[attrRange].font = AppFonts.bodyMedium(13)
-            }
-        }
-        return attr
-    }
+    @State private var cachedHighlightedTranscript: AttributedString? = nil
 
     private var transcriptCard: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -409,10 +442,18 @@ struct ResultsView: View {
                 }
             }
 
-            Text(highlightedTranscript)
-                .font(AppFonts.body(13))
-                .lineSpacing(5)
-                .lineLimit(transcriptExpanded ? nil : 2)
+            if let transcript = cachedHighlightedTranscript {
+                Text(transcript)
+                    .font(AppFonts.body(13))
+                    .lineSpacing(5)
+                    .lineLimit(transcriptExpanded ? nil : 2)
+            } else {
+                Text(session.transcript)
+                    .font(AppFonts.body(13))
+                    .foregroundStyle(AppColors.dim)
+                    .lineSpacing(5)
+                    .lineLimit(transcriptExpanded ? nil : 2)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(15)
