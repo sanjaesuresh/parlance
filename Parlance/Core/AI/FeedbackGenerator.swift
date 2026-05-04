@@ -9,7 +9,8 @@ enum FeedbackGenerator {
         question: String,
         transcript: String,
         timingStats: TimingStats,
-        audioFeatures: AudioFeatures
+        audioFeatures: AudioFeatures,
+        emotionResult: EmotionResult? = nil
     ) -> String {
         let levelName = DifficultyLevel.name(for: level)
         let metrics = MetricKey.metrics(for: mode)
@@ -32,6 +33,29 @@ enum FeedbackGenerator {
             ? "(No transcript available — user did not speak or speech recognition failed)"
             : "\"\(transcript)\""
 
+        let emotionSection: String
+        if let emotion = emotionResult {
+            let arcStr: String
+            if emotion.emotionArc.isEmpty {
+                arcStr = "N/A"
+            } else {
+                let first = String(format: "%.0f%%", (emotion.emotionArc.first ?? 0) * 100)
+                let last = String(format: "%.0f%%", (emotion.emotionArc.last ?? 0) * 100)
+                arcStr = "\(first) → \(last)"
+            }
+            emotionSection = """
+
+            Vocal emotion analysis (Hume AI — use this in place of pitch-based delivery inference):
+            - Dominant emotion: \(emotion.dominantEmotion) (\(String(format: "%.0f%%", emotion.dominantScore * 100)))
+            - Confidence signal: \(String(format: "%.0f%%", emotion.confidenceScore * 100))
+            - Nervousness: \(String(format: "%.0f%%", emotion.nervousnessScore * 100))
+            - Enthusiasm/Excitement: \(String(format: "%.0f%%", emotion.enthusiasmScore * 100))
+            - Confidence arc (start → end): \(arcStr)
+            """
+        } else {
+            emotionSection = ""
+        }
+
         return """
         You are a direct, no-nonsense speech coach evaluating a \(mode.displayName) session.
         Level: \(level) (\(levelName))
@@ -51,7 +75,7 @@ enum FeedbackGenerator {
 
         Audio delivery:
         - Pitch mean: \(String(format: "%.0f", audioFeatures.pitchMeanHz))Hz, std dev: \(String(format: "%.0f", audioFeatures.pitchStdDevHz))Hz (higher std dev = more dynamic, less monotone)
-        - Energy mean RMS: \(String(format: "%.3f", audioFeatures.energyMeanRMS)), std dev: \(String(format: "%.3f", audioFeatures.energyStdDevRMS)) (higher std dev = more energy variation)
+        - Energy mean RMS: \(String(format: "%.3f", audioFeatures.energyMeanRMS)), std dev: \(String(format: "%.3f", audioFeatures.energyStdDevRMS)) (higher std dev = more energy variation)\(emotionSection)
 
         Score these metrics for this \(mode.displayName) session:
         \(metricList)
@@ -69,8 +93,8 @@ enum FeedbackGenerator {
 
         Rules:
         - overallScore is YOUR judgment of overall quality, not a formula
-        - A high pitch std dev means dynamic, engaging delivery — reward it
-        - A low pitch std dev means monotone delivery — penalize engagement/delivery confidence
+        - If Hume emotion data is present, use it as the primary signal for deliveryConfidence scoring
+        - A high pitch std dev means dynamic delivery — reward it when no Hume data is available
         - Tips must reference what they actually said, not generic advice
         - If transcript is empty or fewer than 10 words, score all metrics 1-2 and explain in feedback
         """
@@ -83,11 +107,13 @@ enum FeedbackGenerator {
         question: String,
         transcript: String,
         timingStats: TimingStats,
-        audioFeatures: AudioFeatures
+        audioFeatures: AudioFeatures,
+        emotionResult: EmotionResult? = nil
     ) async throws -> ScoringResult {
         let prompt = buildPrompt(
             mode: mode, level: level, question: question,
-            transcript: transcript, timingStats: timingStats, audioFeatures: audioFeatures
+            transcript: transcript, timingStats: timingStats,
+            audioFeatures: audioFeatures, emotionResult: emotionResult
         )
         return try await client.fetchScoring(prompt: prompt)
     }

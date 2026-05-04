@@ -15,9 +15,11 @@ final class HomeViewModel: ObservableObject {
         mode: SessionMode,
         user: User,
         persistence: PersistenceService,
-        wasDailyChallenge: Bool
+        wasDailyChallenge: Bool,
+        isPro: Bool = false
     ) -> ActiveSessionState? {
-        guard !user.isAtDailyLimit else {
+        let sessionLimit = isPro ? AppConstants.maxSessionsPerDay : AppConstants.freeSessionsPerDay
+        guard user.dailySessionCount < sessionLimit else {
             showRateLimitAlert = true
             return nil
         }

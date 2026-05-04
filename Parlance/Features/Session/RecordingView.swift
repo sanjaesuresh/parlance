@@ -50,7 +50,7 @@ struct RecordingView: View {
                 Spacer()
 
                 HStack(spacing: 7) {
-                    PillBadge(text: "\(mode.emoji) \(mode.displayName)", color: mode.accentColor, small: true)
+                    PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
                     Text("Lv \(level)")
                         .font(AppFonts.bodyMedium(10))
                         .foregroundStyle(AppColors.sub)
@@ -81,7 +81,7 @@ struct RecordingView: View {
                                 .background(AppColors.faint)
                                 .clipShape(Capsule())
 
-                            PillBadge(text: "⏱ \(question.targetDuration)s", color: mode.accentColor, small: true)
+                            PillBadge(text: "\(question.targetDuration)s", emoji: "⏱", color: mode.accentColor, small: true)
                         }
 
                         Text("\"\(question.question)\"")
@@ -163,7 +163,7 @@ struct RecordingView: View {
             // Timer
             Text(formatTime(recorder.elapsedTime))
                 .font(AppFonts.display(54))
-                .foregroundStyle(recorder.isRecording ? AppColors.gold : Color(hex: "#252525"))
+                .foregroundStyle(recorder.isRecording ? AppColors.gold : AppColors.faint)
                 .padding(.top, 18)
 
             // Recording indicator

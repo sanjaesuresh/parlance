@@ -38,7 +38,7 @@ struct XPProgressBar: View {
                     HStack(spacing: 4) {
                         Text("\(remaining) XP to")
                             .font(AppFonts.body(11))
-                            .foregroundStyle(Color(hex: "#333333"))
+                            .foregroundStyle(AppColors.sub)
                         Text(nextRank.name)
                             .font(AppFonts.bodyBold(11))
                             .foregroundStyle(AppColors.gold)

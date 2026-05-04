@@ -20,7 +20,7 @@ struct DailyChallengeCard: View {
                     VStack(alignment: .leading, spacing: 10) {
                         // Pills row
                         HStack(spacing: 8) {
-                            PillBadge(text: "\(mode.emoji) \(mode.displayName)", color: mode.accentColor, small: true)
+                            PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
                             PillBadge(text: "Lv \(level)", color: AppColors.gold, small: true)
                         }
 

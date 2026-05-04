@@ -35,6 +35,9 @@ final class Session {
     // MARK: - New: AI metric tips (JSON-encoded [String: String])
     var metricTipsData: Data?
 
+    // MARK: - Emotion analysis (Pro only; nil for free-tier sessions)
+    var emotionResultData: Data?
+
     // MARK: - New: AI moments
     var bestMomentQuote: String = ""
     var bestMomentReason: String = ""
@@ -42,6 +45,16 @@ final class Session {
     var worstMomentReason: String = ""
 
     // MARK: - Computed
+
+    var emotionResult: EmotionResult? {
+        get {
+            guard let data = emotionResultData else { return nil }
+            return try? JSONDecoder().decode(EmotionResult.self, from: data)
+        }
+        set {
+            emotionResultData = newValue.flatMap { try? JSONEncoder().encode($0) }
+        }
+    }
 
     var mode: SessionMode {
         get { SessionMode(rawValue: modeRaw) ?? .interview }
@@ -88,7 +101,8 @@ final class Session {
         question: String,
         scoringResult: ScoringResult,
         xpEarned: Int,
-        wasDailyChallenge: Bool
+        wasDailyChallenge: Bool,
+        emotionResult: EmotionResult? = nil
     ) {
         self.id = UUID()
         self.date = .now
@@ -112,6 +126,7 @@ final class Session {
         self.bestMomentReason = scoringResult.bestMoment.reason
         self.worstMomentQuote = scoringResult.worstMoment.quote
         self.worstMomentReason = scoringResult.worstMoment.reason
+        self.emotionResultData = emotionResult.flatMap { try? JSONEncoder().encode($0) }
 
         // Legacy fields — zero for new sessions
         self.paceScore = 0
@@ -168,6 +183,7 @@ final class Session {
         self.wasDailyChallenge = wasDailyChallenge
         self.metricScoresData = nil
         self.metricTipsData = nil
+        self.emotionResultData = nil
         self.bestMomentQuote = ""
         self.bestMomentReason = ""
         self.worstMomentQuote = ""

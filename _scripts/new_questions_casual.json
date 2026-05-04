@@ -1,0 +1,1696 @@
+[
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your favorite childhood memory to someone you just met.",
+    "tips": [
+      "Open with a vivid detail, not 'So when I was a kid...'",
+      "Use present-tense language to make the memory feel alive",
+      "End with why it still sticks with you"
+    ],
+    "difficultyNote": "Simple personal story with low stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a friend what your favorite TV show is about and convince them to watch it.",
+    "tips": [
+      "Lead with the hook — the most exciting part — not the premise",
+      "Keep the plot summary short; focus on why it's addictive",
+      "End with a specific episode or moment they'll love"
+    ],
+    "difficultyNote": "Casual recommendation with a light persuasion goal"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain what your hometown is like to someone who has never been to your region.",
+    "tips": [
+      "Pick two or three specific details that paint a picture",
+      "Avoid listing — tell a small story instead",
+      "Compare it to something your listener would know"
+    ],
+    "difficultyNote": "Descriptive speaking with personal familiarity"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your favorite way to spend a Sunday morning.",
+    "tips": [
+      "Use sensory details — what you see, hear, or taste",
+      "Don't just list activities; explain why each one feels good",
+      "Let your genuine enthusiasm come through naturally"
+    ],
+    "difficultyNote": "Light personal expression with no right answer"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain to a curious friend what you find interesting about a hobby you have.",
+    "tips": [
+      "Start with what surprised you when you first tried it",
+      "Describe the feeling of getting better at something",
+      "Make it about the experience, not just the activity"
+    ],
+    "difficultyNote": "Sharing personal enthusiasm simply"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone why a particular song or album means a lot to you.",
+    "tips": [
+      "Connect the music to a specific moment in your life",
+      "Describe what it sounds like without using only genre labels",
+      "End with what listening to it feels like now"
+    ],
+    "difficultyNote": "Emotional and personal, very low pressure"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a restaurant you love to a friend who's picking a place for dinner.",
+    "tips": [
+      "Lead with the one dish they must order",
+      "Paint the atmosphere in a sentence — it matters",
+      "Be specific: name and location, not vague praise"
+    ],
+    "difficultyNote": "Everyday recommendation with a simple goal"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain what your favorite type of weather is and how it makes you feel.",
+    "tips": [
+      "Go beyond 'I like it because it's nice' — describe the feeling physically",
+      "Mention what activities that weather makes you want to do",
+      "Contrast it briefly with weather you dislike to add color"
+    ],
+    "difficultyNote": "Simple opinion sharing with sensory description"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a new coworker about your commute or morning routine before work.",
+    "tips": [
+      "Include at least one small specific detail that's uniquely yours",
+      "Keep chronology simple — don't over-explain each step",
+      "Let your tone be warm and casual, not like a schedule readout"
+    ],
+    "difficultyNote": "Natural small talk, very low stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe what you would eat if you could have any meal right now.",
+    "tips": [
+      "Make the listener almost taste it — use specific sensory language",
+      "Explain where the craving is coming from",
+      "Include who you'd want to eat it with, if that matters"
+    ],
+    "difficultyNote": "Warm-up speaking with vivid imagery"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain why a place you visited recently — even somewhere local — was worth going to.",
+    "tips": [
+      "Focus on one or two highlights rather than everything you did",
+      "Include a moment that surprised you",
+      "End with whether you'd go back and why"
+    ],
+    "difficultyNote": "Simple travel or local recommendation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a friend about a book you read recently — even if you only partly enjoyed it.",
+    "tips": [
+      "Don't retell the whole plot — share your reaction instead",
+      "It's okay to be honest if it was mixed; that makes you more interesting",
+      "End with who you'd recommend it to, or who you wouldn't"
+    ],
+    "difficultyNote": "Honest opinion sharing with no pressure to be positive"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a skill you're trying to learn right now.",
+    "tips": [
+      "Say what drew you to it — curiosity is more interesting than 'it's useful'",
+      "Share where you are in the learning curve honestly",
+      "Mention the hardest part so far"
+    ],
+    "difficultyNote": "Personal update with natural vulnerability"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain your favorite kind of vacation to someone planning their first big trip.",
+    "tips": [
+      "Say what kind of traveler you are first — beach, city, outdoors, etc.",
+      "Give one concrete example of a trip you loved",
+      "Give one piece of advice they'd genuinely use"
+    ],
+    "difficultyNote": "Light advice-giving in a friendly context"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone what you find relaxing after a long day.",
+    "tips": [
+      "Be specific — 'watching TV' is vague; say what kind and why",
+      "Describe the feeling of unwinding, not just the activity",
+      "Keep it honest; the real answer is more interesting than the ideal one"
+    ],
+    "difficultyNote": "Self-disclosure with no wrong answer"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe an animal — wild or pet — that you find fascinating.",
+    "tips": [
+      "Pick one thing about it that genuinely surprises people",
+      "Use comparisons or analogies to make it vivid",
+      "Let your genuine interest show — it's contagious"
+    ],
+    "difficultyNote": "Simple descriptive speaking with personal enthusiasm"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain what you would do first if you had a week with no responsibilities.",
+    "tips": [
+      "Don't just list things — say why you'd prioritize that first",
+      "Be honest rather than giving the aspirational answer",
+      "Include at least one small, specific detail to make it real"
+    ],
+    "difficultyNote": "Imaginative but casual, no expertise required"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a friend about something you saw or read this week that made you think.",
+    "tips": [
+      "Set up context quickly — what was it and where did you see it?",
+      "Focus on your reaction, not a full summary",
+      "End with the question it left you with"
+    ],
+    "difficultyNote": "Sharing a thought naturally, no performance pressure"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a tradition from your family or culture that you genuinely enjoy.",
+    "tips": [
+      "Explain what happens specifically — not just that it's 'special'",
+      "Include one detail that would seem strange or surprising to an outsider",
+      "Say what it means to you now as an adult"
+    ],
+    "difficultyNote": "Personal story with cultural color"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend why you prefer mornings (or evenings) for getting things done.",
+    "tips": [
+      "Give a concrete reason based on how you actually feel, not productivity advice",
+      "Mention one thing you specifically do at that time of day",
+      "Be willing to acknowledge what you lose by not being the other type"
+    ],
+    "difficultyNote": "Everyday opinion with a light self-awareness challenge"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe the neighborhood you grew up in to someone who has never been there.",
+    "tips": [
+      "Choose two or three concrete images — a street, a smell, a sound",
+      "Say something about what was unique about the place",
+      "Be honest about what it was like, not just nostalgic"
+    ],
+    "difficultyNote": "Personal description, low pressure"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone what kind of music you listen to while working or studying.",
+    "tips": [
+      "Explain why that type of music works for your brain specifically",
+      "Give a specific artist or playlist as an example",
+      "If you can't work with music, say that and explain why"
+    ],
+    "difficultyNote": "Small talk with a personal insight"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain why you like or dislike cooking.",
+    "tips": [
+      "Be specific about which part you like or hate — the chopping? the cleanup?",
+      "Give one example of something you've cooked that you're proud of, or a disaster",
+      "Don't hedge — have an actual opinion"
+    ],
+    "difficultyNote": "Simple opinion with specific detail"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe what you'd put in your ideal apartment or bedroom.",
+    "tips": [
+      "Say what matters most to you — light, space, coziness, functionality",
+      "Include at least one specific item that reveals your personality",
+      "Keep it grounded in reality, not a fantasy mansion"
+    ],
+    "difficultyNote": "Creative personal expression, no stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone about a time something small made your day unexpectedly better.",
+    "tips": [
+      "Set up the scene quickly — what was the day like before?",
+      "The smaller and more specific the moment, the better",
+      "End with why that kind of thing matters"
+    ],
+    "difficultyNote": "Short personal story with a positive tone"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain what your ideal vacation weather looks like to a travel companion.",
+    "tips": [
+      "Go specific: temperature, clouds, wind, humidity",
+      "Explain how that weather makes you feel and what you want to do in it",
+      "Say what weather kills a trip for you, for contrast"
+    ],
+    "difficultyNote": "Simple preference sharing with vivid detail"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a piece of clothing or accessory you own that has a story behind it.",
+    "tips": [
+      "Start with the object itself, then reveal the story",
+      "Make the story short and specific — one clear moment",
+      "Say whether you'd replace it if it were lost"
+    ],
+    "difficultyNote": "Personal storytelling with a physical anchor"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a friend what type of phone or laptop person you are — and why.",
+    "tips": [
+      "Give the honest reason, not the technical one",
+      "Acknowledge what fans of the other type would say",
+      "Keep it light — this is banter, not a debate"
+    ],
+    "difficultyNote": "Light tech opinion in casual context"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a smell that immediately transports you somewhere specific.",
+    "tips": [
+      "Name the smell concretely, don't just say 'a nice smell'",
+      "Describe the memory or place it takes you to",
+      "Explain why that connection is so strong for you"
+    ],
+    "difficultyNote": "Sensory and memory-based description"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain to someone why you think pets are (or aren't) worth the hassle.",
+    "tips": [
+      "Ground your opinion in personal experience, not general facts",
+      "Acknowledge the real downsides honestly",
+      "Don't moralize — just share your genuine take"
+    ],
+    "difficultyNote": "Opinion with personal stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a time you tried a food you expected to hate but actually liked.",
+    "tips": [
+      "Include what made you skeptical at first",
+      "Describe the taste vividly — what changed your mind exactly?",
+      "Say whether you'd eat it again"
+    ],
+    "difficultyNote": "Short personal story with a relatable twist"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a new friend what your go-to comfort activity is when you're stressed.",
+    "tips": [
+      "Be honest — the real answer is more interesting than the aspirational one",
+      "Explain why it actually works for you",
+      "Keep the tone warm and real, not like advice to yourself"
+    ],
+    "difficultyNote": "Personal self-disclosure with no judgment"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain what kind of person you were in high school.",
+    "tips": [
+      "Be honest and a bit self-aware — this is more interesting than bragging",
+      "Use one specific example or memory to illustrate",
+      "Say how different or similar you are now"
+    ],
+    "difficultyNote": "Personal reflection with a light humor opportunity"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe the best gift you've ever received and why it meant so much.",
+    "tips": [
+      "It doesn't have to be expensive — explain why it was meaningful",
+      "Describe the moment you received it",
+      "Say what it showed about the person who gave it"
+    ],
+    "difficultyNote": "Warm personal memory, no pressure"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell a friend what superpower you'd want and what you'd actually do with it.",
+    "tips": [
+      "Don't give the obvious answer — be creative or honest about what you'd really use it for",
+      "Include one funny or mundane use case",
+      "Be specific about why this power over others"
+    ],
+    "difficultyNote": "Imaginative fun question with zero pressure"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend why you find a particular subject from school interesting now, even if you hated it then.",
+    "tips": [
+      "Say what changed — a book, a person, an experience?",
+      "Give one specific thing about the subject that now fascinates you",
+      "Keep the tone conversational, not like a school report"
+    ],
+    "difficultyNote": "Intellectual curiosity shared naturally"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe your relationship with social media — do you love it, hate it, or something in between?",
+    "tips": [
+      "Be specific about which platform and what you actually do on it",
+      "Acknowledge the honest tension if you use something you also dislike",
+      "Don't give the trendy answer — give your real one"
+    ],
+    "difficultyNote": "Honest self-reflection on a universal topic"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone about the most beautiful place you've ever been.",
+    "tips": [
+      "Describe what you saw, heard, and felt — not just how pretty it was",
+      "Say what surprised you about the place",
+      "End with why it's still stuck in your memory"
+    ],
+    "difficultyNote": "Descriptive storytelling, personal and positive"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Explain what you think makes a good friendship.",
+    "tips": [
+      "Be specific — pick one or two qualities that matter most to you personally",
+      "Back it up with an example from your life",
+      "Avoid giving the generic answer; say what you actually look for"
+    ],
+    "difficultyNote": "Light reflection on personal values"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Describe a weird or unique thing about your daily routine that most people don't do.",
+    "tips": [
+      "Pick something that's genuinely quirky — the more specific the better",
+      "Explain why you do it, even if the reason is irrational",
+      "Own it with confidence — quirks are interesting"
+    ],
+    "difficultyNote": "Self-revealing with a humor opportunity"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "1-2",
+    "question": "Tell someone what your dream job would be if money and training weren't an issue.",
+    "tips": [
+      "Be honest — the actual dream, not the responsible dream",
+      "Say one specific thing about that job that appeals to you",
+      "Acknowledge what about your real life still feeds that interest"
+    ],
+    "difficultyNote": "Aspirational and personal, completely low-stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Convince a friend who only reads fiction to try one nonfiction book.",
+    "tips": [
+      "Pick a book that reads like a story — lead with that",
+      "Acknowledge what they're giving up by switching genres briefly",
+      "End with a specific reason this book will surprise them"
+    ],
+    "difficultyNote": "Light persuasion with audience resistance"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why a hobby most people consider boring is actually fascinating.",
+    "tips": [
+      "Don't start with 'Most people don't realize...' — just show it",
+      "Give one specific detail or fact that will genuinely surprise your listener",
+      "Connect the hobby to something universal they already care about"
+    ],
+    "difficultyNote": "Reframing a dismissible topic engagingly"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Share your honest opinion on tipping culture and explain your reasoning.",
+    "tips": [
+      "Take a clear position rather than 'on one hand, on the other hand'",
+      "Acknowledge the strongest counterargument before dismissing it",
+      "Make it personal — connect to an experience, not just a principle"
+    ],
+    "difficultyNote": "Social opinion with real disagreement potential"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain to a friend what makes a city worth living in versus just visiting.",
+    "tips": [
+      "Give concrete criteria — don't just say 'vibe'",
+      "Illustrate with one city you've experienced both ways",
+      "Say what the tourist version misses"
+    ],
+    "difficultyNote": "Opinion with personal experience backing it"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe a moment when you realized you were wrong about something important.",
+    "tips": [
+      "Don't frame it as a success story — keep some honest discomfort",
+      "Say what actually changed your mind, not what should have",
+      "Explain how it changed how you approach that topic now"
+    ],
+    "difficultyNote": "Vulnerability and reflection with conversational depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Argue that learning a second language is worth the time investment even if you'll never be fluent.",
+    "tips": [
+      "Lead with the benefit that isn't 'you can talk to more people'",
+      "Acknowledge how hard and time-consuming it actually is",
+      "Give one concrete, non-obvious benefit to anchor your argument"
+    ],
+    "difficultyNote": "Practical argument against a reasonable skeptic"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain what it means to be a good listener and why it's underrated.",
+    "tips": [
+      "Give a specific behavior that separates good listeners from pretend listeners",
+      "Tell a story about when you felt genuinely heard — what made it different?",
+      "Make it practical: give the listener one thing they can do today"
+    ],
+    "difficultyNote": "Interpersonal topic with practical substance"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Share your opinion on whether it's better to live in a big city or a small town.",
+    "tips": [
+      "Give your actual answer first, then defend it",
+      "Acknowledge what you'd genuinely miss about the other option",
+      "Say who you think each lifestyle suits — not everyone is the same"
+    ],
+    "difficultyNote": "Classic debate with personal stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain to a non-exerciser why physical activity is worth the effort — without being preachy.",
+    "tips": [
+      "Don't lead with health benefits — everyone knows those",
+      "Lead with a mental or social benefit that's less obvious",
+      "Keep it inviting, not superior — you're not their doctor"
+    ],
+    "difficultyNote": "Persuasion that requires restraint and empathy"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to navigate an awkward social situation and what you did.",
+    "tips": [
+      "Set up the awkwardness clearly — let your audience feel it",
+      "Be honest if you handled it poorly — it's funnier and more relatable",
+      "End with what you'd do differently or what you learned"
+    ],
+    "difficultyNote": "Relatable social storytelling"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why nostalgia can be both comforting and misleading.",
+    "tips": [
+      "Ground it with a personal example of something you romanticized",
+      "Acknowledge why nostalgia feels good without dismissing it",
+      "End with a nuanced take — not 'nostalgia bad'"
+    ],
+    "difficultyNote": "Balanced reflection on a universal feeling"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Convince someone to try cooking at home more instead of ordering in.",
+    "tips": [
+      "Don't lead with cost savings — that's not emotionally compelling",
+      "Lead with the experience, not the outcome",
+      "Give one extremely simple starting point, not an ambitious recipe"
+    ],
+    "difficultyNote": "Practical persuasion with lifestyle change stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain the concept of 'good enough' versus perfectionism in everyday decisions.",
+    "tips": [
+      "Give a concrete example of where good enough is genuinely right",
+      "Acknowledge where perfectionism does add value so you're not one-sided",
+      "Make it actionable — give the listener a mental test they can use"
+    ],
+    "difficultyNote": "Abstract concept made practical in conversation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Argue that experiences are worth more than possessions — or challenge that idea.",
+    "tips": [
+      "Take a clear side rather than 'it depends'",
+      "Give one compelling counterexample to your own position to show nuance",
+      "Tie it to something real in your own life"
+    ],
+    "difficultyNote": "Values debate with personal grounding"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain what you've learned about money from your early 20s — what you wish someone had told you.",
+    "tips": [
+      "Be honest about a mistake, not just what you got right",
+      "Keep the advice specific — not 'save more' but something concrete",
+      "Say why you didn't follow that advice even when you knew it"
+    ],
+    "difficultyNote": "Personal financial reflection for a peer audience"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe a person in your life who shaped how you communicate — and how.",
+    "tips": [
+      "Give one specific thing they did or said that you still carry",
+      "Say whether you consciously adopted it or it just seeped in",
+      "Be specific — name the behavior, not just the person"
+    ],
+    "difficultyNote": "Reflective personal story with communication angle"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why saying no is harder than it sounds and what helps.",
+    "tips": [
+      "Acknowledge the real social costs of saying no — don't minimize them",
+      "Give one specific strategy that actually works, not a platitude",
+      "Be honest about when you've failed at this yourself"
+    ],
+    "difficultyNote": "Relatable challenge with practical depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Convince a skeptic that traveling somewhere unfamiliar and uncomfortable is worth it.",
+    "tips": [
+      "Lead with a specific story, not an abstract argument",
+      "Acknowledge that comfort travel is also valid — you're not shaming them",
+      "End with one concrete benefit that's hard to get any other way"
+    ],
+    "difficultyNote": "Persuasion with a genuine skeptic in mind"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain the difference between being busy and being productive to a friend who's always overwhelmed.",
+    "tips": [
+      "Give a concrete example of the difference — not just definitions",
+      "Don't be preachy; frame it as something you've struggled with too",
+      "Offer one specific thing they could try, not a whole system"
+    ],
+    "difficultyNote": "Practical insight with empathy requirement"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Share your take on whether people change fundamentally over time or stay essentially the same.",
+    "tips": [
+      "Have a real position rather than dodging with 'both are true'",
+      "Anchor it in someone you know or in yourself",
+      "Acknowledge what makes the opposite view compelling"
+    ],
+    "difficultyNote": "Philosophical opinion grounded in personal observation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain to a friend why you think small talk is a skill worth developing.",
+    "tips": [
+      "Name one concrete thing small talk actually enables",
+      "Acknowledge that it feels fake to a lot of people — don't dismiss that",
+      "Give one practical tip for making small talk feel less hollow"
+    ],
+    "difficultyNote": "Meta-communication topic with relatable friction"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe what you think makes a great host at a dinner party or gathering.",
+    "tips": [
+      "Focus on one or two specific behaviors, not a generic list",
+      "Use an example of a host who did it well",
+      "Say what most people get wrong when they host"
+    ],
+    "difficultyNote": "Observation-based opinion with specific criteria"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why you think people underestimate the importance of sleep.",
+    "tips": [
+      "Don't just recite sleep facts — make it emotionally real",
+      "Connect it to performance or mood from your own experience",
+      "Give one specific change that helped you (if any) without being preachy"
+    ],
+    "difficultyNote": "Health topic made personal and conversational"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Argue whether it's better to have many acquaintances or a few deep friendships.",
+    "tips": [
+      "Pick a side and defend it rather than settling for 'balance'",
+      "Use a specific life situation where one approach clearly wins",
+      "Acknowledge what the other approach gets right"
+    ],
+    "difficultyNote": "Social philosophy debate with personal grounding"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain to someone moving to a new city what you wish you'd known when you moved somewhere new.",
+    "tips": [
+      "Be specific — one or two real insights, not a generic welcome list",
+      "Include something that took you longer to figure out than it should have",
+      "Make the tone warm and practical, like advice from a real friend"
+    ],
+    "difficultyNote": "Practical advice from lived experience"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Convince someone to spend less time on their phone — without being hypocritical about it.",
+    "tips": [
+      "Start by acknowledging your own phone habits honestly",
+      "Suggest one small change rather than a dramatic lifestyle overhaul",
+      "Make the benefit tangible — not 'you'll be happier' but something specific"
+    ],
+    "difficultyNote": "Persuasion requiring self-awareness and credibility"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Share your opinion on whether it's better to be honest or kind when someone asks for feedback.",
+    "tips": [
+      "Give your actual answer — don't say 'both'",
+      "Use a specific example to show when one wins over the other",
+      "Say what you personally find harder to do"
+    ],
+    "difficultyNote": "Values tension with real conversational stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain what you think is the most underrated quality in a romantic partner.",
+    "tips": [
+      "Be specific — not just 'kindness' but a particular expression of it",
+      "Say why it's underrated: what do people value instead?",
+      "Connect it to something from your own experience without oversharing"
+    ],
+    "difficultyNote": "Personal values question with specific expectation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe a life hack or habit that has genuinely improved your daily life.",
+    "tips": [
+      "Give the specific habit, not just the category",
+      "Say how you discovered it or why it took you so long to try it",
+      "Be honest about how consistently you actually do it"
+    ],
+    "difficultyNote": "Practical personal recommendation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why humor is a serious social skill.",
+    "tips": [
+      "Don't just say it breaks tension — give a more specific function",
+      "Use a moment where humor did something nothing else could",
+      "Acknowledge the risk: when humor goes wrong and what that costs"
+    ],
+    "difficultyNote": "Social insight with a mix of humor and depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Convince your friend to take a weekend trip with no phones.",
+    "tips": [
+      "Acknowledge upfront that it sounds annoying — meet the resistance early",
+      "Give one specific thing that becomes better without the phone",
+      "Make it feel like an adventure, not a detox lecture"
+    ],
+    "difficultyNote": "Persuasion against genuine lifestyle resistance"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain what you think the best age of your life has been so far and why.",
+    "tips": [
+      "Be honest — there's no correct answer and sentimentality isn't required",
+      "Give specific reasons tied to that period, not vague nostalgia",
+      "Say what you'd bring from that time into your current life"
+    ],
+    "difficultyNote": "Reflective opinion with emotional honesty"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Explain why knowing how to cook a few things well is a meaningful life skill.",
+    "tips": [
+      "Go beyond 'it saves money' — what else does it give you?",
+      "Share one dish you cook that makes you feel capable or proud",
+      "Make the listener feel like it's achievable, not intimidating"
+    ],
+    "difficultyNote": "Practical life skills argument with warmth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Share your opinion on whether working hard at something you don't love is worth it.",
+    "tips": [
+      "Give a real answer, not a motivational poster answer",
+      "Say when you think it's worth it and when it isn't",
+      "Ground it in something you've experienced"
+    ],
+    "difficultyNote": "Nuanced career and life opinion"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of confirmation bias to a friend who keeps falling for bad news articles.",
+    "tips": [
+      "Don't lecture — use a relatable example from your own experience first",
+      "Make it concrete: explain the actual mechanism, not just the label",
+      "End with one practical thing they can do, not just awareness"
+    ],
+    "difficultyNote": "Psychology concept made personal and non-condescending"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Convince a friend who hates networking that it doesn't have to feel transactional.",
+    "tips": [
+      "Acknowledge why it feels gross — don't minimize the legitimate discomfort",
+      "Reframe networking as something they already do naturally",
+      "Give one specific low-pressure way to start"
+    ],
+    "difficultyNote": "Persuasion requiring genuine empathy and reframing"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why the way you frame a problem determines how well you can solve it.",
+    "tips": [
+      "Use a concrete example — ideally one from everyday life, not business school",
+      "Show two ways to frame the same problem with different outcomes",
+      "Make it feel like insight rather than a lesson"
+    ],
+    "difficultyNote": "Abstract idea made tangible through example"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Navigate a conversation where someone confidently shares misinformation at a dinner table.",
+    "tips": [
+      "Don't humiliate — redirect with curiosity rather than correction",
+      "Ask a question that makes them examine their own assumption",
+      "Say what you'd do to keep the conversation from getting tense"
+    ],
+    "difficultyNote": "Social diplomacy under real conversational pressure"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the difference between empathy and sympathy — and why it matters in everyday relationships.",
+    "tips": [
+      "Use a real scenario to illustrate, not just a definition",
+      "Say when sympathy is actually more appropriate",
+      "Make it practical: give a phrase or behavior that shows each"
+    ],
+    "difficultyNote": "Emotional intelligence concept in accessible language"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why trust takes years to build and seconds to lose — and what to do after you've damaged it.",
+    "tips": [
+      "Don't just state the cliché — explain the mechanism behind it",
+      "Draw from a real experience without oversharing",
+      "Give a specific and honest path to rebuilding, not just 'apologize'"
+    ],
+    "difficultyNote": "Interpersonal wisdom with emotional depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Persuade a group of friends to change vacation plans from a resort to something more adventurous.",
+    "tips": [
+      "Read your audience — don't dismiss their desire for comfort",
+      "Offer a specific alternative that preserves what they care about",
+      "Build excitement, not guilt — they should want this, not feel bad for not wanting it"
+    ],
+    "difficultyNote": "Group persuasion requiring tact and enthusiasm"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain what 'emotional labor' means and why it often goes unrecognized.",
+    "tips": [
+      "Define it through a concrete example, not a textbook definition",
+      "Make sure the example will resonate with whoever you're talking to",
+      "Connect it to fairness without turning it into a grievance"
+    ],
+    "difficultyNote": "Social concept requiring clarity and balance"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why the things we avoid saying in conversation often matter more than what we do say.",
+    "tips": [
+      "Give one example of a significant unsaid thing and its cost",
+      "Don't make it prescriptive — acknowledge why people avoid saying hard things",
+      "End with a specific scenario where speaking up changes everything"
+    ],
+    "difficultyNote": "Communication nuance for a thoughtful audience"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue that boredom is underrated and has been wrongly medicated away by smartphones.",
+    "tips": [
+      "Give a specific thing that boredom generates — creativity, self-knowledge, etc.",
+      "Acknowledge that smartphones also provide real value",
+      "Connect the argument to something personally observable in your own life"
+    ],
+    "difficultyNote": "Counterintuitive argument requiring nuance"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain what you think the hidden cost of always optimizing your life is.",
+    "tips": [
+      "Name the specific thing that gets lost when life becomes a productivity project",
+      "Say when optimization genuinely helps and when it starts to cost you",
+      "Avoid the self-help cliché — be honest and a bit uncomfortable"
+    ],
+    "difficultyNote": "Nuanced take on a popular culture topic"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Navigate a situation where a friend asks for your honest opinion on a big decision they've already made.",
+    "tips": [
+      "Say whether you'd be honest or supportive first — and why",
+      "Give a real strategy for how you'd handle the tension",
+      "Acknowledge the cost of getting it wrong in either direction"
+    ],
+    "difficultyNote": "Social dilemma with real friendship stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the attention economy to someone who doesn't think their scrolling habits are a problem.",
+    "tips": [
+      "Don't moralize — make them curious, not defensive",
+      "Use one specific mechanism (like variable reward schedules) explained simply",
+      "End with one thing they can try, not a call to quit social media entirely"
+    ],
+    "difficultyNote": "Tech critique requiring persuasion without alienation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Convince a skeptical friend that therapy or talking to someone is worth trying.",
+    "tips": [
+      "Don't pathologize them — frame it as maintenance, not crisis",
+      "Share your own experience honestly if you have one",
+      "Acknowledge the real barriers: cost, stigma, finding the right person"
+    ],
+    "difficultyNote": "Sensitive persuasion requiring vulnerability and credibility"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why failure in your 20s is actually better than constant success.",
+    "tips": [
+      "Back it up with specific learning that only failure provides",
+      "Don't make it sound like a motivational poster — include the genuine pain of failure",
+      "Make it convincing to a young person who is actually afraid to fail"
+    ],
+    "difficultyNote": "Counterintuitive argument with emotional authenticity"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain the sunk cost fallacy using a situation your listener is probably currently in.",
+    "tips": [
+      "Don't start with the definition — start with the situation",
+      "Make it feel like a revelation, not a lecture",
+      "Give a concrete test question they can ask themselves to catch it"
+    ],
+    "difficultyNote": "Behavioral concept applied directly to someone's life"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue that reading slower and less is better than trying to consume everything.",
+    "tips": [
+      "Challenge the 'more is better' reading culture specifically",
+      "Give one concrete benefit of depth over breadth",
+      "Acknowledge who this advice doesn't apply to"
+    ],
+    "difficultyNote": "Counterintuitive advice with intellectual honesty"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why people who are always positive can sometimes be harder to trust than those who aren't.",
+    "tips": [
+      "Name the specific mechanism — why does relentless positivity create distance?",
+      "Say what authentic emotional expression looks like instead",
+      "Avoid making this a takedown of optimism — make it nuanced"
+    ],
+    "difficultyNote": "Subtle social observation requiring careful framing"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain what you think 'growing up' actually means to someone in their early 20s who feels lost.",
+    "tips": [
+      "Be honest about what it doesn't mean, not just what it does",
+      "Avoid the condescending tone that makes young people tune out",
+      "Give one specific marker you noticed in yourself when something shifted"
+    ],
+    "difficultyNote": "Mentoring conversation requiring empathy and honesty"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Persuade a friend who prefers to text to have more phone or in-person conversations.",
+    "tips": [
+      "Acknowledge why texting is genuinely convenient and lower-stakes",
+      "Give a specific thing that voice or presence provides that text cannot",
+      "Make it feel like an invitation, not a criticism"
+    ],
+    "difficultyNote": "Social persuasion against a defensible habit"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why knowing your own defaults — how you react under stress — is more valuable than self-improvement.",
+    "tips": [
+      "Give a concrete example of a default behavior and its cost",
+      "Say what awareness alone can do, even without changing the behavior",
+      "Make this feel like useful insight, not another self-help framework"
+    ],
+    "difficultyNote": "Psychological self-knowledge made actionable"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Convince a frugal friend to spend money on one experience they keep putting off.",
+    "tips": [
+      "Don't dismiss their financial caution — acknowledge it first",
+      "Make the case for this specific thing, not 'spend more in general'",
+      "Give them a concrete reason why later will cost them more than money"
+    ],
+    "difficultyNote": "Targeted persuasion requiring respect for the listener's values"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain what makes a conversation genuinely memorable versus one that's just pleasant.",
+    "tips": [
+      "Name the specific ingredient — what makes something stick?",
+      "Give an example of a conversation that changed how you think",
+      "Be specific about what the other person did that made the difference"
+    ],
+    "difficultyNote": "Meta-communication insight with personal depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Argue that how you spend your commute or downtime says more about your priorities than your calendar does.",
+    "tips": [
+      "Give a concrete example of the gap between stated priorities and actual behavior",
+      "Don't shame — frame it as an interesting observation, not a moral failing",
+      "End with a question or reframe that makes your listener think"
+    ],
+    "difficultyNote": "Behavioral observation requiring tact and insight"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why the best career advice usually isn't about careers.",
+    "tips": [
+      "Name the actual thing the advice is about — self-knowledge, relationships, resilience?",
+      "Give one piece of non-career advice that profoundly affected your work",
+      "Make the insight surprising, not just another 'know yourself' platitude"
+    ],
+    "difficultyNote": "Counterintuitive professional insight in casual packaging"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain to a friend why living with less stuff can make life feel more expansive.",
+    "tips": [
+      "Ground it in personal experience, not minimalism ideology",
+      "Acknowledge the psychological pull of accumulating things",
+      "Give one specific category of stuff where less made a real difference for you"
+    ],
+    "difficultyNote": "Lifestyle perspective requiring personal honesty"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Convince someone who thinks they're bad at math that they use mathematical thinking every day.",
+    "tips": [
+      "Start with something they already do — budgeting, cooking, navigation",
+      "Don't make them feel patronized — the examples need to be genuinely interesting",
+      "End by making formal math feel like a tool they actually want, not a test"
+    ],
+    "difficultyNote": "Rebuilding confidence around an identity ('I'm bad at X')"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why the ability to sit with uncertainty is one of the most powerful skills you can develop.",
+    "tips": [
+      "Explain what happens neurologically or behaviorally when people can't tolerate uncertainty",
+      "Give one domain where tolerating uncertainty produces better outcomes",
+      "Make it feel useful and attainable, not like a personality trait you either have or don't"
+    ],
+    "difficultyNote": "Psychological concept with concrete application"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain why being curious about people you disagree with is more useful than debating them.",
+    "tips": [
+      "Give a specific type of question that opens someone up instead of shutting them down",
+      "Say what you personally learn from this approach",
+      "Acknowledge when debate is actually the right move"
+    ],
+    "difficultyNote": "Communication philosophy with clear practical stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Explain what you think is the most significant thing that has changed about how people form relationships in the last decade.",
+    "tips": [
+      "Be specific — name the mechanism or technology",
+      "Say what's been gained and what's been lost",
+      "Have an opinion about whether it's net positive or negative"
+    ],
+    "difficultyNote": "Social observation requiring a real position"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the concept of second-order thinking to someone at a dinner party who keeps making decisions that backfire.",
+    "tips": [
+      "Don't label it — demonstrate it through a vivid example first",
+      "Make the insight feel like a gift, not a correction",
+      "Give them a question they can ask themselves before any major decision"
+    ],
+    "difficultyNote": "Sophisticated concept delivered with social grace"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Make a compelling case for why the most important skill in the 21st century isn't technical — it's the ability to ask better questions.",
+    "tips": [
+      "Give a concrete example where the question mattered more than the answer",
+      "Explain why this skill is rare despite seeming simple",
+      "Make it feel urgent, not academic"
+    ],
+    "difficultyNote": "Intellectual argument requiring conviction and specifics"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the most dangerous type of ignorance is the kind that feels like knowledge.",
+    "tips": [
+      "Give a specific domain where this is most dangerous today",
+      "Make it self-referential: acknowledge your own blind spots briefly",
+      "Give your audience a practical tool for detecting this in themselves"
+    ],
+    "difficultyNote": "Epistemological challenge delivered conversationally"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Lead a casual discussion about whether convenience is making us less capable as humans.",
+    "tips": [
+      "Open with a provocative example, not a thesis statement",
+      "Invite disagreement early — the best discussions aren't monologues",
+      "Name one capability you think has genuinely degraded in the last 20 years"
+    ],
+    "difficultyNote": "Discussion leadership requiring intellectual range"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the ability to change your mind publicly — without losing credibility — is rare and valuable.",
+    "tips": [
+      "Give an example of someone who did this well and what it cost them short-term",
+      "Explain the psychology of why we're wired against public position changes",
+      "Say what signals you use to decide when to update your views"
+    ],
+    "difficultyNote": "Intellectual courage as a conversational topic"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the placebo effect in a way that makes someone question everything they believe about cause and effect.",
+    "tips": [
+      "Don't just define it — use an example that genuinely unsettles the listener",
+      "Connect it to something they experience in their own life",
+      "End with a question that leaves them thinking, not an answer that closes the loop"
+    ],
+    "difficultyNote": "Science concept used to provoke philosophical reflection"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain what makes something 'go viral' to a friend who thinks it's pure luck.",
+    "tips": [
+      "Name the specific mechanisms — emotion, novelty, identity, social currency",
+      "Use one specific example they'd know and deconstruct it",
+      "Say what luck actually contributes without dismissing it entirely"
+    ],
+    "difficultyNote": "Media literacy and social psychology explained clearly"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Make a case that the most important relationship in your life is the one you have with your own attention.",
+    "tips": [
+      "Anchor the abstract claim with a concrete daily example",
+      "Explain why most people are in an adversarial relationship with their attention",
+      "Give one specific practice that changes the relationship, not a full productivity system"
+    ],
+    "difficultyNote": "Philosophical claim grounded in practical reality"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why systems produce predictable outcomes regardless of the people in them — and what that means for how we assign blame.",
+    "tips": [
+      "Use an example your audience can immediately verify from their own experience",
+      "Be careful not to remove all personal responsibility — acknowledge the tension",
+      "End with a practical implication: if you want different outcomes, change the system"
+    ],
+    "difficultyNote": "Systemic thinking in casual conversation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the concept of status games to someone who keeps burning energy on battles they don't actually care about winning.",
+    "tips": [
+      "Name what a status game is without sounding like a social media philosopher",
+      "Give a specific example they probably participate in without realizing it",
+      "Give one question they can ask to identify if they're playing one"
+    ],
+    "difficultyNote": "Social psychology insight delivered with tact"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Convince a group that doing nothing — actual unscheduled empty time — is now a radical act.",
+    "tips": [
+      "Build the case for why modern life specifically eliminates emptiness",
+      "Give one thing that only arises in empty time, backed by something real",
+      "Make the listener feel the possibility, not the obligation"
+    ],
+    "difficultyNote": "Cultural critique that inspires rather than lectures"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain what loss aversion is and use it to reframe a decision someone at the table is stuck on.",
+    "tips": [
+      "Explain the psychology quickly and precisely — this isn't a lecture",
+      "Apply it directly to their situation: what are they overweighting?",
+      "Give them a reframe that makes the decision feel different, not just the same with a label"
+    ],
+    "difficultyNote": "Applied behavioral economics at conversation speed"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the stories we tell ourselves about our past constrain our future more than the events actually did.",
+    "tips": [
+      "Give a concrete example of a limiting narrative and its observable effects",
+      "Acknowledge the real pain behind the story — don't minimize it",
+      "Say what questioning the story does and doesn't require you to give up"
+    ],
+    "difficultyNote": "Psychological insight requiring careful empathy"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why expertise in one domain can make you overconfident in others — and how to recognize when you're doing it.",
+    "tips": [
+      "Name the cognitive mechanism (halo effect, generalization of competence)",
+      "Give an example from a visible public figure if possible",
+      "Say how you personally guard against it — be honest if you don't have a perfect answer"
+    ],
+    "difficultyNote": "Intellectual humility requiring self-awareness"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Make the case that most arguments aren't really about what they're ostensibly about.",
+    "tips": [
+      "Give a specific type of argument and what it's actually about underneath",
+      "Make it feel like wisdom rather than psychoanalysis",
+      "Offer one way to redirect an argument to what's really going on"
+    ],
+    "difficultyNote": "Relational insight delivered with observational depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain the difference between information and understanding — and why having more of the first doesn't guarantee the second.",
+    "tips": [
+      "Use a domain where information is abundant but understanding is rare",
+      "Give a specific example of someone who had all the information but completely missed the point",
+      "Say what converts information to understanding — make it actionable"
+    ],
+    "difficultyNote": "Epistemological distinction with practical implications"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the most interesting people you know tend to have wide-ranging curiosity rather than deep expertise in one thing.",
+    "tips": [
+      "Give specific qualities that breadth produces that depth alone doesn't",
+      "Acknowledge that depth is essential — this isn't an argument against expertise",
+      "Name one cross-domain connection you've made that wouldn't have happened with narrower interests"
+    ],
+    "difficultyNote": "Intellectual values argument with personal grounding"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the hardest decisions in life usually can't be optimized — they can only be made.",
+    "tips": [
+      "Name the type of decision that resists analysis: values conflicts, identity questions",
+      "Say what happens when people try to optimize the unoptimizable",
+      "Give one heuristic for knowing when to stop analyzing and decide"
+    ],
+    "difficultyNote": "Decision philosophy for a thoughtful audience"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Lead a conversation about whether ambition is actually a virtue or just a well-disguised form of anxiety.",
+    "tips": [
+      "Don't answer the question immediately — set it up so the audience wants to engage",
+      "Give arguments for both sides before landing anywhere",
+      "Land on a nuanced position that respects both views"
+    ],
+    "difficultyNote": "Discussion facilitation with philosophical depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain what the Dunning-Kruger effect is to someone who is confidently wrong about something right now.",
+    "tips": [
+      "Be tactful — this cannot sound like a personal attack",
+      "Give an example that isn't about them directly, but lands close enough",
+      "Include yourself in the scope: you're not immune either"
+    ],
+    "difficultyNote": "Delivering insight that stings, with grace"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain what you think the most underestimated source of human suffering is — and why it goes unaddressed.",
+    "tips": [
+      "Take a non-obvious position — not poverty, war, or disease",
+      "Back it up with observable mechanisms, not just assertion",
+      "Say why it's hard to address even when people recognize it"
+    ],
+    "difficultyNote": "Big-picture human observation requiring a strong original position"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Convince a group of skeptics that constraints — limited time, money, options — actually improve creative output.",
+    "tips": [
+      "Lead with a specific historical or cultural example that's hard to dispute",
+      "Explain the psychological mechanism, not just the observation",
+      "Make it feel like something they can use in their own creative work"
+    ],
+    "difficultyNote": "Counterintuitive creativity argument for a skeptical audience"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain what 'playing infinite games' means versus finite ones — and how it changes how you think about your career.",
+    "tips": [
+      "Explain the concept crisply in two sentences, then show it",
+      "Give a concrete career example where finite-game thinking costs people in the long run",
+      "Make it feel like useful reframing, not game theory homework"
+    ],
+    "difficultyNote": "Conceptual framework applied to real life"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the person in the room who asks the most basic questions is often the most sophisticated thinker.",
+    "tips": [
+      "Say what basic questions reveal that complex ones don't",
+      "Give an example of a 'dumb' question that unlocked something important",
+      "Make the listener want to ask more basic questions, not feel foolish for not asking them already"
+    ],
+    "difficultyNote": "Intellectual paradox with practical confidence-building"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why the quality of your relationships with people you'll never meet — authors, filmmakers, thinkers — shapes who you are.",
+    "tips": [
+      "Name the mechanism: how does parasocial influence actually work?",
+      "Give a specific example from your own intellectual life",
+      "Say what this means for what you choose to read, watch, and listen to"
+    ],
+    "difficultyNote": "Intellectual autobiography meets media literacy"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Make the case that the most important career decision you make isn't about your job — it's about who you surround yourself with.",
+    "tips": [
+      "Give a concrete mechanism: how do the people around you shape your ceiling?",
+      "Acknowledge that this is hard to act on — say why people don't do it",
+      "End with a specific question the listener can ask to audit their own circle"
+    ],
+    "difficultyNote": "Career insight requiring social and interpersonal depth"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Explain why every map is wrong — and why that's a useful thing to know about all models and frameworks.",
+    "tips": [
+      "Start with a literal example of a map being wrong but useful",
+      "Extend it to a mental model or framework your audience uses",
+      "End with a practical principle: use models deliberately, not as reality"
+    ],
+    "difficultyNote": "Philosophical insight grounded in concrete illustration"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the idea that consciousness might be less about computation and more about perspective — and make a non-philosopher care.",
+    "tips": [
+      "Start with a question the listener can feel, not a philosophical position",
+      "Use an analogy from everyday experience to ground the abstract",
+      "End by leaving a productive open question rather than giving a false resolution"
+    ],
+    "difficultyNote": "Consciousness philosophy made viscerally interesting"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain why language doesn't just describe reality — it creates it — and make that terrifying and exciting.",
+    "tips": [
+      "Give a specific example where naming something changed how people experienced it",
+      "Connect the philosophical claim to something in the listener's daily life",
+      "Let the implication land: if language creates reality, what does that mean for you?"
+    ],
+    "difficultyNote": "Linguistics meets power — in casual conversation"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Convince a roomful of pragmatists that philosophy is the most practical discipline ever invented.",
+    "tips": [
+      "Lead with a specific philosophical question that has direct real-world consequences",
+      "Name a decision they've made recently that was secretly a philosophical one",
+      "Don't defend philosophy abstractly — show it doing concrete work"
+    ],
+    "difficultyNote": "Defending the abstract to a skeptical audience"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain what entropy tells us about the nature of order, effort, and why civilization is an ongoing miracle.",
+    "tips": [
+      "Start with the physics briefly, then pivot to the metaphor",
+      "Make it personal: where in your life do you feel entropy winning?",
+      "End on inspiration, not despair — the impermanence is the point"
+    ],
+    "difficultyNote": "Physics concept extended to human meaning-making"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Make a compelling case that the single greatest leverage point for changing the world is changing the stories we tell.",
+    "tips": [
+      "Give a historical example of a narrative shift that changed behavior at scale",
+      "Explain the mechanism: why do stories move people when facts don't?",
+      "Make it actionable: what story could your listener start telling differently?"
+    ],
+    "difficultyNote": "Narrative power argument requiring historical and psychological range"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of emergence — how complex behavior arises from simple rules — and use it to change how your listener thinks about a social problem.",
+    "tips": [
+      "Ground it first in biology or physics — ant colonies, neurons — then pivot to society",
+      "Name one social problem that looks like a bad actor problem but is actually an emergence problem",
+      "End with a practical implication: what do you change when the problem is systemic?"
+    ],
+    "difficultyNote": "Complex systems thinking applied to human society"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Argue that the most subversive act in modern life is developing genuine, unhurried attention.",
+    "tips": [
+      "Name what makes sustained attention subversive in the current context",
+      "Give a specific example of what becomes possible with that quality of attention",
+      "Make the listener feel the loss of it and the possibility of reclaiming it"
+    ],
+    "difficultyNote": "Cultural critique that inspires rather than condemns"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the paradox of choice — more options make people less happy — and connect it to a specific cultural crisis you see.",
+    "tips": [
+      "Ground it in a specific domain where the paradox is most damaging today",
+      "Say what's driving the proliferation of options and why it's accelerating",
+      "Give one principle for navigating choice overload without sacrificing autonomy"
+    ],
+    "difficultyNote": "Behavioral economics extended to cultural analysis"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain what you think the unexamined premise of most personal ambition is — and why examining it might be the most important thing someone can do.",
+    "tips": [
+      "Name the premise clearly and specifically — not vaguely",
+      "Say what it costs people who never examine it",
+      "Be careful not to shame ambition — the goal is insight, not renunciation"
+    ],
+    "difficultyNote": "Philosophical provocation requiring courage and precision"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain why 'knowing yourself' is harder than it sounds and arguably more important than any skill.",
+    "tips": [
+      "Name the specific reasons why self-knowledge is genuinely difficult, not just rare",
+      "Give an example of self-ignorance that has compounding real-world costs",
+      "Say what actually builds self-knowledge — not introspection alone"
+    ],
+    "difficultyNote": "Depth on a cliché topic that must feel original"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Convince a techno-optimist that progress is not inevitable — and that the rate of technology adoption can outrun our moral and social frameworks.",
+    "tips": [
+      "Pick one specific technology where this gap is currently most dangerous",
+      "Give a historical example of a technology that arrived before society was ready",
+      "Don't come across as anti-progress — the argument is about pacing and wisdom"
+    ],
+    "difficultyNote": "Technology ethics argument requiring historical and moral range"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of moral luck — that most of our ethical judgments are shaped by factors outside our control — and make it change how someone thinks about blame.",
+    "tips": [
+      "Ground it with a specific example before introducing the philosophical concept",
+      "Let the discomfort of the idea do the work — don't resolve the tension too quickly",
+      "Say what moral responsibility looks like if you take moral luck seriously"
+    ],
+    "difficultyNote": "Ethics concept that challenges common intuitions"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Make a compelling case that the greatest gift you can give another person is being fully present with them.",
+    "tips": [
+      "Go beyond 'put down your phone' — say what presence actually requires",
+      "Give a specific example of someone being truly present and what it did",
+      "Name what makes presence so rare and why we resist it"
+    ],
+    "difficultyNote": "Human connection at the depth of a sermon without the preachiness"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain what you think the long-term human cost of algorithmic curation will be — and make a skeptic care.",
+    "tips": [
+      "Name the specific faculty or capacity being eroded over time",
+      "Use an analogy from a technology transition we've already lived through",
+      "Make the stakes feel personal, not civilizational — personal is more compelling"
+    ],
+    "difficultyNote": "Digital philosophy with high stakes and personal resonance"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain why the things that make life feel meaningful can't be pursued directly — they arrive as byproducts.",
+    "tips": [
+      "Name the specific things: love, happiness, purpose — and say why direct pursuit backfires",
+      "Give the counterintuitive mechanism: what do you do instead?",
+      "Let this feel like insight rather than resignation or mysticism"
+    ],
+    "difficultyNote": "Philosophical insight about motivation and meaning"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Argue that the most dangerous thing about social media isn't addiction or misinformation — it's that it's training us to perform identity rather than build one.",
+    "tips": [
+      "Explain the specific mechanism of performance versus formation",
+      "Give a concrete example of the difference that your audience can check against their own behavior",
+      "Say what a non-performative relationship with technology might look like"
+    ],
+    "difficultyNote": "Deep media critique requiring psychological and social insight"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain the idea of memetic evolution — that ideas reproduce, compete, and evolve like organisms — and use it to explain why bad ideas persist.",
+    "tips": [
+      "Ground it with one vivid example of a meme that survives not because it's true but because it spreads",
+      "Connect the mechanism to something currently in your listener's information diet",
+      "Say what immunity looks like: how do you become harder for bad ideas to colonize?"
+    ],
+    "difficultyNote": "Intellectual biology applied to information environments"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Make a case that the gap between what we know we should do and what we actually do is the central problem of being human — and that closing it isn't primarily a knowledge problem.",
+    "tips": [
+      "Name what it actually is if not a knowledge problem: motivation, identity, environment?",
+      "Give a personal example of knowing without doing",
+      "Say what actually changes behavior — be specific and honest, not aspirational"
+    ],
+    "difficultyNote": "Applied ethics and psychology with deep personal stakes"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain what you think is the most honest answer to 'what is success?' — and why the usual answers fail.",
+    "tips": [
+      "Engage with the usual answers first — money, achievement, happiness — and say specifically why each falls short",
+      "Give your own answer with clear reasoning",
+      "Be willing to let the answer be partial or uncertain — that's more honest than a clean resolution"
+    ],
+    "difficultyNote": "Life philosophy question requiring original thinking"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain why the most important thing you can do with a great idea is give it away — and make a pragmatist believe you.",
+    "tips": [
+      "Give the counterintuitive mechanism: what do you gain by giving an idea away?",
+      "Acknowledge the real intellectual property and competitive concerns honestly",
+      "Name a specific example where sharing an idea multiplied rather than diluted it"
+    ],
+    "difficultyNote": "Counterintuitive intellectual generosity argument"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Make the case that beauty — aesthetic experience — is not frivolous but cognitively essential, and that a life without it is literally a diminished one.",
+    "tips": [
+      "Ground it in neuroscience or evolutionary function briefly, then humanize it",
+      "Say what specific cognitive or emotional capacity beauty exercises that nothing else does",
+      "End with an invitation — where could your listener find more of it?"
+    ],
+    "difficultyNote": "Aesthetic philosophy made urgent and personal"
+  },
+  {
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Explain what you think the most underappreciated driver of human history is — and make your listener see the present differently.",
+    "tips": [
+      "Commit to a specific answer — not 'technology' or 'economics' generally, but something precise",
+      "Give two or three historical examples that support your claim",
+      "Connect it to something happening right now to make the stakes feel real"
+    ],
+    "difficultyNote": "Historical thesis delivered with the confidence of a compelling storyteller"
+  }
+]

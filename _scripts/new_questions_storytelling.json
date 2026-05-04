@@ -1,0 +1,1850 @@
+[
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time a small act of kindness from a stranger made your day.",
+    "tips": [
+      "Set the scene in one sentence — where were you and what were you doing?",
+      "Describe what happened and how it felt in the moment",
+      "End with one sentence about what it taught you"
+    ],
+    "difficultyNote": "Simple positive memory with clear arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe the best birthday you can remember. What made it stand out?",
+    "tips": [
+      "Start by setting the age and occasion",
+      "Focus on one specific moment that made it special",
+      "End with why it still sticks with you"
+    ],
+    "difficultyNote": "Familiar celebratory memory"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you got lost — literally or figuratively.",
+    "tips": [
+      "Open with where you were and what went wrong",
+      "Describe how you felt as it unfolded",
+      "Wrap up with how you found your way"
+    ],
+    "difficultyNote": "Simple problem-and-resolution arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Recall the first time you rode a bike, swam, or learned a physical skill. Walk me through it.",
+    "tips": [
+      "Paint the scene — where were you, who was there?",
+      "Describe the moment it clicked",
+      "Share how you felt right after"
+    ],
+    "difficultyNote": "Milestone memory with emotional payoff"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about your favorite place as a child and why it felt magical.",
+    "tips": [
+      "Use two or three sensory details to bring the place alive",
+      "Share a specific thing that happened there",
+      "Explain what made it feel like yours"
+    ],
+    "difficultyNote": "Nostalgic place-based storytelling"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you laughed so hard you couldn't stop.",
+    "tips": [
+      "Build up what made the situation funny before the peak",
+      "Use specific details — not just 'it was hilarious'",
+      "Let your delivery reflect the joy of the memory"
+    ],
+    "difficultyNote": "Light tone, easy subject matter"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a family tradition or ritual that you looked forward to every year.",
+    "tips": [
+      "Describe the tradition as if the listener has never heard of it",
+      "Include one specific detail that captures its spirit",
+      "End with why it mattered to you"
+    ],
+    "difficultyNote": "Familiar memory with cultural texture"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a gift you received that you'll never forget.",
+    "tips": [
+      "Set up the occasion and who gave it",
+      "Describe your reaction in the moment",
+      "Share why it still means something"
+    ],
+    "difficultyNote": "Emotional object story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time the weather ruined or improved your plans.",
+    "tips": [
+      "Start with what you expected to happen",
+      "Describe how the weather changed things",
+      "Find a small moment of surprise or humor in it"
+    ],
+    "difficultyNote": "Simple contrast story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Recall the first day of a new school, job, or chapter of your life.",
+    "tips": [
+      "Open with how you felt walking in",
+      "Describe one specific moment from that day",
+      "Close with what you know now that you didn't then"
+    ],
+    "difficultyNote": "First-day memory with simple reflection"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a teacher or mentor who said something that stayed with you.",
+    "tips": [
+      "Introduce the person in a sentence",
+      "Share exactly what they said or did",
+      "Explain why those words stuck"
+    ],
+    "difficultyNote": "Influence story with a clear quote or moment"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time something you were dreading turned out to be fine.",
+    "tips": [
+      "Describe what you were afraid of and why",
+      "Walk through what actually happened",
+      "End with what that taught you about worry"
+    ],
+    "difficultyNote": "Expectation vs. reality structure"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a trip or vacation moment you remember more vividly than any photo.",
+    "tips": [
+      "Choose one moment, not a highlight reel",
+      "Use sensory detail — what did you see, hear, or smell?",
+      "Say why that moment captured the whole trip"
+    ],
+    "difficultyNote": "Sensory travel memory"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you helped someone without being asked.",
+    "tips": [
+      "Open with what you noticed that made you act",
+      "Describe what you did without overstating it",
+      "End with how it made both of you feel"
+    ],
+    "difficultyNote": "Generosity story with understated emotion"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Recall a moment from childhood when you felt proud of yourself.",
+    "tips": [
+      "Set up what you were trying to do",
+      "Describe the moment of achievement",
+      "Let the emotion come through naturally"
+    ],
+    "difficultyNote": "Pride memory — accessible and warm"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you discovered a new food, song, or book you loved.",
+    "tips": [
+      "Describe the discovery moment specifically",
+      "Use sensory or emotional detail",
+      "Say what it opened up for you"
+    ],
+    "difficultyNote": "Discovery story with simple structure"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Walk me through the best morning you can remember — what made it so good?",
+    "tips": [
+      "Be specific about time and place",
+      "Use small details to paint the feeling",
+      "End with why mornings like that are rare"
+    ],
+    "difficultyNote": "Sensory slice-of-life story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you waited for something and the wait was worth it.",
+    "tips": [
+      "Build the anticipation — what were you waiting for?",
+      "Describe the moment the wait ended",
+      "Reflect on whether patience paid off"
+    ],
+    "difficultyNote": "Simple before-and-after arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about an older person in your life who shared wisdom with you.",
+    "tips": [
+      "Introduce who they were in a sentence",
+      "Share the specific moment or conversation",
+      "Say how it has stayed with you"
+    ],
+    "difficultyNote": "Intergenerational connection story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a time when something small — a smell, a song, a place — brought back a strong memory.",
+    "tips": [
+      "Describe the trigger in sensory detail",
+      "Walk through the memory it unlocked",
+      "Reflect on why our senses hold such power"
+    ],
+    "difficultyNote": "Sensory trigger narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you were surprised by how much you enjoyed something you expected to dislike.",
+    "tips": [
+      "State your expectation up front",
+      "Describe the moment your mind changed",
+      "End with what that says about keeping an open mind"
+    ],
+    "difficultyNote": "Expectation reversal story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Recall a time you received news — good or bad — that you'll never forget.",
+    "tips": [
+      "Set the scene: where were you when you heard it?",
+      "Describe your immediate reaction honestly",
+      "Fast-forward to what happened next"
+    ],
+    "difficultyNote": "Reaction-focused moment story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you made a new friend in an unexpected place.",
+    "tips": [
+      "Describe the setting and why it was unexpected",
+      "Walk through how the connection started",
+      "Close with what the friendship meant"
+    ],
+    "difficultyNote": "Connection story with an element of surprise"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a hobby or activity you loved as a kid and what it felt like to do it.",
+    "tips": [
+      "Name the activity and where you did it",
+      "Capture the feeling of being absorbed in it",
+      "Share why you loved it or why you stopped"
+    ],
+    "difficultyNote": "Nostalgic activity story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you did something brave, even if it was small.",
+    "tips": [
+      "Open with the fear you felt",
+      "Describe what you decided to do despite it",
+      "End with what that moment of courage meant"
+    ],
+    "difficultyNote": "Small courage story — beginner-friendly vulnerability"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell me about a time a plan came together perfectly.",
+    "tips": [
+      "Describe what you were planning and why it mattered",
+      "Walk through the key moments that worked",
+      "End with how it felt when it all clicked"
+    ],
+    "difficultyNote": "Positive outcome narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about the last time you were genuinely surprised.",
+    "tips": [
+      "Build the scene — what were you expecting?",
+      "Describe the reveal or surprise moment",
+      "Share your honest reaction"
+    ],
+    "difficultyNote": "Surprise moment with emotional authenticity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a time you felt completely at peace. Where were you?",
+    "tips": [
+      "Use specific sensory details to paint the place",
+      "Describe what was happening around you",
+      "Explain what made that moment feel so calm"
+    ],
+    "difficultyNote": "Peaceful memory — low stakes, high sensory detail"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a moment you shared with a sibling, friend, or cousin that only the two of you would understand.",
+    "tips": [
+      "Set up enough context for anyone to follow",
+      "Capture what made the moment uniquely yours",
+      "End with why it's still funny, meaningful, or special"
+    ],
+    "difficultyNote": "Insider memory made universally relatable"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Recall the last time you were moved by something — a film, a speech, a song, an act.",
+    "tips": [
+      "Name what it was and give brief context",
+      "Describe the specific moment that hit you",
+      "Reflect on why it moved you"
+    ],
+    "difficultyNote": "Emotional reaction story — accessible topic"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you celebrated a small win nobody else knew about.",
+    "tips": [
+      "Describe the challenge you quietly overcame",
+      "Share the moment you realized you'd done it",
+      "Let the listener in on why it mattered to you"
+    ],
+    "difficultyNote": "Private achievement story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Walk me through your favorite routine — morning, evening, or weekend — and why it matters.",
+    "tips": [
+      "Describe the routine in sequence with vivid detail",
+      "Pick one moment within it that you love most",
+      "Explain what the routine gives you"
+    ],
+    "difficultyNote": "Slice-of-life story with personal meaning"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you changed your mind about someone.",
+    "tips": [
+      "Describe your first impression honestly",
+      "Walk through what shifted your view",
+      "Close with what you learned about judging people"
+    ],
+    "difficultyNote": "Perspective change story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Describe a time you were the new person somewhere — a school, a city, a job.",
+    "tips": [
+      "Open with the feeling of being an outsider",
+      "Describe the first person who made you feel welcome",
+      "End with how you settled in"
+    ],
+    "difficultyNote": "Belonging story with simple arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about a time you overcame a small fear.",
+    "tips": [
+      "Name the fear without over-explaining it",
+      "Describe the moment you faced it",
+      "Share how you felt on the other side"
+    ],
+    "difficultyNote": "Small courage arc — beginner vulnerability"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell a story about the best advice you ever received and when it actually helped.",
+    "tips": [
+      "Introduce who gave the advice and in what context",
+      "Share the situation where you applied it",
+      "Explain why it worked"
+    ],
+    "difficultyNote": "Advice story with clear narrative use"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Recall a time you were the last person anyone expected to succeed — and you did.",
+    "tips": [
+      "Set up the doubt others had (or you had)",
+      "Describe what you did differently",
+      "End with how it felt to prove the doubt wrong"
+    ],
+    "difficultyNote": "Underdog arc — simple and motivating"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "1-2",
+    "question": "Tell me about a time someone believed in you before you believed in yourself.",
+    "tips": [
+      "Describe the person and why their belief mattered",
+      "Walk through what happened as a result",
+      "Close with how that changed your self-belief"
+    ],
+    "difficultyNote": "Encouragement story with emotional warmth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you had to start over — and what that felt like.",
+    "tips": [
+      "Open with what ended before the new beginning",
+      "Capture the emotional uncertainty of the transition",
+      "End with what starting over taught you about yourself"
+    ],
+    "difficultyNote": "Transition narrative with emotional complexity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a moment when you realized you had grown up without noticing.",
+    "tips": [
+      "Ground it in a specific moment, not a feeling",
+      "Show the contrast between then and now",
+      "Let the reflection feel earned, not forced"
+    ],
+    "difficultyNote": "Coming-of-age recognition story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you let someone down and what happened after.",
+    "tips": [
+      "Be honest about your role without being self-pitying",
+      "Describe how you handled the aftermath",
+      "End with what you'd do differently"
+    ],
+    "difficultyNote": "Accountability story requiring emotional honesty"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you had to choose between what was easy and what was right.",
+    "tips": [
+      "Frame the dilemma clearly before diving into the choice",
+      "Show the internal pull in both directions",
+      "Let the outcome reveal character, not just consequence"
+    ],
+    "difficultyNote": "Moral choice story with internal conflict"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Recall a moment when someone's words hurt you more than they probably knew.",
+    "tips": [
+      "Set the scene without vilifying the other person",
+      "Describe how those words landed and what you did",
+      "Reflect on what the experience taught you"
+    ],
+    "difficultyNote": "Hurt and recovery narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time hard work paid off in a way you didn't expect.",
+    "tips": [
+      "Describe the effort honestly — don't skip the grind",
+      "Build toward the unexpected outcome",
+      "Reflect on what the experience changed about how you work"
+    ],
+    "difficultyNote": "Effort story with a twist payoff"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you felt like an impostor and pushed through anyway.",
+    "tips": [
+      "Name the feeling without over-explaining it",
+      "Walk through what you did despite the doubt",
+      "Close with what the other side felt like"
+    ],
+    "difficultyNote": "Impostor syndrome — emotional vulnerability"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a friendship that faded and how you felt about it.",
+    "tips": [
+      "Describe the friendship at its peak briefly",
+      "Walk through how the distance grew",
+      "Reflect on what you carry from it now"
+    ],
+    "difficultyNote": "Bittersweet relationship arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you had to say goodbye to something you loved.",
+    "tips": [
+      "Set up why it mattered before the goodbye",
+      "Capture the specific moment of parting",
+      "End with what you carry forward"
+    ],
+    "difficultyNote": "Loss story with emotional resonance"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Walk me through a time a competition or challenge pushed you beyond what you thought you could do.",
+    "tips": [
+      "Establish the stakes and your starting confidence level",
+      "Build tension through the hardest moment",
+      "Close with what the experience added to your identity"
+    ],
+    "difficultyNote": "Challenge arc with character growth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you were deeply misunderstood — and what you did about it.",
+    "tips": [
+      "Set up what was misread without sounding defensive",
+      "Show your inner experience during the misunderstanding",
+      "Describe how it resolved or didn't"
+    ],
+    "difficultyNote": "Perspective and empathy story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a moment when doing the right thing cost you something.",
+    "tips": [
+      "Name the cost clearly — don't minimize it",
+      "Show why you did it anyway",
+      "Reflect on whether you'd make the same call again"
+    ],
+    "difficultyNote": "Integrity story with genuine stakes"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you made a decision on instinct — and it worked.",
+    "tips": [
+      "Describe the moment of pressure that forced a quick call",
+      "Walk through what you chose and why your gut spoke",
+      "Reflect on what that tells you about how you operate"
+    ],
+    "difficultyNote": "Instinct and trust-yourself narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a moment when you realized a belief you held was wrong.",
+    "tips": [
+      "Describe the belief without being self-critical",
+      "Walk through what challenged it",
+      "Explain what you replaced it with"
+    ],
+    "difficultyNote": "Belief change story with honest introspection"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Recall a time you had to ask for help and what that felt like.",
+    "tips": [
+      "Set up why asking was hard",
+      "Describe the moment of reaching out",
+      "Reflect on what vulnerability taught you"
+    ],
+    "difficultyNote": "Vulnerability and humility narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time travel opened your eyes to something.",
+    "tips": [
+      "Ground it in a specific place and moment, not a list of sights",
+      "Describe what shifted in your thinking",
+      "Close with how it changed how you see your own life"
+    ],
+    "difficultyNote": "Travel as catalyst for perspective change"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to hold it together in public when you were falling apart inside.",
+    "tips": [
+      "Create contrast between your outer composure and inner state",
+      "Keep the emotional detail honest but controlled",
+      "End with what holding it together cost or gave you"
+    ],
+    "difficultyNote": "Emotional constraint as storytelling tension"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time a mentor or boss challenged you in a way you didn't expect.",
+    "tips": [
+      "Introduce the person and what you expected from them",
+      "Describe the challenge and how it landed",
+      "Share how it shaped how you work or lead"
+    ],
+    "difficultyNote": "Mentorship story with growth arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a moment when you chose yourself over others' expectations.",
+    "tips": [
+      "Set up the pressure and whose expectations were at play",
+      "Describe your decision and how it felt",
+      "End with what that choice taught you about identity"
+    ],
+    "difficultyNote": "Autonomy story — identity under pressure"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you saw someone you admired fail. What did it teach you?",
+    "tips": [
+      "Set up why you admired them — make it real",
+      "Walk through the failure honestly",
+      "Reflect on how it changed your idea of success or greatness"
+    ],
+    "difficultyNote": "Disillusionment story that deepens admiration"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a promise you kept even when it was hard.",
+    "tips": [
+      "Describe what the promise was and why you made it",
+      "Build the tension of the moment when keeping it became difficult",
+      "Reflect on what commitment means to you"
+    ],
+    "difficultyNote": "Integrity under pressure story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time an unexpected obstacle turned into an unexpected opportunity.",
+    "tips": [
+      "Open with the obstacle and how frustrating it was",
+      "Describe the pivot or moment you saw it differently",
+      "Close with what the opportunity became"
+    ],
+    "difficultyNote": "Setback-to-opportunity arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Recall a time when silence — yours or someone else's — spoke louder than words.",
+    "tips": [
+      "Set the scene and what led to the silence",
+      "Describe what was communicated without words",
+      "Reflect on what that moment meant"
+    ],
+    "difficultyNote": "Non-verbal emotional moment"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you had to earn trust — not just assume it.",
+    "tips": [
+      "Describe the situation and why trust had to be built, not given",
+      "Walk through what you did over time",
+      "Close with the moment you knew you'd earned it"
+    ],
+    "difficultyNote": "Trust-building narrative with gradual arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a time when two people you cared about were in conflict and you were in the middle.",
+    "tips": [
+      "Set up both relationships without taking sides too early",
+      "Describe the pressure of being caught between",
+      "Close with how you navigated it and what you'd do differently"
+    ],
+    "difficultyNote": "Relational tension — multiple perspectives"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you did something that scared you — and the fear didn't fully go away.",
+    "tips": [
+      "Don't resolve the fear neatly — let it be real",
+      "Describe what you did despite it",
+      "Reflect on what doing it scared means for how you live"
+    ],
+    "difficultyNote": "Unresolved fear story — honest arc"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a place that felt like home, even though it wasn't where you grew up.",
+    "tips": [
+      "Describe the place in sensory detail",
+      "Explain what made it feel like home",
+      "Close with what that says about belonging"
+    ],
+    "difficultyNote": "Belonging and place story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you finally understood something your parents tried to teach you.",
+    "tips": [
+      "Name the lesson and why you resisted it earlier",
+      "Describe the moment it finally clicked",
+      "Close with what you feel toward the person now"
+    ],
+    "difficultyNote": "Delayed understanding — generational insight"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Walk me through a time you had to apologize — and what made it hard.",
+    "tips": [
+      "Set up what you did wrong without over-justifying",
+      "Describe the apology itself, not just the lead-up",
+      "Reflect on what the experience taught you about accountability"
+    ],
+    "difficultyNote": "Apology story — accountability and growth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you didn't get the recognition you deserved — and how you handled it.",
+    "tips": [
+      "Be honest about the frustration without sounding bitter",
+      "Describe what you chose to do next",
+      "Reflect on what the experience said about motivation"
+    ],
+    "difficultyNote": "Unrecognized effort — maturity in narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Describe a moment when the right person showed up at exactly the right time.",
+    "tips": [
+      "Set up the context — what did you need that you weren't asking for?",
+      "Describe the person and what they offered",
+      "End with the impact it had on you"
+    ],
+    "difficultyNote": "Timing and connection story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a time you held a grudge — and what finally let you let it go.",
+    "tips": [
+      "Describe why you held on without over-justifying",
+      "Walk through the moment or process of release",
+      "Close with what forgiving (or not) taught you"
+    ],
+    "difficultyNote": "Forgiveness arc with emotional honesty"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell a story about a moment when you felt truly seen by another person.",
+    "tips": [
+      "Describe what you were going through that most people missed",
+      "Capture how the other person showed they understood",
+      "Reflect on how rare that feeling is"
+    ],
+    "difficultyNote": "Deep connection and recognition story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you stayed when leaving would have been easier.",
+    "tips": [
+      "Set up the situation and the temptation to leave",
+      "Describe what made you stay",
+      "End with whether staying was worth it"
+    ],
+    "difficultyNote": "Commitment versus escape story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a leadership moment when the stakes were high and the path wasn't clear.",
+    "tips": [
+      "Open in the thick of the problem — skip unnecessary backstory",
+      "Show your decision-making process, not just the outcome",
+      "Reflect on what this moment revealed about how you lead"
+    ],
+    "difficultyNote": "High-stakes leadership narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe the moment you realized your work had a real impact on another person's life.",
+    "tips": [
+      "Be specific — name the person or situation without oversharing",
+      "Let the impact speak without over-dramatizing it",
+      "Close with how it redefined why you do what you do"
+    ],
+    "difficultyNote": "Impact story — purpose and meaning"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you changed someone's mind on something important.",
+    "tips": [
+      "Set up their position and why it mattered that you challenged it",
+      "Walk through the conversation or events — show, don't tell",
+      "Reflect on what persuasion taught you"
+    ],
+    "difficultyNote": "Persuasion story with strategic clarity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a project or initiative that almost fell apart — and how you held it together.",
+    "tips": [
+      "Open with the crisis moment, not the origin story",
+      "Show what you specifically did under pressure",
+      "Close with what it taught you about managing chaos"
+    ],
+    "difficultyNote": "Crisis management story with professional stakes"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to deliver hard feedback to someone you respected.",
+    "tips": [
+      "Set up your relationship and why this mattered",
+      "Walk through how you approached the conversation",
+      "Reflect on what the outcome revealed about the relationship"
+    ],
+    "difficultyNote": "Feedback delivery — emotional and professional nuance"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a time your team succeeded because of a decision you almost didn't make.",
+    "tips": [
+      "Build the hesitation around the decision — what held you back?",
+      "Describe the moment you committed",
+      "Close with what the result taught you about acting on uncertainty"
+    ],
+    "difficultyNote": "Decision under uncertainty story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to rebuild trust after it was broken.",
+    "tips": [
+      "Be honest about your role in the break without over-explaining",
+      "Walk through the specific actions that rebuilt it",
+      "Reflect on what the process changed in how you lead or relate"
+    ],
+    "difficultyNote": "Trust repair narrative — accountability and repair"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to let go of a vision you believed in.",
+    "tips": [
+      "Set up the vision and why it mattered to you",
+      "Describe what forced you to let it go",
+      "Close with what you found on the other side of releasing it"
+    ],
+    "difficultyNote": "Grief for an idea — letting go of ambition"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you worked with someone whose style was the opposite of yours — and what happened.",
+    "tips": [
+      "Define the contrast clearly and without judgment",
+      "Walk through the friction and the learning",
+      "Reflect on what you now carry from that collaboration"
+    ],
+    "difficultyNote": "Complementary collaboration story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a moment when you had more responsibility than you'd bargained for — and rose to it.",
+    "tips": [
+      "Open with the moment the extra weight landed",
+      "Walk through how you stepped up",
+      "Close with what it cost and what it gave you"
+    ],
+    "difficultyNote": "Unexpected responsibility story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to lead through ambiguity — when no one knew the right answer.",
+    "tips": [
+      "Describe the uncertainty clearly — don't rush to resolution",
+      "Show how you communicated with your team despite not having answers",
+      "Reflect on what leading without a map requires"
+    ],
+    "difficultyNote": "Ambiguity leadership story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a professional risk you took that most people around you thought was a mistake.",
+    "tips": [
+      "Set up the external skepticism honestly",
+      "Walk through your reasoning and what you did",
+      "Reflect on whether it paid off and what you'd tell those doubters now"
+    ],
+    "difficultyNote": "Contrarian bet story — conviction narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a time when being honest nearly cost you a relationship or opportunity — and you did it anyway.",
+    "tips": [
+      "Set the stakes before the honest moment",
+      "Describe the honesty itself with precision",
+      "Reflect on what integrity feels like when it has a price"
+    ],
+    "difficultyNote": "Integrity under social or professional pressure"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you learned more from a competitor, critic, or rival than from a supporter.",
+    "tips": [
+      "Introduce the rival honestly — without making them a villain",
+      "Describe what they showed you that you wouldn't have seen otherwise",
+      "Close with what that shift in perspective changed"
+    ],
+    "difficultyNote": "Learning from opposition story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a moment when data and instinct told you opposite things — and what you chose.",
+    "tips": [
+      "Set up the specific tension between evidence and gut",
+      "Walk through your decision-making honestly",
+      "Reflect on what the outcome taught you about judgment"
+    ],
+    "difficultyNote": "Logic vs. intuition decision story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to navigate a room full of people who outranked or outexperienced you.",
+    "tips": [
+      "Set up the power dynamic without minimizing yourself",
+      "Walk through how you found your footing",
+      "Reflect on what it taught you about presence and credibility"
+    ],
+    "difficultyNote": "Status and presence story — professional confidence"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you built something from nothing — a team, a product, a process.",
+    "tips": [
+      "Open with the blank page moment — what was missing?",
+      "Walk through the first hard steps",
+      "Close with what creation from scratch taught you about yourself"
+    ],
+    "difficultyNote": "Founder/builder narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time someone you led outgrew you — and how you felt about it.",
+    "tips": [
+      "Describe the relationship and what you invested in it",
+      "Be honest about any pride, envy, or satisfaction you felt",
+      "Reflect on what great leadership produces"
+    ],
+    "difficultyNote": "Mentorship legacy story — complex emotions"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to make a case for something you genuinely believed in to people who didn't.",
+    "tips": [
+      "Frame their skepticism fairly — it should feel real",
+      "Walk through your argument and how you adapted",
+      "Close with whether you won them over and what it cost you to try"
+    ],
+    "difficultyNote": "Persuasion story with honest stakes"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a project or relationship that ended and what the ending taught you.",
+    "tips": [
+      "Honor the history before focusing on the end",
+      "Describe the ending as specifically as possible",
+      "Close with what endings teach us about value and timing"
+    ],
+    "difficultyNote": "Closure story — emotional and professional"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time adversity in your life directly made you better at your work.",
+    "tips": [
+      "Connect the personal and professional honestly — don't force it",
+      "Describe the specific skills or qualities adversity built",
+      "Close with how you use that difficulty as a resource"
+    ],
+    "difficultyNote": "Personal adversity as professional asset"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Walk me through the day you realized you'd chosen the right path — or the wrong one.",
+    "tips": [
+      "Open in the middle of the moment of clarity",
+      "Describe the specific evidence that led to the realization",
+      "Close with what that realization changed"
+    ],
+    "difficultyNote": "Vocation moment — right or wrong path clarity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you disagreed with someone in authority — and how you handled it.",
+    "tips": [
+      "Set up your position and theirs without flattening either",
+      "Walk through how you raised the disagreement",
+      "Reflect on the outcome and what you'd do the same or differently"
+    ],
+    "difficultyNote": "Upward dissent story — professional courage"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to reinvent yourself professionally.",
+    "tips": [
+      "Describe what you were walking away from",
+      "Capture the uncertainty of the reinvention",
+      "Close with what you now know about identity and change"
+    ],
+    "difficultyNote": "Professional reinvention story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a time a short conversation completely shifted your professional direction.",
+    "tips": [
+      "Set up where you were in your career or thinking at the time",
+      "Describe what was said — be precise",
+      "Close with the chain of change that conversation started"
+    ],
+    "difficultyNote": "Pivotal conversation story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you had to protect your team from something — and they never knew.",
+    "tips": [
+      "Describe the threat without dramatizing it",
+      "Walk through what you did quietly",
+      "Reflect on leadership that doesn't ask for credit"
+    ],
+    "difficultyNote": "Silent leadership story — protection without recognition"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a professional mistake that became the foundation for your greatest work.",
+    "tips": [
+      "Own the mistake without over-flagellating yourself",
+      "Describe how it redirected your thinking or work",
+      "Close with the specific thing it made possible"
+    ],
+    "difficultyNote": "Failure as foundation story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell me about someone you work alongside who changed how you see your own strengths.",
+    "tips": [
+      "Introduce the person and your dynamic",
+      "Describe the specific contrast that revealed something new",
+      "Close with how that insight changed how you show up"
+    ],
+    "difficultyNote": "Peer mirror story — self-awareness through others"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time a single question someone asked you changed how you thought about your work.",
+    "tips": [
+      "State the question — it should land with the listener too",
+      "Walk through why that question hit differently",
+      "Close with what changed after you sat with it"
+    ],
+    "difficultyNote": "Question as catalyst story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to hold space for someone else's struggle while managing your own.",
+    "tips": [
+      "Name both struggles without turning it into a competition",
+      "Describe how you showed up for them anyway",
+      "Reflect on what emotional capacity and limits taught you"
+    ],
+    "difficultyNote": "Dual-burden story — emotional complexity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time you said yes when your gut said no — and what happened.",
+    "tips": [
+      "Describe the internal resistance clearly",
+      "Walk through what unfolded when you went against your instinct",
+      "Reflect on when to trust pressure and when to trust yourself"
+    ],
+    "difficultyNote": "Against-instinct decision story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about a time the environment you were in was holding you back — and what you did about it.",
+    "tips": [
+      "Describe the environment with honest specificity",
+      "Walk through the moment you decided to change or leave",
+      "Close with what that courage of exit or adaptation gave you"
+    ],
+    "difficultyNote": "Environment vs. growth story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "5-6",
+    "question": "Tell a story about the best team you've ever been part of — and what made it work.",
+    "tips": [
+      "Avoid listing qualities — show through a specific moment",
+      "Capture what was unique about the dynamic",
+      "Reflect on what you try to recreate from that experience"
+    ],
+    "difficultyNote": "Team excellence story — specificity over generalization"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story in which the central conflict is between who you were and who you were becoming.",
+    "tips": [
+      "Open with the tension — let both selves be present from the start",
+      "Show how the old self resisted and the new self pulled",
+      "End not with resolution but with the truth of living between identities"
+    ],
+    "difficultyNote": "Identity transformation — internal conflict as narrative engine"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story where the most important thing is never said out loud.",
+    "tips": [
+      "Use action, silence, and subtext to carry meaning",
+      "Let the listener feel what the characters won't say",
+      "Resist the urge to explain at the end — trust the story"
+    ],
+    "difficultyNote": "Subtext as structure — advanced narrative restraint"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you held two contradictory beliefs at once — and lived inside that contradiction.",
+    "tips": [
+      "Give both beliefs full weight — don't collapse the tension prematurely",
+      "Show how the contradiction shaped your choices",
+      "End by inhabiting the ambiguity rather than resolving it"
+    ],
+    "difficultyNote": "Paradox and cognitive dissonance as narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story where the lesson you extracted was one most people would have missed.",
+    "tips": [
+      "Build the story so the ordinary surface is vivid",
+      "Delay the insight — let it emerge rather than announce",
+      "Make the listener feel they're discovering it with you"
+    ],
+    "difficultyNote": "Counterintuitive insight story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a relationship that shaped who you are, without naming the feeling directly.",
+    "tips": [
+      "Show the relationship through behavior, not description",
+      "Use specific scenes, not summaries",
+      "Let the listener infer the love, pain, or weight from the details"
+    ],
+    "difficultyNote": "Show-don't-tell relationship narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you were wrong in a way that mattered — and what that wrongness cost others, not just you.",
+    "tips": [
+      "Don't rush to the lesson — sit in the cost first",
+      "Show the impact on others with specificity and empathy",
+      "Close with accountability that doesn't seek absolution"
+    ],
+    "difficultyNote": "Accountability story — impact beyond self"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story where a single object becomes the emotional anchor of everything you're describing.",
+    "tips": [
+      "Introduce the object early with sensory detail",
+      "Return to it at key emotional beats",
+      "Let it carry the meaning you don't state directly"
+    ],
+    "difficultyNote": "Object as symbol — craft technique story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a moment of profound doubt — professional, personal, or existential — and how you moved through it.",
+    "tips": [
+      "Open in the middle of the doubt, not the cause",
+      "Resist the urge to resolve it too cleanly",
+      "Close with the truth of what uncertainty actually looks like from inside"
+    ],
+    "difficultyNote": "Doubt narrative — emotional depth and authenticity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you led others through something you were personally afraid of.",
+    "tips": [
+      "Show the private fear and the public steadiness in parallel",
+      "Use pacing and specificity to build tension",
+      "Reflect on what it means to lead with genuine stakes"
+    ],
+    "difficultyNote": "Authentic leadership under personal fear"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story where the ending you reached is not the one you wanted — but the one that was true.",
+    "tips": [
+      "Earn the honest ending by building the desire for a different one",
+      "Don't explain why the true ending matters — let it land",
+      "Pause before you close — let the silence hold the weight"
+    ],
+    "difficultyNote": "Unresolved ending — narrative courage"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story that uses a specific cultural or family ritual to reveal something universal.",
+    "tips": [
+      "Describe the ritual with sensory specificity — don't assume the listener knows it",
+      "Show how it carries something bigger than its surface",
+      "Make the particular so vivid that the universal becomes clear"
+    ],
+    "difficultyNote": "Particular-to-universal storytelling technique"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you stayed in a situation too long — and what you finally understood when you left.",
+    "tips": [
+      "Don't rush to the leaving — honor why you stayed",
+      "Capture the specific moment of clarity that made leaving possible",
+      "Close with what you carry and what you leave behind"
+    ],
+    "difficultyNote": "Sunk cost and release story — layered retrospection"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story with two timelines — then and now — where the past scene illuminates the present.",
+    "tips": [
+      "Establish both timelines clearly at the start",
+      "Use the cuts between them to create meaning, not just contrast",
+      "Close in the present with something the past has finally made clear"
+    ],
+    "difficultyNote": "Dual-timeline narrative structure"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a mentor who was right about something you spent years refusing to hear.",
+    "tips": [
+      "Show your resistance honestly — don't fast-track to the epiphany",
+      "Describe the specific moment the truth finally broke through",
+      "Close with what you owe them and what that does or doesn't change"
+    ],
+    "difficultyNote": "Delayed wisdom story — ego and humility"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time your sense of identity was directly challenged — by circumstance, by someone else, or by your own choices.",
+    "tips": [
+      "Ground the challenge in a specific scene, not an abstract feeling",
+      "Walk the listener through the identity under pressure",
+      "End with what remains — and what changed"
+    ],
+    "difficultyNote": "Identity under siege — personal narrative depth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you had to navigate a system that wasn't built for you.",
+    "tips": [
+      "Describe the system and the mismatch with specificity",
+      "Show the internal and external maneuvering required",
+      "Close with what the navigation cost and what it built"
+    ],
+    "difficultyNote": "Structural obstacle story — systemic perspective"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you encountered grief — and what you learned grief actually is.",
+    "tips": [
+      "Don't define grief up front — let the story define it",
+      "Use specific, concrete detail rather than emotional abstraction",
+      "Close with an insight into grief that surprised you"
+    ],
+    "difficultyNote": "Grief story — earned insight through specificity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time ambition cost you something you didn't notice losing until later.",
+    "tips": [
+      "Let the ambition be genuinely compelling — don't moralize early",
+      "Show the quiet cost accumulating in the background",
+      "Close with the moment of noticing — and what you do with that"
+    ],
+    "difficultyNote": "Ambition and unseen cost story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a choice you made that you've never been able to fully explain — even to yourself.",
+    "tips": [
+      "Don't manufacture a tidy explanation — sit in the inexplicability",
+      "Show the choice through what happened before and after",
+      "Let the mystery of your own decision be part of the story"
+    ],
+    "difficultyNote": "Inexplicable choice story — comfort with uncertainty"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time failure became the foundation of a stronger version of you.",
+    "tips": [
+      "Don't rush the transformation — dwell in the failure first",
+      "Show the specific process, not just the result",
+      "Close with the version of you that wouldn't exist without the collapse"
+    ],
+    "difficultyNote": "Failure as formation story — emotional and narrative depth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story that contains a character who never appears directly — but whose absence shapes everything.",
+    "tips": [
+      "Build presence through others' reactions and your own behavior",
+      "Use their absence as a structural force, not a plot device",
+      "Close with what the absent character ultimately means to the story"
+    ],
+    "difficultyNote": "Absent character technique — advanced narrative craft"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you were given power you didn't ask for — and what you did with it.",
+    "tips": [
+      "Show the discomfort of unexpected authority honestly",
+      "Walk through your choices under that power",
+      "Close with what the experience taught you about power itself"
+    ],
+    "difficultyNote": "Reluctant power story — ethics and authority"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you were the outsider — and used that perspective to see something insiders couldn't.",
+    "tips": [
+      "Describe the outsider position vividly — don't minimize the discomfort",
+      "Show what you saw that others missed",
+      "Reflect on the gift and the cost of the margin"
+    ],
+    "difficultyNote": "Outsider perspective as asset story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you inherited a problem someone else created — and what it required of you.",
+    "tips": [
+      "Set up the situation without bitterness toward the creator",
+      "Walk through the unique challenge of owning someone else's mess",
+      "Close with what you learned about accountability without authorship"
+    ],
+    "difficultyNote": "Inherited problem story — leadership and ownership"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story where the central theme is sacrifice — but the listener only realizes it was sacrifice near the end.",
+    "tips": [
+      "Present the sacrifice as an ordinary choice in the moment",
+      "Build the listener's understanding gradually through detail",
+      "Close with the reveal that makes them reframe everything"
+    ],
+    "difficultyNote": "Delayed theme reveal — narrative misdirection"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you chose loyalty over truth — or truth over loyalty — and carried the weight of it.",
+    "tips": [
+      "Give both loyalty and truth equal standing in the setup",
+      "Don't judge the choice retroactively — let the listener feel the cost",
+      "Close with what you know about what we owe each other"
+    ],
+    "difficultyNote": "Loyalty versus truth moral story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you watched something great slowly deteriorate — and couldn't stop it.",
+    "tips": [
+      "Show the gradual decline through scenes, not summary",
+      "Build the helplessness without turning it into passivity",
+      "Close with what you carry from witnessing something great fall"
+    ],
+    "difficultyNote": "Witnessing decline — tragic arc with emotional honesty"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time someone's courage in the face of something you feared showed you a new way to be.",
+    "tips": [
+      "Portray the other person specifically — no archetypes",
+      "Show your own fear as real before the contrast lands",
+      "Close with how that model lives in you now"
+    ],
+    "difficultyNote": "Courage modeled by another — transformation story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time the version of yourself that was struggling became someone else's inspiration.",
+    "tips": [
+      "Don't sanitize the struggle to make it palatable",
+      "Let the inspiration emerge from the specific, not the polished",
+      "Close with what it means to inspire from an honest place"
+    ],
+    "difficultyNote": "Authentic struggle as inspiration story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time you held the memory of someone who had died and let it guide a decision.",
+    "tips": [
+      "Introduce who they were through a specific, embodied detail",
+      "Show how their memory spoke — not as a ghost, but as absorbed wisdom",
+      "Close with what it means to carry the dead with us into our choices"
+    ],
+    "difficultyNote": "Memory of the lost as moral guide"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story about a time your professional self and personal self collided in a way you couldn't separate.",
+    "tips": [
+      "Show both selves vying for dominance in the same scene",
+      "Don't resolve the tension too neatly — it's often unresolvable",
+      "Close with what that collision revealed about integration"
+    ],
+    "difficultyNote": "Professional/personal collision story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "7-8",
+    "question": "Tell a story that begins with an image — a specific, visual moment — and lets everything unfold from there.",
+    "tips": [
+      "Open with the image in sharp, sensory focus",
+      "Let meaning accumulate around it, not be imposed on it",
+      "Return to the opening image at the end with new resonance"
+    ],
+    "difficultyNote": "Image-first storytelling — craft-forward opening"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that uses metaphor as its spine — where a concrete, recurring image carries the story's meaning without you ever stating the theme.",
+    "tips": [
+      "Choose a metaphor that is genuinely surprising, not the first one you think of",
+      "Let the metaphor do the structural work — introduce it, complicate it, return to it",
+      "End with the metaphor bearing full emotional weight — no explanation needed"
+    ],
+    "difficultyNote": "Metaphor as architecture — master-level craft"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a moment of failure that is also, quietly, a story about love.",
+    "tips": [
+      "Let the love be present without being named",
+      "Show how the failure and the love are inseparable",
+      "Close with a truth that only exists because of how those two things intertwine"
+    ],
+    "difficultyNote": "Dual emotional register — failure and love coexisting"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you acted from your deepest values — and another time you betrayed them — and show how both are true of you.",
+    "tips": [
+      "Hold both stories at once — no false resolution",
+      "Give the listener access to the inner life, not just the actions",
+      "Close with what living with that complexity actually requires"
+    ],
+    "difficultyNote": "Self-contradiction held with grace — elite vulnerability"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story so personal and specific that it becomes universal.",
+    "tips": [
+      "Choose the most particular detail you can — specificity is the path to universality",
+      "Resist any urge to generalize or explain what it means",
+      "Trust that the listener's own life will fill in what yours can't"
+    ],
+    "difficultyNote": "Radical specificity — the paradox of the universal personal"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that contains a deliberate moment of silence — where you stop speaking and let what came before breathe.",
+    "tips": [
+      "Build toward the silence so it earns its weight",
+      "Use the pause to let the listener catch up emotionally",
+      "Return from the silence with language that matches what the silence held"
+    ],
+    "difficultyNote": "Silence as narrative tool — performance mastery"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a moment in history — personal or collective — that lives in you as though it happened to you, even if it didn't.",
+    "tips": [
+      "Establish why this moment belongs to you despite the distance",
+      "Use inherited or imagined detail with integrity and precision",
+      "Close with the question of what we carry that predates us"
+    ],
+    "difficultyNote": "Inherited or collective memory as personal story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you spoke when you should have stayed silent — and a time you stayed silent when you should have spoken. Let the two illuminate each other.",
+    "tips": [
+      "Frame both as a diptych — each scene reframing the other",
+      "Don't judge either past self — show both as fully human",
+      "Close with what you now understand about voice and restraint"
+    ],
+    "difficultyNote": "Voice and silence diptych — reflexive storytelling"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that moves an audience — not by making them feel sorry for you, but by making them feel seen.",
+    "tips": [
+      "Your vulnerability is the vehicle, but the listener's recognition is the destination",
+      "Find the universal wound inside your specific story",
+      "End with something that holds the room, not something that wraps it up"
+    ],
+    "difficultyNote": "Audience empathy engineering — elite emotional intelligence"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a system, institution, or structure that shaped you — without framing it as simple villain or hero.",
+    "tips": [
+      "Hold the complexity of the structure honestly",
+      "Show both what it gave you and what it cost you",
+      "Close with your relationship to it now — not resolved, but clear"
+    ],
+    "difficultyNote": "Institutional complexity — systemic and personal intertwined"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a moment of grace — something given to you without being deserved or earned.",
+    "tips": [
+      "Don't moralize or over-explain the gift",
+      "Let the grace be quiet, specific, and unexpected",
+      "Close with what receiving something unearned teaches you about life"
+    ],
+    "difficultyNote": "Grace and gratitude story — understatement as power"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story where the narrator is unreliable — where you know, as you tell it, that you might be wrong about what happened.",
+    "tips": [
+      "Signal the unreliability subtly, not as disclaimer",
+      "Let contradictions surface naturally through the telling",
+      "Close with the question of what any story is, when we're the ones telling it"
+    ],
+    "difficultyNote": "Unreliable narrator — meta-narrative sophistication"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about courage — not the dramatic kind, but the quiet, daily kind no one sees.",
+    "tips": [
+      "Choose a mundane-seeming moment — the courage should sneak up on the listener",
+      "Build the specific weight that makes the ordinary act extraordinary",
+      "End with a redefinition of courage that the story earns"
+    ],
+    "difficultyNote": "Quiet courage — redefining heroism through the specific"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about what it means to belong — through one scene where you did and one where you didn't.",
+    "tips": [
+      "Let both scenes be equally specific and equally true",
+      "Don't favor one — let the contrast carry the complexity",
+      "Close with the question of where belonging actually lives"
+    ],
+    "difficultyNote": "Belonging as dueling scenes — thematic sophistication"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you witnessed someone else's defining moment — and let them not know you saw it.",
+    "tips": [
+      "Describe what you observed with the intimacy of a close witness",
+      "Let the significance build without the subject's knowledge",
+      "Close with what it means to hold someone else's defining moment privately"
+    ],
+    "difficultyNote": "Witness story — perspective and intimacy"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a wound that never fully healed — and what living with it has taught you about wholeness.",
+    "tips": [
+      "Don't over-describe the wound — let it inform everything without dominating",
+      "Show how you've built a life alongside it, not in spite of it",
+      "Close with a nuanced truth about what wholeness actually is"
+    ],
+    "difficultyNote": "Unhealed wound — complexity of living with incompleteness"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that carries a political or social truth — without making a speech.",
+    "tips": [
+      "Let the specific human story carry the larger meaning",
+      "Resist every urge to editorialize — the story must do the work",
+      "Close with a moment so specific it cracks something open"
+    ],
+    "difficultyNote": "Social truth through story — no preaching"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you chose who you wanted to be — not reactively, but consciously, in the middle of pressure.",
+    "tips": [
+      "Show the pressure vividly — don't minimize the difficulty of the moment",
+      "Describe the deliberate choice from the inside",
+      "Close with what it means to choose your identity when it costs something"
+    ],
+    "difficultyNote": "Deliberate identity choice under pressure"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story where the most important character is the version of yourself you left behind.",
+    "tips": [
+      "Introduce the old self with enough specificity to make the loss real",
+      "Show when and how the leaving happened",
+      "Close with grief, gratitude, or both — don't choose one falsely"
+    ],
+    "difficultyNote": "Old self as character — identity narrative at depth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you changed the room by walking into it — not through status or performance, but through presence.",
+    "tips": [
+      "Show the room before you entered — establish what was there",
+      "Describe presence as action, not quality",
+      "Close with what presence actually is and where it comes from"
+    ],
+    "difficultyNote": "Presence and impact — charisma through story"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you heard the truth — and the truth was harder than the lie would have been.",
+    "tips": [
+      "Build what the lie was protecting before the truth arrives",
+      "Show the truth landing — not as relief but as weight",
+      "Close with what living in truth, rather than comfort, actually requires"
+    ],
+    "difficultyNote": "Truth as disruption — courage to receive as well as tell"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you were at the exact intersection of who you are and what you do — and it was, for one moment, perfectly aligned.",
+    "tips": [
+      "Don't announce the alignment — show it through the specific texture of the moment",
+      "Honor the rarity without over-celebrating it",
+      "Close with what that moment of alignment teaches about how to build a life"
+    ],
+    "difficultyNote": "Vocation and identity alignment — peak narrative purpose"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that ends in a question — where the question is the truest possible ending.",
+    "tips": [
+      "Build toward the question, not an answer",
+      "Let the question be one the listener will carry with them",
+      "Resist the urge to answer it — the open space is the gift"
+    ],
+    "difficultyNote": "Open ending — question as resolution"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about change — not the dramatic kind, but the slow kind, where one day you looked up and everything was different.",
+    "tips": [
+      "Capture the disorientation of slow change made suddenly visible",
+      "Use specific before-and-after images to show the distance traveled",
+      "Close with what slow change teaches about how life actually moves"
+    ],
+    "difficultyNote": "Slow change narrative — depth over drama"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about hope — not naive hope, but the kind that survives knowing better.",
+    "tips": [
+      "Earn the hope through the difficulty that precedes it",
+      "Don't sentimentalize — let hope be complicated and chosen",
+      "Close with a truth about hope that feels hard-won, not given"
+    ],
+    "difficultyNote": "Resilient hope story — hope as active choice"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that contains both the person you are ashamed of being and the person you are most proud of being — and shows they are the same person.",
+    "tips": [
+      "Don't switch between them — show them coexisting in a single moment or arc",
+      "Give the shame the same space as the pride — no hierarchy",
+      "Close with what integration, rather than resolution, actually looks like"
+    ],
+    "difficultyNote": "Shame and pride held together — full humanity"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about your relationship with failure — not a single failure, but failure as a companion you've learned to travel with.",
+    "tips": [
+      "Personify failure without being cute about it",
+      "Show the evolution of your relationship over time through specific moments",
+      "Close with a mature accounting of what failure has made possible"
+    ],
+    "difficultyNote": "Failure as long-arc companion — master narrator perspective"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time you were given exactly what you asked for — and realized it wasn't what you needed.",
+    "tips": [
+      "Build the desire and the ask with genuine specificity",
+      "Let the dissonance of getting it land before any insight arrives",
+      "Close with what the gap between want and need teaches about self-knowledge"
+    ],
+    "difficultyNote": "Want vs. need story — wisdom through desire"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about what you've learned about yourself through how you handle endings.",
+    "tips": [
+      "Use two or three specific endings to show a pattern without stating it",
+      "Let the pattern reveal itself — don't announce it",
+      "Close with a truth about endings and what they ask of us"
+    ],
+    "difficultyNote": "Pattern across endings — self-knowledge as narrative"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about someone you once dismissed — and what you eventually learned from them.",
+    "tips": [
+      "Show the dismissal honestly — let your past self be real",
+      "Describe the learning with the same specificity as the dismissal",
+      "Close with what you now owe to the people you haven't yet learned to see"
+    ],
+    "difficultyNote": "Overlooked wisdom story — humility and growth"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story that asks the listener to reconsider something they thought they knew — about you, or about themselves.",
+    "tips": [
+      "Build the assumption first — let the listener hold it",
+      "Complicate or overturn it through specific narrative, not argument",
+      "Close with an invitation, not a conclusion — let them decide"
+    ],
+    "difficultyNote": "Assumption challenge — story as thought experiment"
+  },
+  {
+    "mode": "storytelling",
+    "difficultyBand": "9-10",
+    "question": "Tell a story about a time the stakes were invisible to everyone but you.",
+    "tips": [
+      "Don't explain the invisibility — show it through others' indifference or confusion",
+      "Let the private stakes feel immense without asking for validation",
+      "Close with what it means to care about things the world doesn't witness"
+    ],
+    "difficultyNote": "Private stakes story — interior life as narrative"
+  }
+]

@@ -24,6 +24,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F57E60AE3ED493FA19ACC7A /* Parlance.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Parlance.storekit; sourceTree = "<group>"; };
+		D42047B32F90319E00B3BE56 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D420492A2F90BF9700B3BE56 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D4204AA32F90C0BE00B3BE56 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D47059F52FA7F12F0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4BDC0882F7F971900FE69B7 /* Parlance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parlance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC0952F7F971B00FE69B7 /* ParlanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC09F2F7F971B00FE69B7 /* ParlanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,9 +82,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D42047B52F90319E00B3BE56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D420492C2F90BF9700B3BE56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4204AA52F90C0BE00B3BE56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D47059F72FA7F12F0037F17E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D4BDC07F2F7F971900FE69B7 = {
 			isa = PBXGroup;
 			children = (
+				0F57E60AE3ED493FA19ACC7A /* Parlance.storekit */,
 				D4BDC0E32F7FA4C900FE69B7 /* _docs */,
 				D4BDC08A2F7F971900FE69B7 /* Parlance */,
 				D4BDC0982F7F971B00FE69B7 /* ParlanceTests */,
@@ -204,6 +238,24 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D4BDC0892F7F971900FE69B7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D47059F72FA7F12F0037F17E /* Products */;
+					ProjectRef = D47059F52FA7F12F0037F17E /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4204AA52F90C0BE00B3BE56 /* Products */;
+					ProjectRef = D4204AA32F90C0BE00B3BE56 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D420492C2F90BF9700B3BE56 /* Products */;
+					ProjectRef = D420492A2F90BF9700B3BE56 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D42047B52F90319E00B3BE56 /* Products */;
+					ProjectRef = D42047B32F90319E00B3BE56 /* Parlance.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D4BDC0872F7F971900FE69B7 /* Parlance */,
