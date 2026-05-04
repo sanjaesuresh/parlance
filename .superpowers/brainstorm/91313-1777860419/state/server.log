@@ -1,0 +1,20 @@
+{"type":"server-started","port":49222,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:49222","screen_dir":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content","state_dir":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/state"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/design-gap-areas.html"}
+{"source":"user-event","type":"click","text":"A\n    \n      Branding & Logo Missing\n      No \"Parlance\" wordmark or logo in the app — the site has a clear identity that the app doesn't reflect","choice":"branding","id":null,"timestamp":1777860566146}
+{"source":"user-event","type":"click","text":"B\n    \n      Typography & Visual Hierarchy Partial\n      Font sizes, weights, eyebrow labels, section headings — do they feel as polished as the site?","choice":"typography","id":null,"timestamp":1777860569744}
+{"source":"user-event","type":"click","text":"D\n    \n      Spacing & Density Partial\n      The site has generous breathing room. Does the app feel cramped or inconsistent in padding/margins?","choice":"spacing","id":null,"timestamp":1777860575547}
+{"source":"user-event","type":"click","text":"F\n    \n      Specific Screen Designs Partial\n      A particular screen (Home, Recording, Results, Profile) feels most mismatched with what the site shows","choice":"screens","id":null,"timestamp":1777860585885}
+{"source":"user-event","type":"click","text":"E\n    \n      Component Polish (Cards, Buttons, Pills) Partial\n      Card shadows, button styles, pill/badge treatment — do the site's components feel more refined?","choice":"components","id":null,"timestamp":1777860594682}
+{"source":"user-event","type":"click","text":"E\n    \n      Component Polish (Cards, Buttons, Pills) Partial\n      Card shadows, button styles, pill/badge treatment — do the site's components feel more refined?","choice":"components","id":null,"timestamp":1777860610398}
+{"source":"user-event","type":"click","text":"D\n    \n      Spacing & Density Partial\n      The site has generous breathing room. Does the app feel cramped or inconsistent in padding/margins?","choice":"spacing","id":null,"timestamp":1777860613398}
+{"source":"user-event","type":"click","text":"D\n    \n      Spacing & Density Partial\n      The site has generous breathing room. Does the app feel cramped or inconsistent in padding/margins?","choice":"spacing","id":null,"timestamp":1777860614031}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/which-screens.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/home-header-options.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/waiting.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/design-section1.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/design-section1-v2.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/pill-spacing.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/design-section2.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/design-section3.html"}
+{"type":"screen-added","file":"/Users/sanjaesuresh/Apps/Parlance/.superpowers/brainstorm/91313-1777860419/content/design-section4.html"}
+{"type":"server-stopped","reason":"idle timeout"}

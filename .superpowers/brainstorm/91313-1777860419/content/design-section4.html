@@ -1,0 +1,142 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap');
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .phone-frame {
+    background: #0e0e0e; border-radius: 30px;
+    border: 2px solid #2a2a2a; padding: 10px 10px 18px;
+    display: flex; flex-direction: column;
+  }
+  .phone-notch { width: 50px; height: 6px; background: #2a2a2a; border-radius: 3px; margin: 0 auto 10px; }
+  .screen { display: flex; flex-direction: column; gap: 6px; padding: 0 2px; }
+  .frame-label { text-align: center; font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; margin-top: 8px; }
+  .before-lbl { color: #E05A4E; }
+  .after-lbl  { color: #2E9E8B; }
+
+  .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 0 2px; }
+  .nav-btn { font-family: 'DM Sans', sans-serif; font-size: 7px; color: #aaa; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 6px; padding: 3px 6px; }
+  .mode-pill { font-family: 'DM Sans', sans-serif; font-size: 7px; font-weight: 700; background: rgba(232,168,56,0.15); color: #E8A838; border-radius: 99px; padding: 2px 7px; }
+
+  /* Score hero */
+  .score-hero { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 0; }
+  .score-ring { width: 46px; height: 46px; border-radius: 50%; border: 3px solid #E8A838; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; color: #E8A838; }
+  .delta-pill { font-family: 'DM Sans', sans-serif; font-size: 7px; font-weight: 700; color: #2E9E8B; background: rgba(46,158,139,0.15); border-radius: 99px; padding: 2px 6px; }
+  .verdict { font-family: 'Playfair Display', serif; font-size: 12px; color: #fff; }
+  .meta    { font-family: 'DM Sans', sans-serif; font-size: 7px; color: #555; }
+
+  /* Cards */
+  .card { background: #1a1a1a; border-radius: 10px; padding: 8px 10px; }
+  .card-no-border { background: #1a1a1a; border-radius: 10px; padding: 8px 10px; }
+  .card-with-border { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 8px 10px; }
+  .card-label { font-family: 'DM Sans', sans-serif; font-size: 7px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #555; margin-bottom: 4px; }
+  .card-text  { font-family: 'DM Sans', sans-serif; font-size: 8px; color: #666; font-style: italic; line-height: 1.4; }
+
+  .ai-card { background: #13120E; border: 1px solid rgba(232,168,56,0.3); border-radius: 10px; padding: 8px 10px; }
+  .ai-label { font-family: 'DM Sans', sans-serif; font-size: 7px; font-weight: 700; color: #E8A838; margin-bottom: 4px; }
+  .ai-lines { display: flex; flex-direction: column; gap: 2px; }
+  .ai-line  { height: 3px; background: #2a2a2a; border-radius: 1px; }
+
+  /* Highlight box around missing border */
+  .highlight-box { border: 2px dashed #E05A4E44; border-radius: 12px; padding: 2px; }
+  .highlight-box-after { border: 2px dashed #2E9E8B44; border-radius: 12px; padding: 2px; }
+
+  .annotations { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .anno { background: #141414; border: 1px solid #2a2a2a; border-radius: 10px; padding: 10px 14px; display: flex; gap: 10px; align-items: flex-start; }
+  .anno-num { width: 20px; height: 20px; border-radius: 50%; background: #E8A838; color: #000; font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .anno-text { font-family: 'DM Sans', sans-serif; font-size: 12px; color: #999; line-height: 1.5; }
+  .anno-text strong { color: #fff; }
+  .anno-none { background: rgba(46,158,139,0.08); border-color: rgba(46,158,139,0.2); }
+  .anno-none .anno-num { background: #2E9E8B; }
+</style>
+
+<h2>Design: Section 4 — Results Screen (minor)</h2>
+<p class="subtitle">One missing border. That's it.</p>
+
+<div class="split">
+
+  <!-- BEFORE -->
+  <div>
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="screen">
+        <div class="top-nav">
+          <div class="nav-btn">← Home</div>
+          <div class="mode-pill">💼  Interview</div>
+          <div class="nav-btn">↺ Retry</div>
+        </div>
+        <div class="score-hero">
+          <div class="score-ring">82</div>
+          <div class="delta-pill">+8 from avg</div>
+          <div class="verdict">Strong performance.</div>
+          <div class="meta">Level 3 · Emerging Orator · 1:24</div>
+        </div>
+        <!-- YOU SPOKE ON — missing border highlighted -->
+        <div class="highlight-box">
+          <div class="card-no-border">
+            <div class="card-label">You spoke on</div>
+            <div class="card-text">"Tell me about a time you led a project with unclear scope"</div>
+          </div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-label">🤖 AI COACH FEEDBACK</div>
+          <div class="ai-lines">
+            <div class="ai-line" style="width:100%"></div>
+            <div class="ai-line" style="width:88%"></div>
+            <div class="ai-line" style="width:94%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frame-label before-lbl">Before — no border on recap card</div>
+  </div>
+
+  <!-- AFTER -->
+  <div>
+    <div class="phone-frame" style="border-color:#E8A83822;">
+      <div class="phone-notch"></div>
+      <div class="screen">
+        <div class="top-nav">
+          <div class="nav-btn">← Home</div>
+          <div class="mode-pill">💼  Interview</div>
+          <div class="nav-btn">↺ Retry</div>
+        </div>
+        <div class="score-hero">
+          <div class="score-ring">82</div>
+          <div class="delta-pill">+8 from avg</div>
+          <div class="verdict">Strong performance.</div>
+          <div class="meta">Level 3 · Emerging Orator · 1:24</div>
+        </div>
+        <!-- YOU SPOKE ON — with border -->
+        <div class="highlight-box-after">
+          <div class="card-with-border">
+            <div class="card-label">You spoke on</div>
+            <div class="card-text">"Tell me about a time you led a project with unclear scope"</div>
+          </div>
+        </div>
+        <div class="ai-card">
+          <div class="ai-label">🤖 AI COACH FEEDBACK</div>
+          <div class="ai-lines">
+            <div class="ai-line" style="width:100%"></div>
+            <div class="ai-line" style="width:88%"></div>
+            <div class="ai-line" style="width:94%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frame-label after-lbl">After — consistent border added</div>
+  </div>
+
+</div>
+
+<div class="annotations">
+  <div class="anno">
+    <div class="anno-num">1</div>
+    <div class="anno-text"><strong>"You Spoke On" recap card</strong> is the only card on the Results screen without a <code>AppColors.border</code> stroke overlay. Every other card has one. One-line fix.</div>
+  </div>
+  <div class="anno anno-none">
+    <div class="anno-num">✓</div>
+    <div class="anno-text"><strong>Everything else on Results stays</strong> — score ring, AI coach card, best/worst moments, breakdown bars, up next card are all well-matched to the marketing site.</div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:16px">Does Section 4 look right? That completes the full design — ready to write the spec doc?</p>
