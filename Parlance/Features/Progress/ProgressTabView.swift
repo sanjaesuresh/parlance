@@ -121,8 +121,8 @@ struct ProgressTabView: View {
                     .accessibilityElement(children: .ignore)
                     .accessibilityLabel(
                         done
-                            ? "\(dayNames[i])\(isToday ? ", today" : ""), completed"
-                            : "\(dayNames[i])\(isToday ? ", today" : ""), no sessions"
+                            ? "\(dayNames[i])\(isToday ? ", today" : "") — completed"
+                            : "\(dayNames[i])\(isToday ? ", today" : "") — no sessions"
                     )
                 }
             }
