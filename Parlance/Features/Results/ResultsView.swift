@@ -109,8 +109,8 @@ struct ResultsView: View {
 
             // Mode pill
             PillBadge(
-                emoji: session.mode.emoji,
                 text: session.mode.displayName,
+                emoji: session.mode.emoji,
                 color: session.mode.accentColor,
                 small: true
             )

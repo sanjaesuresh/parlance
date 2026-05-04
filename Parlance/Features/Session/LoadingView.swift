@@ -29,7 +29,7 @@ struct LoadingView: View {
                 Spacer()
 
                 HStack(spacing: 7) {
-                    PillBadge(emoji: mode.emoji, text: mode.displayName, color: mode.accentColor, small: true)
+                    PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
                     Text("Lv \(level)")
                         .font(AppFonts.bodyMedium(10))
                         .foregroundStyle(AppColors.sub)
@@ -68,7 +68,7 @@ struct LoadingView: View {
                                 .background(AppColors.faint)
                                 .clipShape(Capsule())
 
-                            PillBadge(emoji: "⏱", text: "\(question.targetDuration)s", color: mode.accentColor, small: true)
+                            PillBadge(text: "\(question.targetDuration)s", emoji: "⏱", color: mode.accentColor, small: true)
                         }
 
                         Text("\"\(question.question)\"")

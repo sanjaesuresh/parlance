@@ -209,7 +209,7 @@ struct ProfileView: View {
                 }
 
                 HStack(spacing: 8) {
-                    PillBadge(emoji: "🔥", text: "\(user.currentStreak)-day streak", color: AppColors.gold, small: true)
+                    PillBadge(text: "\(user.currentStreak)-day streak", emoji: "🔥", color: AppColors.gold, small: true)
 
                     let weeklyXP = cachedWeekSessions.map(\.xpEarned).reduce(0, +)
                     let tier = LeagueTier.from(weeklyXP: weeklyXP)
