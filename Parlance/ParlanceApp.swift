@@ -1,10 +1,24 @@
 import SwiftUI
 import SwiftData
+import CoreText
 
 @main
 struct ParlanceApp: App {
     init() {
+        registerFonts()
         AnalyticsService.initialize()
+    }
+
+    private func registerFonts() {
+        let names = [
+            "PlayfairDisplay-Bold", "PlayfairDisplay-Medium", "PlayfairDisplay-Regular",
+            "DMSans-Regular", "DMSans-Medium", "DMSans-Bold"
+        ]
+        for name in names {
+            if let url = Bundle.main.url(forResource: name, withExtension: "ttf") {
+                CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
+            }
+        }
     }
 
     var body: some Scene {
