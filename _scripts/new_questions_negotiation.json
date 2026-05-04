@@ -1,0 +1,1646 @@
+[
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You ordered the wrong size shirt online and the store's return window closed yesterday. Call customer service and negotiate an exchange or store credit.",
+    "tips": [
+      "Open with goodwill, not frustration — mention you're a repeat customer",
+      "State exactly what you want (exchange or credit) before explaining the situation",
+      "If the first rep says no, politely ask whether a supervisor can make an exception"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Low-stakes consumer dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You and a friend are splitting the cost of a group gift for another friend. They want to contribute less than half. Negotiate a fair split.",
+    "tips": [
+      "Name the total cost and propose your preferred split upfront",
+      "Acknowledge if their finances are tighter without shaming them",
+      "Offer a smaller total gift as an alternative if the split can't be agreed"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Low-stakes social negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to swap your weekend shift with a coworker so you can attend a family event. Convince them to trade.",
+    "tips": [
+      "Lead with what's in it for them — offer a shift they'd prefer",
+      "Be specific about the dates and times",
+      "Have a backup ask ready if your first choice doesn't work"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Simple workplace favor ask"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Your gym is charging you for a month you didn't use due to illness. Request a credit or waiver from the front desk.",
+    "tips": [
+      "State the specific dates and what happened briefly",
+      "Frame it as a goodwill request, not a demand",
+      "Mention your membership tenure to strengthen your case"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Billing dispute with service provider"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "A neighbor's music is often loud on weekday evenings. Knock on their door and negotiate a reasonable noise agreement.",
+    "tips": [
+      "Be friendly and non-accusatory — assume good intent",
+      "Propose specific quiet hours rather than a vague request",
+      "Offer flexibility on weekends to make it a fair trade"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Everyday neighborhood conflict"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to buy a secondhand bicycle listed at $250. Negotiate the price down to around $190.",
+    "tips": [
+      "Point out minor wear or issues you genuinely notice",
+      "Anchor with a lower opening offer than your target",
+      "Be ready to meet in the middle — have your walk-away price in mind"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Casual marketplace price negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You need to borrow a friend's car for the weekend. They're hesitant because they've lent it before and it came back with low fuel. Reassure them and agree on terms.",
+    "tips": [
+      "Acknowledge the past problem directly rather than ignoring it",
+      "Offer specific commitments — full tank, specific return time",
+      "Suggest they could say no to particular days if needed"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Trust-based personal negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're at a market and a vendor is selling a handmade item at $40. You think $28 is fair. Try to reach a deal.",
+    "tips": [
+      "Compliment the work genuinely before talking price",
+      "Make a specific offer rather than asking 'what's the best you can do'",
+      "Be willing to walk away — it's the most powerful signal"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Face-to-face bargaining"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Your internet provider is raising your monthly rate by $15. Call retention and negotiate your current rate or a better deal.",
+    "tips": [
+      "Mention a competitor's offer (even a real one you've seen advertised)",
+      "Say the word 'cancel' — it routes you to the right department",
+      "Ask what promotions currently available — reps often have unadvertised deals"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Consumer retention negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You and your partner disagree on where to go for your next vacation — you want the beach, they want the mountains. Negotiate a trip you'll both enjoy.",
+    "tips": [
+      "Ask what they most want from the trip, not just where",
+      "Look for destinations that partially satisfy both — beach near mountains exist",
+      "Propose a rotation: one person's choice now, the other's next time"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Collaborative preference negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're checking out of a hotel and there's a $25 minibar charge you didn't incur. Dispute it at the front desk.",
+    "tips": [
+      "Be calm and factual — state clearly you didn't use the minibar",
+      "Ask them to verify the charge with the housekeeping log",
+      "If they insist, ask to escalate to the manager politely"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Billing dispute at point of service"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want a friend to pay back $50 they borrowed two months ago without it being awkward. Bring it up and come to an agreement.",
+    "tips": [
+      "Bring it up directly but casually — don't let it fester",
+      "Give them a face-saving out by suggesting a repayment timeline",
+      "Avoid accusatory language — assume they just forgot"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Sensitive personal money negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Your phone plan is more expensive than a new-customer deal your carrier is advertising. Call and request the same rate.",
+    "tips": [
+      "Reference the specific advertised offer with its details",
+      "Point out your loyalty as a long-term customer",
+      "Be ready to switch carriers — and say so calmly"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Loyalty versus new-customer pricing dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're selling your old laptop for $300. A buyer wants it for $220. Negotiate a price you're both happy with.",
+    "tips": [
+      "Know your minimum before the conversation starts",
+      "Justify your price with specifics — storage, age, condition",
+      "Offer a small sweetener (charger, case) instead of dropping price"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Seller-side negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to leave work an hour early on Friday to beat traffic before a long weekend. Ask your manager.",
+    "tips": [
+      "Frame it as a productivity trade-off, not just a personal ask",
+      "Offer to complete all deliverables before you leave",
+      "Pick the right moment — not when your manager is stressed"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Low-stakes workplace flexibility ask"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're trying to get a table at a popular restaurant without a reservation on a busy night. Negotiate with the host.",
+    "tips": [
+      "Be polite and memorable — hosts favor pleasant guests",
+      "Offer flexibility: bar seating, earlier time, smaller table",
+      "Ask directly if there's a cancellation list you can join"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Real-time soft negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "A delivery arrived damaged. Contact the seller to negotiate a replacement or partial refund.",
+    "tips": [
+      "Document the damage with specific details",
+      "State your preferred resolution clearly at the start",
+      "Keep the tone cooperative — assume it was a shipping error"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Customer complaint resolution"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want your parents to extend your curfew by an hour for an upcoming event. Make your case.",
+    "tips": [
+      "Show you understand their concern before stating your request",
+      "Propose a check-in call as a compromise",
+      "Give a specific reason why this event matters"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Family permission negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You overpaid for a service because the quote wasn't honored at checkout. Dispute the discrepancy with the service desk.",
+    "tips": [
+      "Bring proof of the original quote if possible",
+      "Stay calm and let facts do the work",
+      "Ask specifically for the difference to be refunded, not a vague fix"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Quote vs. final price dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Your roommate wants to get a pet but you're allergic and opposed. Negotiate a living arrangement that respects both your needs.",
+    "tips": [
+      "Acknowledge their desire genuinely before stating your concern",
+      "Explore alternatives — hypoallergenic animals, outdoor pets",
+      "Propose a trial conversation rather than an outright veto"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Shared-living conflict negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're renting a car and the agent is pushing a costly insurance upgrade. Negotiate or decline without being pressured.",
+    "tips": [
+      "Know in advance whether your credit card covers rental insurance",
+      "Politely but firmly decline add-ons you don't need",
+      "Ask what's included in the base rate before they list extras"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Upsell resistance negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're at a garage sale and want to buy multiple items. Negotiate a bundle price instead of paying item by item.",
+    "tips": [
+      "Group the items together before making a single offer",
+      "Your bundle offer should be less than individual prices but still reasonable",
+      "Let the seller feel they're getting volume, not losing money"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Bundle deal negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want your sibling to help with chores more consistently. Have a calm negotiation about dividing household responsibilities.",
+    "tips": [
+      "Use specific examples instead of broad complaints",
+      "Propose a written chore chart to remove ambiguity",
+      "Offer to take on tasks they find easy to create goodwill"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Household responsibility negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're a student and your professor marks you down for a late submission, but you had a valid reason. Request a grade reconsideration.",
+    "tips": [
+      "Acknowledge the policy exists before making your case",
+      "Bring documentation of the extenuating circumstances",
+      "Ask for a specific outcome, not just sympathy"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Academic appeal negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "The contractor who repaired your fence left some damage on your lawn. Negotiate compensation before paying the final invoice.",
+    "tips": [
+      "Point out the damage calmly with specific detail",
+      "Propose a deduction from the invoice as fair compensation",
+      "Let them offer a solution before pushing your number"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Contractor dispute negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to sign up for a software subscription but think the price is too high for a student. Ask for a discount.",
+    "tips": [
+      "Ask directly — many services have unadvertised student rates",
+      "Be prepared to verify student status",
+      "If no student rate, ask about annual billing or a trial extension"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Discount request negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to change your project team's deadline but your teammates rely on you delivering your part on time. Renegotiate your contribution timeline.",
+    "tips": [
+      "Own the impact your delay will have — don't minimize it",
+      "Propose a new realistic date and what you'll deliver by then",
+      "Offer a partial deliverable to unblock others in the meantime"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Team deadline renegotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You're at a car wash and they scratched your door. Negotiate fair compensation before leaving.",
+    "tips": [
+      "Document the damage immediately with photos",
+      "Stay calm — losing your temper reduces your leverage",
+      "Propose a specific resolution: free future washes, or payment for the repair"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "On-the-spot damage dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Your dentist's office billed you for a procedure you thought was covered by insurance. Negotiate a payment plan or reconsideration.",
+    "tips": [
+      "Ask them to resubmit the claim before agreeing to pay",
+      "Request an itemized bill to verify each charge",
+      "If you must pay, ask for a payment plan without interest"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Medical billing dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to adopt a meeting-free Friday morning policy with your team. Convince your colleagues to agree.",
+    "tips": [
+      "Present the productivity case, not just the convenience",
+      "Acknowledge that sometimes urgent meetings happen and propose exceptions",
+      "Suggest a trial period of two weeks before a full commitment"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Group agreement negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "A shop quoted you $60 for a haircut but charged $80 at checkout. Dispute the price at the register.",
+    "tips": [
+      "State calmly what you were quoted and when",
+      "Don't apologize — you're in the right here",
+      "Ask for a manager if the stylist can't adjust the price"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Point-of-sale price dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want your building manager to fix a maintenance issue that's been ignored for two weeks. Escalate the request diplomatically.",
+    "tips": [
+      "Reference your prior requests by date to show history",
+      "State the impact the issue is having on your daily life",
+      "Request a specific repair date in writing"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Tenant maintenance escalation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to negotiate a free or reduced-cost parking spot at your apartment building that currently doesn't include one.",
+    "tips": [
+      "Frame it as a tenant retention issue for the landlord",
+      "Research what nearby spots cost to anchor the conversation",
+      "Offer something in exchange — longer lease, earlier rent payment"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Tenant perk negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "A tutoring company is charging more than your budget allows. Negotiate a rate that fits what you can afford.",
+    "tips": [
+      "Be transparent about your budget limit — it's not a weakness",
+      "Ask if they have lower-cost tutors or group sessions",
+      "Offer a longer commitment in exchange for a lower per-session rate"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Service rate negotiation with budget constraint"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You want to convince your flatmates to agree on a cleaning schedule instead of the current unstructured system that causes conflict.",
+    "tips": [
+      "Come prepared with a proposed schedule rather than just raising the problem",
+      "Let everyone choose tasks they prefer if possible",
+      "Frame it as preventing future conflict, not calling anyone out"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Group living agreement"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "Your subscription auto-renewed at full price and you want to cancel or downgrade. Call the company to negotiate.",
+    "tips": [
+      "Say you want to cancel — companies will offer deals to keep you",
+      "Know what the competitor price is before calling",
+      "Ask for a pause option if cancellation means losing data"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Subscription cancellation negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "1-2",
+    "question": "You and a coworker both want the same office desk near the window. Negotiate a fair arrangement.",
+    "tips": [
+      "Understand why they want it — their reason may be resolvable differently",
+      "Propose a rotating schedule if you both have valid needs",
+      "Keep it light — it's a desk, not a promotion"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Workplace resource negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You've been in your role for 18 months with strong reviews and no raise. Request a merit increase from your manager.",
+    "tips": [
+      "Come with documented accomplishments and their business impact",
+      "Anchor with a specific number, 10-15% above what you'd accept",
+      "If money is tight, ask about a timeline for review rather than a flat no"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Internal raise negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A contractor gave you a quote for a home renovation. You want to negotiate a 15% reduction before signing.",
+    "tips": [
+      "Get competing quotes and mention them without being aggressive",
+      "Ask what's driving the cost — some line items may be negotiable",
+      "Offer something of value in return: faster payment, referrals"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Service contract negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your client wants to add two features to a project that's already scoped and signed. Negotiate additional compensation or scope reduction.",
+    "tips": [
+      "Never say yes to scope additions without acknowledging the trade-off",
+      "Quantify the additional work in hours and days before suggesting a price",
+      "Offer options: add features for a fee, or drop a lower-priority item instead"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Scope creep negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your employer wants you to relocate for a promotion but you'd prefer to stay remote. Negotiate a hybrid or remote arrangement.",
+    "tips": [
+      "Demonstrate you've succeeded remotely already — use data",
+      "Propose a trial arrangement with defined metrics for success",
+      "Understand what the company's real relocation concern is before countering"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Work arrangement negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You want to dispute a parking fine that you believe was issued unfairly. Make your case to the appeals office.",
+    "tips": [
+      "Lead with the factual error in the citation, not your frustration",
+      "Provide evidence — photos, timestamp records, sign placement",
+      "Be respectful — the officer at the desk didn't write the ticket"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Administrative dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A supplier wants to increase their prices by 10% with 30 days notice. Negotiate better terms or a lower increase.",
+    "tips": [
+      "Ask for the data behind the increase — is it cost-driven or margin-driven?",
+      "Propose a phased increase over 6 months instead of all at once",
+      "Use the threat of switching suppliers as leverage, but only if you're willing to"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Supplier price increase negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You're negotiating the terms of a freelance contract that includes a clause requiring 60 days notice to terminate. You want 14 days. Negotiate.",
+    "tips": [
+      "Explain why long notice periods hurt your business model",
+      "Propose a mutual 14-day notice with a clear handoff protocol",
+      "Offer something in return — lower rate or priority availability"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Contract clause negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You want to negotiate a flexible work schedule — four 10-hour days instead of five 8-hour days. Pitch it to your manager.",
+    "tips": [
+      "Focus on productivity outcomes, not personal convenience",
+      "Propose a 30-day pilot with a check-in",
+      "Address the manager's likely concern: being unavailable Fridays"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Schedule flexibility negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A venue you booked for an event is now raising the price by 20% due to 'high demand.' Negotiate to hold the original price.",
+    "tips": [
+      "Reference the original agreement or quote in writing",
+      "Express willingness to walk away — and mean it",
+      "If they won't budge, ask for upgrades at the original price instead"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Verbal agreement enforcement"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your manager wants you to take on a new project without reducing your existing workload. Push back and negotiate scope.",
+    "tips": [
+      "List your current commitments explicitly before responding",
+      "Ask which of your existing priorities should slip",
+      "Propose a resource addition or a deadline extension as a compromise"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Workload negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You're buying a used car from a dealer. They're offering $15,000 with no warranty. Negotiate a better price or added warranty terms.",
+    "tips": [
+      "Never accept the first number — always counter even if it's reasonable",
+      "Use inspection findings as leverage for a lower price",
+      "Separate the trade-in and purchase conversations to avoid confusion"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Dealership negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your consulting client wants to extend your engagement at your current rate, but your market rate has risen. Renegotiate your rate for the extension.",
+    "tips": [
+      "Anchor with your new rate before they counter",
+      "Use recent market data or competing offers to justify",
+      "Offer continuity and the absence of a learning curve as your value"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Rate renegotiation at contract renewal"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Two colleagues are in conflict about shared resources and ask you to mediate. Help them reach an agreement.",
+    "tips": [
+      "Hear both sides before proposing anything",
+      "Find the shared interest beneath the positions",
+      "Make both parties feel heard before suggesting a solution"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Workplace mediation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You want to negotiate a signing bonus when accepting a job offer that doesn't include one.",
+    "tips": [
+      "Frame it as compensation for benefits you're leaving behind",
+      "Ask for a specific amount — a range signals flexibility",
+      "If they can't do cash, ask about stock, equipment, or training budget"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Compensation package negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A client wants to pay you 30 days after project completion instead of 50% upfront. Negotiate better payment terms.",
+    "tips": [
+      "Explain why upfront payment protects both parties",
+      "Offer a phased payment tied to milestones as a compromise",
+      "Know your minimum acceptable terms before starting"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Payment terms negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your landlord wants to enter the apartment for inspections every month. Negotiate a less intrusive schedule.",
+    "tips": [
+      "Know your legal rights for notice before entering",
+      "Propose quarterly inspections with 48-hour written notice",
+      "Offer proactive updates to address their likely concern about property condition"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Tenant rights negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your team lead gave you a performance review rating you believe is unfair. Request a reconsideration and present your case.",
+    "tips": [
+      "Separate your emotional reaction from your factual argument",
+      "Come with specific examples that weren't reflected in the rating",
+      "Ask what you would have needed to do to earn a higher rating"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Performance review appeal"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You and a business partner disagree on whether to expand your small business now or wait a year. Negotiate a shared decision.",
+    "tips": [
+      "Identify the core concern driving each position before debating",
+      "Propose a conditional agreement: expand if X milestones are met",
+      "Look for a phased approach that limits risk for the cautious party"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Business strategy negotiation between partners"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "An insurance company is offering less than your car's market value after an accident. Negotiate a higher payout.",
+    "tips": [
+      "Get independent comparables to challenge their valuation",
+      "Ask them to justify their estimate with specifics",
+      "Know that adjusters have discretion — ask to speak to a supervisor"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Insurance claim negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A vendor is proposing a 12-month contract but you only want a 6-month pilot. Negotiate a shorter term with an option to extend.",
+    "tips": [
+      "Frame the shorter term as a risk mitigation for both parties",
+      "Offer favorable renewal terms in exchange for the shorter initial period",
+      "Ask what's driving their requirement for a longer contract"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Contract duration negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You're buying furniture from an independent store and the salesperson isn't budging on price. Try bundling items or asking for extras to increase the value.",
+    "tips": [
+      "Shift from 'lower the price' to 'add more value' — easier for them to agree",
+      "Ask about floor models, discontinued colors, or delivery bundling",
+      "Be specific: 'Can you throw in the cushions?' beats 'What can you do for me?'"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Retail value negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your startup's co-founder wants a larger equity share than the split you agreed on verbally. Renegotiate before signing papers.",
+    "tips": [
+      "Ground the conversation in contributions, not feelings",
+      "Propose a vesting-based model that rewards future work",
+      "Have the hard numbers conversation before involving lawyers"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Co-founder equity negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A conference organizer wants you to speak for free. Negotiate an honorarium or travel reimbursement.",
+    "tips": [
+      "Frame your time as having real market value",
+      "Offer a reduced rate or in-kind alternative if they have budget constraints",
+      "Ask what their budget is — let them state a number first"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Speaking engagement negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You want to negotiate a longer lease to lock in your current rent for two years. Convince your landlord it's a win for them too.",
+    "tips": [
+      "Emphasize stability and reliability as a tenant",
+      "Propose a small increase in exchange for a two-year lock-in",
+      "Quantify the landlord's vacancy risk as a reason to accept"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Lease term negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A client wants deliverables in half the time originally agreed. Negotiate a realistic timeline or additional resources.",
+    "tips": [
+      "Walk through the delivery plan to make the timeline concrete",
+      "If they need it faster, ask what they're willing to pay or cut",
+      "Never agree to an impossible timeline — it damages trust later"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Timeline compression negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You're asking your employer for professional development funding — a $2,000 course not in the budget. Make the case.",
+    "tips": [
+      "Tie the skills directly to a business outcome your manager cares about",
+      "Offer to share learnings with the team as a multiplier",
+      "Propose partial funding or a reimbursement-after-completion model"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Internal budget request"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "A potential customer says your product is too expensive compared to a competitor. Negotiate on value without discounting the price.",
+    "tips": [
+      "Understand what they're comparing — features are often not equivalent",
+      "Quantify the ROI of your product against their alternative",
+      "Offer a trial or phased rollout instead of a price reduction"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Price objection handling"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You're negotiating a non-compete clause in your employment contract that's too broad. Narrow its scope before signing.",
+    "tips": [
+      "Identify the specific terms that are unreasonable — geography, duration, scope",
+      "Propose a narrower version that still protects the employer's interests",
+      "Have a lawyer review it first — know what's standard in your state"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Contract clause renegotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your team disagrees on the priority order for next quarter's roadmap. Facilitate a negotiation to align everyone.",
+    "tips": [
+      "Ask each person to justify their priority in business impact terms",
+      "Look for consensus on the top two before debating the rest",
+      "Use a scoring rubric to make the decision less personal"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Team prioritization negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "You discovered a defect in a product after the warranty expired. Negotiate a repair or replacement with the manufacturer.",
+    "tips": [
+      "Document the defect with photos and dates",
+      "Reference similar cases where companies honored repairs out of warranty",
+      "Threaten a public review diplomatically — 'I'd hate to have to share this experience'"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Out-of-warranty dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "3-4",
+    "question": "Your agency wants to charge extra for revisions beyond two rounds. You believe the brief wasn't clear enough to limit revisions fairly. Negotiate.",
+    "tips": [
+      "Point to specific ambiguities in the brief that caused the rework",
+      "Propose clearer brief criteria going forward to prevent future disputes",
+      "Suggest a compromise: one additional free round, then a reduced rate after"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Creative services revision dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're negotiating a SaaS vendor contract. Their standard agreement includes auto-renewal with 90-day cancellation notice. Negotiate shorter notice and annual pricing caps.",
+    "tips": [
+      "Make a list of all terms to negotiate before the call — don't tackle them one by one",
+      "Anchor on the most important clause first to build momentum",
+      "Offer multi-year commitment in exchange for better renewal terms"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Multi-clause contract negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're a product manager and need engineering resources that another team's lead controls. Negotiate shared resource time without a formal reporting line.",
+    "tips": [
+      "Understand what your counterpart is measured on and tie your ask to that",
+      "Propose a time-boxed arrangement with clear deliverables to reduce their risk",
+      "Get buy-in from both your managers first to avoid a later veto"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Cross-functional resource negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're hiring a senior designer and your top candidate has a competing offer $20K higher than you can match. Negotiate a package that keeps them interested.",
+    "tips": [
+      "Understand which elements of the competing offer matter most to them",
+      "Offer flexibility on equity, PTO, remote work, or title to bridge the gap",
+      "Be honest about your ceiling — candidates respect honesty and negotiate from there"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Candidate retention negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Your agency client wants a 10% discount on the next campaign budget without reducing scope. Negotiate scope reduction or future-work trade-offs instead.",
+    "tips": [
+      "Never cut price without cutting scope — it sets a bad precedent",
+      "Offer a discount on an expanded future engagement instead",
+      "Quantify what a 10% cut actually removes from the deliverables"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Agency discount negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're renewing an office lease and the landlord wants a 12% rent increase. Negotiate it down and add tenant improvement allowances.",
+    "tips": [
+      "Research comparable vacancy rates in the building and area",
+      "Use your anchor as a package: lower rent increase plus TI allowance",
+      "Your leverage is walkaway — but only use it if you're willing to move"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Commercial lease renewal negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A strategic partner wants exclusivity in your distribution deal. You don't want to foreclose other options. Negotiate limited exclusivity terms.",
+    "tips": [
+      "Define exclusivity by geography, product line, or time period instead of broadly",
+      "Tie exclusivity to performance minimums — if they don't hit targets, it lapses",
+      "Make any exclusivity reciprocal if you can"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Exclusivity clause negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Your startup is fundraising and an angel investor wants 15% equity for $200K. You believe 8% is fair at your current valuation. Counter.",
+    "tips": [
+      "Anchor with your valuation methodology before discussing percentages",
+      "Use comparable raises in your space to justify the valuation",
+      "Offer a convertible note as an alternative structure if equity is the sticking point"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Early-stage equity negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A vendor missed a critical delivery deadline causing you measurable losses. Negotiate compensation or future credits in the relationship review.",
+    "tips": [
+      "Quantify your losses with specifics before the meeting",
+      "Separate the compensation ask from the relationship repair conversation",
+      "Focus on what makes you whole, not punishing them"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Breach of contract dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're negotiating a licensing deal for your IP. The other party wants a flat fee. You want royalties. Find a structure that works for both.",
+    "tips": [
+      "Model out both scenarios and share the math transparently",
+      "A hybrid — flat fee plus royalty — often bridges the gap",
+      "Make royalty thresholds aggressive to align incentives"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "IP licensing structure negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Your company is in a price war with a competitor. A key customer is threatening to switch unless you match the competitor's lower price. Negotiate without a race to the bottom.",
+    "tips": [
+      "Understand the full cost of switching for the customer before defending price",
+      "Find non-price value differentiators the competitor can't match",
+      "Offer a loyalty deal: a modest discount for a multi-year commitment"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Customer retention under competitive pressure"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A contractor's scope of work has ballooned and they're asking for a 35% budget increase. Negotiate a fair increase with accountability measures.",
+    "tips": [
+      "Ask for an itemized breakdown of the overrun before agreeing to anything",
+      "Determine what portion is scope change versus cost estimation error",
+      "Tie any approved increase to a fixed-price for remaining work"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Budget overrun dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're negotiating a co-marketing deal. Your partner wants to lead the campaign and approve all content. Negotiate shared creative control.",
+    "tips": [
+      "Propose a joint approval process with defined turnaround times",
+      "Separate brand guidelines from creative approval to reduce friction",
+      "Suggest a lead/support model that alternates by campaign"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Co-marketing control negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "An enterprise customer wants steep SLA penalties in your service agreement — up to 20% of contract value. Negotiate the penalty structure down.",
+    "tips": [
+      "Tie penalties to measurable, objective metrics you control",
+      "Cap total penalties and put minimum thresholds before penalties kick in",
+      "Offer proactive remedies (credits, support priority) in exchange for lower penalties"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "SLA penalty negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A supplier wants net-60 payment terms but your cash flow requires net-90. Negotiate a compromise that doesn't damage the relationship.",
+    "tips": [
+      "Be transparent about your cash cycle — suppliers respect honesty",
+      "Offer early payment discounts on larger invoices to sweeten net-90",
+      "Propose tiered terms: net-60 for under $10K, net-90 for larger orders"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Payment terms negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're negotiating equity compensation as part of a job offer at a Series A startup. The vesting schedule and cliff seem unfavorable. Negotiate better terms.",
+    "tips": [
+      "Understand the fully diluted cap table before valuing the equity",
+      "Negotiate cliff reduction and accelerated vesting on acquisition",
+      "Ask about the last 409A valuation to understand current strike price"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Equity package negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You need to renegotiate a marketing agency retainer mid-contract after realizing the deliverables aren't meeting expectations. Negotiate improvements or an exit.",
+    "tips": [
+      "Document specific deliverables that fell short against the contract",
+      "Give them a clear improvement plan before invoking an exit clause",
+      "Tie continued payment to specific milestones going forward"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Mid-contract performance renegotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Two teams want ownership of a new product initiative. As the VP, mediate the conflict and establish a clear ownership model.",
+    "tips": [
+      "Separate ownership from contribution — teams can contribute without owning",
+      "Use a RACI framework to make the model concrete",
+      "Get both leads to agree in writing to prevent future disputes"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Organizational ownership dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A real estate agent wants a 3% commission on a property sale. You want to negotiate it down to 2% given the strong market.",
+    "tips": [
+      "Research typical commissions in your market before the conversation",
+      "Offer a higher fee if the property sells above asking price",
+      "In a hot market, the listing sells itself — use that as leverage"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Real estate commission negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Your company is negotiating a data-sharing agreement with a partner. They want broad access; you need to protect user data. Find a middle ground.",
+    "tips": [
+      "Define exactly what data fields are permissible up front",
+      "Propose anonymized or aggregated data as a less risky alternative",
+      "Include audit rights and breach consequences in the agreement"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Data access negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're negotiating the buyout of a minority business partner who wants significantly more than their stake is worth. Reach a fair exit valuation.",
+    "tips": [
+      "Use a third-party valuation to anchor the number objectively",
+      "Understand what's driving their inflated expectation — emotion or financial need",
+      "Propose a structured earnout if immediate cash is the sticking point"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Partner buyout negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A key distributor wants exclusive regional rights in exchange for a large purchase order. Negotiate the exclusivity terms so they don't limit your growth.",
+    "tips": [
+      "Tie exclusivity to a performance minimum — make them earn it",
+      "Define the territory narrowly to leave adjacent markets open",
+      "Include a time limit with renewal conditions based on results"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Distributor exclusivity negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Your board wants to cut R&D spend by 20% next quarter. As the CTO, negotiate to protect your highest-priority projects.",
+    "tips": [
+      "Come with a tiered proposal: cuts you can absorb vs. ones that kill roadmap",
+      "Quantify the ROI risk of cutting each project",
+      "Offer alternative cost reductions — headcount freeze, vendor renegotiation"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Budget defense negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You're buying a commercial property and the seller won't budge below their asking price. Negotiate non-price terms — closing timeline, contingencies, furnishings.",
+    "tips": [
+      "When price is stuck, shift to terms — the deal can still get better",
+      "Ask for seller financing, a longer close, or included equipment",
+      "Understand the seller's motivation — speed or certainty may matter more than price"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Non-price real estate negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A strategic acquisition target has agreed to a price but is pushing for broad indemnification clauses. Negotiate the indemnification scope.",
+    "tips": [
+      "Cap total indemnification and add time limits",
+      "Carve out known risks from indemnification obligations",
+      "Require escrow holdback for a limited period instead of open-ended liability"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "M&A indemnification negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "You want to renegotiate your employment contract after a promotion that didn't come with a pay increase. Approach your CEO directly.",
+    "tips": [
+      "Reference the expanded responsibilities explicitly with business impact",
+      "Come with a market comp benchmark from credible sources",
+      "Propose a 90-day review date if they can't commit immediately"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Promotion compensation negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "A co-development partner wants to own the IP jointly created. You need to retain IP ownership while compensating them fairly for their contribution.",
+    "tips": [
+      "Separate contribution credit from IP ownership in the discussion",
+      "Offer a licensing-back arrangement — they can use it, you own it",
+      "Define IP developed before the partnership as pre-existing and clearly excluded"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "IP ownership negotiation in partnerships"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "5-6",
+    "question": "Your startup's key early customer wants pricing that's 40% below your standard rate in exchange for a testimonial and case study. Negotiate a fair value exchange.",
+    "tips": [
+      "Define the value of the reference customer in pipeline terms",
+      "Agree on specific deliverables: written case study, logo rights, speaking reference",
+      "Build in a price normalization clause at renewal — reference pricing is temporary"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Early customer value-exchange negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a joint venture agreement where your company provides the technology and a larger partner provides manufacturing and distribution. Negotiate the profit-sharing structure.",
+    "tips": [
+      "Model multiple split scenarios and present them as options, not ultimatums",
+      "Tie your share to the portion of value your technology creates in the end product",
+      "Build in performance-based adjustments that benefit both parties if the JV succeeds"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Multi-variable joint venture negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a Series B term sheet with a lead investor who wants anti-dilution provisions that would significantly harm founders. Negotiate the terms.",
+    "tips": [
+      "Distinguish between weighted-average and full-ratchet anti-dilution — know the difference",
+      "Propose narrow-based weighted average as the compromise position",
+      "Get a startup lawyer in the room — don't negotiate term sheets alone"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Venture term sheet negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "A major enterprise customer is threatening to terminate a $2M annual contract due to a service outage. Negotiate retention and remediation.",
+    "tips": [
+      "Open by taking full accountability — don't minimize the impact",
+      "Offer a concrete remediation plan with timelines before discussing credits",
+      "Propose a governance upgrade: executive sponsor, quarterly reviews, SLA enhancement"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "High-value customer crisis negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "Your company is being acquired and the acquirer wants key founder retention tied to an 18-month golden handcuff. Negotiate the retention terms.",
+    "tips": [
+      "Negotiate both the duration and the triggering conditions for acceleration",
+      "Ensure 'good reason' departure clauses protect you from constructive dismissal",
+      "Tie retention compensation to milestones rather than pure time"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Acquisition retention negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're mediating a conflict between two C-suite executives whose ongoing dispute is damaging company culture. Facilitate a resolution.",
+    "tips": [
+      "Hold individual sessions before bringing them together — build trust separately",
+      "Find the professional interest both share that the conflict is harming",
+      "Establish behavioral commitments rather than just resolving the immediate issue"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Executive-level conflict mediation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're the lead negotiator trying to bring a key strategic supplier back after a pricing dispute caused them to put your business on hold. Rebuild the relationship while addressing the underlying issue.",
+    "tips": [
+      "Acknowledge the breakdown on your company's side before asking for anything",
+      "Propose a pricing structure that reflects their true costs plus fair margin",
+      "Offer volume commitments or longer-term contracts to give them confidence"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Relationship repair negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "Two investors in your company are in dispute over board control, and it's blocking your next raise. Mediate and propose a governance structure that unblocks the company.",
+    "tips": [
+      "Understand each investor's core concern — control, information rights, or exit timing",
+      "Propose a neutral third board member as a tiebreaker",
+      "Frame the governance dispute as a shared threat to the company value they both hold"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Investor governance dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "Your company is negotiating a multi-year government procurement contract. The agency wants extensive customization at a fixed price. Negotiate scope and risk allocation.",
+    "tips": [
+      "Break the contract into phases — fixed price for defined scope, T&M for unknowns",
+      "Build a change order process into the baseline agreement",
+      "Government RFPs often have flexibility on timeline in exchange for lower total cost"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Government contract scope negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a cross-border licensing deal where currency risk, regulatory compliance, and revenue repatriation are all on the table. Structure the deal.",
+    "tips": [
+      "Establish currency for invoicing upfront — don't let it be ambiguous",
+      "Include a force majeure clause that covers regulatory changes",
+      "Propose a local escrow or repatriation schedule to reduce currency exposure"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "International deal structure negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "Your company's lead developer is threatening to leave because they feel undervalued. They're a key person risk. Negotiate a retention deal that addresses their real motivation.",
+    "tips": [
+      "Ask what staying would need to look like — salary isn't always the core issue",
+      "Offer equity, a title change, autonomy, or a new project lead role",
+      "Address the cultural concern that likely underlies the frustration"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Key-person retention negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating the breakup of a failed partnership. Assets, clients, and a jointly hired employee all need to be divided. Navigate the negotiation.",
+    "tips": [
+      "Create an inventory of all joint assets before discussing allocation",
+      "Let clients choose — don't make it a contentious split",
+      "For the employee, let them express preference if possible — it reduces conflict"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Business dissolution negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "A private equity firm is proposing to buy a majority stake in your company. Their term sheet includes provisions that could squeeze out founder control. Negotiate protective provisions.",
+    "tips": [
+      "Identify the specific decisions that require your consent and list them explicitly",
+      "Negotiate drag-along and tag-along rights carefully",
+      "Right of first refusal on future share sales can protect you — push for it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Private equity deal negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a multi-year infrastructure outsourcing deal with a vendor. They want upfront payment; you want pay-per-use. Find a hybrid structure.",
+    "tips": [
+      "A baseline commitment with overage-based pricing satisfies both sides",
+      "Negotiate SLAs into the payment structure — credits for downtime",
+      "Benchmark against industry standard pricing before the first meeting"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Infrastructure deal structure negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "A strategic acquirer is valuing your company at a significant discount to your last round valuation. Negotiate the valuation gap.",
+    "tips": [
+      "Reframe valuation around future revenue potential, not current metrics",
+      "Propose an earnout that bridges the gap based on hitting milestones post-acquisition",
+      "Understand their strategic rationale — if it's high, your leverage is too"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Acquisition valuation negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "Three founders with equal equity are in conflict over the CEO role after the company gets traction. Mediate a decision that keeps the company intact.",
+    "tips": [
+      "Separate the emotional identity question from the operational one",
+      "Propose a board-led evaluation against a clear CEO criteria rubric",
+      "Offer alternative high-value roles for the non-CEO founders to reduce the loss"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Founding team leadership dispute"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're leading a union negotiation as management. The union wants a 12% raise; your budget allows 4%. Find common ground.",
+    "tips": [
+      "Explore non-wage benefits that cost less than a wage increase",
+      "Propose a performance-linked increase that aligns incentives",
+      "Acknowledge the inflation context — don't dismiss their position"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Labor negotiation with budget constraint"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're a founder negotiating with a strategic partner who also competes with you in adjacent markets. Negotiate a partnership agreement with clear competitive boundaries.",
+    "tips": [
+      "Define the use cases covered by the partnership explicitly",
+      "Include a non-compete clause for the specific product area",
+      "Build in a dispute resolution mechanism before any conflict arises"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Co-opetition partnership negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a revenue share deal with a platform that distributes your software. They want 30%; industry average is 15-20%. Negotiate the rate.",
+    "tips": [
+      "Use the industry benchmark explicitly — make them justify the premium",
+      "Propose a performance-based structure: lower base, higher share for higher volumes",
+      "Offer exclusivity in exchange for a lower platform cut"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Platform revenue share negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "A major client is pushing to renegotiate a long-term contract mid-term due to changed business conditions. You need to protect your company's revenue while keeping the client.",
+    "tips": [
+      "Understand their business constraint first — budget cut, change in strategy, or procurement reset",
+      "Offer a volume reduction with a proportional price adjustment rather than an across-the-board cut",
+      "Shorten the remaining term in exchange for a slight rate reduction as a compromise"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Mid-term contract renegotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're negotiating a media licensing deal for original content. The distributor wants all territory rights and a buyout. Negotiate to retain residuals and limited territory rights.",
+    "tips": [
+      "Territory rights are separable — give them the primary market, retain secondary",
+      "Residuals can be small percentages but compound significantly — fight for them",
+      "Define reversion rights so IP returns to you if the content is pulled"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Media rights negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "7-8",
+    "question": "You're tasked with negotiating a shared services agreement between two subsidiaries of the same parent company. Both want favorable terms and the parent wants cost savings. Balance all three.",
+    "tips": [
+      "Establish what the parent's savings target is — it's the only hard constraint",
+      "Let each subsidiary prioritize their top three terms before trading them off",
+      "Build a governance model that doesn't require parent arbitration every time"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Intra-company multi-party negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're the lead negotiator for a cross-border merger. The target company's board is divided — two members support the deal at your offer price, two oppose it, and one is undecided. Negotiate board approval.",
+    "tips": [
+      "Identify the undecided director's primary concern and address it directly",
+      "Offer a board representation seat post-merger as a confidence measure",
+      "Understand what each opposing director wants — they may have solvable issues"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Complex board-level acquisition negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're a hostage negotiator brought in to resolve a standoff at a corporate headquarters where a disgruntled former employee has taken a colleague captive. Negotiate a safe resolution.",
+    "tips": [
+      "Build rapport before making any demands or offers — trust is the first deliverable",
+      "Use their name, listen actively, and never lie",
+      "Slow things down — time is your greatest tool"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Crisis hostage negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You represent a consortium of creditors in bankruptcy proceedings. The debtor company's management is proposing a restructuring plan that significantly haircuts creditor claims. Negotiate the restructuring terms.",
+    "tips": [
+      "Understand each creditor class's priority position before negotiating as a bloc",
+      "Equity in the restructured company may be worth more than cash — evaluate both",
+      "Management incentive plans that come at creditor expense are often negotiable"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Creditor restructuring negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're negotiating the terms of a peace deal between two divisions of a company that have been locked in a resource war for 18 months, causing widespread team attrition. Design a lasting governance solution.",
+    "tips": [
+      "Map all contested resources and decisions before proposing any solution",
+      "The solution must be self-enforcing — don't rely on goodwill",
+      "Get CEO endorsement of the framework before presenting it to the divisions"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Organizational peace deal negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're the CEO of a company facing a hostile takeover. The acquirer's board believes your company is undervalued. Negotiate defenses and an alternative to the hostile offer.",
+    "tips": [
+      "Engage a white knight as a tactical lever before the hostile bid closes",
+      "Communicate a credible standalone plan to shareholders who might otherwise accept",
+      "Identify the acquirer's strategic rationale — it may be achievable through a partnership instead"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Hostile takeover defense negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're representing a government in renegotiating an existing bilateral trade agreement. The counterpart government wants to open sectors that are politically sensitive at home. Navigate the negotiation.",
+    "tips": [
+      "Separate domestic political constraints from your negotiating interests — know which is which",
+      "Offer phased liberalization with safeguard clauses for the sensitive sectors",
+      "Use linkage: concede on a less sensitive sector to protect the politically charged one"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "International trade negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "Your company is in a public dispute with a regulator who is proposing fines and restrictions that could force a product recall. Negotiate a consent decree that avoids the most damaging outcomes.",
+    "tips": [
+      "Acknowledge the regulatory concern before presenting your alternative",
+      "Propose voluntary compliance measures that exceed what they're asking — it builds goodwill",
+      "Consent decrees are often more negotiable than they appear — push on every clause"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Regulatory enforcement negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "Three companies are co-funding a major infrastructure project and disagree on cost overrun allocation when the budget exceeds projections by 40%. Facilitate a resolution.",
+    "tips": [
+      "Revisit the original risk allocation language in the founding agreement",
+      "Propose a proportional split based on usage or benefit, not just equity stakes",
+      "An independent auditor's view on cause can depoliticize the overrun allocation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Multi-party cost overrun negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "A data breach at your company has exposed customer data. A class of plaintiffs and state regulators are both pursuing you. Negotiate a global settlement.",
+    "tips": [
+      "Align the regulatory and plaintiff tracks — a regulatory settlement often reduces plaintiff exposure",
+      "Offer concrete remediation measures (credit monitoring, security upgrades) to reduce cash settlement",
+      "Admissions of liability are the key variable — protect them aggressively"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Multi-track data breach settlement"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're negotiating a joint defense agreement with a co-defendant in a major antitrust case. Your interests are mostly aligned but diverge on one key argument. Negotiate the shared strategy.",
+    "tips": [
+      "Agree on what you'll never contradict each other on — the non-negotiables",
+      "The divergent argument can be handled by having each side simply not address it",
+      "Joint defense agreements require mutual trust — build it before sharing strategy"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Joint legal defense strategy negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're the Chief Restructuring Officer of a company in distress. Lenders want immediate repayment; management wants time to execute a turnaround. Negotiate a standstill agreement.",
+    "tips": [
+      "Lenders often prefer a standstill over a drawn-out bankruptcy — use that",
+      "Attach the standstill to concrete milestones so it doesn't become indefinite",
+      "Give lenders information rights and a board observer seat to build confidence"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Distressed company standstill negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "A critical technology partner is threatening to terminate a foundational API agreement that would cripple your product. Negotiate an extension while building your own capability.",
+    "tips": [
+      "Buy time — every month you negotiate keeps the product alive",
+      "Offer them a revenue share or equity position to align incentives",
+      "Make the transition plan visible to them — it reduces fear of being replaced"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Existential dependency negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're leading negotiations to form a multi-company industry consortium that requires all parties to share pre-competitive IP. One large player is holding out. Bring them in.",
+    "tips": [
+      "Understand what they fear about sharing IP — likely competitive exposure",
+      "Propose technical governance: shared IP goes to a neutral entity, not a competitor",
+      "A founding member seat with veto rights on IP use may overcome the objection"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Industry consortium negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're a senior diplomat negotiating a bilateral agreement to share intelligence data. Privacy laws and sovereignty concerns are blocking progress. Find a workable framework.",
+    "tips": [
+      "Establish minimum essential information exchange before tackling the broader agreement",
+      "Propose a joint oversight body to satisfy sovereignty concerns",
+      "Phased agreements — start with a small category of data — build trust over time"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Bilateral intelligence-sharing negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're negotiating a large-scale climate accord between developed and developing nations. The developing bloc wants historical emission allowances; the developed bloc wants equal cuts. Find a path forward.",
+    "tips": [
+      "Common but differentiated responsibilities is the established principle — use it as a frame",
+      "Financial transfer mechanisms can bridge the equity gap — make them concrete",
+      "Binding vs. voluntary commitments are often the final sticking point — offer a verification mechanism"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Multi-nation climate negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "Two sovereign wealth funds both want a controlling stake in a privatized national infrastructure asset. You're the government negotiator. Structure a deal that maximizes national benefit.",
+    "tips": [
+      "Define control rights vs. economic rights separately — you can split them",
+      "A bidding process with defined criteria prevents accusations of favoritism",
+      "Retain a golden share that protects national security interests regardless of ownership"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Sovereign asset privatization negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're mediating a succession dispute in a family business worth $500M. Three siblings each believe they should be CEO. The family is on the verge of breaking apart.",
+    "tips": [
+      "Separate the business governance question from the family relationship question",
+      "A professional CEO search with family board oversight can depersonalize the decision",
+      "Equity stakes, dividends, and decision rights can all be adjusted independently — use them"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Family business succession mediation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're the lead negotiator for a tech company facing a $3B patent infringement lawsuit. The plaintiff wants a damages trial; you want a licensing settlement. Negotiate an exit.",
+    "tips": [
+      "Quantify your best and worst case at trial — it anchors the settlement range",
+      "A licensing deal gives the plaintiff ongoing revenue — often worth more than a one-time damages award",
+      "Time and legal cost are leverage for both sides — use them explicitly"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Patent litigation settlement negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're negotiating the terms of a UN-brokered ceasefire between two armed factions. Both sides distrust each other but are exhausted. Build a durable agreement.",
+    "tips": [
+      "Verification and monitoring mechanisms make agreements self-enforcing — they're not optional",
+      "Confidence-building measures before the main deal reduce the risk of defection",
+      "Both sides need a face-saving narrative — help them construct it"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Multi-party ceasefire negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're the CFO of a publicly traded company and must negotiate a debt covenant waiver with a syndicate of 12 lenders after a covenant breach. Some lenders want to accelerate the loan.",
+    "tips": [
+      "Brief the friendly lenders first — you need a bloc before the full meeting",
+      "Offer enhanced reporting and a paydown schedule to address the breach",
+      "A covenant modification is worth more to lenders than acceleration — make that case"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Lender syndicate covenant negotiation"
+  },
+  {
+    "mode": "negotiation",
+    "difficultyBand": "9-10",
+    "question": "You're a labor secretary mediating a national strike that has crippled a major industry for three weeks. Both sides are entrenched. Broker a deal.",
+    "tips": [
+      "Look for the smallest concession from each side that unlocks a return to work",
+      "Back-channel talks with principals often move faster than formal sessions",
+      "A 'cooling off' return-to-work pending a final deal is sometimes the only path forward"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "National labor strike mediation"
+  }
+]

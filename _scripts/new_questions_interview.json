@@ -1,0 +1,1784 @@
+[
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What type of work do you find most enjoyable day-to-day?",
+    "tips": [
+      "Name one specific task or activity rather than a vague category",
+      "Connect it to something relevant to the role you're interviewing for",
+      "Keep your energy positive — interviewers notice genuine enthusiasm"
+    ],
+    "difficultyNote": "Basic motivation question, low pressure"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Can you walk me through your resume?",
+    "tips": [
+      "Move chronologically and spend most time on your most recent experience",
+      "Highlight transitions — why you moved from one role to the next",
+      "Keep it to 2 minutes; this is a summary, not a full biography"
+    ],
+    "difficultyNote": "Common opener — tests clarity and narrative flow"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What skills are you currently working on improving?",
+    "tips": [
+      "Pick a real skill you're genuinely developing — not a disguised strength",
+      "Mention a concrete action you're taking (course, practice, feedback)",
+      "Show self-awareness and growth mindset, not just humility"
+    ],
+    "difficultyNote": "Self-awareness question with low stakes"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Have you ever worked in a customer-facing role? What did you learn from it?",
+    "tips": [
+      "Be honest if you haven't — then describe transferable situations (serving peers, clients in projects)",
+      "Focus on what customer-facing work taught you about communication or empathy",
+      "One specific moment or lesson is better than a general statement"
+    ],
+    "difficultyNote": "Experience check with a light reflective element"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What kind of feedback helps you improve the most?",
+    "tips": [
+      "Be specific — 'direct and actionable' is stronger than 'honest feedback'",
+      "Give a brief example of a time feedback made a difference",
+      "Show you actively seek feedback, not just receive it passively"
+    ],
+    "difficultyNote": "Coachability signal for entry-level candidates"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Why did you choose your field of study or area of expertise?",
+    "tips": [
+      "Share a genuine story or turning point, not a textbook answer",
+      "Connect it to your current career goals",
+      "Keep it concise — 60 seconds max"
+    ],
+    "difficultyNote": "Motivation and origin story question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What does a productive workday look like for you?",
+    "tips": [
+      "Describe concrete habits or routines — prioritization method, focus blocks, etc.",
+      "Show that you're organized without sounding rigid",
+      "Relate your answer to the pace or structure of the target role"
+    ],
+    "difficultyNote": "Work style and self-management question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Are you more comfortable working independently or as part of a team?",
+    "tips": [
+      "Avoid picking just one — most roles need both; show versatility",
+      "Give a brief example of succeeding in each context",
+      "Tailor slightly toward what the job actually requires"
+    ],
+    "difficultyNote": "Work preference question — tests self-awareness"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What do you know about the industry this company operates in?",
+    "tips": [
+      "Do at least 15 minutes of research before any interview",
+      "Mention one trend, challenge, or news item specific to the industry",
+      "Show curiosity, not just rote facts — ask a follow-up question at the end"
+    ],
+    "difficultyNote": "Research and curiosity check"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you prefer to receive instructions on a new task?",
+    "tips": [
+      "Describe your process for clarifying expectations upfront",
+      "Show you can work with both detailed and high-level direction",
+      "Mention that you follow up to confirm understanding when needed"
+    ],
+    "difficultyNote": "Adaptability and communication style question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What's one accomplishment from school or a previous job you're proud of?",
+    "tips": [
+      "Pick something with a measurable or observable result",
+      "Briefly set context, then focus on what you did and the outcome",
+      "Choose something that shows a skill relevant to this role"
+    ],
+    "difficultyNote": "Light achievement question for early-career candidates"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What do you hope to learn in your first three months in this role?",
+    "tips": [
+      "Show you've thought about the role's actual responsibilities",
+      "Balance technical learning with relationship-building goals",
+      "Frame it as ambition to add value quickly, not just absorb information"
+    ],
+    "difficultyNote": "Forward-thinking question for new hires"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Have you ever had to meet a deadline under pressure? What did you do?",
+    "tips": [
+      "Use a brief STAR structure: what was due, what went wrong, how you handled it",
+      "Focus on your specific actions, not the team's",
+      "End with the outcome — did you hit the deadline?"
+    ],
+    "difficultyNote": "Light behavioral — works under pressure"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What type of manager or supervisor do you work best with?",
+    "tips": [
+      "Describe a management style with enough specificity to be real",
+      "Avoid sounding demanding or high-maintenance",
+      "Show flexibility — you can adapt to different styles"
+    ],
+    "difficultyNote": "Fit and adaptability signal question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What does integrity mean to you in a work context?",
+    "tips": [
+      "Define it in your own words, not the dictionary",
+      "Give one brief example of a time you acted with integrity",
+      "Keep it grounded — avoid overly philosophical answers"
+    ],
+    "difficultyNote": "Values question — authenticity matters more than the right answer"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "If you could change one thing about your most recent role or school experience, what would it be?",
+    "tips": [
+      "Be honest but constructive — this isn't an invitation to complain",
+      "Choose something process- or structure-related, not about a person",
+      "Show what you'd do differently and why it would have helped"
+    ],
+    "difficultyNote": "Reflective self-improvement question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you stay organized when you have several things to do at once?",
+    "tips": [
+      "Name a specific tool or method you actually use (lists, calendar blocks, apps)",
+      "Show that your system is adaptable when priorities change",
+      "Keep the answer practical, not theoretical"
+    ],
+    "difficultyNote": "Organization and time management basics"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What questions do you have about the team or culture here?",
+    "tips": [
+      "Prepare at least two genuine questions — never say you have none",
+      "Ask about team dynamics, growth opportunities, or day-to-day realities",
+      "Avoid asking about salary or benefits in the first round"
+    ],
+    "difficultyNote": "Reverse interview — tests preparation and curiosity"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Tell me about a time you had to ask for help. How did you approach it?",
+    "tips": [
+      "Frame asking for help as resourceful, not as a weakness",
+      "Describe who you asked and why you chose that person",
+      "Share what you learned from the interaction"
+    ],
+    "difficultyNote": "Humility and teamwork signal question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you think your previous experience has prepared you for this role?",
+    "tips": [
+      "Draw direct lines between past tasks and this job's requirements",
+      "Use at least one concrete example, not just general claims",
+      "Show you understand what this role actually demands"
+    ],
+    "difficultyNote": "Fit question — tests role awareness and storytelling"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What do you value most in a workplace?",
+    "tips": [
+      "Name two or three genuine values — not buzzwords like 'innovation'",
+      "Briefly explain why each matters to you with a real reference",
+      "Make sure your answer aligns with what you know about this company"
+    ],
+    "difficultyNote": "Values alignment and culture fit question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "If you started this role tomorrow, what would you focus on in your first week?",
+    "tips": [
+      "Show listening and learning intent before jumping to action",
+      "Mention getting to know team members and understanding existing processes",
+      "Demonstrate initiative without suggesting you'd change things immediately"
+    ],
+    "difficultyNote": "Practical preparation and self-starting energy question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Describe a situation where you had to work with someone very different from you.",
+    "tips": [
+      "Focus on how you adapted your communication or approach",
+      "Avoid framing the other person negatively",
+      "End with what you learned from working across differences"
+    ],
+    "difficultyNote": "Interpersonal adaptability — entry-level version"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What does success look like to you in a new job?",
+    "tips": [
+      "Be specific — mention milestones, relationships, or contributions at 30/60/90 days",
+      "Show you think about impact, not just personal advancement",
+      "Align your answer with what the role appears to need"
+    ],
+    "difficultyNote": "Goal orientation and success definition question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Have you ever taken initiative on a project without being asked to?",
+    "tips": [
+      "Use a brief STAR format — keep context short, focus on your action",
+      "Explain why you decided to step up without direction",
+      "Share the outcome and what it taught you about ownership"
+    ],
+    "difficultyNote": "Initiative and proactive behavior question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Is there anything on your resume you'd like to explain or expand on?",
+    "tips": [
+      "Use this to address gaps, career pivots, or short stints proactively",
+      "Frame every explanation forward-looking — what you gained or chose",
+      "Keep it brief and confident — don't over-apologize"
+    ],
+    "difficultyNote": "Opportunity to address concerns before they're raised"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you handle it when you don't know the answer to something at work?",
+    "tips": [
+      "Show a process: admit it, research it, confirm back",
+      "Emphasize that you follow up — not just that you admit ignorance",
+      "This is about intellectual honesty and initiative, not knowledge"
+    ],
+    "difficultyNote": "Intellectual honesty and resourcefulness question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What's something you taught yourself outside of formal training?",
+    "tips": [
+      "Pick a skill that's at least partially relevant to the job",
+      "Describe how you went about learning it (resources, practice, feedback)",
+      "Show self-direction — this signals ownership of your own growth"
+    ],
+    "difficultyNote": "Self-learning and intrinsic motivation signal"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What do you think are the most important qualities for someone in this role?",
+    "tips": [
+      "Research the role before the interview so this isn't a guess",
+      "Pick two to three qualities and explain why each matters",
+      "Connect each quality back to yourself — show you have them"
+    ],
+    "difficultyNote": "Role understanding and self-awareness question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Tell me about a time you had to be flexible or adjust your plans unexpectedly.",
+    "tips": [
+      "Choose a real, specific situation — not a hypothetical",
+      "Focus on your reaction and what you did to adapt",
+      "End with the result and what you learned"
+    ],
+    "difficultyNote": "Adaptability and composure under change"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What's one career goal you have for the next two years?",
+    "tips": [
+      "Be specific and realistic — vague goals sound unserious",
+      "Connect it to this role and company where possible",
+      "Show ambition balanced with focus on current responsibilities"
+    ],
+    "difficultyNote": "Ambition and growth mindset check"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you make sure you understand what's expected of you in a new role?",
+    "tips": [
+      "Describe your process for clarifying goals and success metrics early",
+      "Mention check-ins, asking questions, and confirming alignment",
+      "Show you're proactive about expectations, not reactive"
+    ],
+    "difficultyNote": "Self-management and onboarding readiness question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What's one professional skill you feel genuinely confident in?",
+    "tips": [
+      "Own it clearly — don't hedge excessively",
+      "Give a brief example of that skill in action",
+      "Make sure it's relevant to the job you're applying for"
+    ],
+    "difficultyNote": "Confidence and self-awareness question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you build rapport with people you've just met in a work setting?",
+    "tips": [
+      "Mention specific behaviors — asking questions, active listening, finding common ground",
+      "Give a brief example of building a relationship quickly",
+      "Keep it natural-sounding — not a list of techniques"
+    ],
+    "difficultyNote": "Relationship-building and interpersonal skills question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "When you've had a hard day at work or school, how do you reset and keep going?",
+    "tips": [
+      "Describe a genuine coping strategy, not a cliché",
+      "Show resilience — you can acknowledge difficulty without dwelling",
+      "Keep the answer brief and grounded"
+    ],
+    "difficultyNote": "Resilience and emotional regulation at entry level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Have you ever been part of a successful group project? What made it work?",
+    "tips": [
+      "Identify the specific behaviors or dynamics that created success",
+      "Give yourself some credit without taking all the credit",
+      "Draw lessons that apply to future team situations"
+    ],
+    "difficultyNote": "Team dynamics and collaborative reflection"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What do you think sets you apart from other candidates applying for this role?",
+    "tips": [
+      "Be specific — identify one or two genuine differentiators, not generic claims",
+      "Back each differentiator with a brief example",
+      "Avoid comparisons to other candidates — speak only about yourself"
+    ],
+    "difficultyNote": "Value proposition and differentiation question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you approach learning a new tool, system, or software?",
+    "tips": [
+      "Describe your learning process — documentation, experimentation, asking peers",
+      "Give a brief example of a tool you picked up on the job",
+      "Show you can become self-sufficient without hand-holding"
+    ],
+    "difficultyNote": "Technical adaptability and learning agility check"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "Tell me about a time someone gave you negative feedback. How did you respond?",
+    "tips": [
+      "Show you listened without getting defensive",
+      "Describe the action you took in response to the feedback",
+      "End with the outcome — did you improve?"
+    ],
+    "difficultyNote": "Receptiveness to feedback question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "What would your closest coworker or classmate say is your biggest strength?",
+    "tips": [
+      "Think about feedback you've actually received, not just what sounds good",
+      "Give a brief example that supports the strength they'd name",
+      "Showing genuine self-awareness here matters more than the actual answer"
+    ],
+    "difficultyNote": "360-perspective self-awareness question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "1-2",
+    "question": "How do you feel about receiving direction from multiple people at once?",
+    "tips": [
+      "Show you can manage competing requests without confusion or frustration",
+      "Describe how you'd clarify priorities when instructions conflict",
+      "Keep the tone professional — avoid venting about past multi-manager experiences"
+    ],
+    "difficultyNote": "Matrix environment readiness question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you took ownership of a problem that wasn't technically yours to solve.",
+    "tips": [
+      "Use STAR format — briefly set up the situation, then focus on your decision to act",
+      "Explain why you stepped up, not just that you did",
+      "End with the result and what it showed about your work ethic"
+    ],
+    "difficultyNote": "Ownership and proactivity behavioral question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to deliver a project with fewer resources than you'd expected.",
+    "tips": [
+      "Set up the resource gap clearly so the interviewer understands the constraint",
+      "Focus on the prioritization decisions you made, not just the struggle",
+      "Quantify the outcome if you can — what did you actually deliver?"
+    ],
+    "difficultyNote": "Resource constraint and prioritization behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to give feedback to a peer or coworker.",
+    "tips": [
+      "Show that you prepared the feedback thoughtfully, not impulsively",
+      "Describe how you delivered it — private, direct, with specific examples",
+      "Mention how the person received it and what changed"
+    ],
+    "difficultyNote": "Peer feedback and interpersonal courage question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to represent your team's work to senior stakeholders.",
+    "tips": [
+      "Explain how you tailored your communication for the audience",
+      "Mention what preparation you did before the presentation",
+      "Share how it went and what you'd do differently if given another chance"
+    ],
+    "difficultyNote": "Upward communication and stakeholder management"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of a time when you had to prioritize quality over speed, or vice versa.",
+    "tips": [
+      "Set up the trade-off clearly so the interviewer sees the real tension",
+      "Explain the factors that drove your decision",
+      "Reflect on whether you'd make the same call again"
+    ],
+    "difficultyNote": "Judgment and trade-off reasoning behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time your initial plan didn't work out and you had to change course mid-project.",
+    "tips": [
+      "Be honest about what went wrong — don't pretend the pivot was planned",
+      "Focus on how quickly you recognized the problem and adapted",
+      "End with what the experience taught you about planning and flexibility"
+    ],
+    "difficultyNote": "Agility and course-correction under pressure"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "How have you handled a situation where you strongly disagreed with a decision made by leadership?",
+    "tips": [
+      "Show you raised your concern professionally and through appropriate channels",
+      "Describe how you ultimately supported the decision once it was made",
+      "End with what it taught you about organizational dynamics"
+    ],
+    "difficultyNote": "Professionalism and constructive dissent"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you built a relationship with someone who was initially resistant or cold toward you.",
+    "tips": [
+      "Describe what made the relationship difficult at first",
+      "Focus on the specific steps you took to build trust",
+      "Show patience and persistence without sounding entitled to the relationship"
+    ],
+    "difficultyNote": "Relationship-building and persistence behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you used data or research to back up a recommendation you made.",
+    "tips": [
+      "Explain the type of data you gathered and why it was relevant",
+      "Show that you could interpret the data, not just collect it",
+      "Describe how the recommendation was received and what happened"
+    ],
+    "difficultyNote": "Analytical and evidence-based reasoning behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to work on something you had little experience with.",
+    "tips": [
+      "Show your learning process — how you got up to speed quickly",
+      "Mention the resources, people, or strategies you used",
+      "Focus on what you produced and how your skills grew"
+    ],
+    "difficultyNote": "Learning agility and resilience behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time a project or initiative failed. What happened?",
+    "tips": [
+      "Be honest about the failure — vague answers reduce credibility",
+      "Show clear accountability — take appropriate ownership without catastrophizing",
+      "Focus on what you learned and how you've applied it since"
+    ],
+    "difficultyNote": "Failure and accountability behavioral — tests maturity"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of a time you had to say no to a request at work.",
+    "tips": [
+      "Show you assessed the request thoughtfully before declining",
+      "Describe how you communicated the no clearly and professionally",
+      "Mention whether you offered an alternative"
+    ],
+    "difficultyNote": "Boundary-setting and professional communication"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to get up to speed very quickly on a new subject or domain.",
+    "tips": [
+      "Describe the context and timeline — what made it urgent",
+      "Walk through exactly how you learned: sources, practice, people you consulted",
+      "Share the outcome — what did you produce with that new knowledge?"
+    ],
+    "difficultyNote": "Domain learning speed and resourcefulness"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "How have you handled working on a team where someone wasn't pulling their weight?",
+    "tips": [
+      "Avoid criticizing the other person by name or in harsh terms",
+      "Show you tried to address it directly before escalating",
+      "Describe what you learned about accountability and team dynamics"
+    ],
+    "difficultyNote": "Team accountability and interpersonal conflict"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you supported a change at work that you personally found difficult.",
+    "tips": [
+      "Acknowledge the difficulty honestly — interviewers respect candor",
+      "Show that you still acted professionally and supported the team through it",
+      "End with how you eventually came around, or what you gained from the experience"
+    ],
+    "difficultyNote": "Change management and professionalism behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you identified a risk in a project before it became a problem.",
+    "tips": [
+      "Describe how you spotted the risk — experience, research, instinct",
+      "Focus on what you did about it, not just that you noticed it",
+      "Quantify the impact if possible — what did early action save?"
+    ],
+    "difficultyNote": "Risk awareness and proactive problem-solving"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of a time you had to collaborate with a team in a different time zone or location.",
+    "tips": [
+      "Describe how you adjusted your communication cadence and tools",
+      "Show awareness of the other team's constraints, not just your own",
+      "End with what you'd do differently to make remote collaboration even smoother"
+    ],
+    "difficultyNote": "Remote collaboration and cross-cultural communication"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to balance a long-term project with urgent day-to-day tasks.",
+    "tips": [
+      "Show a real prioritization method — time blocking, weekly reviews, etc.",
+      "Describe the trade-offs you made and why",
+      "End with whether the long-term project actually got done and what you learned"
+    ],
+    "difficultyNote": "Time management and competing demands behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to communicate complex information to a non-expert audience.",
+    "tips": [
+      "Describe how you adjusted your language and framing for that audience",
+      "Mention whether you used visuals, analogies, or examples to simplify",
+      "Share how the audience responded — did they understand?"
+    ],
+    "difficultyNote": "Communication clarity and audience awareness"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "How have you contributed to a positive team culture in a previous role?",
+    "tips": [
+      "Give specific examples — not just 'I was positive' but concrete behaviors",
+      "Show initiative: you did something proactively, not just as part of your job",
+      "Describe the impact it had on the team's energy or performance"
+    ],
+    "difficultyNote": "Culture contribution and team dynamics behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to make a decision with incomplete information.",
+    "tips": [
+      "Explain what information you had versus what you wished you had",
+      "Walk through your reasoning process despite the gaps",
+      "Share the outcome and what you would do differently with full information"
+    ],
+    "difficultyNote": "Ambiguity tolerance and decision-making under uncertainty"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to earn the trust of a skeptical colleague or client.",
+    "tips": [
+      "Describe why they were skeptical — give them credit for their concern",
+      "Focus on the specific actions you took to demonstrate reliability",
+      "End with how the relationship changed and what it taught you"
+    ],
+    "difficultyNote": "Trust-building and credibility behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of a time you had to manage expectations when a project was running late.",
+    "tips": [
+      "Show that you communicated proactively — before it became a crisis",
+      "Describe how you framed the delay and what recovery plan you offered",
+      "Reflect on what you'd do earlier next time to prevent the delay"
+    ],
+    "difficultyNote": "Expectation management and proactive communication"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to quickly build credibility in a new environment.",
+    "tips": [
+      "Describe what you did in your first weeks — listening, delivering small wins",
+      "Show that you observed the culture before trying to change it",
+      "End with a signal that your credibility was established"
+    ],
+    "difficultyNote": "New environment integration and first-impression management"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "What's the most constructive piece of feedback you've ever received about your communication?",
+    "tips": [
+      "Be specific and genuine — interviewers see through vague answers",
+      "Describe what you changed in response to the feedback",
+      "Show the improvement was real, not just acknowledged"
+    ],
+    "difficultyNote": "Communication self-awareness and growth behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you had to work on something repetitive or tedious. How did you stay motivated?",
+    "tips": [
+      "Acknowledge the challenge honestly — don't pretend everything is exciting",
+      "Describe a real strategy: meaning-making, gamification, linking to larger goals",
+      "Show professional resilience without sounding like you'd complain on the job"
+    ],
+    "difficultyNote": "Motivation under tedium and professional endurance"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you identified an opportunity that others had overlooked.",
+    "tips": [
+      "Describe how you spotted it — curiosity, pattern recognition, or outside perspective",
+      "Explain what you did to pursue or pitch the opportunity",
+      "Share the outcome, even if it was only partial or rejected"
+    ],
+    "difficultyNote": "Initiative and opportunity recognition behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "How do you approach building trust with a new manager?",
+    "tips": [
+      "Show you invest early: ask good questions, clarify their style and priorities",
+      "Demonstrate reliability — do what you say you'll do, consistently",
+      "Describe how you adapt as you learn more about the manager over time"
+    ],
+    "difficultyNote": "Upward relationship management and professionalism"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you had to work with someone whose approach was very different from yours.",
+    "tips": [
+      "Focus on how you bridged the difference rather than which approach was better",
+      "Show genuine curiosity about the other person's perspective",
+      "End with what you learned from the collaboration"
+    ],
+    "difficultyNote": "Collaboration across differences and style flexibility"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Describe a time you made a decision that turned out to be wrong. How did you handle the aftermath?",
+    "tips": [
+      "Be direct about the mistake — hedging erodes credibility",
+      "Focus on how you owned it and what you did to correct or recover",
+      "Show what systemic change you made to prevent repeating it"
+    ],
+    "difficultyNote": "Accountability and recovery from error"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Give an example of when you had to motivate or re-engage a disengaged coworker or team.",
+    "tips": [
+      "Describe what led to the disengagement before jumping to the solution",
+      "Focus on what you specifically said or did to reengage them",
+      "End with the change in their performance or attitude"
+    ],
+    "difficultyNote": "Peer leadership and motivational influence"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "3-4",
+    "question": "Tell me about a time you successfully onboarded yourself onto a new team or project with minimal hand-holding.",
+    "tips": [
+      "Describe the steps you took to understand context, people, and priorities",
+      "Show independence and resourcefulness without being dismissive of others",
+      "End with a deliverable or contribution that proved you were up to speed"
+    ],
+    "difficultyNote": "Self-directed onboarding and autonomy behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to influence a decision at the executive level without direct authority.",
+    "tips": [
+      "Frame your approach around data, storytelling, or coalition-building — not just persistence",
+      "Explain who you needed to convince and why they were initially resistant",
+      "End with the decision outcome and what you'd do differently next time"
+    ],
+    "difficultyNote": "Executive influence and persuasion without authority"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to make a difficult trade-off between team morale and business results.",
+    "tips": [
+      "Set up the tension clearly — both sides need to feel real to the interviewer",
+      "Show the reasoning behind your decision, not just the decision itself",
+      "Reflect on how you rebuilt or maintained morale in the aftermath"
+    ],
+    "difficultyNote": "Leadership trade-off and human dimension of decisions"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to lead a team through significant ambiguity.",
+    "tips": [
+      "Describe what was unclear and what the team needed from you during uncertainty",
+      "Show how you communicated despite not having all the answers",
+      "End with how clarity emerged and what you learned about leading in fog"
+    ],
+    "difficultyNote": "Ambiguity leadership and composure under uncertainty"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you developed a high-performing culture on a team you led?",
+    "tips": [
+      "Describe specific behaviors you modeled and expectations you set",
+      "Show how you handled underperformers without destroying team trust",
+      "Give a measurable signal that the culture was high-performing"
+    ],
+    "difficultyNote": "Culture building and team performance leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to rebuild a team after a period of poor performance or low morale.",
+    "tips": [
+      "Diagnose root causes before jumping to interventions",
+      "Show empathy for team members while being clear about expectations",
+      "Quantify the turnaround if possible — retention, output, engagement scores"
+    ],
+    "difficultyNote": "Team turnaround and leadership renewal"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time when you had to push back on a senior leader's idea that you believed was flawed.",
+    "tips": [
+      "Show you chose the right moment and framing — not confrontational",
+      "Describe the specific objection you raised and how you supported it",
+      "End with how the disagreement resolved and what the relationship looks like now"
+    ],
+    "difficultyNote": "Upward challenge, intellectual courage, professional tact"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to make a high-stakes decision quickly with significant consequences.",
+    "tips": [
+      "Describe the time pressure and stakes clearly — make it vivid",
+      "Walk through your decision framework, not just the decision",
+      "Own the outcome, whether it was positive or mixed"
+    ],
+    "difficultyNote": "High-pressure decision-making and executive judgment"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe how you've approached succession planning or knowledge transfer on your team.",
+    "tips": [
+      "Show you think about the team's continuity, not just your own productivity",
+      "Describe a specific person you developed and the steps you took",
+      "End with what that investment yielded for the team or organization"
+    ],
+    "difficultyNote": "Talent development and succession-mindset leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to get cross-functional alignment on a decision with competing interests.",
+    "tips": [
+      "Map out who had competing interests before describing your approach",
+      "Show how you identified common ground and built around it",
+      "Describe the coalition you built and how the decision ultimately landed"
+    ],
+    "difficultyNote": "Cross-functional alignment and stakeholder negotiation"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you handled a team member who was technically strong but interpersonally problematic?",
+    "tips": [
+      "Show you balanced the value they brought against their impact on the team",
+      "Describe a direct, specific conversation — avoid vague 'coaching' language",
+      "End with either the behavior change or the decision you made and why"
+    ],
+    "difficultyNote": "Managing high performers with cultural friction"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to secure budget or headcount you weren't initially going to receive.",
+    "tips": [
+      "Show how you built the business case — ROI, risk, strategic alignment",
+      "Describe the stakeholders you had to persuade and how you tailored your pitch",
+      "End with what you delivered with the resources you secured"
+    ],
+    "difficultyNote": "Resource advocacy and internal selling behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you drove a strategic initiative from idea to execution.",
+    "tips": [
+      "Cover the full arc: where the idea came from, how you got buy-in, how you executed",
+      "Show you navigated obstacles without losing momentum",
+      "Quantify the impact — what changed because of this initiative?"
+    ],
+    "difficultyNote": "Strategic execution end-to-end behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you led through a major organizational change — restructuring, merger, or pivot.",
+    "tips": [
+      "Describe how you communicated the change to your team early and honestly",
+      "Show how you managed uncertainty while maintaining focus on deliverables",
+      "End with how the team came out on the other side"
+    ],
+    "difficultyNote": "Change leadership and organizational resilience"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you approached building relationships with peers in other functions who control resources you need?",
+    "tips": [
+      "Show reciprocity — what you offered, not just what you needed",
+      "Describe how the relationship evolved beyond a single transaction",
+      "Name what that relationship enabled for your team or project"
+    ],
+    "difficultyNote": "Peer relationship capital and influence network building"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to manage a team through a highly stressful or high-pressure period.",
+    "tips": [
+      "Describe the source of stress clearly — not just 'it was busy'",
+      "Show what you did to protect the team's energy and morale",
+      "Reflect on what you'd do differently to prevent or better manage it"
+    ],
+    "difficultyNote": "Team resilience leadership under sustained pressure"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to balance the needs of your team against the needs of the broader organization.",
+    "tips": [
+      "Set up the tension between team and org interests honestly",
+      "Show how you communicated both realities to the team transparently",
+      "End with what you learned about the role of middle leadership"
+    ],
+    "difficultyNote": "Mid-level leadership tension and organizational loyalty"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you invested in developing a team member who others had written off.",
+    "tips": [
+      "Describe what you saw in that person that others missed",
+      "Show the specific development actions you took — not just encouragement",
+      "End with their growth and what it taught you about potential"
+    ],
+    "difficultyNote": "Talent development and belief in human potential"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you handled a situation where your team's priorities were misaligned with those of the company?",
+    "tips": [
+      "Show you diagnosed the misalignment rather than just reacting to it",
+      "Describe how you reoriented the team's focus without causing confusion",
+      "End with what guardrails you put in place to prevent future drift"
+    ],
+    "difficultyNote": "Strategic alignment and team direction leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to navigate a politically complex environment to get something done.",
+    "tips": [
+      "Name the complexity without naming names — keep it professional",
+      "Show the tactics you used: coalition building, sequencing, patience",
+      "End with what got accomplished and what you'd apply next time"
+    ],
+    "difficultyNote": "Organizational politics and navigation behavioral"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about the most complex project you've ever managed. What made it complex?",
+    "tips": [
+      "Be specific about the sources of complexity — people, tech, timeline, scope",
+      "Show your management framework, not just the story",
+      "End with the outcome and what you would architect differently"
+    ],
+    "difficultyNote": "Project complexity and systems-level thinking"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you created psychological safety on teams you've led?",
+    "tips": [
+      "Define what psychological safety means to you first",
+      "Describe specific behaviors you modeled — admitting errors, rewarding dissent",
+      "Give a signal that it worked — did people actually speak up?"
+    ],
+    "difficultyNote": "Inclusive leadership and team safety culture"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to sunset or kill a project or product that people were emotionally invested in.",
+    "tips": [
+      "Show how you balanced data-driven rationale with empathy for the team",
+      "Describe how you communicated the decision clearly and without cruelty",
+      "End with what you learned about managing endings as a leader"
+    ],
+    "difficultyNote": "Difficult leadership decision — ending something beloved"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How do you approach hiring? What signals do you look for in a candidate?",
+    "tips": [
+      "Describe your evaluation framework — competencies, culture, potential",
+      "Mention how you screen for coachability and self-awareness, not just skills",
+      "Share a hire you're most proud of and what made them stand out"
+    ],
+    "difficultyNote": "Talent philosophy and hiring judgment question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to lead a team through a significant failure and help them recover.",
+    "tips": [
+      "Own the leadership role in the failure honestly — even partially",
+      "Describe how you created space for the team to debrief and process",
+      "Show the recovery arc: what changed, what was rebuilt, what was learned"
+    ],
+    "difficultyNote": "Post-failure leadership and team recovery"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to make a call that impacted the livelihoods or roles of people on your team.",
+    "tips": [
+      "Show that you took the human impact seriously, not just the business logic",
+      "Describe how you prepared for and delivered the conversation",
+      "End with how you supported the affected people through the transition"
+    ],
+    "difficultyNote": "High-stakes people decisions and compassionate leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "What's the most important lesson you've learned about giving people autonomy on your team?",
+    "tips": [
+      "Be specific — draw on a real experience, not just a philosophy",
+      "Balance the value of autonomy with accountability structures",
+      "Show how your views on delegation evolved over time"
+    ],
+    "difficultyNote": "Delegation philosophy and leadership maturity question"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you proactively identified and closed a capability gap on your team.",
+    "tips": [
+      "Describe how you noticed the gap — through a project failure, assessment, or feedback",
+      "Show the steps you took: hiring, training, restructuring, or partnering",
+      "End with how the team's performance changed as a result"
+    ],
+    "difficultyNote": "Team capability building and strategic talent management"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you maintained your own motivation and energy through a long, difficult challenge?",
+    "tips": [
+      "Be honest about what drains you — it's more credible than claiming invulnerability",
+      "Describe specific rituals, reframes, or relationships that sustained you",
+      "Show how you model resilience for your team even when you're struggling"
+    ],
+    "difficultyNote": "Leader resilience and self-management under prolonged stress"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Tell me about a time you had to prioritize ruthlessly when everything felt equally urgent.",
+    "tips": [
+      "Show your prioritization framework — impact vs. urgency, strategic alignment, etc.",
+      "Describe what you explicitly decided not to do and how you communicated that",
+      "End with whether your prioritization proved correct in hindsight"
+    ],
+    "difficultyNote": "Strategic prioritization and ruthless focus under load"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "Describe a time you had to make an unpopular call for the sake of long-term success.",
+    "tips": [
+      "Set up the tension: what was the short-term cost of the decision?",
+      "Show how you communicated the long-term rationale clearly",
+      "End with how the team or organization ultimately received the outcome"
+    ],
+    "difficultyNote": "Long-term thinking and willingness to absorb short-term heat"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "5-6",
+    "question": "How have you leveraged external networks or partnerships to achieve something internally that wasn't possible alone?",
+    "tips": [
+      "Describe the internal constraint that drove you to look externally",
+      "Show how you identified and built the right external relationship",
+      "Quantify what became possible because of that partnership"
+    ],
+    "difficultyNote": "External partnerships and ecosystem leverage"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you approach setting a three-year strategy for a business unit with significant uncertainty?",
+    "tips": [
+      "Show scenario-based thinking — not just a single plan but branching hypotheses",
+      "Describe how you involve stakeholders in shaping assumptions without losing direction",
+      "End with how you build in checkpoints to test and revise the strategy"
+    ],
+    "difficultyNote": "Senior strategic planning under uncertainty"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about a time you led a turnaround of a business or major function. What was your approach?",
+    "tips": [
+      "Diagnose before prescribing — show your diagnostic process",
+      "Describe how you sequenced wins: what you changed first and why",
+      "Quantify the turnaround outcome — revenue, retention, NPS, or other hard metrics"
+    ],
+    "difficultyNote": "Business turnaround leadership and executive-level execution"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you cultivated the next generation of leaders within an organization?",
+    "tips": [
+      "Show a systematic approach — not just informally mentoring favorites",
+      "Describe the criteria you use to identify high-potential talent early",
+      "Give a specific example of someone you developed into a leadership role"
+    ],
+    "difficultyNote": "Leadership pipeline building and executive stewardship"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe a situation where you had to reallocate significant resources mid-year due to a strategic shift. How did you handle it?",
+    "tips": [
+      "Show how you assessed what to defund without destroying morale",
+      "Describe how you communicated the shift transparently to affected teams",
+      "End with what the reallocation enabled and what you'd do differently"
+    ],
+    "difficultyNote": "Strategic resource reallocation and leadership communication"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you evaluate when to build, buy, or partner to achieve a strategic objective?",
+    "tips": [
+      "Articulate a decision framework: time, cost, control, capability, and risk",
+      "Give a real example of going through this analysis",
+      "Show how you validated the decision with data and stakeholder input"
+    ],
+    "difficultyNote": "Build/buy/partner strategic reasoning at the executive level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about a time you shaped a company's direction by introducing a new market perspective or customer insight.",
+    "tips": [
+      "Show how you gathered the insight — not just that you had it",
+      "Describe how you translated it into a strategic recommendation",
+      "End with what changed organizationally as a result"
+    ],
+    "difficultyNote": "Market intelligence and strategic influence at senior level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you managed the tension between being a player-coach versus a full-time leader?",
+    "tips": [
+      "Describe the specific signals that told you when to go deep versus stay strategic",
+      "Show how you managed your time across both dimensions",
+      "Reflect on when you got this balance wrong and what you learned"
+    ],
+    "difficultyNote": "Player-coach tension and executive role clarity"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe how you've built trust with a board of directors or governing body.",
+    "tips": [
+      "Show that you distinguished between what the board needs to know versus decide",
+      "Describe your cadence of communication and how you prepared them for surprises",
+      "Give a signal that your relationship with the board was genuinely strong"
+    ],
+    "difficultyNote": "Board governance and trust-building at senior level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about a time you changed your mind significantly on a strategic direction based on new evidence.",
+    "tips": [
+      "Show intellectual honesty — don't frame it as a minor tweak",
+      "Describe what the evidence was and why it was convincing",
+      "End with how you communicated the pivot and what changed in execution"
+    ],
+    "difficultyNote": "Intellectual agility and evidence-based strategy revision"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you approached managing a P&L for the first time? What did you learn?",
+    "tips": [
+      "Show how you built your mental model of the business levers quickly",
+      "Describe where you were surprised and how you adjusted",
+      "End with one decision you made that materially changed the P&L trajectory"
+    ],
+    "difficultyNote": "P&L ownership and financial leadership learning curve"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe a time you had to make a case for a major capital investment to a skeptical finance team or CFO.",
+    "tips": [
+      "Show that you built the case around their priorities — ROI, risk, payback period",
+      "Describe how you addressed their specific objections with evidence",
+      "End with whether the investment was approved and what it delivered"
+    ],
+    "difficultyNote": "Capital investment advocacy and financial storytelling"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you think about organizational design when scaling a team or function rapidly?",
+    "tips": [
+      "Show a principled approach — roles clarity, span of control, communication flows",
+      "Describe how you scaled without creating bureaucracy",
+      "Give a real example of a design decision you made and its downstream effects"
+    ],
+    "difficultyNote": "Org design and scaling leadership at senior level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about a time you had to address a serious performance or conduct issue at a senior level in your organization.",
+    "tips": [
+      "Show that you gathered facts before acting — no rushed judgments",
+      "Describe the process: documentation, HR involvement, direct conversations",
+      "End with the resolution and what you'd do to prevent similar situations"
+    ],
+    "difficultyNote": "Senior personnel management and leadership accountability"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you set up measurement systems for an initiative where success was hard to quantify?",
+    "tips": [
+      "Show how you defined proxies or leading indicators when direct metrics weren't available",
+      "Describe the stakeholder alignment process around what to measure",
+      "Give a real example of a metric that ended up being wrong or misleading"
+    ],
+    "difficultyNote": "Measurement design and executive-level outcomes thinking"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe a situation where you had to defend a decision to the public, media, or external stakeholders.",
+    "tips": [
+      "Show that you prepared carefully — anticipated objections, stayed factual",
+      "Describe how you maintained composure and credibility under external pressure",
+      "End with how the situation resolved and what you learned about public accountability"
+    ],
+    "difficultyNote": "External communications and executive presence under scrutiny"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about the most difficult personnel decision you've had to make as a senior leader.",
+    "tips": [
+      "Show that you weighed all factors — performance, impact, fairness, legal, cultural",
+      "Describe how you executed the decision with both decisiveness and humanity",
+      "Reflect on what it taught you about leadership and what you'd do differently"
+    ],
+    "difficultyNote": "Hard people decisions and executive leadership maturity"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you navigated managing a high-profile initiative that had significant political visibility inside the organization?",
+    "tips": [
+      "Show that you understood the political landscape before acting",
+      "Describe how you built coalitions and managed visibility strategically",
+      "End with what the initiative produced and what the political aftermath looked like"
+    ],
+    "difficultyNote": "High-visibility initiative management and organizational politics"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe your approach to competitive intelligence — how do you keep your team ahead of market shifts?",
+    "tips": [
+      "Name specific inputs you track: earnings calls, customer feedback, talent movements",
+      "Show how you translate intelligence into strategic action, not just awareness",
+      "Give an example of a market shift you anticipated and how you positioned for it"
+    ],
+    "difficultyNote": "Market intelligence and proactive strategic positioning"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you think about your own leadership brand and the signals you send through your behavior?",
+    "tips": [
+      "Articulate a leadership identity that feels specific to you, not generic",
+      "Describe a specific behavior you're intentional about and why",
+      "Show awareness of the gap between intention and impact"
+    ],
+    "difficultyNote": "Executive self-awareness and intentional leadership brand"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about a time you had to align a fragmented organization around a common set of goals.",
+    "tips": [
+      "Describe the root causes of fragmentation: incentives, history, leadership gaps",
+      "Show the mechanisms you used to create alignment — not just a kickoff meeting",
+      "End with the observable sign that alignment was achieved"
+    ],
+    "difficultyNote": "Organizational alignment at scale and senior leadership complexity"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you managed a key external relationship — partner, regulator, or major client — through a difficult stretch?",
+    "tips": [
+      "Describe what made the relationship difficult without assigning all blame externally",
+      "Show how you adapted your approach to the other party's constraints and interests",
+      "End with the state of the relationship today and what preserved it"
+    ],
+    "difficultyNote": "Strategic relationship management under external pressure"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe a time you made a strategic bet that most of your peers thought was wrong.",
+    "tips": [
+      "Show the evidence that made you confident enough to diverge from consensus",
+      "Describe how you managed the risk and limited downside",
+      "End with the outcome — did the bet pay off and what did you learn either way?"
+    ],
+    "difficultyNote": "Contrarian conviction and calculated risk-taking at senior level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you created accountability structures for senior leaders who report to you?",
+    "tips": [
+      "Describe your cadence of review and the metrics you hold them to",
+      "Show how you balance accountability with autonomy and trust",
+      "Give an example of holding a senior leader accountable for a miss and what happened"
+    ],
+    "difficultyNote": "Senior team accountability systems and leadership oversight"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about a time you had to course-correct a major strategic initiative that was heading in the wrong direction.",
+    "tips": [
+      "Describe how you knew it was going wrong — what were the early signals?",
+      "Show the interventions you made and how you communicated the course correction",
+      "End with the final outcome and what the experience taught you about strategy execution"
+    ],
+    "difficultyNote": "Strategic execution oversight and mid-course leadership correction"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "What's your philosophy on transparency with your team during times of organizational uncertainty?",
+    "tips": [
+      "Show a principled position — not just 'be honest' but specific about what to share and when",
+      "Describe how you balance transparency with confidentiality obligations",
+      "Give a real example of how you navigated this tension"
+    ],
+    "difficultyNote": "Leadership communication philosophy and organizational trust"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you evaluate the effectiveness of your leadership team over time?",
+    "tips": [
+      "Describe the signals you track: team output, engagement, retention, peer feedback",
+      "Show how you have difficult conversations with leaders who are struggling",
+      "Give an example of a leadership team member you helped improve significantly"
+    ],
+    "difficultyNote": "Senior team evaluation and leadership development philosophy"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Describe how you've used a crisis or failure to accelerate organizational learning.",
+    "tips": [
+      "Show that you created structured space to debrief, not just move on",
+      "Describe the specific changes in process, culture, or capability that resulted",
+      "End with a signal that the learning was actually institutionalized"
+    ],
+    "difficultyNote": "Organizational learning from failure and resilience building"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How do you approach building a diverse leadership team, and what resistance have you encountered?",
+    "tips": [
+      "Show a proactive, systemic approach — not just avoiding bias in the moment",
+      "Be honest about the resistance you've faced and how you handled it",
+      "End with a concrete example of the impact diverse leadership had on outcomes"
+    ],
+    "difficultyNote": "Diversity in senior leadership — systemic approach and honest resistance"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "Tell me about the most important strategic choice you've had to make in your career. How did you decide?",
+    "tips": [
+      "Show a rigorous decision process — data, advisors, scenario analysis, gut check",
+      "Be honest about what you didn't know at the time of the decision",
+      "End with the outcome and what the decision taught you about strategic judgment"
+    ],
+    "difficultyNote": "Career-defining strategic decision and executive judgment"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "7-8",
+    "question": "How have you ensured strategic continuity when key people — including yourself — transition out of roles?",
+    "tips": [
+      "Show that you built institutional knowledge, not just personal relationships",
+      "Describe specific handoff or transition practices you've implemented",
+      "End with what happened to the strategy after you or others transitioned out"
+    ],
+    "difficultyNote": "Strategic continuity and institutional resilience beyond individuals"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you construct a theory of change for an industry that is structurally resistant to disruption?",
+    "tips": [
+      "Show hypothesis-driven thinking — identify the structural barriers first",
+      "Describe the sequence of moves that would unlock change",
+      "Be explicit about what assumptions your theory depends on"
+    ],
+    "difficultyNote": "Systems-level disruption theory and consulting-grade reasoning"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "If you were appointed CEO of this company tomorrow, what would you do in your first 100 days?",
+    "tips": [
+      "Cover the diagnostic phase: what you'd assess before making changes",
+      "Identify the highest-leverage early moves — quick wins and long-term positioning",
+      "Show stakeholder management: who you'd meet with and what signal you'd send"
+    ],
+    "difficultyNote": "First-100-days executive framework and CEO-level thinking"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What is your framework for deciding whether to pursue organic growth versus inorganic growth at a critical inflection point?",
+    "tips": [
+      "Articulate the tradeoffs: speed, control, culture, cost, and capability",
+      "Show how the company's current stage and competitive position informs the choice",
+      "Give a real or hypothetical example of applying this framework"
+    ],
+    "difficultyNote": "M&A vs. organic strategy — C-suite level decision framework"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you communicate a fundamental shift in business model to employees who have built careers on the old model?",
+    "tips": [
+      "Show empathy for the disruption while being clear about necessity",
+      "Describe a multi-channel, multi-wave communication strategy — not a single announcement",
+      "Address how you'd handle the resistors who actively undermine the transition"
+    ],
+    "difficultyNote": "Business model transformation and enterprise change communication"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What's your perspective on the role of a CEO's personal brand in building enterprise value?",
+    "tips": [
+      "Show nuance — a CEO brand can create and destroy value depending on how it's wielded",
+      "Describe the tradeoffs: visibility vs. institutional durability",
+      "Give examples (including risks) that informed your position"
+    ],
+    "difficultyNote": "CEO brand strategy and institutional vs. personal capital"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe your approach to governing an enterprise AI strategy — not just deploying AI, but deciding where not to use it.",
+    "tips": [
+      "Show a framework for risk-adjusted deployment: where AI adds vs. destroys trust",
+      "Address workforce implications explicitly — not as an afterthought",
+      "Name the governance structures you'd put in place and who owns them"
+    ],
+    "difficultyNote": "Enterprise AI governance and responsible technology leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you think about managing shareholder expectations when the company needs to make a multi-year investment in transformation?",
+    "tips": [
+      "Show how you construct the investment narrative — not just defend it",
+      "Describe how you sequence evidence for skeptical investors who need proof points",
+      "Address what happens if early results are disappointing"
+    ],
+    "difficultyNote": "Investor relations and long-horizon transformation credibility"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe a situation where you had to take a public stance on a contentious social or political issue as a senior leader. What was your framework for deciding?",
+    "tips": [
+      "Show that you had a principled framework, not just a PR calculation",
+      "Describe how you weighed stakeholder interests — employees, customers, investors, community",
+      "Reflect on whether the decision was the right one in hindsight"
+    ],
+    "difficultyNote": "Corporate stance on social issues — executive judgment and leadership courage"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you ensure that strategy translates into culture — that what you say the company values is actually what gets rewarded?",
+    "tips": [
+      "Identify the gap between stated and lived values and show you've experienced it",
+      "Describe the specific systems — hiring, promotion, recognition — you'd align to values",
+      "Give an example of changing a reward system to change a behavior"
+    ],
+    "difficultyNote": "Strategy-culture alignment and systemic values embedding"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What is your philosophy on the cadence and content of board reporting, and how has it evolved?",
+    "tips": [
+      "Show a sophisticated view: the board's role is oversight and governance, not management",
+      "Describe what you've learned about what boards actually need versus what they ask for",
+      "Give an example of redesigning board communication for better strategic engagement"
+    ],
+    "difficultyNote": "Board governance philosophy and C-suite communication sophistication"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you lead an organization through a scenario where the company's core business model becomes economically unviable within five years?",
+    "tips": [
+      "Show structured urgency — not panic, but speed with deliberateness",
+      "Describe how you'd sequence exploration of new models while managing the existing one",
+      "Address workforce, capital, and culture transitions simultaneously"
+    ],
+    "difficultyNote": "Existential business model threat and transformational leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What is your view on the appropriate relationship between a CEO and activist investors?",
+    "tips": [
+      "Show respect for legitimate shareholder activism while protecting strategic independence",
+      "Describe how you'd engage constructively without capitulating on vision",
+      "Give a real or analogous situation that shaped your perspective"
+    ],
+    "difficultyNote": "Activist investor relationship and governance under pressure"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "If you were tasked with building a talent strategy for the next decade, how would you think about the skills the organization will need that don't exist in abundance today?",
+    "tips": [
+      "Show foresight: identify specific skill gaps based on strategic direction",
+      "Describe a portfolio approach: build internally, hire externally, partner, automate",
+      "Address what you'd stop investing in as you shift toward future skills"
+    ],
+    "difficultyNote": "Future-of-work talent strategy and 10-year workforce planning"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you think about the CEO's responsibility to shape the external environment — regulatory, political, industry standards — rather than just react to it?",
+    "tips": [
+      "Show a proactive, systems-level view: industry coalitions, policy advocacy, standard-setting",
+      "Describe where shaping the environment creates competitive advantage",
+      "Give an example of successfully influencing an external condition at scale"
+    ],
+    "difficultyNote": "CEO as external environment architect — policy and industry leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What is your theory on how to create a culture of innovation in a large, established organization without destroying the operational discipline that made it successful?",
+    "tips": [
+      "Show you understand the paradox — innovation and efficiency have opposing needs",
+      "Describe structural, process, and leadership mechanisms that enable both",
+      "Give an example of either solving or failing to solve this tension"
+    ],
+    "difficultyNote": "Innovation vs. operations tension at enterprise scale"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you diagnose whether an organization's strategy execution problem is a strategy problem, a people problem, or a systems problem?",
+    "tips": [
+      "Show a diagnostic framework with distinct tests for each root cause",
+      "Describe the signals you'd gather from the organization before forming a hypothesis",
+      "End with how you'd intervene differently depending on the diagnosis"
+    ],
+    "difficultyNote": "Root cause diagnosis and executive analytical rigor"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe your philosophy on CEO succession planning and how you've approached preparing your own successor.",
+    "tips": [
+      "Show that you think about succession as an institutional obligation, not a personal threat",
+      "Describe the criteria you use to assess successor readiness",
+      "Give an example of a succession moment — successful or not — and what you learned"
+    ],
+    "difficultyNote": "CEO succession philosophy and institutional legacy thinking"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you structure a major strategic review process for a company that hasn't done one in a decade?",
+    "tips": [
+      "Show a structured approach: who's involved, what's assessed, over what timeline",
+      "Describe how you'd manage the politics of surfacing uncomfortable truths",
+      "End with what outputs the review should produce and how they're acted upon"
+    ],
+    "difficultyNote": "Strategic review architecture and executive facilitation at scale"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What's your framework for evaluating when a company should enter versus exit a market?",
+    "tips": [
+      "Articulate both the entry and exit criteria — they are not simply the inverse of each other",
+      "Show how you weigh strategic positioning, financial returns, and organizational capability",
+      "Give an example of applying this framework — including a time you decided to exit"
+    ],
+    "difficultyNote": "Market entry and exit strategy — C-suite portfolio management"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you balance global scale and local adaptability in building an operating model for a multinational?",
+    "tips": [
+      "Show you understand the tension: standardization vs. market-specific relevance",
+      "Describe the mechanisms — governance, decision rights, incentives — you'd use to balance both",
+      "Give a real example of a market where local adaptation was critical and how you enabled it"
+    ],
+    "difficultyNote": "Global operating model design and multinational leadership"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What do you believe will be the defining leadership challenge of the next decade, and how are you preparing for it?",
+    "tips": [
+      "Be specific — name the challenge with conviction, not a list of possibilities",
+      "Connect your perspective to your industry, functional expertise, or lived experience",
+      "Show how you're actively preparing: building skills, knowledge, or perspective"
+    ],
+    "difficultyNote": "Forward-looking leadership vision and proactive executive development"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe a time you had to restructure an organization's incentive system to change deeply entrenched behavior.",
+    "tips": [
+      "Show you diagnosed the incentive misalignment first — behavior follows incentives",
+      "Describe how you designed the new system and managed the transition",
+      "End with the behavioral change you observed and how durable it proved to be"
+    ],
+    "difficultyNote": "Incentive system redesign and enterprise behavior change"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you think about legacy — what do you want to be true about this organization because of your leadership?",
+    "tips": [
+      "Be specific and authentic — 'I want to be remembered' is less compelling than 'I want the organization to be able to...'",
+      "Connect your legacy vision to a concrete set of decisions or changes you'd make",
+      "Show that your legacy is about institutional capability, not personal recognition"
+    ],
+    "difficultyNote": "Executive legacy thinking and institutional impact orientation"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How would you lead a company through the decision to divest a beloved but underperforming business unit?",
+    "tips": [
+      "Show the analytical rigor: what metrics and strategic criteria drive the divestiture case",
+      "Describe how you'd manage the emotional and cultural dimensions — for employees, customers, and board",
+      "End with how you'd execute the separation while protecting the remaining organization"
+    ],
+    "difficultyNote": "Divestiture decision leadership and complex stakeholder management"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "What's your view on when a company should embrace disruption of its own business versus when it should defend and extend its existing model?",
+    "tips": [
+      "Show you've thought rigorously about the classic innovator's dilemma — not just read about it",
+      "Describe the specific conditions that tip you toward self-disruption vs. defense",
+      "Give an example where you've had to make this call and what you learned"
+    ],
+    "difficultyNote": "Self-disruption vs. defense — C-suite strategic philosophy"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you think about the intersection of financial performance and social impact — are they fundamentally aligned or in tension?",
+    "tips": [
+      "Take a clear, grounded position rather than defaulting to 'it depends'",
+      "Describe the conditions under which they are aligned and where the real tensions emerge",
+      "Give a concrete example of navigating this tradeoff in practice"
+    ],
+    "difficultyNote": "Stakeholder capitalism and the financial-social performance debate at C-suite level"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "Describe how you would lead a global organization through a geopolitical crisis that directly threatens business continuity in a key market.",
+    "tips": [
+      "Show a risk-tiered response: protect people, then assets, then operations",
+      "Describe the decision architecture — who decides what, how fast",
+      "End with how you'd communicate internally and externally while managing the situation"
+    ],
+    "difficultyNote": "Geopolitical risk management and crisis leadership at global scale"
+  },
+  {
+    "mode": "interview",
+    "difficultyBand": "9-10",
+    "question": "How do you maintain strategic clarity and organizational focus when you're simultaneously managing multiple transformations?",
+    "tips": [
+      "Show how you sequence or phase transformations to prevent overload",
+      "Describe the mechanisms you use to keep the organization from fragmenting across competing change agendas",
+      "Give an example of a time you had too much change in flight and how you brought focus back"
+    ],
+    "difficultyNote": "Multi-transformation management and enterprise focus at C-suite level"
+  }
+]

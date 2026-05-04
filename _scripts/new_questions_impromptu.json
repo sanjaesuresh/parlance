@@ -1,0 +1,2059 @@
+[
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is your favorite way to spend a Sunday and why?",
+    "tips": [
+      "Start with your answer immediately — no preamble",
+      "Give two specific reasons, not just one vague one",
+      "Close with a sentence about what that Sunday feels like"
+    ],
+    "difficultyNote": "Personal preference, no wrong answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one food you could eat every day for a month?",
+    "tips": [
+      "Name the food in your first sentence",
+      "Give a specific reason you love it",
+      "Keep it casual and conversational"
+    ],
+    "difficultyNote": "Simple personal preference with no pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "Describe your ideal vacation in three sentences.",
+    "tips": [
+      "Start with the destination or type of trip right away",
+      "Use vivid, specific details — not just 'relaxing'",
+      "End with why that kind of trip appeals to you"
+    ],
+    "difficultyNote": "Light imaginative prompt, no stakes"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could only watch one TV show for the rest of your life, what would it be?",
+    "tips": [
+      "Name the show immediately",
+      "Give one or two reasons why it beats everything else",
+      "Be enthusiastic — show you actually love it"
+    ],
+    "difficultyNote": "Fun hypothetical with a personal answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the best gift you have ever received and why?",
+    "tips": [
+      "State the gift right away, don't build suspense",
+      "Explain what made it meaningful, not just what it was",
+      "Keep your answer under 30 seconds"
+    ],
+    "difficultyNote": "Personal memory, no wrong answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one thing you are better at than most people you know?",
+    "tips": [
+      "Commit to your answer — don't hedge with 'I think maybe'",
+      "Give a brief example showing this skill",
+      "Own it confidently but without bragging"
+    ],
+    "difficultyNote": "Low-stakes self-reflection"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What would your perfect morning routine look like?",
+    "tips": [
+      "Walk through it chronologically",
+      "Include at least two specific activities",
+      "Explain why that order or those choices work for you"
+    ],
+    "difficultyNote": "Familiar topic, easy to speak about"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one small thing that always makes you feel better when you're having a bad day?",
+    "tips": [
+      "Name it immediately",
+      "Briefly explain why it helps",
+      "Make it personal and genuine"
+    ],
+    "difficultyNote": "Warm personal topic, very approachable"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could live in any other city in the world, where would you move?",
+    "tips": [
+      "Pick a city right away without second-guessing",
+      "Give two or three specific reasons for that choice",
+      "Speak like you're excited about the idea"
+    ],
+    "difficultyNote": "Simple opinion with a concrete answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the most interesting animal and why?",
+    "tips": [
+      "State your pick immediately",
+      "Give one fascinating fact about it",
+      "Explain why that makes it more interesting than others"
+    ],
+    "difficultyNote": "Fun opinion with no stakes"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "Describe a hobby you have picked up recently and what you like about it.",
+    "tips": [
+      "Open with the hobby name, not a long setup",
+      "Say what drew you to it",
+      "Describe what keeps you coming back"
+    ],
+    "difficultyNote": "Personal topic that is easy to riff on"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could add one extra hour to your day, how would you use it?",
+    "tips": [
+      "Commit to one answer — don't list five things",
+      "Explain why that specific hour matters",
+      "Keep it concrete"
+    ],
+    "difficultyNote": "Light hypothetical, very accessible"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the most useful skill you have learned outside of school?",
+    "tips": [
+      "Name the skill first, then explain",
+      "Give an example of when you used it",
+      "Keep your response tight and clear"
+    ],
+    "difficultyNote": "Personal reflection with no pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is your favorite childhood memory?",
+    "tips": [
+      "Jump into the memory — no long intro",
+      "Use one vivid detail to make it real",
+      "Say why it stuck with you"
+    ],
+    "difficultyNote": "Warm personal topic, low stakes"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could instantly learn any language, which one and why?",
+    "tips": [
+      "Name the language right away",
+      "Give a practical or personal reason",
+      "Make it feel genuine, not a textbook answer"
+    ],
+    "difficultyNote": "Simple preference with broad appeal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one book, movie, or song that you recommend to everyone?",
+    "tips": [
+      "Name it immediately — don't overthink the choice",
+      "Give one specific reason why you recommend it",
+      "Make your enthusiasm clear"
+    ],
+    "difficultyNote": "Personal recommendation, very easy to speak on"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What superpower would you want for a day and what would you do with it?",
+    "tips": [
+      "Pick and state it right away",
+      "Describe one or two specific things you'd do",
+      "Have fun with it — keep it playful"
+    ],
+    "difficultyNote": "Light imaginative hypothetical"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is something small that you think everyone should try at least once?",
+    "tips": [
+      "Lead with your recommendation, not the backstory",
+      "Say why the experience is worth having",
+      "Keep it relatable and specific"
+    ],
+    "difficultyNote": "Light opinion with universal appeal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "Describe the perfect meal — appetizer, main, dessert.",
+    "tips": [
+      "Name each course with confidence",
+      "Use sensory language — taste, texture, smell",
+      "Say why this combination is unbeatable"
+    ],
+    "difficultyNote": "Fun creative topic with no wrong answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one thing you do differently from most people and are proud of?",
+    "tips": [
+      "Name the thing immediately",
+      "Briefly contrast it with the common approach",
+      "Own your choice with confidence"
+    ],
+    "difficultyNote": "Light self-expression prompt"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is your favorite thing about the city or town you live in?",
+    "tips": [
+      "Open with a specific detail, not a generic statement",
+      "Paint a quick picture for someone who has never been there",
+      "Show genuine appreciation"
+    ],
+    "difficultyNote": "Local knowledge, very personal and accessible"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one piece of advice you would give your 16-year-old self?",
+    "tips": [
+      "State the advice in plain language first",
+      "Give a brief reason why it matters",
+      "Speak directly, as if to that younger version of yourself"
+    ],
+    "difficultyNote": "Reflective but simple and personal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could only eat cuisine from one country forever, which would you choose?",
+    "tips": [
+      "Commit to a choice immediately",
+      "Name one or two specific dishes you love",
+      "Explain why that cuisine could keep you satisfied"
+    ],
+    "difficultyNote": "Fun food opinion with a personal angle"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the best way to spend a rainy day indoors?",
+    "tips": [
+      "Name your activity right away",
+      "Describe what makes it satisfying",
+      "Keep the tone warm and conversational"
+    ],
+    "difficultyNote": "Simple preference, very easy to answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one thing you wish more people knew about your field or job?",
+    "tips": [
+      "State the insight directly without a long setup",
+      "Say why most people get it wrong",
+      "Keep it accessible to a non-expert audience"
+    ],
+    "difficultyNote": "Personal expertise, low-pressure sharing"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "Describe your favorite place in the world in 30 seconds.",
+    "tips": [
+      "Start with the place name and one vivid image",
+      "Use specific sensory details",
+      "Close with why it matters to you personally"
+    ],
+    "difficultyNote": "Personal and vivid, easy to speak on"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the nicest thing a stranger has ever done for you?",
+    "tips": [
+      "Set the scene briefly — one sentence",
+      "Describe what the person did",
+      "Say how it affected you"
+    ],
+    "difficultyNote": "Warm story-based prompt, no stress"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one thing you always carry with you and why?",
+    "tips": [
+      "Name the item immediately",
+      "Explain its practical or emotional value",
+      "Keep it specific and personal"
+    ],
+    "difficultyNote": "Concrete everyday prompt, very accessible"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you could swap lives with anyone for one day, who would it be?",
+    "tips": [
+      "Name the person right away",
+      "Say what specifically interests you about their life",
+      "Keep the tone light and playful"
+    ],
+    "difficultyNote": "Classic lighthearted hypothetical"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What skill do you wish you had started learning earlier in life?",
+    "tips": [
+      "Name the skill in your first sentence",
+      "Briefly say why you didn't start sooner",
+      "Explain the impact it would have had"
+    ],
+    "difficultyNote": "Simple reflective question, no stakes"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is your favorite thing to do when you have no plans at all?",
+    "tips": [
+      "Start with the activity, not background context",
+      "Describe what you enjoy about it",
+      "Show some personality"
+    ],
+    "difficultyNote": "Easygoing personal topic"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one technology you could not live without?",
+    "tips": [
+      "Name it right away",
+      "Give a concrete reason — not just 'it's convenient'",
+      "Keep it conversational"
+    ],
+    "difficultyNote": "Familiar everyday topic"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the funniest or most embarrassing thing that has happened to you in public?",
+    "tips": [
+      "Set the scene fast — two sentences max",
+      "Tell it with confidence and a smile in your voice",
+      "End with what you learned or how you look back on it"
+    ],
+    "difficultyNote": "Light storytelling, very personal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "If you had a free weekend with no obligations, what would you do?",
+    "tips": [
+      "Lead with a specific activity, not 'relax'",
+      "Give enough detail to make it feel real",
+      "Speak naturally, as if telling a friend"
+    ],
+    "difficultyNote": "Very accessible personal preference"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is the most beautiful thing you have seen in nature?",
+    "tips": [
+      "Describe it vividly with sensory details",
+      "Say where and when you experienced it",
+      "Express why it stayed with you"
+    ],
+    "difficultyNote": "Personal memory with no wrong answer"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What is one habit you have that has improved your life?",
+    "tips": [
+      "Name the habit immediately",
+      "Say how you started it",
+      "Describe the specific improvement you have noticed"
+    ],
+    "difficultyNote": "Reflective but light and personal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "1-2",
+    "question": "What would you cook for someone you want to impress?",
+    "tips": [
+      "Name the dish right away",
+      "Describe one or two key elements that make it impressive",
+      "Keep the energy warm and confident"
+    ],
+    "difficultyNote": "Playful everyday topic with no pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Is it better to have a few close friends or many acquaintances? Give your position.",
+    "tips": [
+      "State your position in the first sentence",
+      "Support it with a reason or brief example",
+      "Acknowledge the other side in one sentence before closing"
+    ],
+    "difficultyNote": "Requires a supported opinion, not just preference"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Describe the most important quality in a good leader. Give a specific example.",
+    "tips": [
+      "Name the quality immediately — don't hedge",
+      "Give a real or hypothetical example to illustrate it",
+      "Explain why this quality matters more than others"
+    ],
+    "difficultyNote": "Opinion needs to be backed with reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is one invention from the last 50 years that has done the most good for humanity?",
+    "tips": [
+      "State your pick immediately",
+      "Give one strong reason for your choice",
+      "Briefly acknowledge a competing option to show you've thought it through"
+    ],
+    "difficultyNote": "Broad claim requiring brief justification"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Should schools teach life skills like cooking and budgeting? Take a position.",
+    "tips": [
+      "Open with a clear yes or no",
+      "Give one concrete reason supported by an example",
+      "Wrap up with a forward-looking statement"
+    ],
+    "difficultyNote": "Structured opinion on a familiar topic"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the biggest challenge facing people your age right now?",
+    "tips": [
+      "Name the challenge without a long preamble",
+      "Explain why it is more pressing than other issues",
+      "Close with a thought on what could help"
+    ],
+    "difficultyNote": "Social commentary requiring some structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "You have 45 seconds to pitch your favorite book or film to a skeptic who thinks it's overrated.",
+    "tips": [
+      "Hook them in your first sentence — don't summarize the plot",
+      "Name one thing it does better than anything else in the genre",
+      "Close with an emotional appeal"
+    ],
+    "difficultyNote": "Persuasion under time pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Is it more important to be respected or liked at work? Explain your reasoning.",
+    "tips": [
+      "Take a clear position immediately",
+      "Use a brief workplace scenario to illustrate",
+      "Avoid sitting on the fence"
+    ],
+    "difficultyNote": "Workplace opinion requiring clear reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is something you changed your mind about in the last few years? Why did you change?",
+    "tips": [
+      "Name the belief or stance right away",
+      "Describe what evidence or experience shifted your view",
+      "Speak with honesty — vulnerability makes this compelling"
+    ],
+    "difficultyNote": "Personal growth narrative with some depth required"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Convince me that mornings are better than evenings, or the reverse.",
+    "tips": [
+      "Pick your side immediately — even if it's not your natural preference",
+      "Give two distinct reasons",
+      "Use specific images to make it vivid"
+    ],
+    "difficultyNote": "Position defense with structured support"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the most overrated thing in modern culture right now?",
+    "tips": [
+      "Name it in your first sentence",
+      "Back up your claim with reasoning, not just assertion",
+      "Anticipate the obvious pushback and address it briefly"
+    ],
+    "difficultyNote": "Contrarian take that needs a logical basis"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "If you had to cut one social media platform from your life forever, which would it be and why?",
+    "tips": [
+      "Name it right away",
+      "Give a specific reason tied to its effect on you",
+      "Keep the logic tight — don't ramble through every platform"
+    ],
+    "difficultyNote": "Familiar topic requiring prioritization"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is one habit that separates high performers from everyone else?",
+    "tips": [
+      "State the habit in your first sentence",
+      "Illustrate it with an example — real person, or hypothetical",
+      "Explain the mechanism behind why it works"
+    ],
+    "difficultyNote": "Opinion requiring evidence-based support"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Is the ability to communicate more valuable than technical skills? Defend your answer.",
+    "tips": [
+      "Open with a direct yes or no",
+      "Give one strong reason",
+      "Acknowledge the nuance without abandoning your position"
+    ],
+    "difficultyNote": "Career opinion requiring logical backing"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the best time of life to take big risks and why?",
+    "tips": [
+      "Name the stage of life immediately",
+      "Give reasons that are specific, not clichés",
+      "Close with a memorable one-liner"
+    ],
+    "difficultyNote": "Life philosophy topic needing clear reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Make the case that failure is more valuable than success.",
+    "tips": [
+      "Commit to this argument from the first sentence",
+      "Give one concrete example of what failure teaches that success cannot",
+      "End strong — don't trail off"
+    ],
+    "difficultyNote": "Contrarian argument requiring structured support"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "If you could redesign one aspect of modern education, what would you change?",
+    "tips": [
+      "Name your change immediately",
+      "Explain the specific problem it solves",
+      "Describe briefly what success would look like"
+    ],
+    "difficultyNote": "Social policy opinion with structured delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the most important thing parents can teach their children?",
+    "tips": [
+      "Lead with your answer, not a long intro",
+      "Support it with a reason or short story",
+      "Avoid vague answers like 'love' without unpacking them"
+    ],
+    "difficultyNote": "Values-based opinion requiring brief structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Is living in a big city or a small town better? Make your case.",
+    "tips": [
+      "Take a firm side immediately",
+      "Give two specific lifestyle-based reasons",
+      "Close with a statement that acknowledges the tradeoff"
+    ],
+    "difficultyNote": "Opinion requiring position and reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the single biggest barrier most people face in achieving their goals?",
+    "tips": [
+      "Name the barrier immediately",
+      "Give an example — your own or a common one",
+      "Offer a brief insight on how to overcome it"
+    ],
+    "difficultyNote": "Psychological or social observation needing logic"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Argue that spending money on experiences is always better than spending it on things.",
+    "tips": [
+      "Open with a bold statement of the argument",
+      "Give two supporting points with brief examples",
+      "End with an emotional close, not just logic"
+    ],
+    "difficultyNote": "Classic debate position needing clear structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What makes a city great to live in? Give your top criteria.",
+    "tips": [
+      "Open with your most important criterion",
+      "Name two or three criteria in total — don't list ten",
+      "Explain why your top pick outweighs the others"
+    ],
+    "difficultyNote": "Structured opinion with prioritization"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "If you could eliminate one thing from the modern workplace, what would it be?",
+    "tips": [
+      "Name it immediately — no long buildup",
+      "Explain the harm it causes with a specific example",
+      "Say what should replace it"
+    ],
+    "difficultyNote": "Workplace opinion requiring logical reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is one thing you believe strongly that most people around you disagree with?",
+    "tips": [
+      "State the belief clearly and directly",
+      "Give your strongest reason for holding it",
+      "Show you've considered the opposing view"
+    ],
+    "difficultyNote": "Contrarian position needing confident defense"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Should people share their salaries openly with coworkers? Give your view.",
+    "tips": [
+      "Open with a clear yes or no",
+      "Give one practical reason for your position",
+      "Address the main counterargument in one sentence"
+    ],
+    "difficultyNote": "Workplace ethics topic requiring structured reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the most underrated skill in the modern workforce?",
+    "tips": [
+      "Name the skill immediately",
+      "Explain why it is overlooked",
+      "Give a brief example of its impact when applied well"
+    ],
+    "difficultyNote": "Professional opinion with supporting evidence required"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Speak for 45 seconds on why boredom is actually good for you.",
+    "tips": [
+      "Open with a surprising or counterintuitive claim",
+      "Give one piece of logic or evidence",
+      "Close with a practical takeaway"
+    ],
+    "difficultyNote": "Contrarian argument needing structured delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the most important trait for surviving and thriving in a changing world?",
+    "tips": [
+      "Name the trait immediately",
+      "Explain why change specifically demands this trait",
+      "Illustrate with a brief real-world scenario"
+    ],
+    "difficultyNote": "Forward-looking opinion requiring reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Make the case that reading books is more valuable than watching documentaries.",
+    "tips": [
+      "Commit to the argument fully from the start",
+      "Give two distinct reasons",
+      "Avoid just saying 'it's deeper' — be specific"
+    ],
+    "difficultyNote": "Comparative argument needing clear structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is one thing that would make most people happier if they simply did less of it?",
+    "tips": [
+      "Name the thing immediately",
+      "Back it up with a reason or brief example",
+      "Speak with conviction — this is your opinion"
+    ],
+    "difficultyNote": "Behavioral observation requiring a clear argument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Is ambition a virtue or a trap? Argue one side.",
+    "tips": [
+      "Pick a side and state it in your first sentence",
+      "Give one core argument with an example",
+      "End with a strong closing statement"
+    ],
+    "difficultyNote": "Philosophical opinion requiring brief defense"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the most important thing to know before starting a new job?",
+    "tips": [
+      "Name your insight right away",
+      "Explain why it matters more than other factors",
+      "Use a brief example from experience or observation"
+    ],
+    "difficultyNote": "Practical career advice requiring structured delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is one rule you live by that you think more people should adopt?",
+    "tips": [
+      "State the rule clearly in your first sentence",
+      "Give a specific reason it works for you",
+      "End with a brief example of what it looks like in practice"
+    ],
+    "difficultyNote": "Personal values requiring brief structured delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What does success look like to you — and why is it different from how most people define it?",
+    "tips": [
+      "Give your definition first, then contrast it with the common view",
+      "Use a specific example to ground your definition",
+      "Close with why the conventional definition falls short"
+    ],
+    "difficultyNote": "Values-based argument requiring personal framing"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "Should companies have a four-day work week? Make your case.",
+    "tips": [
+      "Open with a clear yes or no",
+      "Give two practical reasons for your position",
+      "Acknowledge the strongest objection and briefly respond"
+    ],
+    "difficultyNote": "Workplace policy opinion requiring structured support"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "What is the most important thing you have learned from someone older than you?",
+    "tips": [
+      "Name the lesson immediately",
+      "Give brief context — who taught you and how",
+      "Explain why that lesson has stayed with you"
+    ],
+    "difficultyNote": "Personal growth narrative requiring structure and specificity"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "If you could only keep one of these — the internet, electricity, or clean running water — which would you choose and why?",
+    "tips": [
+      "State your choice immediately without apologizing for it",
+      "Give two reasons that support your choice",
+      "Briefly justify why the other two can be sacrificed"
+    ],
+    "difficultyNote": "Forced ranking requiring clear prioritization and reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "3-4",
+    "question": "If you could spend a month living in any era of history, which would you choose and why?",
+    "tips": [
+      "Name the era immediately",
+      "Give two specific reasons — not just 'it seems exciting'",
+      "Acknowledge one downside to show you're thinking clearly"
+    ],
+    "difficultyNote": "Historical hypothetical requiring structured reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Take a position: remote work is better for employees than in-office work. Argue your side.",
+    "tips": [
+      "Open with a clear, direct claim",
+      "Support with two distinct arguments — one practical, one human",
+      "Acknowledge the strongest counterargument and refute it briefly"
+    ],
+    "difficultyNote": "Position-taking requiring evidence and counterargument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Explain why most people underestimate the importance of sleep. Make a compelling case.",
+    "tips": [
+      "Open with a surprising or specific claim",
+      "Build the case with concrete evidence or reasoning",
+      "Close with a call to action or a challenge to the listener"
+    ],
+    "difficultyNote": "Scientific opinion requiring persuasive structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "You have 60 seconds to explain why one seemingly trivial daily decision actually has outsized impact on your life.",
+    "tips": [
+      "Name the decision in your first sentence",
+      "Build the chain of consequences clearly",
+      "Make your conclusion land with force"
+    ],
+    "difficultyNote": "Causal reasoning requiring a structured narrative"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Is it ethical to use AI tools to do work you are paid to do? Take a clear position.",
+    "tips": [
+      "State your position immediately",
+      "Ground it in a specific ethical principle",
+      "Address the main objection in two sentences"
+    ],
+    "difficultyNote": "Contemporary ethics requiring nuanced reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Make the case that social media has been a net negative for society.",
+    "tips": [
+      "Commit to the argument without hedging",
+      "Give two evidence-based or logic-based reasons",
+      "Preempt the obvious counterargument and knock it down"
+    ],
+    "difficultyNote": "Big-picture social claim requiring structured defense"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the most misunderstood concept in your field? Explain it clearly to a non-expert.",
+    "tips": [
+      "Name the concept without jargon",
+      "Use an analogy or concrete example to make it click",
+      "Explain why the misunderstanding exists"
+    ],
+    "difficultyNote": "Expert communication requiring clarity under pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that convenience culture is making people less resilient.",
+    "tips": [
+      "Define what you mean by 'convenience culture' in one sentence",
+      "Give two specific mechanisms linking it to lower resilience",
+      "Suggest what that means for individuals going forward"
+    ],
+    "difficultyNote": "Social critique requiring logical scaffolding"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "If you had to defend the argument that money does buy happiness, how would you make the case?",
+    "tips": [
+      "Steel-man the argument — find its strongest form",
+      "Use evidence or reasoning, not just examples",
+      "Close without retreating from the position"
+    ],
+    "difficultyNote": "Devil's advocate challenge requiring intellectual confidence"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What systemic change would do the most to improve public health in your country?",
+    "tips": [
+      "Name your change right away",
+      "Explain the mechanism — how it actually improves health",
+      "Address one likely objection"
+    ],
+    "difficultyNote": "Policy opinion requiring evidence-based reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Make a case that expertise is overrated in an age of rapid change.",
+    "tips": [
+      "Open with a provocation — not a gentle setup",
+      "Give two concrete reasons",
+      "Acknowledge where expertise still clearly wins"
+    ],
+    "difficultyNote": "Contrarian intellectual argument needing nuance"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Speak for 60 seconds on what makes a city truly livable — going beyond the obvious criteria.",
+    "tips": [
+      "Lead with a non-obvious insight",
+      "Build toward a coherent vision",
+      "Close with a specific image or example that makes your point tangible"
+    ],
+    "difficultyNote": "Urban policy topic requiring original thinking"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Is individual action or systemic change more effective at solving climate change? Defend your answer.",
+    "tips": [
+      "State your position clearly in the first sentence",
+      "Build two supporting arguments",
+      "Concede something to the other side before your close"
+    ],
+    "difficultyNote": "Environmental ethics with required evidence and balance"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the one factor that most determines whether a startup succeeds or fails?",
+    "tips": [
+      "Name the factor immediately — don't hedge with 'it depends'",
+      "Back it with two supporting reasons or examples",
+      "Close by acknowledging why other factors matter less"
+    ],
+    "difficultyNote": "Business reasoning under pressure requiring clear logic"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that the way we measure success in modern society is fundamentally broken.",
+    "tips": [
+      "Open with a specific, provocative claim",
+      "Define what a better measure would look like",
+      "Use one concrete example to anchor your argument"
+    ],
+    "difficultyNote": "Social philosophy requiring structured critique"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What does it really mean to be educated? Challenge the conventional definition.",
+    "tips": [
+      "State the conventional definition briefly, then reject or refine it",
+      "Offer your alternative with clear reasoning",
+      "Land on a memorable closing statement"
+    ],
+    "difficultyNote": "Conceptual argument requiring intellectual depth"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "A company wants to use AI to screen all job applicants before humans review any resumes. Argue for or against this.",
+    "tips": [
+      "Pick a side and state it in your first sentence",
+      "Raise two supporting points with brief examples",
+      "Concede one limitation of your position"
+    ],
+    "difficultyNote": "Technology ethics requiring clear reasoned position"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Speak for 60 seconds on why the way we spend our attention — not our time — is what really determines quality of life.",
+    "tips": [
+      "Define what you mean by attention vs. time upfront",
+      "Give two examples that illustrate the distinction",
+      "Close with a concrete implication for the listener"
+    ],
+    "difficultyNote": "Philosophical observation requiring clear structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Make the case that the most important soft skill in the next decade will be the ability to ask good questions.",
+    "tips": [
+      "Open with a surprising or counterintuitive framing",
+      "Support it with two distinct reasons",
+      "Close with a practical insight or challenge to the listener"
+    ],
+    "difficultyNote": "Future-skills argument requiring reasoned delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the most dangerous assumption people make about communication?",
+    "tips": [
+      "Name the assumption immediately",
+      "Illustrate it with a brief example",
+      "Explain the consequences when it goes wrong"
+    ],
+    "difficultyNote": "Communication insight requiring structured reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that specialization is overrated in the modern economy.",
+    "tips": [
+      "Open with a clear claim — no wishy-washy framing",
+      "Give two supporting reasons, one practical and one conceptual",
+      "Anticipate the specialist's counterargument and address it"
+    ],
+    "difficultyNote": "Career philosophy requiring balanced argumentation"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the biggest risk of over-relying on data and metrics to make decisions?",
+    "tips": [
+      "Name the risk specifically — don't just say 'missing context'",
+      "Illustrate it with a concrete example or scenario",
+      "Offer a principle for when to trust data and when to trust judgment"
+    ],
+    "difficultyNote": "Analytical critique requiring logical depth"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Make the case that boredom is the most undervalued resource in creative work.",
+    "tips": [
+      "Open with a confident, specific claim",
+      "Link boredom to creative output with a mechanism, not just an example",
+      "Close with a practical recommendation for the listener"
+    ],
+    "difficultyNote": "Counterintuitive argument requiring evidence-based structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "You have 60 seconds to explain what 'good judgment' actually means. Go.",
+    "tips": [
+      "Resist giving a dictionary definition — give your own framing",
+      "Use a concrete example to show good judgment in action",
+      "Close with what distinguishes it from intelligence or knowledge"
+    ],
+    "difficultyNote": "Abstract concept requiring precise and structured thinking"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Is it better to be a generalist or a specialist early in your career? Take a clear position.",
+    "tips": [
+      "State your position in the first sentence",
+      "Give two supporting reasons that are specific to early career dynamics",
+      "Close with a nuanced takeaway, not just your original claim"
+    ],
+    "difficultyNote": "Career strategy requiring reasoned defense"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that the ability to say no is the most underrated leadership skill.",
+    "tips": [
+      "Open with a specific claim or scenario",
+      "Give two reasons why saying no creates better outcomes",
+      "Distinguish this from being unhelpful or obstructive"
+    ],
+    "difficultyNote": "Leadership argument requiring structured reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the most important lesson history teaches us about technological progress?",
+    "tips": [
+      "Name the lesson immediately",
+      "Ground it in a specific historical example",
+      "Connect it to a current or near-future technology"
+    ],
+    "difficultyNote": "Historical reasoning applied to modern context"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Make the case that the best career advice is to get very good at one thing that most people find boring.",
+    "tips": [
+      "Commit to the argument fully — don't soften it",
+      "Explain the mechanism: why boredom tolerance creates advantage",
+      "Close with a challenge or recommendation for the listener"
+    ],
+    "difficultyNote": "Career philosophy with counterintuitive logic"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the most common reason smart people make bad decisions?",
+    "tips": [
+      "Name the reason immediately",
+      "Use a specific type of example to show it in action",
+      "Offer a brief insight on how to guard against it"
+    ],
+    "difficultyNote": "Cognitive or behavioral critique requiring precision"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that the 40-hour work week is an outdated concept and explain what should replace it.",
+    "tips": [
+      "Open with a clear critique of the current model",
+      "Propose an alternative with at least one concrete detail",
+      "Address the most obvious objection to your proposal"
+    ],
+    "difficultyNote": "Policy argument requiring proposal and defense"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Take a position: universities are no longer worth the cost for most students.",
+    "tips": [
+      "State your position in your first sentence",
+      "Give two specific reasons tied to cost, outcomes, or alternatives",
+      "Acknowledge the cases where university still makes sense"
+    ],
+    "difficultyNote": "Education policy argument requiring evidence and balance"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the biggest lie the self-help industry tells people?",
+    "tips": [
+      "Name the lie precisely — avoid vague phrases like 'it's all a lie'",
+      "Explain the mechanism: why does this lie persist and who benefits?",
+      "Close with what a more honest message would look like"
+    ],
+    "difficultyNote": "Industry critique requiring specific reasoning and intellectual honesty"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Speak for 60 seconds on why the most important career skill is learning how to learn.",
+    "tips": [
+      "Open with a claim about how fast skills are becoming obsolete",
+      "Give two specific reasons why meta-learning outperforms deep specialization",
+      "Close with a practical implication for the listener"
+    ],
+    "difficultyNote": "Career philosophy requiring evidence-based structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that the most underrated component of good writing is good thinking — not vocabulary or style.",
+    "tips": [
+      "Open by separating the two things cleanly",
+      "Give two examples of how poor thinking produces poor writing even with strong style",
+      "Close with an implication for how people should actually improve their writing"
+    ],
+    "difficultyNote": "Communication argument requiring conceptual clarity and examples"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the most important boundary a person should have in their professional life?",
+    "tips": [
+      "Name the boundary immediately",
+      "Explain what happens when it is violated",
+      "Give a specific example of holding the boundary under pressure"
+    ],
+    "difficultyNote": "Workplace values requiring reasoned position and illustration"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Make the case that the most valuable thing you can do in a meeting is ask a question no one else is asking.",
+    "tips": [
+      "Open with a critique of what most people do in meetings instead",
+      "Explain why the unasked question is often the most important one",
+      "Close with a principle for identifying what question that is"
+    ],
+    "difficultyNote": "Meeting culture critique requiring structured persuasion"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "Argue that the culture of constant availability — always on, always responsive — is degrading professional quality.",
+    "tips": [
+      "Name the specific quality that suffers first and most",
+      "Give two mechanisms linking availability culture to that degradation",
+      "Close with what a healthier alternative actually looks like"
+    ],
+    "difficultyNote": "Workplace culture argument requiring causal reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "5-6",
+    "question": "What is the most important thing that separates people who thrive after failure from those who don't?",
+    "tips": [
+      "Name the differentiator immediately — don't hedge",
+      "Give two specific behaviors or mindsets that illustrate it",
+      "Close with a practical implication for anyone facing setbacks"
+    ],
+    "difficultyNote": "Resilience argument requiring evidence and practical structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "A colleague publicly disagrees with you in a meeting. You have 75 seconds to respond in a way that wins the room without humiliating them. Go.",
+    "tips": [
+      "Acknowledge their point genuinely before pivoting",
+      "Reframe the disagreement as a shared problem to solve",
+      "Close with confidence — not aggression or retreat"
+    ],
+    "difficultyNote": "Real-time social dynamics requiring tact and strength simultaneously"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Make the case that meritocracy is a myth, or make the case that it is the best system we have. Handle the nuances.",
+    "tips": [
+      "Pick a side but acknowledge the strongest opposing evidence",
+      "Build from a clear premise to a clear conclusion",
+      "Avoid oversimplifying — your credibility depends on handling complexity"
+    ],
+    "difficultyNote": "Complex ideological argument requiring multi-angle thinking"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "You are presenting a project that just failed. Speak for 75 seconds to your team about what happened and what comes next.",
+    "tips": [
+      "Do not hide from the failure — name it directly in the first 10 seconds",
+      "Offer one or two clear reasons without over-explaining or making excuses",
+      "Close with a forward-looking statement that restores confidence"
+    ],
+    "difficultyNote": "High-stakes communication under emotional pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the relationship between creativity and constraint? Build a nuanced argument.",
+    "tips": [
+      "Open with a non-obvious framing of the relationship",
+      "Move from a general principle to a specific example and back",
+      "Resolve the tension — don't just present both sides without a conclusion"
+    ],
+    "difficultyNote": "Abstract relationship requiring structured intellectual argument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Argue that the way we talk about 'work-life balance' is not just wrong but actively harmful.",
+    "tips": [
+      "Challenge the metaphor itself — what does 'balance' imply?",
+      "Give two specific ways this framing causes harm",
+      "Offer a better model or framing in your close"
+    ],
+    "difficultyNote": "Conceptual critique requiring deep reasoning and alternative proposal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "You have 75 seconds to explain a complex topic from your domain as if to a brilliant 12-year-old. Make it engaging, not just simple.",
+    "tips": [
+      "Choose your analogy in the first five seconds and commit",
+      "Layer complexity gradually — don't dump everything at once",
+      "End with a question or hook that makes them want to know more"
+    ],
+    "difficultyNote": "Expert communication requiring empathy and structural skill"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the most important thing a society loses when it loses trust in its institutions?",
+    "tips": [
+      "Identify the specific loss with precision — not just 'trust' generally",
+      "Build the argument across multiple levels: individual, community, systemic",
+      "Close with what it would take to rebuild"
+    ],
+    "difficultyNote": "Civic philosophy requiring multi-layer reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Is the idea that 'the truth will always come out' optimistic, naive, or both? Build a case.",
+    "tips": [
+      "Challenge the premise rather than just taking one side",
+      "Give examples that both support and undermine the idea",
+      "Land on a nuanced conclusion — not a fence-sit"
+    ],
+    "difficultyNote": "Epistemic argument requiring handling of ambiguity"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Speak for 75 seconds on why most people are bad at receiving feedback, and what it actually takes to be good at it.",
+    "tips": [
+      "Open with the core reason — not a list of surface symptoms",
+      "Give a concrete example that the listener can recognize in themselves",
+      "Close with one practical principle, not a laundry list of tips"
+    ],
+    "difficultyNote": "Psychological insight requiring depth and practical application"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Argue that the most dangerous bias in decision-making is not what we think it is.",
+    "tips": [
+      "Name the expected answer, then reject or complicate it",
+      "Make a case for your actual candidate with specific reasoning",
+      "Close by explaining why this bias is especially dangerous because it goes undetected"
+    ],
+    "difficultyNote": "Cognitive science argument requiring intellectual subversion"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "You've been asked to propose cutting one major program at a nonprofit. Speak for 75 seconds on how you'd decide what to cut and how you'd defend the decision.",
+    "tips": [
+      "State your decision-making framework in the first 20 seconds",
+      "Name the factors you'd weigh and why",
+      "Address the human cost and how you'd communicate it"
+    ],
+    "difficultyNote": "High-stakes organizational reasoning requiring ethical clarity"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the difference between being confident and being arrogant, and why do so many people get it wrong?",
+    "tips": [
+      "Define the distinction sharply in your first 15 seconds",
+      "Give a behavioral example showing each in action",
+      "Explain the cognitive error that causes the confusion"
+    ],
+    "difficultyNote": "Character analysis requiring precision and nuance"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Make the case that the way we hire people is one of the most broken systems in modern organizations.",
+    "tips": [
+      "Open with your sharpest critique — not a gentle introduction",
+      "Support with two specific structural problems, not just anecdote",
+      "Offer a direction for what better would look like"
+    ],
+    "difficultyNote": "Organizational systems critique requiring evidence and proposal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Explain why the ability to tolerate uncertainty is the defining competency of the next decade.",
+    "tips": [
+      "Ground this in what has changed — not just 'the world is complex'",
+      "Give a specific domain where this plays out",
+      "Close with what developing this capacity actually looks like"
+    ],
+    "difficultyNote": "Forward-looking professional argument requiring original reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Is radical honesty actually virtuous, or does it become a cover for selfishness? Make a nuanced argument.",
+    "tips": [
+      "Acknowledge the genuine appeal of radical honesty before critiquing it",
+      "Distinguish between honesty as a value and honesty as a behavior",
+      "Close with a principle that resolves the tension"
+    ],
+    "difficultyNote": "Ethical philosophy requiring balance and intellectual precision"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the most dangerous consequence of optimization culture — the obsession with efficiency — at the societal level?",
+    "tips": [
+      "Name the consequence specifically in your opening",
+      "Trace the mechanism: how does optimization at scale produce this outcome?",
+      "Close by offering a counterbalancing principle"
+    ],
+    "difficultyNote": "Macro systems argument requiring multi-level reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Argue that humility is not just a moral virtue but a strategic competitive advantage.",
+    "tips": [
+      "Distinguish this from false modesty at the start",
+      "Give two mechanisms by which humility produces better outcomes",
+      "Close with a challenge to the listener"
+    ],
+    "difficultyNote": "Character-meets-strategy argument requiring depth"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the most important thing that gets lost in translation when ideas move from research to practice?",
+    "tips": [
+      "Name the thing precisely — not vaguely",
+      "Use a specific domain or example to illustrate",
+      "Close with an implication for practitioners or researchers"
+    ],
+    "difficultyNote": "Knowledge and implementation argument requiring real insight"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Speak for 75 seconds on whether the concept of 'work-life integration' is actually progress or just a rebranding of burnout.",
+    "tips": [
+      "Take a clear position — don't present two views neutrally",
+      "Give two specific reasons your position is correct",
+      "Address the appeal of the concept before knocking it down or defending it"
+    ],
+    "difficultyNote": "Contemporary workplace critique requiring specific, structured argument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is something that most people treat as a personality trait that is actually a learnable skill?",
+    "tips": [
+      "Name the trait immediately",
+      "Explain why people mistake it for fixed personality",
+      "Describe what learning it actually looks like in practice"
+    ],
+    "difficultyNote": "Psychological insight requiring precise observation and structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Make the case that most organizations are over-managed and under-led.",
+    "tips": [
+      "Define the distinction between management and leadership precisely",
+      "Give two concrete costs of over-management",
+      "Close with what better leadership would actually require"
+    ],
+    "difficultyNote": "Organizational argument requiring definition, critique, and proposal"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the single most important thing a society can do to preserve freedom over the long run?",
+    "tips": [
+      "Name your answer with conviction in your opening",
+      "Build an argument from first principles, not just assertion",
+      "Anticipate the most obvious challenge and answer it directly"
+    ],
+    "difficultyNote": "Political philosophy requiring principled, structured reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Argue that the way most people network is not just ineffective but counterproductive.",
+    "tips": [
+      "Open with a precise diagnosis of what most people do wrong",
+      "Explain the mechanism — why it backfires",
+      "Offer a brief principle for what actually works"
+    ],
+    "difficultyNote": "Professional behavior critique requiring insight and practical direction"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Is the pursuit of happiness itself the wrong goal? Build a multi-angle argument.",
+    "tips": [
+      "Challenge the premise with philosophical precision, not a vague rejection",
+      "Offer an alternative framing with supporting reasoning",
+      "Close with a compelling final statement that reframes the question"
+    ],
+    "difficultyNote": "Philosophical challenge requiring depth and resolution"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What does good decision-making look like when you have too little information and too little time?",
+    "tips": [
+      "Give a framework or set of principles, not just advice",
+      "Illustrate with a type of real-world situation",
+      "Close with what separates good from poor decisions in these conditions"
+    ],
+    "difficultyNote": "High-stakes decision-making requiring principled thinking"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Speak for 75 seconds on the tension between innovation and stability in organizations, and where you think that tension should be resolved.",
+    "tips": [
+      "Don't present both sides passively — state where you land",
+      "Give at least one concrete example of the tension playing out",
+      "Close by offering a principled way to navigate it"
+    ],
+    "difficultyNote": "Organizational systems thinking requiring nuanced resolution"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the most underestimated factor in whether a team performs well or poorly?",
+    "tips": [
+      "Name the factor immediately — don't build toward a reveal",
+      "Explain why it is consistently underestimated",
+      "Close with a practical implication for team leaders or members"
+    ],
+    "difficultyNote": "Team dynamics insight requiring evidence and specificity"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Argue that the way most people think about productivity is fundamentally at odds with doing their best work.",
+    "tips": [
+      "Open with the specific part of the conventional view you're rejecting",
+      "Give two mechanisms that explain the conflict",
+      "Offer a better mental model in your close"
+    ],
+    "difficultyNote": "Productivity philosophy requiring precise intellectual critique"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What does the concept of integrity actually require in a situation where every option causes harm?",
+    "tips": [
+      "Name the tension precisely in your opening",
+      "Work through the competing obligations without avoiding the difficulty",
+      "Close with a principled resolution — not just 'it's complicated'"
+    ],
+    "difficultyNote": "Ethical reasoning under genuine constraint requiring intellectual courage"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Make the case that the best organizations are built around removing obstacles rather than adding incentives.",
+    "tips": [
+      "Establish the distinction sharply at the start",
+      "Give two specific ways obstacle-removal outperforms incentives",
+      "Close by acknowledging where incentives still matter"
+    ],
+    "difficultyNote": "Management philosophy requiring evidence-based comparison"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Speak on the idea that most personal growth advice is wrong not because it is false, but because it is incomplete.",
+    "tips": [
+      "Name what is missing — precisely",
+      "Give two examples where the advice works and two where it fails",
+      "Close with what 'complete' advice would need to include"
+    ],
+    "difficultyNote": "Meta-critique requiring intellectual depth and original framing"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the relationship between vulnerability and credibility in leadership?",
+    "tips": [
+      "Define how you're using both terms at the start",
+      "Give an example of when vulnerability enhances credibility and when it undermines it",
+      "Close with a principle that resolves the tension"
+    ],
+    "difficultyNote": "Leadership philosophy requiring conceptual precision and nuance"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Speak for 75 seconds on why the most important conversations in organizations rarely happen in formal meetings.",
+    "tips": [
+      "Open with a specific observation about where real conversations do happen",
+      "Give two reasons why formal structures suppress them",
+      "Close with an implication for how leaders should design their environments"
+    ],
+    "difficultyNote": "Organizational culture argument requiring insight and structural reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the hardest truth about ambition that most ambitious people refuse to acknowledge?",
+    "tips": [
+      "Name the truth plainly in your first sentence",
+      "Give two reasons why it is systematically avoided",
+      "Close with what it would mean to face it honestly"
+    ],
+    "difficultyNote": "Psychological argument requiring intellectual courage and depth"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Argue that the best way to build credibility quickly in a new role or environment is counterintuitive.",
+    "tips": [
+      "Name the counterintuitive approach immediately",
+      "Contrast it with the common approach and explain why the common approach fails",
+      "Support your alternative with a mechanism or example"
+    ],
+    "difficultyNote": "Professional strategy argument requiring original insight and defense"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Speak for 75 seconds on the idea that the ability to change your mind is not a sign of weakness but a form of intellectual leadership.",
+    "tips": [
+      "Challenge the cultural stigma around changing your mind directly",
+      "Give two specific circumstances where changing your mind produces better outcomes than holding firm",
+      "Close with a principle distinguishing principled position changes from spinelessness"
+    ],
+    "difficultyNote": "Intellectual virtue argument requiring nuance and clear reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "What is the most important thing a person should understand about power before they have any?",
+    "tips": [
+      "Name your insight in your opening sentence",
+      "Give two specific ways that misunderstanding power damages people and organizations",
+      "Close with a practical principle for using power responsibly"
+    ],
+    "difficultyNote": "Power dynamics argument requiring depth, observation, and practical application"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "7-8",
+    "question": "Make the case that the single biggest mistake managers make is confusing activity with progress.",
+    "tips": [
+      "Define the distinction clearly at the start",
+      "Give two concrete examples of the confusion in action",
+      "Close with a principle for distinguishing the two in real time"
+    ],
+    "difficultyNote": "Management philosophy requiring precise definition and evidence"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "A stranger gives you the word 'friction.' You have 90 seconds to build a speech that makes friction feel essential, not problematic.",
+    "tips": [
+      "Find your angle in the first five seconds — literal, metaphorical, scientific, philosophical",
+      "Move between registers: start concrete, end abstract, or vice versa",
+      "Your final sentence should make the listener reconsider something they take for granted"
+    ],
+    "difficultyNote": "Elite keyword speech requiring philosophical depth and rhetorical range"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on why the most important conversations we will have in the next decade are the ones we keep avoiding.",
+    "tips": [
+      "Name what we're avoiding and why — with specificity",
+      "Build the stakes: what breaks down when we don't have these conversations?",
+      "Close with a challenge to the listener that feels personal and urgent"
+    ],
+    "difficultyNote": "High-stakes cultural argument requiring emotional and intellectual range"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What does justice actually require when past wrongs cannot be undone? Build a principled argument in 90 seconds.",
+    "tips": [
+      "Don't start with a definition — start with the tension",
+      "Give your principled framework with two supporting reasons",
+      "Acknowledge the hardest objection and address it without abandoning your position"
+    ],
+    "difficultyNote": "Political philosophy requiring rigorous moral reasoning under pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on whether the idea of 'authentic self' is a useful concept or an obstacle to growth.",
+    "tips": [
+      "Challenge the premise with philosophical rigor, not casual skepticism",
+      "Offer two distinct critiques or defenses depending on your position",
+      "Close with a reframing that the listener will find genuinely useful"
+    ],
+    "difficultyNote": "Existential philosophy requiring intellectual precision and personal authority"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Make a case in 90 seconds that the greatest threat to democratic societies right now is not external but internal — and name it precisely.",
+    "tips": [
+      "Name the internal threat clearly in your first sentence",
+      "Build a causal argument — not just an observation",
+      "Close with what actually counters it, without sounding naive"
+    ],
+    "difficultyNote": "Political analysis requiring causal argument and intellectual courage"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You are given the word 'silence.' Turn it into a 90-second speech that changes how someone thinks about communication.",
+    "tips": [
+      "Subvert the obvious interpretation immediately",
+      "Move from a concrete image to an abstract principle",
+      "Your closing line should hit hard and stay with the listener"
+    ],
+    "difficultyNote": "Elite keyword speech requiring rhetorical control and philosophical depth"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on whether human beings are fundamentally rational creatures who fail to use their rationality, or fundamentally irrational creatures who sometimes manage to reason well.",
+    "tips": [
+      "State your position precisely in the first ten seconds",
+      "Ground it in evidence or philosophical reasoning — not just intuition",
+      "Handle the strongest objection to your view before you close"
+    ],
+    "difficultyNote": "Philosophical anthropology requiring deep reasoning and intellectual precision"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What is the single most important idea from the past century that future generations must not lose?",
+    "tips": [
+      "Name the idea with conviction — no hedging",
+      "Give two reasons why this specific idea is irreplaceable",
+      "Close with what losing it would actually mean — make it visceral"
+    ],
+    "difficultyNote": "Historical philosophy requiring original, authoritative judgment"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the way we define intelligence is not just incomplete but actively limits human potential.",
+    "tips": [
+      "Open with the specific definition you're challenging",
+      "Give two precise mechanisms by which this definition causes harm",
+      "Offer a more expansive but rigorous alternative in your close"
+    ],
+    "difficultyNote": "Conceptual critique requiring philosophical precision and persuasive structure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on the paradox that the more connected we are, the lonelier we seem to be.",
+    "tips": [
+      "Don't treat this as a simple observation — treat it as a paradox that requires resolution",
+      "Name the mechanism driving the paradox with specificity",
+      "Close with a principle or shift that could break the paradox"
+    ],
+    "difficultyNote": "Social psychology argument requiring intellectual depth and emotional resonance"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What would you argue is the most undervalued currency in human relationships — more valuable than love, trust, or loyalty?",
+    "tips": [
+      "Name it immediately and with confidence",
+      "Build the case through contrast: why does it outperform the others?",
+      "Close with a specific scenario that makes your answer feel undeniable"
+    ],
+    "difficultyNote": "Relational philosophy requiring original insight and confident authority"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on whether the idea of 'the arc of history bending toward justice' is an empirical observation, a moral aspiration, or a dangerous illusion.",
+    "tips": [
+      "Classify it precisely and defend your classification",
+      "Give two specific historical examples that support and two that complicate your view",
+      "Land on a conclusion that takes a real stand"
+    ],
+    "difficultyNote": "Historical philosophy requiring multi-evidence handling and principled conclusion"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What is the most dangerous story a society can tell itself about itself?",
+    "tips": [
+      "Name the story — don't be vague",
+      "Explain why stories, not facts, are the dangerous element",
+      "Close with what a healthier narrative would look like"
+    ],
+    "difficultyNote": "Social philosophy requiring precision and intellectual courage"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the concept of 'free time' is a modern invention that has made us worse, not better, at being human.",
+    "tips": [
+      "Ground the historical claim — when did free time as a concept emerge?",
+      "Give two mechanisms by which it has degraded human experience",
+      "Offer a reframing of what free time should or could be"
+    ],
+    "difficultyNote": "Cultural history argument requiring original synthesis and structured delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You are given the word 'inheritance.' Build a 90-second speech that makes the concept feel both heavier and more urgent than your audience expected.",
+    "tips": [
+      "Choose your primary angle in the first five seconds and commit",
+      "Layer the meaning: move from literal to metaphorical to universal",
+      "Close with a line the listener will repeat to someone else"
+    ],
+    "difficultyNote": "Elite keyword speech requiring multilayer reasoning and rhetorical mastery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on what it means to live a life that will have mattered — without appealing to legacy, impact, or fame.",
+    "tips": [
+      "Reject the easy answers right away",
+      "Build from a first principle that is genuinely yours",
+      "Close with something that makes the listener feel the weight of the question"
+    ],
+    "difficultyNote": "Existential philosophy requiring depth, originality, and emotional authority"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Make the case that the concept of 'informed consent' is philosophically incoherent in most situations where we rely on it most.",
+    "tips": [
+      "Define the concept clearly before attacking it",
+      "Give two precise philosophical challenges to it",
+      "Offer a more defensible alternative framework in your close"
+    ],
+    "difficultyNote": "Applied philosophy requiring rigorous argumentation and precision under time pressure"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the rise of AI represents not a technological shift but a philosophical reckoning — and explain exactly what is being reckoned with.",
+    "tips": [
+      "Name what is actually being reckoned with, precisely",
+      "Build the argument from anthropology or epistemology — not just technology",
+      "Close with a claim about what we must decide about ourselves as a result"
+    ],
+    "difficultyNote": "Technology philosophy requiring original framing and multi-level argument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What is the most important thing that gets lost when expertise becomes credentialism?",
+    "tips": [
+      "Define the distinction between expertise and credentialism sharply",
+      "Name what specifically is lost — don't be vague",
+      "Close with a specific domain where recovering this matters most"
+    ],
+    "difficultyNote": "Institutional critique requiring conceptual precision and structural reasoning"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on whether the pursuit of certainty — in science, policy, or personal life — is a sign of wisdom or weakness.",
+    "tips": [
+      "Take a real position, not a balanced 'it depends'",
+      "Give two reasons grounded in epistemology or human psychology",
+      "Close with a principle that is actionable, not just intellectually satisfying"
+    ],
+    "difficultyNote": "Epistemological argument requiring original reasoning and confident delivery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You are given the word 'threshold.' Build a 90-second speech that uses it to illuminate something about human courage or change.",
+    "tips": [
+      "Resist the obvious metaphor — find a less expected angle",
+      "Move between concrete and abstract at least twice",
+      "Your final image or statement should be earned, not just clever"
+    ],
+    "difficultyNote": "Elite keyword speech requiring rhetorical range and philosophical depth"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What would you argue are the two most incompatible things that modern people are simultaneously trying to have — and why they cannot both be had fully?",
+    "tips": [
+      "Name both things in your first sentence",
+      "Build the incompatibility argument with precision, not just intuition",
+      "Close by suggesting what choosing between them actually requires"
+    ],
+    "difficultyNote": "Values philosophy requiring original synthesis and intellectual courage"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak on the idea that the most important form of literacy in the 21st century is not reading or writing but the ability to evaluate claims.",
+    "tips": [
+      "Define what 'evaluating claims' means precisely — not just 'critical thinking'",
+      "Give two specific ways the world now requires this more than traditional literacy",
+      "Close with what developing this literacy would actually require"
+    ],
+    "difficultyNote": "Educational philosophy requiring conceptual precision and forward-looking argument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Make the case that most moral progress in history has come not from better arguments but from shifts in whose suffering we are made to witness.",
+    "tips": [
+      "Open with a historical claim that illustrates your thesis",
+      "Give the philosophical implication of this — what does it say about moral reasoning?",
+      "Close with what this means for how we should approach moral progress today"
+    ],
+    "difficultyNote": "Moral philosophy requiring historical grounding and philosophical reach"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the concept of 'finding your purpose' is a luxury, a trap, or both — and defend your position with rigor.",
+    "tips": [
+      "Name your classification immediately and stick to it",
+      "Give two supporting arguments with at least one using a structural or systemic lens",
+      "Offer an alternative framing in your close that is more useful than 'purpose'"
+    ],
+    "difficultyNote": "Philosophical argument requiring precision, cultural critique, and intellectual authority"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What is the one assumption buried in almost every policy debate that, if challenged, would change everything?",
+    "tips": [
+      "Name the assumption with precision — not a vague claim like 'we assume growth is good'",
+      "Explain why it is so rarely challenged",
+      "Trace what would change if we questioned it seriously"
+    ],
+    "difficultyNote": "Political epistemology requiring original insight and structured delivery at elite level"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on why the future of human communication is not more clarity but more tolerance of ambiguity.",
+    "tips": [
+      "Challenge the 'more clarity' assumption from a grounded place",
+      "Give two reasons why ambiguity tolerance will become more essential",
+      "Close with a practical or philosophical implication that feels urgent"
+    ],
+    "difficultyNote": "Communication philosophy requiring sophisticated original argument"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You are given the word 'echo.' Build a 90-second speech that uses it to say something original about how we form beliefs.",
+    "tips": [
+      "Find the non-obvious angle immediately",
+      "Move from the sensory or literal to the abstract without losing the thread",
+      "Your closing statement should feel inevitable in hindsight"
+    ],
+    "difficultyNote": "Elite keyword speech requiring epistemic insight and rhetorical precision"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the greatest source of suffering in modern life is not external circumstance but the stories we require of ourselves.",
+    "tips": [
+      "Name the specific type of story you mean in your first sentence",
+      "Give two mechanisms by which these self-narratives generate suffering",
+      "Close with what releasing them would actually require — not just 'be kinder to yourself'"
+    ],
+    "difficultyNote": "Psychological philosophy requiring depth, specificity, and emotional authority"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on what the word 'enough' — as in enough success, enough money, enough recognition — reveals about modern values.",
+    "tips": [
+      "Use the absence of 'enough' as your diagnostic lens",
+      "Give two cultural or systemic mechanisms that prevent people from reaching it",
+      "Close with a challenge to the listener that is personal, not abstract"
+    ],
+    "difficultyNote": "Cultural philosophy requiring original synthesis, emotional range, and rhetorical mastery"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the way we think about privacy is hopelessly outdated given the world we actually live in — and propose a better framework.",
+    "tips": [
+      "Diagnose precisely what the old framework assumes that is no longer true",
+      "Give two ways that outdated framework causes harm today",
+      "Offer the core principle of your better framework without requiring a law degree to follow it"
+    ],
+    "difficultyNote": "Contemporary philosophy requiring original synthesis and rigorous argumentation"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on what the word 'responsibility' actually means when structures, not individuals, produce the worst outcomes.",
+    "tips": [
+      "Name the philosophical problem precisely in your opening",
+      "Give two examples where structural responsibility cannot be reduced to individual accountability",
+      "Close with a framework for assigning responsibility that survives this complexity"
+    ],
+    "difficultyNote": "Moral philosophy requiring sophisticated argument about collective vs. individual ethics"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "You are given the word 'gravity.' Build a 90-second speech that uses it to say something original about why ideas spread or fail to spread.",
+    "tips": [
+      "Commit to your metaphorical angle in the first five seconds",
+      "Move between the scientific and the social without losing coherence",
+      "Your final line should feel like a law, not just an observation"
+    ],
+    "difficultyNote": "Elite keyword speech requiring metaphorical precision and original theory"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Argue that the most consequential form of courage in the modern world is not physical bravery but epistemic courage — the willingness to believe things that are unpopular.",
+    "tips": [
+      "Define epistemic courage precisely and with examples",
+      "Give two reasons it is rarer and more consequential than other forms of courage",
+      "Address the obvious objection that this is just a license for contrarianism"
+    ],
+    "difficultyNote": "Philosophical argument requiring precision, originality, and intellectual authority"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on whether the drive to understand the universe is a peculiarly human compulsion or a universal feature of intelligence.",
+    "tips": [
+      "Take a position in the first ten seconds",
+      "Ground your argument in philosophy of mind or evolutionary reasoning, not just intuition",
+      "Close with what your answer implies about the future of intelligence — artificial or otherwise"
+    ],
+    "difficultyNote": "Philosophy of mind argument requiring original thinking and intellectual range"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "What is the deepest question that your field or domain still cannot answer — and why does the inability to answer it matter beyond that field?",
+    "tips": [
+      "Name the question without retreating into jargon",
+      "Explain why it has resisted answers so far",
+      "Close by tracing its implications beyond your domain"
+    ],
+    "difficultyNote": "Expert philosophy requiring original insight, intellectual humility, and broader synthesis"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Make the case that what we call 'common sense' is often nothing more than the accumulated biases of a particular culture at a particular time — and explain the consequences of treating it as universal truth.",
+    "tips": [
+      "Give a specific example of something widely treated as common sense that is culturally contingent",
+      "Trace the mechanism: how does the misattribution happen and persist?",
+      "Close with a principle for distinguishing genuine universal insight from cultural assumption"
+    ],
+    "difficultyNote": "Epistemological argument requiring cross-cultural reasoning and philosophical precision"
+  },
+  {
+    "mode": "impromptu",
+    "difficultyBand": "9-10",
+    "question": "Speak for 90 seconds on why the question 'what do you want?' may be the most difficult question a person can answer — and what that reveals about the human condition.",
+    "tips": [
+      "Do not answer it — diagnose why it is so hard",
+      "Give two distinct reasons rooted in psychology or philosophy",
+      "Close with what it says about how we should design our lives or institutions if this is true"
+    ],
+    "difficultyNote": "Existential psychology requiring original diagnosis and philosophical depth"
+  }
+]

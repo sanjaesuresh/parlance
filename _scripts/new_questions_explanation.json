@@ -1,0 +1,1542 @@
+[
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a refrigerator keeps food cold to someone who has never thought about how it works.",
+    "tips": [
+      "Use the analogy of sweat cooling your skin to explain how the refrigerant absorbs heat",
+      "Focus on the idea that the fridge moves heat out rather than creating cold",
+      "Keep it to one cycle: liquid absorbs heat, becomes gas, gets pumped out, cools back to liquid"
+    ],
+    "difficultyNote": "Everyday appliance, familiar audience"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend why washing your hands actually prevents you from getting sick.",
+    "tips": [
+      "Describe germs in concrete physical terms — tiny living things that cling to surfaces",
+      "Explain what soap does mechanically, not just that it 'kills germs'",
+      "End with a simple rule: twenty seconds, every time"
+    ],
+    "difficultyNote": "Familiar health concept, everyday language"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a savings account is to a twelve-year-old who just received birthday money.",
+    "tips": [
+      "Start with the concrete benefit: the bank pays you to keep money there",
+      "Use a simple percentage example to show how interest adds up",
+      "Compare it to keeping cash in a piggy bank — what's different and why it matters"
+    ],
+    "difficultyNote": "Basic finance concept, young non-expert"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Help me understand how airplanes stay in the air — explain it like I'm asking for the first time.",
+    "tips": [
+      "Start with the wing shape and how moving air creates a pressure difference",
+      "Use the image of holding your hand out a car window as an analogy for lift",
+      "Avoid equations — describe it as a physical sensation readers can imagine"
+    ],
+    "difficultyNote": "Classic curiosity question, no prior knowledge"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a map legend is and why it matters, as if you're teaching a child before a road trip.",
+    "tips": [
+      "Open with the idea that maps are a secret language — a legend is the decoder",
+      "Walk through two or three concrete symbols they'd actually see on a road map",
+      "End with a practical tip: always check the legend before trusting the map"
+    ],
+    "difficultyNote": "Simple visual concept, child audience"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how thunder and lightning are connected to someone who's always wondered which comes first.",
+    "tips": [
+      "Start with the cause: the giant spark that heats air explosively",
+      "Use the light-vs-sound speed difference to explain why we see lightning first",
+      "Give them the 'count five seconds per mile' rule so they leave with something useful"
+    ],
+    "difficultyNote": "Weather curiosity, simple physics"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what recycling actually does — where the bottles and cans go after the truck picks them up.",
+    "tips": [
+      "Trace one item (like an aluminum can) through the full recycling loop",
+      "Distinguish between what actually gets recycled versus what goes to landfill",
+      "End with one concrete action your listener can take to recycle more effectively"
+    ],
+    "difficultyNote": "Everyday civic concept, no technical background"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a thermostat knows when to turn the heat on and off.",
+    "tips": [
+      "Use the image of a thermometer that flips a switch once it reads below a set temperature",
+      "Explain that it's comparing two numbers — room temperature and your target",
+      "Keep the explanation under three steps: sense, compare, act"
+    ],
+    "difficultyNote": "Household device, simple logic"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why we need to sleep — tell me what's actually happening in my body while I rest.",
+    "tips": [
+      "Lead with the most relatable benefit: memory consolidation and focus",
+      "Mention one physical repair process that only happens during sleep",
+      "Avoid medical jargon — use phrases like 'your brain tidies itself up'"
+    ],
+    "difficultyNote": "Universal experience, lay biology audience"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a password manager is and why you would use one instead of remembering passwords.",
+    "tips": [
+      "Start with the problem: most people reuse weak passwords because they can't remember many",
+      "Describe the password manager as a locked vault with one master key",
+      "End with one reason it's safer than writing passwords down"
+    ],
+    "difficultyNote": "Practical tech tool, everyday language"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how voting works in a general election to someone who just turned eighteen.",
+    "tips": [
+      "Walk through the process step by step: registration, ballot, counting",
+      "Explain why each vote matters even in a large election — use a close-race example",
+      "Keep the tone civic and encouraging, not political"
+    ],
+    "difficultyNote": "Civic process, first-time voter audience"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why we get itchy when a mosquito bites us — what is the body actually reacting to?",
+    "tips": [
+      "Focus on the saliva the mosquito injects and why the immune system reacts to it",
+      "Use the analogy of an alarm system that triggers even for small threats",
+      "Explain why scratching feels good but makes it worse"
+    ],
+    "difficultyNote": "Familiar annoyance, body science for non-experts"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what Wi-Fi is and how your phone connects to it, to someone who thinks it's just 'invisible internet'.",
+    "tips": [
+      "Use the analogy of a radio station broadcasting a signal your phone tunes into",
+      "Explain the router as the translator between wireless and wired internet",
+      "Avoid technical terms like 'frequency band' — say 'channel' instead"
+    ],
+    "difficultyNote": "Everyday tech, no networking background"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why we have seasons to a friend who thinks it's because the Earth gets closer to the sun in summer.",
+    "tips": [
+      "Lead with gently correcting the misconception — distance isn't the reason",
+      "Use the analogy of shining a flashlight straight down vs. at an angle",
+      "Mention that when it's summer in North America, it's winter in Australia"
+    ],
+    "difficultyNote": "Common misconception, elementary science"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a calorie is to someone trying to understand a nutrition label for the first time.",
+    "tips": [
+      "Define it as a unit of energy, not a 'bad thing' in food",
+      "Use a relatable analogy — a calorie is like fuel for a car",
+      "Explain why the number on the label matters for energy balance, not morality"
+    ],
+    "difficultyNote": "Everyday nutrition term, no prior knowledge"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a library system works — why books have numbers on the spine and how you find what you need.",
+    "tips": [
+      "Introduce the Dewey Decimal System as an address for each book",
+      "Walk through finding a specific book using a subject number and author code",
+      "Compare it to how your phone organizes apps into folders"
+    ],
+    "difficultyNote": "Familiar institution, organizational logic"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain to a sibling what happens when you break a bone and how it heals.",
+    "tips": [
+      "Use the image of a crack in a wall that the body fills with new material",
+      "Explain what a cast does — it holds the pieces still so they can fuse",
+      "Keep the timeline concrete: roughly six weeks for a simple fracture"
+    ],
+    "difficultyNote": "Body biology, child-friendly language"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a news headline is and how to tell whether a story is news or opinion.",
+    "tips": [
+      "Contrast facts (what happened, when, who) with interpretation (what it means)",
+      "Give one example headline and rewrite it to show the opinion version",
+      "Mention the word 'should' or 'must' as a signal that something is opinion"
+    ],
+    "difficultyNote": "Media literacy basics, everyday reading"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a camera takes a photo — from the moment you press the button to the image you see.",
+    "tips": [
+      "Walk through three steps: light enters, sensor records it, software processes it",
+      "Compare the lens to the eye focusing on a scene",
+      "Keep it phone-camera focused — avoid film camera terms"
+    ],
+    "difficultyNote": "Everyday device, intuitive analogy"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what taxes are and why the government takes part of people's paychecks.",
+    "tips": [
+      "Start with the 'pooled resources' idea — everyone chips in for shared services",
+      "Give two or three concrete examples of what taxes fund that your listener uses",
+      "Keep tone neutral: it's a system, not a punishment"
+    ],
+    "difficultyNote": "Civic finance concept, first-time earner"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a solar panel does and how it turns sunlight into electricity for your home.",
+    "tips": [
+      "Use the analogy of a plant absorbing sunlight to make energy for itself",
+      "Explain in simple terms that the panel converts light particles into electric current",
+      "Mention what happens on a cloudy day so the listener knows the limits"
+    ],
+    "difficultyNote": "Everyday green tech, no physics background"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why food goes bad and what refrigeration does to slow that down.",
+    "tips": [
+      "Start with the tiny organisms (bacteria, mold) that break food down",
+      "Explain cold as a slow-motion button — it doesn't stop spoilage, just delays it",
+      "Give one practical tip: the coldest part of the fridge is best for meat"
+    ],
+    "difficultyNote": "Kitchen science, practical everyday knowledge"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a touchscreen knows where your finger is touching it.",
+    "tips": [
+      "Describe the invisible grid of electrical sensors beneath the glass",
+      "Explain that your finger disturbs the electrical field at a specific point",
+      "Mention why most touchscreens don't work with gloves — they need a conductor"
+    ],
+    "difficultyNote": "Everyday device, simple science"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a credit card is and how it's different from a debit card, to someone getting their first card.",
+    "tips": [
+      "Contrast the two clearly: debit uses your money, credit borrows the bank's",
+      "Explain what interest means in plain terms — borrowing has a price",
+      "Give one rule of thumb: pay the full balance each month to avoid debt"
+    ],
+    "difficultyNote": "Personal finance basics, young adult audience"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why we get goosebumps when we're cold or scared.",
+    "tips": [
+      "Explain that it's an ancient reflex — our fur-covered ancestors used it to look bigger",
+      "Describe how tiny muscles at hair follicles contract and pull hairs upright",
+      "Connect the cold response and the fear response as the same reflex triggered differently"
+    ],
+    "difficultyNote": "Body science, familiar sensation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain to a child how a book gets written — from someone's idea all the way to the shelf in a store.",
+    "tips": [
+      "Break it into stages: writing, editing, design, printing, distribution",
+      "Use a relatable analogy — a book is like a team project with many people",
+      "Keep it concrete: mention that even a short book takes months"
+    ],
+    "difficultyNote": "Publishing process, child-friendly overview"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a warranty is and why it matters when you buy an expensive appliance.",
+    "tips": [
+      "Define it as a promise from the seller to fix or replace a broken product",
+      "Explain the time limit and what it typically covers vs. excludes",
+      "Give one practical scenario where having a warranty saved someone money"
+    ],
+    "difficultyNote": "Consumer concept, first-time buyer"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how tides work — why does the ocean level rise and fall every day?",
+    "tips": [
+      "Start with the moon's gravity pulling on the water as the main cause",
+      "Explain the two-tide pattern simply: one bulge toward the moon, one on the opposite side",
+      "Mention that the sun also plays a role for big spring tides"
+    ],
+    "difficultyNote": "Nature curiosity, simple astronomy"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what an allergy is and why some people react so strongly to things that don't bother others.",
+    "tips": [
+      "Describe the immune system as a security guard that sometimes overreacts to harmless visitors",
+      "Use peanuts or pollen as a concrete example",
+      "Explain why some reactions (like hives) are mild and others (anaphylaxis) are dangerous"
+    ],
+    "difficultyNote": "Health concept, universal relatability"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a stoplight is programmed to know when to change colors.",
+    "tips": [
+      "Describe the timer-based system first — the simplest case",
+      "Mention sensor-based systems: underground loops that detect cars waiting",
+      "Keep it grounded in what your listener sees every day"
+    ],
+    "difficultyNote": "Everyday infrastructure, no engineering background"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what blood type means and why it matters for blood transfusions.",
+    "tips": [
+      "Describe blood types as different 'labels' on red blood cells",
+      "Explain what happens when the wrong type is given — the body attacks it",
+      "Mention universal donor (O-) and universal receiver (AB+) as memorable anchors"
+    ],
+    "difficultyNote": "Basic biology, relatable medical context"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how email works — from hitting send on your laptop to the message arriving in someone's inbox.",
+    "tips": [
+      "Use the analogy of a postal system with digital addresses and instant delivery",
+      "Mention servers as the post offices that hold and route messages",
+      "Explain why email can sometimes land in spam: filters are looking for suspicious patterns"
+    ],
+    "difficultyNote": "Everyday technology, no IT background"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain to a neighbor what composting is and why some people do it instead of throwing food scraps away.",
+    "tips": [
+      "Describe composting as nature's recycling — turning waste into soil",
+      "Give two or three examples of what can and can't go in a compost bin",
+      "Mention the end benefit: rich soil that helps plants grow without chemical fertilizers"
+    ],
+    "difficultyNote": "Everyday sustainability, no science background"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain how a smoke detector knows there's a fire — what's actually going on inside that little device?",
+    "tips": [
+      "Describe the ionization chamber that smoke particles disrupt to trigger the alarm",
+      "Use the analogy of a beam being broken — smoke interrupts the circuit",
+      "Mention the difference between ionization and photoelectric detectors simply"
+    ],
+    "difficultyNote": "Household safety device, simple concept"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what a mortgage is to a young person thinking about buying their first home.",
+    "tips": [
+      "Define it as a long-term loan from the bank, where the house is the collateral",
+      "Explain what monthly payments cover: principal, interest, and sometimes taxes/insurance",
+      "Use a simple number example to show how much interest adds up over 30 years"
+    ],
+    "difficultyNote": "Basic personal finance, first-time homebuyer"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain what the internet actually is — not apps or websites, but the underlying thing that connects them all.",
+    "tips": [
+      "Describe it as a global network of physical cables and wireless links connecting computers",
+      "Use the highway system analogy: data travels on invisible roads with traffic rules",
+      "Distinguish the internet (the infrastructure) from the web (sites and apps running on it)"
+    ],
+    "difficultyNote": "Everyday technology, conceptual foundation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "1-2",
+    "question": "Explain why ice floats on water instead of sinking, and why that matters for life on Earth.",
+    "tips": [
+      "Start with the surprising fact: most solids are denser than their liquid form, but not water",
+      "Explain that ice's crystal structure makes it less dense than liquid water",
+      "Connect it to lakes freezing from the top — not the bottom — which keeps fish alive"
+    ],
+    "difficultyNote": "Counterintuitive science, everyday observation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how the stock market works to someone who has heard the term but never invested a dollar.",
+    "tips": [
+      "Start with what a share actually is: a tiny slice of ownership in a company",
+      "Explain supply and demand as the engine behind price changes",
+      "Distinguish between the stock market as an investment tool and as a gambling venue"
+    ],
+    "difficultyNote": "Financial system, moderate complexity"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what DNA is and how it acts as the instruction manual for a living organism.",
+    "tips": [
+      "Use the analogy of a recipe book where each gene is a specific recipe",
+      "Explain the double helix as a twisted ladder — the rungs are the letters of the code",
+      "Mention that every cell has the full instruction book, but only reads the relevant pages"
+    ],
+    "difficultyNote": "Biology concept, structured analogy needed"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how the human digestive system works — from the moment you swallow food to waste leaving the body.",
+    "tips": [
+      "Trace the journey in order: mouth, esophagus, stomach, small intestine, large intestine",
+      "Explain what each stage does in one vivid sentence",
+      "End with why it takes 24–72 hours — digestion is slow and deliberate"
+    ],
+    "difficultyNote": "Body systems, multi-step process"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a carbon footprint is and how individual choices actually add up to affect the climate.",
+    "tips": [
+      "Define carbon footprint concretely: the total greenhouse gases your activities release",
+      "Use a specific example — flying vs. driving vs. taking a train",
+      "Acknowledge the tension: individual action matters but so does systemic change"
+    ],
+    "difficultyNote": "Environmental concept, cause-and-effect reasoning"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how a credit score is calculated and why it affects so much of your financial life.",
+    "tips": [
+      "Name the five factors (payment history, utilization, length, mix, new credit) with brief weights",
+      "Explain what a bad score costs you in practice — higher interest rates, denied loans",
+      "Give one actionable tip that improves a score within six months"
+    ],
+    "difficultyNote": "Personal finance mechanics, practical stakes"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain the difference between a democracy and an autocracy to someone studying civics for the first time.",
+    "tips": [
+      "Define each system by who holds power and how accountability works",
+      "Use two brief historical examples — one for each system",
+      "Avoid partisan framing — explain the structures, not which is 'better'"
+    ],
+    "difficultyNote": "Political structures, comparative analysis"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how antibiotics work and why taking a full course matters — even if you feel better halfway through.",
+    "tips": [
+      "Describe antibiotics as targeted tools that disrupt bacterial processes",
+      "Explain antibiotic resistance using the 'survivor' analogy — stopping early lets the toughest bacteria reproduce",
+      "Contrast bacterial infections with viral ones: antibiotics don't touch viruses"
+    ],
+    "difficultyNote": "Health decision-making, mechanism plus consequence"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what supply chain means and why a factory problem in one country can empty shelves in another.",
+    "tips": [
+      "Use a product with many parts (a car or smartphone) to show global interdependence",
+      "Explain the 'just in time' inventory model and why it's efficient but fragile",
+      "Tie it to a real disruption your audience remembers: COVID, Suez Canal, etc."
+    ],
+    "difficultyNote": "Economic systems, global cause-and-effect"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how the human immune system fights a new infection it has never seen before.",
+    "tips": [
+      "Walk through innate vs. adaptive immunity: the first responders and the specialists",
+      "Use the 'wanted poster' analogy for how T-cells learn to recognize a threat",
+      "Explain why it takes 1–2 weeks to feel better: the adaptive response takes time to scale up"
+    ],
+    "difficultyNote": "Biology system, multi-step process"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what machine learning actually means — not just the buzzword, but what the system is actually doing.",
+    "tips": [
+      "Start with the contrast to regular programming: rules vs. patterns learned from data",
+      "Use a spam filter as a concrete example of a model learning from examples",
+      "Avoid 'neural network' jargon until you've established the core concept"
+    ],
+    "difficultyNote": "Tech concept, popular but often misunderstood"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a constitution is and why it matters, to someone who has never read one.",
+    "tips": [
+      "Define it as the supreme rulebook that limits what a government can do",
+      "Explain judicial review: courts can strike down laws that violate the constitution",
+      "Use one amendment (like free speech) to show how an abstract right becomes a concrete protection"
+    ],
+    "difficultyNote": "Civic structure, abstract-to-concrete reasoning"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how renewable energy sources like wind and solar connect to the electrical grid.",
+    "tips": [
+      "Describe the grid as a giant balancing act — supply must match demand in real time",
+      "Explain the intermittency challenge: solar doesn't work at night, wind is unpredictable",
+      "Introduce battery storage and grid-scale backup as the current solutions"
+    ],
+    "difficultyNote": "Energy system, intermittency challenge"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a gene mutation is and when it's harmful, neutral, or beneficial.",
+    "tips": [
+      "Describe a mutation as a typo in the DNA instruction book",
+      "Explain that most mutations are silent — they change a letter but not the meaning",
+      "Give examples of each type: sickle cell (harmful), freckles (neutral), enhanced oxygen use in mountain populations (beneficial)"
+    ],
+    "difficultyNote": "Biology concept, spectrum of outcomes"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how streaming services like Netflix decide what to recommend to you.",
+    "tips": [
+      "Start with collaborative filtering: people who liked what you liked also liked X",
+      "Mention content-based filtering: the system also analyzes the actual content of shows",
+      "Explain why recommendations sometimes feel eerily accurate and sometimes terrible"
+    ],
+    "difficultyNote": "Familiar tech, algorithmic thinking"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what the greenhouse effect is and how human activity is amplifying it.",
+    "tips": [
+      "Describe the natural greenhouse effect as a blanket keeping Earth warm enough for life",
+      "Explain that humans are thickening the blanket by adding CO2 and methane",
+      "Use a temperature range comparison: without the effect it'd be -18°C, now we're overdoing it"
+    ],
+    "difficultyNote": "Climate mechanism, natural-to-human amplification"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how a court trial works — from the arrest to the verdict — to someone who only knows courtrooms from TV.",
+    "tips": [
+      "Walk through the stages: arrest, arraignment, discovery, trial, verdict",
+      "Explain what 'innocent until proven guilty' means in practice for the burden of proof",
+      "Correct one major TV myth: most cases never go to trial — they settle in plea deals"
+    ],
+    "difficultyNote": "Legal process, common misconceptions to address"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain the difference between a recession and a depression, and what causes an economy to enter one.",
+    "tips": [
+      "Give the technical definition (two quarters of negative GDP growth) but make it feel real",
+      "Explain the feedback loop: fear causes spending cuts, which cause more job losses",
+      "Distinguish a recession (months to a year or two) from a depression (years, deeper decline)"
+    ],
+    "difficultyNote": "Economic concept, cause-and-effect feedback loop"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a neural pathway is and how habits form in the brain.",
+    "tips": [
+      "Use the worn-path-through-grass analogy: neurons that fire together wire together",
+      "Explain the habit loop: cue, routine, reward",
+      "Explain why bad habits are hard to break: the pathway is well-worn, not erased"
+    ],
+    "difficultyNote": "Brain science, behavior change application"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what insurance is and why it makes financial sense to pay for something you hope never to use.",
+    "tips": [
+      "Use the risk-pooling concept: many people pay small amounts so one person isn't ruined",
+      "Explain the actuarial idea: premiums are priced to expected cost of claims plus profit",
+      "Address the common complaint about 'wasting money' — reframe it as buying certainty"
+    ],
+    "difficultyNote": "Financial concept, risk and pooling"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how a hurricane forms and what makes some stronger than others.",
+    "tips": [
+      "Start with warm ocean water as the fuel source",
+      "Explain the spiral structure: rising warm air, pressure drop, rotation due to Earth spinning",
+      "Use the Saffir-Simpson scale as a concrete anchor for 'how strong is strong'"
+    ],
+    "difficultyNote": "Weather system, multi-factor formation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what an algorithm is — and give a non-software example to make it concrete.",
+    "tips": [
+      "Define algorithm as a step-by-step procedure for solving a problem",
+      "Use a recipe, directions, or a morning routine as your non-tech example",
+      "Bridge back to software: computers follow algorithms the same way but billions of times faster"
+    ],
+    "difficultyNote": "CS concept, non-technical analogy required"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how a vaccine trains your immune system without giving you the actual disease.",
+    "tips": [
+      "Describe the vaccine as a harmless 'wanted poster' the immune system can practice on",
+      "Explain memory B-cells: they remember the threat and respond faster next time",
+      "Mention both traditional and mRNA approaches without getting lost in biochemistry"
+    ],
+    "difficultyNote": "Health mechanism, practical immunity explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a podcast is, how it gets made, and how it ends up on your phone.",
+    "tips": [
+      "Walk through production: recording, editing, hosting, RSS feed, directory indexing",
+      "Explain the RSS feed simply — it's a public list of episodes that apps check periodically",
+      "Mention why podcasts are free to consume but can be expensive to produce well"
+    ],
+    "difficultyNote": "Media format, production-to-listener chain"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain the concept of confirmation bias and give a real example of how it distorts thinking.",
+    "tips": [
+      "Define it as the tendency to seek and believe information that confirms what we already think",
+      "Give a vivid example: someone who believes a stock will rise only reads bullish analysis",
+      "Explain why it's not a character flaw — it's a universal cognitive shortcut with serious consequences"
+    ],
+    "difficultyNote": "Psychology concept, real-world application"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how the moon affects ocean tides — and why there are usually two high tides per day.",
+    "tips": [
+      "Start with gravitational pull as the cause — the moon stretches the ocean toward it",
+      "Explain the second bulge on the opposite side of Earth using centrifugal force or inertia",
+      "Connect the 24-hour two-tide pattern to Earth rotating under both bulges"
+    ],
+    "difficultyNote": "Astronomy-meets-physics, two-cause explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a startup is, how it differs from a small business, and what 'venture-backed' means.",
+    "tips": [
+      "Define startups by growth intent: designed to scale rapidly, not just sustain",
+      "Explain venture capital: investors bet on explosive growth in exchange for equity",
+      "Contrast with a small business: profit and stability vs. growth and exit"
+    ],
+    "difficultyNote": "Business concepts, definitional distinctions"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain how social media algorithms decide what to show in your feed.",
+    "tips": [
+      "Describe engagement signals: the more you interact, the more similar content appears",
+      "Explain the feedback loop — engagement-optimized feeds can create filter bubbles",
+      "Mention that advertisers also influence what surfaces, not just organic behavior"
+    ],
+    "difficultyNote": "Familiar tech, algorithmic incentives"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what plate tectonics is and how it explains both earthquakes and mountain ranges.",
+    "tips": [
+      "Describe Earth's crust as a cracked shell of moving pieces floating on molten rock",
+      "Explain what happens at plate boundaries: collision builds mountains, sliding causes quakes",
+      "Use the Himalayas and the San Andreas Fault as your two concrete examples"
+    ],
+    "difficultyNote": "Earth science, unified theory for multiple phenomena"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "3-4",
+    "question": "Explain what a central bank does and why interest rates are such a big deal in the economy.",
+    "tips": [
+      "Define the central bank as the bank that sets the cost of borrowing for all other banks",
+      "Explain the rate lever: high rates slow spending, low rates stimulate it",
+      "Use one concrete example: how a Fed rate hike affects your mortgage or car loan"
+    ],
+    "difficultyNote": "Macroeconomics, policy lever explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how CRISPR gene editing works to a science-curious professional who isn't a biologist.",
+    "tips": [
+      "Use the 'molecular scissors with GPS' analogy — the guide RNA finds the target, Cas9 cuts it",
+      "Distinguish between cutting-and-deleting vs. replacing a gene with new instructions",
+      "Acknowledge the ethical frontier: germline edits are heritable and that raises distinct issues"
+    ],
+    "difficultyNote": "Cutting-edge biology, dual-mechanism explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how neural networks learn — specifically, what backpropagation actually does.",
+    "tips": [
+      "Set up the forward pass first: inputs flow through layers, producing a prediction",
+      "Explain the error signal: the network measures how wrong it was and propagates that backward",
+      "Use the analogy of adjusting a recipe after tasting — small tweaks, many iterations"
+    ],
+    "difficultyNote": "ML mechanism, technical but not mathematician-level"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain the difference between IPv4 and IPv6 addresses and why the internet is transitioning between them.",
+    "tips": [
+      "Start with the address-exhaustion problem: IPv4 has ~4 billion addresses, not enough for all devices",
+      "Explain IPv6 as a much larger address space — 340 undecillion addresses",
+      "Describe why the transition is slow: backwards compatibility, legacy hardware, ISP investment"
+    ],
+    "difficultyNote": "Networking concept, depletion-driven transition"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how index funds work and why most actively managed funds fail to beat them over time.",
+    "tips": [
+      "Define an index fund as a passive mirror of a market index like the S&P 500",
+      "Introduce the efficient market hypothesis: prices already reflect all available information",
+      "Explain the fee drag: active funds charge more, and that hurdle compounds over decades"
+    ],
+    "difficultyNote": "Finance concept, evidence-based argument"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what herd immunity is, how it's calculated, and why it's not a binary on/off state.",
+    "tips": [
+      "Define the herd immunity threshold using the R0 (basic reproduction number) concept",
+      "Explain why 95% vaccination for measles vs. 60% for flu aren't arbitrary — they depend on R0",
+      "Address the nuance: immunity wanes, variants can escape it, geographic clustering matters"
+    ],
+    "difficultyNote": "Epidemiology, threshold and nuance"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how encryption works and why end-to-end encryption means even the platform can't read your messages.",
+    "tips": [
+      "Use the public key/private key concept: a public padlock anyone can close, only one key opens",
+      "Explain that end-to-end means only sender and receiver hold the keys",
+      "Address the policy tension: law enforcement access vs. mathematical impossibility"
+    ],
+    "difficultyNote": "Cryptography, policy implications"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of opportunity cost and how it applies to decisions that seem unrelated to money.",
+    "tips": [
+      "Define it as the value of the best alternative you gave up by choosing something else",
+      "Use a non-financial example: staying in a comfortable job vs. taking a risk",
+      "Explain why economists think in opportunity costs while most people think only in cash costs"
+    ],
+    "difficultyNote": "Economics concept, everyday decision application"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how mRNA vaccines work at the molecular level, in a way that a curious non-biologist can follow.",
+    "tips": [
+      "Start with the cell's protein factory: ribosomes read RNA instructions and build proteins",
+      "Explain that the vaccine delivers mRNA encoding the spike protein — a temporary instruction",
+      "Clarify that mRNA never enters the nucleus and can't alter DNA"
+    ],
+    "difficultyNote": "Biotech mechanism, common misconceptions to address"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what a derivative financial instrument is and why they can amplify both gains and losses.",
+    "tips": [
+      "Define a derivative as a contract whose value is derived from an underlying asset",
+      "Use a simple call option example: you pay for the right to buy at a fixed price",
+      "Explain leverage: a 1% move in the underlying can mean a 10% move in the derivative"
+    ],
+    "difficultyNote": "Finance instrument, leverage amplification"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what microbiome means and how the bacteria in your gut affect more than just digestion.",
+    "tips": [
+      "Describe the gut microbiome as an ecosystem of trillions of organisms with their own metabolic activity",
+      "Connect gut bacteria to immune function and the gut-brain axis",
+      "Distinguish correlation from causation — the field is exciting but still early"
+    ],
+    "difficultyNote": "Emerging biology, correlation-causation care"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of statistical significance and why p < 0.05 doesn't mean what most people think it means.",
+    "tips": [
+      "Define p-value as the probability of seeing results at least this extreme if the null hypothesis is true",
+      "Explain the common misreading: p < 0.05 doesn't mean there's a 95% chance the effect is real",
+      "Mention publication bias: significant results get published, non-significant ones don't"
+    ],
+    "difficultyNote": "Statistics, widespread misinterpretation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what a programming API is and why it matters for how apps are built today.",
+    "tips": [
+      "Use the restaurant analogy: you order from a menu (the API) without needing to know the kitchen",
+      "Explain that APIs let developers use services (maps, payments, weather) without building them",
+      "Distinguish REST APIs from GraphQL at a high level — flexibility vs. specificity"
+    ],
+    "difficultyNote": "Software concept, practical impact on development"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what cognitive dissonance is and how it shapes behavior in ways people rarely notice.",
+    "tips": [
+      "Define it as the discomfort of holding two conflicting beliefs or actions simultaneously",
+      "Give a non-obvious example: a smoker who knows the risks and still smokes rationalizes somehow",
+      "Explain the two resolution paths: change the behavior, or change the belief"
+    ],
+    "difficultyNote": "Psychology concept, behavioral implications"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how GPS determines your exact location on Earth using satellites you can't see.",
+    "tips": [
+      "Describe trilateration: three satellites each give a sphere of possible positions, the intersection is you",
+      "Explain why you need a fourth satellite for accurate altitude",
+      "Mention the atomic clock precision that makes the whole system work"
+    ],
+    "difficultyNote": "Navigation tech, multi-satellite geometry"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how supply and demand set prices in a market, including what happens when one side shifts.",
+    "tips": [
+      "Draw the mental picture of two curves crossing — the equilibrium point is the market price",
+      "Walk through a demand shock: concert tickets when a band announces reunion tour",
+      "Explain price controls and why economists often argue they create shortages or surpluses"
+    ],
+    "difficultyNote": "Economic model, dynamic shifts"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what dark matter is, why scientists believe it exists, and why it's so hard to study.",
+    "tips": [
+      "Start with the evidence: galaxies spin in ways that only make sense if there's more mass than we can see",
+      "Explain that dark matter doesn't emit, absorb, or reflect light — only gravity reveals it",
+      "Acknowledge what we don't know: we have the fingerprint but not the substance"
+    ],
+    "difficultyNote": "Cosmology, evidence-based inference"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what a patent is, what it protects, and why the patent system creates both innovation and problems.",
+    "tips": [
+      "Define a patent as a time-limited monopoly granted in exchange for public disclosure",
+      "Explain the innovation incentive: R&D investment needs protection from immediate copying",
+      "Address the problem side: patent trolls, pharmaceutical pricing, and blocking future innovation"
+    ],
+    "difficultyNote": "IP law, dual-sided argument"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how social proof influences purchasing decisions and how companies deliberately engineer it.",
+    "tips": [
+      "Define social proof: we look to others' behavior when uncertain about the right choice",
+      "Give three engineered examples: review counts, 'bestseller' labels, 'people also bought'",
+      "Mention the dark side: fake reviews, inflated ratings, and how to spot them"
+    ],
+    "difficultyNote": "Consumer psychology, deliberate design"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what containerization in software means (Docker/Kubernetes) to a product manager who works with engineers.",
+    "tips": [
+      "Use the shipping container analogy: standardized boxes that work on any ship, truck, or port",
+      "Explain that containers package code plus all its dependencies so it runs identically anywhere",
+      "Introduce Kubernetes as the orchestrator — it decides which ship carries which container"
+    ],
+    "difficultyNote": "DevOps concept, business-value translation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain the concept of network effects and why they make certain markets naturally tend toward monopoly.",
+    "tips": [
+      "Define network effects: each additional user makes the product more valuable for all existing users",
+      "Use telephone networks, social media, or marketplaces as examples",
+      "Explain the winner-takes-most dynamic: once a network is large enough, switching is prohibitively costly"
+    ],
+    "difficultyNote": "Economics/business strategy, self-reinforcing dynamics"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how a clinical drug trial works — from Phase 1 to approval — and why it takes so long.",
+    "tips": [
+      "Walk through each phase: safety in small groups, dosage in larger, efficacy vs. placebo, post-market",
+      "Explain the double-blind placebo-controlled design and why it's the gold standard",
+      "Address why 'years of testing' isn't bureaucracy — it's the minimum to find rare side effects"
+    ],
+    "difficultyNote": "Medical research process, evidence standards"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what Web3 and decentralized applications mean — what problems they're trying to solve and what the tradeoffs are.",
+    "tips": [
+      "Start with the problem: current web platforms are centralized — one company controls your data",
+      "Explain decentralization via blockchain: no single server, no single controller",
+      "Give a balanced view: decentralization solves some problems but creates others — speed, governance, UX"
+    ],
+    "difficultyNote": "Emerging tech, balanced problem-solution-tradeoff"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain how price discrimination works in practice — and why the same airline seat can cost five different prices.",
+    "tips": [
+      "Define price discrimination: charging different customers different prices for the same product",
+      "Explain the conditions required: market power and the ability to segment buyers",
+      "Use the airline revenue management model — dynamic pricing by purchase timing and demand signals"
+    ],
+    "difficultyNote": "Applied economics, pricing strategy"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what the placebo effect is, why it's physiologically real, and what it tells us about medicine.",
+    "tips": [
+      "Distinguish placebo effect from 'it's all in your head' — the physical changes are measurable",
+      "Explain expectation and conditioning as the two main mechanisms",
+      "Discuss the ethical challenge: knowing placebo works, should doctors prescribe it?"
+    ],
+    "difficultyNote": "Medical concept, mind-body reality"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "5-6",
+    "question": "Explain what loss aversion is in behavioral economics and how it leads to predictably irrational decisions.",
+    "tips": [
+      "State Kahneman and Tversky's finding: losses feel roughly twice as painful as equivalent gains feel good",
+      "Give the sunk cost fallacy as a direct consequence: we hold losing investments to avoid locking in a loss",
+      "Explain how product designers exploit this: free trials that require cancellation, not renewal"
+    ],
+    "difficultyNote": "Behavioral economics, decision bias with design implications"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the concept of regulatory capture to a policy journalist covering a financial scandal.",
+    "tips": [
+      "Define regulatory capture: the agency meant to regulate an industry starts serving the industry instead",
+      "Trace the mechanism: revolving door, industry expertise, lobbying, information asymmetry",
+      "Give a historically documented example and explain why it recurs despite awareness"
+    ],
+    "difficultyNote": "Policy mechanism, institutional dynamics"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how transformer architecture changed natural language AI — why 'attention' was the breakthrough.",
+    "tips": [
+      "Set up the prior problem: RNNs processed words sequentially, losing context over long sequences",
+      "Explain attention as the ability to weigh relationships between all words in a sequence simultaneously",
+      "Explain why parallelization on GPUs made transformers scalable in a way RNNs weren't"
+    ],
+    "difficultyNote": "ML architecture, technical informed audience"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the tragedy of the commons and why it persists even when everyone knows about it.",
+    "tips": [
+      "Use Hardin's original example: shared grazing land depleted by rational individual actors",
+      "Explain why individual rationality produces collective irrationality — the payoff structure",
+      "Discuss the three real-world solutions: privatization, regulation, and community governance (Ostrom)"
+    ],
+    "difficultyNote": "Game theory concept, solution space required"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how HTTPS secures a web connection, from the TLS handshake to encrypted data transfer.",
+    "tips": [
+      "Walk through the handshake: certificate verification, key exchange, session key agreement",
+      "Explain why asymmetric encryption is used for the handshake but symmetric for the data",
+      "Address certificate authorities: why your browser trusts a site it has never visited before"
+    ],
+    "difficultyNote": "Security protocol, multi-step technical explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what monopsony power is and how Amazon, Apple, and Walmart use it to shape their supply chains.",
+    "tips": [
+      "Define monopsony as a single dominant buyer — the market power mirror image of monopoly",
+      "Explain how buyer concentration lets platforms set non-negotiable terms for suppliers",
+      "Discuss the regulatory gap: antitrust historically targeted monopoly pricing, not monopsony extraction"
+    ],
+    "difficultyNote": "Economics power concept, platform economy application"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how the brain constructs the experience of pain — and why chronic pain persists long after tissue damage heals.",
+    "tips": [
+      "Establish pain as a brain output, not a signal received passively — the brain predicts and modulates it",
+      "Explain central sensitization: the nervous system can become hyperactivated and fire pain signals without input",
+      "Connect this to treatment: drugs that target peripheral damage won't help centrally-mediated pain"
+    ],
+    "difficultyNote": "Neuroscience, perception-vs-tissue model"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the principal-agent problem and why it explains so many institutional failures — from banking to healthcare.",
+    "tips": [
+      "Define it precisely: a principal delegates to an agent whose incentives don't perfectly align with theirs",
+      "Use three brief examples from different fields to show its universality",
+      "Explain the solutions: monitoring, incentive alignment, and reputation — and why each has limits"
+    ],
+    "difficultyNote": "Institutional economics, cross-domain application"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what it means for an AI model to 'hallucinate' and why fixing it is technically hard.",
+    "tips": [
+      "Explain that LLMs don't retrieve facts — they predict the most probable next token given context",
+      "Describe why confident-sounding wrong answers are a structural property, not a bug to patch",
+      "Discuss current mitigation approaches: retrieval augmentation, chain-of-thought, uncertainty quantification"
+    ],
+    "difficultyNote": "AI limitation, structural vs. patchable problem"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the legal doctrine of qualified immunity and why it is both defended and criticized.",
+    "tips": [
+      "Define qualified immunity: officers are shielded from civil liability unless they violated 'clearly established' law",
+      "Explain the circularity problem: precedent only gets established when someone successfully sues — but suits get dismissed without precedent",
+      "Present both the public-servant protection argument and the accountability gap critique fairly"
+    ],
+    "difficultyNote": "Legal doctrine, structural paradox"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how a hedge fund uses leverage and short selling to profit from market downturns.",
+    "tips": [
+      "Walk through a short sale mechanically: borrow shares, sell high, buy low, return shares",
+      "Explain leverage as amplification: borrowing capital multiplies both gains and losses",
+      "Address the asymmetric risk of shorting: max gain is 100% (price goes to zero), but losses are theoretically unlimited"
+    ],
+    "difficultyNote": "Finance mechanics, asymmetric risk profile"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the concept of moral hazard and how it shaped the 2008 financial crisis.",
+    "tips": [
+      "Define moral hazard: when protection from consequences changes the risk-taking behavior of the protected party",
+      "Show how the originate-to-distribute model removed mortgage originators' skin from the game",
+      "Connect 'too big to fail' implicit guarantees to the excessive leverage banks were willing to carry"
+    ],
+    "difficultyNote": "Finance/economics, incentive-to-crisis chain"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the CAP theorem to an engineering manager deciding between database architectures.",
+    "tips": [
+      "State the theorem clearly: in a distributed system, you can guarantee at most two of consistency, availability, and partition tolerance",
+      "Explain why partition tolerance isn't optional in real networks — partitions happen",
+      "Give a concrete trade-off example: a financial ledger favors consistency; a shopping cart can tolerate stale reads"
+    ],
+    "difficultyNote": "Distributed systems, architectural decision-making"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how adversarial examples fool neural networks — and what this reveals about how they 'see'.",
+    "tips": [
+      "Describe an adversarial example: a tiny imperceptible pixel change that causes a confident misclassification",
+      "Explain that neural networks classify by texture and gradient patterns, not semantic features like humans",
+      "Discuss why this matters for security-critical AI deployment: medical imaging, autonomous vehicles"
+    ],
+    "difficultyNote": "ML robustness, fundamental perception difference"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what second-order effects are and why smart people consistently fail to account for them in policy.",
+    "tips": [
+      "Define first-order effect (the intended consequence) vs. second-order (what happens because of the first change)",
+      "Use a well-documented policy example: rent control reduces homelessness (1st order), reduces housing supply (2nd order)",
+      "Explain why second-order thinking is cognitively costly and politically unrewarding"
+    ],
+    "difficultyNote": "Systems thinking, policy analysis"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain why exponential growth is so hard for humans to intuit — and how it leads to policy failures in crises.",
+    "tips": [
+      "Use the folded paper or rice-on-chessboard thought experiment to illustrate the scale",
+      "Explain the doubling time concept: exponential growth looks flat until it suddenly doesn't",
+      "Apply it to pandemic response, climate tipping points, or debt compounding as a concrete example"
+    ],
+    "difficultyNote": "Mathematical concept, human intuition failure"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the legal concept of mens rea and why intent matters so much in criminal law.",
+    "tips": [
+      "Define mens rea as the 'guilty mind' — the required mental state to be criminally liable",
+      "Walk through the spectrum: purposeful, knowing, reckless, negligent — each yields different charges",
+      "Explain the policy rationale: punishment should be calibrated to moral culpability, not just harm caused"
+    ],
+    "difficultyNote": "Criminal law concept, intent spectrum"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how the global reserve currency system works and what gives the US dollar its privileged position.",
+    "tips": [
+      "Explain what a reserve currency is: other nations hold it for trade and as a store of value",
+      "Describe the petrodollar system and US Treasury market depth as structural underpinnings",
+      "Address the 'exorbitant privilege': the US can borrow cheaply and run deficits in ways others can't"
+    ],
+    "difficultyNote": "International finance, structural advantage explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what gene expression regulation is and why having the same DNA doesn't make all your cells identical.",
+    "tips": [
+      "Establish that all cells carry the full genome, but different genes are turned on or off in each cell type",
+      "Explain transcription factors and epigenetic marks as the regulatory switches",
+      "Give the concrete example: why a liver cell and a neuron look and behave completely differently"
+    ],
+    "difficultyNote": "Cell biology, differential expression"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the efficient market hypothesis — both the strong version and its well-documented failures.",
+    "tips": [
+      "State the core claim: prices fully reflect all available information, so you can't consistently beat the market",
+      "Walk through weak, semi-strong, and strong form EMH and what each predicts",
+      "Explain documented anomalies: momentum, value premium, and behavioral explanations for why they persist"
+    ],
+    "difficultyNote": "Finance theory, claim-and-critique structure"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what Goodhart's Law means and why it undermines so many organizational performance metrics.",
+    "tips": [
+      "State the law: when a measure becomes a target, it ceases to be a good measure",
+      "Give three examples across different domains: education (teaching to the test), banking (loan quotas), healthcare (readmission rates)",
+      "Explain the structural reason it's not just cheating — people rationally optimize for what they're measured on"
+    ],
+    "difficultyNote": "Organizational theory, cross-domain failure pattern"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what a liquidity crisis is and why solvent institutions can fail because of one.",
+    "tips": [
+      "Distinguish solvency (assets exceed liabilities) from liquidity (ability to meet obligations right now)",
+      "Explain the bank run mechanism: rational fear triggers the outcome being feared",
+      "Discuss lender of last resort and how central bank backstops are designed to break the feedback loop"
+    ],
+    "difficultyNote": "Financial crisis mechanics, solvency vs. liquidity"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what constitutional originalism is, what living constitutionalism argues, and why the debate actually matters.",
+    "tips": [
+      "Define originalism: interpret the constitution by the original meaning or intent at ratification",
+      "Define living constitutionalism: the document should be interpreted in light of evolving societal values",
+      "Show with a real-world example (e.g. privacy rights in the digital age) why the interpretive method produces different outcomes"
+    ],
+    "difficultyNote": "Constitutional theory, method-determines-outcome"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain how the immune system is involved in cancer — both in fighting it and in being suppressed by it.",
+    "tips": [
+      "Explain immune surveillance: the immune system regularly identifies and destroys precancerous cells",
+      "Describe cancer's immune evasion mechanisms: downregulating surface markers, secreting suppressive signals",
+      "Connect this to immunotherapy: checkpoint inhibitors remove the brakes cancer puts on T-cells"
+    ],
+    "difficultyNote": "Oncology/immunology interface, dual-role explanation"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what monetary policy transmission is and why raising interest rates takes 12–18 months to slow inflation.",
+    "tips": [
+      "Trace the transmission chain: policy rate → bank lending rates → investment and consumption decisions",
+      "Explain the long and variable lag problem: each link in the chain takes time and has uncertain magnitude",
+      "Discuss why this creates the risk of over-tightening: policymakers are driving with a delayed speedometer"
+    ],
+    "difficultyNote": "Macroeconomics, policy-to-outcome lag"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what zero-knowledge proofs are and why they matter for privacy and blockchain applications.",
+    "tips": [
+      "Start with the cave analogy: prove you know the secret path without revealing it",
+      "Explain the core property: you prove knowledge of X without revealing X",
+      "Discuss applications: proving you're over 18 without revealing your birthday, proving a transaction is valid without revealing the amount"
+    ],
+    "difficultyNote": "Cryptography concept, privacy application"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what epigenetics is and how environmental factors can affect gene expression across generations.",
+    "tips": [
+      "Define epigenetics as heritable changes in gene expression that don't involve changes to DNA sequence",
+      "Explain methylation and histone modification as the two main mechanisms",
+      "Address the transgenerational evidence: stress and nutrition effects that appear in offspring — and the scientific controversy around this"
+    ],
+    "difficultyNote": "Genetics frontier, mechanism and controversy"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain the concept of comparative advantage and why it underpins the case for international trade even when one country is better at everything.",
+    "tips": [
+      "Use Ricardo's original two-country, two-good example — keep the arithmetic minimal",
+      "Explain that specializing in relative advantage and trading creates more total output than self-sufficiency",
+      "Address the real-world complication: comparative advantage doesn't account for distributional effects within countries"
+    ],
+    "difficultyNote": "Trade economics, counterintuitive principle"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "7-8",
+    "question": "Explain what a sovereign debt crisis is and why it's harder to resolve than a corporate bankruptcy.",
+    "tips": [
+      "Define sovereign debt: government borrowing in its own name, often in foreign currencies",
+      "Explain why there's no bankruptcy court for nations — no orderly resolution mechanism",
+      "Describe the austerity-vs-restructuring debate through the lens of Greece (2010–2015)"
+    ],
+    "difficultyNote": "International finance, institutional gap"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the measurement problem in quantum mechanics and why physicists still disagree about what it means 100 years later.",
+    "tips": [
+      "Establish the formal problem: observation collapses the wave function, but the formalism doesn't explain why or when",
+      "Walk through competing interpretations: Copenhagen, many-worlds, pilot wave — and what makes each unsatisfying",
+      "Argue that this is not merely philosophical: different interpretations may have different experimental predictions"
+    ],
+    "difficultyNote": "Foundational physics, interpretive disagreement"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what Gödel's incompleteness theorems actually say, and why they matter beyond mathematics.",
+    "tips": [
+      "State the first theorem precisely but accessibly: any sufficiently expressive formal system contains true statements it cannot prove",
+      "Explain the second theorem: such a system cannot prove its own consistency",
+      "Address the common overclaim: it doesn't say 'anything goes' or validate mysticism — explain what it actually limits"
+    ],
+    "difficultyNote": "Mathematical logic, precision against overclaiming"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of constitutional moments and how constitutional change happens outside the formal amendment process.",
+    "tips": [
+      "Introduce Ackerman's theory: transformative change happens through mobilized popular politics, ratified later by courts",
+      "Walk through three U.S. constitutional moments: founding, Reconstruction, New Deal",
+      "Argue the implications for legitimacy: the living constitution is already here — the debate is whether it's legitimate"
+    ],
+    "difficultyNote": "Constitutional theory, extra-textual legitimacy"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of emergence and why it creates genuine explanatory limits for reductionist science.",
+    "tips": [
+      "Define strong emergence: higher-level properties that cannot in principle be predicted from lower-level laws",
+      "Distinguish from weak emergence: complex patterns that are surprising in practice but not in principle irreducible",
+      "Use consciousness as the canonical hard case and wetness as the easy case — explain what makes them different"
+    ],
+    "difficultyNote": "Philosophy of science, reductionism limits"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain how large language models encode and retrieve 'knowledge' — and why retrieval is fundamentally different from human memory.",
+    "tips": [
+      "Describe knowledge as distributed activation patterns over billions of weights, not stored propositions",
+      "Explain why the model can't distinguish between 'knowing' something and 'confabulating' it confidently",
+      "Compare to human memory: episodic, semantic, and procedural are distinct systems — LLMs conflate all three"
+    ],
+    "difficultyNote": "Cognitive AI comparison, epistemic limits"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the efficient frontier means in portfolio theory and why it forces investors to confront a fundamental tradeoff.",
+    "tips": [
+      "Derive the concept from first principles: variance as risk, expected return as reward, diversification as free lunch",
+      "Explain the frontier as the set of portfolios that maximize return for a given level of risk",
+      "Address the practical limitations: covariance estimates are unstable; the frontier shifts when inputs change"
+    ],
+    "difficultyNote": "Portfolio theory, mathematical structure with estimation limits"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the Overton window is, how it shifts, and why understanding it changes how you think about political strategy.",
+    "tips": [
+      "Define the Overton window precisely: the range of policies a politician can propose without appearing extreme",
+      "Explain the asymmetric strategy: advocates on the fringe don't expect policy wins — they move the window for centrists",
+      "Apply it to a current policy debate to show it as a live strategic tool, not just a political science term"
+    ],
+    "difficultyNote": "Political strategy, non-linear influence model"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the concept of moral luck and why it poses a deep challenge to how we assign moral responsibility.",
+    "tips": [
+      "Define Nagel and Williams's formulation: morally arbitrary factors (luck) determine outcomes we judge people for",
+      "Walk through resultant, circumstantial, and constitutive luck — three distinct types",
+      "Explain the tension: eliminating luck from moral judgment leads to paralysis; ignoring it seems deeply unfair"
+    ],
+    "difficultyNote": "Moral philosophy, luck-responsibility paradox"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the replication crisis in social psychology actually revealed about scientific methodology.",
+    "tips": [
+      "Describe the core finding: landmark studies failed to replicate when pre-registered and run by independent teams",
+      "Explain the structural incentives that enabled p-hacking, HARKing, and publication bias",
+      "Argue the productive interpretation: not that science is broken, but that many findings were underpowered priors dressed as effects"
+    ],
+    "difficultyNote": "Scientific methodology, incentive-to-error chain"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the Bayesian vs. frequentist debate in statistics and why it matters for how we should interpret evidence.",
+    "tips": [
+      "Define frequentist probability: long-run frequency of events in infinite repetitions",
+      "Define Bayesian probability: degree of belief updated by evidence using Bayes' theorem",
+      "Show the practical divergence: a p-value < 0.05 doesn't tell you the probability the hypothesis is true — but a Bayesian posterior does"
+    ],
+    "difficultyNote": "Statistical philosophy, interpretation-determines-conclusion"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what systems thinking is and how feedback loops and delays make most institutional interventions fail.",
+    "tips": [
+      "Describe balancing vs. reinforcing feedback loops and how they interact in complex systems",
+      "Explain the archetype of policy resistance: interventions that produce the opposite of the intended effect",
+      "Use a canonical example — urban traffic (build more roads, get more traffic) — then generalize the principle"
+    ],
+    "difficultyNote": "Systems methodology, counterintuitive policy dynamics"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what negative liberty and positive liberty mean, and why the distinction is contested but consequential in political philosophy.",
+    "tips": [
+      "Define Berlin's negative liberty: freedom from interference — the absence of coercion",
+      "Define positive liberty: the actual capacity to act — freedom to, not just freedom from",
+      "Show why the distinction carries political weight: the same policy (say, universal healthcare) looks like liberty-expansion or liberty-restriction depending on which concept you use"
+    ],
+    "difficultyNote": "Political philosophy, conceptual consequence"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain the hard problem of consciousness and why physical explanations of neural correlates don't fully solve it.",
+    "tips": [
+      "Distinguish the easy problems (explaining neural mechanisms of attention, memory, behavior) from the hard problem",
+      "State Chalmers's challenge: even a complete neuroscience would leave open the question of why there is 'something it is like' to be conscious",
+      "Walk through the three main responses: eliminativism, illusionism, and phenomenal realism — and what each costs"
+    ],
+    "difficultyNote": "Philosophy of mind, explanatory gap"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what information-theoretic entropy is, how Shannon derived it, and why it connects thermodynamics to computation.",
+    "tips": [
+      "Define Shannon entropy as the average minimum bits needed to encode a message — uncertainty quantified",
+      "Explain Boltzmann's thermodynamic entropy as the number of microstates consistent with a macrostate",
+      "Connect them via Landauer's principle: erasing one bit of information releases a minimum amount of heat — information has a physical cost"
+    ],
+    "difficultyNote": "Information theory, physics-computation bridge"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the Drake equation is, what each term represents, and why it tells us more about our ignorance than about alien life.",
+    "tips": [
+      "Walk through each factor in order: star formation rate, fraction with planets, fraction habitable, life, intelligence, communication, lifespan",
+      "Show how uncertainty compounds: each term has orders of magnitude of uncertainty, so the final answer spans zero to millions",
+      "Frame it as a structured way to identify what we need to learn, not a formula that outputs an answer"
+    ],
+    "difficultyNote": "Astrobiology, uncertainty-compounding model"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what constitutional democracy's legitimacy problem is and how Rousseau, Locke, and Rawls each try to solve it.",
+    "tips": [
+      "State the problem: living generations are bound by constitutions they never consented to",
+      "Summarize each thinker's solution in two sentences: Locke's tacit consent, Rousseau's general will, Rawls's veil of ignorance",
+      "Argue which solution you find most persuasive and why — take a position, not a survey"
+    ],
+    "difficultyNote": "Political philosophy, comparative argument-building"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the St. Petersburg paradox reveals about expected utility theory and why it still hasn't been fully resolved.",
+    "tips": [
+      "Present the paradox: a game with infinite expected value that no rational person would pay much to play",
+      "Explain Bernoulli's diminishing marginal utility solution — and where it breaks down with modified payoffs",
+      "Introduce Prospect Theory as a behavioral alternative and its own limitations"
+    ],
+    "difficultyNote": "Decision theory, classical paradox with open resolution"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what value alignment means in AI safety research and why it is technically non-trivial even for narrow AI systems.",
+    "tips": [
+      "Define alignment: ensuring the AI's objective function captures what humans actually want, not a proxy for it",
+      "Explain reward hacking with a concrete example: a robot trained to appear to grasp objects, not to grasp them",
+      "Describe the inner alignment problem: even a correctly specified outer objective doesn't guarantee the trained model pursues it"
+    ],
+    "difficultyNote": "AI safety, specification-vs-intent gap"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the is-ought gap is in moral philosophy and why it matters for how we argue about ethics using facts.",
+    "tips": [
+      "State Hume's guillotine: you cannot derive what ought to be from what is — the logical gap between descriptive and normative claims",
+      "Give an example where the gap is obscured: 'humans evolved to be tribal, therefore tribalism is natural, therefore it's acceptable'",
+      "Explain why the gap doesn't make ethics arbitrary — but it does mean facts alone can never settle moral disputes"
+    ],
+    "difficultyNote": "Metaethics, fact-value distinction"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain what the principal-agent problem becomes at the societal level — and how it shapes democracy, markets, and media simultaneously.",
+    "tips": [
+      "Start from the individual-level definition, then scale up: voters as principals, politicians as agents; shareholders as principals, executives as agents",
+      "Explain why the problem is harder at scale: diffuse principals can't monitor effectively, and agents have concentrated resources to resist accountability",
+      "Connect the three domains: how political, corporate, and media principal-agent failures interact and amplify each other"
+    ],
+    "difficultyNote": "Institutional theory, cross-system synthesis"
+  },
+  {
+    "mode": "explanation",
+    "difficultyBand": "9-10",
+    "question": "Explain how the concept of free energy minimization in Karl Friston's predictive processing framework attempts to unify perception, action, and learning under a single principle.",
+    "tips": [
+      "Establish the core claim: the brain is a prediction machine that minimizes surprise (free energy) by updating models or acting to confirm predictions",
+      "Explain active inference: the brain doesn't just perceive — it acts to make its predictions come true",
+      "Honestly address the framework's critics: its scope may make it unfalsifiable, and the quantitative claims have outrun the empirical support"
+    ],
+    "difficultyNote": "Computational neuroscience, grand unifying theory"
+  }
+]

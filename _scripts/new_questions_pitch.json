@@ -1,0 +1,1586 @@
+[
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You're at a neighborhood block party and a neighbor asks what you do for work. Pitch your business in under a minute.",
+    "tips": [
+      "Use plain, everyday language — no jargon",
+      "Lead with what you do for people, not your job title",
+      "Gauge their reaction and invite a follow-up question"
+    ],
+    "difficultyNote": "Casual social elevator pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "A friend wants to know why they should use your app instead of just doing it the old-fashioned way. Give them a quick, friendly pitch.",
+    "tips": [
+      "Acknowledge the old way has merit — then show what's better",
+      "Use a concrete before-and-after example",
+      "Keep the tone conversational, not salesy"
+    ],
+    "difficultyNote": "Simple product-vs-habit comparison"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a physical product you use every day as if you're recommending it to a close friend who has never heard of it.",
+    "tips": [
+      "Start with a relatable problem the product solved for you",
+      "Give one specific, memorable detail about how it works",
+      "Close with why your friend in particular would love it"
+    ],
+    "difficultyNote": "Word-of-mouth style product recommendation"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You have 30 seconds at the end of a local networking event to introduce your business to the whole room. What do you say?",
+    "tips": [
+      "Open with the customer problem, not your company name",
+      "State your solution in one crisp sentence",
+      "End with a memorable hook or question that sticks"
+    ],
+    "difficultyNote": "Room-wide micro-pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Your ten-year-old nephew asks what your startup does. Explain it in a way that would make him genuinely excited.",
+    "tips": [
+      "Use an analogy to something kids already understand",
+      "Focus on the coolest or most interesting part of the product",
+      "Make the impact vivid — 'it helps people do X without Y'"
+    ],
+    "difficultyNote": "Simplify-for-a-child pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You are selling handmade candles at a farmers' market. A shopper pauses at your table. Give them a 30-second pitch.",
+    "tips": [
+      "Engage with something sensory — the scent, the look, the feel",
+      "Tell a brief story about how the product was made",
+      "Create a low-friction call to action: 'Want to smell this one?'"
+    ],
+    "difficultyNote": "In-person retail mini-pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "A coworker is curious about the side project you've been building. Give them a one-minute overview of what it is and why you're excited.",
+    "tips": [
+      "Share the origin story — what made you start it",
+      "Be specific about who it helps and how",
+      "Let your genuine enthusiasm come through naturally"
+    ],
+    "difficultyNote": "Informal peer pitch with personal backstory"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your service to someone who has never paid for anything like it before — they always DIY. Convince them the cost is worth it.",
+    "tips": [
+      "Quantify the time or effort the DIY approach really takes",
+      "Frame your price as an investment, not an expense",
+      "Offer a low-risk first step — a trial, a free session, a sample"
+    ],
+    "difficultyNote": "Value-vs-DIY pitch for the price-averse"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You are a freelance designer and a small business owner asks why they should hire you instead of a cheap template site. Pitch your value.",
+    "tips": [
+      "Lead with business outcomes, not design aesthetics",
+      "Give one example of a result a past client achieved",
+      "Differentiate on the experience and customization you provide"
+    ],
+    "difficultyNote": "Freelancer pitching against low-cost alternatives"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a donation to a local charity you care about to a stranger at a community event. Keep it under 60 seconds.",
+    "tips": [
+      "Open with a single compelling human story",
+      "State clearly where the donation goes",
+      "Make the ask specific: 'Even $20 does X'"
+    ],
+    "difficultyNote": "Non-profit cause pitch to a stranger"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You have a new mobile app. A stranger on a train glances at your phone screen. Pitch it to them before your stop.",
+    "tips": [
+      "Hook them with what the app does in one sentence",
+      "Show or describe the most impressive feature immediately",
+      "End with how they can download or try it right now"
+    ],
+    "difficultyNote": "Opportunistic on-the-spot app pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Describe what your company does on a LinkedIn post in 60 seconds of spoken words, as if recording a short video.",
+    "tips": [
+      "Start with the audience's pain point, not your credentials",
+      "Be conversational — speak like a person, not a press release",
+      "Close with a clear action: follow, visit, reach out"
+    ],
+    "difficultyNote": "Social media spoken-pitch format"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a gym membership to a friend who says they 'just don't have time to work out.'",
+    "tips": [
+      "Validate the time concern before reframing it",
+      "Offer a concrete, realistic schedule: '20 minutes, three times a week'",
+      "Tie the benefit to something they already care about — energy, confidence, health"
+    ],
+    "difficultyNote": "Lifestyle product pitch with a time objection"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You've been asked to introduce a new software tool to your small team. Give a brief pitch on why it will make their work easier.",
+    "tips": [
+      "Describe the specific pain point it eliminates",
+      "Give a quick demo or vivid description of the key workflow",
+      "Address the learning curve honestly and minimise it"
+    ],
+    "difficultyNote": "Internal product adoption pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your consulting services to a small business owner you've just met at a coffee shop.",
+    "tips": [
+      "Ask one quick question to find their biggest business headache",
+      "Position your service as the direct solution to that headache",
+      "Suggest a low-commitment next step: a free 30-minute call"
+    ],
+    "difficultyNote": "Cold conversation consulting pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "A potential customer tells you they've never heard of your brand. Give them a quick, confident introduction that builds trust.",
+    "tips": [
+      "Lead with your category and what you do best in it",
+      "Drop a brief credibility signal — customers, years, or results",
+      "Invite curiosity: 'Want to hear how it works?'"
+    ],
+    "difficultyNote": "Zero-awareness brand introduction"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your product to an older relative who is skeptical of new technology. Make it feel simple and trustworthy.",
+    "tips": [
+      "Avoid technical terms entirely — use familiar comparisons",
+      "Emphasise safety, ease, and support",
+      "Relate the benefit to something they already enjoy doing"
+    ],
+    "difficultyNote": "Tech product pitch for a non-tech audience"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You run an online course. A stranger at a conference asks what it teaches. Give them a compelling 45-second pitch.",
+    "tips": [
+      "State the transformation the student gets, not the curriculum",
+      "Mention a specific outcome a past student achieved",
+      "End with how they can sign up or learn more right now"
+    ],
+    "difficultyNote": "Education product pitch with outcomes focus"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your food product to a grocery store buyer who has 60 seconds between meetings.",
+    "tips": [
+      "Lead with the shelf gap your product fills",
+      "State the product's best-selling point in one punchy line",
+      "Offer to send samples — make the next step easy"
+    ],
+    "difficultyNote": "FMCG retail buyer cold pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Give a 45-second pitch for a non-profit app that connects volunteers with local food banks.",
+    "tips": [
+      "Lead with the community problem the app solves",
+      "Make the user action feel simple and meaningful",
+      "Close with a direct call to download or share"
+    ],
+    "difficultyNote": "Social-impact app pitch for a general audience"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You sell eco-friendly cleaning products. Pitch them to a shopper standing in the cleaning aisle of a supermarket.",
+    "tips": [
+      "Lead with what they're currently buying and why your product is better",
+      "Make the environmental benefit feel personal, not preachy",
+      "Give them one quick reason to switch today — price, performance, or safety"
+    ],
+    "difficultyNote": "Point-of-sale competitive switch pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Your startup doesn't have a name yet. Pitch the idea — not the brand — to a curious friend in under a minute.",
+    "tips": [
+      "Focus entirely on the problem and the solution",
+      "Paint a picture of the world after the problem is solved",
+      "A name is optional; clarity is not"
+    ],
+    "difficultyNote": "Idea-stage pre-brand pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a personal fitness coaching service to someone who says they've tried everything and nothing sticks.",
+    "tips": [
+      "Acknowledge their frustration genuinely before pitching",
+      "Identify what was different — or missing — in past attempts",
+      "Position your service as accountability and personalization, not another program"
+    ],
+    "difficultyNote": "Empathy-first pitch for a burned prospect"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You make handcrafted jewelry. A boutique shop owner wanders by your market stall. Pitch your pieces for wholesale in 60 seconds.",
+    "tips": [
+      "Lead with what makes your work unique and giftable",
+      "Mention price point and margin potential right away for a buyer",
+      "Offer a small consignment trial to lower their risk"
+    ],
+    "difficultyNote": "Wholesale B2B pitch for a small maker"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your tutoring service to a parent who is worried their child is falling behind in math.",
+    "tips": [
+      "Lead with the parent's concern, not your credentials",
+      "Describe your teaching approach in simple, concrete terms",
+      "Offer a first session free or a clear satisfaction promise"
+    ],
+    "difficultyNote": "High-emotion parental concern pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a team productivity SaaS tool to a manager at a small startup who has two minutes between back-to-back meetings.",
+    "tips": [
+      "Name the specific pain point first: scattered tasks, missed deadlines, etc.",
+      "Show the fastest path to value: 'set up in 10 minutes, running in a day'",
+      "End with a calendar link or direct next step"
+    ],
+    "difficultyNote": "Time-constrained SaaS pitch to a busy manager"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a pet grooming service to a dog owner you've just met at a dog park.",
+    "tips": [
+      "Use the moment — comment on the dog before pitching",
+      "Emphasise convenience and the dog's comfort",
+      "Make the booking process sound effortless"
+    ],
+    "difficultyNote": "Context-aware in-the-moment pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You have a new podcast about personal finance. Pitch it to a colleague who says they're terrible with money.",
+    "tips": [
+      "Lead with the listener's problem, not the show format",
+      "Give one specific episode they should start with and why",
+      "Make subscribing feel like a tiny, easy first step"
+    ],
+    "difficultyNote": "Content product pitch to a reluctant beginner"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your cloud storage product to someone who still saves everything on a USB drive.",
+    "tips": [
+      "Start with a fear they already have — losing the USB drive",
+      "Make the cloud concept feel familiar, not technical",
+      "Highlight the free tier to eliminate the price barrier"
+    ],
+    "difficultyNote": "Habit-change pitch for a technology skeptic"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Give a 60-second pitch for a home meal-kit delivery service to someone who says they love cooking but hate grocery shopping.",
+    "tips": [
+      "Validate their love of cooking immediately",
+      "Position the service as saving the boring part, not replacing the fun part",
+      "Mention variety, freshness, and a first-box discount"
+    ],
+    "difficultyNote": "Lifestyle service pitch aligned to a stated interest"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "A local coffee shop owner asks what your point-of-sale software does. Give them a simple, jargon-free pitch.",
+    "tips": [
+      "Open with what the software removes from their daily stress",
+      "Use retail or hospitality language, not tech language",
+      "Walk them through a typical day made easier"
+    ],
+    "difficultyNote": "SMB software pitch with zero tech jargon"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You're pitching a new board game to a family at a toy fair. You have 60 seconds before they move on.",
+    "tips": [
+      "Hook them with who it's for and how long it takes",
+      "Describe the most fun moment in the game in one vivid sentence",
+      "Invite them to pick it up and feel the components"
+    ],
+    "difficultyNote": "Consumer product demo pitch at a fair"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a language learning app to a traveler you meet in an airport who is nervous about an upcoming trip abroad.",
+    "tips": [
+      "Tap into the specific anxiety — not being understood — before offering the solution",
+      "Highlight the 10-minute daily habit, not the full curriculum",
+      "Mention offline mode since they'll be traveling"
+    ],
+    "difficultyNote": "Needs-based opportunistic app pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You sell premium coffee subscriptions. Pitch your box to a coworker who buys cheap grocery-store coffee every week.",
+    "tips": [
+      "Start with what they're missing — freshness, flavor, story",
+      "Break the price down to a per-cup comparison",
+      "Offer a one-bag sample or a money-back guarantee"
+    ],
+    "difficultyNote": "Premiumisation pitch with price framing"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Your company builds websites for local businesses. Pitch your services to a restaurant owner who still takes orders by phone.",
+    "tips": [
+      "Open with what they're losing by not having an online presence",
+      "Keep technical concepts out — focus on more customers, less phone tag",
+      "Describe a simple package with a clear price and timeline"
+    ],
+    "difficultyNote": "Local business digital services pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a productivity journal to a colleague who says they feel overwhelmed and disorganized every day.",
+    "tips": [
+      "Validate the overwhelm first — make them feel understood",
+      "Describe the daily ritual in concrete, approachable terms",
+      "Lead with the outcome: 'After one week, people say their mornings feel different'"
+    ],
+    "difficultyNote": "Empathy-led consumer product pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You've built a local event discovery app. Pitch it to a new resident who doesn't know anyone in the city yet.",
+    "tips": [
+      "Lead with the emotional pain: being new and not knowing where to go",
+      "Show the fastest path to finding something fun this weekend",
+      "Highlight the social discovery angle — meeting people, not just attending events"
+    ],
+    "difficultyNote": "Lifestyle app pitch to an emotionally receptive prospect"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You sell ergonomic office chairs. Pitch one to a remote worker who mentions their back has been hurting.",
+    "tips": [
+      "Anchor on their pain — literally — before mentioning the product",
+      "Describe what good posture support actually feels like over an 8-hour day",
+      "Justify the investment: cheaper than physiotherapy, lasts years"
+    ],
+    "difficultyNote": "Pain-point-first product pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch your home cleaning service to a busy professional who says they 'should really find someone' but haven't acted.",
+    "tips": [
+      "Remove friction from the decision: 'We handle everything, you just unlock the door'",
+      "Paint the picture of coming home to a clean space on a Friday night",
+      "Offer a first-clean discount to get them to try it once"
+    ],
+    "difficultyNote": "Low-urgency prospect activation pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "Pitch a children's educational toy to a parent browsing in a toy store. Make it stand out from the shelf.",
+    "tips": [
+      "Lead with the skill or developmental benefit, not the toy's features",
+      "Show how it grows with the child — replay value matters to parents",
+      "Keep it under three key points so the parent stays engaged"
+    ],
+    "difficultyNote": "Retail floor product pitch to a parent"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "1-2",
+    "question": "You're volunteering for a local political campaign. Pitch a neighbor on why they should vote for your candidate.",
+    "tips": [
+      "Lead with an issue the neighbor cares about, not the candidate's bio",
+      "Keep your argument to one or two clear local impacts",
+      "Close with a concrete ask: 'Will you come to the town hall on Thursday?'"
+    ],
+    "difficultyNote": "Values-based persuasion pitch to a neighbor"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're on a 15-minute introductory call with a mid-market SaaS company. Pitch your HR analytics tool and open the door to a discovery meeting.",
+    "tips": [
+      "Use the first two minutes to confirm their pain point before pitching",
+      "Highlight one metric your tool has moved for a similar company",
+      "Close with a specific ask: 'Can we set 45 minutes next week for a demo?'"
+    ],
+    "difficultyNote": "Warm outbound intro call with a discovery close"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "A prospect says: 'Your pricing is higher than your competitor.' Handle the objection and keep the deal moving.",
+    "tips": [
+      "Acknowledge the comparison before reframing value",
+      "Break down the total cost of ownership, not just the sticker price",
+      "Ask: 'What would need to be true for the value to justify the price?'"
+    ],
+    "difficultyNote": "Price objection reframe in a live deal"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a B2B logistics software to a supply chain manager who wasn't expecting your call. Get them to agree to a demo.",
+    "tips": [
+      "Open with a specific, relevant problem — not a generic intro",
+      "Earn permission to continue: 'Is that something you're dealing with right now?'",
+      "Make the demo low-commitment: '20 minutes, no prep needed from your side'"
+    ],
+    "difficultyNote": "Cold outbound call with a demo close"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your content marketing agency to a startup founder who has never outsourced content before.",
+    "tips": [
+      "Validate their hesitation about handing over brand voice",
+      "Explain your onboarding process for capturing voice and tone",
+      "Lead with pipeline outcomes: 'Clients see X new leads from organic in 90 days'"
+    ],
+    "difficultyNote": "Agency pitch to a first-time buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're at a trade show and a prospect at your booth says, 'I already use a tool like this.' Differentiate and keep them engaged.",
+    "tips": [
+      "Ask which tool — then tailor your differentiation to their specific situation",
+      "Avoid attacking the competitor; focus on what you uniquely do",
+      "Find one gap in their current solution and build your pitch around it"
+    ],
+    "difficultyNote": "Live booth competitive differentiation pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your recruiting software to an HR director who is manually tracking candidates in spreadsheets.",
+    "tips": [
+      "Make the status quo feel painful: calculate how many hours a week they're spending",
+      "Show the transition is low-risk: 'We migrate your spreadsheet data for you'",
+      "Lead with time-to-hire improvement, not feature lists"
+    ],
+    "difficultyNote": "Process-automation pitch to a non-technical buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You are following up on an email a prospect never replied to. Leave them a voicemail that earns a callback.",
+    "tips": [
+      "Open with your name, company, and relevance in the first ten seconds",
+      "Deliver one specific insight or trigger relevant to them — not a generic follow-up",
+      "Give your number clearly and suggest a narrow time window: 'Tomorrow between 2 and 4'"
+    ],
+    "difficultyNote": "Follow-up voicemail pitch for re-engagement"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your cybersecurity audit service to the IT manager of a mid-sized firm that has never had an audit.",
+    "tips": [
+      "Lead with risk: what one breach could cost them in downtime and reputation",
+      "Make the service feel approachable — 'We don't disrupt your operations'",
+      "Use a recent industry breach as a timely, relevant hook"
+    ],
+    "difficultyNote": "Risk-led B2B service pitch to a skeptical buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "A potential reseller partner asks why they should add your product to their portfolio. Pitch the channel opportunity.",
+    "tips": [
+      "Lead with margin and deal economics, not product features",
+      "Describe the co-selling support and marketing materials you provide",
+      "Make the onboarding timeline feel realistic and fast"
+    ],
+    "difficultyNote": "Channel partner recruitment pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching an annual contract renewal to a customer who is on the fence about continuing. Keep the account.",
+    "tips": [
+      "Start by reviewing what they've gained in the past year — use their own data",
+      "Acknowledge any friction or disappointment before defending your product",
+      "Offer a concrete reason to renew now: an upgrade, a discount, a new feature"
+    ],
+    "difficultyNote": "Renewal pitch for a wavering account"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your e-commerce returns management software to an online retailer losing money on return shipping.",
+    "tips": [
+      "Quantify the bleed before you offer the solution — 'You're losing X per return'",
+      "Show the ROI in terms of reduced shipping cost and recovered revenue",
+      "Reference a retailer of similar size that solved this with your product"
+    ],
+    "difficultyNote": "ROI-first pitch to a cost-conscious buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'We're going to wait until next quarter to make a decision.'",
+    "tips": [
+      "Understand what 'waiting' costs them — quantify the delay in concrete terms",
+      "Ask what would need to change in the next quarter for them to feel ready",
+      "Offer a phased start or a small pilot that doesn't require a full commitment now"
+    ],
+    "difficultyNote": "Timeline delay objection — urgency creation"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a payroll automation tool to a CFO at a 50-person company who handles payroll manually. Make your case.",
+    "tips": [
+      "Calculate the cost of manual payroll hours multiplied by their team size",
+      "Address compliance risk — errors and penalties CFOs fear",
+      "Show a two-minute path to setup: 'Import your employee list and you're running'"
+    ],
+    "difficultyNote": "CFO-targeted operational efficiency pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your social media management tool to a marketing manager at a retail brand with five social channels to manage.",
+    "tips": [
+      "Open with the chaos of managing five channels manually — scheduling, switching, reporting",
+      "Demo the unified inbox and publishing calendar in words",
+      "Make the ROI clear: 'Your team saves X hours a week'"
+    ],
+    "difficultyNote": "Multi-channel SaaS pitch to a time-stressed marketer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "A prospect says: 'Your product looks great but our team won't have time to learn it.' Handle this and close for a next step.",
+    "tips": [
+      "Normalize the concern — implementation drag is real and you understand it",
+      "Describe your onboarding: 'Most teams are up and running in 3 days'",
+      "Offer to run an onboarding session for their team yourself"
+    ],
+    "difficultyNote": "Change management objection with onboarding reframe"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your online accounting software to a freelancer who still sends PDF invoices and tracks income in a notebook.",
+    "tips": [
+      "Start with tax season stress — they've probably been there",
+      "Show the simplest workflow: photo a receipt, invoice in two clicks",
+      "Offer a free tier or trial to lower the commitment threshold"
+    ],
+    "difficultyNote": "Freelancer financial tool pitch with low barrier to entry"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a hospitality booking platform to a boutique hotel owner who still manages reservations by email.",
+    "tips": [
+      "Paint the picture of a double-booked room and the review it generates",
+      "Show the platform's calendar as the solution to chaos",
+      "Mention the direct booking feature to reduce OTA commission fees — this one gets attention"
+    ],
+    "difficultyNote": "Hospitality operations pitch with competitor fee angle"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You've been referred to a VP of Sales at a SaaS company. Give a confident, referral-leveraged opening pitch.",
+    "tips": [
+      "Open by naming the referrer and the specific context of their recommendation",
+      "Tailor your pitch to the referrer's intelligence about the VP's pain points",
+      "Move quickly to a question: 'I understand you're trying to reduce ramp time — is that still top of mind?'"
+    ],
+    "difficultyNote": "Warm referral intro pitch to a sales leader"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a three-month coaching program to a professional who is skeptical that coaching 'actually works.'",
+    "tips": [
+      "Acknowledge the skepticism — bad coaching exists",
+      "Lead with a specific, credible outcome from a past client",
+      "Offer a discovery session as proof before they commit"
+    ],
+    "difficultyNote": "Service credibility pitch to a skeptical prospect"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're on a demo call and the prospect's attention is drifting. Re-engage them with a pivot in your pitch.",
+    "tips": [
+      "Stop demoing features and ask a direct question: 'Is this mapping to what you're dealing with?'",
+      "Shift to their world — use their company name and a specific scenario",
+      "Cut to the most relevant screen or feature for their stated problem"
+    ],
+    "difficultyNote": "Mid-demo re-engagement and pivot"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a vendor management platform to a procurement manager who has 40 suppliers managed across spreadsheets.",
+    "tips": [
+      "Open with the risk: one missed contract renewal can cost thousands",
+      "Show the consolidation benefit: one place for contracts, contacts, and spend",
+      "Quantify time saved on audit preparation"
+    ],
+    "difficultyNote": "Procurement SaaS pitch with operational risk angle"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "A prospect says: 'We just signed a two-year contract with a competitor.' Respond with a pitch that plants a seed for the future.",
+    "tips": [
+      "Respect the existing commitment — pushing is counterproductive",
+      "Ask what they wish the competitor did better — gather intelligence",
+      "Position yourself for the renewal conversation: 'Let's stay in touch — here's what's coming from us'"
+    ],
+    "difficultyNote": "Long-cycle deal preservation pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your legal document automation tool to a law firm partner who spends hours on routine contract drafting.",
+    "tips": [
+      "Open with billable hours lost to non-strategic work — partners feel this acutely",
+      "Reassure them that automation handles the routine, not the judgment",
+      "Show the accuracy and compliance built into your templates"
+    ],
+    "difficultyNote": "Professional services automation pitch to a traditionalist"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a data visualization tool to a marketing analyst who currently builds reports in Excel. Sell the upgrade.",
+    "tips": [
+      "Don't insult Excel — acknowledge it's powerful",
+      "Show what takes 2 hours in Excel taking 5 minutes in your tool",
+      "Emphasize the live dashboard: 'Your boss can check it anytime, no deck required'"
+    ],
+    "difficultyNote": "Workflow upgrade pitch from a familiar tool"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a professional development platform to an L&D manager at a 200-person company looking to reduce employee turnover.",
+    "tips": [
+      "Link learning investment to retention stats — 94% of employees stay longer when employers invest in development",
+      "Show the manager how easy it is to track completion and ROI",
+      "Offer to run a free department pilot"
+    ],
+    "difficultyNote": "HR platform pitch linked to a strategic retention goal"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a subscription wellness app to a benefits manager at a 300-person company for their employee benefits package.",
+    "tips": [
+      "Speak the language of benefits: utilization rates, employee satisfaction scores",
+      "Position it alongside, not against, their existing EAP",
+      "Show the cost-per-employee math against the cost of absenteeism"
+    ],
+    "difficultyNote": "B2B wellness benefits pitch to an HR buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your AI writing assistant to a marketing director who worries AI will produce generic, off-brand content.",
+    "tips": [
+      "Validate the concern — generic AI content is a real problem",
+      "Show the brand voice training and style guide features",
+      "Position AI as an accelerator for their writers, not a replacement"
+    ],
+    "difficultyNote": "AI tool pitch to a brand-protective buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You've sent three emails to a dream-account prospect with no response. You've got them live on the phone for 60 seconds. What do you say?",
+    "tips": [
+      "Acknowledge the unreturned emails with light humor, not defensiveness",
+      "Deliver a single-sentence hook that earns 60 more seconds of attention",
+      "Ask one yes-or-no question to qualify before going deeper"
+    ],
+    "difficultyNote": "Persistence close — turning a no-reply into a conversation"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your event planning software to a corporate event manager who uses a combination of email, Slack, and Post-it notes to coordinate.",
+    "tips": [
+      "Use the chaos they already know — the missed vendor confirmation, the last-minute panic",
+      "Show the event timeline view as the antidote to scattered coordination",
+      "Offer a free setup for their next event to prove it works"
+    ],
+    "difficultyNote": "Coordination chaos pitch — unifying fragmented tools"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Handle the objection: 'We're a small team and we don't have the bandwidth to implement something new right now.'",
+    "tips": [
+      "Acknowledge that implementation time is a real cost — don't minimize it",
+      "Quantify the time saved once it's running versus the time to set it up",
+      "Offer a concierge setup: 'We do the heavy lifting — you just approve'"
+    ],
+    "difficultyNote": "Bandwidth objection — implementation cost vs. ongoing savings"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your brand photography services to an e-commerce founder whose product photos are taken on a phone.",
+    "tips": [
+      "Show the conversion impact of professional photography in e-commerce — it's measurable",
+      "Describe a shoot day in clear, reassuring terms so it doesn't feel overwhelming",
+      "Offer a starter package at a lower price point to get them started"
+    ],
+    "difficultyNote": "Creative services pitch with measurable ROI framing"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a customer feedback platform to a product manager whose team currently reads NPS comments manually.",
+    "tips": [
+      "Quantify the signal lost when feedback is read manually and inconsistently",
+      "Show the theme clustering feature — patterns they're missing right now",
+      "Connect better feedback loops to faster product decisions"
+    ],
+    "difficultyNote": "Product analytics pitch to a PM audience"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch your corporate catering service to an office manager planning a company all-hands lunch for 80 people.",
+    "tips": [
+      "Lead with reliability and dietary accommodation — these are the two big anxieties",
+      "Make ordering and setup sound effortless: 'You tell us the head count, we handle everything'",
+      "Mention past clients of similar size to build confidence"
+    ],
+    "difficultyNote": "Service reliability pitch for a high-stakes internal event"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "You're pitching a sales training program to a VP of Sales who says their team just needs more product knowledge, not sales training.",
+    "tips": [
+      "Ask whether product knowledge or sales skill gaps are causing losses — often it's both",
+      "Show how your program integrates product messaging with selling technique",
+      "Offer a one-session pilot with their team as a proof point"
+    ],
+    "difficultyNote": "Needs reframing pitch — expanding the buyer's problem definition"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "3-4",
+    "question": "Pitch a remote team management platform to an operations director at a fully distributed company struggling with visibility.",
+    "tips": [
+      "Name the specific visibility problem: who's working on what, when, and why it slipped",
+      "Show how managers gain clarity without micromanaging",
+      "Position as a culture tool, not a surveillance tool — framing matters enormously here"
+    ],
+    "difficultyNote": "Remote-work visibility pitch with culture sensitivity"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're 20 minutes into a product demo with a mid-market logistics company. The champion tells you the CFO just joined the call. Adjust your pitch for a financial audience in real time.",
+    "tips": [
+      "Shift immediately from features to financial outcomes: ROI, cost reduction, risk mitigation",
+      "Acknowledge the CFO directly and ask one diagnostic question to calibrate",
+      "Layer in numbers you've already discussed — make them feel like they've missed something compelling"
+    ],
+    "difficultyNote": "Real-time audience shift — demo to CFO pivot"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your SaaS product against a well-known incumbent without mentioning the competitor by name.",
+    "tips": [
+      "Position against 'legacy solutions' or 'the old way' rather than naming a brand",
+      "Lead with the generational gap: what the incumbent was built for vs. what companies need today",
+      "Let your architecture, speed, and support do the differentiation work"
+    ],
+    "difficultyNote": "Competitive displacement pitch without direct name-dropping"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching a strategic account expansion to an existing customer. They're happy with one product line — pitch the platform.",
+    "tips": [
+      "Start with what they've achieved — it earns the right to go bigger",
+      "Describe the compounding value of having everything in one platform",
+      "Make the commercial model easy: 'You're already paying for the infrastructure'"
+    ],
+    "difficultyNote": "Land-and-expand upsell pitch to a satisfied customer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your Series A startup to an angel investor at a dinner party who hasn't heard of your company.",
+    "tips": [
+      "Open with the market insight, not the product — show you see something others don't",
+      "Move from insight to traction in under 90 seconds",
+      "Close with a specific ask or next step: 'Are you doing anything in this space right now?'"
+    ],
+    "difficultyNote": "Informal investor pitch at a social event"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Handle this enterprise objection: 'We need a vendor who has been in business for at least 10 years for security reasons.'",
+    "tips": [
+      "Don't apologize for being young — reframe it as an advantage",
+      "Lead with your security certifications, compliance posture, and enterprise clients already on board",
+      "Counter the longevity argument: 'Legacy vendors are often the biggest security risk'"
+    ],
+    "difficultyNote": "Startup credibility objection in enterprise sales"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching a 12-month digital transformation engagement to a COO who has seen three failed implementations at past companies.",
+    "tips": [
+      "Lead with what makes implementations fail — then show how your process addresses each one",
+      "Use a phased rollout narrative to reduce perceived risk",
+      "Reference a comparable company where it worked and why"
+    ],
+    "difficultyNote": "High-risk service pitch to a skeptic with implementation trauma"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching to a buying committee that includes a technical buyer, a financial buyer, and an end-user. Construct a pitch that serves all three.",
+    "tips": [
+      "Address the technical buyer's need for architecture and security",
+      "Address the financial buyer's need for ROI and risk mitigation",
+      "Address the end-user's need for simplicity and daily value"
+    ],
+    "difficultyNote": "Multi-stakeholder committee pitch — balancing three perspectives"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your healthcare data platform to a hospital administrator concerned about HIPAA compliance and patient data exposure.",
+    "tips": [
+      "Lead with your compliance certifications before touching value or features",
+      "Describe your breach notification process and SOC 2 posture clearly",
+      "Reference healthcare institutions already using your platform"
+    ],
+    "difficultyNote": "Compliance-first regulated industry pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching to a PE-backed portfolio company whose new CEO was installed 60 days ago. She doesn't know your product. You have 90 seconds of her attention.",
+    "tips": [
+      "Lead with the strategic problem the CEO was installed to solve",
+      "Link your product directly to her mandate — cost reduction, growth, operational clarity",
+      "Earn a longer meeting: 'I'd love 20 minutes to show you how three of your peers are using this'"
+    ],
+    "difficultyNote": "New executive onboarding pitch — 90-second window"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your developer tools platform to a VP of Engineering who pushes back: 'We prefer to build rather than buy.'",
+    "tips": [
+      "Validate the build-it-yourself instinct — engineers respect that",
+      "Calculate the true cost of building and maintaining it in-house versus buying",
+      "Reframe: 'Buy the commodity, build the differentiation' — your engineers' time should go elsewhere"
+    ],
+    "difficultyNote": "Build-vs-buy objection for a developer tool"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're closing a deal at the end of a quarter and your champion tells you the budget was just frozen. Pitch through the freeze.",
+    "tips": [
+      "Find out whether the freeze is a hard stop or a soft pause — they're very different",
+      "Explore off-budget paths: opex vs. capex, phased payment, pilot from a different budget",
+      "Create urgency around what delay costs: 'If this slips to Q2, here's what changes'"
+    ],
+    "difficultyNote": "Budget freeze — creative commercial maneuvering"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your AI-powered supply chain tool to a VP of Operations who is skeptical of AI hype and has been burned by a previous AI vendor.",
+    "tips": [
+      "Name the skepticism before they raise it: 'A lot of AI claims don't hold up in production'",
+      "Lead with explainability and the human-in-the-loop model",
+      "Show a concrete, measurable outcome from a production deployment — not a case study"
+    ],
+    "difficultyNote": "Post-hype AI pitch to a burned buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching a $150K annual contract to a Director of IT who will need board approval to sign. Coach them on how to sell it internally.",
+    "tips": [
+      "Understand the board's priorities and frame the business case in those terms",
+      "Provide a leave-behind deck and ROI model they can use without you in the room",
+      "Offer to present alongside them if that would help — or prep them with likely objections"
+    ],
+    "difficultyNote": "Internal champion enablement for a large approval"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your fintech payments platform to a CFO who is switching from a legacy processor mid-contract due to performance issues.",
+    "tips": [
+      "Acknowledge the disruption they're already in — they're motivated but nervous",
+      "Lead with your migration track record: 'We've moved 40 companies off legacy processors'",
+      "Make the transition risk feel manageable with a parallel-run period"
+    ],
+    "difficultyNote": "Mid-contract competitive switch pitch in fintech"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You are presenting a new pricing model — moving from per-seat to usage-based — to an existing enterprise customer. Pitch the change.",
+    "tips": [
+      "Lead with what the customer gains: pay for what you use, no shelfware",
+      "Show their current seat count vs. actual usage — make the math favorable",
+      "Address the budget predictability concern head-on with a cap or commitment tier"
+    ],
+    "difficultyNote": "Pricing model change pitch to an existing customer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch a strategic consulting engagement to a growth-stage company where the founder says, 'We can figure this out ourselves.'",
+    "tips": [
+      "Don't argue the point — ask what figuring it out themselves has cost them so far",
+      "Position your firm as pattern recognition from 50 companies, not a crutch",
+      "Offer a scoped, time-limited engagement to prove value before a larger commitment"
+    ],
+    "difficultyNote": "Founder self-sufficiency objection for consulting"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're demoing your product to a 15-person enterprise team and someone raises a feature you don't have yet. Handle it live.",
+    "tips": [
+      "Acknowledge the gap honestly — don't fudge, don't overpromise",
+      "Bridge to what you do have that addresses the underlying need",
+      "Offer a roadmap update: 'That's on our Q3 roadmap — can I confirm that timeline after the call?'"
+    ],
+    "difficultyNote": "Live demo — handling a gap question with honesty"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching a SaaS platform to a European company and they raise GDPR data residency requirements. Address it and keep the deal alive.",
+    "tips": [
+      "Describe your EU data residency options clearly and specifically",
+      "Mention your DPA and the ease of signing it",
+      "Have a prepared reference: 'Our German customer has been live for two years — happy to connect you'"
+    ],
+    "difficultyNote": "Compliance objection in cross-border enterprise SaaS"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your market research platform to the Head of Strategy at a Fortune 500 who already has an in-house research team.",
+    "tips": [
+      "Don't compete with their team — position your platform as a force multiplier",
+      "Show the speed advantage: 'What your team does in three weeks, this does in three hours'",
+      "Lead with the strategic insight layer, not the data collection functionality"
+    ],
+    "difficultyNote": "Platform pitch alongside, not against, an in-house team"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You are in a formal RFP process for a $500K contract. You're the smaller vendor. Make the case for choosing you over the safe, bigger option.",
+    "tips": [
+      "Reframe 'safer' — the big vendor's implementation failures are public knowledge",
+      "Lead with senior attention: 'Their A-team won the deal; you get their B-team'",
+      "Offer executive access, faster iteration, and a success guarantee the big vendor can't match"
+    ],
+    "difficultyNote": "David-vs-Goliath RFP pitch — smaller vendor closing"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch a cross-sell of your analytics module to a customer who says, 'We're not really a data-driven company yet.'",
+    "tips": [
+      "Validate the honesty and reframe it as an opportunity, not a gap",
+      "Start small: a single dashboard for one decision they make every week",
+      "Show them what one insight changed for a similar company"
+    ],
+    "difficultyNote": "Cross-sell pitch to a low-data-maturity customer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching your SaaS startup to a corporate venture capital arm. They want strategic fit, not just financial return. Build your case.",
+    "tips": [
+      "Research and articulate the parent company's strategic priorities before pitching",
+      "Show the specific synergies: distribution channels, customer overlap, technology integration",
+      "Be honest about what you want from the relationship beyond capital"
+    ],
+    "difficultyNote": "Corporate VC strategic fit pitch"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You are a startup competing in a product category dominated by one player with 70% market share. Pitch your differentiation to an enterprise buyer.",
+    "tips": [
+      "Acknowledge the market leader's dominance — buyers respect realism",
+      "Identify the specific segment or use case where the leader is weakest",
+      "Lead with what you were purpose-built for that the leader treats as an afterthought"
+    ],
+    "difficultyNote": "Underdog category pitch — targeting the leader's weakness"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "You're pitching a managed IT services contract to a 100-person company whose IT is currently handled by one overloaded internal employee.",
+    "tips": [
+      "Start with the risk they're carrying with a single point of failure",
+      "Show what a holiday weekend outage costs them without 24/7 coverage",
+      "Frame the contract as insurance and horsepower combined"
+    ],
+    "difficultyNote": "Risk exposure pitch with single-point-of-failure framing"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "5-6",
+    "question": "Pitch your marketing attribution software to a CMO who is skeptical of any attribution model because 'none of them are perfect.'",
+    "tips": [
+      "Agree — no attribution model is perfect — then pivot to 'directional accuracy is enough to optimize spend'",
+      "Show what decisions they can make better with 80% signal versus flying blind",
+      "Lead with the waste you help eliminate, not the precision you claim to achieve"
+    ],
+    "difficultyNote": "Attribution skepticism pitch — imperfect signal vs. no signal"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a Series A round to a tier-1 VC partner who just told you the market you're targeting is too small. Defend your TAM and keep the room.",
+    "tips": [
+      "Challenge the TAM definition, not the investor — show how the market expands as the product matures",
+      "Use bottoms-up TAM analysis: number of customers × contract value, not top-down percentage of a macro number",
+      "Reference a comparable company that proved a similar market was larger than it looked"
+    ],
+    "difficultyNote": "Live TAM challenge from a tier-1 investor"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You are pitching an eight-figure digital infrastructure deal to a CIO. Three weeks before close, a competing vendor slashed their price by 30%. Respond.",
+    "tips": [
+      "Don't panic-discount — anchor on total cost of ownership and switching risk",
+      "Ask what specifically changed in the competitor's offer and whether the quality concerns were addressed",
+      "Offer a commercial concession that isn't a price cut: extended contract, additional services, success guarantee"
+    ],
+    "difficultyNote": "Late-stage competitive price cut — deal defense"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a platform shift — asking an enterprise to migrate from their homegrown system to your SaaS. The CTO built the legacy system. Handle the emotional and technical objections.",
+    "tips": [
+      "Acknowledge the CTO's achievement — the legacy system solved the problem it was built for",
+      "Frame migration as building on that success, not replacing it",
+      "Lead with the maintenance burden and opportunity cost of keeping the homegrown system running"
+    ],
+    "difficultyNote": "Emotional legacy system migration pitch to its creator"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're in a final presentation against two other vendors. You go last. You know your price is the highest. Close the room.",
+    "tips": [
+      "Differentiate on something none of the other vendors addressed — usually risk, speed, or relationship",
+      "Make the most of going last: directly address what the other vendors likely said",
+      "End with a bold close: 'We're not the cheapest option. We're the one that actually delivers.'"
+    ],
+    "difficultyNote": "Final bake-off close — highest-price vendor pitching last"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a product pivot to your existing investors. Your original thesis hasn't played out. Make the case for a new direction while maintaining confidence.",
+    "tips": [
+      "Lead with what you learned, not what failed — frame it as earned insight",
+      "Show the data that led to the pivot decision, not just the narrative",
+      "Demonstrate why this direction is better positioned: new evidence, new market signal"
+    ],
+    "difficultyNote": "Investor pivot pitch — maintaining trust through a change of direction"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You are selling an AI SaaS platform to the CHRO of a global manufacturer. Their concern: 'AI will eliminate jobs here and our unions will push back.' Address it and advance the deal.",
+    "tips": [
+      "Take the union concern seriously — it's a real stakeholder risk, not just an objection",
+      "Reframe your product as augmentation: 'Your workers do less repetitive work, more skilled work'",
+      "Offer to present alongside them in a union meeting — offer the full picture, not just the sales pitch"
+    ],
+    "difficultyNote": "AI displacement concern — union-sensitive enterprise sale"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Pitch your company's acquisition to a strategic buyer's business development team. Your company is smaller but has unique IP they need.",
+    "tips": [
+      "Lead with the IP's strategic value to them — how it accelerates their roadmap by years",
+      "Frame the acquisition as make-vs-buy: what it would cost them to build your IP versus acquire it",
+      "Know your walk-away number and why you're not going below it"
+    ],
+    "difficultyNote": "M&A acquisition pitch — seller presenting to a strategic buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "A major prospect has been in your pipeline for 9 months. Your champion is leaving the company. Pitch to keep the deal alive with the incoming decision-maker.",
+    "tips": [
+      "Move quickly — reach out before the new person is buried in priorities",
+      "Re-qualify from scratch: don't assume the pain or budget survived the transition",
+      "Bring fresh insight: 'Here's what's changed in the market since we last spoke'"
+    ],
+    "difficultyNote": "Champion departure — re-engaging with a new stakeholder"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a $2M annual contract to a global bank's procurement committee. One member publicly challenges your security architecture. Defend it live.",
+    "tips": [
+      "Stay calm and technical — don't get defensive or deferential",
+      "Walk through your security posture layer by layer: encryption, access controls, audit trails",
+      "Acknowledge any genuine gap honestly and describe the mitigation in place"
+    ],
+    "difficultyNote": "Public technical challenge in a high-stakes procurement meeting"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a revenue-share partnership to a media company 10 times your size. Convince them the deal is worth their time.",
+    "tips": [
+      "Lead with what you bring that they can't build themselves: unique data, audience, or technology",
+      "Make the economics undeniable with conservative projections — don't oversell",
+      "Show why now is the right moment: a market window that won't stay open"
+    ],
+    "difficultyNote": "Asymmetric partnership pitch — small company pitching large"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're leading an enterprise expansion conversation with a customer whose contract is up for renewal in 90 days. They're evaluating competitors. Pitch to win the renewal and grow the account.",
+    "tips": [
+      "Start with a mutual success review — use their data to celebrate shared wins",
+      "Create FOMO on what's coming: new features and roadmap tied to their goals",
+      "Propose a multi-year deal with meaningful commercial incentives to lock in the relationship"
+    ],
+    "difficultyNote": "Competitive renewal — retain and expand under pressure"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a joint venture to a competitor who is larger but struggling in a market you dominate. Convince them the JV is better than competing.",
+    "tips": [
+      "Show the math on why neither of you wins alone — and both win together",
+      "Propose governance that is genuinely equal to reduce their risk of being absorbed",
+      "Lead with what you each bring that the other can't replicate quickly"
+    ],
+    "difficultyNote": "Competitor JV pitch — turning rivals into partners"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Your largest enterprise customer is publicly upset on social media about a product outage. You have a call with their executive team in an hour. Pitch your way through the crisis.",
+    "tips": [
+      "Open with a full, unqualified apology — no excuses before accountability",
+      "Walk through the root cause, resolution timeline, and what's been fixed",
+      "Describe the systemic change you're making so this never happens again"
+    ],
+    "difficultyNote": "Customer crisis call — rebuilding trust after a major failure"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a go-to-market partnership to a large retailer where your startup would be their exclusive supplier in a new product category.",
+    "tips": [
+      "Lead with the market opportunity the category creates for the retailer",
+      "Address the exclusivity risk head-on: 'Here's what you get in return for exclusivity'",
+      "Show your production capacity and fulfillment track record to reduce supply chain fear"
+    ],
+    "difficultyNote": "Exclusive supply partnership pitch to a large retailer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're presenting a business case for a $3M investment in your department's new platform to a skeptical CFO and COO. Make the case for approval.",
+    "tips": [
+      "Lead with the cost of inaction over three years — not the cost of the investment",
+      "Break the ROI into hard savings, risk reduction, and strategic optionality",
+      "Anticipate the CFO's discount rate question and have a sensitivity analysis ready"
+    ],
+    "difficultyNote": "Internal capital allocation pitch to a skeptical CFO"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching to a family office that has never invested in a tech startup before. Translate your business model into terms they understand.",
+    "tips": [
+      "Connect recurring software revenue to a cash flow yield they understand as property investors or asset managers",
+      "Avoid SaaS jargon — replace ARR, NRR, CAC with plain financial equivalents",
+      "Lead with downside protection and the path to liquidity, not just the upside"
+    ],
+    "difficultyNote": "Non-traditional investor pitch — translating tech into familiar terms"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "Your company is entering a new market geography. Pitch the international expansion thesis to your board and ask for resources.",
+    "tips": [
+      "Open with the market signal that makes now the right time — regulation change, a competitor's gap, inbound demand",
+      "Show the beachhead strategy: one country, one segment, one customer type",
+      "Present a staged gate model so the board feels they're controlling the investment risk"
+    ],
+    "difficultyNote": "Board pitch for international expansion resources"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching a professional services firm on a multi-year transformation engagement worth $5M. They have three other proposals on the table. Differentiate on methodology.",
+    "tips": [
+      "Don't just list phases — describe the moments where other firms typically fail and how you avoid them",
+      "Show the human dimension: the specific senior partners who will be involved throughout",
+      "Make your pricing feel like a value equation, not a line-item cost"
+    ],
+    "difficultyNote": "Professional services differentiation pitch in a competitive bid"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "A potential strategic partner says: 'We like your technology but we're not sure your company will exist in two years.' Handle the existential concern.",
+    "tips": [
+      "Address it head-on — avoiding it makes it worse",
+      "Show your runway, revenue growth, and investor backing in concrete terms",
+      "Offer a contractual protection or escrow of source code to reduce their risk"
+    ],
+    "difficultyNote": "Company viability objection in a high-stakes partnership"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You are pitching a $10M licensing deal to a global pharmaceutical company for your biotech startup's diagnostic IP.",
+    "tips": [
+      "Lead with the clinical evidence and validation data — nothing else matters until this lands",
+      "Frame the licensing model so their IP team understands exactly what rights they're getting",
+      "Position the upfront payment as de-risking their R&D spend, not enriching your startup"
+    ],
+    "difficultyNote": "IP licensing pitch in a highly regulated industry"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You're pitching to an enterprise CIO who has been burned by SaaS vendors who overpromised and underdelivered. Rebuild category trust and win the business.",
+    "tips": [
+      "Let them voice the disappointment before you say anything — listen fully first",
+      "Be specific about what differentiates your delivery model and where the typical failures happened with others",
+      "Offer a penalty-backed SLA and a phased rollout with off-ramps to reduce their risk"
+    ],
+    "difficultyNote": "Category credibility rebuild pitch to a burned enterprise buyer"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "7-8",
+    "question": "You are leading a final-round pitch to a strategic acquirer. They're a great fit but one board member is openly opposed to the deal. Address their concerns in the room.",
+    "tips": [
+      "Identify the dissenting board member's specific concern before the meeting and prepare for it",
+      "Speak directly to them without singling them out — create a genuine dialogue",
+      "Acknowledge the legitimate risk in their concern before showing why the deal is still right"
+    ],
+    "difficultyNote": "Acquisition pitch with a hostile board member"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching a growth equity round to a sovereign wealth fund's infrastructure and technology arm. Present your company's geopolitical and strategic value, not just financial returns.",
+    "tips": [
+      "Connect your business to national strategic priorities relevant to the SWF's mandate",
+      "Lead with resilience, scale, and systemic importance — not just IRR",
+      "Address the decision-making structure of an SWF: investment committee, mandate constraints, reporting cycles"
+    ],
+    "difficultyNote": "Sovereign wealth fund pitch — strategic value over financial return"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are the CEO of a growth-stage company presenting your Series C thesis to a room of 12 institutional LPs at a top-tier fund's annual meeting. You have 15 minutes.",
+    "tips": [
+      "Open with the market timing argument — why now is the inflection point",
+      "Cover the six pillars: team, market, product, traction, economics, and use of proceeds",
+      "Anticipate and pre-answer the three hardest questions before they're asked"
+    ],
+    "difficultyNote": "Formal institutional LP pitch — full 15-minute investor narrative"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're presenting a $500M acquisition rationale to a public company's board. The target is your biggest competitor. Make the strategic case.",
+    "tips": [
+      "Lead with the competitive dynamics that make this acquisition necessary, not just opportunistic",
+      "Present the synergies with bottoms-up specificity: revenue, cost, and talent",
+      "Address the integration risk head-on — the board has seen too many deals destroyed in integration"
+    ],
+    "difficultyNote": "Public company board pitch for a major acquisition"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Your company is facing a public narrative that your technology is destroying jobs. You are presenting to a Senate subcommittee. Deliver your position.",
+    "tips": [
+      "Lead with the human story — not the data — of what your technology enables",
+      "Acknowledge the displacement concern directly and with genuine empathy",
+      "Propose a specific policy initiative you're funding or supporting: reskilling, transition support, research"
+    ],
+    "difficultyNote": "Government/regulatory testimony pitch on a politically charged issue"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are pitching a public-private partnership to a national government's economic development ministry to bring your company's manufacturing operations to their country.",
+    "tips": [
+      "Lead with economic impact: jobs, GDP contribution, supply chain development",
+      "Show what you need from the government: infrastructure, incentives, regulatory support",
+      "Make the partnership feel equal — what your presence does for their country's strategic positioning"
+    ],
+    "difficultyNote": "Government economic partnership pitch at a national level"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are the founder of a climate tech startup pitching to the investment committee of a major climate fund. Your technology is unproven at scale. Make the bet worth taking.",
+    "tips": [
+      "Lead with the scientific validation and what still needs to be proven at scale — be transparent",
+      "Show why this is the right team to de-risk the science",
+      "Frame the asymmetric upside: if it works, it changes the entire sector; the downside is a written-off check"
+    ],
+    "difficultyNote": "Deep tech climate pitch with unproven scale — high-stakes risk narrative"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are presenting your IPO roadshow narrative to institutional investors. After a week of mixed feedback, two major investors are passing due to valuation. Respond live and defend the price.",
+    "tips": [
+      "Defend valuation with forward multiples, not trailing ones — show the growth that justifies the premium",
+      "Ask for the specific comp they're using to justify the discount and challenge it calmly",
+      "Show what the stock looks like in 18 months if you hit guidance: make the math irresistible"
+    ],
+    "difficultyNote": "IPO roadshow valuation defense — managing live investor skepticism"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching a $200M credit facility to a syndicate of five banks. One bank is the holdout. Make the case for their participation.",
+    "tips": [
+      "Understand the holdout's specific concern — credit risk, covenant structure, or relationship priority",
+      "Offer a structural accommodation that doesn't compromise the lead bank's terms",
+      "Create FOMO: describe who the other four banks are and why they want in"
+    ],
+    "difficultyNote": "Debt syndication pitch — winning the holdout bank"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are the CEO of a distressed company. Your largest investor is threatening to replace the management team. Pitch your turnaround plan and your right to lead it.",
+    "tips": [
+      "Open with radical accountability — no defensiveness, no deflection",
+      "Present a turnaround plan that is specific, time-bound, and measurable",
+      "Close with the personal commitment: what you're putting on the line and why you're still the right person"
+    ],
+    "difficultyNote": "High-stakes personal credibility pitch during a turnaround"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching a Category Creation thesis — your company isn't entering a market, it's defining one. Convince a skeptical investor that the category is real.",
+    "tips": [
+      "Start with the underlying behavioral or technological shift that makes the category inevitable",
+      "Show the evidence: early customer behavior, adjacent market pulls, analyst attention",
+      "Position yourself as the company that will write the category playbook — not just win in it"
+    ],
+    "difficultyNote": "Category creation pitch — selling a vision that doesn't exist yet"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You have been selected to present at a major tech conference to 5,000 attendees. Your company is announcing a platform that will disrupt an existing category. Deliver the keynote pitch.",
+    "tips": [
+      "Open with a powerful statement that challenges industry orthodoxy — no safe openers",
+      "Build narrative tension: the problem is worse than anyone acknowledges, the solution changes everything",
+      "End with a product moment and a call to the industry: 'The old way is over'"
+    ],
+    "difficultyNote": "Keynote-level platform disruption pitch to 5,000 people"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "Your company has just had a serious data breach affecting 4 million users. You are speaking to your largest enterprise customer's CEO and legal team within 24 hours of disclosure. Pitch your response.",
+    "tips": [
+      "Open with a full, unconditional acknowledgment of the breach — no legal hedging",
+      "Walk through the timeline: when it happened, when you discovered it, what you've done since",
+      "Describe the structural remediation plan — what is now different in your security architecture"
+    ],
+    "difficultyNote": "Post-breach crisis pitch — legal and reputational stakes"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching a 10-year infrastructure concession contract to a city government. The opposition party is publicly questioning the deal's fairness. Address the political risk and defend the contract.",
+    "tips": [
+      "Engage with the opposition's best argument, not the weakest version of it",
+      "Show the public benefit calculations and make them accessible to non-technical stakeholders",
+      "Propose an independent oversight mechanism that demonstrates your transparency"
+    ],
+    "difficultyNote": "Public infrastructure deal pitch under political scrutiny"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching the CEO of a global retailer on a joint venture where your AI platform becomes their exclusive product intelligence layer. The deal would be transformational for both companies.",
+    "tips": [
+      "Anchor on the retailer's three-year strategic goals before presenting a single feature",
+      "Show the compounding moat the JV creates: data advantages that grow over time",
+      "Address exclusivity from their perspective first: 'What you get in exchange is a capability your competitors cannot match'"
+    ],
+    "difficultyNote": "Transformational JV pitch — AI platform at enterprise retail scale"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are presenting a two-year turnaround plan to the full board of a publicly traded company where you have just been appointed CEO. The company has missed earnings three quarters in a row.",
+    "tips": [
+      "Open by naming the two or three root causes with precision — not a broad diagnosis",
+      "Present the plan in phases: stabilize, reset, grow — each with specific milestones",
+      "Address the board's credibility question directly: 'Here's why I'm the right person to execute this'"
+    ],
+    "difficultyNote": "New CEO turnaround pitch to a board after three missed quarters"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching a second fund to your LP base after your first fund had one major write-off and mixed returns. Make the case for Fund II.",
+    "tips": [
+      "Address the write-off first — don't bury it",
+      "Show what the portfolio's successes and the failure taught you and how it changed your investment thesis",
+      "Describe Fund II's differentiated strategy and why it reflects that learning"
+    ],
+    "difficultyNote": "Fund II pitch after a mixed Fund I performance"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are the founder of a marketplace startup. After 5 years, a private equity firm is offering to buy a majority stake. You want the deal but at a higher valuation. Pitch your premium.",
+    "tips": [
+      "Lead with the metrics that justify a premium: NPS, retention, network density, operating leverage",
+      "Show the next 24 months of growth and what the PE firm is buying into, not just what exists today",
+      "Be specific about the valuation gap and what would need to be true to bridge it"
+    ],
+    "difficultyNote": "Founder valuation negotiation pitch with a PE firm"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You are a country's Trade Minister pitching to a group of multinational CEOs to relocate regional headquarters to your country. Make your country's case.",
+    "tips": [
+      "Open with the strategic business case: talent, geography, regulatory environment, and incentives",
+      "Personalize for the room: show that you know each company's regional priorities",
+      "Close with a specific, time-sensitive offer to move the decision forward"
+    ],
+    "difficultyNote": "National economic development pitch to global C-suite executives"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're pitching a new global standard for AI ethics to a coalition of governments, NGOs, and tech companies at a Davos-style forum. Build alignment for the framework.",
+    "tips": [
+      "Open with the cost of inaction — what happens without a shared standard",
+      "Show why your framework is the bridge between commercial and public interest concerns",
+      "Make the ask specific: 'Today I'm asking for three things from three groups in this room'"
+    ],
+    "difficultyNote": "Multi-stakeholder policy pitch at global forum — building coalitions"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You're closing a year-long, nine-figure enterprise transformation deal and the client's board has just approved a 25% budget cut. Redesign and close the deal in 48 hours.",
+    "tips": [
+      "Act immediately — a compressed timeline is a competitive advantage if you move faster than the competition",
+      "Propose a phased scope reduction that protects the must-have outcomes",
+      "Show the cost of abandoning the deal mid-process: sunk cost, competitive exposure, momentum lost"
+    ],
+    "difficultyNote": "Closing a nine-figure deal through a last-minute budget cut"
+  },
+  {
+    "mode": "pitch",
+    "difficultyBand": "9-10",
+    "question": "You have spent 18 months building relationships at a large enterprise. Your contact has just told you the deal is going to a competitor due to a political decision above her head. Pitch your way back.",
+    "tips": [
+      "Don't burn your contact — she's your ally, not the obstacle",
+      "Request an executive meeting at the level where the political decision was made",
+      "Arrive with a differentiated argument that the decision-maker hasn't heard yet: a unique proof point, a risk the competitor creates, a commitment you can make that changes the calculus"
+    ],
+    "difficultyNote": "Political deal loss recovery — elevating to the executive decision-maker"
+  }
+]
