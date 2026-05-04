@@ -30,10 +30,7 @@ struct ProfileView: View {
                 VStack(spacing: 20) {
                     heroSection
                     keyStatsGrid
-                    xpSection
                     achievementsSection
-                    performanceByModeCard
-                    recentSessionsSection
                     footerSection
                 }
                 .padding(.horizontal, 16)
@@ -44,7 +41,10 @@ struct ProfileView: View {
             .safeAreaInset(edge: .top) {
                 headerView
             }
-            .onAppear { viewModel.loadSettings() }
+            .onAppear {
+                viewModel.loadSettings()
+                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
+            }
             .alert("Reset All Data", isPresented: $viewModel.showResetConfirmation) {
                 Button("Reset", role: .destructive) { viewModel.resetAllData() }
                 Button("Cancel", role: .cancel) {}
@@ -66,9 +66,6 @@ struct ProfileView: View {
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
-            }
-            .onAppear {
-                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
             }
         }
     }
@@ -263,16 +260,6 @@ struct ProfileView: View {
         )
     }
 
-    // MARK: - XP
-
-    private var xpSection: some View {
-        Group {
-            if let user {
-                XPProgressBar(currentXP: user.xp, rank: user.rank)
-            }
-        }
-    }
-
     // MARK: - Achievements
 
     private var achievementsSection: some View {
@@ -321,101 +308,6 @@ struct ProfileView: View {
                     )
                     .opacity(achievement.isUnlocked ? 1.0 : 0.35)
                 }
-            }
-        }
-    }
-
-    // MARK: - Performance by Mode
-
-    private var performanceByModeCard: some View {
-        let breakdown = SessionMode.allCases.map { mode in
-            let modeSessions = sessions.filter { $0.mode == mode }
-            return (mode: mode, count: modeSessions.count, bestScore: modeSessions.map(\.overallScore).max() ?? 0)
-        }
-        let totalSessions = max(1, breakdown.map(\.count).reduce(0, +))
-
-        return VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Performance By Mode")
-
-            ForEach(breakdown, id: \.mode) { item in
-                VStack(spacing: 6) {
-                    HStack {
-                        HStack(spacing: 6) {
-                            Text(item.mode.emoji)
-                                .font(.system(size: 14))
-                            Text(item.mode.displayName)
-                                .font(AppFonts.body(13))
-                                .foregroundStyle(AppColors.text)
-                        }
-                        Spacer()
-                        HStack(spacing: 8) {
-                            Text("\(item.count) sessions")
-                                .font(AppFonts.body(11))
-                                .foregroundStyle(AppColors.sub)
-                            Text("Best \(item.bestScore)")
-                                .font(AppFonts.bodyMedium(11))
-                                .foregroundStyle(item.mode.accentColor)
-                        }
-                    }
-                    ProgressBar(
-                        pct: Double(item.count) / Double(totalSessions) * 100,
-                        color: item.mode.accentColor,
-                        height: 4
-                    )
-                }
-            }
-        }
-        .cardStyle()
-    }
-
-    // MARK: - Recent Sessions
-
-    private var recentSessionsSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Recent Sessions")
-
-            ForEach(sessions.prefix(8), id: \.id) { session in
-                HStack(spacing: 12) {
-                    Text(session.mode.emoji)
-                        .font(.system(size: 18))
-                        .frame(width: 38, height: 38)
-                        .background(session.mode.accentColor.opacity(0.2))
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(session.mode.displayName)
-                            .font(AppFonts.bodyMedium(13))
-                            .foregroundStyle(AppColors.text)
-                        HStack(spacing: 6) {
-                            Text(session.date.formatted(date: .abbreviated, time: .omitted))
-                                .font(AppFonts.body(10))
-                                .foregroundStyle(AppColors.sub)
-                            Text("\u{00B7}")
-                                .foregroundStyle(AppColors.dim)
-                            Text("\(Int(session.duration / 60))m")
-                                .font(AppFonts.body(10))
-                                .foregroundStyle(AppColors.sub)
-                            Text("\u{00B7}")
-                                .foregroundStyle(AppColors.dim)
-                            Text(DifficultyLevel.tier(for: session.difficultyLevel))
-                                .font(AppFonts.body(10))
-                                .foregroundStyle(AppColors.sub)
-                        }
-                    }
-
-                    Spacer()
-
-                    Text("\(session.overallScore)")
-                        .font(AppFonts.display(20))
-                        .foregroundStyle(AppColors.scoreColor(session.overallScore))
-                }
-                .padding(12)
-                .background(AppColors.card)
-                .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                .overlay(
-                    RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                        .stroke(AppColors.border, lineWidth: 1)
-                )
             }
         }
     }
@@ -524,7 +416,7 @@ struct ProfileView: View {
                 }
             }
         }
-        .presentationDetents([.medium, .large])
+        .presentationDetents([.medium])
     }
 
     private func settingsLabel(emoji: String, text: String) -> some View {
@@ -562,7 +454,7 @@ struct ProfileView: View {
     // MARK: - Footer
 
     private var footerSection: some View {
-        Text("Parlance v1.0 \u{00B7} Made with \u{1F3A4}")
+        Text("Parlance \u{00B7} Built for speakers.")
             .font(AppFonts.body(10))
             .foregroundStyle(AppColors.dim)
             .frame(maxWidth: .infinity)

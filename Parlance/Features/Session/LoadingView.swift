@@ -14,7 +14,7 @@ struct LoadingView: View {
             HStack {
                 if let onCancel {
                     Button(action: onCancel) {
-                        Text("← Cancel")
+                        Text("← Back")
                             .font(AppFonts.body(13))
                             .foregroundStyle(AppColors.text)
                             .padding(.horizontal, 14)

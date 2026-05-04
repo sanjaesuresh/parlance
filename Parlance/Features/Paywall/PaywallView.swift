@@ -13,7 +13,7 @@ struct PaywallView: View {
     @State private var errorMessage: String?
 
     private let benefits: [(icon: String, title: String, detail: String)] = [
-        ("🎭", "All 10 Practice Modes",    "Unlock Debate, Negotiation, Storytelling, and 6 more"),
+        ("🎭", "All Practice Modes",        "Unlock all modes for every speaking scenario"),
         ("⚡", "Advanced & Expert Levels", "Access levels 7–10 for elite coaching"),
         ("🎙️", "Tone & Emotion Analysis",  "See how confident, nervous, and engaging you sound"),
         ("∞",  "Unlimited Daily Sessions", "Practice as many times as you want, every day")

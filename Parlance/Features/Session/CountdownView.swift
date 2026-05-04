@@ -40,53 +40,38 @@ struct CountdownView: View {
                 .frame(height: 240)
             }
         }
-        .onAppear { runCountdown() }
+        .onAppear { Task { await runCountdown() } }
         .accessibilityElement()
         .accessibilityLabel("Countdown \(currentNumber)")
     }
 
-    private func runCountdown() {
-        if reduceMotion {
-            // Skip animation and advance quickly
-            Task {
-                for n in stride(from: 3, through: 1, by: -1) {
-                    currentNumber = n
+    private func runCountdown() async {
+        for n in stride(from: 3, through: 1, by: -1) {
+            await MainActor.run {
+                currentNumber = n
+                if reduceMotion {
                     scale = 1.0
                     opacity = 1.0
-                    try? await Task.sleep(nanoseconds: 600_000_000)
-                }
-                onComplete()
-            }
-            return
-        }
-
-        animateNumber(3) {
-            animateNumber(2) {
-                animateNumber(1) {
-                    onComplete()
+                } else {
+                    scale = 0.6
+                    opacity = 0.0
+                    withAnimation(.easeOut(duration: 0.25)) {
+                        scale = 1.1
+                        opacity = 1.0
+                    }
                 }
             }
-        }
-    }
-
-    private func animateNumber(_ number: Int, then: @escaping () -> Void) {
-        currentNumber = number
-        scale = 0.6
-        opacity = 0.0
-
-        withAnimation(.easeOut(duration: 0.25)) {
-            scale = 1.1
-            opacity = 1.0
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            withAnimation(.easeIn(duration: 0.2)) {
-                scale = 1.3
-                opacity = 0.0
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                then()
+            try? await Task.sleep(nanoseconds: 700_000_000)
+            if !reduceMotion {
+                await MainActor.run {
+                    withAnimation(.easeIn(duration: 0.2)) {
+                        scale = 1.3
+                        opacity = 0.0
+                    }
+                }
+                try? await Task.sleep(nanoseconds: 200_000_000)
             }
         }
+        await MainActor.run { onComplete() }
     }
 }
