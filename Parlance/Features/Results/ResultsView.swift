@@ -20,6 +20,7 @@ struct ResultsView: View {
     @State private var resultsPhase: ResultsPhase = .scoreReveal
     @State private var displayedXP: Int = 0
     @State private var cachedPriorAverage: Int? = nil
+    @State private var xpAnimationTask: Task<Void, Never>? = nil
 
     private var durationString: String {
         let minutes = Int(session.duration) / 60
@@ -100,7 +101,8 @@ struct ResultsView: View {
         .onAppear {
             let prior = allSessions.filter { $0.id != session.id }
             if !prior.isEmpty {
-                cachedPriorAverage = prior.map(\.overallScore).reduce(0, +) / prior.count
+                let sum = prior.map(\.overallScore).reduce(0, +)
+                cachedPriorAverage = Int((Double(sum) / Double(prior.count)).rounded())
             }
         }
     }
@@ -149,7 +151,11 @@ struct ResultsView: View {
             }
             .padding(.top, 20)
             .onAppear {
-                Task { await animateXP() }
+                xpAnimationTask = Task { await animateXP() }
+            }
+            .onDisappear {
+                xpAnimationTask?.cancel()
+                xpAnimationTask = nil
             }
 
             Spacer()
