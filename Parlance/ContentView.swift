@@ -9,13 +9,22 @@ struct ContentView: View {
     @StateObject private var weekCache = SessionWeekCache()
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @State private var activeSession: ActiveSessionState?
+    @State private var showSplash = true
+    @State private var isAppReady = false
 
     private var currentUser: User? { users.first }
     private var hasCompletedSetup: Bool { currentUser?.hasCompletedSetup ?? false }
 
     var body: some View {
         ZStack {
-            if !hasCompletedSetup {
+            if showSplash {
+                SplashView(isAppReady: isAppReady) {
+                    withAnimation { showSplash = false }
+                }
+                .ignoresSafeArea()
+                .zIndex(1)
+                .transition(.opacity)
+            } else if !hasCompletedSetup {
                 FirstLaunchSetupView()
             } else if let session = activeSession {
                 SessionCoordinator(
@@ -35,6 +44,10 @@ struct ContentView: View {
         .environmentObject(permissionsService)
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
+            // Signal splash that the model context and view hierarchy are ready
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isAppReady = true
+            }
         }
         .overlay {
             if !networkMonitor.isConnected {

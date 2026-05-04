@@ -73,8 +73,7 @@ struct ModeGridView: View {
     // MARK: - Mode Card
 
     private func modeCard(mode: SessionMode, locked: Bool) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            // Mode accent header strip
+        VStack(alignment: .leading, spacing: 0) {
             HStack {
                 Text(mode.emoji)
                     .font(.system(size: 20))
@@ -93,28 +92,31 @@ struct ModeGridView: View {
                     .clipShape(Capsule())
                 }
             }
+            .padding(.horizontal, 14)
+            .padding(.top, 14)
+            .padding(.bottom, 10)
 
-            Text(mode.displayName)
-                .font(AppFonts.bodyMedium(14))
-                .foregroundStyle(locked ? AppColors.sub : AppColors.text)
+            Rectangle()
+                .fill(mode.accentColor.opacity(locked ? 0.05 : 0.18))
+                .frame(height: 3)
 
-            Text(mode.description)
-                .font(AppFonts.body(11))
-                .foregroundStyle(AppColors.dim)
-                .lineLimit(2)
-                .multilineTextAlignment(.leading)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(mode.displayName)
+                    .font(AppFonts.bodyMedium(14))
+                    .foregroundStyle(locked ? AppColors.sub : AppColors.text)
+
+                Text(mode.description)
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+            }
+            .padding(.horizontal, 14)
+            .padding(.top, 10)
+            .padding(.bottom, 14)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(14)
-        .background(
-            ZStack(alignment: .topLeading) {
-                AppColors.card
-                Rectangle()
-                    .fill(mode.accentColor.opacity(locked ? 0 : 0.10))
-                    .frame(height: 48)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-        )
+        .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)

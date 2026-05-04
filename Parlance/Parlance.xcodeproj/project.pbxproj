@@ -24,23 +24,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4BDC0882F7F971900FE69B7 /* Parlance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parlance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC0952F7F971B00FE69B7 /* ParlanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC09F2F7F971B00FE69B7 /* ParlanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D4BDC08A2F7F971900FE69B7 /* Parlance */ = {
+		D4BDC08A2F7F971900FE69B7 /* . */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = .;
 			sourceTree = SOURCE_ROOT;
 		};
-		D4BDC0982F7F971B00FE69B7 /* ParlanceTests */ = {
+		D4BDC0982F7F971B00FE69B7 /* ../ParlanceTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ../ParlanceTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		D4BDC0A22F7F971B00FE69B7 /* ParlanceUITests */ = {
+		D4BDC0A22F7F971B00FE69B7 /* ../ParlanceUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ../ParlanceUITests;
 			sourceTree = SOURCE_ROOT;
@@ -77,13 +78,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4705CDA2FA9219D0037F17E /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D4BDC07F2F7F971900FE69B7 = {
 			isa = PBXGroup;
 			children = (
 				D4BDC0E32F7FA4C900FE69B7 /* _docs */,
-				D4BDC08A2F7F971900FE69B7 /* Parlance */,
-				D4BDC0982F7F971B00FE69B7 /* ParlanceTests */,
-				D4BDC0A22F7F971B00FE69B7 /* ParlanceUITests */,
+				D4BDC08A2F7F971900FE69B7 /* . */,
+				D4BDC0982F7F971B00FE69B7 /* ../ParlanceTests */,
+				D4BDC0A22F7F971B00FE69B7 /* ../ParlanceUITests */,
 				D4BDC0892F7F971900FE69B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +120,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D4BDC08A2F7F971900FE69B7 /* Parlance */,
+				D4BDC08A2F7F971900FE69B7 /* . */,
 				D4BDC0E32F7FA4C900FE69B7 /* _docs */,
 			);
 			name = Parlance;
@@ -138,7 +144,7 @@
 				D4BDC0972F7F971B00FE69B7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D4BDC0982F7F971B00FE69B7 /* ParlanceTests */,
+				D4BDC0982F7F971B00FE69B7 /* ../ParlanceTests */,
 			);
 			name = ParlanceTests;
 			packageProductDependencies = (
@@ -161,7 +167,7 @@
 				D4BDC0A12F7F971B00FE69B7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				D4BDC0A22F7F971B00FE69B7 /* ParlanceUITests */,
+				D4BDC0A22F7F971B00FE69B7 /* ../ParlanceUITests */,
 			);
 			name = ParlanceUITests;
 			packageProductDependencies = (
@@ -205,6 +211,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D4BDC0892F7F971900FE69B7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D4705CDA2FA9219D0037F17E /* Products */;
+					ProjectRef = D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D4BDC0872F7F971900FE69B7 /* Parlance */,
@@ -407,11 +419,12 @@
 				DEVELOPMENT_TEAM = 497VU99KK9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance uses on-device speech recognition to analyze your speaking performance.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = LaunchBackground;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -441,11 +454,12 @@
 				DEVELOPMENT_TEAM = 497VU99KK9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance uses on-device speech recognition to analyze your speaking performance.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = LaunchBackground;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
