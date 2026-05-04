@@ -107,11 +107,12 @@ struct ToneAnalysisCard: View {
     private var teaserCard: some View {
         ZStack {
             mockCardContent
+                .padding(16)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .blur(radius: 5)
                 .allowsHitTesting(false)
 
             Color.black.opacity(0.45)
-                .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
 
             VStack(spacing: 10) {
                 Image(systemName: "lock.fill")
@@ -145,6 +146,7 @@ struct ToneAnalysisCard: View {
             }
             .padding(20)
         }
+        .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
@@ -176,9 +178,7 @@ struct ToneAnalysisCard: View {
                 emotionBar(label: "Enthusiasm", score: 0.45, color: AppColors.gold)
             }
         }
-        .padding(16)
-        .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .accessibilityHidden(true)
     }
 
     private var proLabel: some View {
