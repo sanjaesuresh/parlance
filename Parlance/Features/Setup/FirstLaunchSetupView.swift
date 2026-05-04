@@ -5,14 +5,14 @@ struct FirstLaunchSetupView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var name = ""
     @State private var username = ""
-    @State private var location = ""
-    @State private var occupation = ""
     @State private var selectedAvatar = "\u{1F3A4}"
     @State private var showPrivacyPolicy = false
 
     private let avatars = ["\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}", "\u{1F525}", "\u{26A1}", "\u{1F3AF}", "\u{1F3C6}", "\u{1F4A1}", "\u{1F31F}", "\u{1F3AD}"]
 
-    private var isValid: Bool { !name.trimmingCharacters(in: .whitespaces).isEmpty && username.count >= 3 }
+    private var isValid: Bool {
+        !name.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 
     var body: some View {
         ScrollView {
@@ -29,6 +29,12 @@ struct FirstLaunchSetupView: View {
                         .font(AppFonts.body(16))
                         .foregroundStyle(AppColors.sub)
                 }
+
+                Text("Practice interviews, pitches, and presentations in 3-minute sessions.")
+                    .font(AppFonts.body(14))
+                    .foregroundStyle(AppColors.dim)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 24)
 
                 // Name
                 setupField(label: "What should we call you?") {
@@ -56,26 +62,6 @@ struct FirstLaunchSetupView: View {
                             let filtered = newValue.lowercased().filter { $0.isLetter || $0.isNumber || $0 == "_" }
                             if filtered != newValue { username = filtered }
                             if username.count > 20 { username = String(username.prefix(20)) }
-                        }
-                }
-
-                // Location (optional)
-                setupField(label: "Where are you from?", hint: "Optional") {
-                    TextField("City, Country", text: $location)
-                        .font(AppFonts.body(18))
-                        .foregroundStyle(AppColors.text)
-                        .onChange(of: location) { _, newValue in
-                            if newValue.count > 40 { location = String(newValue.prefix(40)) }
-                        }
-                }
-
-                // Occupation (optional)
-                setupField(label: "What do you do?", hint: "Optional") {
-                    TextField("Your role or field", text: $occupation)
-                        .font(AppFonts.body(18))
-                        .foregroundStyle(AppColors.text)
-                        .onChange(of: occupation) { _, newValue in
-                            if newValue.count > 40 { occupation = String(newValue.prefix(40)) }
                         }
                 }
 
@@ -180,13 +166,9 @@ struct FirstLaunchSetupView: View {
         let trimmedName = name.trimmingCharacters(in: .whitespaces)
         guard !trimmedName.isEmpty else { return }
         let finalUsername = username.isEmpty ? generateUsername(from: trimmedName) : username
-        let trimmedLocation = location.trimmingCharacters(in: .whitespaces)
-        let trimmedOccupation = occupation.trimmingCharacters(in: .whitespaces)
         let _ = PersistenceService.shared.createUser(
             name: trimmedName,
             username: finalUsername,
-            location: trimmedLocation.isEmpty ? nil : trimmedLocation,
-            occupation: trimmedOccupation.isEmpty ? nil : trimmedOccupation,
             avatar: selectedAvatar
         )
     }
