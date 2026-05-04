@@ -8,57 +8,44 @@ struct DailyChallengeCard: View {
 
     var body: some View {
         Button(action: onTap) {
-            ZStack(alignment: .topTrailing) {
-                // Glow circle in top-right
-                Circle()
-                    .fill(AppColors.gold.opacity(0.08))
-                    .frame(width: 130, height: 130)
-                    .offset(x: 40, y: -40)
-
-                HStack {
-                    // Left content
-                    VStack(alignment: .leading, spacing: 10) {
-                        // Pills row
-                        HStack(spacing: 8) {
-                            PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
-                            PillBadge(text: "Lv \(level)", color: AppColors.gold, small: true)
-                        }
-
-                        // Title
-                        Text("Daily Challenge")
-                            .font(AppFonts.display(18))
-                            .foregroundStyle(AppColors.text)
-
-                        // Subtitle
-                        if completed {
-                            Text("Come back tomorrow for a new one")
-                                .font(AppFonts.body(12))
-                                .foregroundStyle(AppColors.teal)
-                        } else {
-                            Text("Fresh question every session")
-                                .font(AppFonts.body(12))
-                                .foregroundStyle(AppColors.dim)
-                        }
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack(spacing: 8) {
+                        PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
+                        PillBadge(text: "Lv \(level)", color: AppColors.gold, small: true)
                     }
 
-                    Spacer()
+                    Text("Daily Challenge")
+                        .font(AppFonts.display(18))
+                        .foregroundStyle(AppColors.text)
 
-                    // Play button / checkmark
-                    ZStack {
-                        Circle()
-                            .fill(completed ? AppColors.teal : AppColors.gold)
-                            .frame(width: 46, height: 46)
+                    if completed {
+                        Text("Come back tomorrow for a new one")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.teal)
+                    } else {
+                        Text("Fresh question every session")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.dim)
+                    }
+                }
 
-                        if completed {
-                            Image(systemName: "checkmark")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundStyle(.white)
-                        } else {
-                            Image(systemName: "play.fill")
-                                .font(.system(size: 16))
-                                .foregroundStyle(Color(red: 0.09, green: 0.07, blue: 0.0))
-                                .offset(x: 1.5)
-                        }
+                Spacer()
+
+                ZStack {
+                    Circle()
+                        .fill(completed ? AppColors.teal : AppColors.gold)
+                        .frame(width: 46, height: 46)
+
+                    if completed {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundStyle(.white)
+                    } else {
+                        Image(systemName: "play.fill")
+                            .font(.system(size: 16))
+                            .foregroundStyle(Color(red: 0.09, green: 0.07, blue: 0.0))
+                            .offset(x: 1.5)
                     }
                 }
             }
