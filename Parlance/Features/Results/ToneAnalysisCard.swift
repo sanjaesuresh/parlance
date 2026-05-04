@@ -84,13 +84,13 @@ struct ToneAnalysisCard: View {
         let direction: String
         let color: Color
         if delta >= 0.05 {
-            direction = "Improved"
+            direction = "↑ improved"
             color = AppColors.teal
         } else if delta <= -0.05 {
-            direction = "Declined"
+            direction = "↓ declined"
             color = AppColors.red
         } else {
-            direction = "Steady"
+            direction = "→ steady"
             color = AppColors.sub
         }
 
@@ -98,7 +98,7 @@ struct ToneAnalysisCard: View {
             Text("Confidence arc:")
                 .font(AppFonts.body(11))
                 .foregroundStyle(AppColors.dim)
-            Text("\(direction) - \(String(format: "%.0f%%", first * 100)) -> \(String(format: "%.0f%%", last * 100))")
+            Text("\(direction) · \(String(format: "%.0f%%", first * 100)) → \(String(format: "%.0f%%", last * 100))")
                 .font(AppFonts.bodyMedium(11))
                 .foregroundStyle(color)
         }
