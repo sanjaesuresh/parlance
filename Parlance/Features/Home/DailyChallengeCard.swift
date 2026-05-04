@@ -44,7 +44,7 @@ struct DailyChallengeCard: View {
                     } else {
                         Image(systemName: "play.fill")
                             .font(.system(size: 16))
-                            .foregroundStyle(Color(red: 0.09, green: 0.07, blue: 0.0))
+                            .foregroundStyle(AppColors.challengeIconFg)
                             .offset(x: 1.5)
                     }
                 }
@@ -53,10 +53,7 @@ struct DailyChallengeCard: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 LinearGradient(
-                    colors: [
-                        Color(red: 0.094, green: 0.071, blue: 0.0),
-                        Color(red: 0.122, green: 0.090, blue: 0.0)
-                    ],
+                    colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )

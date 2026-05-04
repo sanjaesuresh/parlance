@@ -66,4 +66,53 @@ enum AppColors {
             ? UIColor(hex: "#3BB5A0")
             : UIColor(hex: "#2E9E8B")
     })
+
+    // MARK: - Semantic One-Off Colors
+    static let aiCoachBg = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.075, green: 0.071, blue: 0.055, alpha: 1)
+            : UIColor(red: 0.97, green: 0.95, blue: 0.93, alpha: 1)
+    })
+
+    static let momentBestBg = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.055, green: 0.102, blue: 0.078, alpha: 1)
+            : UIColor(red: 0.93, green: 0.96, blue: 0.945, alpha: 1)
+    })
+
+    static let momentWorstBg = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.102, green: 0.055, blue: 0.055, alpha: 1)
+            : UIColor(red: 0.96, green: 0.93, blue: 0.93, alpha: 1)
+    })
+
+    static let challengeGradientStart = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.094, green: 0.071, blue: 0.0, alpha: 1)
+            : UIColor(red: 0.96, green: 0.93, blue: 0.84, alpha: 1)
+    })
+
+    static let challengeGradientEnd = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.122, green: 0.090, blue: 0.0, alpha: 1)
+            : UIColor(red: 0.93, green: 0.89, blue: 0.75, alpha: 1)
+    })
+
+    static let challengeIconFg = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.09, green: 0.07, blue: 0.0, alpha: 1)
+            : UIColor(red: 0.24, green: 0.18, blue: 0.0, alpha: 1)
+    })
+
+    static let leagueBannerStart = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.102, green: 0.078, blue: 0.0, alpha: 1)
+            : UIColor(red: 0.96, green: 0.93, blue: 0.84, alpha: 1)
+    })
+
+    static let leagueBannerEnd = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(red: 0.133, green: 0.102, blue: 0.0, alpha: 1)
+            : UIColor(red: 0.93, green: 0.89, blue: 0.75, alpha: 1)
+    })
 }

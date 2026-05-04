@@ -329,7 +329,7 @@ struct ProgressTabView: View {
 
                                 Text("\(session.overallScore)")
                                     .font(AppFonts.display(20))
-                                    .foregroundStyle(scoreColor(session.overallScore))
+                                    .foregroundStyle(AppColors.scoreColor(session.overallScore))
 
                                 Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                                     .font(.system(size: 11, weight: .medium))
@@ -381,7 +381,7 @@ struct ProgressTabView: View {
                                             .kerning(0.8)
                                         Text(feedback)
                                             .font(AppFonts.body(11))
-                                            .foregroundStyle(Color(red: 0.73, green: 0.73, blue: 0.73))
+                                            .foregroundStyle(AppColors.sub)
                                             .lineSpacing(4)
                                     }
                                 }
@@ -411,12 +411,6 @@ struct ProgressTabView: View {
                 .foregroundStyle(AppColors.dim)
         }
         .frame(maxWidth: .infinity)
-    }
-
-    private func scoreColor(_ score: Int) -> Color {
-        if score >= 80 { return AppColors.teal }
-        if score >= 60 { return AppColors.gold }
-        return AppColors.red
     }
 
     // MARK: - Mode Breakdown

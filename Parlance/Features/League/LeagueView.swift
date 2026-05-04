@@ -146,14 +146,14 @@ struct LeagueView: View {
         .padding(20)
         .background(
             LinearGradient(
-                colors: [Color(hex: "#1A1400"), Color(hex: "#221A00")],
+                colors: [AppColors.leagueBannerStart, AppColors.leagueBannerEnd],
                 startPoint: .top,
                 endPoint: .bottom
             )
         )
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
                 .stroke(AppColors.gold.opacity(0.4), lineWidth: 1)
         )
     }
@@ -410,7 +410,7 @@ struct LeagueView: View {
                         VStack(alignment: .trailing, spacing: 2) {
                             Text("Avg \(profile.avgScore)")
                                 .font(AppFonts.bodyBold(12))
-                                .foregroundStyle(scoreColor(profile.avgScore))
+                                .foregroundStyle(AppColors.scoreColor(profile.avgScore))
                             Text("\u{1F525} \(profile.currentStreak)")
                                 .font(AppFonts.body(10))
                                 .foregroundStyle(AppColors.dim)
@@ -553,11 +553,5 @@ struct LeagueView: View {
         .cardStyle()
     }
 
-    // MARK: - Helpers
-
-    private func scoreColor(_ score: Int) -> Color {
-        if score >= 80 { return AppColors.teal }
-        if score >= 60 { return AppColors.gold }
-        return AppColors.red
-    }
 }
+

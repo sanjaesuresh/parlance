@@ -407,7 +407,7 @@ struct ProfileView: View {
 
                     Text("\(session.overallScore)")
                         .font(AppFonts.display(20))
-                        .foregroundStyle(scoreColor(session.overallScore))
+                        .foregroundStyle(AppColors.scoreColor(session.overallScore))
                 }
                 .padding(12)
                 .background(AppColors.card)
@@ -570,12 +570,6 @@ struct ProfileView: View {
     }
 
     // MARK: - Helpers
-
-    private func scoreColor(_ score: Int) -> Color {
-        if score >= 80 { return AppColors.teal }
-        if score >= 60 { return AppColors.gold }
-        return AppColors.red
-    }
 
     private func achievementEmoji(for iconName: String) -> String {
         switch iconName {

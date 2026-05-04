@@ -240,7 +240,7 @@ struct ResultsView: View {
             }
         }
         .padding(18)
-        .background(Color(red: 0.075, green: 0.071, blue: 0.055)) // #13120E
+        .background(AppColors.aiCoachBg)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
@@ -327,7 +327,7 @@ struct ResultsView: View {
                                 quote: session.bestMomentQuote,
                                 reason: session.bestMomentReason,
                                 labelColor: AppColors.teal,
-                                bgColor: Color(red: 0.055, green: 0.102, blue: 0.078),
+                                bgColor: AppColors.momentBestBg,
                                 borderColor: AppColors.teal.opacity(0.3)
                             )
                         }
@@ -337,7 +337,7 @@ struct ResultsView: View {
                                 quote: session.worstMomentQuote,
                                 reason: session.worstMomentReason,
                                 labelColor: AppColors.red,
-                                bgColor: Color(red: 0.102, green: 0.055, blue: 0.055),
+                                bgColor: AppColors.momentWorstBg,
                                 borderColor: AppColors.red.opacity(0.3)
                             )
                         }
@@ -357,7 +357,7 @@ struct ResultsView: View {
                             timestamp: formatTimestamp(session.bestMomentTimestamp),
                             text: session.bestMomentText,
                             labelColor: AppColors.teal,
-                            bgColor: Color(red: 0.055, green: 0.102, blue: 0.078),
+                            bgColor: AppColors.momentBestBg,
                             borderColor: AppColors.teal.opacity(0.3)
                         )
                     }
@@ -367,7 +367,7 @@ struct ResultsView: View {
                             timestamp: formatTimestamp(session.worstMomentTimestamp),
                             text: session.worstMomentText,
                             labelColor: AppColors.red,
-                            bgColor: Color(red: 0.102, green: 0.055, blue: 0.055),
+                            bgColor: AppColors.momentWorstBg,
                             borderColor: AppColors.red.opacity(0.3)
                         )
                     }
