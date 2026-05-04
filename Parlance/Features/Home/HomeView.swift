@@ -31,6 +31,17 @@ struct HomeView: View {
                 .padding(.bottom, 32)
             }
             .background(AppColors.bg)
+            .navigationBarHidden(true)
+            .overlay(alignment: .top) {
+                LinearGradient(
+                    colors: [AppColors.bg, AppColors.bg.opacity(0)],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .frame(height: 60)
+                .ignoresSafeArea(edges: .top)
+                .allowsHitTesting(false)
+            }
             .onAppear {
                 if let user {
                     viewModel.lockDailyChallengeLevel(for: user)

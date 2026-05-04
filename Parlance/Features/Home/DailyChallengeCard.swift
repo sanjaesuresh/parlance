@@ -57,6 +57,7 @@ struct DailyChallengeCard: View {
                             Image(systemName: "play.fill")
                                 .font(.system(size: 16))
                                 .foregroundStyle(Color(red: 0.09, green: 0.07, blue: 0.0))
+                                .offset(x: 1.5)
                         }
                     }
                 }
