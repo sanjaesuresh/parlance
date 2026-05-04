@@ -5,8 +5,8 @@ struct SectionHeader: View {
 
     var body: some View {
         Text(title.uppercased())
-            .font(AppFonts.bodyMedium(11))
-            .foregroundStyle(AppColors.dim)
+            .font(AppFonts.bodyBold(11))
+            .foregroundStyle(AppColors.sub)
             .kerning(1.2)
     }
 }
