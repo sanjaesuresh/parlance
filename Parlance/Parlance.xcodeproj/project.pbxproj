@@ -32,18 +32,18 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D4BDC08A2F7F971900FE69B7 /* Parlance */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Parlance;
-			sourceTree = "<group>";
+			path = .;
+			sourceTree = SOURCE_ROOT;
 		};
 		D4BDC0982F7F971B00FE69B7 /* ParlanceTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ParlanceTests;
-			sourceTree = "<group>";
+			path = ../ParlanceTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		D4BDC0A22F7F971B00FE69B7 /* ParlanceUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ParlanceUITests;
-			sourceTree = "<group>";
+			path = ../ParlanceUITests;
+			sourceTree = SOURCE_ROOT;
 		};
 		D4BDC0E32F7FA4C900FE69B7 /* _docs */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;

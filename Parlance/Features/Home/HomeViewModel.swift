@@ -7,6 +7,9 @@ final class HomeViewModel: ObservableObject {
     private let questionBank: QuestionBankService
     @Published var showRateLimitAlert = false
 
+    // Bypass @MainActor isolated deinit back-deployment shim that crashes on iOS 26 beta
+    nonisolated deinit {}
+
     init(questionBank: QuestionBankService = QuestionBankService()) {
         self.questionBank = questionBank
     }

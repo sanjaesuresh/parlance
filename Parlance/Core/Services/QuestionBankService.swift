@@ -3,6 +3,9 @@ import Foundation
 final class QuestionBankService {
     let allQuestions: [Question]
 
+    // Bypass @MainActor isolated deinit back-deployment shim that crashes on iOS 26 beta
+    nonisolated deinit {}
+
     init() {
         guard let url = Bundle.main.url(forResource: "questions", withExtension: "json"),
               let data = try? Data(contentsOf: url),
