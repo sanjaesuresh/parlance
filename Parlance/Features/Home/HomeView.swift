@@ -58,26 +58,21 @@ struct HomeView: View {
     // MARK: - Header
 
     private var headerRow: some View {
-        HStack(alignment: .top) {
-            if let user {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(user.greeting.uppercased())
-                        .font(AppFonts.body(11))
-                        .foregroundStyle(AppColors.dim)
-                        .kerning(1.2)
-
-                    Text("\(user.displayName).")
-                        .font(AppFonts.display(28))
-                        .foregroundStyle(AppColors.text)
-                }
+        HStack(alignment: .center) {
+            HStack(spacing: 0) {
+                Text("Parlance")
+                    .font(AppFonts.display(28))
+                    .foregroundStyle(AppColors.text)
+                Text(".")
+                    .font(AppFonts.display(28))
+                    .foregroundStyle(AppColors.gold)
             }
 
             Spacer()
 
             if let user {
-                // Streak pill
-                HStack(spacing: 4) {
-                    Text("\u{1F525}")
+                HStack(spacing: 6) {
+                    Text("🔥")
                         .font(.system(size: 13))
                     Text("\(user.currentStreak)")
                         .font(AppFonts.bodyBold(13))
