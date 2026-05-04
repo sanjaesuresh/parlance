@@ -9,6 +9,7 @@ struct PaywallView: View {
     @State private var product: Product?
     @State private var isPurchasing = false
     @State private var isRestoring = false
+    @State private var showErrorAlert = false
     @State private var errorMessage: String?
 
     private let benefits: [(icon: String, title: String, detail: String)] = [
@@ -43,7 +44,7 @@ struct PaywallView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task { await loadProduct() }
-        .alert("Something went wrong", isPresented: .constant(errorMessage != nil)) {
+        .alert("Something went wrong", isPresented: $showErrorAlert) {
             Button("OK") { errorMessage = nil }
         } message: {
             Text(errorMessage ?? "")
@@ -173,6 +174,7 @@ struct PaywallView: View {
             dismiss()
         } catch {
             errorMessage = error.localizedDescription
+            showErrorAlert = true
         }
         isPurchasing = false
     }

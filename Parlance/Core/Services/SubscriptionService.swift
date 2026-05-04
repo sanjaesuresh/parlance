@@ -19,6 +19,8 @@ final class SubscriptionService: ObservableObject {
         Task { await refreshStatus() }
     }
 
+    // Note: deinit is never called on this singleton, but cancelling the task
+    // here is correct practice if the class is ever made non-singleton.
     deinit {
         transactionUpdateTask?.cancel()
     }
