@@ -6,7 +6,10 @@ struct ProgressTabView: View {
     @Query private var achievements: [Achievement]
     @StateObject private var viewModel = ProgressViewModel()
     @EnvironmentObject private var weekCache: SessionWeekCache
-    @State private var cachedWeeklyActivity: [Int] = []
+
+    private var weeklyActivity: [Int] {
+        viewModel.weeklyActivity(from: weekCache.sessions)
+    }
 
     var body: some View {
         NavigationStack {
@@ -32,12 +35,6 @@ struct ProgressTabView: View {
             .navigationBarHidden(true)
             .safeAreaInset(edge: .top) {
                 headerView
-            }
-            .onAppear {
-                cachedWeeklyActivity = viewModel.weeklyActivity(from: weekCache.sessions)
-            }
-            .onChange(of: weekCache.sessions) { _, newSessions in
-                cachedWeeklyActivity = viewModel.weeklyActivity(from: newSessions)
             }
         }
     }
@@ -80,7 +77,7 @@ struct ProgressTabView: View {
     // MARK: - Week Calendar
 
     private var weekCalendarCard: some View {
-        let counts = cachedWeeklyActivity
+        let counts = weeklyActivity
         let calendar = Calendar.current
         let today = calendar.component(.weekday, from: .now)
         let todayIndex = (today + 5) % 7 // Mon=0 ... Sun=6
@@ -215,7 +212,7 @@ struct ProgressTabView: View {
     // MARK: - Sessions Per Day
 
     private var sessionsPerDayCard: some View {
-        let counts = cachedWeeklyActivity
+        let counts = weeklyActivity
         let maxCount = max(1, counts.max() ?? 1)
         let dayLabels = ["M", "T", "W", "T", "F", "S", "S"]
         let calendar = Calendar.current

@@ -29,6 +29,7 @@
 		D420492A2F90BF9700B3BE56 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4204AA32F90C0BE00B3BE56 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D47059F52FA7F12F0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D4705BA02FA8F70B0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4BDC0882F7F971900FE69B7 /* Parlance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parlance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC0952F7F971B00FE69B7 /* ParlanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC09F2F7F971B00FE69B7 /* ParlanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +105,13 @@
 			sourceTree = "<group>";
 		};
 		D47059F72FA7F12F0037F17E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4705BA22FA8F70B0037F17E /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -254,6 +262,10 @@
 				{
 					ProductGroup = D42047B52F90319E00B3BE56 /* Products */;
 					ProjectRef = D42047B32F90319E00B3BE56 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4705BA22FA8F70B0037F17E /* Products */;
+					ProjectRef = D4705BA02FA8F70B0037F17E /* Parlance.xcodeproj */;
 				},
 			);
 			projectRoot = "";
