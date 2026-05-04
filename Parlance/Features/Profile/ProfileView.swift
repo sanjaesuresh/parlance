@@ -7,12 +7,12 @@ struct ProfileView: View {
     @Query(sort: \Achievement.id) private var achievements: [Achievement]
     @StateObject private var viewModel = ProfileViewModel()
     @EnvironmentObject private var subscription: SubscriptionService
+    @EnvironmentObject private var weekCache: SessionWeekCache
     @State private var showSafari = false
     @State private var safariURL: URL?
     @State private var showSettings = false
     @State private var showEditProfile = false
     @State private var showPaywall = false
-    @State private var cachedWeekSessions: [Session] = []
     @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
 
     private var user: User? { users.first }
@@ -43,7 +43,6 @@ struct ProfileView: View {
             }
             .onAppear {
                 viewModel.loadSettings()
-                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
             }
             .alert("Reset All Data", isPresented: $viewModel.showResetConfirmation) {
                 Button("Reset", role: .destructive) { viewModel.resetAllData() }
@@ -208,7 +207,7 @@ struct ProfileView: View {
                 HStack(spacing: 8) {
                     PillBadge(text: "\(user.currentStreak)-day streak", emoji: "🔥", color: AppColors.gold, small: true)
 
-                    let weeklyXP = cachedWeekSessions.map(\.xpEarned).reduce(0, +)
+                    let weeklyXP = weekCache.sessions.map(\.xpEarned).reduce(0, +)
                     let tier = LeagueTier.from(weeklyXP: weeklyXP)
                     PillBadge(text: "\(tier.displayName) League", color: AppColors.purple, small: true)
                 }

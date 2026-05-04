@@ -6,6 +6,7 @@ struct ContentView: View {
     @Query private var users: [User]
     @StateObject private var permissionsService = PermissionsService()
     @StateObject private var networkMonitor = NetworkMonitor()
+    @StateObject private var weekCache = SessionWeekCache()
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @State private var activeSession: ActiveSessionState?
 
@@ -19,7 +20,10 @@ struct ContentView: View {
             } else if let session = activeSession {
                 SessionCoordinator(
                     state: session,
-                    onDismiss: { activeSession = nil }
+                    onDismiss: {
+                        activeSession = nil
+                        weekCache.refresh()
+                    }
                 )
                 .transition(.move(edge: .bottom))
             } else {
@@ -68,5 +72,7 @@ struct ContentView: View {
                 }
         }
         .tint(AppColors.gold)
+        .environmentObject(weekCache)
+        .onAppear { weekCache.refresh() }
     }
 }

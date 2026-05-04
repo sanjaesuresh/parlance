@@ -8,11 +8,11 @@ struct HomeView: View {
     @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject private var subscription: SubscriptionService
+    @EnvironmentObject private var weekCache: SessionWeekCache
 
     private var user: User? { users.first }
 
     @State private var sliderLevel: Double = 1
-    @State private var cachedWeekSessions: [Session] = []
     @State private var showPaywall = false
 
     var body: some View {
@@ -47,7 +47,6 @@ struct HomeView: View {
                     viewModel.lockDailyChallengeLevel(for: user)
                     sliderLevel = Double(user.practiceLevel)
                 }
-                cachedWeekSessions = PersistenceService.shared.sessionsThisWeek()
             }
             .alert("Daily Limit Reached", isPresented: $viewModel.showRateLimitAlert) {
                 Button("OK") {}
@@ -276,12 +275,12 @@ struct HomeView: View {
     // MARK: - Weekly Stats
 
     private var weeklyStatsSection: some View {
-        let stats = viewModel.weeklyStats(sessions: cachedWeekSessions)
+        let stats = viewModel.weeklyStats(sessions: weekCache.sessions)
 
         return VStack(spacing: 10) {
             SectionHeader(title: "This Week")
 
-            if cachedWeekSessions.isEmpty {
+            if weekCache.sessions.isEmpty {
                 VStack(spacing: 8) {
                     Image(systemName: "chart.bar.doc.horizontal")
                         .font(.system(size: 24))

@@ -5,11 +5,11 @@ struct LeagueView: View {
     @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
     @Query private var users: [User]
     @StateObject private var viewModel = LeagueViewModel()
+    @EnvironmentObject private var weekCache: SessionWeekCache
     @State private var selectedTab: SocialTab = .leaderboard
     @State private var friendSearchText = ""
     @State private var searchResults: [SocialProfile] = []
     @State private var selectedProfile: SocialProfile?
-    @State private var weekSessions: [Session] = []
 
     private enum SocialTab {
         case leaderboard, friends
@@ -50,9 +50,6 @@ struct LeagueView: View {
             .sheet(item: $selectedProfile) { profile in
                 UserProfileDetailView(profile: profile)
             }
-            .onAppear {
-                weekSessions = PersistenceService.shared.sessionsThisWeek()
-            }
         }
     }
 
@@ -78,7 +75,7 @@ struct LeagueView: View {
     // MARK: - Tier Banner
 
     private var tierBannerCard: some View {
-        let sessions = weekSessions
+        let sessions = weekCache.sessions
         let weeklyXP = viewModel.weeklyXP(from: sessions)
         let tier = LeagueTier.from(weeklyXP: weeklyXP)
         let nextTierIndex = LeagueTier.allCases.firstIndex(of: tier).map { $0 + 1 }
@@ -221,7 +218,7 @@ struct LeagueView: View {
 
     private var leaderboardList: some View {
         let leaderboard = SocialProfile.weeklyLeaderboard
-        let myWeeklyXP = viewModel.weeklyXP(from: weekSessions)
+        let myWeeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
 
         return VStack(alignment: .leading, spacing: 8) {
             SectionHeader(title: "This Week")
