@@ -12,26 +12,20 @@ struct ScoreRingView: View {
     }
 
     var body: some View {
-        GeometryReader { geo in
-            let size = min(geo.size.width * 0.42, 160)
-            ZStack {
-                Circle()
-                    .stroke(AppColors.border, lineWidth: 12)
+        ZStack {
+            Circle()
+                .stroke(AppColors.border, lineWidth: 12)
 
-                Circle()
-                    .trim(from: 0, to: animatedProgress)
-                    .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
-                    .rotationEffect(.degrees(-90))
+            Circle()
+                .trim(from: 0, to: animatedProgress)
+                .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
+                .rotationEffect(.degrees(-90))
 
-                Text("\(score)")
-                    .font(AppFonts.display(48))
-                    .foregroundStyle(ringColor)
-            }
-            .frame(width: size, height: size)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Text("\(score)")
+                .font(AppFonts.display(48))
+                .foregroundStyle(ringColor)
         }
-        .aspectRatio(1, contentMode: .fit)
-        .frame(maxWidth: 160)
+        .frame(width: 160, height: 160)
         .accessibilityElement()
         .accessibilityLabel("Overall score \(score) out of 100")
         .onAppear {

@@ -113,13 +113,21 @@ struct FirstLaunchSetupView: View {
                 .padding(.horizontal, 24)
 
                 // Privacy
-                Button {
-                    showPrivacyPolicy = true
-                } label: {
-                    Text("Your voice data stays private. Privacy Policy")
-                        .font(AppFonts.body(12))
-                        .foregroundStyle(AppColors.sub)
-                        .underline()
+                VStack(spacing: 4) {
+                    Text("Audio is processed on-device. Pro subscribers' audio is analyzed by our AI for emotion detection.")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.dim)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
+
+                    Button {
+                        showPrivacyPolicy = true
+                    } label: {
+                        Text("Privacy Policy")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.sub)
+                            .underline()
+                    }
                 }
                 .padding(.bottom, 16)
             }

@@ -1,5 +1,3 @@
-Parlance: AI Speech Coach/.git
-
 # macOS
 .DS_Store
 *~
@@ -25,6 +23,7 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 *.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+*.xcresult
 
 # Swift Package Manager
 .build/
@@ -34,7 +33,7 @@ Packages/
 # CocoaPods
 Pods/
 
-# fastlane
+# Fastlane
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
@@ -44,9 +43,16 @@ fastlane/test_output
 CLAUDE.md
 .claude/
 
-# Docs — specs and plans
+# Superpowers — AI session data, brainstorm outputs, generated plans
+.superpowers/
+docs/superpowers/
+
+# Docs — specs and plans (generated, not source of truth)
 _docs/specs/
 _docs/plans/
-Parlance/_docs/specs/
-Parlance/_docs/plans/
+
+# Product / planning docs
+PRODUCT.md
+
+# Cloudflare Worker (local dev, deployed separately)
 cloudflare-worker/

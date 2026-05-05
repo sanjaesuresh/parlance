@@ -86,10 +86,10 @@ A 3–2–1 countdown runs after you tap ready. Use it to take a breath. Recordi
 After recording, Parlance analyzes your speech. The results screen shows:
 
 - **Overall score** (0–100) with delta vs. your prior average
-- **AI coach paragraph** — mode-specific, level-aware coaching from Claude Haiku
+- **AI coach paragraph** — mode-specific, level-aware coaching
 - **Best moment** — timestamp + transcript snippet of your strongest section
 - **Worst moment** — timestamp + transcript snippet of where to improve
-- **Metric breakdown** — five scored dimensions (see below)
+- **Metric breakdown** — up to 10 AI-scored dimensions depending on mode (see below)
 - **Filler word highlight** — your transcript with fillers marked inline
 - **XP earned**
 
@@ -99,17 +99,29 @@ After recording, Parlance analyzes your speech. The results screen shows:
 
 Every session is scored by AI using your transcript, per-word timing data, and on-device audio features (pitch, energy, speaking rate variation). Scores are holistic — the AI evaluates content quality and delivery together, not just text patterns.
 
-### The Five Core Metrics
+### Scored Metrics
 
-| Metric | What It Measures | Scoring Logic |
-|--------|-----------------|---------------|
-| **Filler Words** | Count of "um," "uh," "like," "you know," etc. | `max(0, 10 − fillerCount)` |
-| **Pace** | Words per minute | 130–160 WPM = 10; 110–129 or 161–185 = 7; outside = 4 |
-| **Clarity** | Sentence length and fragment detection | −1 per sentence >25 words; −0.5 per fragment <5 words |
-| **Structure** | Opening/body/close detection; STAR in interview mode | Presence and quality of each section |
-| **Vocabulary Strength** | Type-token ratio, strong verbs, weak-word avoidance | Richness and precision of word choice |
+7 metrics appear in every session:
 
-**Overall score** = mean of all metric scores × 10 (range: 0–100).
+| Metric | What It Measures |
+|--------|-----------------|
+| **Filler Words** | Count of "um," "uh," "like," "you know," etc. |
+| **Pace** | Speaking speed and rhythm |
+| **Clarity** | How easy your words are to follow |
+| **Structure** | Opening, body, and closing flow |
+| **Vocabulary** | Word choice strength and variety |
+| **Relevance** | Did you answer the question? |
+| **Comprehensibility** | Could a listener follow your reasoning? |
+
+Additional metrics appear depending on mode:
+
+| Metric | Modes |
+|--------|-------|
+| **Delivery Confidence** | Interview, Pitch, Keynote, Debate, Negotiation, Impromptu |
+| **Persuasiveness** | Pitch, Debate, Negotiation, Keynote |
+| **Engagement** | Storytelling, Keynote, Casual, Explanation, Networking |
+
+Each metric is scored 0–10. **Overall score** (0–100) is set holistically by the AI — it is not a formula.
 
 ### Audio Features (Sent to AI)
 
@@ -121,6 +133,12 @@ The AI also receives:
 - Speaking rate variation across 10-second windows
 
 This gives the AI a real picture of your delivery — not just what you said, but how you said it.
+
+### Tone & Emotion Analysis (Pro)
+
+Pro subscribers receive an additional **Tone Analysis** card in results. Your audio is analyzed for emotional signals — dominant emotion, nervousness, enthusiasm, and an emotion arc across the session. This is processed by an AI emotion model (see Privacy section below).
+
+---
 
 ---
 
@@ -154,12 +172,14 @@ One-time unlocks for milestones:
 
 | Achievement | Trigger |
 |-------------|---------|
-| First session | Complete any session |
-| 7-day streak | Maintain a 7-day streak |
-| 80+ score | Score 80 or above in any session |
-| 30 sessions | Complete 30 total sessions |
-| Level 5 | Reach difficulty level 5 |
-| Zero fillers | Complete a session with no detected filler words |
+| First Session | Complete any session |
+| 7-Day Streak | Maintain a 7-day streak |
+| Score 80+ | Score 80 or above in any session |
+| 30 Sessions | Complete 30 total sessions |
+| Interview Pro | Complete 10 interview-mode sessions |
+| Rank 5 (Rhetorician) | Reach Rank 5 through XP |
+| Zero Fillers | Complete a session with no detected filler words |
+| Master | Reach Rank 10 through XP |
 
 ---
 
@@ -181,8 +201,10 @@ Access your profile from the **Profile** tab (bottom-right).
 - **Edit Profile** — tap the edit button to update your display name and username
 - **Settings** — tap the gear icon to access:
   - **Appearance** — choose System (auto), Light, or Dark mode
-  - **Notifications** — manage daily reminder settings
-  - **Daily Goal** — set your session target per day
+  - **Daily Reminder** — toggle a daily notification to keep your streak alive
+  - **Sound Effects** — toggle in-app audio feedback
+  - **Privacy Policy** and **Terms of Service** links
+  - **Reset All Data** — permanently wipes all sessions and progress
 
 ---
 
@@ -210,9 +232,10 @@ Practice prompts and tips are bundled on-device and load instantly — the netwo
 
 ## Privacy
 
-- Audio recordings are processed locally for transcription (Apple's SFSpeechRecognizer, on-device)
-- Transcripts and audio features are sent to Parlance's AI backend for scoring — they are not stored after the scoring call completes
-- No audio files leave your device
+- Audio recordings are transcribed on-device using Apple's SFSpeechRecognizer. The audio file is deleted immediately after transcription completes.
+- Your transcript and audio features (pitch, pace, energy) are sent to Parlance's AI backend for scoring. They are not stored after the scoring call completes.
+- **Pro subscribers only:** your audio is also sent to an AI emotion analysis provider (Hume AI) via Parlance's secure backend to generate the Tone Analysis results. The audio is not retained after analysis.
+- All session data (scores, transcripts, feedback) is stored locally on your device only. Nothing is backed up to the cloud.
 
 ---
 

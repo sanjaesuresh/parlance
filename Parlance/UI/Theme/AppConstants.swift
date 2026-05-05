@@ -19,7 +19,11 @@ enum AppConstants {
     static let scoringTimeout: TimeInterval = 30
     static let humeTimeout: TimeInterval = 45
     static let proProductID = "com.parlance.pro.monthly"
-    static let apiBaseURL = URL(string: "https://parlance-api.parlance-app.workers.dev")!
+    static var apiBaseURL: URL {
+        let fallback = "https://parlance-api.parlance-app.workers.dev"
+        let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? fallback
+        return URL(string: urlString) ?? URL(string: fallback)!
+    }
 
     enum Spacing {
         static let xs: CGFloat = 8

@@ -72,7 +72,7 @@ struct SessionCoordinator: View {
 
             case .processing:
                 VStack(spacing: 16) {
-                    ProgressView()
+                    SwiftUI.ProgressView()
                         .tint(AppColors.gold)
                         .scaleEffect(1.5)
                     Text("Analyzing your performance…")
@@ -141,14 +141,12 @@ struct SessionCoordinator: View {
         let duration = recorder.elapsedTime
         let isPro = subscription.isPro
 
-        let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
-        let apiURL = URL(string: urlString)
-
         let transcriptionResult: TranscriptionResult?
         let audioFeatures: AudioFeatures
         let emotionResult: EmotionResult?
 
-        if isPro, let apiURL {
+        if isPro {
+            let apiURL = AppConstants.apiBaseURL
             async let transcriptionTask: TranscriptionResult? = {
                 return try? await SpeechTranscriber.transcribe(url: audioURL)
             }()

@@ -9,11 +9,18 @@ final class PersistenceService {
 
     private init() {
         let schema = Schema([User.self, Session.self, Achievement.self, SeenQuestion.self])
-        let config = ModelConfiguration(isStoredInMemoryOnly: false)
+        let persistentConfig = ModelConfiguration(isStoredInMemoryOnly: false)
         do {
-            container = try ModelContainer(for: schema, configurations: [config])
+            container = try ModelContainer(for: schema, configurations: [persistentConfig])
         } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
+            // Persistent store failed (e.g. schema migration after an update).
+            // Fall back to in-memory so the app stays alive; data won't persist this session.
+            let memoryConfig = ModelConfiguration(isStoredInMemoryOnly: true)
+            do {
+                container = try ModelContainer(for: schema, configurations: [memoryConfig])
+            } catch {
+                fatalError("Failed to create ModelContainer (persistent and in-memory): \(error)")
+            }
         }
     }
 

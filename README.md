@@ -25,10 +25,11 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 
 ### Key Features
 
-- **AI-powered scoring** — Claude Haiku scores all metrics holistically in one call, using the transcript, per-word timestamps, and on-device audio features (pitch, energy, speaking rate variation)
+- **AI-powered scoring** — Gemini scores all metrics holistically in one call, using the transcript, per-word timestamps, and on-device audio features (pitch, energy, speaking rate variation)
 - **On-device audio analysis** — pitch (autocorrelation) and RMS energy extracted via `vDSP`/Accelerate, giving the AI delivery data beyond text
 - **Per-word timestamps** — `SFSpeechRecognizer` segments used to detect pauses, speech-to-silence ratio, and pace variation; passed to AI for timing-aware scoring
 - **Mode-specific metrics** — 8–10 metrics per mode via `MetricKey` enum, not a one-size-fits-all formula
+- **Tone & emotion analysis (Pro)** — audio analyzed by Hume AI (via Cloudflare Worker) for emotional signals: dominant emotion, nervousness, enthusiasm, and an emotion arc across the session
 - **660+ practice prompts** — bundled offline, zero API cost for question generation
 - **Gamification** — XP, 10-level ranking system, daily streaks, achievements
 - **Daily challenge** — one featured session per day with bonus XP
@@ -36,6 +37,7 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 - **Social** — search users by username, view profiles, friends leaderboards
 - **Network gate** — full-screen offline blocker via `NWPathMonitor`; AI scoring requires connectivity
 - **Scoring retry** — if the AI call fails after recording, a dedicated error screen lets users retry scoring without re-recording
+- **Pro subscription** — StoreKit 2; unlocks all modes, Advanced/Expert tiers, emotion analysis, and unlimited daily sessions
 
 ### UX
 
@@ -53,7 +55,7 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 - **Platform:** iOS 17+ (SwiftUI, portrait-only)
 - **Persistence:** SwiftData
 - **Audio:** AVFoundation recording, AVAudioEngine tap for feature extraction, SFSpeechRecognizer transcription
-- **AI:** Claude Haiku via Cloudflare Worker proxy — one call per session (scoring + feedback), ~$0.0006/session
+- **AI:** Gemini via Cloudflare Worker proxy — one scoring call per session; Pro users also get Hume AI emotion analysis in parallel
 - **Audio features:** Accelerate / vDSP (pitch autocorrelation, RMS energy)
 - **Networking:** NWPathMonitor for connectivity gating
 - **Questions:** Static bundled JSON (660+ prompts) — works fully offline
@@ -63,24 +65,26 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 ```
 Parlance.xcodeproj/
 Parlance/                  ← main app source
-├── App/                   ← entry point, app config
+├── App/                   ← ContentView (root TabView), SplashView, ActiveSessionState
 ├── Core/
-│   ├── AI/                ← Claude API integration (ClaudeClient, FeedbackGenerator)
-│   ├── Models/            ← SwiftData models + MetricKey, ScoringResult, AudioFeatures, TimingStats, WordSegment
-│   └── Services/          ← audio recording, AudioFeatureExtractor, SpeechTranscriber, NetworkMonitor, persistence
+│   ├── AI/                ← ClaudeClient (scoring), FeedbackGenerator, HumeClient (emotion)
+│   ├── Models/            ← SwiftData models + MetricKey, ScoringResult, EmotionResult, AudioFeatures, TimingStats
+│   └── Services/          ← AudioRecorder, AudioFeatureExtractor, SpeechTranscriber, SubscriptionService, PersistenceService, NetworkMonitor
 ├── Features/
 │   ├── Home/              ← daily challenge, mode grid, XP, tier picker
 │   ├── Session/           ← LoadingView, CountdownView, RecordingView, SessionCoordinator
-│   ├── Results/           ← post-session scores, AI feedback, filler transcript, MetricCardView
+│   ├── Results/           ← post-session scores, AI feedback, filler transcript, ToneAnalysisCard (Pro)
 │   ├── Progress/          ← score history, skill trends, milestones
 │   ├── League/            ← social tab, leaderboards, tier info
-│   ├── Profile/           ← ProfileView, ProfileEditSheet, settings sheet
+│   ├── Paywall/           ← PaywallView (StoreKit 2 purchase)
+│   ├── Profile/           ← ProfileView, ProfileEditSheet, SettingsSheet
+│   ├── NoConnection/      ← full-screen offline gate
 │   └── Setup/             ← first-launch onboarding
 ├── Resources/             ← questions.json (660+ prompts)
 └── UI/
-    ├── Components/        ← reusable SwiftUI views, NoConnectionView
-    ├── Extensions/        ← Color+Hex, View+CardStyle
-    └── Theme/             ← AppColors (dynamic light/dark), AppTheme, fonts, constants
+    ├── Components/        ← SafariView, AnimatedWaveformView, PillBadge, ProgressBar, XPProgressBar, SectionHeader
+    ├── Extensions/        ← Color+Hex, View+CardStyle, View+Shimmer, Score+Color
+    └── Theme/             ← AppColors (dynamic light/dark), AppTheme, AppFonts, AppConstants
 ParlanceTests/
 ParlanceUITests/
 ```
@@ -91,7 +95,9 @@ ParlanceUITests/
 2. Build and run on iOS 17+ simulator or device
 3. For AI feedback: deploy the Cloudflare Worker and set `ParlanceAPIBaseURL` in Info.plist
 
-> Note: The Cloudflare Worker source is not included in this repo. Contact the maintainer for the worker code.
+The Cloudflare Worker (`cloudflare-worker/`) is gitignored and deployed separately. It exposes two endpoints:
+- `POST /feedback` — Gemini scoring (requires `GEMINI_API_KEY` worker secret)
+- `POST /emotion` — Hume AI emotion analysis for Pro users (requires `HUME_API_KEY` worker secret)
 
 ## Docs
 

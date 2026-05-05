@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 
-struct ProgressTabView: View {
+struct ProgressView: View {
     @Query(sort: \Session.date, order: .reverse) private var sessions: [Session]
     @Query private var achievements: [Achievement]
     @StateObject private var viewModel = ProgressViewModel()
@@ -523,7 +523,7 @@ struct ProgressTabView: View {
                 LazyVGrid(columns: milestoneColumns, spacing: 10) {
                     ForEach(Array(milestoneAchievements), id: \.id) { achievement in
                         VStack(spacing: 8) {
-                            Text(achievementEmoji(for: achievement.iconName))
+                            Text(achievement.emoji)
                                 .font(.system(size: 22))
 
                             Text(achievement.name)
@@ -600,19 +600,4 @@ struct ProgressTabView: View {
         .padding(.vertical, 10)
     }
 
-    // MARK: - Helpers
-
-    private func achievementEmoji(for iconName: String) -> String {
-        switch iconName {
-        case "mic.fill": return "\u{1F3A4}"
-        case "flame.fill": return "\u{1F525}"
-        case "briefcase.fill": return "\u{1F4BC}"
-        case "star.fill": return "\u{2B50}"
-        case "checkmark.seal.fill": return "\u{2705}"
-        case "trophy.fill": return "\u{1F3C6}"
-        case "repeat": return "\u{1F504}"
-        case "crown.fill": return "\u{1F451}"
-        default: return "\u{1F3AF}"
-        }
-    }
 }

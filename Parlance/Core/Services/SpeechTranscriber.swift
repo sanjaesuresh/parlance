@@ -22,7 +22,6 @@ final class SpeechTranscriber {
         }
 
         let request = SFSpeechURLRecognitionRequest(url: url)
-        request.requiresOnDeviceRecognition = true
         request.shouldReportPartialResults = false
 
         return try await withCheckedThrowingContinuation { continuation in
@@ -31,6 +30,9 @@ final class SpeechTranscriber {
                 guard !didResume else { return }
                 if let error {
                     didResume = true
+                    #if DEBUG
+                    print("[Transcription] Failed: \(error.localizedDescription)")
+                    #endif
                     continuation.resume(throwing: TranscriptionError.recognitionFailed(error.localizedDescription))
                     return
                 }
@@ -43,6 +45,9 @@ final class SpeechTranscriber {
                             duration: $0.duration
                         )
                     }
+                    #if DEBUG
+                    print("[Transcription] Success — \(segments.count) words: \(result.bestTranscription.formattedString.prefix(120))")
+                    #endif
                     continuation.resume(returning: TranscriptionResult(
                         transcript: result.bestTranscription.formattedString,
                         segments: segments

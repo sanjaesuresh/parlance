@@ -8,8 +8,6 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @EnvironmentObject private var subscription: SubscriptionService
     @EnvironmentObject private var weekCache: SessionWeekCache
-    @State private var showSafari = false
-    @State private var safariURL: URL?
     @State private var showSettings = false
     @State private var showEditProfile = false
     @State private var showPaywall = false
@@ -50,13 +48,8 @@ struct ProfileView: View {
             } message: {
                 Text("This will permanently delete all your sessions, XP, streaks, and achievements. This cannot be undone.")
             }
-            .sheet(isPresented: $showSafari) {
-                if let url = safariURL {
-                    SafariView(url: url)
-                }
-            }
             .sheet(isPresented: $showSettings) {
-                settingsSheet
+                SettingsSheet(showPaywall: $showPaywall, viewModel: viewModel)
             }
             .sheet(isPresented: $showEditProfile) {
                 if let user {
@@ -277,7 +270,7 @@ struct ProfileView: View {
                 ForEach(achievements, id: \.id) { achievement in
                     VStack(spacing: 6) {
                         if achievement.isUnlocked {
-                            Text(achievementEmoji(for: achievement.iconName))
+                            Text(achievement.emoji)
                                 .font(.system(size: 22))
                         } else {
                             Text("\u{1F512}")
@@ -311,151 +304,6 @@ struct ProfileView: View {
         }
     }
 
-    // MARK: - Settings Sheet
-
-    private var settingsSheet: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(spacing: 0) {
-                    if !subscription.isPro {
-                        Button {
-                            showSettings = false
-                            showPaywall = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "crown.fill")
-                                    .foregroundStyle(AppColors.gold)
-                                    .frame(width: 24)
-                                Text("Upgrade to Pro")
-                                    .font(AppFonts.body(14))
-                                    .foregroundStyle(AppColors.gold)
-                                Spacer()
-                                Text("\u{203A}")
-                                    .font(.system(size: 18))
-                                    .foregroundStyle(AppColors.dim)
-                            }
-                            .padding(.vertical, 12)
-                        }
-
-                        Divider().background(AppColors.border)
-                    }
-
-                    // Toggles
-                    Toggle(isOn: Binding(
-                        get: { viewModel.dailyReminderEnabled },
-                        set: { viewModel.toggleDailyReminder($0) }
-                    )) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "bell.fill")
-                                .foregroundStyle(AppColors.sub)
-                                .frame(width: 24)
-                            Text("Daily Reminder")
-                                .font(AppFonts.body(14))
-                                .foregroundStyle(AppColors.text)
-                        }
-                    }
-                    .tint(AppColors.gold)
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    Toggle(isOn: Binding(
-                        get: { viewModel.soundEffectsEnabled },
-                        set: { viewModel.toggleSoundEffects($0) }
-                    )) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "flame.fill")
-                                .foregroundStyle(AppColors.sub)
-                                .frame(width: 24)
-                            Text("Streak Notifications")
-                                .font(AppFonts.body(14))
-                                .foregroundStyle(AppColors.text)
-                        }
-                    }
-                    .tint(AppColors.gold)
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    // Theme picker
-                    HStack {
-                        Image(systemName: "circle.lefthalf.filled")
-                            .foregroundStyle(AppColors.sub)
-                            .frame(width: 24)
-                        Text("Appearance")
-                            .font(AppFonts.body(14))
-                            .foregroundStyle(AppColors.text)
-
-                        Spacer()
-
-                        Picker("Appearance", selection: $appThemeRaw) {
-                            ForEach(AppTheme.allCases, id: \.rawValue) { theme in
-                                Text(theme.displayName).tag(theme.rawValue)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                        .tint(AppColors.gold)
-                    }
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "lock.shield", title: "Privacy Policy") {
-                        safariURL = URL(string: "https://parlance.app/privacy")
-                        showSafari = true
-                    }
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "doc.text", title: "Terms of Service") {
-                        safariURL = URL(string: "https://parlance.app/terms")
-                        showSafari = true
-                    }
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "trash", title: "Reset All Data", isDestructive: true) {
-                        viewModel.showResetConfirmation = true
-                    }
-                }
-                .padding(.horizontal, 16)
-            }
-            .background(AppColors.bg)
-            .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { showSettings = false }
-                        .foregroundStyle(AppColors.gold)
-                }
-            }
-        }
-        .presentationDetents([.medium])
-    }
-
-    private func menuRow(emoji: String = "", icon: String = "", title: String, isDestructive: Bool = false, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack {
-                if !emoji.isEmpty {
-                    Text(emoji)
-                        .frame(width: 24)
-                } else if !icon.isEmpty {
-                    Image(systemName: icon)
-                        .foregroundStyle(isDestructive ? AppColors.red : AppColors.sub)
-                        .frame(width: 24)
-                }
-                Text(title)
-                    .font(AppFonts.body(14))
-                    .foregroundStyle(isDestructive ? AppColors.red : AppColors.text)
-                Spacer()
-                Text("\u{203A}")
-                    .font(.system(size: 18))
-                    .foregroundStyle(AppColors.dim)
-            }
-            .padding(.vertical, 12)
-        }
-    }
-
     // MARK: - Footer
 
     private var footerSection: some View {
@@ -466,19 +314,4 @@ struct ProfileView: View {
             .padding(.top, 8)
     }
 
-    // MARK: - Helpers
-
-    private func achievementEmoji(for iconName: String) -> String {
-        switch iconName {
-        case "mic.fill": return "\u{1F3A4}"
-        case "flame.fill": return "\u{1F525}"
-        case "briefcase.fill": return "\u{1F4BC}"
-        case "star.fill": return "\u{2B50}"
-        case "checkmark.seal.fill": return "\u{2705}"
-        case "trophy.fill": return "\u{1F3C6}"
-        case "repeat": return "\u{1F504}"
-        case "crown.fill": return "\u{1F451}"
-        default: return "\u{1F3AF}"
-        }
-    }
 }

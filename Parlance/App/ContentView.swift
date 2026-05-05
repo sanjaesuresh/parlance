@@ -44,7 +44,6 @@ struct ContentView: View {
         .environmentObject(permissionsService)
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
-            // Signal splash that the model context and view hierarchy are ready
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isAppReady = true
             }
@@ -69,7 +68,7 @@ struct ContentView: View {
                 Label("Home", systemImage: "house")
             }
 
-            ProgressTabView()
+            ProgressView()
                 .tabItem {
                     Label("Progress", systemImage: "chart.bar")
                 }

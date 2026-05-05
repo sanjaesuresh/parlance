@@ -15,7 +15,7 @@ struct PaywallView: View {
     private let benefits: [(icon: String, title: String, detail: String)] = [
         ("🎭", "All Practice Modes",        "Unlock all modes for every speaking scenario"),
         ("⚡", "Advanced & Expert Levels", "Access levels 7–10 for elite coaching"),
-        ("🎙️", "Tone & Emotion Analysis",  "See how confident, nervous, and engaging you sound"),
+        ("🎙️", "Tone & Emotion Analysis",  "Audio analyzed by AI for emotion detection — see Privacy Policy"),
         ("∞",  "Unlimited Daily Sessions", "Practice as many times as you want, every day")
     ]
 
@@ -122,7 +122,7 @@ struct PaywallView: View {
         } label: {
             ZStack {
                 if isPurchasing {
-                    ProgressView().tint(.black)
+                    SwiftUI.ProgressView().tint(.black)
                 } else {
                     Text("Start Pro · \(product?.displayPrice ?? "$9.99")/mo")
                         .font(AppFonts.bodyBold(16))
@@ -142,7 +142,7 @@ struct PaywallView: View {
             Task { await restore() }
         } label: {
             if isRestoring {
-                ProgressView().tint(AppColors.sub)
+                SwiftUI.ProgressView().tint(AppColors.sub)
             } else {
                 Text("Restore purchases")
                     .font(AppFonts.body(13))

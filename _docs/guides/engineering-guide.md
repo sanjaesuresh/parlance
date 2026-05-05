@@ -32,11 +32,12 @@
 
 **Platform:** iOS 17+ (SwiftUI, portrait-only, no UIKit)  
 **Persistence:** SwiftData (on-device SQLite, no cloud sync)  
-**AI:** Claude Haiku via a Cloudflare Worker proxy (one API call per session)  
+**AI:** Gemini via a Cloudflare Worker proxy (one scoring call per session; Pro users also get an emotion analysis call via Hume AI)  
 **Audio:** AVFoundation (recording) + Speech framework (transcription) + Accelerate/vDSP (audio feature extraction)  
-**Backend:** A single Cloudflare Worker at `ParlanceAPIBaseURL` (set in Info.plist). No other server infrastructure.  
+**Backend:** A single Cloudflare Worker at `ParlanceAPIBaseURL` (set in Info.plist). No other server infrastructure. Two endpoints: `POST /feedback` (Gemini scoring) and `POST /emotion` (Hume AI emotion analysis, Pro-only).  
 **Questions:** Pre-generated static JSON bundled in the app. Zero network calls for questions.  
-**Social:** Mock data only. No backend for leaderboards yet.
+**Social:** Mock data only. No backend for leaderboards yet.  
+**Subscriptions:** `SubscriptionService` manages StoreKit 2 purchases. `isPro` is the gating flag throughout the app.
 
 **Navigation model:** TabView (Home / Progress / League / Profile) as the root. Sessions take over full-screen via `SessionCoordinator`, hiding the tab bar until the user returns home.
 
@@ -66,20 +67,40 @@ The session lifecycle is managed entirely by `SessionCoordinator.swift` (a Swift
 
 ### `processSession()` — the critical path
 
-Called on `@MainActor`. Sequence:
+Called on `@MainActor`. The path branches on `subscription.isPro`:
 
+**Non-Pro path:**
 ```swift
 // 1. Stop recorder, get audio file URL
 let audioURL = recorder.stopRecording()
 
-// 2. Parallel: transcribe audio + extract pitch/energy features
+// 2. Parallel: transcribe + extract audio features
 async let transcriptionTask = SpeechTranscriber.transcribe(url: audioURL)
 async let audioFeaturesTask = AudioFeatureExtractor.extract(from: audioURL)
 let (transcriptionResult, audioFeatures) = await (transcriptionTask, audioFeaturesTask)
+// emotionResult = nil
 
-// 3. Delete audio file (no longer needed)
+// 3. Delete audio file
 recorder.deleteRecording()
+```
 
+**Pro path (three parallel tasks):**
+```swift
+// 1. Stop recorder, get audio file URL
+let audioURL = recorder.stopRecording()
+
+// 2. Parallel: transcribe + extract audio features + analyze emotion via Hume
+async let transcriptionTask = SpeechTranscriber.transcribe(url: audioURL)
+async let audioFeaturesTask = AudioFeatureExtractor.extract(from: audioURL)
+async let emotionTask = HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+let (transcriptionResult, audioFeatures, emotionResult) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+
+// 3. Delete audio file — the Hume call uploads the file first, so deletion happens after all three tasks
+recorder.deleteRecording()
+```
+
+**Common suffix (both paths):**
+```swift
 // 4. Compute timing stats from word-level timestamps
 let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
 
@@ -87,12 +108,13 @@ let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
 let fillerCount = SpeechAnalyzer.analyzeFillers(in: transcript).count
 
 // 6. Fetch AI scoring (BLOCKING — user sees spinner until this returns)
-let scoringResult = await FeedbackGenerator.fetchScoring(...)
+// emotionResult is passed through to enrich the scoring prompt for Pro users
+let scoringResult = try await FeedbackGenerator.fetchScoring(...)
 
 // 7. Create Session, persist, gamification, → .results
 ```
 
-Steps 2 (transcription + audio extraction) run in parallel via `async let`. The AI call in step 6 is **blocking** — the processing spinner stays up until Claude responds. If the AI call fails (timeout, network error, bad response), a fallback `ScoringResult` with all-zero scores and no feedback is used so the session is still saved.
+The AI scoring call (step 6) can fail. On failure, the coordinator transitions to `.scoringFailed` (retry/discard UI) rather than saving a zero-score session. Retrying from `.scoringFailed` re-enters `scoreAndSave()` directly (skipping re-transcription) using the stored `pendingTranscript`, `pendingTimingStats`, etc.
 
 ---
 
@@ -184,7 +206,7 @@ Two functions remain (all scoring logic removed in the scoring rework):
 
 ### Overview
 
-One Claude Haiku call per session replaces all local heuristic scoring. The call is made synchronously (user sees a spinner) after recording ends. The AI receives the full transcript, timing stats, and audio features, and returns scores for every applicable metric plus coaching feedback.
+One Gemini call per session replaces all local heuristic scoring. The call is made synchronously (user sees a spinner) after recording ends. The AI receives the full transcript, timing stats, and audio features (and emotion data for Pro users), and returns scores for every applicable metric plus coaching feedback.
 
 ### Metrics system
 
@@ -289,36 +311,65 @@ The results screen handles this gracefully — AI-scored sessions use `session.i
 ### Network path
 
 ```
-iOS app → POST /feedback → Cloudflare Worker → POST api.anthropic.com/v1/messages
+iOS app → POST /feedback → Cloudflare Worker → POST generativelanguage.googleapis.com (Gemini)
 ```
 
-Timeout: **30 seconds** (`AppConstants.scoringTimeout`) for the scoring call. The legacy `feedbackTimeout` constant is 8 seconds and still used by the retry path.
+Timeout: **30 seconds** (`AppConstants.scoringTimeout`) for the scoring call. The legacy `feedbackTimeout` constant is 8 seconds and still referenced as a constant but not actively used.
+
+### Emotion analysis (Pro only)
+
+```
+iOS app → POST /emotion → Cloudflare Worker → Hume AI batch API
+```
+
+`HumeClient.analyzeEmotion(audioURL:workerBaseURL:)` uploads the `.m4a` audio file directly to the `/emotion` endpoint. The worker submits it to Hume's batch inference API, polls until complete, and returns the result. The `EmotionResult` model contains:
+- `dominantEmotion: String`
+- `confidenceScore: Double`
+- `nervousnessScore: Double`
+- `enthusiasmScore: Double`
+- `emotionArc: [String]` — emotion labels over time
+
+This result is passed into `FeedbackGenerator.fetchScoring()` to enrich the AI prompt and is stored on the `Session` model for display in `ToneAnalysisCard`.
 
 ---
 
 ## 6. The Cloudflare Worker
 
-**File:** `cloudflare-worker/src/index.js`  
+**File:** `cloudflare-worker/src/index.js` (gitignored — deployed separately)  
 **Deployed to:** URL stored in `Info.plist` as `ParlanceAPIBaseURL`  
 **Config:** `cloudflare-worker/wrangler.toml`
 
-Single endpoint: `POST /feedback`
+Two endpoints:
+
+### `POST /feedback` — AI scoring
 
 The worker receives:
 ```json
 { "messages": [{ "role": "user", "content": "<prompt>" }] }
 ```
 
-Proxies to Anthropic API with:
-- Model: `env.CLAUDE_MODEL` (currently `claude-haiku-4-5-20251001`)
-- `max_tokens: 300`
-- `anthropic-version: 2023-06-01`
+Proxies to Gemini's REST API with:
+- Model: `gemini-3-flash-preview`
+- `maxOutputTokens: 2048`
+- Auth: `GEMINI_API_KEY` (Cloudflare Worker secret)
 
-**⚠️ Critical bug:** `max_tokens: 300` is far too low for a full scoring response. A 10-metric session needs ~500–800 tokens for the full JSON. At 300 tokens the response will be truncated, causing JSON parse failures. **This must be raised to at minimum 1024, ideally 2048.** This is the single most likely cause of scoring failures in production.
+Returns the raw Gemini JSON response. `ClaudeClient.fetchScoring()` decodes it — it tries two paths: raw decode as `ScoringResult`, then unwrapping a `"feedback"` field (legacy compatibility).
 
-The worker wraps Claude's response in `{ "feedback": "<claude text>" }`. `ClaudeClient.fetchScoring()` handles this via a two-path decode: first tries to decode the raw response as `ScoringResult`, then tries unwrapping the `feedback` field and decoding that as `ScoringResult`.
+### `POST /emotion` — Hume AI emotion analysis (Pro only)
 
-**Secrets:** `ANTHROPIC_API_KEY` stored as a Cloudflare Worker secret (not in source). Set via `wrangler secret put ANTHROPIC_API_KEY`.
+Receives multipart form data with the `.m4a` audio file. Submits it to Hume AI's batch inference API (prosody model), polls until the job completes, then returns:
+```json
+{
+  "dominantEmotion": "Enthusiasm",
+  "confidenceScore": 0.72,
+  "nervousnessScore": 0.31,
+  "enthusiasmScore": 0.68,
+  "emotionArc": ["Calm", "Enthusiasm", "Joy", "Enthusiasm"]
+}
+```
+Auth: `HUME_API_KEY` (Cloudflare Worker secret).
+
+**Secrets:** Set via `wrangler secret put GEMINI_API_KEY` and `wrangler secret put HUME_API_KEY`.
 
 ---
 
@@ -614,11 +665,6 @@ Singleton `@MainActor` class. All database operations run on the main context (`
 
 ## 17. Known Issues & Gotchas
 
-### Critical
-
-**`max_tokens: 300` in the Cloudflare Worker** (`cloudflare-worker/src/index.js` line ~30)  
-This is the #1 production bug. A full scoring response for 10 metrics requires 500–800+ tokens. At 300 tokens, responses are truncated and JSON decoding fails, resulting in sessions saved with zero scores. Fix: raise to `1024` minimum, `2048` recommended.
-
 ### Important
 
 **`SpeechTranscriber` uses `requiresOnDeviceRecognition = true`**  
@@ -672,15 +718,18 @@ Defined in `Parlance/UI/Theme/AppConstants.swift`:
 Parlance/
 ├── App/
 │   ├── ActiveSessionState.swift      Session context (mode, level, question, isChallenge)
-│   └── SafariView.swift
+│   ├── ContentView.swift             Root TabView + NetworkMonitor overlay
+│   └── SplashView.swift
 ├── Core/
 │   ├── AI/
-│   │   ├── ClaudeClient.swift        HTTP client → Cloudflare Worker
-│   │   └── FeedbackGenerator.swift   Prompt builder + fetchScoring()
+│   │   ├── ClaudeClient.swift        HTTP client → Cloudflare Worker /feedback
+│   │   ├── FeedbackGenerator.swift   Prompt builder + fetchScoring()
+│   │   └── HumeClient.swift          Emotion analysis → Cloudflare Worker /emotion (Pro)
 │   ├── Models/
 │   │   ├── Achievement.swift         8 achievement definitions + SwiftData model
 │   │   ├── AudioFeatures.swift       Pitch/energy summary stats (transient)
 │   │   ├── DifficultyLevel.swift     Level names, tiers, bands
+│   │   ├── EmotionResult.swift       Hume AI response model (Pro-only)
 │   │   ├── LeagueTier.swift          Bronze–Diamond tiers with XP thresholds
 │   │   ├── MetricKey.swift           10 metric keys with mode mapping
 │   │   ├── Question.swift            Question struct (from JSON bank)
@@ -697,12 +746,16 @@ Parlance/
 │       ├── AnalyticsService.swift    Event tracking (stub)
 │       ├── AudioFeatureExtractor.swift  vDSP pitch/RMS extraction
 │       ├── AudioRecorder.swift       AVAudioRecorder wrapper
+│       ├── FriendsService.swift      Friends/social data (stub)
 │       ├── GamificationService.swift XP, streaks, daily limits
 │       ├── NetworkMonitor.swift      NWPathMonitor wrapper
 │       ├── PermissionsService.swift  Mic + speech recognition permissions
 │       ├── PersistenceService.swift  SwiftData singleton
+│       ├── QuestionBankService.swift Loads + filters questions.json
+│       ├── SessionWeekCache.swift    In-memory cache for weekly session queries
 │       ├── SpeechAnalyzer.swift      Filler detection only (scoring removed)
-│       └── SpeechTranscriber.swift   SFSpeechRecognizer → TranscriptionResult
+│       ├── SpeechTranscriber.swift   SFSpeechRecognizer → TranscriptionResult
+│       └── SubscriptionService.swift StoreKit 2 purchase + isPro gating
 ├── Features/
 │   ├── Home/
 │   │   ├── HomeView.swift
@@ -714,19 +767,24 @@ Parlance/
 │   │   ├── LeagueViewModel.swift     Weekly XP, reset countdown
 │   │   └── UserProfileDetailView.swift
 │   ├── NoConnection/
-│   │   └── NoConnectionView.swift   Full-screen offline gate
+│   │   └── NoConnectionView.swift    Full-screen offline gate
+│   ├── Paywall/
+│   │   └── PaywallView.swift         Pro subscription purchase screen
 │   ├── Profile/
 │   │   ├── ProfileView.swift
 │   │   ├── ProfileViewModel.swift
-│   │   └── ProfileEditSheet.swift
+│   │   ├── ProfileEditSheet.swift
+│   │   └── SettingsSheet.swift       Settings sheet (appearance, reminders, sound effects)
 │   ├── Progress/
-│   │   ├── ProgressTabView.swift
-│   │   └── ProgressViewModel.swift  Charts, skill trends, mode breakdown
+│   │   ├── ProgressView.swift
+│   │   └── ProgressViewModel.swift   Charts, skill trends, mode breakdown
 │   ├── Results/
 │   │   ├── MetricCardView.swift      Score bar + tip card
+│   │   ├── MomentCard.swift          AIMomentCard + MomentCard (best/worst moment UI)
 │   │   ├── ResultsView.swift         Full results screen (AI + legacy paths)
 │   │   ├── ResultsViewModel.swift    Retry feedback logic
 │   │   ├── ScoreRingView.swift
+│   │   ├── ToneAnalysisCard.swift    Emotion analysis display (Pro-only)
 │   │   └── XPToastView.swift
 │   ├── Session/
 │   │   ├── CountdownView.swift
@@ -737,17 +795,30 @@ Parlance/
 │   └── Setup/
 │       └── FirstLaunchSetupView.swift
 ├── UI/
-│   ├── Components/                  Reusable views (ProgressBar, PillBadge, etc.)
-│   ├── Extensions/                  Color+Hex, View+CardStyle
-│   └── Theme/                       AppColors, AppFonts, AppConstants, AppTheme
+│   ├── Components/
+│   │   ├── AnimatedWaveformView.swift
+│   │   ├── PillBadge.swift
+│   │   ├── ProgressBar.swift
+│   │   ├── SafariView.swift          UIViewControllerRepresentable → SFSafariViewController
+│   │   ├── SectionHeader.swift
+│   │   └── XPProgressBar.swift
+│   ├── Extensions/
+│   │   ├── Color+Hex.swift
+│   │   ├── Score+Color.swift
+│   │   ├── View+CardStyle.swift
+│   │   └── View+Shimmer.swift        Shimmer loading animation modifier
+│   └── Theme/
+│       ├── AppColors.swift
+│       ├── AppConstants.swift
+│       ├── AppFonts.swift
+│       └── AppTheme.swift
 ├── Resources/
 │   └── questions.json               400+ bundled questions (static, offline)
-├── ContentView.swift                Root TabView + NetworkMonitor overlay
 └── ParlanceApp.swift                App entry point
 
-cloudflare-worker/
-├── src/index.js                     Single POST /feedback endpoint
-└── wrangler.toml                    Model config (CRITICAL: max_tokens needs fixing)
+cloudflare-worker/                   (gitignored — deployed separately)
+├── src/index.js                     POST /feedback (Gemini scoring) + POST /emotion (Hume AI)
+└── wrangler.toml
 
 _docs/
 ├── decisions/                       Architecture decision records

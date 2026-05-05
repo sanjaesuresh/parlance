@@ -17,6 +17,20 @@ final class Achievement {
         return min(1.0, Double(progress) / Double(goal))
     }
 
+    var emoji: String {
+        switch iconName {
+        case "mic.fill": return "\u{1F3A4}"
+        case "flame.fill": return "\u{1F525}"
+        case "briefcase.fill": return "\u{1F4BC}"
+        case "star.fill": return "\u{2B50}"
+        case "checkmark.seal.fill": return "\u{2705}"
+        case "trophy.fill": return "\u{1F3C6}"
+        case "repeat": return "\u{1F504}"
+        case "crown.fill": return "\u{1F451}"
+        default: return "\u{1F3AF}"
+        }
+    }
+
     init(id: String, name: String, descriptionText: String, iconName: String, goal: Int) {
         self.id = id
         self.name = name
