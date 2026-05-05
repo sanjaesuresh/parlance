@@ -4,15 +4,7 @@ import Foundation
 final class ClaudeClient {
     private let baseURL: URL
 
-    init() {
-        guard let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String,
-              let url = URL(string: urlString) else {
-            fatalError("ParlanceAPIBaseURL not set in Info.plist")
-        }
-        self.baseURL = url
-    }
-
-    init(baseURL: URL) {
+    init(baseURL: URL = AppConstants.apiBaseURL) {
         self.baseURL = baseURL
     }
 

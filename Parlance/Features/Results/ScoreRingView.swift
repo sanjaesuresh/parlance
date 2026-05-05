@@ -23,14 +23,9 @@ struct ScoreRingView: View {
                     .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
                     .rotationEffect(.degrees(-90))
 
-                VStack(spacing: 0) {
-                    Text("\(score)")
-                        .font(AppFonts.display(48))
-                        .foregroundStyle(ringColor)
-                    Text("out of 100")
-                        .font(AppFonts.body(10))
-                        .foregroundStyle(AppColors.dim)
-                }
+                Text("\(score)")
+                    .font(AppFonts.display(48))
+                    .foregroundStyle(ringColor)
             }
             .frame(width: size, height: size)
             .frame(maxWidth: .infinity, maxHeight: .infinity)

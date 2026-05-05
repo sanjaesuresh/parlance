@@ -104,17 +104,23 @@ struct RecordingView: View {
 
                     // Coaching tips
                     VStack(alignment: .leading, spacing: 8) {
-                        ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
-                            HStack(alignment: .top, spacing: 10) {
-                                Text("\(index + 1)")
-                                    .font(AppFonts.bodyBold(12))
-                                    .foregroundStyle(mode.accentColor)
-                                    .frame(width: 18, alignment: .center)
-                                    .padding(.top, 1)
-                                Text(tip)
-                                    .font(AppFonts.body(12))
-                                    .foregroundStyle(AppColors.sub)
-                                    .fixedSize(horizontal: false, vertical: true)
+                        Text("COACHING TIPS")
+                            .font(AppFonts.bodyBold(10))
+                            .foregroundStyle(AppColors.dim)
+                            .kerning(1)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(question.tips, id: \.self) { tip in
+                                HStack(alignment: .top, spacing: 9) {
+                                    RoundedRectangle(cornerRadius: 1)
+                                        .fill(mode.accentColor)
+                                        .frame(width: 4, height: 4)
+                                        .padding(.top, 5)
+                                    Text(tip)
+                                        .font(AppFonts.body(13))
+                                        .foregroundStyle(AppColors.sub)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
                             }
                         }
                     }

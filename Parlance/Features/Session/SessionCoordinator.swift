@@ -191,15 +191,7 @@ struct SessionCoordinator: View {
 
     @MainActor
     private func scoreAndSave() async {
-        let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
-        guard !urlString.isEmpty, let url = URL(string: urlString) else {
-            #if DEBUG
-            print("[Scoring] ParlanceAPIBaseURL not configured or invalid")
-            #endif
-            phase = .scoringFailed
-            return
-        }
-        let client = ClaudeClient(baseURL: url)
+        let client = ClaudeClient(baseURL: AppConstants.apiBaseURL)
 
         let scoringResult: ScoringResult
         do {

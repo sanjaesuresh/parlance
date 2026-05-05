@@ -10,9 +10,7 @@ final class ResultsViewModel: ObservableObject {
         isRetryingFeedback = true
         defer { isRetryingFeedback = false }
 
-        let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? ""
-        guard !urlString.isEmpty, let url = URL(string: urlString) else { return }
-        let client = ClaudeClient(baseURL: url)
+        let client = ClaudeClient(baseURL: AppConstants.apiBaseURL)
 
         // Derive approximate timing from the stored transcript so the AI
         // doesn't see "0 words" and fall back to scoring everything 1-2.
