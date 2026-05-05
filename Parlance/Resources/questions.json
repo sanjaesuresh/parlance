@@ -46,7 +46,7 @@
     "tips": [
       "Choose a real but manageable weakness",
       "Explain what you're doing to improve",
-      "Avoid clich\u00e9 answers like perfectionism"
+      "Avoid cliché answers like perfectionism"
     ],
     "targetDuration": 60,
     "difficultyNote": "Classic self-awareness question"
@@ -5151,7 +5151,7 @@
     "id": "casual_9-10_017",
     "mode": "casual",
     "difficultyBand": "9-10",
-    "question": "Explain G\u00f6del's incompleteness theorems to show the limits of logic.",
+    "question": "Explain Gödel's incompleteness theorems to show the limits of logic.",
     "tips": [
       "Make the theorems intuitive with an analogy",
       "Explain why they shook mathematics to its core",
@@ -6714,7 +6714,7 @@
     "question": "Is remote work more productive than working in an office?",
     "tips": [
       "Commit to one side based on evidence or experience",
-      "Give two supporting reasons\u2014one personal, one broader",
+      "Give two supporting reasons: one personal, one broader",
       "Address the strongest counterpoint briefly"
     ],
     "targetDuration": 60,
@@ -7182,7 +7182,7 @@
     "question": "Should artificial intelligence be regulated by a single global authority rather than individual nations?",
     "tips": [
       "State your position on sovereignty versus coordination",
-      "Give two reasons\u2014one about enforcement effectiveness, one about geopolitical risk",
+      "Give two reasons: one about enforcement effectiveness, one about geopolitical risk",
       "Address the strongest objection to your view"
     ],
     "targetDuration": 75,
@@ -7208,7 +7208,7 @@
     "question": "Should whistleblowers who expose corporate wrongdoing receive full legal immunity?",
     "tips": [
       "Position yourself on accountability versus legal order",
-      "Give two reasons\u2014one about public benefit, one about procedural risk",
+      "Give two reasons: one about public benefit, one about procedural risk",
       "Acknowledge how to define the scope of protection"
     ],
     "targetDuration": 75,
@@ -7234,7 +7234,7 @@
     "question": "Should governments regulate the pricing of life-saving medications?",
     "tips": [
       "State your view on market forces versus public health",
-      "Give two reasons\u2014one about access equity, one about R&D incentives",
+      "Give two reasons: one about access equity, one about R&D incentives",
       "Address the pharmaceutical innovation trade-off directly"
     ],
     "targetDuration": 75,
@@ -7260,7 +7260,7 @@
     "question": "Should major tech companies be broken up under existing antitrust law?",
     "tips": [
       "Position yourself on market concentration versus consumer benefit",
-      "Give two reasons\u2014one about competition, one about innovation",
+      "Give two reasons: one about competition, one about innovation",
       "Address the global competitiveness concern"
     ],
     "targetDuration": 75,
@@ -7273,7 +7273,7 @@
     "question": "Is venture capital funding net positive for innovation in the long run?",
     "tips": [
       "Commit to your view on capital allocation efficiency",
-      "Give two reasons\u2014one about speed, one about incentive distortion",
+      "Give two reasons: one about speed, one about incentive distortion",
       "Address whether alternatives like public R&D are adequate"
     ],
     "targetDuration": 75,
@@ -7286,7 +7286,7 @@
     "question": "Should cities prioritize affordable housing mandates over market-rate luxury development?",
     "tips": [
       "State your view on housing as a right versus commodity",
-      "Give two reasons\u2014one about community stability, one about supply economics",
+      "Give two reasons: one about community stability, one about supply economics",
       "Address the fiscal revenue trade-off"
     ],
     "targetDuration": 75,
@@ -7299,7 +7299,7 @@
     "question": "Is the gig economy fundamentally exploitative to workers?",
     "tips": [
       "Take a position on flexibility versus precarity",
-      "Give two reasons\u2014one about labor rights, one about worker preferences",
+      "Give two reasons: one about labor rights, one about worker preferences",
       "Address the platform perspective on enabling entrepreneurship"
     ],
     "targetDuration": 75,
@@ -7312,7 +7312,7 @@
     "question": "Should all nations be legally required to adopt a carbon tax?",
     "tips": [
       "State your view on international climate governance",
-      "Give two reasons\u2014one about effectiveness, one about sovereignty",
+      "Give two reasons: one about effectiveness, one about sovereignty",
       "Address the competitive disadvantage concern"
     ],
     "targetDuration": 75,
@@ -7325,7 +7325,7 @@
     "question": "Is a skills-based hiring model more equitable and effective than degree requirements?",
     "tips": [
       "Commit to one hiring paradigm",
-      "Give two reasons\u2014one about access equity, one about job performance",
+      "Give two reasons: one about access equity, one about job performance",
       "Address signaling value and the risk of subjective skills assessment"
     ],
     "targetDuration": 75,
@@ -7338,7 +7338,7 @@
     "question": "Should social media companies be legally liable for harmful content on their platforms?",
     "tips": [
       "Position yourself on Section 230-style immunity",
-      "Give two reasons\u2014one about accountability, one about free speech",
+      "Give two reasons: one about accountability, one about free speech",
       "Address the moderation feasibility challenge at scale"
     ],
     "targetDuration": 75,
@@ -7364,7 +7364,7 @@
     "question": "Should companies be legally required to publish annual pay equity data?",
     "tips": [
       "State your view on transparency versus competitive sensitivity",
-      "Give two reasons\u2014one about accountability, one about market correction",
+      "Give two reasons: one about accountability, one about market correction",
       "Address the limitations of pay data in isolation"
     ],
     "targetDuration": 75,
@@ -7377,7 +7377,7 @@
     "question": "Is ESG investing a genuine driver of change or primarily a marketing exercise?",
     "tips": [
       "Commit to a position on capital market activism",
-      "Give two reasons\u2014one about portfolio pressure, one about measurement gaps",
+      "Give two reasons: one about portfolio pressure, one about measurement gaps",
       "Address the greenwashing evidence directly"
     ],
     "targetDuration": 75,
@@ -7390,7 +7390,7 @@
     "question": "Should senior corporate executives face term limits similar to political offices?",
     "tips": [
       "Position yourself on governance accountability",
-      "Give two reasons\u2014one about organizational renewal, one about fiduciary risk",
+      "Give two reasons: one about organizational renewal, one about fiduciary risk",
       "Address the succession and institutional knowledge challenge"
     ],
     "targetDuration": 75,
@@ -7403,7 +7403,7 @@
     "question": "Is open-source software better for long-term innovation than proprietary software?",
     "tips": [
       "State your view on collaboration versus private investment",
-      "Give two reasons\u2014one about access, one about incentive structure",
+      "Give two reasons: one about access, one about incentive structure",
       "Address the sustainability and security challenges of open source"
     ],
     "targetDuration": 75,
@@ -7416,7 +7416,7 @@
     "question": "Should zero-hours contracts be banned across all industries?",
     "tips": [
       "Take a clear stance on labor flexibility versus security",
-      "Give two reasons\u2014one about worker rights, one about employer constraints",
+      "Give two reasons: one about worker rights, one about employer constraints",
       "Address sectors where zero-hours may serve workers' preferences"
     ],
     "targetDuration": 75,
@@ -7429,7 +7429,7 @@
     "question": "Should autonomous vehicles be approved for public roads before human-level safety is proven?",
     "tips": [
       "Position yourself on the precautionary principle versus progress",
-      "Give two reasons\u2014one about safety benchmarks, one about net harm reduction",
+      "Give two reasons: one about safety benchmarks, one about net harm reduction",
       "Address the trolley problem and legal liability questions briefly"
     ],
     "targetDuration": 75,
@@ -7442,7 +7442,7 @@
     "question": "Is merit-based pay effective at improving organizational performance long-term?",
     "tips": [
       "Commit to your view on incentive design",
-      "Give two reasons\u2014one about motivation, one about collaboration and culture",
+      "Give two reasons: one about motivation, one about collaboration and culture",
       "Address the measurement bias and gaming problems"
     ],
     "targetDuration": 75,
@@ -7455,7 +7455,7 @@
     "question": "Should cryptocurrency be taxed as currency rather than property?",
     "tips": [
       "State your view on how the tax treatment shapes behavior",
-      "Give two reasons\u2014one about economic function, one about enforcement fairness",
+      "Give two reasons: one about economic function, one about enforcement fairness",
       "Address the volatility and definitional challenges"
     ],
     "targetDuration": 75,
@@ -7468,7 +7468,7 @@
     "question": "Should data collected by consumer applications be treated as public infrastructure?",
     "tips": [
       "Position yourself on data ownership and access",
-      "Give two reasons\u2014one about innovation, one about privacy or competition",
+      "Give two reasons: one about innovation, one about privacy or competition",
       "Address the practical governance challenges"
     ],
     "targetDuration": 75,
@@ -7481,7 +7481,7 @@
     "question": "Is globalization net positive for middle-income workers in developed economies?",
     "tips": [
       "Take a clear stance on distributional effects",
-      "Give two reasons\u2014one about consumer benefit, one about wage pressure",
+      "Give two reasons: one about consumer benefit, one about wage pressure",
       "Address the retraining and transition challenge"
     ],
     "targetDuration": 75,
@@ -7494,7 +7494,7 @@
     "question": "Should the nonprofit sector face stricter accountability for the effectiveness of its capital allocation?",
     "tips": [
       "State your view on measuring social impact",
-      "Give two reasons\u2014one about donor expectations, one about mission integrity",
+      "Give two reasons: one about donor expectations, one about mission integrity",
       "Address the difficulty of standardizing outcome measurement"
     ],
     "targetDuration": 75,
@@ -7507,7 +7507,7 @@
     "question": "Is the media's profit motive fundamentally incompatible with quality journalism?",
     "tips": [
       "Position yourself on the economics of truth",
-      "Give two reasons\u2014one about incentive structures, one about successful counterexamples",
+      "Give two reasons: one about incentive structures, one about successful counterexamples",
       "Address the alternative funding model question"
     ],
     "targetDuration": 75,
@@ -7520,7 +7520,7 @@
     "question": "Should algorithmic hiring tools be required to pass independent bias audits before deployment?",
     "tips": [
       "State your view on AI accountability in HR",
-      "Give two reasons\u2014one about equity, one about accuracy",
+      "Give two reasons: one about equity, one about accuracy",
       "Address the audit methodology challenge"
     ],
     "targetDuration": 75,
@@ -7533,7 +7533,7 @@
     "question": "Is the patent system currently helping or hurting medical innovation?",
     "tips": [
       "Commit to a position on intellectual property in healthcare",
-      "Give two reasons\u2014one about incentives, one about access barriers",
+      "Give two reasons: one about incentives, one about access barriers",
       "Address the generic drug market and compulsory licensing"
     ],
     "targetDuration": 75,
@@ -7546,7 +7546,7 @@
     "question": "Should governments subsidize electric vehicle adoption through direct rebates?",
     "tips": [
       "State your view on the role of government in technology transitions",
-      "Give two reasons\u2014one about speed, one about equity or efficiency",
+      "Give two reasons: one about speed, one about equity or efficiency",
       "Address the regressive nature of EV incentives at high price points"
     ],
     "targetDuration": 75,
@@ -7559,7 +7559,7 @@
     "question": "Is social entrepreneurship more effective than traditional charity at solving poverty?",
     "tips": [
       "Position yourself on market-based versus grant-based social change",
-      "Give two reasons\u2014one about sustainability, one about scale",
+      "Give two reasons: one about sustainability, one about scale",
       "Address the mission drift risk in social enterprises"
     ],
     "targetDuration": 75,
@@ -7572,7 +7572,7 @@
     "question": "Should news media companies be legally required to label AI-generated content?",
     "tips": [
       "State your view on transparency in the information ecosystem",
-      "Give two reasons\u2014one about audience trust, one about quality standards",
+      "Give two reasons: one about audience trust, one about quality standards",
       "Address the practical enforcement challenges"
     ],
     "targetDuration": 75,
@@ -7585,7 +7585,7 @@
     "question": "Is the subscription economy better for consumers than one-time purchases?",
     "tips": [
       "Commit to one model",
-      "Give two reasons\u2014one about cost, one about access and lock-in",
+      "Give two reasons: one about cost, one about access and lock-in",
       "Address the cumulative cost and dependency concern"
     ],
     "targetDuration": 75,
@@ -7598,7 +7598,7 @@
     "question": "Should companies be prohibited from using non-compete clauses for most employees?",
     "tips": [
       "State your view on labor mobility versus trade secret protection",
-      "Give two reasons\u2014one about worker freedom, one about innovation ecosystems",
+      "Give two reasons: one about worker freedom, one about innovation ecosystems",
       "Address the narrow use-case for legitimate non-competes"
     ],
     "targetDuration": 75,
@@ -7611,7 +7611,7 @@
     "question": "Is it more effective to change corporate behavior through regulation or investor pressure?",
     "tips": [
       "Choose one lever of change",
-      "Give two reasons\u2014one about speed, one about accountability",
+      "Give two reasons: one about speed, one about accountability",
       "Address the capture or divestment limitations of your chosen mechanism"
     ],
     "targetDuration": 75,
@@ -7624,7 +7624,7 @@
     "question": "Should professional sports leagues be required to pay college athletes?",
     "tips": [
       "Position yourself on amateurism versus labor rights",
-      "Give two reasons\u2014one about revenue sharing, one about education mission",
+      "Give two reasons: one about revenue sharing, one about education mission",
       "Address Title IX equity implications briefly"
     ],
     "targetDuration": 75,
@@ -7637,7 +7637,7 @@
     "question": "Is it better for cities to invest in public transit over highway infrastructure?",
     "tips": [
       "Commit to one infrastructure priority",
-      "Give two reasons\u2014one about climate or equity, one about economic development",
+      "Give two reasons: one about climate or equity, one about economic development",
       "Address regional variation in transit viability"
     ],
     "targetDuration": 75,
@@ -7650,7 +7650,7 @@
     "question": "Should pharmaceutical companies be required to fund independent drug safety trials?",
     "tips": [
       "State your view on industry self-regulation",
-      "Give two reasons\u2014one about bias reduction, one about cost allocation",
+      "Give two reasons: one about bias reduction, one about cost allocation",
       "Address the innovation funding model impact"
     ],
     "targetDuration": 75,
@@ -7663,7 +7663,7 @@
     "question": "Should governments implement a universal basic income as automation displaces workers?",
     "tips": [
       "Make a clear thesis on UBI as a structural solution or a distraction",
-      "Support with two arguments\u2014one about labor market dynamics, one about social cohesion",
+      "Support with two arguments: one about labor market dynamics, one about social cohesion",
       "Anticipate and reframe the inflation or disincentive counterargument"
     ],
     "targetDuration": 90,
@@ -7676,7 +7676,7 @@
     "question": "Is the attention economy fundamentally incompatible with democratic deliberation?",
     "tips": [
       "Define the tension precisely before taking a stance",
-      "Give two reasons\u2014one about information quality, one about polarization mechanisms",
+      "Give two reasons: one about information quality, one about polarization mechanisms",
       "Address whether platform design reform is sufficient or structural change is required"
     ],
     "targetDuration": 90,
@@ -7689,7 +7689,7 @@
     "question": "Should nuclear energy be treated as a cornerstone of a net-zero carbon strategy?",
     "tips": [
       "Take a position on risk-adjusted clean energy",
-      "Give two reasons\u2014one about baseload reliability, one about waste or proliferation",
+      "Give two reasons: one about baseload reliability, one about waste or proliferation",
       "Engage directly with the cost and timeline objection"
     ],
     "targetDuration": 90,
@@ -7702,7 +7702,7 @@
     "question": "Should platform companies like Uber and DoorDash be legally required to classify workers as employees?",
     "tips": [
       "Position yourself on worker classification",
-      "Give two arguments\u2014one about rights and benefits, one about market design",
+      "Give two arguments: one about rights and benefits, one about market design",
       "Address the potential cost increases and worker preferences for flexibility"
     ],
     "targetDuration": 90,
@@ -7715,7 +7715,7 @@
     "question": "Is meritocracy in practice a myth that legitimizes inequality?",
     "tips": [
       "Commit to a position on opportunity versus outcome equality",
-      "Give two reasons\u2014one about structural barriers, one about incentive value",
+      "Give two reasons: one about structural barriers, one about incentive value",
       "Address whether meritocracy as an ideal is worth preserving separately from its flawed implementation"
     ],
     "targetDuration": 90,
@@ -7728,7 +7728,7 @@
     "question": "Should data be treated as a public utility rather than private corporate property?",
     "tips": [
       "Define data ownership models clearly before arguing",
-      "Give two reasons\u2014one about competition, one about democratic control",
+      "Give two reasons: one about competition, one about democratic control",
       "Address the innovation incentive and data quality maintenance concerns"
     ],
     "targetDuration": 90,
@@ -7741,8 +7741,8 @@
     "question": "Should nations prioritize GDP growth or ecological sustainability when they conflict?",
     "tips": [
       "State your position on economic frameworks",
-      "Give two reasons\u2014one about long-run viability, one about political feasibility",
-      "Address the distributional argument\u2014who suffers most from each choice"
+      "Give two reasons: one about long-run viability, one about political feasibility",
+      "Address the distributional argument: who suffers most from each choice"
     ],
     "targetDuration": 90,
     "difficultyNote": "Macroeconomic and environmental policy tension"
@@ -7754,7 +7754,7 @@
     "question": "Is representative democracy sufficient in the age of digital communication and complexity?",
     "tips": [
       "Take a position on institutional adaptation",
-      "Give two reasons\u2014one about representation quality, one about legitimacy",
+      "Give two reasons: one about representation quality, one about legitimacy",
       "Address specific reform proposals rather than leaving the critique abstract"
     ],
     "targetDuration": 90,
@@ -7767,7 +7767,7 @@
     "question": "Should pharmaceutical companies be prohibited from patenting research funded by public grants?",
     "tips": [
       "Position yourself on the public-private research boundary",
-      "Give two reasons\u2014one about access equity, one about the innovation funding model",
+      "Give two reasons: one about access equity, one about the innovation funding model",
       "Address the argument that patents are needed to attract private capital for development"
     ],
     "targetDuration": 90,
@@ -7780,7 +7780,7 @@
     "question": "Is the current higher education model economically unsustainable, and who should bear the cost?",
     "tips": [
       "Commit to a systemic position",
-      "Give two reasons\u2014one about value delivered, one about cost allocation",
+      "Give two reasons: one about value delivered, one about cost allocation",
       "Address the credential market and what replaces it"
     ],
     "targetDuration": 90,
@@ -7793,7 +7793,7 @@
     "question": "Should national borders be open to labor migration between wealthy and developing nations?",
     "tips": [
       "Take a clear stance on global labor markets",
-      "Give two reasons\u2014one about economic efficiency, one about brain drain or sovereignty",
+      "Give two reasons: one about economic efficiency, one about brain drain or sovereignty",
       "Address the domestic political and cultural integration challenges"
     ],
     "targetDuration": 90,
@@ -7806,7 +7806,7 @@
     "question": "Is it ethical for companies to use behavioral psychology to drive product engagement?",
     "tips": [
       "Define the ethical line between design and manipulation",
-      "Give two reasons\u2014one about consent, one about social harm",
+      "Give two reasons: one about consent, one about social harm",
       "Address the market freedom and platform competition counterargument"
     ],
     "targetDuration": 90,
@@ -7819,7 +7819,7 @@
     "question": "Should AI-generated content be required to carry permanent disclosure labels?",
     "tips": [
       "State your position on transparency in the information ecosystem",
-      "Give two reasons\u2014one about trust, one about content quality",
+      "Give two reasons: one about trust, one about content quality",
       "Address the definitional and enforcement challenges at scale"
     ],
     "targetDuration": 90,
@@ -7832,7 +7832,7 @@
     "question": "Is activist investing an effective or destructive check on corporate governance?",
     "tips": [
       "Position yourself on the function of shareholder activism",
-      "Give two reasons\u2014one about accountability, one about short-termism risk",
+      "Give two reasons: one about accountability, one about short-termism risk",
       "Address the cases where activism has created or destroyed value"
     ],
     "targetDuration": 90,
@@ -7845,7 +7845,7 @@
     "question": "Should governments impose a meaningful wealth tax to fund public investment?",
     "tips": [
       "Commit to a fiscal position",
-      "Give two reasons\u2014one about redistribution, one about capital formation",
+      "Give two reasons: one about redistribution, one about capital formation",
       "Address capital flight and enforcement feasibility directly"
     ],
     "targetDuration": 90,
@@ -7858,7 +7858,7 @@
     "question": "Is long-term strategic thinking structurally incompatible with quarterly earnings capitalism?",
     "tips": [
       "Make a structural argument about capital market incentives",
-      "Give two reasons\u2014one about governance design, one about stakeholder misalignment",
+      "Give two reasons: one about governance design, one about stakeholder misalignment",
       "Address counterexamples like Berkshire Hathaway or patient capital models"
     ],
     "targetDuration": 90,
@@ -7871,7 +7871,7 @@
     "question": "Should surveillance capitalism be regulated even if it means free services become paid?",
     "tips": [
       "Position yourself on the free-for-data trade-off",
-      "Give two reasons\u2014one about consumer harm, one about market distortion",
+      "Give two reasons: one about consumer harm, one about market distortion",
       "Address whether regulation will actually shift to subscription models"
     ],
     "targetDuration": 90,
@@ -7884,7 +7884,7 @@
     "question": "Should developing countries prioritize industrialization or leapfrog directly to sustainable development?",
     "tips": [
       "Commit to a development trajectory",
-      "Give two reasons\u2014one about sovereignty and precedent, one about resource constraints",
+      "Give two reasons: one about sovereignty and precedent, one about resource constraints",
       "Address the funding and technology transfer question directly"
     ],
     "targetDuration": 90,
@@ -7897,7 +7897,7 @@
     "question": "Is intellectual property protection currently helping or inhibiting global innovation?",
     "tips": [
       "Take a systemic view on IP regimes",
-      "Give two reasons\u2014one about incentive creation, one about access and diffusion barriers",
+      "Give two reasons: one about incentive creation, one about access and diffusion barriers",
       "Address the difference between IP in pharmaceuticals versus software versus content"
     ],
     "targetDuration": 90,
@@ -7910,7 +7910,7 @@
     "question": "Should private equity firms face significantly greater regulatory scrutiny?",
     "tips": [
       "Position yourself on capital structure and accountability",
-      "Give two reasons\u2014one about portfolio company workers, one about systemic financial risk",
+      "Give two reasons: one about portfolio company workers, one about systemic financial risk",
       "Address the argument that PE improves operational efficiency"
     ],
     "targetDuration": 90,
@@ -7923,7 +7923,7 @@
     "question": "Should political advertising be banned on social media platforms?",
     "tips": [
       "State your view on platform power and democracy",
-      "Give two reasons\u2014one about micro-targeting risk, one about free speech",
+      "Give two reasons: one about micro-targeting risk, one about free speech",
       "Address the definitional challenge of political versus issue-based advertising"
     ],
     "targetDuration": 90,
@@ -7936,7 +7936,7 @@
     "question": "Is degrowth economics a credible policy alternative to GDP-centric governance?",
     "tips": [
       "Commit to a position on economic paradigm change",
-      "Give two reasons\u2014one about ecological viability, one about political economy",
+      "Give two reasons: one about ecological viability, one about political economy",
       "Address the distributional and employment consequences of degrowth"
     ],
     "targetDuration": 90,
@@ -7949,7 +7949,7 @@
     "question": "Should facial recognition technology be banned from all public spaces?",
     "tips": [
       "Position yourself on security versus civil liberties",
-      "Give two reasons\u2014one about surveillance risk, one about existing legal safeguards",
+      "Give two reasons: one about surveillance risk, one about existing legal safeguards",
       "Address law enforcement use cases that generate support for the technology"
     ],
     "targetDuration": 90,
@@ -7962,7 +7962,7 @@
     "question": "Is the nonprofit sector an effective allocator of philanthropic capital compared to government?",
     "tips": [
       "Take a comparative institutional stance",
-      "Give two reasons\u2014one about accountability, one about innovation versus equity",
+      "Give two reasons: one about accountability, one about innovation versus equity",
       "Address the democratic legitimacy argument for public allocation"
     ],
     "targetDuration": 90,
@@ -7975,7 +7975,7 @@
     "question": "Should gene editing be permitted for therapeutic purposes but prohibited for genetic enhancement?",
     "tips": [
       "Define the therapeutic versus enhancement distinction clearly",
-      "Give two reasons\u2014one about consent, one about inequality",
+      "Give two reasons: one about consent, one about inequality",
       "Address the slippery slope and definitional enforcement challenge"
     ],
     "targetDuration": 90,
@@ -7988,7 +7988,7 @@
     "question": "Is the free market structurally incapable of solving the housing affordability crisis alone?",
     "tips": [
       "Commit to a market or interventionist position",
-      "Give two reasons\u2014one about supply incentives, one about financialization",
+      "Give two reasons: one about supply incentives, one about financialization",
       "Address the zoning and land use political economy"
     ],
     "targetDuration": 90,
@@ -8001,7 +8001,7 @@
     "question": "Should the United Nations Security Council veto power be reformed?",
     "tips": [
       "Take a position on multilateral governance",
-      "Give two reasons\u2014one about legitimacy, one about effectiveness in modern conflicts",
+      "Give two reasons: one about legitimacy, one about effectiveness in modern conflicts",
       "Address the political feasibility and veto-holder objections"
     ],
     "targetDuration": 90,
@@ -8014,7 +8014,7 @@
     "question": "Is globalization reversible, and would reversing it benefit most people?",
     "tips": [
       "Make a structural argument about trade dependency",
-      "Give two reasons\u2014one about economic resilience, one about geopolitical risk",
+      "Give two reasons: one about economic resilience, one about geopolitical risk",
       "Address the developing world export growth argument for globalization"
     ],
     "targetDuration": 90,
@@ -8027,7 +8027,7 @@
     "question": "Should governments nationalize critical digital infrastructure like cloud platforms?",
     "tips": [
       "Position yourself on state versus private ownership of critical systems",
-      "Give two reasons\u2014one about security and resilience, one about innovation",
+      "Give two reasons: one about security and resilience, one about innovation",
       "Address the efficiency and international competitiveness arguments against nationalization"
     ],
     "targetDuration": 90,
@@ -8040,7 +8040,7 @@
     "question": "Is hybrid work ultimately destroying organizational culture compared to fully in-person?",
     "tips": [
       "Commit to a cultural model",
-      "Give two reasons\u2014one about trust formation, one about equity and access",
+      "Give two reasons: one about trust formation, one about equity and access",
       "Address the generational and role-specific variation in hybrid effectiveness"
     ],
     "targetDuration": 90,
@@ -8053,7 +8053,7 @@
     "question": "Should the tech sector face sector-specific regulation similar to banking and healthcare?",
     "tips": [
       "State your view on industry-specific versus horizontal regulation",
-      "Give two reasons\u2014one about systemic risk, one about innovation trade-offs",
+      "Give two reasons: one about systemic risk, one about innovation trade-offs",
       "Address the international regulatory arbitrage concern"
     ],
     "targetDuration": 90,
@@ -8066,7 +8066,7 @@
     "question": "Is the current international financial architecture biased against developing economies?",
     "tips": [
       "Take a structural position on global economic institutions",
-      "Give two reasons\u2014one about debt dynamics, one about reserve currency power",
+      "Give two reasons: one about debt dynamics, one about reserve currency power",
       "Address the IMF conditionality and World Bank reform debates"
     ],
     "targetDuration": 90,
@@ -8079,7 +8079,7 @@
     "question": "Should companies be required to internalize their full environmental costs through mandatory pricing?",
     "tips": [
       "Position yourself on externality pricing mechanisms",
-      "Give two reasons\u2014one about market efficiency, one about political economy",
+      "Give two reasons: one about market efficiency, one about political economy",
       "Address the competitiveness and trade policy implications"
     ],
     "targetDuration": 90,
@@ -8092,7 +8092,7 @@
     "question": "Is the current model of academic publishing compatible with scientific progress?",
     "tips": [
       "Commit to a position on open access versus commercial publishing",
-      "Give two reasons\u2014one about access equity, one about quality control",
+      "Give two reasons: one about access equity, one about quality control",
       "Address the incentive structure for researchers and institutions"
     ],
     "targetDuration": 90,
@@ -8105,7 +8105,7 @@
     "question": "Should AI systems be granted any form of legal recognition or rights?",
     "tips": [
       "Define the threshold for moral or legal consideration",
-      "Give two reasons\u2014one about current AI capabilities, one about future liability",
+      "Give two reasons: one about current AI capabilities, one about future liability",
       "Address the corporate personhood analogy and its limits"
     ],
     "targetDuration": 90,
@@ -8118,7 +8118,7 @@
     "question": "Is effective altruism a coherent and sufficient framework for large-scale social change?",
     "tips": [
       "Position yourself on utilitarian versus structural approaches to change",
-      "Give two reasons\u2014one about measurement, one about systemic versus individual action",
+      "Give two reasons: one about measurement, one about systemic versus individual action",
       "Address the longtermism critique and prioritization debates within EA"
     ],
     "targetDuration": 90,
@@ -8131,7 +8131,7 @@
     "question": "Should constitutional democracies impose structural limits on corporate political spending?",
     "tips": [
       "State your view on money as political speech",
-      "Give two reasons\u2014one about democratic equity, one about corporate rights",
+      "Give two reasons: one about democratic equity, one about corporate rights",
       "Address the Citizens United reasoning and its critics"
     ],
     "targetDuration": 90,
@@ -8144,7 +8144,7 @@
     "question": "Is liberal democracy structurally incapable of making the long-term sacrifices required for effective climate action?",
     "tips": [
       "Construct a precise institutional critique, not a general critique of politics",
-      "Deploy two structural arguments\u2014one about electoral cycles, one about interest group capture",
+      "Deploy two structural arguments: one about electoral cycles, one about interest group capture",
       "Engage with the empirical counterexamples of democratic climate legislation and their limits"
     ],
     "targetDuration": 120,
@@ -8157,7 +8157,7 @@
     "question": "Should the concept of national sovereignty be subordinated to global governance mechanisms on existential risks?",
     "tips": [
       "Define the specific class of risks that justify sovereignty override",
-      "Give two reasons\u2014one about coordination failure, one about legitimacy of global governance",
+      "Give two reasons: one about coordination failure, one about legitimacy of global governance",
       "Address the authoritarian capture and democratic accountability problems with global institutions"
     ],
     "targetDuration": 120,
@@ -8170,7 +8170,7 @@
     "question": "Does the proliferation of large language models constitute a genuine epistemological threat to democratic society?",
     "tips": [
       "Precisely define the epistemological mechanism at stake",
-      "Give two reasons\u2014one about truth production, one about institutional trust",
+      "Give two reasons: one about truth production, one about institutional trust",
       "Address the information abundance versus quality distinction and historical analogies with past information revolutions"
     ],
     "targetDuration": 120,
@@ -8183,7 +8183,7 @@
     "question": "Should antitrust law be redesigned around data and attention rather than traditional price theory?",
     "tips": [
       "Make a conceptual argument for why traditional antitrust metrics are insufficient",
-      "Give two reasons\u2014one about market power measurement, one about consumer harm definition",
+      "Give two reasons: one about market power measurement, one about consumer harm definition",
       "Address whether existing consumer protection law can be extended without new antitrust theory"
     ],
     "targetDuration": 120,
@@ -8196,7 +8196,7 @@
     "question": "Is the concept of economic growth structurally incompatible with planetary boundaries in the long run?",
     "tips": [
       "Distinguish between GDP growth and material throughput carefully",
-      "Give two reasons\u2014one about decoupling evidence, one about political economy of transition",
+      "Give two reasons: one about decoupling evidence, one about political economy of transition",
       "Address the distributional justice of growth-versus-sustainability trade-offs in developing versus developed contexts"
     ],
     "targetDuration": 120,
@@ -8209,7 +8209,7 @@
     "question": "Should constitutional democracies impose structural limits on market concentration in the interest of democratic equality?",
     "tips": [
       "Construct a theory of how economic concentration translates into political inequality",
-      "Give two reasons\u2014one about regulatory capture, one about media and narrative control",
+      "Give two reasons: one about regulatory capture, one about media and narrative control",
       "Address the efficiency arguments for scale and the constitutional limits of economic regulation"
     ],
     "targetDuration": 120,
@@ -8221,8 +8221,8 @@
     "difficultyBand": "9-10",
     "question": "Is the post-World War II international order experiencing structural collapse or adaptive evolution?",
     "tips": [
-      "Define your unit of analysis\u2014institutions, norms, or power distributions",
-      "Give two reasons\u2014one about great power rivalry, one about institutional resilience",
+      "Define your unit of analysis: institutions, norms, or power distributions",
+      "Give two reasons: one about great power rivalry, one about institutional resilience",
       "Address the difference between reform and replacement in multilateral governance"
     ],
     "targetDuration": 120,
@@ -8235,7 +8235,7 @@
     "question": "Does the fiduciary model of corporate governance systematically externalize social costs that markets cannot price?",
     "tips": [
       "Specify which externalities are structurally invisible to fiduciary reasoning",
-      "Give two reasons\u2014one about long-horizon risks, one about non-market stakeholder harms",
+      "Give two reasons: one about long-horizon risks, one about non-market stakeholder harms",
       "Address the stakeholder capitalism literature and its critics"
     ],
     "targetDuration": 120,
@@ -8248,7 +8248,7 @@
     "question": "Is representative democracy as currently practiced sufficient to govern societies defined by deep technical complexity?",
     "tips": [
       "Distinguish representation failures from democratic legitimacy failures",
-      "Give two reasons\u2014one about epistemic challenges, one about temporal misalignment",
+      "Give two reasons: one about epistemic challenges, one about temporal misalignment",
       "Address technocracy as an alternative and its democratic legitimacy deficit"
     ],
     "targetDuration": 120,
@@ -8261,7 +8261,7 @@
     "question": "Should the precautionary principle govern the deployment of dual-use biotechnologies?",
     "tips": [
       "Define what precaution requires institutionally, not just ethically",
-      "Give two reasons\u2014one about catastrophic risk asymmetry, one about innovation cost",
+      "Give two reasons: one about catastrophic risk asymmetry, one about innovation cost",
       "Address the governance vacuum between national regulation and international coordination"
     ],
     "targetDuration": 120,
@@ -8274,7 +8274,7 @@
     "question": "Is meritocracy in tension with democracy, and if so, which should be treated as the superior organizing principle?",
     "tips": [
       "Precisely define meritocracy and its distributional logic",
-      "Give two reasons\u2014one about how meritocracy selects elites, one about democratic accountability",
+      "Give two reasons: one about how meritocracy selects elites, one about democratic accountability",
       "Address whether meritocracy can be redesigned to reinforce rather than undermine democratic equality"
     ],
     "targetDuration": 120,
@@ -8286,8 +8286,8 @@
     "difficultyBand": "9-10",
     "question": "Does the financialization of the economy represent a structural failure of modern capitalism or a rational evolution of capital allocation?",
     "tips": [
-      "Define financialization specifically\u2014FIRE sector growth, rent extraction, or shareholder primacy",
-      "Give two reasons\u2014one about productive investment crowding out, one about systemic fragility",
+      "Define financialization specifically: FIRE sector growth, rent extraction, or shareholder primacy",
+      "Give two reasons: one about productive investment crowding out, one about systemic fragility",
       "Address the counterargument that financialization has democratized capital access"
     ],
     "targetDuration": 120,
@@ -8299,8 +8299,8 @@
     "difficultyBand": "9-10",
     "question": "Should intellectual property regimes be fundamentally redesigned for the age of AI-generated content?",
     "tips": [
-      "Identify specifically which IP assumptions AI challenges\u2014authorship, originality, or training data use",
-      "Give two reasons\u2014one about creator incentives, one about public domain and cultural commons",
+      "Identify specifically which IP assumptions AI challenges: authorship, originality, or training data use",
+      "Give two reasons: one about creator incentives, one about public domain and cultural commons",
       "Address the international harmonization challenge and competitive IP races"
     ],
     "targetDuration": 120,
@@ -8313,8 +8313,8 @@
     "question": "Is electoral democracy structurally incapable of representing the interests of future generations?",
     "tips": [
       "Specify the institutional mechanisms that create inter-temporal preference distortion",
-      "Give two reasons\u2014one about discount rates in political reasoning, one about non-voter representation",
-      "Address specific institutional innovations\u2014constitutional courts, future generations commissioners\u2014and their limits"
+      "Give two reasons: one about discount rates in political reasoning, one about non-voter representation",
+      "Address specific institutional innovations (constitutional courts, future generations commissioners) and their limits"
     ],
     "targetDuration": 120,
     "difficultyNote": "Intergenerational justice and institutional design"
@@ -8326,7 +8326,7 @@
     "question": "Should the digital commons be governed by democratic institutions rather than private platforms?",
     "tips": [
       "Define what commons governance means institutionally at digital scale",
-      "Give two reasons\u2014one about information access, one about public sphere quality",
+      "Give two reasons: one about information access, one about public sphere quality",
       "Address the operational and innovation costs of removing private platform incentives"
     ],
     "targetDuration": 120,
@@ -8339,8 +8339,8 @@
     "question": "Is the nation-state the appropriate unit for governing global technological risks?",
     "tips": [
       "Identify the specific structural mismatches between national governance and transnational technology",
-      "Give two reasons\u2014one about enforcement gaps, one about coordination externalities",
-      "Address the alternatives\u2014treaty regimes, multistakeholder bodies\u2014and their accountability deficits"
+      "Give two reasons: one about enforcement gaps, one about coordination externalities",
+      "Address the alternatives (treaty regimes, multistakeholder bodies) and their accountability deficits"
     ],
     "targetDuration": 120,
     "difficultyNote": "Global governance and technology policy"
@@ -8352,7 +8352,7 @@
     "question": "Does the current human rights framework adequately address harms from automated decision-making systems?",
     "tips": [
       "Specify which rights are structurally under-protected by current frameworks",
-      "Give two reasons\u2014one about procedural rights, one about collective versus individual harm",
+      "Give two reasons: one about procedural rights, one about collective versus individual harm",
       "Address the GDPR and algorithmic accountability literature and its limitations"
     ],
     "targetDuration": 120,
@@ -8365,7 +8365,7 @@
     "question": "Should longtermism as a moral philosophy be incorporated into public policy frameworks?",
     "tips": [
       "Define longtermism precisely and distinguish its variants",
-      "Give two reasons\u2014one about its epistemic assumptions, one about democratic legitimacy",
+      "Give two reasons: one about its epistemic assumptions, one about democratic legitimacy",
       "Address the objection that longtermism crowds out near-term suffering reduction"
     ],
     "targetDuration": 120,
@@ -8377,8 +8377,8 @@
     "difficultyBand": "9-10",
     "question": "Is the international financial system structurally biased against developing economies in ways that perpetuate underdevelopment?",
     "tips": [
-      "Identify the specific mechanisms\u2014debt dynamics, reserve currency, capital flow liberalization",
-      "Give two reasons\u2014one about policy space constraints, one about financial contagion",
+      "Identify the specific mechanisms: debt dynamics, reserve currency, capital flow liberalization",
+      "Give two reasons: one about policy space constraints, one about financial contagion",
       "Address the counterargument that integration has driven growth in emerging markets"
     ],
     "targetDuration": 120,
@@ -8390,8 +8390,8 @@
     "difficultyBand": "9-10",
     "question": "Does capitalism systematically underprovide public goods, and if so, is the solution market design or political economy reform?",
     "tips": [
-      "Define the public goods failure precisely\u2014non-excludability, non-rivalry, or coordination failures",
-      "Give two reasons\u2014one about mechanism design solutions, one about political economy barriers",
+      "Define the public goods failure precisely: non-excludability, non-rivalry, or coordination failures",
+      "Give two reasons: one about mechanism design solutions, one about political economy barriers",
       "Address why mixed-economy solutions have succeeded or failed historically"
     ],
     "targetDuration": 120,
@@ -8404,7 +8404,7 @@
     "question": "Should international law evolve to hold corporations directly accountable for crimes against humanity?",
     "tips": [
       "Identify the specific jurisdictional and legal gaps in current corporate accountability",
-      "Give two reasons\u2014one about deterrence, one about victim remedy",
+      "Give two reasons: one about deterrence, one about victim remedy",
       "Address the state sovereignty and extraterritorial enforcement challenges"
     ],
     "targetDuration": 120,
@@ -8417,8 +8417,8 @@
     "question": "Is technological unemployment a transitional adjustment challenge or a structural threat to the labor market?",
     "tips": [
       "Distinguish between previous automation waves and AI-driven displacement",
-      "Give two reasons\u2014one about task versus job displacement, one about wage polarization",
-      "Address the policy responses\u2014retraining, UBI, working-time reduction\u2014and their feasibility"
+      "Give two reasons: one about task versus job displacement, one about wage polarization",
+      "Address the policy responses (retraining, UBI, working-time reduction) and their feasibility"
     ],
     "targetDuration": 120,
     "difficultyNote": "Labor economics and technological change theory"
@@ -8430,7 +8430,7 @@
     "question": "Does liberal political neutrality as a governing philosophy undermine the cultural conditions required for its own reproduction?",
     "tips": [
       "Define the paradox of liberal neutrality precisely",
-      "Give two reasons\u2014one about civic virtue requirements, one about pluralism's cultural preconditions",
+      "Give two reasons: one about civic virtue requirements, one about pluralism's cultural preconditions",
       "Address whether procedural liberalism can be supplemented without sliding into illiberalism"
     ],
     "targetDuration": 120,
@@ -8443,7 +8443,7 @@
     "question": "Should democracies treat the systematic production of disinformation as a national security threat requiring legal response?",
     "tips": [
       "Define disinformation operationally and distinguish it from misinformation and propaganda",
-      "Give two reasons\u2014one about democratic integrity, one about free speech limits",
+      "Give two reasons: one about democratic integrity, one about free speech limits",
       "Address the enforcement risk of empowering governments to define truth"
     ],
     "targetDuration": 120,
@@ -8456,7 +8456,7 @@
     "question": "Is effective multilateralism possible in a world of sharpening great power competition?",
     "tips": [
       "Define the structural constraints on multilateral cooperation precisely",
-      "Give two reasons\u2014one about institutional design, one about interest divergence",
+      "Give two reasons: one about institutional design, one about interest divergence",
       "Address areas where cooperation has persisted despite rivalry and explain why"
     ],
     "targetDuration": 120,
@@ -8469,7 +8469,7 @@
     "question": "Should AI systems that meet certain capability thresholds be subject to constitutional rights analogous to legal personhood?",
     "tips": [
       "Precisely define the threshold and the rights regime you're proposing or opposing",
-      "Give two reasons\u2014one about moral status criteria, one about legal system design",
+      "Give two reasons: one about moral status criteria, one about legal system design",
       "Address the corporate personhood analogy, its rationale, and why AI may be categorically different"
     ],
     "targetDuration": 120,
@@ -8482,7 +8482,7 @@
     "question": "Is the concept of a rules-based international order a neutral framework or a mechanism for preserving Western hegemony?",
     "tips": [
       "Define rules-based order and whose rules are at issue",
-      "Give two reasons\u2014one about institutional design bias, one about enforcement selectivity",
+      "Give two reasons: one about institutional design bias, one about enforcement selectivity",
       "Address the alternative governance models proposed by revisionist powers and their democratic deficits"
     ],
     "targetDuration": 120,
@@ -8494,8 +8494,8 @@
     "difficultyBand": "9-10",
     "question": "Does the current structure of academic incentives systematically distort scientific knowledge production?",
     "tips": [
-      "Identify specific structural mechanisms\u2014publish-or-perish, replication crisis, citation gaming",
-      "Give two reasons\u2014one about truth-seeking distortion, one about resource misallocation",
+      "Identify specific structural mechanisms: publish-or-perish, replication crisis, citation gaming",
+      "Give two reasons: one about truth-seeking distortion, one about resource misallocation",
       "Address the institutional reforms proposed and the political economy of changing academic incentives"
     ],
     "targetDuration": 120,
@@ -8508,7 +8508,7 @@
     "question": "Should genetic enhancement be legally permissible for consenting adults making autonomous choices?",
     "tips": [
       "Distinguish therapeutic from enhancement interventions precisely",
-      "Give two reasons\u2014one about reproductive autonomy, one about inequality amplification",
+      "Give two reasons: one about reproductive autonomy, one about inequality amplification",
       "Address the collective action problem when individual rational choices produce socially harmful outcomes"
     ],
     "targetDuration": 120,
@@ -8521,7 +8521,7 @@
     "question": "Is deliberative democracy a scalable institutional model for modern pluralist societies?",
     "tips": [
       "Define deliberative democracy precisely and distinguish it from current electoral models",
-      "Give two reasons\u2014one about cognitive diversity requirements, one about scale and representation",
+      "Give two reasons: one about cognitive diversity requirements, one about scale and representation",
       "Address successful deliberative experiments and why they have not replaced representative institutions"
     ],
     "targetDuration": 120,
@@ -8534,7 +8534,7 @@
     "question": "Should the international community recognize a legal duty to intervene in mass atrocity situations regardless of state consent?",
     "tips": [
       "Distinguish humanitarian intervention from the Responsibility to Protect framework",
-      "Give two reasons\u2014one about norm enforcement, one about sovereignty and abuse risk",
+      "Give two reasons: one about norm enforcement, one about sovereignty and abuse risk",
       "Address the Security Council paralysis and the selectivity problem in intervention decisions"
     ],
     "targetDuration": 120,
@@ -8547,7 +8547,7 @@
     "question": "Is financialized housing policy incompatible with housing as a social right?",
     "tips": [
       "Define the financialization mechanisms that convert housing into an investment asset",
-      "Give two reasons\u2014one about price formation, one about tenure insecurity",
+      "Give two reasons: one about price formation, one about tenure insecurity",
       "Address the pension fund and retirement savings dimensions that complicate simple de-financialization arguments"
     ],
     "targetDuration": 120,
@@ -8559,8 +8559,8 @@
     "difficultyBand": "9-10",
     "question": "Does the logic of competitive geopolitics make meaningful global climate governance structurally impossible?",
     "tips": [
-      "Define the strategic interaction problem precisely\u2014free-rider dynamics, relative gains, carbon leakage",
-      "Give two reasons\u2014one about institutional design failures, one about domestic political constraints",
+      "Define the strategic interaction problem precisely: free-rider dynamics, relative gains, carbon leakage",
+      "Give two reasons: one about institutional design failures, one about domestic political constraints",
       "Address the partial agreements and side payments that have enabled cooperation and whether they scale"
     ],
     "targetDuration": 120,
@@ -8573,7 +8573,7 @@
     "question": "Should behavioral economics findings be used by governments to 'nudge' citizens toward better outcomes?",
     "tips": [
       "Define nudging and distinguish it from paternalism and persuasion",
-      "Give two reasons\u2014one about autonomy and consent, one about effectiveness and equity",
+      "Give two reasons: one about autonomy and consent, one about effectiveness and equity",
       "Address the slippery slope from nudging to manipulation and the governance accountability mechanisms needed"
     ],
     "targetDuration": 120,
@@ -8586,8 +8586,8 @@
     "question": "Is the regulatory capture of financial regulators by the financial industry a structural feature or a correctable failure?",
     "tips": [
       "Define regulatory capture operationally and distinguish it from industry expertise",
-      "Give two reasons\u2014one about structural incentives, one about the revolving door",
-      "Address the institutional design responses\u2014independence, civil society participation, international comparison\u2014and their limits"
+      "Give two reasons: one about structural incentives, one about the revolving door",
+      "Address the institutional design responses (independence, civil society participation, international comparison) and their limits"
     ],
     "targetDuration": 120,
     "difficultyNote": "Political economy and regulatory theory"
@@ -8598,8 +8598,8 @@
     "difficultyBand": "9-10",
     "question": "Should cosmopolitan obligations to global poor outweigh national obligations to citizens in political theory?",
     "tips": [
-      "Define the competing duty frameworks\u2014special obligations, contractarianism, cosmopolitanism",
-      "Give two reasons\u2014one about moral arbitrariness of birth, one about the preconditions for effective redistribution",
+      "Define the competing duty frameworks: special obligations, contractarianism, cosmopolitanism",
+      "Give two reasons: one about moral arbitrariness of birth, one about the preconditions for effective redistribution",
       "Address the political stability and legitimacy requirements that favor prioritizing domestic obligations"
     ],
     "targetDuration": 120,
