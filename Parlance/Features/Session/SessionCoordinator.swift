@@ -145,28 +145,19 @@ struct SessionCoordinator: View {
         let audioFeatures: AudioFeatures
         let emotionResult: EmotionResult?
 
-        if isPro {
-            let apiURL = AppConstants.apiBaseURL
-            async let transcriptionTask: TranscriptionResult? = {
-                return try? await SpeechTranscriber.transcribe(url: audioURL)
-            }()
-            async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
-            async let emotionTask: EmotionResult? = {
-                return try? await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
-            }()
-            (transcriptionResult, audioFeatures, emotionResult) = await (
-                transcriptionTask,
-                audioFeaturesTask,
-                emotionTask
-            )
-        } else {
-            async let transcriptionTask: TranscriptionResult? = {
-                return try? await SpeechTranscriber.transcribe(url: audioURL)
-            }()
-            async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
-            (transcriptionResult, audioFeatures) = await (transcriptionTask, audioFeaturesTask)
-            emotionResult = nil
-        }
+        let apiURL = AppConstants.apiBaseURL
+        async let transcriptionTask: TranscriptionResult? = {
+            return try? await SpeechTranscriber.transcribe(url: audioURL)
+        }()
+        async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
+        async let emotionTask: EmotionResult? = {
+            return try? await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+        }()
+        (transcriptionResult, audioFeatures, emotionResult) = await (
+            transcriptionTask,
+            audioFeaturesTask,
+            emotionTask
+        )
 
         // Delete audio file — no longer needed
         recorder.deleteRecording()

@@ -6,7 +6,7 @@ struct ToneAnalysisCard: View {
     let onUpgrade: () -> Void
 
     var body: some View {
-        if isPro, let result = emotionResult {
+        if let result = emotionResult {
             paidCard(result: result)
         } else {
             teaserCard
