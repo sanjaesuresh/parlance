@@ -30,7 +30,9 @@ struct ContentView: View {
                 SessionCoordinator(
                     state: session,
                     onDismiss: {
-                        activeSession = nil
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            activeSession = nil
+                        }
                         weekCache.refresh()
                     }
                 )
