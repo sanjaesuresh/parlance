@@ -54,6 +54,11 @@ final class SubscriptionService: ObservableObject {
 
     func refreshStatus() async {
         isLoading = true
+        #if DEBUG
+        isPro = true
+        isLoading = false
+        return
+        #endif
         var hasPro = false
         for await result in Transaction.currentEntitlements {
             if case .verified(let transaction) = result,
