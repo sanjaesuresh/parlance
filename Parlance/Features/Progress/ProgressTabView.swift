@@ -7,14 +7,60 @@ struct ProgressTabView: View {
     @StateObject private var viewModel = ProgressViewModel()
     @EnvironmentObject private var weekCache: SessionWeekCache
 
+    // MARK: - Mock data (DEBUG only, shown when no real sessions exist)
+
+    #if DEBUG
+    private static let mockSessions: [Session] = {
+        func ago(_ n: Int) -> Date {
+            Calendar.current.date(byAdding: .day, value: -n, to: .now)!
+        }
+        func make(mode: SessionMode, days: Int, score: Int, filler: Int, pace: Int, clarity: Int, structure: Int, vocab: Int, duration: TimeInterval, question: String, feedback: String?, xp: Int) -> Session {
+            let s = Session(mode: mode, difficultyLevel: 5, duration: duration, transcript: "Mock.", overallScore: score, fillerCount: filler, paceScore: pace, clarityScore: clarity, structureScore: structure, vocabularyScore: vocab, question: question, aiCoachFeedback: feedback, xpEarned: xp, wasDailyChallenge: false)
+            s.date = ago(days)
+            return s
+        }
+        return [
+            make(mode: .interview, days: 0, score: 82, filler: 2, pace: 8, clarity: 8, structure: 7, vocab: 9, duration: 95, question: "Tell me about a time you overcame a significant challenge.", feedback: "Solid STAR structure. Your example was specific and the outcome was clearly tied to your actions. Trim the preamble next time — the first 15 seconds added nothing.", xp: 45),
+            make(mode: .casual, days: 1, score: 75, filler: 4, pace: 7, clarity: 8, structure: 6, vocab: 8, duration: 78, question: "Explain what you do for work to someone who's never heard of it.", feedback: "Good energy. Your analogy landed well. Watch the filler words in the second half — they undermine the confident tone you built up early.", xp: 35),
+            make(mode: .impromptu, days: 2, score: 68, filler: 6, pace: 6, clarity: 7, structure: 6, vocab: 7, duration: 62, question: "You have 60 seconds: convince someone to try a new hobby.", feedback: "You had the right instinct to lead with emotion. The argument structure fell apart in the middle — commit to one compelling reason rather than listing several weak ones.", xp: 28),
+            make(mode: .explanation, days: 3, score: 88, filler: 1, pace: 9, clarity: 9, structure: 8, vocab: 9, duration: 110, question: "Explain how the internet works to a 10-year-old.", feedback: "Excellent. The postal service analogy was clear and memorable. Your pacing gave the listener time to follow along. The closing felt abrupt — a single wrap-up sentence would round this off.", xp: 52),
+            make(mode: .interview, days: 5, score: 71, filler: 5, pace: 7, clarity: 7, structure: 6, vocab: 7, duration: 88, question: "Describe a situation where you had to lead under pressure.", feedback: "The story had real stakes. But you buried the outcome — in an interview context, the result is what the listener is waiting for. Get to it sooner.", xp: 32),
+            make(mode: .casual, days: 7, score: 79, filler: 3, pace: 8, clarity: 8, structure: 7, vocab: 8, duration: 85, question: "What's a book you'd recommend, and why?", feedback: "Concise and personal. You gave a specific reason rather than a vague compliment, which made it credible. Slight overrun on pace at the end — slow down when making your key point.", xp: 40),
+            make(mode: .explanation, days: 8, score: 90, filler: 1, pace: 9, clarity: 9, structure: 9, vocab: 9, duration: 105, question: "Walk me through how a vaccine works.", feedback: "One of your strongest sessions. The layered explanation held together from start to finish. Vocabulary was precise without being jargon-heavy.", xp: 58),
+            make(mode: .impromptu, days: 10, score: 74, filler: 5, pace: 7, clarity: 7, structure: 6, vocab: 7, duration: 71, question: "Describe your ideal workday in under 2 minutes.", feedback: "Good instinct to anchor on values early. The middle section repeated the same point twice — trim it. End on the outcome, not the process.", xp: 33),
+            make(mode: .interview, days: 12, score: 65, filler: 8, pace: 6, clarity: 6, structure: 6, vocab: 7, duration: 92, question: "Why do you want to work here?", feedback: "The core answer was solid but the delivery was tentative. Filler words spiked when discussing culture — prep that section more thoroughly. The closing line landed well.", xp: 25),
+            make(mode: .explanation, days: 14, score: 86, filler: 2, pace: 8, clarity: 9, structure: 8, vocab: 8, duration: 98, question: "Explain compound interest to a teenager.", feedback: "Strong analogy in the opening — the snowball image worked. Structure was clean: concept, example, implication. Minor rhythm issue in the middle, but overall very polished.", xp: 50),
+        ]
+    }()
+    #endif
+
+    private var effectiveSessions: [Session] {
+        #if DEBUG
+        return sessions.isEmpty ? Self.mockSessions : sessions
+        #else
+        return sessions
+        #endif
+    }
+
+    private var effectiveWeekSessions: [Session] {
+        #if DEBUG
+        if weekCache.sessions.isEmpty {
+            let calendar = Calendar.current
+            let weekStart = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: .now)) ?? .distantPast
+            return effectiveSessions.filter { $0.date >= weekStart }
+        }
+        #endif
+        return weekCache.sessions
+    }
+
     private var weeklyActivity: [Int] {
-        viewModel.weeklyActivity(from: weekCache.sessions)
+        viewModel.weeklyActivity(from: effectiveWeekSessions)
     }
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                if sessions.isEmpty {
+                if effectiveSessions.isEmpty {
                     emptyState
                 } else {
                     VStack(spacing: 20) {
@@ -134,7 +180,7 @@ struct ProgressTabView: View {
     // MARK: - Score Trend
 
     private var scoreTrendCard: some View {
-        let scores = viewModel.scoreHistory(from: sessions)
+        let scores = viewModel.scoreHistory(from: effectiveSessions)
         let delta: Int = {
             guard scores.count >= 2 else { return 0 }
             return scores.last! - scores.first!
@@ -250,8 +296,8 @@ struct ProgressTabView: View {
     // MARK: - Skill Trends
 
     private var skillTrendsCard: some View {
-        let previousWeek = sessions.filter { session in !weekCache.sessions.contains(where: { c in c.id == session.id }) }.prefix(20).map { $0 }
-        let trends = viewModel.skillTrends(currentWeek: weekCache.sessions, previousWeek: previousWeek)
+        let previousWeek = effectiveSessions.filter { session in !effectiveWeekSessions.contains(where: { c in c.id == session.id }) }.prefix(20).map { $0 }
+        let trends = viewModel.skillTrends(currentWeek: effectiveWeekSessions, previousWeek: previousWeek)
 
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Skill Trends")
@@ -290,7 +336,7 @@ struct ProgressTabView: View {
     @State private var expandedSessionId: UUID?
 
     private var recentSessionsCard: some View {
-        let recent = Array(sessions.prefix(5))
+        let recent = Array(effectiveSessions.prefix(5))
 
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Recent Sessions")
@@ -424,7 +470,7 @@ struct ProgressTabView: View {
     // MARK: - Mode Breakdown
 
     private var modeBreakdownCard: some View {
-        let breakdown = viewModel.modeBreakdown(from: Array(sessions))
+        let breakdown = viewModel.modeBreakdown(from: Array(effectiveSessions))
         let totalSessions = max(1, breakdown.map(\.count).reduce(0, +))
 
         return VStack(alignment: .leading, spacing: 12) {
@@ -517,10 +563,10 @@ struct ProgressTabView: View {
     // MARK: - All-Time Stats
 
     private var allTimeStatsCard: some View {
-        let totalSessions = sessions.count
-        let bestScore = sessions.map(\.overallScore).max() ?? 0
-        let totalMinutes = Int(sessions.map(\.duration).reduce(0, +) / 60)
-        let avgScore = sessions.isEmpty ? 0 : sessions.map(\.overallScore).reduce(0, +) / sessions.count
+        let totalSessions = effectiveSessions.count
+        let bestScore = effectiveSessions.map(\.overallScore).max() ?? 0
+        let totalMinutes = Int(effectiveSessions.map(\.duration).reduce(0, +) / 60)
+        let avgScore = effectiveSessions.isEmpty ? 0 : effectiveSessions.map(\.overallScore).reduce(0, +) / effectiveSessions.count
 
         let statColumns = [
             GridItem(.flexible(), spacing: 10),

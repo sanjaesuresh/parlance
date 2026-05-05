@@ -345,9 +345,14 @@ struct ProfileView: View {
                         get: { viewModel.dailyReminderEnabled },
                         set: { viewModel.toggleDailyReminder($0) }
                     )) {
-                        Label("Daily Reminder", systemImage: "bell.fill")
-                            .font(AppFonts.body(14))
-                            .foregroundStyle(AppColors.text)
+                        HStack(spacing: 8) {
+                            Image(systemName: "bell.fill")
+                                .foregroundStyle(AppColors.sub)
+                                .frame(width: 24)
+                            Text("Daily Reminder")
+                                .font(AppFonts.body(14))
+                                .foregroundStyle(AppColors.text)
+                        }
                     }
                     .tint(AppColors.gold)
                     .padding(.vertical, 12)
@@ -358,7 +363,14 @@ struct ProfileView: View {
                         get: { viewModel.soundEffectsEnabled },
                         set: { viewModel.toggleSoundEffects($0) }
                     )) {
-                        settingsLabel(emoji: "\u{1F514}", text: "Streak Notifications")
+                        HStack(spacing: 8) {
+                            Image(systemName: "flame.fill")
+                                .foregroundStyle(AppColors.sub)
+                                .frame(width: 24)
+                            Text("Streak Notifications")
+                                .font(AppFonts.body(14))
+                                .foregroundStyle(AppColors.text)
+                        }
                     }
                     .tint(AppColors.gold)
                     .padding(.vertical, 12)
@@ -367,7 +379,10 @@ struct ProfileView: View {
 
                     // Theme picker
                     HStack {
-                        Label("Appearance", systemImage: "circle.lefthalf.filled")
+                        Image(systemName: "circle.lefthalf.filled")
+                            .foregroundStyle(AppColors.sub)
+                            .frame(width: 24)
+                        Text("Appearance")
                             .font(AppFonts.body(14))
                             .foregroundStyle(AppColors.text)
 
@@ -416,15 +431,6 @@ struct ProfileView: View {
             }
         }
         .presentationDetents([.medium])
-    }
-
-    private func settingsLabel(emoji: String, text: String) -> some View {
-        HStack(spacing: 8) {
-            Text(emoji)
-            Text(text)
-                .font(AppFonts.body(14))
-                .foregroundStyle(AppColors.text)
-        }
     }
 
     private func menuRow(emoji: String = "", icon: String = "", title: String, isDestructive: Bool = false, action: @escaping () -> Void) -> some View {

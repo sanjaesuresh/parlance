@@ -103,29 +103,19 @@ struct RecordingView: View {
                     .padding(.top, 8)
 
                     // Coaching tips
-                    HStack(spacing: 8) {
-                        ForEach(question.tips, id: \.self) { tip in
-                            let words = tip.components(separatedBy: " ")
-                            let headline = words.first ?? tip
-                            let detail = words.dropFirst().joined(separator: " ")
-
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text(headline)
-                                    .font(AppFonts.bodyBold(15))
+                    VStack(alignment: .leading, spacing: 8) {
+                        ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
+                            HStack(alignment: .top, spacing: 10) {
+                                Text("\(index + 1)")
+                                    .font(AppFonts.bodyBold(12))
                                     .foregroundStyle(mode.accentColor)
-                                    .lineLimit(1)
-                                if !detail.isEmpty {
-                                    Text(detail)
-                                        .font(AppFonts.body(9))
-                                        .foregroundStyle(AppColors.dim)
-                                        .lineLimit(3)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                }
+                                    .frame(width: 18, alignment: .center)
+                                    .padding(.top, 1)
+                                Text(tip)
+                                    .font(AppFonts.body(12))
+                                    .foregroundStyle(AppColors.sub)
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(9)
-                            .background(mode.accentColor.opacity(0.07))
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     }
                     .padding(.horizontal, 24)
