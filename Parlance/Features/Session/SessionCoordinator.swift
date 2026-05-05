@@ -71,14 +71,7 @@ struct SessionCoordinator: View {
                 )
 
             case .processing:
-                VStack(spacing: 16) {
-                    SwiftUI.ProgressView()
-                        .tint(AppColors.gold)
-                        .scaleEffect(1.5)
-                    Text("Analyzing your performance…")
-                        .font(AppFonts.body(16))
-                        .foregroundStyle(AppColors.sub)
-                }
+                AnalyzingView()
 
             case .scoringFailed:
                 VStack(spacing: 20) {
@@ -248,6 +241,8 @@ struct SessionCoordinator: View {
         phase = .results(session)
     }
 
+    // MARK: - Achievements
+
     private func checkAchievements(user: User, session: Session, persistence: PersistenceService) {
         let totalSessions = persistence.totalSessionCount()
 
@@ -268,4 +263,61 @@ struct SessionCoordinator: View {
 
         if user.rank.level >= 10 { persistence.unlockAchievement(id: "master") }
     }
+}
+
+// MARK: - Analyzing View
+
+private struct AnalyzingView: View {
+    var body: some View {
+        ZStack {
+            AppColors.bg.ignoresSafeArea()
+            VStack(spacing: 28) {
+                HStack(alignment: .bottom, spacing: 0) {
+                    Text("P")
+                        .font(AppFonts.display(64))
+                        .foregroundStyle(AppColors.text)
+                    Text(".")
+                        .font(AppFonts.display(64))
+                        .foregroundStyle(AppColors.gold)
+                }
+
+                HStack(alignment: .bottom, spacing: 0) {
+                    Text("Analyzing your performance")
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.text)
+                    HStack(spacing: 2) {
+                        BouncingDot(delay: 0.00)
+                        BouncingDot(delay: 0.18)
+                        BouncingDot(delay: 0.36)
+                    }
+                    .offset(y: 3)
+                    .padding(.leading, 2)
+                }
+            }
+        }
+    }
+}
+
+private struct BouncingDot: View {
+    let delay: Double
+    @State private var up = false
+
+    var body: some View {
+        Circle()
+            .fill(AppColors.gold)
+            .frame(width: 3, height: 3)
+            .offset(y: up ? -4 : 3)
+            .opacity(up ? 1 : 0.4)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                    withAnimation(.easeInOut(duration: 0.6).repeatForever(autoreverses: true)) {
+                        up = true
+                    }
+                }
+            }
+    }
+}
+
+#Preview("Analyzing") {
+    AnalyzingView()
 }
