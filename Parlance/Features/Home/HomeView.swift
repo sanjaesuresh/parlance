@@ -157,13 +157,30 @@ struct HomeView: View {
 
     // MARK: - Difficulty Picker
 
-    private func tierEmoji(for level: Int) -> String {
+    private struct Band: Identifiable {
+        let id: Int           // lower bound stored in practiceLevel (1, 3, 5, 7, 9)
+        let range: String
+        let tierName: String
+        let descriptor: String
+        let isProTier: Bool
+    }
+
+    private let difficultyBands: [Band] = [
+        Band(id: 1, range: "1–2", tierName: "Starter",    descriptor: "Build the habit",     isProTier: false),
+        Band(id: 3, range: "3–4", tierName: "Developing", descriptor: "Finding your rhythm",  isProTier: false),
+        Band(id: 5, range: "5–6", tierName: "Confident",  descriptor: "In the groove",        isProTier: false),
+        Band(id: 7, range: "7–8", tierName: "Advanced",   descriptor: "High stakes",           isProTier: true),
+        Band(id: 9, range: "9–10", tierName: "Expert",    descriptor: "The edge",              isProTier: true),
+    ]
+
+    private var selectedBandId: Int {
+        let level = Int(sliderLevel)
         switch level {
-        case 1...2: "🌱"
-        case 3...4: "💪"
-        case 5...6: "🔥"
-        case 7...8: "⚡"
-        default: "👑"
+        case 1...2: return 1
+        case 3...4: return 3
+        case 7...8: return 7
+        case 9...10: return 9
+        default:   return 5
         }
     }
 
@@ -171,48 +188,50 @@ struct HomeView: View {
         Group {
             if let user {
                 VStack(alignment: .leading, spacing: 0) {
-                    HStack {
+                    HStack(alignment: .firstTextBaseline) {
                         Text("Difficulty")
                             .font(AppFonts.bodyMedium(13))
                             .foregroundStyle(AppColors.text)
                         Spacer()
-                        Text(DifficultyLevel.name(for: Int(sliderLevel)))
+                        Text(difficultyBands.first(where: { $0.id == selectedBandId })?.tierName ?? "")
                             .font(AppFonts.body(12))
                             .foregroundStyle(AppColors.sub)
-                            .lineLimit(1)
                     }
                     .padding(.horizontal, 16)
                     .padding(.top, 14)
-                    .padding(.bottom, 12)
+                    .padding(.bottom, 10)
 
                     ScrollViewReader { proxy in
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 10) {
-                                ForEach(1...10, id: \.self) { level in
-                                    let isSelected = Int(sliderLevel) == level
-                                    let locked = level >= 7 && !subscription.isPro
+                            HStack(spacing: 8) {
+                                ForEach(difficultyBands) { band in
+                                    let isSelected = selectedBandId == band.id
+                                    let locked = band.isProTier && !subscription.isPro
 
                                     Button {
                                         if locked {
                                             showPaywall = true
                                         } else {
-                                            sliderLevel = Double(level)
-                                            user.practiceLevel = level
+                                            sliderLevel = Double(band.id)
+                                            user.practiceLevel = band.id
                                         }
                                     } label: {
-                                        difficultyCard(level: level, isSelected: isSelected, locked: locked)
+                                        bandCard(band, isSelected: isSelected, locked: locked)
                                     }
-                                    .id(level)
-                                    .accessibilityLabel("Level \(level), \(DifficultyLevel.name(for: level))\(isSelected ? ", selected" : "")")
+                                    .id(band.id)
+                                    .accessibilityLabel("\(band.tierName), levels \(band.range)\(isSelected ? ", selected" : "")")
                                 }
                             }
-                            .padding(.horizontal, 16)
-                            .padding(.bottom, 16)
+                            .padding(.leading, 16)
+                            .padding(.trailing, 16)
+                            .padding(.bottom, 14)
                             .scrollTargetLayout()
                         }
                         .scrollTargetBehavior(.viewAligned)
                         .onAppear {
-                            proxy.scrollTo(max(1, Int(sliderLevel) - 1), anchor: .leading)
+                            DispatchQueue.main.async {
+                                proxy.scrollTo(selectedBandId, anchor: .leading)
+                            }
                         }
                     }
                 }
@@ -226,52 +245,48 @@ struct HomeView: View {
         }
     }
 
-    private func difficultyCard(level: Int, isSelected: Bool, locked: Bool) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack(alignment: .top) {
-                Text("Lv \(level)")
-                    .font(AppFonts.display(30))
-                    .foregroundStyle(isSelected ? AppColors.gold : AppColors.sub)
+    private func bandCard(_ band: Band, isSelected: Bool, locked: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            HStack(alignment: .center, spacing: 0) {
+                Text(band.range)
+                    .font(AppFonts.bodyBold(10))
+                    .foregroundStyle(isSelected ? AppColors.gold : AppColors.dim)
+                    .kerning(0.2)
                 Spacer()
                 if locked {
                     HStack(spacing: 3) {
                         Image(systemName: "lock.fill")
-                            .font(.system(size: 8, weight: .semibold))
+                            .font(.system(size: 7, weight: .bold))
                         Text("PRO")
-                            .font(AppFonts.bodyBold(9))
+                            .font(AppFonts.bodyBold(8))
                     }
                     .foregroundStyle(AppColors.gold)
-                    .padding(.horizontal, 6)
-                    .padding(.vertical, 3)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 2)
                     .background(AppColors.gold.opacity(0.15))
                     .clipShape(Capsule())
-                } else {
-                    Text(tierEmoji(for: level))
-                        .font(.system(size: 20))
                 }
             }
 
-            Text(DifficultyLevel.name(for: level))
-                .font(AppFonts.bodyMedium(13))
+            Text(band.tierName)
+                .font(AppFonts.bodyBold(17))
                 .foregroundStyle(isSelected ? AppColors.text : AppColors.sub)
-                .lineLimit(2)
-                .fixedSize(horizontal: false, vertical: true)
 
-            Text(DifficultyLevel.tier(for: level))
-                .font(AppFonts.body(10))
-                .foregroundStyle(isSelected ? AppColors.gold : AppColors.dim)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 3)
-                .background(isSelected ? AppColors.gold.opacity(0.12) : AppColors.faint)
-                .clipShape(Capsule())
+            Text(band.descriptor)
+                .font(AppFonts.body(11))
+                .foregroundStyle(isSelected ? AppColors.sub : AppColors.dim)
         }
-        .padding(14)
-        .frame(width: 148, alignment: .leading)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 13)
+        .frame(width: 158, alignment: .leading)
         .background(isSelected ? AppColors.gold.opacity(0.07) : AppColors.bg)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .clipShape(RoundedRectangle(cornerRadius: 13))
         .overlay(
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(isSelected ? AppColors.gold.opacity(0.8) : AppColors.border, lineWidth: isSelected ? 1.5 : 1)
+            RoundedRectangle(cornerRadius: 13)
+                .stroke(
+                    isSelected ? AppColors.gold.opacity(0.75) : AppColors.border,
+                    lineWidth: isSelected ? 1.5 : 1
+                )
         )
         .opacity(locked ? 0.55 : 1.0)
     }

@@ -32,7 +32,7 @@ final class User {
         currentStreak: Int = 0,
         longestStreak: Int = 0,
         lastSessionDate: Date? = nil,
-        practiceLevel: Int = 1,
+        practiceLevel: Int = 5,
         hasCompletedSetup: Bool = false,
         dailySessionCount: Int = 0,
         lastDailySessionDate: Date? = nil,

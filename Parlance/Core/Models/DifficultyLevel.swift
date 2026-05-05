@@ -16,11 +16,21 @@ enum DifficultyLevel {
     static func tier(for level: Int) -> String {
         switch level {
         case 1...2: "Starter"
-        case 3...4: "Challenging"
-        case 5...6: "Intermediate"
+        case 3...4: "Developing"
+        case 5...6: "Confident"
         case 7...8: "Advanced"
         case 9...10: "Expert"
         default: "Unknown"
+        }
+    }
+
+    static func descriptor(for level: Int) -> String {
+        switch level {
+        case 1...2: "Build the habit"
+        case 3...4: "Finding your rhythm"
+        case 5...6: "In the groove"
+        case 7...8: "High stakes"
+        default: "The edge"
         }
     }
 

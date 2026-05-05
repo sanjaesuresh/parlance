@@ -110,6 +110,7 @@ struct ModeGridView: View {
                     .foregroundStyle(AppColors.dim)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, minHeight: 30, alignment: .topLeading)
             }
             .padding(.horizontal, 14)
             .padding(.top, 10)
