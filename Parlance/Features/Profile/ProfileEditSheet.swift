@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import PhotosUI
 
 struct ProfileEditSheet: View {
     @Bindable var user: User
@@ -9,7 +10,9 @@ struct ProfileEditSheet: View {
     @State private var username: String
     @State private var location: String
     @State private var occupation: String
-    @State private var selectedAvatar: String
+    @State private var selectedAvatar: String  // "__photo__" when a custom photo is active
+    @State private var photoPickerItem: PhotosPickerItem?
+    @State private var pickedImageData: Data?
 
     private let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}", "\u{1F525}",
@@ -23,7 +26,8 @@ struct ProfileEditSheet: View {
         _username = State(initialValue: user.username ?? "")
         _location = State(initialValue: user.location ?? "")
         _occupation = State(initialValue: user.occupation ?? "")
-        _selectedAvatar = State(initialValue: user.avatarEmoji)
+        _selectedAvatar = State(initialValue: user.profileImageData != nil ? "__photo__" : user.avatarEmoji)
+        _pickedImageData = State(initialValue: user.profileImageData)
     }
 
     private var isValid: Bool {
@@ -43,6 +47,43 @@ struct ProfileEditSheet: View {
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
+                                // Photo picker — first item
+                                PhotosPicker(selection: $photoPickerItem, matching: .images) {
+                                    let isSelected = selectedAvatar == "__photo__"
+                                    ZStack {
+                                        if isSelected, let data = pickedImageData, let uiImage = UIImage(data: data) {
+                                            Image(uiImage: uiImage)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 52, height: 52)
+                                                .clipShape(Circle())
+                                        } else {
+                                            Circle()
+                                                .fill(isSelected ? AppColors.gold.opacity(0.2) : AppColors.card)
+                                                .frame(width: 52, height: 52)
+                                            Image(systemName: "plus")
+                                                .font(.system(size: 18, weight: .semibold))
+                                                .foregroundStyle(isSelected ? AppColors.gold : AppColors.sub)
+                                        }
+                                    }
+                                    .overlay(
+                                        Circle().stroke(
+                                            isSelected ? AppColors.gold : AppColors.border,
+                                            lineWidth: isSelected ? 2 : 1
+                                        )
+                                    )
+                                    .frame(width: 52, height: 52)
+                                }
+                                .onChange(of: photoPickerItem) { _, item in
+                                    Task {
+                                        if let data = try? await item?.loadTransferable(type: Data.self) {
+                                            pickedImageData = data
+                                            selectedAvatar = "__photo__"
+                                        }
+                                    }
+                                }
+
+                                // Emoji avatars
                                 ForEach(avatars, id: \.self) { emoji in
                                     Text(emoji)
                                         .font(.system(size: 32))
@@ -165,7 +206,13 @@ struct ProfileEditSheet: View {
         user.username = username
         user.location = trimmedLocation.isEmpty ? nil : trimmedLocation
         user.occupation = trimmedOccupation.isEmpty ? nil : trimmedOccupation
-        user.avatarEmoji = selectedAvatar
+
+        if selectedAvatar == "__photo__" {
+            user.profileImageData = pickedImageData
+        } else {
+            user.profileImageData = nil
+            user.avatarEmoji = selectedAvatar
+        }
 
         try? PersistenceService.shared.context.save()
         onDismiss()

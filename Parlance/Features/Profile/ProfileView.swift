@@ -106,17 +106,22 @@ struct ProfileView: View {
         VStack(spacing: 10) {
             if let user {
                 ZStack(alignment: .bottomTrailing) {
-                    Circle()
-                        .fill(AppColors.gold.opacity(0.2))
-                        .frame(width: 80, height: 80)
-                        .overlay(
+                    Group {
+                        if let data = user.profileImageData, let uiImage = UIImage(data: data) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
+                        } else {
                             Circle()
-                                .stroke(AppColors.gold.opacity(0.5), lineWidth: 2)
-                        )
-                        .overlay(
-                            Text(user.avatarEmoji)
-                                .font(.system(size: 38))
-                        )
+                                .fill(AppColors.gold.opacity(0.2))
+                                .frame(width: 80, height: 80)
+                                .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
+                                .overlay(Text(user.avatarEmoji).font(.system(size: 38)))
+                        }
+                    }
 
                     Text("LV \(user.rank.level)")
                         .font(AppFonts.bodyBold(10))

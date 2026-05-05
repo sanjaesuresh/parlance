@@ -8,6 +8,7 @@ final class User {
     var location: String?
     var occupation: String?
     var avatarEmoji: String
+    var profileImageData: Data?
     var joinDate: Date
     var xp: Int
     var currentStreak: Int
