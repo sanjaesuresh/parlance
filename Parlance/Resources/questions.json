@@ -7329,7 +7329,12 @@
       "Address signaling value and the risk of subjective skills assessment"
     ],
     "targetDuration": 75,
-    "difficultyNote": "HR policy with equity implications"
+    "difficultyNote": "HR policy with equity implications",
+    "coachingTips": [
+      "Open with a clear thesis: state whether skills-based hiring is more equitable, more effective, or both. Conflating both claims without separate evidence weakens your argument structurally.",
+      "Anchor your equity argument in access data: name populations that degree requirements screen out despite demonstrated competence, such as career-changers or community college graduates.",
+      "Preempt the signaling objection: acknowledge that degrees proxy for persistence, then explain why skills assessments can replicate that signal more precisely and without the cost barrier."
+    ]
   },
   {
     "id": "debate_5-6_016",
@@ -7342,7 +7347,12 @@
       "Address the moderation feasibility challenge at scale"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Platform liability debate"
+    "difficultyNote": "Platform liability debate",
+    "coachingTips": [
+      "Define your position on platform immunity before giving reasons: full liability, negligence-based liability, or a middle model. Your evidence only lands if it maps onto a specific legal structure.",
+      "Signpost your two pillars explicitly: 'First, on accountability. Second, on the speech question.' This lets your argument hold up even when delivery is imperfect.",
+      "Concede that moderation at scale is genuinely difficult, then redirect: the question is whether legal exposure creates the right incentive to invest seriously in moderation infrastructure."
+    ]
   },
   {
     "id": "debate_5-6_017",
@@ -7355,7 +7365,12 @@
       "Address the administrative efficiency argument and its limitations"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Healthcare economics debate"
+    "difficultyNote": "Healthcare economics debate",
+    "coachingTips": [
+      "Lead with your definition of viable: budget-neutral, deficit-financed, or feasible over a transition period. Undefined terms let opponents argue past your actual claim.",
+      "Anchor at least one fiscal argument in a real comparison: countries with universal systems that spend less per capita than the US while achieving comparable health outcomes.",
+      "Preempt the tax increase objection by distinguishing gross cost from net cost: administrative savings and eliminated premiums change the fiscal picture substantially. Walk through the logic."
+    ]
   },
   {
     "id": "debate_5-6_018",
@@ -7368,7 +7383,12 @@
       "Address the limitations of pay data in isolation"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Corporate equity reporting debate"
+    "difficultyNote": "Corporate equity reporting debate",
+    "coachingTips": [
+      "State your position in the first sentence: mandated transparency, voluntary disclosure, or something in between. Delayed thesis-stating makes your reasons feel unanchored.",
+      "Use the market correction argument with precision: pay transparency enables employees to identify underpayment and creates competitive pressure that currently doesn't exist.",
+      "Concede that raw pay data without controlling for role and seniority is misleading. Then argue the solution is better data standards, not no data, so the mandate holds."
+    ]
   },
   {
     "id": "debate_5-6_019",
@@ -7381,7 +7401,12 @@
       "Address the greenwashing evidence directly"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Investment ethics with evidence"
+    "difficultyNote": "Investment ethics with evidence",
+    "coachingTips": [
+      "Distinguish two ESG claims upfront: whether ESG funds outperform, and whether they produce real-world change. Commit to a position on each rather than treating them as one question.",
+      "For the greenwashing argument, use concrete evidence: name the prevalence of fossil fuel companies in major ESG indices as structural proof, not just assertion.",
+      "Avoid the false dilemma between purely cynical and genuinely effective. Argue instead that ESG substitutes the appearance of pressure for the substance of it, which is a precise critique."
+    ]
   },
   {
     "id": "debate_5-6_020",
@@ -7394,7 +7419,12 @@
       "Address the succession and institutional knowledge challenge"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Corporate governance debate"
+    "difficultyNote": "Corporate governance debate",
+    "coachingTips": [
+      "Define the problem you're solving before proposing term limits: entrenched decision-making, board capture, or loss of accountability. The mechanism only follows logically from the diagnosis.",
+      "Distinguish corporate term limits from political ones: unlike elected officials, executives serve at board discretion. Explain why boards consistently fail to replace long-tenured CEOs without legal compulsion.",
+      "Concede the institutional knowledge concern, then pivot: succession planning and knowledge transfer protocols can preserve continuity without requiring indefinite tenure. Neutralize, don't dismiss."
+    ]
   },
   {
     "id": "debate_5-6_021",
@@ -7407,7 +7437,12 @@
       "Address the sustainability and security challenges of open source"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Technology innovation debate"
+    "difficultyNote": "Technology innovation debate",
+    "coachingTips": [
+      "Structure your answer around the specific claim: long-term innovation, not short-term output. Where breakthrough R&D originates is different from where incremental improvements come from.",
+      "Use Linux, Apache, and Python as evidence that open-source infrastructure powers proprietary innovation, but recognize this supports complementarity more than superiority. Know which claim you're making.",
+      "Preempt the sustainability objection: acknowledge that open-source depends on volunteer labor and corporate sponsorship, then argue this is a funding design problem, not an inherent structural flaw."
+    ]
   },
   {
     "id": "debate_5-6_022",
@@ -7420,7 +7455,12 @@
       "Address sectors where zero-hours may serve workers' preferences"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Labor policy with sector nuance"
+    "difficultyNote": "Labor policy with sector nuance",
+    "coachingTips": [
+      "Lead with a clear stance and scope: ban with narrow exemptions, or regulate conditions rather than ban outright. An undifferentiated ban is easy to attack with counterexamples.",
+      "Anchor the worker rights argument in power asymmetry: zero-hours contracts transfer all scheduling risk to workers while employers can offer zero hours. That is precarity, not flexibility.",
+      "Concede that some workers genuinely prefer flexible arrangements. Distinguish this by proposing a right to request guaranteed hours rather than a blanket ban, which is more defensible."
+    ]
   },
   {
     "id": "debate_5-6_023",
@@ -7433,7 +7473,12 @@
       "Address the trolley problem and legal liability questions briefly"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Technology governance with ethics"
+    "difficultyNote": "Technology governance with ethics",
+    "coachingTips": [
+      "Define human-level safety operationally: same fatality rate per mile, per trip, or adjusted for exposure differences. Vague standards invite rebuttal on definitional grounds, not substance.",
+      "Frame the net harm argument quantitatively: human drivers cause 1.35 million deaths annually. A system reducing that figure even imperfectly represents a moral gain worth naming explicitly.",
+      "Acknowledge liability as a real unresolved question, then separate it from the safety approval question. Whether manufacturers bear fault is a legal engineering problem distinct from deployment approval."
+    ]
   },
   {
     "id": "debate_5-6_024",
@@ -7446,7 +7491,12 @@
       "Address the measurement bias and gaming problems"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Management theory debate"
+    "difficultyNote": "Management theory debate",
+    "coachingTips": [
+      "Open with your position on what merit-based pay actually incentivizes: individual output, relative performance, or manager perception. Your answer determines which evidence supports the model.",
+      "Deploy the collaboration argument structurally: when pay is rank-ordered, rational actors reduce information-sharing and help-seeking. This is the predicted response to the incentive design, not a cultural accident.",
+      "Address measurement gaming directly: employees optimize for what is measured rather than what is valuable. Name this as a feature of the mechanism, not a correctable implementation error."
+    ]
   },
   {
     "id": "debate_5-6_025",
@@ -7459,7 +7509,12 @@
       "Address the volatility and definitional challenges"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Financial regulation debate"
+    "difficultyNote": "Financial regulation debate",
+    "coachingTips": [
+      "Explain why property versus currency classification is consequential: property treatment creates a taxable event at every transaction, shaping whether crypto can function as a medium of exchange.",
+      "Anchor the enforcement fairness argument in comparison: stablecoins and crypto used in commerce behave more like foreign currency than capital assets, so the property framework creates a category mismatch.",
+      "Concede the volatility challenge: currency treatment works for stable assets, not for something swinging 30 percent weekly. Propose bifurcated treatment based on use case rather than abandoning the reform."
+    ]
   },
   {
     "id": "debate_5-6_026",
@@ -7472,7 +7527,12 @@
       "Address the practical governance challenges"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Data economics and rights debate"
+    "difficultyNote": "Data economics and rights debate",
+    "coachingTips": [
+      "Define public infrastructure before arguing: government ownership, open access mandates, interoperability requirements, or data portability rights each have different implications. Target one specifically.",
+      "Frame the competition argument precisely: when a dominant platform controls data competitors cannot replicate, that advantage becomes a structural barrier to entry, not just a competitive asset.",
+      "Preempt the governance challenge by naming precedents: spectrum allocation and utility regulation show private companies can operate within public-interest frameworks. Argue adaptation, not novelty."
+    ]
   },
   {
     "id": "debate_5-6_027",
@@ -7485,7 +7545,12 @@
       "Address the retraining and transition challenge"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Trade economics with human impact"
+    "difficultyNote": "Trade economics with human impact",
+    "coachingTips": [
+      "Define your claim precisely: net-positive means aggregate gains outweigh losses after redistribution, not that every individual wins. Acknowledge the distributional dimension from the start.",
+      "Use the consumer surplus argument with specificity: declining manufactured goods prices disproportionately benefit lower-income households who spend more of their income on tradeable goods.",
+      "Address wage pressure evidence directly: acknowledge manufacturing employment has declined, then argue the policy failure is inadequate retraining and trade adjustment assistance, not the trade itself."
+    ]
   },
   {
     "id": "debate_5-6_028",
@@ -7498,7 +7563,12 @@
       "Address the difficulty of standardizing outcome measurement"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Social sector effectiveness debate"
+    "difficultyNote": "Social sector effectiveness debate",
+    "coachingTips": [
+      "Open with the specific accountability failure you're targeting: overhead ratios, program effectiveness gaps, or misalignment between donor intent and mission outcomes. Generality weakens you here.",
+      "Use GiveWell and effective altruism as evidence that rigorous outcome measurement is possible, while acknowledging sectors like advocacy where impact is genuinely difficult to quantify.",
+      "Avoid treating stricter accountability as costless: compliance consumes program capacity, especially for small nonprofits. Specify which mechanisms are proportionate rather than demanding maximum transparency."
+    ]
   },
   {
     "id": "debate_5-6_029",
@@ -7511,7 +7581,12 @@
       "Address the alternative funding model question"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Media economics and democracy"
+    "difficultyNote": "Media economics and democracy",
+    "coachingTips": [
+      "Identify which kind of quality incompatibility you're arguing: investigative, local, or daily news. These have different cost structures and the profit motive affects each differently.",
+      "Deploy the advertising-model critique structurally: revenue dependent on engagement systematically favors conflict and novelty over accuracy and civic importance. Name this as an incentive problem.",
+      "Engage the BBC or public radio counterexamples directly: either explain why these are exceptional and unscalable, or revise your claim to be about commercial models specifically."
+    ]
   },
   {
     "id": "debate_5-6_030",
@@ -7524,7 +7599,12 @@
       "Address the audit methodology challenge"
     ],
     "targetDuration": 75,
-    "difficultyNote": "AI ethics in practice"
+    "difficultyNote": "AI ethics in practice",
+    "coachingTips": [
+      "Lead with your position on what bias audit requirements must produce: transparency reports, third-party certification, or pre-deployment approval. The mandate is only credible with a specified compliance standard.",
+      "Ground the equity argument in documented cases: Amazon's 2018 recruiting tool demonstrated that hiring algorithms trained on historical data replicate race and gender bias. Use structural evidence, not hypotheticals.",
+      "Concede the audit methodology challenge: measuring bias requires defining fairness, and definitions produce different results. Argue that disagreement supports expert oversight, not the absence of any requirement."
+    ]
   },
   {
     "id": "debate_5-6_031",
@@ -7537,7 +7617,12 @@
       "Address the generic drug market and compulsory licensing"
     ],
     "targetDuration": 75,
-    "difficultyNote": "IP policy with healthcare stakes"
+    "difficultyNote": "IP policy with healthcare stakes",
+    "coachingTips": [
+      "State your position with precision: the patent system is net harmful, net beneficial, or beneficial for discovery but harmful for drug pricing. Granularity determines the evidence you need.",
+      "Use the primary versus secondary patent distinction: original compound patents incentivize discovery, while evergreening of formulations extends monopoly without corresponding innovation. This distinction weakens the blanket defense.",
+      "Address the Bayh-Dole Act and compulsory licensing as mechanisms that already qualify patent rights. Show you understand the nuance: reform, not abolition, is the most defensible position."
+    ]
   },
   {
     "id": "debate_5-6_032",
@@ -7550,7 +7635,12 @@
       "Address the regressive nature of EV incentives at high price points"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Climate and industrial policy"
+    "difficultyNote": "Climate and industrial policy",
+    "coachingTips": [
+      "Define the type of subsidy you're defending or opposing: consumer rebates, production incentives, or infrastructure investment each have different equity and efficiency profiles.",
+      "Address the regressivity problem directly: high EV prices mean rebates flow to higher-income buyers first. Either propose targeting lower-cost vehicles or argue early adopter subsidies create scale that reduces prices for all.",
+      "Use the precedent argument strategically: wind, solar, and EVs each followed subsidy-to-scale curves. The strongest case for subsidies is that without them the market correction is too slow given climate urgency."
+    ]
   },
   {
     "id": "debate_5-6_033",
@@ -7563,7 +7653,12 @@
       "Address the mission drift risk in social enterprises"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Social impact theory debate"
+    "difficultyNote": "Social impact theory debate",
+    "coachingTips": [
+      "Define social entrepreneurship precisely before comparing it to charity: revenue-generating models with social outcomes as primary objective, not corporate social responsibility. The distinction matters for the debate.",
+      "Deploy the sustainability argument structurally: grant-dependent charities face perpetual fundraising pressure that consumes capacity, while earned-income models can reinvest surpluses. This is a systemic argument.",
+      "Engage the mission drift concern as your opponent's strongest point. Acknowledge it, then argue that B-Corp certification and benefit corporation status provide governance structures that constrain drift."
+    ]
   },
   {
     "id": "debate_5-6_034",
@@ -7576,7 +7671,12 @@
       "Address the practical enforcement challenges"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Media and AI policy"
+    "difficultyNote": "Media and AI policy",
+    "coachingTips": [
+      "Define what the label requirement actually requires: static disclosure, provenance watermark, or real-time generation indicator. These have different technical feasibilities and the debate changes accordingly.",
+      "Anchor the trust argument in what audiences cannot currently detect: AI-generated text can be indistinguishable from human content, creating an information asymmetry that labeling corrects at the point of consumption.",
+      "Address enforcement: acknowledge that labeling after the fact is easy to circumvent, then argue for upstream requirements at the tool or platform level, where enforcement is technically feasible."
+    ]
   },
   {
     "id": "debate_5-6_035",
@@ -7589,7 +7689,12 @@
       "Address the cumulative cost and dependency concern"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Consumer economics debate"
+    "difficultyNote": "Consumer economics debate",
+    "coachingTips": [
+      "Commit to a specific consumer profile before arguing: subscriptions benefit high-utilization consumers but disadvantage occasional users. Arguing for the majority case is stronger than arguing for the average.",
+      "Deploy the access versus ownership argument precisely: subscriptions provide larger catalogs but remove access when they lapse. State which dimension your argument prioritizes and why.",
+      "Address cumulative cost with arithmetic: multiple subscriptions can exceed ownership costs within two to three years. Use this as a structural argument against the subscription model, not just a consumer tip."
+    ]
   },
   {
     "id": "debate_5-6_036",
@@ -7602,7 +7707,12 @@
       "Address the narrow use-case for legitimate non-competes"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Employment law policy"
+    "difficultyNote": "Employment law policy",
+    "coachingTips": [
+      "State your scope early: prohibition for most employees concedes a narrow legitimate use case for senior executives or genuine trade secret holders. Acknowledging scope controls strengthens your argument.",
+      "Use the innovation ecosystem argument: California's de facto ban on non-competes is cited as a partial explanation for Silicon Valley's talent fluidity and cluster effects. This is empirical support for labor mobility.",
+      "Address the trade secret protection concern directly: non-disclosure agreements and trade secret law already protect legitimate intellectual property. Non-competes are a broader instrument that narrower tools make unnecessary."
+    ]
   },
   {
     "id": "debate_5-6_037",
@@ -7615,7 +7725,12 @@
       "Address the capture or divestment limitations of your chosen mechanism"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Governance mechanism debate"
+    "difficultyNote": "Governance mechanism debate",
+    "coachingTips": [
+      "Define your mechanism of change before arguing for it: regulation means enforceable standards with penalties, while investor pressure means capital allocation and shareholder resolutions. Name the channel.",
+      "Deploy a speed versus accountability trade-off: investor pressure can move faster than regulatory cycles but is variable and reversible. Regulation is slower but durable. Address which characteristic matters more for your target behaviors.",
+      "Preempt the capture problem for regulation and the divestment problem for investor pressure. Argue the weaknesses of your preferred mechanism are more correctable than those of the alternative."
+    ]
   },
   {
     "id": "debate_5-6_038",
@@ -7628,7 +7743,12 @@
       "Address Title IX equity implications briefly"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Sports labor policy"
+    "difficultyNote": "Sports labor policy",
+    "coachingTips": [
+      "Define the question precisely: should the NCAA's amateurism restrictions be abolished, or should leagues pay college athletes directly? These are related but distinct, and conflating them produces a loose argument.",
+      "Ground the labor rights case in revenue figures: Power Five conferences generate billions annually from unpaid athlete labor. Make the economic relationship explicit rather than relying on abstract fairness claims.",
+      "Address Title IX directly: compensating football and basketball athletes creates gender equity complications under current law. Propose a revenue-sharing structure from profit-generating sports that accounts for this."
+    ]
   },
   {
     "id": "debate_5-6_039",
@@ -7641,7 +7761,12 @@
       "Address regional variation in transit viability"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Urban infrastructure policy"
+    "difficultyNote": "Urban infrastructure policy",
+    "coachingTips": [
+      "Commit to one investment priority and define its scope: urban transit over urban highway expansion, not all highway investment universally. Scoped claims are more defensible and harder to reframe.",
+      "Deploy the induced demand argument for highways: building roads generates additional vehicle trips that eventually restore congestion, while transit creates a permanent capacity alternative. This is a structural efficiency argument.",
+      "Concede that transit is inefficient in dispersed suburbs and rural areas. Then argue that the debate is about where cities direct marginal investment, and dense urban corridors overwhelmingly favor transit."
+    ]
   },
   {
     "id": "debate_5-6_040",
@@ -7654,7 +7779,12 @@
       "Address the innovation funding model impact"
     ],
     "targetDuration": 75,
-    "difficultyNote": "Healthcare industry accountability"
+    "difficultyNote": "Healthcare industry accountability",
+    "coachingTips": [
+      "Lead with the specific accountability problem: conflict of interest in industry-funded trials, where sponsor-funded studies produce more favorable results than independent ones. Name this documented pattern.",
+      "Use the structural analogy directly: independent funding separates who pays from who benefits from the trial result, the same logic behind judicial independence and central bank independence.",
+      "Address the innovation funding objection by narrowing your claim: you're targeting trial independence specifically, not discovery funding. Public trial funding is a narrower intervention that preserves industry R&D incentives."
+    ]
   },
   {
     "id": "debate_7-8_004",
@@ -7667,7 +7797,12 @@
       "Anticipate and reframe the inflation or disincentive counterargument"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Complex economic policy with competing evidence"
+    "difficultyNote": "Complex economic policy with competing evidence",
+    "coachingTips": [
+      "Lead with a structural diagnosis before proposing UBI: which specific labor market failure are you addressing? Frictional unemployment, permanent displacement, or the obsolescence of wage-as-distribution-mechanism? Name it precisely.",
+      "Address the inflation objection through the funding mechanism: UBI funded by consumption taxes has different macroeconomic implications than money-financed UBI. Specify which version you're defending and why it avoids the objection.",
+      "Concede that UBI alone may not address structural automation-driven inequality, then argue this supports complementary policies rather than undermining UBI. Strategic concession with redirection signals analytical depth."
+    ]
   },
   {
     "id": "debate_7-8_005",
@@ -7680,7 +7815,12 @@
       "Address whether platform design reform is sufficient or structural change is required"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Systems-level democracy and tech debate"
+    "difficultyNote": "Systems-level democracy and tech debate",
+    "coachingTips": [
+      "Define the attention economy's specific mechanism before asserting incompatibility: engagement-maximizing algorithms favor emotionally activating content, which distorts the shared factual environment deliberation requires.",
+      "Distinguish incompatibility from tension: deliberation requires shared facts, moderate emotional temperature, and willingness to revise beliefs. Show how engagement optimization undermines each of these specifically.",
+      "Address the platform design reform counterargument: acknowledge algorithmic changes reduce polarization at the margin, then argue that engagement-time revenue models will reassert structural incentives against surface-level fixes."
+    ]
   },
   {
     "id": "debate_7-8_006",
@@ -7693,7 +7833,12 @@
       "Engage directly with the cost and timeline objection"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Energy policy with technical and ethical dimensions"
+    "difficultyNote": "Energy policy with technical and ethical dimensions",
+    "coachingTips": [
+      "Lead with risk-adjusted framing: the question is whether nuclear's risk-adjusted contribution to decarbonization is positive compared to the counterfactual of replacing it with gas or missing targets.",
+      "Address waste and proliferation as separate concerns: waste is an engineering problem with known solutions, while proliferation depends on governance controls. Treating them as monolithic weakens your response.",
+      "Engage the cost and timeline objection with specificity: new reactors have been expensive in the West but not in South Korea or China. Argue cost problems are regulatory and supply chain, not inherent."
+    ]
   },
   {
     "id": "debate_7-8_007",
@@ -7706,7 +7851,12 @@
       "Address the potential cost increases and worker preferences for flexibility"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Gig economy and labor law complexity"
+    "difficultyNote": "Gig economy and labor law complexity",
+    "coachingTips": [
+      "Define employment classification criteria before arguing: the question turns on control, economic dependence, and integration into the core business. Apply each criterion to gig models explicitly.",
+      "Address the flexibility preference argument with empirical precision: survey data shows many gig workers prefer flexibility, but most would prefer flexibility with benefits if that option existed. The current binary is a constraint.",
+      "Preempt the price increase argument: acknowledge employee classification increases costs, then argue either that consumers should bear true labor pricing or that cost increases have historically been small relative to reform fears."
+    ]
   },
   {
     "id": "debate_7-8_008",
@@ -7719,7 +7869,12 @@
       "Address whether meritocracy as an ideal is worth preserving separately from its flawed implementation"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Sociological debate requiring conceptual precision"
+    "difficultyNote": "Sociological debate requiring conceptual precision",
+    "coachingTips": [
+      "Distinguish meritocracy as an ideal from meritocracy as practice. Engaging the ideal seriously rather than conflating it with its corrupted implementation shows analytical precision and strengthens your critique.",
+      "Deploy the structural barriers argument with specificity: zip-code-based school quality, parental income, and social capital networks predict educational attainment more than raw ability. Name the research, not just the pattern.",
+      "Address whether the ideal is worth preserving: acknowledge that earned-status aspiration has motivational value, then argue the question is whether that aspiration currently disguises inherited advantage rather than rewarding ability."
+    ]
   },
   {
     "id": "debate_7-8_009",
@@ -7732,7 +7887,12 @@
       "Address the innovation incentive and data quality maintenance concerns"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Data governance with political economy depth"
+    "difficultyNote": "Data governance with political economy depth",
+    "coachingTips": [
+      "Define data ownership models precisely: individual, collective, state ownership, and public utility models have different implications. Specify which model you're advocating and why it addresses the market failure you've identified.",
+      "Deploy the competition argument structurally: when incumbents control unique behavioral data that entrants cannot replicate, data advantages compound into permanent market power. This is a competition failure, not just a privacy concern.",
+      "Address the quality maintenance problem: if data is a public utility, name who bears the cost of maintaining it. Propose that regulatory frameworks can define contribution obligations rather than assuming maintenance happens without incentive."
+    ]
   },
   {
     "id": "debate_7-8_010",
@@ -7745,7 +7905,12 @@
       "Address the distributional argument: who suffers most from each choice"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Macroeconomic and environmental policy tension"
+    "difficultyNote": "Macroeconomic and environmental policy tension",
+    "coachingTips": [
+      "Define when they conflict precisely: GDP growth and ecological sustainability are in tension at the margin, not across all dimensions. Explain under what conditions the conflict is genuine and what the decision threshold is.",
+      "Use the long-run viability argument with distributional grounding: ecological degradation disproportionately harms lower-income populations through health effects and food security. Prioritizing growth over sustainability is also a distributive choice.",
+      "Address political feasibility with more than pragmatism: if constraints prevent sustainability prioritization, the debate should be about changing those constraints, not accepting them as fixed. Distinguish normative from pragmatic claims."
+    ]
   },
   {
     "id": "debate_7-8_011",
@@ -7758,7 +7923,12 @@
       "Address specific reform proposals rather than leaving the critique abstract"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Democratic theory with contemporary urgency"
+    "difficultyNote": "Democratic theory with contemporary urgency",
+    "coachingTips": [
+      "Define sufficient in the question before arguing: sufficient for legitimate governance, technically competent policy-making, or solving collective action problems at speed? Different thresholds produce different conclusions.",
+      "Address the representation quality argument with institutional specificity: gerrymandering, first-past-the-post distortions, and party-list systems produce parliaments that systematically misrepresent demographic and ideological distributions.",
+      "Avoid leaving your critique abstract: any argument that representative democracy is insufficient must name specific reform proposals and assess their feasibility. Diagnosis without remedy is incomplete at this difficulty level."
+    ]
   },
   {
     "id": "debate_7-8_012",
@@ -7771,7 +7941,12 @@
       "Address the argument that patents are needed to attract private capital for development"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Biomedical innovation and IP policy"
+    "difficultyNote": "Biomedical innovation and IP policy",
+    "coachingTips": [
+      "Define the boundary precisely: publicly funded research means grants from NIH or equivalent bodies. Specify which part of the pipeline you're restricting patents on, because discovery and clinical development have different funding dynamics.",
+      "Deploy the access equity argument concretely: insulin, discovered with public funding, is now priced out of reach for millions in the US. This is structural, not an anomaly.",
+      "Address the development-stage patent argument: concede that private capital often funds clinical trials. Then argue for time-limited or access-conditioned patents rather than full prohibition, which is the more defensible position."
+    ]
   },
   {
     "id": "debate_7-8_013",
@@ -7784,7 +7959,12 @@
       "Address the credential market and what replaces it"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Education economics with structural stakes"
+    "difficultyNote": "Education economics with structural stakes",
+    "coachingTips": [
+      "Define economically unsustainable before arguing: unsustainable for students via debt, for institutions through revenue model dependence, or for the economy through credential inflation. Each has a different evidence base.",
+      "Ground the value-delivered argument in earnings data: student debt-to-income ratios have risen as the graduate premium has narrowed for many non-STEM degrees. Engage this labor market evidence, not just institutional decline.",
+      "Address what replaces credentials directly: bootcamps, apprenticeships, and employer-based assessment are imperfect but real alternatives. Engage their limitations and propose reforms rather than leaving the replacement question implicit."
+    ]
   },
   {
     "id": "debate_7-8_014",
@@ -7797,7 +7977,12 @@
       "Address the domestic political and cultural integration challenges"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Immigration and international economics"
+    "difficultyNote": "Immigration and international economics",
+    "coachingTips": [
+      "Distinguish free movement for labor from regulated migration with labor rights protections. An open borders argument faces different objections than high-skill visa liberalization. Specify your claim before providing reasons.",
+      "Deploy the economic efficiency argument with distributional clarity: economists estimate open borders could double world GDP, but gains distribute unequally, with low-skill native workers in destination countries bearing concentrated costs.",
+      "Address the brain drain argument seriously: doctor and engineer emigration reduces human capital in source countries. Concede this tension and propose remittance flows or circular migration frameworks as partial mitigants."
+    ]
   },
   {
     "id": "debate_7-8_015",
@@ -7810,7 +7995,12 @@
       "Address the market freedom and platform competition counterargument"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Technology ethics with philosophical depth"
+    "difficultyNote": "Technology ethics with philosophical depth",
+    "coachingTips": [
+      "Define the ethical line precisely: not whether psychology can be used in design, but whether specific techniques, such as variable reward schedules and infinite scroll, constitute manipulation rather than persuasion.",
+      "Deploy the consent argument structurally: users agree to terms of service but cannot meaningfully consent to psychological techniques they are unaware of and cannot detect. This distinguishes digital design from conventional advertising.",
+      "Address market freedom with market failure reasoning: if users cannot detect behavioral manipulation, consumer sovereignty breaks down. This is an information asymmetry argument, not paternalism, and more robust for defending regulation."
+    ]
   },
   {
     "id": "debate_7-8_016",
@@ -7823,7 +8013,12 @@
       "Address the definitional and enforcement challenges at scale"
     ],
     "targetDuration": 90,
-    "difficultyNote": "AI policy with democratic implications"
+    "difficultyNote": "AI policy with democratic implications",
+    "coachingTips": [
+      "Define AI-generated content precisely: content assisted by AI, generated and edited by humans, or fully autonomous outputs each carry different disclosure obligations. Name which threshold you're defending.",
+      "Deploy the trust argument with specificity: undisclosed AI content erodes calibration between readers and content sources, meaning audiences cannot adjust their credence appropriately. This is an epistemic harm, not just a transparency preference.",
+      "Address enforcement challenges: acknowledge that detecting AI content at scale is imperfect, then argue that disclosure obligations at the production and publication level are enforceable because they target platform workflows, not individual posts."
+    ]
   },
   {
     "id": "debate_7-8_017",
@@ -7836,7 +8031,12 @@
       "Address the cases where activism has created or destroyed value"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Capital markets and governance complexity"
+    "difficultyNote": "Capital markets and governance complexity",
+    "coachingTips": [
+      "Define activist investing precisely: distinguish block holders pushing for management change from short-term event-driven hedge funds. The governance accountability argument applies differently to each, so conflating them weakens your analysis.",
+      "Address the short-termism objection with empirical grounding: academic research on activist hedge fund interventions shows mixed long-term results on operating performance. Engage this evidence rather than relying on anecdote.",
+      "Concede the strongest case for the destructive view: leveraged buyout-style activism in regulated industries has produced documented harm. Then argue this supports sector-specific constraints on tactics, not opposition to activism generally."
+    ]
   },
   {
     "id": "debate_7-8_018",
@@ -7849,7 +8049,12 @@
       "Address capital flight and enforcement feasibility directly"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Tax policy with economic trade-offs"
+    "difficultyNote": "Tax policy with economic trade-offs",
+    "coachingTips": [
+      "Define the wealth tax you're defending: annual net wealth tax, estate tax, or windfall gains tax each have different incidence, enforcement, and capital formation implications. Specify your proposal.",
+      "Deploy the redistribution argument with a specific public investment rationale: wealth taxes are most defensible when funding specific public goods like early childhood education, not general budget support. Narrow the claim to strengthen it.",
+      "Address capital flight and enforcement with comparative evidence: Norway, Switzerland, and Spain have implemented wealth taxes with varying success. Acknowledge what worked and what failed rather than asserting enforcement is feasible."
+    ]
   },
   {
     "id": "debate_7-8_019",
@@ -7862,7 +8067,12 @@
       "Address counterexamples like Berkshire Hathaway or patient capital models"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Corporate strategy and financial system critique"
+    "difficultyNote": "Corporate strategy and financial system critique",
+    "coachingTips": [
+      "Frame the structural argument precisely: quarterly reporting creates a principal-agent problem where executives who appropriately discount future outcomes are punished by capital markets that discount even more aggressively.",
+      "Deploy the governance design argument with specificity: dual-class share structures and patient capital models like sovereign wealth funds demonstrate long-term orientation is possible. Explain why these are exceptions rather than the norm.",
+      "Address the Berkshire Hathaway counterexample directly: acknowledge that Buffett's model demonstrates long-termism is possible, then argue it depends on a specific governance structure and ownership concentration that doesn't scale broadly."
+    ]
   },
   {
     "id": "debate_7-8_020",
@@ -7875,7 +8085,12 @@
       "Address whether regulation will actually shift to subscription models"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Platform economics and privacy policy"
+    "difficultyNote": "Platform economics and privacy policy",
+    "coachingTips": [
+      "Define surveillance capitalism operationally: Zuboff's framing distinguishes behavioral data extraction for prediction product sales from simple data collection. Specify which practices you're targeting and why they cause harm.",
+      "Deploy the market distortion argument: dominant platforms offering services at zero price subsidized by data extraction structurally disadvantage privacy-respecting competitors who must charge. This is a competition argument, not just a privacy one.",
+      "Address whether regulation produces subscription models: acknowledge platforms may find alternative monetization, then argue that any business model reducing behavioral surveillance is a meaningful improvement regardless of the specific outcome."
+    ]
   },
   {
     "id": "debate_7-8_021",
@@ -7888,7 +8103,12 @@
       "Address the funding and technology transfer question directly"
     ],
     "targetDuration": 90,
-    "difficultyNote": "International development policy complexity"
+    "difficultyNote": "International development policy complexity",
+    "coachingTips": [
+      "Define the leapfrogging argument precisely: bypassing fossil-fuel industrialization by adopting renewables and digital infrastructure without the intermediate carbon-intensive phase. Engage which sectors are actually leapfrogable.",
+      "Deploy the sovereignty argument with historical grounding: developed countries industrialized without environmental constraints. Telling developing nations to follow a different path requires compelling redistribution arguments or it legitimizes current power distributions.",
+      "Address the technology transfer and financing question directly: leapfrogging is only viable if renewable technology and capital are available at affordable terms. Acknowledge that climate finance commitments have largely not been met."
+    ]
   },
   {
     "id": "debate_7-8_022",
@@ -7901,7 +8121,12 @@
       "Address the difference between IP in pharmaceuticals versus software versus content"
     ],
     "targetDuration": 90,
-    "difficultyNote": "IP economics across domains"
+    "difficultyNote": "IP economics across domains",
+    "coachingTips": [
+      "Differentiate IP analysis by domain from the start: evidence on IP effects in pharmaceuticals differs fundamentally from software, where open-source competition has driven innovation. Treating all IP as uniform produces a weak argument.",
+      "Deploy the diffusion argument structurally: IP systems that concentrate returns without enabling diffusion slow cumulative innovation by restricting follow-on inventors' access to foundational work. Innovation requires adoption, not just creation.",
+      "Address the incentive creation function fairly: patent protection has demonstrably funded pharmaceutical R&D for small-market drugs. Argue that prize systems or direct public funding can achieve this without restricting access."
+    ]
   },
   {
     "id": "debate_7-8_023",
@@ -7914,7 +8139,12 @@
       "Address the argument that PE improves operational efficiency"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Financial sector regulation debate"
+    "difficultyNote": "Financial sector regulation debate",
+    "coachingTips": [
+      "Define the specific regulatory gap you're targeting: PE's opacity, leverage levels, carried interest tax treatment, or liability protection for portfolio company obligations. Diffuse critiques are easy to deflect.",
+      "Deploy the worker harm argument with structural specificity: PE ownership is associated with employment reductions, wage suppression, and in healthcare, patient outcome deterioration. Cite specific studies or sectors rather than asserting the connection.",
+      "Address the operational efficiency argument: acknowledge PE buyouts have improved performance in some companies, then argue efficiency gains captured by investors while workers bear downside risk is a distribution problem, not net welfare gain."
+    ]
   },
   {
     "id": "debate_7-8_024",
@@ -7927,7 +8157,12 @@
       "Address the definitional challenge of political versus issue-based advertising"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Digital democracy policy debate"
+    "difficultyNote": "Digital democracy policy debate",
+    "coachingTips": [
+      "Define what banning political advertising means: explicit electoral ads, issue-based advocacy, or all spending by political organizations. The definitional line determines enforceability and your argument must engage this challenge.",
+      "Deploy the micro-targeting argument with specificity: social media enables granular targeting by demographic and psychological profile that is impossible in broadcast media. This audience-information asymmetry is the specific democratic harm.",
+      "Address the free speech objection with its most sophisticated version: argue that spending money to reach audiences is distinct from speech, and ad limits address audience manipulation rather than viewpoint suppression."
+    ]
   },
   {
     "id": "debate_7-8_025",
@@ -7940,7 +8175,12 @@
       "Address the distributional and employment consequences of degrowth"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Macroeconomic paradigm debate"
+    "difficultyNote": "Macroeconomic paradigm debate",
+    "coachingTips": [
+      "Define degrowth precisely before arguing: reducing material and energy throughput in wealthy economies, not economic contraction in poor ones. Preempt the straw man version of the argument before your opponent deploys it.",
+      "Deploy the ecological viability argument with evidence: IPCC scenarios limiting warming to 1.5 degrees either rely on massive carbon capture at undemonstrated scales or significant throughput reductions. Degrowth addresses the gap.",
+      "Address the distributional and employment consequences seriously: degrowth without redistribution concentrates costs on wage earners. Argue it is only viable alongside significant redistribution and working-time reduction programs."
+    ]
   },
   {
     "id": "debate_7-8_026",
@@ -7953,7 +8193,12 @@
       "Address law enforcement use cases that generate support for the technology"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Civil liberties and technology policy"
+    "difficultyNote": "Civil liberties and technology policy",
+    "coachingTips": [
+      "Define the scope of your ban argument: all public spaces, government-operated spaces, or law enforcement use specifically. Each has different civil liberties implications and different operational consequences.",
+      "Deploy the surveillance creep argument structurally: facial recognition normalizes the erosion of practical anonymity, which has a chilling effect on assembly and protest even without direct enforcement action. This is a structural liberty argument.",
+      "Address the law enforcement counterargument with proportionality reasoning: acknowledge facial recognition has assisted in serious investigations, then argue targeted judicial warrant processes achieve those benefits without ubiquitous deployment."
+    ]
   },
   {
     "id": "debate_7-8_027",
@@ -7966,7 +8211,12 @@
       "Address the democratic legitimacy argument for public allocation"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Social sector and governance comparison"
+    "difficultyNote": "Social sector and governance comparison",
+    "coachingTips": [
+      "Define your comparative standard precisely: you're comparing nonprofit allocation to government allocation, not nonprofit to no allocation. Set up the comparison correctly so your evidence actually addresses the question.",
+      "Deploy the accountability argument by identifying the principal-agent problem in each model: nonprofits answer to donors rather than beneficiaries, while government answers to voters rather than service users. Show which failure is more correctable.",
+      "Address democratic legitimacy directly: government allocation, even when inefficient, is subject to democratic accountability and political reform. Nonprofits represent private power over public goods allocation, which efficiency arguments alone cannot resolve."
+    ]
   },
   {
     "id": "debate_7-8_028",
@@ -7979,7 +8229,12 @@
       "Address the slippery slope and definitional enforcement challenge"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Bioethics policy with precision required"
+    "difficultyNote": "Bioethics policy with precision required",
+    "coachingTips": [
+      "Define the therapeutic versus enhancement distinction before using it as a legal boundary: therapeutic means restoring species-typical function, while enhancement improves beyond that baseline. Acknowledge the boundary is contested and propose a specific operationalization.",
+      "Deploy the consent argument with precision: both therapeutic and enhancement interventions on embryos cannot obtain consent from the future person. Argue the moral weight differs by category and explain why.",
+      "Address the slippery slope by engaging the enforcement mechanism: argue the distinction, while imprecise, is regulable through case-by-case review analogous to FDA approval, rather than being either a perfect bright line or an unenforceable fiction."
+    ]
   },
   {
     "id": "debate_7-8_029",
@@ -7992,7 +8247,12 @@
       "Address the zoning and land use political economy"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Housing economics with structural analysis"
+    "difficultyNote": "Housing economics with structural analysis",
+    "coachingTips": [
+      "Define the housing affordability crisis specifically before diagnosing the cause: homeowner affordability, renter cost burden, homelessness, or stock inadequacy each have different market failure mechanisms. Be precise about which you're analyzing.",
+      "Deploy the financialization argument with structural clarity: when housing functions as an investment asset, price appreciation creates a constituency of existing owners with interests directly opposed to supply increases. Name this as political economy.",
+      "Address the zoning argument carefully: restrictive zoning is a product of political economy driven by existing property owners. Market liberalization alone cannot solve the problem without confronting the political interests that created the supply constraint."
+    ]
   },
   {
     "id": "debate_7-8_030",
@@ -8005,7 +8265,12 @@
       "Address the political feasibility and veto-holder objections"
     ],
     "targetDuration": 90,
-    "difficultyNote": "International relations and institutional design"
+    "difficultyNote": "International relations and institutional design",
+    "coachingTips": [
+      "Define the specific reform you're defending or opposing: rotating veto rights, qualified majority requirements, or expanded permanent membership. Arguing against veto power in the abstract invites easy counterarguments.",
+      "Deploy the legitimacy argument with historical grounding: the P5 structure reflects 1945 power realities, not current ones. India, Brazil, and African states represent populations with no permanent representation, which is a democratic deficit argument.",
+      "Address the veto-holder objection directly: any reform requires consent of those whose power would be diminished. Acknowledge this as the genuine obstacle, then argue for specific workarounds that don't require amending the UN Charter."
+    ]
   },
   {
     "id": "debate_7-8_031",
@@ -8018,7 +8283,12 @@
       "Address the developing world export growth argument for globalization"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Global economics and political economy"
+    "difficultyNote": "Global economics and political economy",
+    "coachingTips": [
+      "Distinguish irreversibility from reorientation: full reversal of global supply chains is impossible in the medium term given physical infrastructure dependencies. Argue about the direction and pace of reorientation, which is the actual policy choice.",
+      "Deploy the resilience argument with specificity: COVID-19 exposed single-source medical supply chain dependencies and the Ukraine conflict exposed European energy dependencies. Use these as structural evidence of globalization risk, not anomalies.",
+      "Address the developing world growth argument fairly: export-led growth in East Asia has lifted hundreds of millions from poverty. Concede this, then argue that gains are geographically concentrated and that sustainable restructuring alternatives exist."
+    ]
   },
   {
     "id": "debate_7-8_032",
@@ -8031,7 +8301,12 @@
       "Address the efficiency and international competitiveness arguments against nationalization"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Critical infrastructure governance debate"
+    "difficultyNote": "Critical infrastructure governance debate",
+    "coachingTips": [
+      "Define nationalization precisely: bringing infrastructure under public ownership or public utility regulation, not necessarily government operation. Distinguish public ownership, regulated private operation, and interoperability mandates as distinct policy options.",
+      "Deploy the security and resilience argument with specific failure modes: commercial cloud providers can terminate service under business pressure, and private concentration creates single points of failure. Name specific cases to ground this structurally.",
+      "Address the efficiency and innovation arguments against nationalization with the utility model counterexample: telecommunications were regulated for decades without preventing innovation at the application layer. Infrastructure and service layers can be governed separately."
+    ]
   },
   {
     "id": "debate_7-8_033",
@@ -8044,7 +8319,12 @@
       "Address the generational and role-specific variation in hybrid effectiveness"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Organizational culture with evidence"
+    "difficultyNote": "Organizational culture with evidence",
+    "coachingTips": [
+      "Define what destroying organizational culture means empirically: lower trust, reduced collaboration, slower onboarding, or higher voluntary attrition. Vague cultural decline claims are hard to defend without a specific mechanism.",
+      "Deploy the trust formation argument with psychological grounding: weak-tie professional relationships and team cohesion are harder to establish remotely, even if deep relationships formed before can be maintained. Distinguish formation from maintenance.",
+      "Address the equity and access dimensions: in-person mandates disproportionately disadvantage workers with caregiving responsibilities or disabilities. Any cultural argument must account for whose culture is prioritized and at whose cost."
+    ]
   },
   {
     "id": "debate_7-8_034",
@@ -8057,7 +8337,12 @@
       "Address the international regulatory arbitrage concern"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Technology governance framework debate"
+    "difficultyNote": "Technology governance framework debate",
+    "coachingTips": [
+      "Define what sector-specific regulation means operationally: a dedicated regulatory agency, sector-specific rules applied by existing agencies, or a licensing regime. Your argument's feasibility depends on this specificity.",
+      "Deploy the systemic risk argument with historical analogy: the financial sector received sector-specific regulation after demonstrating capacity for systemic harm. Tech platforms now demonstrate similar risk through information market concentration and infrastructure dependencies.",
+      "Address the international regulatory arbitrage concern: the EU's Digital Markets Act demonstrates major markets can impose sector regulation with global effect. The US faces a choice between leadership and ceding the standard-setting function."
+    ]
   },
   {
     "id": "debate_7-8_035",
@@ -8070,7 +8355,12 @@
       "Address the IMF conditionality and World Bank reform debates"
     ],
     "targetDuration": 90,
-    "difficultyNote": "International political economy depth"
+    "difficultyNote": "International political economy depth",
+    "coachingTips": [
+      "Define structural bias precisely: the system produces systematically worse outcomes for developing economies even when they follow prescribed policies. Distinguish this from bias in specific institutions from a broader claim about the entire architecture.",
+      "Deploy the debt dynamics argument with specificity: dollar-denominated sovereign debt creates currency mismatch that amplifies crises when the dollar strengthens or capital reverses. This is a structural feature, not a developing country policy failure.",
+      "Address the integration-has-driven-growth argument fairly: East Asian development succeeded partly because capital controls and industrial policy were available, which the system's conditionality mechanisms have often prevented later developers from replicating."
+    ]
   },
   {
     "id": "debate_7-8_036",
@@ -8083,7 +8373,12 @@
       "Address the competitiveness and trade policy implications"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Environmental economics policy"
+    "difficultyNote": "Environmental economics policy",
+    "coachingTips": [
+      "Define what mandatory environmental pricing means: carbon taxes, cap-and-trade, or natural capital accounting each have different political economy and effectiveness profiles. Specify which you're defending.",
+      "Deploy the market efficiency argument with precision: current prices embed a subsidy to polluters by allowing free use of the atmosphere. Mandatory pricing corrects this subsidy, which is a pro-market argument framed correctly.",
+      "Address competitiveness and trade policy implications directly: industries subject to carbon pricing face competition from unregulated jurisdictions. Argue for border carbon adjustments as the solution, which is the standard policy design response."
+    ]
   },
   {
     "id": "debate_7-8_037",
@@ -8096,7 +8391,12 @@
       "Address the incentive structure for researchers and institutions"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Knowledge commons policy debate"
+    "difficultyNote": "Knowledge commons policy debate",
+    "coachingTips": [
+      "Define the specific problem with current academic publishing before arguing for reform: paywalls on publicly-funded research, journal prestige as a career proxy, or reviewer labor donated to for-profit publishers. Target one.",
+      "Deploy the access equity argument with global grounding: researchers at underfunded institutions in developing countries cannot access the literature their work builds on, creating a self-reinforcing advantage for well-funded institutions.",
+      "Address the peer review and quality control argument: open-access models like arXiv in physics demonstrate that preprint culture and post-publication review can maintain quality without commercial gatekeeping. Engage the specific mechanism."
+    ]
   },
   {
     "id": "debate_7-8_038",
@@ -8109,7 +8409,12 @@
       "Address the corporate personhood analogy and its limits"
     ],
     "targetDuration": 90,
-    "difficultyNote": "AI ethics and law, advanced framing required"
+    "difficultyNote": "AI ethics and law, advanced framing required",
+    "coachingTips": [
+      "Define the threshold for legal recognition before arguing: are you addressing current systems, near-future AGI, or any AI system? The moral and legal implications differ categorically, and vague arguments get exposed by specificity challenges.",
+      "Deploy the capability argument with care: current AI systems lack sentience and interests, which are traditional grounds for moral consideration. If arguing for rights, your threshold must address why recognition is warranted absent these properties.",
+      "Address the corporate personhood analogy critically: corporations have legal recognition to facilitate contracting and liability attribution, not because they are moral patients. Explain whether this functional rationale applies to AI or requires a novel instrument."
+    ]
   },
   {
     "id": "debate_7-8_039",
@@ -8122,7 +8427,12 @@
       "Address the longtermism critique and prioritization debates within EA"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Moral philosophy applied to social change"
+    "difficultyNote": "Moral philosophy applied to social change",
+    "coachingTips": [
+      "Define what effective altruism claims to be before evaluating it: a philosophy, a decision procedure, or an allocation framework. Its critics and defenders argue past each other because the target keeps shifting. Pin it down.",
+      "Deploy the measurement argument with structural depth: EA's reliance on quantified impact metrics produces systematic bias toward tractable near-term interventions over structural political change, because the latter resists quantification. This is a methodological critique.",
+      "Address the longtermism debates within EA honestly: acknowledge EA has produced serious work on existential risk, then argue that prioritizing vast speculative future populations over present suffering is an epistemically risky extrapolation."
+    ]
   },
   {
     "id": "debate_7-8_040",
@@ -8135,7 +8445,12 @@
       "Address the Citizens United reasoning and its critics"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Constitutional law and democracy debate"
+    "difficultyNote": "Constitutional law and democracy debate",
+    "coachingTips": [
+      "Define the constitutional question precisely: is political spending by corporations protected speech under the First Amendment, and what limits are permissible? Your argument must engage the legal theory, not just the policy preference.",
+      "Deploy the democratic equality argument with the specific corruption mechanism: spending creates access asymmetries that shift legislative attention toward donor interests, which is a systematic influence argument distinct from quid pro quo corruption.",
+      "Address the Citizens United reasoning directly: the majority argued independent expenditures don't create corruption risk because they're not coordinated. Argue the coordination premise is empirically false or that the corruption definition is too narrow."
+    ]
   },
   {
     "id": "debate_9-10_004",
@@ -8148,7 +8463,12 @@
       "Engage with the empirical counterexamples of democratic climate legislation and their limits"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Systemic analysis of democratic institutions"
+    "difficultyNote": "Systemic analysis of democratic institutions",
+    "coachingTips": [
+      "Build your institutional critique on the temporal mismatch: electoral cycles of four to five years are structurally incompatible with climate response timescales of decades. Show why the mismatch is structural, not contingent on bad leadership.",
+      "Name the interest group capture mechanism using Olson's logic: concentrated fossil fuel interests with sustained lobbying versus diffuse public beneficiaries with low organizational capacity. This gives your critique structural grounding beyond general politics.",
+      "Engage empirical counterexamples critically: the EU ETS and US Inflation Reduction Act show democratic systems can act. Concede this, then argue these represent delayed, partial, and conditionally reversible actions relative to what the physics demands."
+    ]
   },
   {
     "id": "debate_9-10_005",
@@ -8161,7 +8481,12 @@
       "Address the authoritarian capture and democratic accountability problems with global institutions"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International relations and political philosophy"
+    "difficultyNote": "International relations and political philosophy",
+    "coachingTips": [
+      "Specify the class of risks justifying sovereignty override: pandemic pathogens, thermonuclear arsenals, and AGI share irreversibility and civilizational scale. Bound your claim to this risk class, not a general case for global governance.",
+      "Address the coordination failure with game-theoretic precision: existential risks are classic prisoners' dilemmas where individually rational decisions produce collectively catastrophic outcomes, justifying coercive international mechanisms that ordinary externalities don't.",
+      "Engage the authoritarian capture problem as your most serious objection. Argue for specific safeguards, such as supermajority requirements and independent scientific panels, rather than treating capture risk as a reason to abandon the argument."
+    ]
   },
   {
     "id": "debate_9-10_006",
@@ -8174,7 +8499,12 @@
       "Address the information abundance versus quality distinction and historical analogies with past information revolutions"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Philosophy of knowledge applied to AI"
+    "difficultyNote": "Philosophy of knowledge applied to AI",
+    "coachingTips": [
+      "Define the epistemological mechanism precisely: LLMs produce statistically plausible text that may be false, which defeats normal credibility heuristics in ways qualitatively different from previous information pollution.",
+      "Deploy the institutional trust argument with historical comparison: previous information revolutions each threatened epistemic stability before producing new literacy institutions. Explain why LLMs are categorically different in kind, not just degree.",
+      "Address the information abundance versus quality distinction: the threat is collapsing cost differentials between true and false claims. When generating high-quality disinformation is as cheap as accurate reporting, the economics of truth production break down."
+    ]
   },
   {
     "id": "debate_9-10_007",
@@ -8187,7 +8517,12 @@
       "Address whether existing consumer protection law can be extended without new antitrust theory"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Legal and economic theory debate"
+    "difficultyNote": "Legal and economic theory debate",
+    "coachingTips": [
+      "Build the conceptual argument for why price-theory antitrust is insufficient: consumer welfare measured by price doesn't capture harms from data accumulation or attention capture. Engage the Chicago School and explain where its assumptions fail.",
+      "Deploy the market power measurement argument institutionally: when market dominance is measured by behavioral data held rather than revenue, regulators need new instruments. Name them: data access orders, interoperability mandates, or algorithmic impact assessments.",
+      "Address whether existing FTC consumer protection authority can be extended: argue that consumer protection law addresses individual transactions while structural competition problems require systemic market design intervention, not just enforcement expansion."
+    ]
   },
   {
     "id": "debate_9-10_008",
@@ -8200,7 +8535,12 @@
       "Address the distributional justice of growth-versus-sustainability trade-offs in developing versus developed contexts"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Ecological economics and development theory"
+    "difficultyNote": "Ecological economics and development theory",
+    "coachingTips": [
+      "Define the decoupling thesis precisely: absolute decoupling, reducing both GDP and material throughput simultaneously, has not been demonstrated at scale. Relative decoupling is real but insufficient given planetary boundaries. Distinguish these upfront.",
+      "Deploy the political economy of transition argument philosophically: growth resolves distributional conflicts without redistribution. Postgrowth economics requires managing redistribution without that lubricant, which is a historically rare institutional achievement.",
+      "Address the distributional justice argument across development contexts: wealthy nations built prosperity through fossil-fuel growth. Prohibiting similar paths for poor nations requires either massive technology transfer commitments or an acknowledgment of historical injustice."
+    ]
   },
   {
     "id": "debate_9-10_009",
@@ -8213,7 +8553,12 @@
       "Address the efficiency arguments for scale and the constitutional limits of economic regulation"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political economy and constitutional theory"
+    "difficultyNote": "Political economy and constitutional theory",
+    "coachingTips": [
+      "Construct the political inequality mechanism precisely: economic concentration enables political inequality through regulatory capture via lobbying, narrative control through media ownership, and candidate selection through campaign finance. Name all three channels.",
+      "Deploy the efficiency arguments for scale honestly before countering them: network effects, R&D capacity, and global competitive scale are genuine reasons regulators have tolerated concentration. Argue their benefits don't outweigh democratic costs.",
+      "Address the constitutional limits of economic regulation with doctrinal specificity: post-New Deal jurisprudence allows economic regulation when rationally related to legitimate government interests. Argue democratic equality protection qualifies as such an interest."
+    ]
   },
   {
     "id": "debate_9-10_010",
@@ -8226,7 +8571,12 @@
       "Address the difference between reform and replacement in multilateral governance"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International relations theory and historical analysis"
+    "difficultyNote": "International relations theory and historical analysis",
+    "coachingTips": [
+      "Define your unit of analysis before arguing: the international order comprises formal institutions, informal norms, and power distributions, each evolving at different rates. Choose your level of analysis and maintain it throughout.",
+      "Deploy the great power rivalry argument with historical precision: the 1945 order reflected US hegemonic power and Soviet acceptance. Current stress tests reflect the return of multipolarity, challenging the assumption that liberal institutions are self-sustaining.",
+      "Address the reform versus replacement distinction: WTO dispute settlement paralysis, Paris Agreement voluntary architecture, and SWIFT sanctions use represent adaptations weakening institutional functions. Argue whether this is creative evolution or collapse."
+    ]
   },
   {
     "id": "debate_9-10_011",
@@ -8239,7 +8589,12 @@
       "Address the stakeholder capitalism literature and its critics"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Corporate law and political economy"
+    "difficultyNote": "Corporate law and political economy",
+    "coachingTips": [
+      "Specify which externalities are structurally invisible to fiduciary reasoning: systemic financial risk, supply chain labor conditions, and carbon emissions fall on parties outside the corporate relationship. Distinguish these from risks long-horizon fiduciaries would price in.",
+      "Deploy the long-horizon versus short-horizon fiduciary distinction: Friedman's shareholder primacy, rigorously applied, requires long-horizon profit maximization. Explain why even long-horizon fiduciary reasoning systematically misses certain externalities, not just that short-termism does.",
+      "Address the stakeholder capitalism literature critically: Hart, Zingales, and Mayer each argue fiduciary duties can be expanded. Engage whether these proposals address structural externalization or merely add disclosure requirements without changing the underlying decision logic."
+    ]
   },
   {
     "id": "debate_9-10_012",
@@ -8252,7 +8607,12 @@
       "Address technocracy as an alternative and its democratic legitimacy deficit"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Democratic theory and governance design"
+    "difficultyNote": "Democratic theory and governance design",
+    "coachingTips": [
+      "Distinguish representation failures from legitimacy failures precisely: representative democracy may produce technically legitimate governments that are epistemically inadequate for technical domains. Specify which governance failure is more serious and why.",
+      "Deploy the epistemic challenge argument with specific institutional cases: climate policy, pandemic response, and financial regulation require expertise elected generalists cannot possess. Show how the temporal mismatch between democratic cycles and technical horizons is structural.",
+      "Address technocracy's democratic legitimacy deficit as your most serious counterargument. Propose hybrid models like Ireland's Citizens' Assembly that combine technical expertise with democratic mandate, rather than leaving the critique without an institutional remedy."
+    ]
   },
   {
     "id": "debate_9-10_013",
@@ -8265,7 +8625,12 @@
       "Address the governance vacuum between national regulation and international coordination"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Technology governance and risk theory"
+    "difficultyNote": "Technology governance and risk theory",
+    "coachingTips": [
+      "Define the precautionary principle institutionally: in legal terms, precaution reverses the burden of proof so applicants must demonstrate safety before deployment. Specify which institutional form you're advocating for biotechnology governance.",
+      "Deploy the catastrophic risk asymmetry argument with decision-theoretic grounding: for irreversible civilizationally damaging risks, standard cost-benefit analysis underweights low-probability high-consequence outcomes because expected value assumes fungibility of outcomes that may not be comparable.",
+      "Address the governance vacuum between national regulation and international coordination: engineered pathogens can be developed in jurisdictions with lax oversight. Argue for specific international mechanisms, such as strengthened BWC protocols, to close this gap."
+    ]
   },
   {
     "id": "debate_9-10_014",
@@ -8278,7 +8643,12 @@
       "Address whether meritocracy can be redesigned to reinforce rather than undermine democratic equality"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political philosophy, requires conceptual precision"
+    "difficultyNote": "Political philosophy, requires conceptual precision",
+    "coachingTips": [
+      "Define meritocracy's distributional logic with philosophical precision: meritocracy selects for traits unevenly distributed by social class and family background, meaning rewarding merit is often rewarding advantage. Reference Sandel or Rawls as the theoretical grounding.",
+      "Address the democracy versus meritocracy tension through the elite formation mechanism: meritocratic selection concentrates credentialed elites in leadership, producing a governing class accountable to the credential system rather than democratic majorities.",
+      "Engage whether meritocracy can be redesigned to reinforce democratic equality: contextual admissions, universal basic endowments, and lottery selection among qualified candidates preserve merit signals while reducing the self-reinforcing inequality pure meritocracy produces."
+    ]
   },
   {
     "id": "debate_9-10_015",
@@ -8291,7 +8661,12 @@
       "Address the counterargument that financialization has democratized capital access"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political economy and macrofinance theory"
+    "difficultyNote": "Political economy and macrofinance theory",
+    "coachingTips": [
+      "Define financialization with precision: FIRE sector growth, the shift from retained earnings to shareholder payouts as dominant use of corporate cash flow, and commodification of non-market goods are distinct phenomena with different policy implications.",
+      "Deploy the productive investment crowding out argument: when financial engineering returns exceed real investment returns, capital shifts toward rent extraction. Reference the secular decline in business investment as a share of GDP in advanced economies.",
+      "Address the democratized capital access argument directly: index funds have broadened market access, but concede that financialization gains have been overwhelmingly captured by the top quintile. The democratization narrative obscures the net distributional effect."
+    ]
   },
   {
     "id": "debate_9-10_016",
@@ -8304,7 +8679,12 @@
       "Address the international harmonization challenge and competitive IP races"
     ],
     "targetDuration": 120,
-    "difficultyNote": "IP theory and digital economy law"
+    "difficultyNote": "IP theory and digital economy law",
+    "coachingTips": [
+      "Identify which IP assumptions AI disrupts with legal precision: copyright requires human authorship, patents require non-obvious inventive step, and training on copyrighted data raises unresolved fair use questions. Address each separately.",
+      "Deploy the cultural commons argument: copyright's original 14-year term was justified by incentivizing creation while ensuring works entered the public domain. Life-plus-70 terms reflect rent-seeking, and AI amplifies this by enabling indefinite derivative exploitation.",
+      "Address the international harmonization challenge strategically: propose minimum standards, such as mandatory disclosure of training data, that major markets can adopt unilaterally with extraterritorial effect rather than waiting for a global consensus."
+    ]
   },
   {
     "id": "debate_9-10_017",
@@ -8317,7 +8697,12 @@
       "Address specific institutional innovations (constitutional courts, future generations commissioners) and their limits"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Intergenerational justice and institutional design"
+    "difficultyNote": "Intergenerational justice and institutional design",
+    "coachingTips": [
+      "Specify the mechanisms creating inter-temporal preference distortion: voters' high discount rates on future outcomes, politicians' career incentives tied to electoral cycles, and the absence of constitutional standing for future persons each contribute differently. Name each.",
+      "Deploy the non-voter representation argument with normative grounding: future generations are genuinely disenfranchised by a system giving vote weight only to current residents. Rawlsian veil of ignorance reasoning justifies treating this as structural injustice.",
+      "Address Future Generations Commissioner models critically: Wales and the EU have experimented with intergenerational representation. Engage specifically whether these institutions changed policy outcomes or remained advisory, and what design features would give them binding authority."
+    ]
   },
   {
     "id": "debate_9-10_018",
@@ -8330,7 +8715,12 @@
       "Address the operational and innovation costs of removing private platform incentives"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political theory of digital infrastructure"
+    "difficultyNote": "Political theory of digital infrastructure",
+    "coachingTips": [
+      "Define digital commons governance institutionally: Ostrom's eight design principles for commons management, including clearly defined boundaries and conflict resolution mechanisms, apply to the digital context with specific adaptations worth naming.",
+      "Deploy the public sphere quality argument with critical theory grounding: Habermas's public sphere requires equal access and freedom from domination that private platform architectures systematically undermine through algorithmic amplification and engagement optimization.",
+      "Address the operational and innovation costs of removing private platform incentives honestly: public broadcasting has produced high-quality public goods but also bureaucratic inefficiency. Argue for a mixed model with specific governance structures."
+    ]
   },
   {
     "id": "debate_9-10_019",
@@ -8343,7 +8733,12 @@
       "Address the alternatives (treaty regimes, multistakeholder bodies) and their accountability deficits"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Global governance and technology policy"
+    "difficultyNote": "Global governance and technology policy",
+    "coachingTips": [
+      "Identify structural mismatches between national governance and transnational technology: AI systems trained in one jurisdiction produce effects in another, creating enforcement gaps no national framework can close unilaterally.",
+      "Deploy the coordination externalities argument with game-theoretic precision: unilateral national AI safety standards impose costs on domestic developers relative to unregulated competitors, creating race-to-the-bottom dynamics requiring either international coordination or extraterritorial regulatory reach.",
+      "Address alternative governance models critically: ICANN-style multistakeholder bodies produce legitimacy without enforcement capacity, while treaty regimes like the NPT produce enforcement capacity with significant defection problems. Argue for a hybrid model addressing both deficits."
+    ]
   },
   {
     "id": "debate_9-10_020",
@@ -8356,7 +8751,12 @@
       "Address the GDPR and algorithmic accountability literature and its limitations"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Human rights law and AI ethics"
+    "difficultyNote": "Human rights law and AI ethics",
+    "coachingTips": [
+      "Specify which rights are structurally under-protected: the GDPR right to explanation is procedural, but automated systems producing discriminatory outcomes at population level require collective harm framing that individual-level procedural rights cannot provide.",
+      "Deploy the procedural rights argument with technical depth: automated decision-making produces outcomes through processes opaque even to operators. The right to a fair hearing presupposes interpretable and challengeable decision processes, which algorithmic opacity structurally undermines.",
+      "Address the GDPR provisions critically: Article 22 rights against fully automated decision-making are a serious attempt, but fail in collective harm cases or when algorithmic opacity is a proprietary trade secret defense."
+    ]
   },
   {
     "id": "debate_9-10_021",
@@ -8369,7 +8769,12 @@
       "Address the objection that longtermism crowds out near-term suffering reduction"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Applied moral philosophy and political theory"
+    "difficultyNote": "Applied moral philosophy and political theory",
+    "coachingTips": [
+      "Define longtermism's variants with philosophical precision: strong longtermism, which demands prioritizing astronomical future populations over present ones, is more vulnerable to epistemic objections than weaker versions arguing for greater future-regarding policy weight.",
+      "Deploy the epistemic assumptions critique formally: longtermism's expected value calculations require probability estimates over vast speculative futures, which Tetlock's superforecasting research and the normative uncertainty literature both suggest are unreliable at those scales.",
+      "Address the democratic legitimacy argument: incorporating longtermist priorities into policy requires democratic endorsement or technocratic imposition by those who believe they've correctly identified long-run priorities. Argue for a specific institutional form giving longtermism democratic legitimacy."
+    ]
   },
   {
     "id": "debate_9-10_022",
@@ -8382,7 +8787,12 @@
       "Address the counterargument that integration has driven growth in emerging markets"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International political economy, deep structural analysis"
+    "difficultyNote": "International political economy, deep structural analysis",
+    "coachingTips": [
+      "Identify the structural mechanisms with institutional economics precision: original sin dynamics preventing borrowing in domestic currencies, dollar hegemony's asymmetric adjustment burden, and IMF conditionality's pro-cyclical fiscal requirements are three distinct mechanisms requiring separate treatment.",
+      "Deploy the policy space constraints argument with historical evidence: Washington Consensus programs imposed fiscal austerity and capital account liberalization, constraining precisely the industrial policy tools East Asian development states used successfully. Name specific cases.",
+      "Address the integration-has-driven-growth counterargument with nuance: acknowledge South Korea, Taiwan, and China achieved extraordinary growth through integration, then argue their success depended on capital controls that conditionality has restricted for later developers."
+    ]
   },
   {
     "id": "debate_9-10_023",
@@ -8395,7 +8805,12 @@
       "Address why mixed-economy solutions have succeeded or failed historically"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Economic theory and institutional analysis"
+    "difficultyNote": "Economic theory and institutional analysis",
+    "coachingTips": [
+      "Define the public goods failure precisely: distinguish non-excludability failures, where markets cannot prevent free-riding, from coordination failures, where individually rational behavior produces collectively suboptimal outcomes. Capitalism performs differently against each.",
+      "Deploy the mechanism design argument: Coasean bargaining and Pigouvian taxation solve some public goods failures. Explain why they fail for basic research or pandemic preparedness, where externalities are too diffuse or time horizons too long.",
+      "Address why mixed-economy solutions have succeeded or failed historically: the postwar Keynesian settlement produced effective public goods provision, but its erosion and the political economy driving that erosion are as important as the theoretical case."
+    ]
   },
   {
     "id": "debate_9-10_024",
@@ -8408,7 +8823,12 @@
       "Address the state sovereignty and extraterritorial enforcement challenges"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International law and corporate accountability"
+    "difficultyNote": "International law and corporate accountability",
+    "coachingTips": [
+      "Identify the specific jurisdictional gaps with international law precision: corporate structures including parent-subsidiary separation and multiple incorporation create barriers to extending Nuremberg Principles to corporate actors. Name these mechanisms rather than asserting a generic gap.",
+      "Deploy the deterrence argument with legal realism: corporate liability would change supply chain and conflict-zone risk calculations. Reference the failure of voluntary frameworks like the UN Guiding Principles as evidence that hard law is necessary.",
+      "Address the extraterritorial enforcement challenge with specific instruments: universal jurisdiction, EU supply chain due diligence laws, and proposed ICC jurisdiction extension each address part of the gap. Argue for specific expansions."
+    ]
   },
   {
     "id": "debate_9-10_025",
@@ -8421,7 +8841,12 @@
       "Address the policy responses (retraining, UBI, working-time reduction) and their feasibility"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Labor economics and technological change theory"
+    "difficultyNote": "Labor economics and technological change theory",
+    "coachingTips": [
+      "Distinguish AI-driven displacement from previous automation waves: previous automation created demand for non-routine analytical work while replacing routine tasks. AI now competes directly in non-routine analytical domains, collapsing the task refuge workers fled to.",
+      "Deploy the wage polarization argument with labor economics evidence: Acemoglu and Restrepo's task displacement framework and Autor's research on hollowing out of middle-wage occupations provide empirical grounding for structural displacement beyond the Luddite fallacy.",
+      "Address policy response options with feasibility analysis: retraining programs have poor track records, UBI is fiscally constrained, and working-time reduction faces coordination problems. The inadequacy of available responses is evidence of structural threat."
+    ]
   },
   {
     "id": "debate_9-10_026",
@@ -8434,7 +8859,12 @@
       "Address whether procedural liberalism can be supplemented without sliding into illiberalism"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political philosophy, high conceptual precision required"
+    "difficultyNote": "Political philosophy, high conceptual precision required",
+    "coachingTips": [
+      "Define the paradox of liberal neutrality precisely: liberal neutrality presupposes civic virtues, such as tolerance and epistemic humility, that it cannot ground without violating its neutrality principle. Reference MacIntyre or Sandel's communitarian challenge as grounding.",
+      "Deploy the civic virtue requirements argument: when liberal education systems refuse to cultivate particular virtues in the name of neutrality, they undermine the cultural preconditions for the deliberation liberalism requires. Name this self-undermining dynamic.",
+      "Address whether procedural liberalism can be supplemented without sliding into illiberalism: engage whether the distinction between liberal-compatible and liberal-incompatible virtues is sustainable, or whether any state-sponsored virtue cultivation violates the neutrality principle."
+    ]
   },
   {
     "id": "debate_9-10_027",
@@ -8447,7 +8877,12 @@
       "Address the enforcement risk of empowering governments to define truth"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Information security and constitutional law"
+    "difficultyNote": "Information security and constitutional law",
+    "coachingTips": [
+      "Define disinformation operationally with epistemic precision: deliberate production and distribution of false or misleading information with intent to deceive, distinguishing it from misinformation, which may be innocent. Intent and systematic production both matter legally.",
+      "Deploy the democratic integrity argument with a specific mechanism: systematic disinformation targets shared factual premises and institutional trust, without which democratic deliberation cannot function. Argue this constitutes infrastructure attack analogous to targeting electoral systems.",
+      "Address the enforcement risk of empowering governments to define truth by arguing for specific institutional designs: independent fact-checking bodies with statutory authority or judicial review requirements insulate truth-verification from government control. Specify the safeguard."
+    ]
   },
   {
     "id": "debate_9-10_028",
@@ -8460,7 +8895,12 @@
       "Address areas where cooperation has persisted despite rivalry and explain why"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International relations theory, high sophistication"
+    "difficultyNote": "International relations theory, high sophistication",
+    "coachingTips": [
+      "Define the structural constraints on multilateral cooperation: realist theory predicts cooperation only when mutually beneficial relative to alternatives, while liberal institutionalism holds that institutions raise exit costs. Name which structural theory your argument relies on.",
+      "Deploy the interest divergence argument: cooperation has proven durable in positive-sum domains like trade but fragile in zero-sum domains like territorial security. Argue great power competition is shifting more domains toward zero-sum, narrowing multilateral cooperation.",
+      "Address areas where cooperation has persisted despite rivalry: US-China climate finance cooperation and continued WTO participation despite bilateral trade wars suggest institutional cooperation can survive strategic competition in specific conditions. Identify what those conditions are."
+    ]
   },
   {
     "id": "debate_9-10_029",
@@ -8473,7 +8913,12 @@
       "Address the corporate personhood analogy, its rationale, and why AI may be categorically different"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Legal philosophy and AI ethics, expert level"
+    "difficultyNote": "Legal philosophy and AI ethics, expert level",
+    "coachingTips": [
+      "Define your threshold and rights regime precisely: moral status criteria including sentience and interests produce different thresholds than legal personhood criteria. Specify which you are arguing about and whether you propose a novel legal instrument.",
+      "Deploy the moral status criteria argument: current AI systems lack sentience and interests in any philosophically defensible sense. If arguing for rights, your threshold must address why recognition is warranted absent these properties.",
+      "Address the corporate personhood analogy: corporations have legal personality to facilitate contracting and liability attribution, not because they are moral patients. Explain whether this functional rationale applies to AI or requires a novel instrument."
+    ]
   },
   {
     "id": "debate_9-10_030",
@@ -8486,7 +8931,12 @@
       "Address the alternative governance models proposed by revisionist powers and their democratic deficits"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International relations and postcolonial theory"
+    "difficultyNote": "International relations and postcolonial theory",
+    "coachingTips": [
+      "Define the rules-based international order with historical specificity: the post-1945 institutional architecture was designed primarily by American and European powers during US hegemonic dominance. Name whose rules these are and who designed them.",
+      "Deploy the institutional design bias argument: TRIPS, IMF conditionality, and the UN Security Council veto each reflect dominant power preferences at creation. Argue these arrangements lock in outcomes favorable to wealthy states.",
+      "Address alternative governance models proposed by revisionist powers: China's Belt and Road and Russia's security frameworks offer fewer accountability and human rights protections. Argue for reforming the existing order's legitimacy deficit rather than endorsing alternatives."
+    ]
   },
   {
     "id": "debate_9-10_031",
@@ -8499,7 +8949,12 @@
       "Address the institutional reforms proposed and the political economy of changing academic incentives"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Philosophy of science and institutional economics"
+    "difficultyNote": "Philosophy of science and institutional economics",
+    "coachingTips": [
+      "Identify the specific structural mechanisms distorting knowledge production: publish-or-perish creates pressure for publishable rather than true results, citation incentives favor incremental work over paradigm-challenging research, and the replication crisis demonstrates the downstream effects.",
+      "Deploy the resource misallocation argument with opportunity cost framing: when prestige journals and citation metrics determine research funding, resources flow toward high-prestige fields rather than questions of greatest social importance or scientific uncertainty.",
+      "Address institutional reform proposals with political economy analysis: open-access mandates and pre-registration requirements struggle to disrupt interlocking incentives from journal prestige economies and funder metrics. Argue for the lever with highest leverage over the system."
+    ]
   },
   {
     "id": "debate_9-10_032",
@@ -8512,7 +8967,12 @@
       "Address the collective action problem when individual rational choices produce socially harmful outcomes"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Bioethics with political philosophy implications"
+    "difficultyNote": "Bioethics with political philosophy implications",
+    "coachingTips": [
+      "Distinguish therapeutic from enhancement interventions: the distinction is normative, reflecting a contested baseline of normal human functioning. Propose a specific operationalization, such as a capability approach baseline, and acknowledge this determines much of the argument.",
+      "Deploy the reproductive autonomy argument: Mill's harm principle and Rawlsian liberal neutrality generate strong presumptions for adult personal choices primarily affecting the chooser. Engage directly whether genetic enhancement for consenting adults falls within this zone.",
+      "Address the collective action problem: when enhancement is individually rational but collectively produces enhanced versus unenhanced social hierarchies, individual consent cannot resolve the collective outcome. Engage Sandel's case against perfection here."
+    ]
   },
   {
     "id": "debate_9-10_033",
@@ -8525,7 +8985,12 @@
       "Address successful deliberative experiments and why they have not replaced representative institutions"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Democratic theory, requires philosophical rigor"
+    "difficultyNote": "Democratic theory, requires philosophical rigor",
+    "coachingTips": [
+      "Define deliberative democracy with institutional precision: distinguish Habermasian discourse ethics from Fishkin's deliberative polling from citizens' assembly models. Each has different scalability properties and your argument should specify which model you're assessing.",
+      "Deploy the cognitive diversity argument: Landemore's 'Democratic Reason' argues cognitively diverse groups outperform expert individuals in collective problem-solving. Engage whether deliberative democracy can realize this advantage at scale and what design features enable it.",
+      "Address successful deliberative experiments critically: the Irish Citizens' Assembly produced deliberative legitimacy but required parliamentary endorsement for implementation. Argue the limit is integration into binding decision authority, and propose specific constitutional mechanisms for achieving this."
+    ]
   },
   {
     "id": "debate_9-10_034",
@@ -8538,7 +9003,12 @@
       "Address the Security Council paralysis and the selectivity problem in intervention decisions"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International law and humanitarian ethics"
+    "difficultyNote": "International law and humanitarian ethics",
+    "coachingTips": [
+      "Distinguish humanitarian intervention from the Responsibility to Protect framework: R2P adopted at the 2005 World Summit articulates three pillars including timely decisive response. Argue whether R2P is adequate or a stronger legal duty is needed.",
+      "Deploy the norm enforcement argument: mass atrocity norms are jus cogens prohibitions that no state can invoke sovereignty to shield. If sovereignty is justified by its service to human rights, it cannot protect systematic violations.",
+      "Address Security Council paralysis and the selectivity problem: current R2P depends on UNSC authorization blocked by P5 veto in cases where intervention is most needed. Argue for workarounds such as the Uniting for Peace procedure."
+    ]
   },
   {
     "id": "debate_9-10_035",
@@ -8551,7 +9021,12 @@
       "Address the pension fund and retirement savings dimensions that complicate simple de-financialization arguments"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Housing economics and social rights theory"
+    "difficultyNote": "Housing economics and social rights theory",
+    "coachingTips": [
+      "Define the financialization mechanisms converting housing into investment assets: mortgage securitization, institutional investor purchases, and buy-to-let tax incentives each operate differently. Identify which most directly produces the tenure insecurity and price formation effects you're analyzing.",
+      "Deploy the price formation argument: housing prices set by rental yields rather than use value decouple from household income. This breaks the market mechanism that would otherwise bring supply and demand into balance.",
+      "Address the pension fund dimension: significant housing investment flows through pension funds. Argue for targeted reforms, such as land value taxation or restraints on institutional single-family ownership, that address financialization without collapsing retirement savings architecture."
+    ]
   },
   {
     "id": "debate_9-10_036",
@@ -8564,7 +9039,12 @@
       "Address the partial agreements and side payments that have enabled cooperation and whether they scale"
     ],
     "targetDuration": 120,
-    "difficultyNote": "International relations and climate governance theory"
+    "difficultyNote": "International relations and climate governance theory",
+    "coachingTips": [
+      "Define the strategic interaction problem with game-theoretic precision: climate is a global commons where each nation's emissions impose costs on all, and payoffs are asymmetric by development level, creating distributional bargaining problems beyond free-riding.",
+      "Deploy the domestic political constraints argument with comparative politics specificity: carbon pricing, renewable mandates, and fossil fuel subsidy removal each face specific political economy obstacles. These constraints reflect genuine distributional conflicts, not simply bad politics.",
+      "Address partial agreements and side payments: the Montreal Protocol and Paris Agreement demonstrate cooperation is possible in specific conditions. Argue whether effective climate governance can be achieved through these mechanisms at the required scale."
+    ]
   },
   {
     "id": "debate_9-10_037",
@@ -8577,7 +9057,12 @@
       "Address the slippery slope from nudging to manipulation and the governance accountability mechanisms needed"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Behavioral science, ethics, and public policy"
+    "difficultyNote": "Behavioral science, ethics, and public policy",
+    "coachingTips": [
+      "Define nudging with legal precision: Thaler and Sunstein's libertarian paternalism distinguishes nudges changing defaults from mandates removing choice. Engage whether this distinction holds when citizens face government-designed choice architectures they cannot easily opt out of.",
+      "Deploy the autonomy and consent argument: nudging's defenders argue all choice environments have architectures and the question is who designs them. Argue government-designed nudges are more accountable, or that absent informed consent the analogy fails.",
+      "Address the slippery slope from nudging to manipulation: transparency requirements, independent effectiveness evaluation, and democratic authorization for nudge programs are specific governance safeguards. Argue for these rather than treating the concern as dismissible."
+    ]
   },
   {
     "id": "debate_9-10_038",
@@ -8590,7 +9075,12 @@
       "Address the institutional design responses (independence, civil society participation, international comparison) and their limits"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political economy and regulatory theory"
+    "difficultyNote": "Political economy and regulatory theory",
+    "coachingTips": [
+      "Define regulatory capture operationally: capture occurs when regulated industries exercise undue influence through information asymmetry, revolving door incentives, and funding dependencies. Conflating capture with unavoidable industry expertise makes the problem appear irremediable rather than correctable.",
+      "Deploy the structural incentives argument: regulatory agencies face asymmetric pressure, with concentrated industry interests applying sustained lobbying while diffuse public beneficiaries apply episodic pressure. Stigler's economic theory predicts capture regardless of individual regulator integrity.",
+      "Address institutional design responses: the Federal Reserve's independence model, the FCA's objectives framework, and Basel Committee international coordination each attempt to address capture through different designs. Argue for the combination most resistant to capture."
+    ]
   },
   {
     "id": "debate_9-10_039",
@@ -8603,6 +9093,11 @@
       "Address the political stability and legitimacy requirements that favor prioritizing domestic obligations"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political philosophy, expert-level normative theory"
+    "difficultyNote": "Political philosophy, expert-level normative theory",
+    "coachingTips": [
+      "Define the competing duty frameworks: Rawls's Law of Peoples generates duties of assistance but stops short of cosmopolitan egalitarianism. Pogge grounds obligations in the global order's harm to the poor. Miller defends associative special duties.",
+      "Deploy the moral arbitrariness argument: Rawls's claim that natural talents are morally arbitrary extends in cosmopolitan readings to birthplace. Engage whether morally relevant differences between natural endowments and national membership limit this analogy.",
+      "Address the political stability and legitimacy requirements: effective redistribution requires functioning political institutions, and prioritizing cosmopolitan over domestic obligations may undermine the domestic legitimacy that makes redistribution feasible. Engage this as a principled reason."
+    ]
   }
 ]
