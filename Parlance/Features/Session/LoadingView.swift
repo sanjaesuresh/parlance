@@ -106,7 +106,7 @@ struct LoadingView: View {
                             ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
                                 HStack(alignment: .firstTextBaseline, spacing: 12) {
                                     Text("\(index + 1)")
-                                        .font(.custom("PlayfairDisplay-Bold", size: 20))
+                                        .font(.custom("Fraunces72pt-Bold", size: 20))
                                         .foregroundStyle(mode.accentColor)
                                         .frame(width: 16, alignment: .leading)
                                     Text(tip)

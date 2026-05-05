@@ -11,8 +11,8 @@ struct ParlanceApp: App {
 
     private func registerFonts() {
         let names = [
-            "PlayfairDisplay-Bold", "PlayfairDisplay-Medium", "PlayfairDisplay-Regular",
-            "DMSans-Regular", "DMSans-Medium", "DMSans-Bold"
+            "Fraunces72pt-Bold",
+            "Inter-Regular", "Inter-Medium", "Inter-Bold"
         ]
         for name in names {
             if let url = Bundle.main.url(forResource: name, withExtension: "ttf") {
