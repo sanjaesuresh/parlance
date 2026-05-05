@@ -87,22 +87,31 @@ struct LoadingView: View {
                     .padding(.horizontal, 24)
 
                     // Coaching tips
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("COACHING TIPS")
-                            .font(AppFonts.bodyBold(10))
-                            .foregroundStyle(AppColors.dim)
-                            .kerning(1)
+                    VStack(alignment: .leading, spacing: 14) {
+                        HStack(spacing: 10) {
+                            Rectangle()
+                                .fill(AppColors.border)
+                                .frame(height: 1)
+                            Text("FOCUS AREAS")
+                                .font(AppFonts.bodyBold(9))
+                                .foregroundStyle(AppColors.dim)
+                                .kerning(1.3)
+                                .fixedSize()
+                            Rectangle()
+                                .fill(AppColors.border)
+                                .frame(height: 1)
+                        }
 
-                        VStack(alignment: .leading, spacing: 8) {
-                            ForEach(question.tips, id: \.self) { tip in
-                                HStack(alignment: .top, spacing: 9) {
-                                    RoundedRectangle(cornerRadius: 1)
-                                        .fill(mode.accentColor)
-                                        .frame(width: 4, height: 4)
-                                        .padding(.top, 5)
+                        VStack(alignment: .leading, spacing: 12) {
+                            ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
+                                HStack(alignment: .firstTextBaseline, spacing: 12) {
+                                    Text("\(index + 1)")
+                                        .font(.custom("PlayfairDisplay-Bold", size: 20))
+                                        .foregroundStyle(mode.accentColor)
+                                        .frame(width: 16, alignment: .leading)
                                     Text(tip)
                                         .font(AppFonts.body(13))
-                                        .foregroundStyle(AppColors.sub)
+                                        .foregroundStyle(AppColors.text.opacity(0.88))
                                         .fixedSize(horizontal: false, vertical: true)
                                 }
                             }
