@@ -130,7 +130,7 @@ struct RecordingView: View {
                     // Nudge
                     if showNudge {
                         HStack {
-                            Text("💡 Stay deliberate — don't rush to fill silence")
+                            Text("💡 Stay deliberate. Don't rush to fill silence.")
                                 .font(AppFonts.body(11))
                                 .foregroundStyle(mode.accentColor)
                         }
