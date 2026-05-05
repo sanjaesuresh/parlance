@@ -10,6 +10,8 @@ struct SplashView: View {
     @State private var revealDone = false
     @State private var appReady = false
     @State private var dismissScheduled = false
+    // Escalates 0 → 1 (light) → 2 (medium) → 3 (heavy) as the reveal animates
+    @State private var splashHaptic = 0
 
     var body: some View {
         ZStack {
@@ -39,13 +41,24 @@ struct SplashView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+        .sensoryFeedback(trigger: splashHaptic) { _, new in
+            switch new {
+            case 1: return .impact(weight: .light)
+            case 2: return .impact(weight: .medium)
+            case 3: return .impact(weight: .heavy)
+            default: return nil
+            }
+        }
         .onAppear {
             appReady = isAppReady
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                splashHaptic = 1
                 withAnimation(.spring(response: 0.75, dampingFraction: 0.82)) {
                     showFull = true
                 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { splashHaptic = 2 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { splashHaptic = 3 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
                     revealDone = true
                     scheduleIfReady()

@@ -9,6 +9,8 @@ struct CountdownView: View {
     @State private var currentNumber: Int = 3
     @State private var scale: CGFloat = 0.6
     @State private var opacity: Double = 0.0
+    // Starts at 4 (outside real range) so first assignment to 3 triggers sensoryFeedback
+    @State private var countdownHapticNum: Int = 4
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
@@ -40,6 +42,14 @@ struct CountdownView: View {
                 .frame(height: 240)
             }
         }
+        .sensoryFeedback(trigger: countdownHapticNum) { _, new in
+            switch new {
+            case 3: return .impact(weight: .light)
+            case 2: return .impact(weight: .medium)
+            case 1: return .impact(weight: .heavy)
+            default: return nil
+            }
+        }
         .onAppear { Task { await runCountdown() } }
         .accessibilityElement()
         .accessibilityLabel("Countdown \(currentNumber)")
@@ -49,6 +59,7 @@ struct CountdownView: View {
         for n in stride(from: 3, through: 1, by: -1) {
             await MainActor.run {
                 currentNumber = n
+                countdownHapticNum = n
                 if reduceMotion {
                     scale = 1.0
                     opacity = 1.0

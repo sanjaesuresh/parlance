@@ -17,6 +17,8 @@ struct RecordingView: View {
     @State private var didAutoStart = false
     @State private var recordingDotVisible = true
     @State private var recordingDotTimer: Timer? = nil
+    @State private var startHaptic = false
+    @State private var stopHaptic = false
 
     private var targetProgress: Double {
         guard question.targetDuration > 0 else { return 0 }
@@ -207,10 +209,12 @@ struct RecordingView: View {
             // Mic button with target duration ring
             Button {
                 if recorder.isRecording && recorder.canStop {
+                    stopHaptic.toggle()
                     didManualStop = true
                     let _ = recorder.stopRecording()
                     onStop()
                 } else if !recorder.isRecording {
+                    startHaptic.toggle()
                     viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService)
                 }
             } label: {
@@ -276,6 +280,8 @@ struct RecordingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg.ignoresSafeArea())
+        .sensoryFeedback(.impact(weight: .medium), trigger: startHaptic)
+        .sensoryFeedback(.impact(weight: .light),  trigger: stopHaptic)
         .onAppear {
             if autoStart && !didAutoStart && !recorder.isRecording {
                 didAutoStart = true
