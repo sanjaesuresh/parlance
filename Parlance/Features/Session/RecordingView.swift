@@ -28,7 +28,6 @@ struct RecordingView: View {
     }
 
     var body: some View {
-        GeometryReader { geo in
         VStack(spacing: 0) {
             // Nav bar
             HStack {
@@ -68,7 +67,7 @@ struct RecordingView: View {
                 Spacer().frame(width: 72)
             }
             .padding(.horizontal, 24)
-            .padding(.top, geo.safeAreaInsets.top + 8)
+            .padding(.top, 8)
             .padding(.bottom, 8)
 
             ScrollView {
@@ -104,21 +103,29 @@ struct RecordingView: View {
                     .padding(.top, 8)
 
                     // Coaching tips
-                    VStack(alignment: .leading, spacing: 6) {
-                        ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
-                            HStack(alignment: .top, spacing: 9) {
-                                Text("\(index + 1)")
-                                    .font(AppFonts.bodyBold(9))
-                                    .foregroundStyle(mode.accentColor)
-                                    .frame(width: 18, height: 18)
-                                    .background(mode.accentColor.opacity(0.15))
-                                    .clipShape(Circle())
+                    HStack(spacing: 8) {
+                        ForEach(question.tips, id: \.self) { tip in
+                            let words = tip.components(separatedBy: " ")
+                            let headline = words.first ?? tip
+                            let detail = words.dropFirst().joined(separator: " ")
 
-                                Text(tip)
-                                    .font(AppFonts.body(11))
-                                    .foregroundStyle(AppColors.sub)
-                                    .lineSpacing(4)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(headline)
+                                    .font(AppFonts.bodyBold(15))
+                                    .foregroundStyle(mode.accentColor)
+                                    .lineLimit(1)
+                                if !detail.isEmpty {
+                                    Text(detail)
+                                        .font(AppFonts.body(9))
+                                        .foregroundStyle(AppColors.dim)
+                                        .lineLimit(3)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(9)
+                            .background(mode.accentColor.opacity(0.07))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     }
                     .padding(.horizontal, 24)
@@ -272,9 +279,7 @@ struct RecordingView: View {
             .padding(.bottom, 40)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(AppColors.bg)
-        } // GeometryReader
-        .ignoresSafeArea()
+        .background(AppColors.bg.ignoresSafeArea())
         .onAppear {
             if autoStart && !didAutoStart && !recorder.isRecording {
                 didAutoStart = true

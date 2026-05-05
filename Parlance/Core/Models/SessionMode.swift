@@ -72,8 +72,8 @@ enum SessionMode: String, CaseIterable, Codable {
         }
     }
 
-    /// The default 4 modes shown on the home screen grid
-    static let defaultModes: [SessionMode] = [.interview, .pitch, .keynote, .casual]
+    /// The default 4 modes shown on the home screen grid (all free modes)
+    static let defaultModes: [SessionMode] = [.interview, .casual, .impromptu, .explanation]
 
     static func dailyChallengeMode(dayOfYear: Int) -> SessionMode {
         let all = SessionMode.allCases
@@ -87,7 +87,7 @@ enum SessionMode: String, CaseIterable, Codable {
     }
 
     /// Modes available on the free tier. All others require Pro.
-    static let freeModes: Set<SessionMode> = [.interview, .casual]
+    static let freeModes: Set<SessionMode> = [.interview, .casual, .impromptu, .explanation]
 
     var isProMode: Bool { !Self.freeModes.contains(self) }
 }

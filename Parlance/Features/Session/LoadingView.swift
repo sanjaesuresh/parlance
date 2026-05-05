@@ -8,7 +8,6 @@ struct LoadingView: View {
     var onCancel: (() -> Void)?
 
     var body: some View {
-        GeometryReader { geo in
         VStack(spacing: 0) {
             // Nav bar
             HStack {
@@ -45,7 +44,7 @@ struct LoadingView: View {
                 Spacer().frame(width: 72)
             }
             .padding(.horizontal, 24)
-            .padding(.top, geo.safeAreaInsets.top + 8)
+            .padding(.top, 8)
             .padding(.bottom, 12)
 
             ScrollView {
@@ -88,29 +87,38 @@ struct LoadingView: View {
                     .padding(.horizontal, 24)
 
                     // Coaching tips
-                    VStack(alignment: .leading, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 8) {
                         Text("COACHING TIPS")
                             .font(AppFonts.bodyBold(10))
                             .foregroundStyle(AppColors.dim)
                             .kerning(1)
 
-                        ForEach(Array(question.tips.enumerated()), id: \.offset) { index, tip in
-                            HStack(alignment: .top, spacing: 10) {
-                                Text("\(index + 1)")
-                                    .font(AppFonts.bodyBold(10))
-                                    .foregroundStyle(mode.accentColor)
-                                    .frame(width: 20, height: 20)
-                                    .background(mode.accentColor.opacity(0.15))
-                                    .clipShape(Circle())
+                        HStack(spacing: 8) {
+                            ForEach(question.tips, id: \.self) { tip in
+                                let words = tip.components(separatedBy: " ")
+                                let headline = words.first ?? tip
+                                let detail = words.dropFirst().joined(separator: " ")
 
-                                Text(tip)
-                                    .font(AppFonts.body(12))
-                                    .foregroundStyle(AppColors.sub)
-                                    .lineSpacing(4)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(headline)
+                                        .font(AppFonts.bodyBold(17))
+                                        .foregroundStyle(mode.accentColor)
+                                        .lineLimit(1)
+                                    if !detail.isEmpty {
+                                        Text(detail)
+                                            .font(AppFonts.body(10))
+                                            .foregroundStyle(AppColors.dim)
+                                            .lineLimit(3)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(10)
+                                .background(mode.accentColor.opacity(0.07))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
                         }
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 24)
                 }
                 .padding(.bottom, 140)
@@ -133,8 +141,6 @@ struct LoadingView: View {
             .accessibilityLabel("Tap when ready to record")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(AppColors.bg)
-        } // GeometryReader
-        .ignoresSafeArea()
+        .background(AppColors.bg.ignoresSafeArea())
     }
 }

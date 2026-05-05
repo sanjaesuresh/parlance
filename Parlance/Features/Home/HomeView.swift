@@ -157,83 +157,65 @@ struct HomeView: View {
 
     // MARK: - Difficulty Picker
 
-    private let tiers: [(name: String, emoji: String, levels: ClosedRange<Int>)] = [
-        ("Starter", "\u{1F331}", 1...2),
-        ("Intermediate", "\u{1F4AA}", 3...4),
-        ("Challenging", "\u{1F525}", 5...6),
-        ("Advanced", "\u{26A1}", 7...8),
-        ("Expert", "\u{1F451}", 9...10)
-    ]
-
-    private var selectedTierIndex: Int {
-        tiers.firstIndex(where: { $0.levels.contains(Int(sliderLevel)) }) ?? 0
+    private func tierEmoji(for level: Int) -> String {
+        switch level {
+        case 1...2: "🌱"
+        case 3...4: "💪"
+        case 5...6: "🔥"
+        case 7...8: "⚡"
+        default: "👑"
+        }
     }
 
     private var difficultySlider: some View {
         Group {
             if let user {
-                VStack(spacing: 12) {
+                VStack(alignment: .leading, spacing: 0) {
                     HStack {
-                        Text("Difficulty Level")
+                        Text("Difficulty")
                             .font(AppFonts.bodyMedium(13))
                             .foregroundStyle(AppColors.text)
                         Spacer()
-                        Text("Lv \(Int(sliderLevel))")
-                            .font(AppFonts.bodyBold(13))
-                            .foregroundStyle(AppColors.gold)
+                        Text(DifficultyLevel.name(for: Int(sliderLevel)))
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.sub)
+                            .lineLimit(1)
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 14)
+                    .padding(.bottom, 12)
 
-                    HStack(spacing: 6) {
-                        ForEach(Array(tiers.enumerated()), id: \.offset) { index, tier in
-                            let isSelected = index == selectedTierIndex
-                            let isProTier = index >= 3
-                            let locked = isProTier && !subscription.isPro
+                    ScrollViewReader { proxy in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(1...10, id: \.self) { level in
+                                    let isSelected = Int(sliderLevel) == level
+                                    let locked = level >= 7 && !subscription.isPro
 
-                            Button {
-                                if locked {
-                                    showPaywall = true
-                                } else if isSelected {
-                                    // Toggle between the two sub-levels
-                                    let current = Int(sliderLevel)
-                                    let next = current == tier.levels.lowerBound ? tier.levels.upperBound : tier.levels.lowerBound
-                                    sliderLevel = Double(next)
-                                    user.practiceLevel = Int(sliderLevel)
-                                } else {
-                                    sliderLevel = Double(tier.levels.lowerBound)
-                                    user.practiceLevel = Int(sliderLevel)
-                                }
-                            } label: {
-                                VStack(spacing: 4) {
-                                    if locked {
-                                        Image(systemName: "lock.fill")
-                                            .font(.system(size: 14))
-                                            .foregroundStyle(AppColors.dim)
-                                    } else {
-                                        Text(tier.emoji)
-                                            .font(.system(size: 16))
+                                    Button {
+                                        if locked {
+                                            showPaywall = true
+                                        } else {
+                                            sliderLevel = Double(level)
+                                            user.practiceLevel = level
+                                        }
+                                    } label: {
+                                        difficultyCard(level: level, isSelected: isSelected, locked: locked)
                                     }
-                                    Text(tier.name)
-                                        .font(AppFonts.bodyMedium(9))
-                                        .foregroundStyle(locked ? AppColors.dim : (isSelected ? AppColors.gold : AppColors.sub))
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.7)
+                                    .id(level)
+                                    .accessibilityLabel("Level \(level), \(DifficultyLevel.name(for: level))\(isSelected ? ", selected" : "")")
                                 }
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 10)
-                                .background(isSelected ? AppColors.gold.opacity(0.15) : AppColors.faint)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(isSelected ? AppColors.gold : Color.clear, lineWidth: 1.5)
-                                )
-                                .opacity(locked ? 0.5 : 1.0)
                             }
-                            .accessibilityLabel("Difficulty \(tier.name)\(isSelected ? ", currently selected" : "")")
-                            .accessibilityHint("Double-tap to select")
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 16)
+                            .scrollTargetLayout()
+                        }
+                        .scrollTargetBehavior(.viewAligned)
+                        .onAppear {
+                            proxy.scrollTo(max(1, Int(sliderLevel) - 1), anchor: .leading)
                         }
                     }
                 }
-                .padding(16)
                 .background(AppColors.card)
                 .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
                 .overlay(
@@ -242,6 +224,56 @@ struct HomeView: View {
                 )
             }
         }
+    }
+
+    private func difficultyCard(level: Int, isSelected: Bool, locked: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .top) {
+                Text("Lv \(level)")
+                    .font(AppFonts.display(30))
+                    .foregroundStyle(isSelected ? AppColors.gold : AppColors.sub)
+                Spacer()
+                if locked {
+                    HStack(spacing: 3) {
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 8, weight: .semibold))
+                        Text("PRO")
+                            .font(AppFonts.bodyBold(9))
+                    }
+                    .foregroundStyle(AppColors.gold)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 3)
+                    .background(AppColors.gold.opacity(0.15))
+                    .clipShape(Capsule())
+                } else {
+                    Text(tierEmoji(for: level))
+                        .font(.system(size: 20))
+                }
+            }
+
+            Text(DifficultyLevel.name(for: level))
+                .font(AppFonts.bodyMedium(13))
+                .foregroundStyle(isSelected ? AppColors.text : AppColors.sub)
+                .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(DifficultyLevel.tier(for: level))
+                .font(AppFonts.body(10))
+                .foregroundStyle(isSelected ? AppColors.gold : AppColors.dim)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(isSelected ? AppColors.gold.opacity(0.12) : AppColors.faint)
+                .clipShape(Capsule())
+        }
+        .padding(14)
+        .frame(width: 148, alignment: .leading)
+        .background(isSelected ? AppColors.gold.opacity(0.07) : AppColors.bg)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(isSelected ? AppColors.gold.opacity(0.8) : AppColors.border, lineWidth: isSelected ? 1.5 : 1)
+        )
+        .opacity(locked ? 0.55 : 1.0)
     }
 
     // MARK: - Mode Grid
