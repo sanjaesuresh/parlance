@@ -124,19 +124,23 @@ struct LoadingView: View {
 
             Spacer(minLength: 0)
 
-            // Tap when ready button
+            // Start recording button
             Button(action: onReady) {
-                Text("Tap when ready")
-                    .font(AppFonts.bodyBold(16))
-                    .foregroundStyle(AppColors.bg)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(AppColors.gold)
-                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                HStack(spacing: 10) {
+                    Image(systemName: "mic.fill")
+                        .font(.system(size: 15, weight: .semibold))
+                    Text("Start Recording")
+                        .font(AppFonts.bodyBold(16))
+                }
+                .foregroundStyle(AppColors.bg)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
+                .background(AppColors.gold)
+                .clipShape(RoundedRectangle(cornerRadius: 14))
             }
             .padding(.horizontal, 24)
             .padding(.bottom, 32)
-            .accessibilityLabel("Tap when ready to record")
+            .accessibilityLabel("Start recording")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg.ignoresSafeArea())
