@@ -132,7 +132,6 @@ struct SessionCoordinator: View {
         }
 
         let duration = recorder.elapsedTime
-        let isPro = subscription.isPro
 
         let transcriptionResult: TranscriptionResult?
         let audioFeatures: AudioFeatures
@@ -236,6 +235,14 @@ struct SessionCoordinator: View {
             GamificationService.incrementDailySessionCount(for: user)
             if state.wasDailyChallenge { user.dailyChallengeCompletedDate = .now }
             checkAchievements(user: user, session: session, persistence: persistence)
+        }
+
+        Task {
+            await SyncService.shared.syncAfterSession(
+                score: session.overallScore,
+                mode: state.mode,
+                level: state.difficultyLevel
+            )
         }
 
         phase = .results(session)
