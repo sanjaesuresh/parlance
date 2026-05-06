@@ -52,7 +52,11 @@ final class Session {
             return try? JSONDecoder().decode(EmotionResult.self, from: data)
         }
         set {
-            emotionResultData = newValue.flatMap { try? JSONEncoder().encode($0) }
+            if let v = newValue {
+                emotionResultData = try? JSONEncoder().encode(v)
+            } else {
+                emotionResultData = nil
+            }
         }
     }
 
@@ -126,7 +130,11 @@ final class Session {
         self.bestMomentReason = scoringResult.bestMoment.reason
         self.worstMomentQuote = scoringResult.worstMoment.quote
         self.worstMomentReason = scoringResult.worstMoment.reason
-        self.emotionResultData = emotionResult.flatMap { try? JSONEncoder().encode($0) }
+        if let er = emotionResult {
+            self.emotionResultData = try? JSONEncoder().encode(er)
+        } else {
+            self.emotionResultData = nil
+        }
 
         // Legacy fields — zero for new sessions
         self.paceScore = 0

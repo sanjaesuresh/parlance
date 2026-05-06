@@ -47,7 +47,7 @@ final class ClaudeClient {
 
     // MARK: - Shared transport
 
-    private func post(prompt: String, timeout: TimeInterval = AppConstants.feedbackTimeout) async throws -> Data {
+    private func post(prompt: String, timeout: TimeInterval = 8) async throws -> Data {
         let endpoint = baseURL.appendingPathComponent("feedback")
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"

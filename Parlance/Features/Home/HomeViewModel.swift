@@ -7,7 +7,11 @@ final class HomeViewModel: ObservableObject {
     private let questionBank: QuestionBankService
     @Published var showRateLimitAlert = false
 
-    init(questionBank: QuestionBankService = QuestionBankService()) {
+    init() {
+        self.questionBank = QuestionBankService()
+    }
+
+    init(questionBank: QuestionBankService) {
         self.questionBank = questionBank
     }
 

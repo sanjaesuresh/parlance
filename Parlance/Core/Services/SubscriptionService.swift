@@ -57,8 +57,7 @@ final class SubscriptionService: ObservableObject {
         #if DEBUG
         isPro = true
         isLoading = false
-        return
-        #endif
+        #else
         var hasPro = false
         for await result in Transaction.currentEntitlements {
             if case .verified(let transaction) = result,
@@ -69,6 +68,7 @@ final class SubscriptionService: ObservableObject {
         }
         isPro = hasPro
         isLoading = false
+        #endif
     }
 
     // MARK: - Private
