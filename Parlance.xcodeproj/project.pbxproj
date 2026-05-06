@@ -35,6 +35,7 @@
 		D4BDC0952F7F971B00FE69B7 /* ParlanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC09F2F7F971B00FE69B7 /* ParlanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DB949C2FAA5FFB000578F8 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D4DB98142FAAF800000578F8 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -150,6 +151,13 @@
 			sourceTree = "<group>";
 		};
 		D4DB949E2FAA5FFB000578F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4DB98162FAAF800000578F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -282,6 +290,10 @@
 				{
 					ProductGroup = D470610E2FA9B04F0037F17E /* Products */;
 					ProjectRef = D470610C2FA9B04F0037F17E /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4DB98162FAAF800000578F8 /* Products */;
+					ProjectRef = D4DB98142FAAF800000578F8 /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D42047B52F90319E00B3BE56 /* Products */;
@@ -497,6 +509,8 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance transcribes your recordings to analyze your speaking performance.";
 				INFOPLIST_KEY_ParlanceAPIBaseURL = "https://parlance-api.parlance-app.workers.dev";
+				INFOPLIST_KEY_SupabaseAnonKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhla3JmanVmZ29ycmNucG5zYWVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMjMxNzgsImV4cCI6MjA5MzU5OTE3OH0.w4gjaTtnrYyDLoqRMYPNwm0vBYRLfUp1jYOrvVhWxfc;
+				INFOPLIST_KEY_SupabaseURL = "https://xekrfjufgorrcnpnsaei.supabase.co";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -533,6 +547,8 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance transcribes your recordings to analyze your speaking performance.";
 				INFOPLIST_KEY_ParlanceAPIBaseURL = "https://parlance-api.parlance-app.workers.dev";
+				INFOPLIST_KEY_SupabaseAnonKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhla3JmanVmZ29ycmNucG5zYWVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMjMxNzgsImV4cCI6MjA5MzU5OTE3OH0.w4gjaTtnrYyDLoqRMYPNwm0vBYRLfUp1jYOrvVhWxfc;
+				INFOPLIST_KEY_SupabaseURL = "https://xekrfjufgorrcnpnsaei.supabase.co";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
