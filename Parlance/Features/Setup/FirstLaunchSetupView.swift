@@ -1,5 +1,6 @@
 import SwiftUI
 import SafariServices
+import SwiftData
 
 struct FirstLaunchSetupView: View {
     @Environment(\.modelContext) private var modelContext
@@ -7,6 +8,7 @@ struct FirstLaunchSetupView: View {
     @State private var username = ""
     @State private var selectedAvatar = "\u{1F3A4}"
     @State private var showPrivacyPolicy = false
+    @EnvironmentObject private var authService: AuthService
 
     private let avatars = ["\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}", "\u{1F525}", "\u{26A1}", "\u{1F3AF}", "\u{1F3C6}", "\u{1F4A1}", "\u{1F31F}", "\u{1F3AD}"]
 
@@ -174,11 +176,14 @@ struct FirstLaunchSetupView: View {
         let trimmedName = name.trimmingCharacters(in: .whitespaces)
         guard !trimmedName.isEmpty else { return }
         let finalUsername = username.isEmpty ? generateUsername(from: trimmedName) : username
-        let _ = PersistenceService.shared.createUser(
+        let user = PersistenceService.shared.createUser(
             name: trimmedName,
             username: finalUsername,
             avatar: selectedAvatar
         )
+        Task {
+            await SyncService.shared.createProfile(for: user, authService: authService)
+        }
     }
 
     private func generateUsername(from name: String) -> String {

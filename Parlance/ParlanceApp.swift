@@ -4,6 +4,8 @@ import CoreText
 
 @main
 struct ParlanceApp: App {
+    @StateObject private var authService = AuthService()
+
     init() {
         registerFonts()
         AnalyticsService.initialize()
@@ -25,6 +27,7 @@ struct ParlanceApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(SubscriptionService.shared)
+                .environmentObject(authService)
         }
         .modelContainer(PersistenceService.shared.container)
     }

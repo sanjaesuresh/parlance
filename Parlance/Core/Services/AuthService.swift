@@ -1,5 +1,6 @@
 // Parlance/Core/Services/AuthService.swift
 import Foundation
+import Combine
 import Supabase
 
 @MainActor

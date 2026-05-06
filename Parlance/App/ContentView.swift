@@ -11,19 +11,22 @@ struct ContentView: View {
     @State private var activeSession: ActiveSessionState?
     @State private var showSplash = true
     @State private var isAppReady = false
+    @EnvironmentObject private var authService: AuthService
 
     private var currentUser: User? { users.first }
     private var hasCompletedSetup: Bool { currentUser?.hasCompletedSetup ?? false }
 
     var body: some View {
         ZStack {
-            if showSplash {
-                SplashView(isAppReady: isAppReady) {
+            if showSplash || authService.isLoading {
+                SplashView(isAppReady: isAppReady && !authService.isLoading) {
                     withAnimation { showSplash = false }
                 }
                 .ignoresSafeArea()
                 .zIndex(1)
                 .transition(.opacity)
+            } else if !authService.isAuthenticated {
+                AuthView(authService: authService)
             } else if !hasCompletedSetup {
                 FirstLaunchSetupView()
             } else if let session = activeSession {
