@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D4DB98C52FAAFDA1000578F8 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = D4DB98C42FAAFDA1000578F8 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D4BDC0962F7F971B00FE69B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DB98C52FAAFDA1000578F8 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +148,7 @@
 			);
 			name = Parlance;
 			packageProductDependencies = (
+				D4DB98C42FAAFDA1000578F8 /* Supabase */,
 			);
 			productName = Parlance;
 			productReference = D4BDC0882F7F971900FE69B7 /* Parlance.app */;
@@ -226,6 +232,9 @@
 			);
 			mainGroup = D4BDC07F2F7F971900FE69B7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D4DB98C32FAAFDA1000578F8 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D4BDC0892F7F971900FE69B7 /* Products */;
 			projectDirPath = "";
@@ -635,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D4DB98C32FAAFDA1000578F8 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D4DB98C42FAAFDA1000578F8 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4DB98C32FAAFDA1000578F8 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D4BDC0802F7F971900FE69B7 /* Project object */;
 }

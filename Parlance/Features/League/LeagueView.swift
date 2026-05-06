@@ -5,12 +5,14 @@ struct LeagueView: View {
     @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
     @Query private var users: [User]
     @StateObject private var viewModel = LeagueViewModel()
-    @StateObject private var friendsService = FriendsService()
+    @StateObject private var socialService = SocialService()
     @EnvironmentObject private var weekCache: SessionWeekCache
     @State private var selectedTab: SocialTab = .leaderboard
     @State private var friendSearchText = ""
     @State private var searchResults: [SocialProfile] = []
     @State private var selectedProfile: SocialProfile?
+    @State private var showRequestsSheet = false
+    @State private var isSearching = false
 
     private enum SocialTab {
         case leaderboard, friends
@@ -30,16 +32,23 @@ struct LeagueView: View {
                         leaderboardList
                         howXPEarnedCard
                     } else {
+                        if socialService.pendingRequestCount > 0 {
+                            pendingRequestsBanner
+                        }
                         shareProfileCard
                         friendsSearchSection
                         if !friendSearchText.isEmpty {
-                            if searchResults.isEmpty {
+                            if isSearching {
+                                ProgressView()
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 20)
+                            } else if searchResults.isEmpty {
                                 noResultsView
                             } else {
                                 searchResultsList
                             }
                         } else {
-                            if !friendsService.friends.isEmpty {
+                            if !socialService.friendsLeaderboard.isEmpty {
                                 addedFriendsSection
                             }
                             friendsSuggestions
@@ -56,6 +65,15 @@ struct LeagueView: View {
             }
             .sheet(item: $selectedProfile) { profile in
                 UserProfileDetailView(profile: profile)
+            }
+            .sheet(isPresented: $showRequestsSheet, onDismiss: {
+                Task { await socialService.refreshPendingRequestCount() }
+            }) {
+                FriendRequestsSheet(socialService: socialService)
+            }
+            .task {
+                await socialService.fetchFriendsLeaderboard()
+                await socialService.refreshPendingRequestCount()
             }
         }
     }
@@ -97,7 +115,7 @@ struct LeagueView: View {
             return Double(gained) / Double(max(1, needed)) * 100
         }()
         let userRank: Int = {
-            let sorted = SocialProfile.weeklyLeaderboard
+            let sorted = socialService.friendsLeaderboard
             let index = sorted.firstIndex(where: { $0.weeklyXP <= weeklyXP }) ?? sorted.count
             return index + 1
         }()
@@ -223,7 +241,7 @@ struct LeagueView: View {
     // MARK: - Leaderboard
 
     private var leaderboardList: some View {
-        let leaderboard = SocialProfile.weeklyLeaderboard
+        let leaderboard = socialService.friendsLeaderboard
         let myWeeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
 
         return VStack(alignment: .leading, spacing: 8) {
@@ -243,15 +261,30 @@ struct LeagueView: View {
                 )
             }
 
-            ForEach(Array(leaderboard.enumerated()), id: \.element.id) { index, profile in
-                leaderboardRow(
-                    rank: index + 1 + (viewModel.weeklyXP(from: weekCache.sessions) > profile.weeklyXP ? 1 : 0),
-                    name: profile.displayName,
-                    emoji: profile.avatarEmoji,
-                    xp: profile.weeklyXP,
-                    isCurrentUser: false,
-                    onTap: { selectedProfile = profile }
-                )
+            if leaderboard.isEmpty {
+                VStack(spacing: 12) {
+                    Image(systemName: "trophy")
+                        .font(.system(size: 32))
+                        .foregroundStyle(AppColors.sub)
+                    Text("Add friends to see the leaderboard")
+                        .font(AppFonts.body(14))
+                        .foregroundStyle(AppColors.sub)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 32)
+                .cardStyle()
+            } else {
+                ForEach(Array(leaderboard.enumerated()), id: \.element.id) { index, profile in
+                    leaderboardRow(
+                        rank: index + 1 + (viewModel.weeklyXP(from: weekCache.sessions) > profile.weeklyXP ? 1 : 0),
+                        name: profile.displayName,
+                        emoji: profile.avatarEmoji,
+                        xp: profile.weeklyXP,
+                        isCurrentUser: false,
+                        onTap: { selectedProfile = profile }
+                    )
+                }
             }
         }
     }
@@ -379,7 +412,16 @@ struct LeagueView: View {
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                     .onChange(of: friendSearchText) { _, newValue in
-                        searchResults = SocialProfile.search(query: newValue)
+                        if newValue.isEmpty {
+                            searchResults = []
+                            isSearching = false
+                        } else {
+                            isSearching = true
+                            Task {
+                                searchResults = await socialService.searchUsers(query: newValue)
+                                isSearching = false
+                            }
+                        }
                     }
 
                 if !friendSearchText.isEmpty {
@@ -408,7 +450,7 @@ struct LeagueView: View {
         VStack(alignment: .leading, spacing: 8) {
             SectionHeader(title: "My Friends")
 
-            ForEach(friendsService.friends) { profile in
+            ForEach(socialService.friendsLeaderboard) { profile in
                 friendRow(profile: profile)
             }
         }
@@ -429,47 +471,43 @@ struct LeagueView: View {
     }
 
     private func searchResultRow(profile: SocialProfile) -> some View {
-        HStack(spacing: 12) {
-            Button { selectedProfile = profile } label: {
-                HStack(spacing: 12) {
-                    Text(profile.avatarEmoji)
-                        .font(.system(size: 20))
-                        .frame(width: 42, height: 42)
-                        .background(AppColors.faint)
-                        .clipShape(Circle())
+        Button { selectedProfile = profile } label: {
+            HStack(spacing: 12) {
+                Text(profile.avatarEmoji)
+                    .font(.system(size: 20))
+                    .frame(width: 42, height: 42)
+                    .background(AppColors.faint)
+                    .clipShape(Circle())
 
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(profile.displayName)
-                            .font(AppFonts.bodyMedium(14))
-                            .foregroundStyle(AppColors.text)
-                        HStack(spacing: 6) {
-                            Text("@\(profile.username)")
-                                .font(AppFonts.body(12))
-                                .foregroundStyle(AppColors.sub)
-                            if let location = profile.location {
-                                Text("\u{00B7}")
-                                    .foregroundStyle(AppColors.dim)
-                                Text(location)
-                                    .font(AppFonts.body(11))
-                                    .foregroundStyle(AppColors.dim)
-                            }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(profile.displayName)
+                        .font(AppFonts.bodyMedium(14))
+                        .foregroundStyle(AppColors.text)
+                    HStack(spacing: 6) {
+                        Text("@\(profile.username)")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.sub)
+                        if let location = profile.location {
+                            Text("\u{00B7}")
+                                .foregroundStyle(AppColors.dim)
+                            Text(location)
+                                .font(AppFonts.body(11))
+                                .foregroundStyle(AppColors.dim)
                         }
                     }
+                }
 
-                    Spacer()
+                Spacer()
 
-                    VStack(alignment: .trailing, spacing: 2) {
-                        Text("Avg \(profile.avgScore)")
-                            .font(AppFonts.bodyBold(12))
-                            .foregroundStyle(AppColors.scoreColor(profile.avgScore))
-                        Text("\u{1F525} \(profile.currentStreak)")
-                            .font(AppFonts.body(10))
-                            .foregroundStyle(AppColors.dim)
-                    }
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text("Avg \(profile.avgScore)")
+                        .font(AppFonts.bodyBold(12))
+                        .foregroundStyle(AppColors.scoreColor(profile.avgScore))
+                    Text("\u{1F525} \(profile.currentStreak)")
+                        .font(AppFonts.body(10))
+                        .foregroundStyle(AppColors.dim)
                 }
             }
-
-            addFriendButton(for: profile)
         }
         .padding(12)
         .background(AppColors.card)
@@ -501,39 +539,41 @@ struct LeagueView: View {
     // MARK: - Friends Suggestions
 
     private var friendsSuggestions: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            SectionHeader(title: "Suggested")
-
-            ForEach(Array(SocialProfile.mockUsers.prefix(5))) { profile in
-                friendRow(profile: profile)
+        Group {
+            if socialService.friendsLeaderboard.isEmpty {
+                VStack(spacing: 8) {
+                    Text("No friends yet. Search for friends above to get started.")
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.sub)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .cardStyle()
             }
         }
     }
 
     private func friendRow(profile: SocialProfile) -> some View {
-        HStack(spacing: 12) {
-            Button { selectedProfile = profile } label: {
-                HStack(spacing: 12) {
-                    Text(profile.avatarEmoji)
-                        .font(.system(size: 18))
-                        .frame(width: 40, height: 40)
-                        .background(AppColors.faint)
-                        .clipShape(Circle())
+        Button { selectedProfile = profile } label: {
+            HStack(spacing: 12) {
+                Text(profile.avatarEmoji)
+                    .font(.system(size: 18))
+                    .frame(width: 40, height: 40)
+                    .background(AppColors.faint)
+                    .clipShape(Circle())
 
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(profile.displayName)
-                            .font(AppFonts.bodyMedium(13))
-                            .foregroundStyle(AppColors.text)
-                        Text("@\(profile.username)")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.sub)
-                    }
-
-                    Spacer()
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(profile.displayName)
+                        .font(AppFonts.bodyMedium(13))
+                        .foregroundStyle(AppColors.text)
+                    Text("@\(profile.username)")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.sub)
                 }
-            }
 
-            addFriendButton(for: profile)
+                Spacer()
+            }
         }
         .padding(10)
         .background(AppColors.card)
@@ -544,21 +584,49 @@ struct LeagueView: View {
         )
     }
 
-    @ViewBuilder
-    private func addFriendButton(for profile: SocialProfile) -> some View {
-        let isFriend = friendsService.isFriend(profile.id)
+    // MARK: - Pending Requests Banner
+
+    private var pendingRequestsBanner: some View {
         Button {
-            friendsService.toggleFriend(profile.id)
+            showRequestsSheet = true
         } label: {
-            Text(isFriend ? "Added" : "Add")
-                .font(AppFonts.bodyBold(12))
-                .foregroundStyle(isFriend ? AppColors.sub : .black)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 6)
-                .background(isFriend ? AppColors.card : AppColors.gold)
-                .clipShape(Capsule())
-                .overlay(Capsule().stroke(isFriend ? AppColors.border : Color.clear, lineWidth: 1))
+            HStack(spacing: 12) {
+                ZStack(alignment: .topTrailing) {
+                    Image(systemName: "person.2.fill")
+                        .font(.system(size: 20))
+                        .foregroundStyle(AppColors.gold)
+                    Circle()
+                        .fill(AppColors.red)
+                        .frame(width: 14, height: 14)
+                        .overlay(
+                            Text("\(socialService.pendingRequestCount)")
+                                .font(.system(size: 9, weight: .bold))
+                                .foregroundStyle(.white)
+                        )
+                        .offset(x: 6, y: -6)
+                }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("\(socialService.pendingRequestCount) Friend \(socialService.pendingRequestCount == 1 ? "Request" : "Requests")")
+                        .font(AppFonts.bodyBold(14))
+                        .foregroundStyle(AppColors.text)
+                    Text("Tap to review")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12))
+                    .foregroundStyle(AppColors.dim)
+            }
+            .padding(14)
+            .background(AppColors.card)
+            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+            .overlay(
+                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                    .stroke(AppColors.gold.opacity(0.4), lineWidth: 1)
+            )
         }
+        .buttonStyle(.plain)
     }
 
     // MARK: - How XP Is Earned
