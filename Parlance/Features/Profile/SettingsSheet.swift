@@ -5,9 +5,11 @@ struct SettingsSheet: View {
     @ObservedObject var viewModel: ProfileViewModel
     @EnvironmentObject private var subscription: SubscriptionService
     @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
+    @EnvironmentObject private var authService: AuthService
     @Environment(\.dismiss) private var dismiss
     @State private var showSafari = false
     @State private var safariURL: URL?
+    @State private var showSignOutConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -108,6 +110,12 @@ struct SettingsSheet: View {
 
                     Divider().background(AppColors.border)
 
+                    menuRow(icon: "rectangle.portrait.and.arrow.right", title: "Sign Out", isDestructive: true) {
+                        showSignOutConfirmation = true
+                    }
+
+                    Divider().background(AppColors.border)
+
                     menuRow(icon: "trash", title: "Reset All Data", isDestructive: true) {
                         viewModel.showResetConfirmation = true
                     }
@@ -139,6 +147,14 @@ struct SettingsSheet: View {
             }
         }
         .presentationDetents([.medium])
+        .alert("Sign Out", isPresented: $showSignOutConfirmation) {
+            Button("Sign Out", role: .destructive) {
+                Task { try? await authService.signOut() }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("You'll need to sign in again to access your account.")
+        }
         .sheet(isPresented: $showSafari) {
             if let url = safariURL {
                 SafariView(url: url)
