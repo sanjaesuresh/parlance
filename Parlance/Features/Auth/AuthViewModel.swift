@@ -11,6 +11,24 @@ final class AuthViewModel: ObservableObject {
     @Published var isSignUp = false
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @Published var resetEmailSent = false
+
+    static let minPasswordLength = 6
+
+    var isValidEmail: Bool {
+        let pattern = #"^[^\s@]+@[^\s@]+\.[^\s@]+$"#
+        return email.range(of: pattern, options: .regularExpression) != nil
+    }
+
+    var isPasswordLongEnough: Bool {
+        password.count >= Self.minPasswordLength
+    }
+
+    var canSubmit: Bool {
+        guard isValidEmail, !password.isEmpty else { return false }
+        if isSignUp { return isPasswordLongEnough }
+        return true
+    }
 
     private(set) var pendingNonce: String?
     private let authService: AuthService
@@ -19,20 +37,57 @@ final class AuthViewModel: ObservableObject {
         self.authService = authService
     }
 
-    func submitEmailAuth() async {
-        guard !email.isEmpty, !password.isEmpty else {
-            errorMessage = "Email and password are required."
+    func submitSignIn() async {
+        guard canSubmit else { return }
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+        do {
+            try await authService.signIn(email: email, password: password)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    func signUpWithProfile(name: String, username: String, occupation: String?, avatar: String, comfortLevel: Int) async {
+        isLoading = true
+        errorMessage = nil
+        defer { isLoading = false }
+        do {
+            try await authService.signUp(email: email, password: password)
+            let uid = authService.currentUserID ?? ""
+            let trimmed = name.trimmingCharacters(in: .whitespaces)
+            let finalUsername = username.isEmpty ? Self.makeUsername(from: trimmed) : username
+            let occ = occupation.flatMap { $0.trimmingCharacters(in: .whitespaces).isEmpty ? nil : $0 }
+            let user = PersistenceService.shared.createUser(
+                supabaseUID: uid,
+                name: trimmed,
+                username: finalUsername,
+                occupation: occ,
+                avatar: avatar,
+                practiceLevel: comfortLevel
+            )
+            await SyncService.shared.createProfile(for: user, authService: authService)
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    static func makeUsername(from name: String) -> String {
+        String(name.lowercased().filter { $0.isLetter || $0.isNumber }.prefix(15))
+    }
+
+    func sendPasswordReset() async {
+        guard isValidEmail else {
+            errorMessage = "Enter your email address first."
             return
         }
         isLoading = true
         errorMessage = nil
         defer { isLoading = false }
         do {
-            if isSignUp {
-                try await authService.signUp(email: email, password: password)
-            } else {
-                try await authService.signIn(email: email, password: password)
-            }
+            try await authService.sendPasswordReset(email: email)
+            resetEmailSent = true
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -61,6 +116,11 @@ final class AuthViewModel: ObservableObject {
             defer { isLoading = false }
             do {
                 try await authService.signInWithApple(idToken: idToken, nonce: nonce)
+                let nameParts = [credential.fullName?.givenName, credential.fullName?.familyName]
+                let formattedName = nameParts.compactMap { $0 }.joined(separator: " ")
+                if !formattedName.isEmpty {
+                    authService.pendingAppleDisplayName = formattedName
+                }
             } catch {
                 errorMessage = error.localizedDescription
             }
