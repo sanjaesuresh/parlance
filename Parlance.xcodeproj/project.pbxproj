@@ -41,6 +41,7 @@
 		D4DB949C2FAA5FFB000578F8 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4DB98142FAAF800000578F8 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4DB9A9F2FABC92E000578F8 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D4DB9BE02FABCA0F000578F8 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -177,6 +178,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D4DB9BE32FABCA0F000578F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,6 +296,10 @@
 			productRefGroup = D4BDC0892F7F971900FE69B7 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = D4DB9BE32FABCA0F000578F8 /* Products */;
+					ProjectRef = D4DB9BE02FABCA0F000578F8 /* Parlance.xcodeproj */;
+				},
 				{
 					ProductGroup = D4DB949E2FAA5FFB000578F8 /* Products */;
 					ProjectRef = D4DB949C2FAA5FFB000578F8 /* Parlance.xcodeproj */;

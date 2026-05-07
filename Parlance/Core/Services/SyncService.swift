@@ -29,8 +29,8 @@ final class SyncService {
             lastSessionAt: nil
         )
         do {
-            try await client.from("profiles").insert(profile).execute()
-            try await client.from("user_stats").insert(stats).execute()
+            try await client.from("profiles").upsert(profile, onConflict: "id").execute()
+            try await client.from("user_stats").upsert(stats, onConflict: "user_id").execute()
         } catch {
             #if DEBUG
             print("[SyncService] createProfile failed: \(error)")

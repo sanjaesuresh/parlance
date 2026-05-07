@@ -1,18 +1,14 @@
 import SwiftUI
-import SafariServices
-import SwiftData
 
-// Shown when an authenticated user has no local profile (e.g. signing in on a new device).
-struct FirstLaunchSetupView: View {
-    @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject private var authService: AuthService
+struct AuthProfileSetupView: View {
+    @ObservedObject var viewModel: AuthViewModel
+    @Environment(\.dismiss) private var dismiss
 
     @State private var name = ""
     @State private var username = ""
     @State private var occupation = ""
     @State private var selectedAvatar = "\u{1F3A4}"
     @State private var comfortLevel = 0
-    @State private var showPrivacyPolicy = false
 
     private let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}",
@@ -49,6 +45,7 @@ struct FirstLaunchSetupView: View {
                         .foregroundStyle(AppColors.sub)
                 }
 
+                // Name
                 setupField(label: "What should we call you?") {
                     TextField("Your name", text: $name)
                         .font(AppFonts.body(17))
@@ -60,6 +57,7 @@ struct FirstLaunchSetupView: View {
                         }
                 }
 
+                // Username
                 setupField(label: "Username", hint: "Friends can search for you by username") {
                     TextField("e.g. alexsmith", text: $username)
                         .font(AppFonts.body(17))
@@ -73,12 +71,14 @@ struct FirstLaunchSetupView: View {
                         }
                 }
 
+                // Occupation (optional)
                 setupField(label: "Job or role", hint: "Optional — helps tailor your practice") {
                     TextField("e.g. Software Engineer, Student…", text: $occupation)
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
                 }
 
+                // Comfort level
                 VStack(alignment: .leading, spacing: 12) {
                     Text("How comfortable are you with public speaking?")
                         .font(AppFonts.bodyMedium(14))
@@ -91,7 +91,8 @@ struct FirstLaunchSetupView: View {
                                 comfortLevel = option.level
                             } label: {
                                 HStack(spacing: 14) {
-                                    Text(option.emoji).font(.system(size: 26))
+                                    Text(option.emoji)
+                                        .font(.system(size: 26))
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(option.label)
                                             .font(AppFonts.bodyBold(14))
@@ -120,6 +121,7 @@ struct FirstLaunchSetupView: View {
                     }
                 }
 
+                // Avatar
                 VStack(spacing: 12) {
                     Text("Pick your avatar")
                         .font(AppFonts.bodyMedium(14))
@@ -150,50 +152,67 @@ struct FirstLaunchSetupView: View {
                     }
                 }
 
-                Button {
-                    createUser()
-                } label: {
-                    Text("Let's go")
-                        .font(AppFonts.bodyBold(18))
-                        .foregroundStyle(isValid ? AppColors.bg : AppColors.sub)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 52)
-                        .background(isValid ? AppColors.gold : AppColors.border)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
+                if let error = viewModel.errorMessage {
+                    Text(error)
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24)
                 }
-                .disabled(!isValid)
+
+                let disabled = !isValid || viewModel.isLoading
+
+                Button {
+                    Task {
+                        await viewModel.signUpWithProfile(
+                            name: name,
+                            username: username,
+                            occupation: occupation,
+                            avatar: selectedAvatar,
+                            comfortLevel: comfortLevel
+                        )
+                    }
+                } label: {
+                    Group {
+                        if viewModel.isLoading {
+                            ProgressView().tint(.black)
+                        } else {
+                            Text("Let's go")
+                                .font(AppFonts.bodyBold(18))
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 52)
+                    .foregroundStyle(.black)
+                    .background(disabled ? AppColors.gold.opacity(0.4) : AppColors.gold)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
+                }
+                .disabled(disabled)
                 .padding(.horizontal, 24)
 
-                VStack(spacing: 8) {
-                    Button { showPrivacyPolicy = true } label: {
-                        Text("Privacy Policy")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.sub)
-                            .underline()
-                    }
-                    Button {
-                        Task { try? await authService.signOut() }
-                    } label: {
-                        Text("Sign out")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.dim)
-                    }
-                }
-                .padding(.bottom, 24)
+                Text("Audio is processed on-device.")
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .padding(.bottom, 24)
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(AppColors.bg)
         .scrollDismissesKeyboard(.interactively)
-        .onAppear {
-            if let appleName = authService.pendingAppleDisplayName {
-                name = appleName
-                username = AuthViewModel.makeUsername(from: appleName)
-                authService.pendingAppleDisplayName = nil
+        .background(AppColors.bg.ignoresSafeArea())
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 14, weight: .semibold))
+                        Text("Back")
+                            .font(AppFonts.body(15))
+                    }
+                    .foregroundStyle(AppColors.sub)
+                }
             }
-        }
-        .sheet(isPresented: $showPrivacyPolicy) {
-            SafariView(url: URL(string: "https://parlance.app/privacy")!)
         }
     }
 
@@ -216,24 +235,5 @@ struct FirstLaunchSetupView: View {
             }
         }
         .padding(.horizontal, 24)
-    }
-
-    private func createUser() {
-        let trimmedName = name.trimmingCharacters(in: .whitespaces)
-        guard !trimmedName.isEmpty, comfortLevel > 0 else { return }
-        let uid = authService.currentUserID ?? ""
-        let finalUsername = username.isEmpty ? AuthViewModel.makeUsername(from: trimmedName) : username
-        let occ = occupation.trimmingCharacters(in: .whitespaces)
-        let user = PersistenceService.shared.createUser(
-            supabaseUID: uid,
-            name: trimmedName,
-            username: finalUsername,
-            occupation: occ.isEmpty ? nil : occ,
-            avatar: selectedAvatar,
-            practiceLevel: comfortLevel
-        )
-        Task {
-            await SyncService.shared.createProfile(for: user, authService: authService)
-        }
     }
 }
