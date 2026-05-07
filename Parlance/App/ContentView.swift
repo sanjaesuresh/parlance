@@ -47,6 +47,7 @@ struct ContentView: View {
         .preferredColorScheme(AppTheme(rawValue: themeRaw)?.colorScheme)
         .environment(\.font, AppFonts.body(16))
         .environmentObject(permissionsService)
+        .environmentObject(weekCache)
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -89,7 +90,6 @@ struct ContentView: View {
                 }
         }
         .tint(AppColors.gold)
-        .environmentObject(weekCache)
         .onAppear { weekCache.refresh() }
     }
 }
