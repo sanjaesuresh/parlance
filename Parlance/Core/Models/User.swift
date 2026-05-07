@@ -3,6 +3,7 @@ import SwiftData
 
 @Model
 final class User {
+    var supabaseUID: String
     var displayName: String
     var username: String?
     var location: String?
@@ -23,6 +24,7 @@ final class User {
     var dailyChallengeCompletedDate: Date?
 
     init(
+        supabaseUID: String = "",
         displayName: String,
         username: String? = nil,
         location: String? = nil,
@@ -41,6 +43,7 @@ final class User {
         dailyChallengeLockDate: Date? = nil,
         dailyChallengeCompletedDate: Date? = nil
     ) {
+        self.supabaseUID = supabaseUID
         self.displayName = displayName
         self.username = username
         self.location = location

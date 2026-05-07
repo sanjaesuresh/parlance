@@ -7,6 +7,9 @@ import Supabase
 final class AuthService: ObservableObject {
     @Published private(set) var currentUser: Supabase.User?
     @Published private(set) var isAuthenticated = false
+    @Published var pendingAppleDisplayName: String?
+
+    var currentUserID: String? { currentUser?.id.uuidString }
     @Published private(set) var isLoading = true
 
     private let client = SupabaseManager.shared.client
@@ -49,5 +52,9 @@ final class AuthService: ObservableObject {
 
     func signOut() async throws {
         try await client.auth.signOut()
+    }
+
+    func sendPasswordReset(email: String) async throws {
+        try await client.auth.resetPasswordForEmail(email)
     }
 }

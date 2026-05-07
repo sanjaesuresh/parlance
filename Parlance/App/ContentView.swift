@@ -13,7 +13,10 @@ struct ContentView: View {
     @State private var isAppReady = false
     @EnvironmentObject private var authService: AuthService
 
-    private var currentUser: User? { users.first }
+    private var currentUser: User? {
+        let uid = authService.currentUserID ?? ""
+        return users.first { $0.supabaseUID == uid }
+    }
     private var hasCompletedSetup: Bool { currentUser?.hasCompletedSetup ?? false }
 
     var body: some View {
@@ -70,26 +73,31 @@ struct ContentView: View {
                     activeSession = state
                 }
             })
+            .environmentObject(weekCache)
             .tabItem {
                 Label("Home", systemImage: "house")
             }
 
             ProgressView()
+                .environmentObject(weekCache)
                 .tabItem {
                     Label("Progress", systemImage: "chart.bar")
                 }
 
             LeagueView()
+                .environmentObject(weekCache)
                 .tabItem {
                     Label("League", systemImage: "trophy")
                 }
 
             ProfileView()
+                .environmentObject(weekCache)
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
         }
         .tint(AppColors.gold)
+        .environmentObject(weekCache)
         .onAppear { weekCache.refresh() }
     }
 }
