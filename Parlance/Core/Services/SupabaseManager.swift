@@ -2,8 +2,8 @@
 import Foundation
 import Supabase
 
-// Credentials injected via project.pbxproj INFOPLIST_KEY_* build settings.
 // The Supabase anon key is safe to embed — RLS policies enforce access control server-side.
+// It is not a secret; it identifies the project, not a privileged user.
 @MainActor
 final class SupabaseManager {
     static let shared = SupabaseManager()
@@ -11,16 +11,18 @@ final class SupabaseManager {
     let client: SupabaseClient
 
     private init() {
-        let urlString = Bundle.main.object(forInfoDictionaryKey: "SupabaseURL") as? String ?? ""
-        let key = Bundle.main.object(forInfoDictionaryKey: "SupabaseAnonKey") as? String ?? ""
-
-        guard let url = URL(string: urlString), !urlString.isEmpty else {
-            fatalError("[SupabaseManager] Invalid or missing SupabaseURL in Info.plist")
-        }
-        guard !key.isEmpty else {
-            fatalError("[SupabaseManager] Missing SupabaseAnonKey in Info.plist")
-        }
-
-        client = SupabaseClient(supabaseURL: url, supabaseKey: key)
+        // swiftlint:disable line_length
+        let url = URL(string: "https://xekrfjufgorrcnpnsaei.supabase.co")!
+        let key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhla3JmanVmZ29ycmNucG5zYWVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMjMxNzgsImV4cCI6MjA5MzU5OTE3OH0.w4gjaTtnrYyDLoqRMYPNwm0vBYRLfUp1jYOrvVhWxfc"
+        // swiftlint:enable line_length
+        client = SupabaseClient(
+            supabaseURL: url,
+            supabaseKey: key,
+            options: SupabaseClientOptions(
+                auth: SupabaseClientOptions.AuthOptions(
+                    emitLocalSessionAsInitialSession: true
+                )
+            )
+        )
     }
 }
