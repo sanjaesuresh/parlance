@@ -67,6 +67,7 @@ struct AuthView: View {
                                     .background(viewModel.isSignUp == isSignUp ? AppColors.card : Color.clear)
                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                             }
+                            .accessibilityIdentifier(isSignUp ? "createAccountTab" : "signInTab")
                         }
                     }
                     .padding(4)
@@ -85,6 +86,7 @@ struct AuthView: View {
                         .background(AppColors.card)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(emailInvalid ? AppColors.red : AppColors.border, lineWidth: 1))
+                        .accessibilityIdentifier("emailField")
 
                     if emailInvalid {
                         Text("Enter a valid email address.")
@@ -100,7 +102,8 @@ struct AuthView: View {
                             text: $viewModel.password,
                             placeholder: "Password",
                             isRevealed: showPassword,
-                            textContentType: viewModel.isSignUp ? .newPassword : .password
+                            textContentType: viewModel.isSignUp ? .newPassword : .password,
+                            accessibilityIdentifier: "passwordField"
                         )
                         .frame(height: 22)
 
@@ -174,6 +177,7 @@ struct AuthView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                     .disabled(disabled)
+                    .accessibilityIdentifier("authSubmitButton")
 
                     HStack(spacing: 6) {
                         Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)

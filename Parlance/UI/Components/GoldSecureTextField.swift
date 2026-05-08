@@ -7,6 +7,7 @@ struct GoldSecureTextField: UIViewRepresentable {
     let placeholder: String
     var isRevealed: Bool
     var textContentType: UITextContentType? = .password
+    var accessibilityIdentifier: String? = nil
 
     func makeCoordinator() -> Coordinator { Coordinator(text: $text) }
 
@@ -24,6 +25,7 @@ struct GoldSecureTextField: UIViewRepresentable {
             string: placeholder,
             attributes: [.foregroundColor: UIColor(AppColors.dim)]
         )
+        field.accessibilityIdentifier = accessibilityIdentifier
         field.addTarget(context.coordinator, action: #selector(Coordinator.textChanged(_:)), for: .editingChanged)
         field.delegate = context.coordinator
         return field

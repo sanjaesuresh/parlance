@@ -45,6 +45,7 @@ struct AuthProfileSetupView: View {
                     TextField("Your name", text: $name)
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
+                        .accessibilityIdentifier("nameField")
                         .onChange(of: name) { _, newValue in
                             if newValue.count > AppConstants.maxNameLength {
                                 name = String(newValue.prefix(AppConstants.maxNameLength))
@@ -59,6 +60,7 @@ struct AuthProfileSetupView: View {
                         .foregroundStyle(AppColors.text)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
+                        .accessibilityIdentifier("usernameField")
                         .onChange(of: username) { _, newValue in
                             let filtered = newValue.lowercased().filter { $0.isLetter || $0.isNumber || $0 == "_" }
                             if filtered != newValue { username = filtered }
@@ -116,6 +118,7 @@ struct AuthProfileSetupView: View {
                                         .stroke(comfortLevel == option.level ? AppColors.gold.opacity(0.6) : AppColors.border, lineWidth: 1)
                                 )
                             }
+                            .accessibilityIdentifier("comfortOption_\(option.level)")
                             .padding(.horizontal, 24)
                         }
                     }
@@ -191,6 +194,7 @@ struct AuthProfileSetupView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 14))
                 }
                 .disabled(disabled)
+                .accessibilityIdentifier("letsGoButton")
                 .padding(.horizontal, 24)
 
                 HStack(spacing: 6) {
