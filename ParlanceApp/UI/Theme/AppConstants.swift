@@ -32,4 +32,12 @@ enum AppConstants {
         static let lg: CGFloat = 24
         static let xl: CGFloat = 32
     }
+
+    enum IconButton {
+        static let size: CGFloat = 36
+        static let glyph: CGFloat = 15
+        // Apple HIG minimum tap target. Use as the .contentShape or outer frame
+        // when the visual is smaller than 44pt so hit testing still meets HIG.
+        static let hitTarget: CGFloat = 44
+    }
 }

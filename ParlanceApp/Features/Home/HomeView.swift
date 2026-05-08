@@ -14,6 +14,9 @@ struct HomeView: View {
 
     @State private var sliderLevel: Double = 1
     @State private var showPaywall = false
+    @State private var startSessionHaptic = false
+    @State private var difficultyHaptic = false
+    @State private var lockedHaptic = false
 
     var body: some View {
         NavigationStack {
@@ -62,6 +65,9 @@ struct HomeView: View {
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
             }
+            .sensoryFeedback(.impact(weight: .medium), trigger: startSessionHaptic)
+            .sensoryFeedback(.selection, trigger: difficultyHaptic)
+            .sensoryFeedback(.warning, trigger: lockedHaptic)
         }
     }
 
@@ -146,6 +152,7 @@ struct HomeView: View {
                                 wasDailyChallenge: true,
                                 isPro: subscription.isPro
                             ) {
+                                startSessionHaptic.toggle()
                                 onStartSession(state)
                             }
                         }
@@ -210,8 +217,10 @@ struct HomeView: View {
 
                                     Button {
                                         if locked {
+                                            lockedHaptic.toggle()
                                             showPaywall = true
-                                        } else {
+                                        } else if Int(sliderLevel) != band.id {
+                                            difficultyHaptic.toggle()
                                             sliderLevel = Double(band.id)
                                             user.practiceLevel = band.id
                                         }
@@ -309,10 +318,12 @@ struct HomeView: View {
                         wasDailyChallenge: false,
                         isPro: subscription.isPro
                     ) {
+                        startSessionHaptic.toggle()
                         onStartSession(state)
                     }
                 },
                 onSelectLocked: { _ in
+                    lockedHaptic.toggle()
                     showPaywall = true
                 }
             )

@@ -21,6 +21,8 @@ struct ResultsView: View {
     @State private var displayedXP: Int = 0
     @State private var cachedPriorAverage: Int? = nil
     @State private var xpAnimationTask: Task<Void, Never>? = nil
+    @State private var revealHaptic = false
+    @State private var breakdownHaptic = false
 
     private var durationString: String {
         let minutes = Int(session.duration) / 60
@@ -144,7 +146,13 @@ struct ResultsView: View {
         .sheet(isPresented: $showPaywall) {
             PaywallView()
         }
+        .sensoryFeedback(.success, trigger: revealHaptic)
+        .sensoryFeedback(.impact(weight: .light), trigger: breakdownHaptic)
         .onAppear {
+            // Climactic moment — score is now visible. Fire once when the
+            // results screen first appears, regardless of phase, so it lands
+            // alongside the ring animation rather than after the user taps.
+            revealHaptic.toggle()
             let prior = allSessions.filter { $0.id != session.id }
             if !prior.isEmpty {
                 let sum = prior.map(\.overallScore).reduce(0, +)
@@ -225,6 +233,7 @@ struct ResultsView: View {
                 .padding(.bottom, 4)
 
             Button {
+                breakdownHaptic.toggle()
                 withAnimation(.easeOut(duration: 0.35)) {
                     resultsPhase = .breakdown
                 }

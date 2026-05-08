@@ -55,6 +55,11 @@ enum AppColors {
     static let gold = Color(hex: "#E8A838")
     static let red = Color(hex: "#E05A4E")
 
+    // Foreground for content placed on AppColors.gold (icons, glyphs, text).
+    // Gold is the same in light and dark mode, so this is intentionally a fixed
+    // near-black for contrast in both schemes.
+    static let onGold = Color(hex: "#1A1A1A")
+
     static let purple = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#7B68EE")

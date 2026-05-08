@@ -5,6 +5,10 @@ struct FriendRequestsSheet: View {
     @Environment(\.dismiss) private var dismiss
     @State private var requestsWithProfiles: [FriendRequestWithProfile] = []
     @State private var isLoading = true
+    @State private var inFlight: Set<UUID> = []
+    @State private var errorMessage: String?
+    @State private var acceptHaptic = false
+    @State private var declineHaptic = false
 
     var body: some View {
         NavigationStack {
@@ -26,6 +30,20 @@ struct FriendRequestsSheet: View {
         .task {
             requestsWithProfiles = await socialService.fetchPendingRequestsWithProfiles()
             isLoading = false
+        }
+        .sensoryFeedback(.success, trigger: acceptHaptic)
+        .sensoryFeedback(.selection, trigger: declineHaptic)
+        .alert(
+            "Couldn't update request",
+            isPresented: Binding(
+                get: { errorMessage != nil },
+                set: { if !$0 { errorMessage = nil } }
+            ),
+            presenting: errorMessage
+        ) { _ in
+            Button("OK", role: .cancel) { errorMessage = nil }
+        } message: { msg in
+            Text(msg)
         }
     }
 
@@ -149,42 +167,47 @@ struct FriendRequestsSheet: View {
 
             HStack(spacing: 8) {
                 Button {
-                    Task {
-                        try? await socialService.acceptRequest(
-                            item.request.id,
-                            fromUserId: item.request.fromUserId
-                        )
-                        withAnimation(.easeOut(duration: 0.22)) {
-                            requestsWithProfiles.removeAll { $0.id == item.id }
-                        }
-                    }
+                    accept(item)
                 } label: {
                     Image(systemName: "checkmark")
-                        .font(.system(size: 15, weight: .bold))
-                        .foregroundStyle(.black)
-                        .frame(width: 36, height: 36)
+                        .font(.system(size: AppConstants.IconButton.glyph, weight: .bold))
+                        .foregroundStyle(AppColors.onGold)
+                        .frame(
+                            width: AppConstants.IconButton.size,
+                            height: AppConstants.IconButton.size
+                        )
                         .background(AppColors.gold)
                         .clipShape(Circle())
+                        .frame(
+                            width: AppConstants.IconButton.hitTarget,
+                            height: AppConstants.IconButton.hitTarget
+                        )
+                        .contentShape(Rectangle())
                 }
+                .disabled(inFlight.contains(item.id))
                 .accessibilityLabel("Accept")
                 .accessibilityIdentifier("friendRequestAcceptButton_\(username)")
 
                 Button {
-                    Task {
-                        try? await socialService.declineRequest(item.request.id)
-                        withAnimation(.easeOut(duration: 0.22)) {
-                            requestsWithProfiles.removeAll { $0.id == item.id }
-                        }
-                    }
+                    decline(item)
                 } label: {
                     Image(systemName: "xmark")
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.system(size: AppConstants.IconButton.glyph - 1, weight: .bold))
                         .foregroundStyle(AppColors.sub)
-                        .frame(width: 36, height: 36)
+                        .frame(
+                            width: AppConstants.IconButton.size,
+                            height: AppConstants.IconButton.size
+                        )
                         .background(AppColors.card2)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(AppColors.border, lineWidth: 1))
+                        .frame(
+                            width: AppConstants.IconButton.hitTarget,
+                            height: AppConstants.IconButton.hitTarget
+                        )
+                        .contentShape(Rectangle())
                 }
+                .disabled(inFlight.contains(item.id))
                 .accessibilityLabel("Decline")
                 .accessibilityIdentifier("friendRequestDeclineButton_\(username)")
             }
@@ -201,5 +224,42 @@ struct FriendRequestsSheet: View {
         // overrides each child and XCUITest can't find the inner buttons.
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("friendRequestRow_\(username)")
+    }
+
+    private func accept(_ item: FriendRequestWithProfile) {
+        guard !inFlight.contains(item.id) else { return }
+        inFlight.insert(item.id)
+        acceptHaptic.toggle()
+        Task {
+            do {
+                try await socialService.acceptRequest(
+                    item.request.id,
+                    fromUserId: item.request.fromUserId
+                )
+                withAnimation(.easeOut(duration: 0.22)) {
+                    requestsWithProfiles.removeAll { $0.id == item.id }
+                }
+            } catch {
+                errorMessage = "Couldn't accept the request. Please try again."
+            }
+            inFlight.remove(item.id)
+        }
+    }
+
+    private func decline(_ item: FriendRequestWithProfile) {
+        guard !inFlight.contains(item.id) else { return }
+        inFlight.insert(item.id)
+        declineHaptic.toggle()
+        Task {
+            do {
+                try await socialService.declineRequest(item.request.id)
+                withAnimation(.easeOut(duration: 0.22)) {
+                    requestsWithProfiles.removeAll { $0.id == item.id }
+                }
+            } catch {
+                errorMessage = "Couldn't decline the request. Please try again."
+            }
+            inFlight.remove(item.id)
+        }
     }
 }

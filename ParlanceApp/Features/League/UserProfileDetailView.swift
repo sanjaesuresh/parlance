@@ -5,6 +5,7 @@ struct UserProfileDetailView: View {
     @State private var relationshipState: RelationshipState = .none
     @State private var isLoadingRelationship = true
     @State private var resolvedProfile: SocialProfile
+    @State private var requestActionHaptic = false
     @Environment(\.dismiss) private var dismiss
 
     init(profile: SocialProfile) {
@@ -33,6 +34,7 @@ struct UserProfileDetailView: View {
             }
             .toolbarBackground(AppColors.bg, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
+            .sensoryFeedback(.success, trigger: requestActionHaptic)
             .task {
                 guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
                 relationshipState = await socialService.relationshipState(for: profileId)
@@ -141,6 +143,7 @@ struct UserProfileDetailView: View {
         case .none:
             Button("Add Friend") {
                 guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
+                requestActionHaptic.toggle()
                 Task {
                     try? await socialService.sendFriendRequest(to: profileId)
                     relationshipState = .pendingSent
@@ -168,6 +171,7 @@ struct UserProfileDetailView: View {
         case .pendingReceived:
             Button("Accept Request") {
                 guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
+                requestActionHaptic.toggle()
                 Task {
                     try? await socialService.acceptRequestFrom(profileId)
                     relationshipState = .friends
