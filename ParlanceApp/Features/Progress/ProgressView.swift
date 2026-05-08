@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 
-struct ProgressView: View {
+struct ProgressTabView: View {
     @Query(sort: \Session.date, order: .reverse) private var sessions: [Session]
     @Query private var achievements: [Achievement]
     @StateObject private var viewModel = ProgressViewModel()
