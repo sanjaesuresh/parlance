@@ -23,7 +23,9 @@ struct AuthProfileSetupView: View {
     ]
 
     private var isValid: Bool {
-        !name.trimmingCharacters(in: .whitespaces).isEmpty && comfortLevel > 0
+        !name.trimmingCharacters(in: .whitespaces).isEmpty &&
+        !username.trimmingCharacters(in: .whitespaces).isEmpty &&
+        comfortLevel > 0
     }
 
     var body: some View {
@@ -80,10 +82,15 @@ struct AuthProfileSetupView: View {
 
                 // Comfort level
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("How comfortable are you with public speaking?")
-                        .font(AppFonts.bodyMedium(14))
-                        .foregroundStyle(AppColors.sub)
-                        .padding(.horizontal, 24)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("How comfortable are you with public speaking?")
+                            .font(AppFonts.bodyMedium(14))
+                            .foregroundStyle(AppColors.sub)
+                        Text("Sets your starting difficulty — you can change this anytime.")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                    }
+                    .padding(.horizontal, 24)
 
                     VStack(spacing: 8) {
                         ForEach(comfortOptions, id: \.level) { option in
