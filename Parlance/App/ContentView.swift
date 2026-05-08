@@ -20,6 +20,11 @@ struct ContentView: View {
     }
     private var hasCompletedSetup: Bool { currentUser?.hasCompletedSetup ?? false }
 
+    private var shouldShowWelcome: Bool {
+        guard let user = currentUser else { return false }
+        return UserDefaults.standard.bool(forKey: "parlance.show_welcome.\(user.supabaseUID)")
+    }
+
     var body: some View {
         ZStack {
             if showSplash || authService.isLoading || isSyncingProfile {
@@ -33,6 +38,11 @@ struct ContentView: View {
                 AuthView(authService: authService)
             } else if !hasCompletedSetup && !authService.isCompletingSignUp {
                 FirstLaunchSetupView()
+            } else if shouldShowWelcome, let user = currentUser {
+                WelcomeSplashView(user: user) {
+                    UserDefaults.standard.removeObject(forKey: "parlance.show_welcome.\(user.supabaseUID)")
+                }
+                .transition(.opacity)
             } else if let session = activeSession {
                 SessionCoordinator(
                     state: session,
