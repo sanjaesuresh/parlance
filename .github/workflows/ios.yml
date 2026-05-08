@@ -54,7 +54,7 @@ for runtime, devices in d['devices'].items():
       - name: Build for testing
         run: |
           xcodebuild build-for-testing \
-            -project Parlance.xcodeproj \
+            -project ParlanceApp/Parlance.xcodeproj \
             -scheme Parlance \
             -destination "${{ steps.dest.outputs.destination }}" \
             CODE_SIGN_IDENTITY="" \
@@ -69,7 +69,7 @@ for runtime, devices in d['devices'].items():
       - name: Test
         run: |
           xcodebuild test-without-building \
-            -project Parlance.xcodeproj \
+            -project ParlanceApp/Parlance.xcodeproj \
             -scheme Parlance \
             -destination "${{ steps.dest.outputs.destination }}" \
             CODE_SIGN_IDENTITY="" \

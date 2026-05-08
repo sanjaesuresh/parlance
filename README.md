@@ -63,8 +63,7 @@ Parlance helps you practice speaking in high-stakes situations — interviews, p
 ## Project Structure
 
 ```
-Parlance.xcodeproj/
-Parlance/                  ← main app source
+ParlanceApp/                       ← main app source + Parlance.xcodeproj
 ├── App/                   ← ContentView (root TabView), SplashView, ActiveSessionState
 ├── Core/
 │   ├── AI/                ← ClaudeClient (scoring), FeedbackGenerator, HumeClient (emotion)
@@ -91,7 +90,7 @@ ParlanceUITests/
 
 ## Setup
 
-1. Open `Parlance.xcodeproj` in Xcode 26+
+1. Open `ParlanceApp/Parlance.xcodeproj` in Xcode 26+
 2. Build and run on iOS 17+ simulator or device
 3. For AI feedback: deploy the Cloudflare Worker and set `ParlanceAPIBaseURL` in Info.plist
 

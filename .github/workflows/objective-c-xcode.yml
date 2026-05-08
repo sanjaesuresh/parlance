@@ -18,7 +18,7 @@ jobs:
       - name: Build and Analyze
         run: |
           xcodebuild clean build analyze \
-            -project Parlance.xcodeproj \
+            -project ParlanceApp/Parlance.xcodeproj \
             -scheme Parlance \
             -destination "generic/platform=iOS Simulator" \
             CODE_SIGN_IDENTITY="" \
