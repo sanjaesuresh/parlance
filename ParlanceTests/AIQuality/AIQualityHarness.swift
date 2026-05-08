@@ -10,6 +10,7 @@ extension Tag {
 @Suite(
     "AI Quality Harness",
     .tags(.aiQuality),
+    .serialized,
     .enabled(
         if: ProcessInfo.processInfo.environment["RUN_AI_QUALITY"] == "1",
         "set RUN_AI_QUALITY=1 to enable — these tests hit the live worker and use API quota"

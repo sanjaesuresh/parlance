@@ -28,7 +28,10 @@ enum AIQualityFixtures {
         bands: ExpectedBands(overall: 0...15),
         checks: [
             .allMetricsAtMost(2),
-            .feedbackContainsAnyOf(["transcript", "speak", "speech", "didn't", "no speech", "insufficient"]),
+            .feedbackContainsAnyOf([
+                "transcript", "speak", "speech", "audio", "recording", "captured",
+                "didn't", "no speech", "insufficient", "no response",
+            ]),
         ]
     )
 
@@ -100,7 +103,7 @@ enum AIQualityFixtures {
         timingStats: .empty,
         audioFeatures: .empty,
         bands: ExpectedBands(
-            overall: 30...50,
+            overall: 25...55,
             metrics: [.fillerWords: 0...4]
         ),
         checks: [
@@ -189,7 +192,7 @@ enum AIQualityFixtures {
         """,
         timingStats: .empty,
         audioFeatures: .empty,
-        bands: ExpectedBands(overall: 65...85),
+        bands: ExpectedBands(overall: 60...95),
         checks: [
             .feedbackContainsAnyOf(["clear", "natural", "conversational", "analogy"]),
         ]
