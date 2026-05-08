@@ -130,11 +130,11 @@ final class SyncService {
 
     // MARK: - Static helpers (testable)
 
-    static func sumXP(_ values: [Int]) -> Int {
+    nonisolated static func sumXP(_ values: [Int]) -> Int {
         values.reduce(0, +)
     }
 
-    static func average(scores: [Int]) -> Int {
+    nonisolated static func average(scores: [Int]) -> Int {
         guard !scores.isEmpty else { return 0 }
         let sum = scores.reduce(0, +)
         return Int((Double(sum) / Double(scores.count)).rounded())
