@@ -1,0 +1,730 @@
+[
+  {
+    "id": "explanation_1-2_economics_001",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "1-2",
+    "question": "Explain why concert tickets sometimes cost five times their face value on resale sites, to someone who thinks it's just greed.",
+    "tips": [
+      "Explain supply and demand without the jargon: when more people want something than there is of it, the price rises until fewer people want it",
+      "Clarify that 'greed' is the symptom, not the mechanism — scalpers are just revealing what the market would have charged",
+      "End with the question it raises: should artists price higher in the first place, or is low face value a gift to fans?"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Economic mechanism tied to everyday frustration"
+  },
+  {
+    "id": "explanation_1-2_finance_002",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "1-2",
+    "question": "Explain what inflation is to your grandmother who has noticed groceries cost more than they used to.",
+    "tips": [
+      "Anchor to her experience: the same shopping basket costs more — that gap is inflation in action",
+      "Explain the cause in one sentence: when more money chases the same goods, prices rise",
+      "Give one practical tip: money sitting in a regular account loses buying power every year"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Economic concept tied to lived experience, non-expert audience"
+  },
+  {
+    "id": "explanation_1-2_healthcare_001",
+    "mode": "explanation",
+    "category": "healthcare",
+    "difficultyBand": "1-2",
+    "question": "Explain to a younger sibling why you have to keep taking medicine even when you already feel better.",
+    "tips": [
+      "Use the analogy of a battle that looks won but a few enemies are hiding — stopping early lets them regroup",
+      "Keep it to one reason: finishing the course stops the surviving germs from coming back stronger",
+      "End with a reassuring rule: trust the number of days on the label, not how you feel"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Everyday health decision, child-appropriate reasoning"
+  },
+  {
+    "id": "explanation_1-2_healthcare_002",
+    "mode": "explanation",
+    "category": "healthcare",
+    "difficultyBand": "1-2",
+    "question": "Explain what a doctor means by 'your blood pressure is high' to someone who just got that news for the first time.",
+    "tips": [
+      "Use the garden hose analogy: too much pressure stresses the hose walls over time",
+      "Distinguish the two numbers (systolic/diastolic) with a simple pump-and-rest image — don't dwell on units",
+      "End with why it matters: pressure you can't feel is still damaging things quietly"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Common health concept, newly diagnosed audience"
+  },
+  {
+    "id": "explanation_1-2_history_001",
+    "mode": "explanation",
+    "category": "history",
+    "difficultyBand": "1-2",
+    "question": "Explain what World War I was about, to a 10-year-old who just asked why so many people died.",
+    "tips": [
+      "Start with the spark (an assassination) and explain how a small event pulled in big alliances — like a bar fight that spreads when everyone's friends join in",
+      "Explain trench warfare in one vivid image: millions of soldiers stuck in ditches, neither side able to move forward",
+      "Close with the human scale: more people died than in any war before, and nobody felt like the winner"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Historical overview, child audience, no assumed knowledge"
+  },
+  {
+    "id": "explanation_1-2_philosophy_001",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "1-2",
+    "question": "Explain the Golden Rule — 'treat others as you want to be treated' — to a child, and tell them why it's harder than it sounds.",
+    "tips": [
+      "Start with the simple version and a clear example they'll recognize immediately",
+      "Introduce the complication: what if someone else wants to be treated differently than you do?",
+      "End with the upgrade: 'treat others as they want to be treated' — and what that asks of us"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Ethical idea, child audience, built-in complication"
+  },
+  {
+    "id": "explanation_1-2_psychology_001",
+    "mode": "explanation",
+    "category": "psychology",
+    "difficultyBand": "1-2",
+    "question": "Explain why people feel nervous before a big presentation, even when they know they'll be fine.",
+    "tips": [
+      "Describe the body's alarm system activating for any high-stakes situation — it can't tell the difference between real danger and a speech",
+      "Name the physical symptoms (shaky hands, dry mouth) as features, not flaws: your body is preparing you",
+      "End with one reframe: the nerves mean you care, and caring is what makes it worth doing"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Universal experience, relatable psychology"
+  },
+  {
+    "id": "explanation_1-2_science_002",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "1-2",
+    "question": "Explain why we can't see stars during the daytime, even though they're still there, to a curious child.",
+    "tips": [
+      "Use the flashlight-in-sunlight analogy: the stars' light is drowned out, not absent",
+      "Explain that sunlight scatters across the whole sky and 'washes out' the fainter points of light",
+      "End with one concrete takeaway: you can sometimes see Venus at dusk, where the sky is dimmer"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Everyday nature mystery, child audience"
+  },
+  {
+    "id": "explanation_1-2_science_003",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend why your cuts and scrapes heal on their own without anyone fixing them.",
+    "tips": [
+      "Describe the body's repair crew arriving in order: clotting, inflammation, tissue rebuilding",
+      "Use the analogy of a construction site — the scab is the scaffolding while real repair happens underneath",
+      "Keep the timeline concrete: a small cut heals in about a week for most people"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Body biology, universal experience"
+  },
+  {
+    "id": "explanation_1-2_science_004",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "1-2",
+    "question": "Explain why metal feels colder than wood at room temperature, to someone who thinks metal must be colder.",
+    "tips": [
+      "Name the misconception upfront: both are the same temperature — it's about heat transfer, not temperature",
+      "Use the hand-on-a-cold-tile vs. hand-on-a-rug analogy they've already felt",
+      "Give them the one-line takeaway they can repeat: 'Metal pulls heat away faster, not that it is colder'"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Common misconception, tactile analogy"
+  },
+  {
+    "id": "explanation_3-4_economics_001",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "3-4",
+    "question": "Explain what a trade deficit is and why politicians treat it as a crisis when economists often don't.",
+    "tips": [
+      "Define it plainly: a country buys more from abroad than it sells — the difference is the deficit",
+      "Explain why it's not automatically bad: you can run a deficit and be thriving, like importing goods you can't make cheaply yourself",
+      "Name the legitimate concern: if a deficit is financed by debt, that's a different problem — conflate the two carefully"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Economics concept, correcting political framing"
+  },
+  {
+    "id": "explanation_3-4_economics_002",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "3-4",
+    "question": "Explain what the minimum wage is and why economists disagree about whether raising it helps or hurts workers.",
+    "tips": [
+      "Define it clearly: the legal floor below which no employer can pay — set by government, not the market",
+      "Give both arguments fairly: higher wages mean more money for workers; but if the floor is too high, some employers hire fewer people",
+      "Name the honest answer: the effect depends on how far above the market wage the minimum is set — context matters"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Policy economics, genuine expert disagreement"
+  },
+  {
+    "id": "explanation_3-4_finance_002",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "3-4",
+    "question": "Explain what a stock dividend is and why some investors care about it more than share price growth.",
+    "tips": [
+      "Define dividend as a share of the company's profits paid directly to you — like rent from a property you own",
+      "Contrast dividend investing with growth investing: steady income now vs. hoping the price rises later",
+      "End with why retirees often prefer dividends: they need cash to live on, not an asset they can't spend"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Finance concept, investor mindset distinction"
+  },
+  {
+    "id": "explanation_3-4_healthcare_001",
+    "mode": "explanation",
+    "category": "healthcare",
+    "difficultyBand": "3-4",
+    "question": "Explain what mental health means and why it matters as much as physical health, to a skeptical teenager.",
+    "tips": [
+      "Challenge the 'just cheer up' misconception directly: mental illness has physical causes just as heart disease does",
+      "Use one concrete analogy: you wouldn't tell someone with a broken leg to 'just walk it off'",
+      "Name one measurable thing that changes during depression — sleep, energy, appetite — to make it tangible"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Sensitive health concept, skeptical teen audience"
+  },
+  {
+    "id": "explanation_3-4_history_001",
+    "mode": "explanation",
+    "category": "history",
+    "difficultyBand": "3-4",
+    "question": "Explain why the Berlin Wall was built and what it meant to people living in divided Germany, to someone who's never heard of the Cold War.",
+    "tips": [
+      "Set the context: two countries with completely different systems, split by a concrete barrier through one city",
+      "Explain why the wall went up: East Germans were fleeing to the West, and the government built a wall to stop them",
+      "Make it human: families separated overnight in 1961 — some never saw each other again for 28 years"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Historical event, human cost, requires Cold War context"
+  },
+  {
+    "id": "explanation_3-4_philosophy_001",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "3-4",
+    "question": "Explain what a thought experiment is and why philosophers use them — give one example that blows your listener's mind.",
+    "tips": [
+      "Define a thought experiment as a way of testing ideas in your head using an imaginary scenario — not lab, but logic",
+      "Pick one classic (the trolley problem is the safest for mixed audiences) and walk through it clearly",
+      "Explain why the point isn't to solve it but to reveal what we actually believe about moral tradeoffs"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Philosophy method, one working example required"
+  },
+  {
+    "id": "explanation_3-4_psychology_001",
+    "mode": "explanation",
+    "category": "psychology",
+    "difficultyBand": "3-4",
+    "question": "Explain why people fall for sunk-cost reasoning — 'I've already paid for it, so I have to go' — to a 12-year-old.",
+    "tips": [
+      "Give them the name and the logic: sunk costs are already spent, and no future choice gets that money back",
+      "Use a concrete example they'll recognize: staying in a bad movie because you paid for the ticket",
+      "End with the question they should ask instead: 'Would I choose to be here right now if I hadn't already paid?'"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Cognitive bias, accessible example, practical reframe"
+  },
+  {
+    "id": "explanation_3-4_science_002",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "3-4",
+    "question": "Explain what the water cycle is and why it means the water you drink may have been drunk by a dinosaur.",
+    "tips": [
+      "Walk through the cycle in four stages: evaporation, condensation, precipitation, collection — use one vivid image per stage",
+      "Explain that water doesn't get created or destroyed — the same molecules have been circulating for billions of years",
+      "End with the dinosaur fact as the payoff: not just a fun claim, but a consequence of a closed system"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Earth science, multi-step cycle explanation"
+  },
+  {
+    "id": "explanation_3-4_science_003",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "3-4",
+    "question": "Explain how the human eye converts light into what you actually see, to a curious high school student.",
+    "tips": [
+      "Trace the journey: light enters through the lens, hits the retina, signals travel to the brain",
+      "Explain that 'seeing' happens in the brain, not the eye — the eye is just the sensor",
+      "Use the blind spot as a concrete example: the brain fills in a gap in your visual field you never notice"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Biology system, brain-does-the-work insight"
+  },
+  {
+    "id": "explanation_3-4_science_004",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "3-4",
+    "question": "Explain how the ozone layer works and why the hole above Antarctica still exists, to someone who's heard about it but never understood what it does.",
+    "tips": [
+      "Describe the ozone layer as a sunscreen for the planet — it absorbs the ultraviolet radiation that damages living things",
+      "Explain what CFCs did: they broke down ozone molecules faster than they could form, thinning the layer",
+      "Address the current state honestly: the hole is healing but slowly — ozone molecules take decades to recover"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Environmental science, partial success story"
+  },
+  {
+    "id": "explanation_5-6_economics_002",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "5-6",
+    "question": "Explain what externalities are and why markets left alone tend to underprovide clean air and overproduce pollution.",
+    "tips": [
+      "Define an externality as a cost or benefit that falls on someone who isn't part of the transaction",
+      "Use a factory-and-downstream-river example: the factory profits, the river suffers — the market doesn't price the river's loss",
+      "Explain the two fixes economists propose (taxes or tradeable permits) and why each has critics"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Market failure concept, policy solution comparison"
+  },
+  {
+    "id": "explanation_5-6_economics_003",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "5-6",
+    "question": "Explain what GDP measures, what it misses, and why it's still the most-used number in economics — to a smart, skeptical 17-year-old.",
+    "tips": [
+      "Define GDP accurately but plainly: the total market value of all goods and services produced in a country in a year",
+      "Name two specific things it misses: unpaid care work and environmental degradation — and why they matter",
+      "Defend its continued use: it's imperfect but consistent, and consistent beats perfect when you're comparing countries over decades"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Economic measurement, flaws-and-defenders balance"
+  },
+  {
+    "id": "explanation_5-6_finance_001",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "5-6",
+    "question": "Explain what inflation-protected bonds are and why someone would choose them over a regular bond, to a first-time investor.",
+    "tips": [
+      "Define a regular bond's weakness: if inflation rises, the fixed interest payment buys less each year",
+      "Explain how TIPS (or equivalent) adjusts the principal with inflation so your real return is preserved",
+      "Give the tradeoff: inflation-protected bonds usually offer lower nominal yields — you pay for certainty"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Fixed income mechanics, real vs. nominal distinction"
+  },
+  {
+    "id": "explanation_5-6_finance_002",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "5-6",
+    "question": "Explain what venture capital is, how it differs from a bank loan, and what a VC actually gets in return, to a first-time founder.",
+    "tips": [
+      "Contrast the incentive structures: a bank wants repayment with interest; a VC wants a huge return from the small percentage of bets that win",
+      "Explain equity as the currency of VC — they get ownership, not interest",
+      "Name the implication for founders: VC money is expensive in the long run if the company succeeds"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Early-stage finance, equity vs. debt distinction"
+  },
+  {
+    "id": "explanation_5-6_healthcare_001",
+    "mode": "explanation",
+    "category": "healthcare",
+    "difficultyBand": "5-6",
+    "question": "Explain why antibiotic resistance is a growing crisis and what it would actually mean if we ran out of effective antibiotics, to a non-scientist adult.",
+    "tips": [
+      "Explain selection pressure: antibiotics kill the susceptible bacteria and leave the resistant ones to reproduce",
+      "Make the crisis concrete: routine surgeries and cancer chemotherapy both depend on antibiotics preventing infection",
+      "End with what's being done and why it's insufficient — leave them with informed concern, not panic"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Public health crisis, evolutionary mechanism"
+  },
+  {
+    "id": "explanation_5-6_history_001",
+    "mode": "explanation",
+    "category": "history",
+    "difficultyBand": "5-6",
+    "question": "Explain how the printing press changed European society more than almost any other invention, to someone who's never thought much about it.",
+    "tips": [
+      "Contrast the pre-press world: ideas spread only as fast as handwriting could be copied — which meant almost never",
+      "Name two specific changes it enabled: the Reformation spread because Luther's ideas could be printed by the thousands, and scientific results could be shared across the continent",
+      "Explain the parallel to the internet: both technologies democratized who could publish, and both terrified existing authorities"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Historical impact of technology, parallels to today"
+  },
+  {
+    "id": "explanation_5-6_philosophy_001",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "5-6",
+    "question": "Explain why moral intuitions can disagree across cultures — and what that means for whether ethics is objective, to a curious teenager.",
+    "tips": [
+      "Open with two genuine cross-cultural examples of moral disagreement that aren't about obvious wrongs",
+      "Name the counterintuitive move: disagreement doesn't automatically mean both are right — explain why with one analogy",
+      "Leave the tension honest: moral philosophy hasn't settled this, and your listener should know that"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Metaethics, cultural relativism vs. objectivism"
+  },
+  {
+    "id": "explanation_5-6_psychology_001",
+    "mode": "explanation",
+    "category": "psychology",
+    "difficultyBand": "5-6",
+    "question": "Explain how the availability heuristic distorts our perception of risk — and why people fear plane crashes more than car trips — to a curious non-psychologist.",
+    "tips": [
+      "Define the heuristic: we judge how likely something is by how easily an example comes to mind",
+      "Explain the media amplification: plane crashes get wall-to-wall coverage, making them feel common; car deaths don't",
+      "Give the counterintuitive stat: you're roughly 95 times more likely to die per mile in a car — the fear is inverted"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Cognitive bias, media-amplified risk distortion"
+  },
+  {
+    "id": "explanation_5-6_science_002",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "5-6",
+    "question": "Explain how Bayes' theorem changes the way you should think about a positive medical test result, to a curious non-mathematician.",
+    "tips": [
+      "Set up the base rate problem: a test that's 99% accurate can still be mostly wrong if the disease is rare — walk through the arithmetic once",
+      "Name the counterintuitive insight: the rarer the disease, the more likely a positive result is a false alarm",
+      "Give one practical takeaway: always ask 'how common is this condition in people like me?' before acting on a test"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Probabilistic reasoning, counterintuitive result"
+  },
+  {
+    "id": "explanation_5-6_science_003",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "5-6",
+    "question": "Explain how the immune system develops 'memory' after an infection and why that memory can fade, to a curious adult who's never studied biology.",
+    "tips": [
+      "Describe memory B-cells and T-cells as a specialized archive — not an active defense, but a blueprint for fast response",
+      "Explain why memory fades: the cells that maintain it slowly decline in number over years without re-exposure",
+      "Connect to boosters: they're not because the vaccine failed — they top up a fading archive"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Immunology, memory-and-decay mechanism"
+  },
+  {
+    "id": "explanation_7-8_economics_001",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "7-8",
+    "question": "Explain what Goodhart's Law reveals about why performance metrics almost always fail over time, to a manager who relies on KPIs.",
+    "tips": [
+      "State the law precisely: when a measure becomes a target, it ceases to be a good measure",
+      "Give three cross-domain examples (schools, call centers, healthcare) to show it's structural, not a character flaw",
+      "Explain the only partial escape: triangulate with multiple changing metrics, and never show employees a single number they'll be judged on"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Organizational theory, structural failure pattern"
+  },
+  {
+    "id": "explanation_7-8_finance_001",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "7-8",
+    "question": "Explain how a bank run happens, why perfectly solvent banks can fail because of one, and what deposit insurance is designed to prevent, to a policy-interested adult.",
+    "tips": [
+      "Distinguish solvency from liquidity clearly: healthy long-term assets versus the need for cash today",
+      "Explain the self-fulfilling prophecy: if everyone believes the bank will fail, everyone withdrawing makes it true",
+      "Explain how deposit insurance breaks the feedback loop — if you know your money is safe, you don't run"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Financial crisis mechanics, expectation-driven failure"
+  },
+  {
+    "id": "explanation_7-8_healthcare_002",
+    "mode": "explanation",
+    "category": "healthcare",
+    "difficultyBand": "7-8",
+    "question": "Explain how the body regulates blood sugar and what goes wrong in Type 2 diabetes, to a patient who was just diagnosed and wants to understand.",
+    "tips": [
+      "Walk through the normal loop: food raises blood glucose, insulin signals cells to absorb it, glucose falls — repeat",
+      "Explain insulin resistance clearly: the cells stop responding to the signal, so the pancreas shouts louder and louder until it's exhausted",
+      "Translate what this means practically: lifestyle changes can restore sensitivity because the problem is the lock, not the key"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Metabolic mechanism, recently diagnosed patient"
+  },
+  {
+    "id": "explanation_7-8_history_001",
+    "mode": "explanation",
+    "category": "history",
+    "difficultyBand": "7-8",
+    "question": "Explain why the Roman Empire fell — not one cause, but the interaction of forces — to a historically curious friend who wants a real answer.",
+    "tips": [
+      "Resist single-cause explanations: military overextension, fiscal crisis, political instability, and cultural fragmentation all played a role simultaneously",
+      "Use the concept of a system under stress: each weakness made the others worse",
+      "Name what historians actually argue about: whether 'fall' is even the right word — the Eastern Empire lasted another thousand years"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Complex historical causation, multi-factor systems"
+  },
+  {
+    "id": "explanation_7-8_philosophy_001",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "7-8",
+    "question": "Explain Plato's allegory of the cave and what it actually argues about knowledge and reality, to a curious undergraduate who's heard of it but never read it.",
+    "tips": [
+      "Walk through the scenario precisely: prisoners see shadows, mistake them for reality, and resist the prisoner who escapes and returns",
+      "Explain the allegory's claim: most of us mistake appearances (opinions, shadows) for reality (Forms, true knowledge)",
+      "Push into its implications: the philosopher who understands reality is obligated to return to the cave — but no one wants to hear it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Classical philosophy, allegory-to-argument translation"
+  },
+  {
+    "id": "explanation_7-8_philosophy_002",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "7-8",
+    "question": "Explain the prisoner's dilemma and why it reveals a deep problem with self-interest as a guide to collective action, to a smart college student.",
+    "tips": [
+      "Walk through the payoff matrix in plain language — no jargon, just two people choosing and the four possible outcomes",
+      "Name the tragedy: both people acting rationally produce the worst collective outcome",
+      "Apply it to a real system where the same logic plays out: arms races, climate negotiations, price wars"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Game theory, self-interest paradox, real-world application"
+  },
+  {
+    "id": "explanation_7-8_philosophy_003",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "7-8",
+    "question": "Explain what Kant's categorical imperative actually says and why it demands more than just 'do the right thing,' to a student encountering it for the first time.",
+    "tips": [
+      "State the first formulation clearly: act only according to the rule you could will everyone to follow — universalizability is the test",
+      "Walk through one example of how it fails a self-serving action (lying to avoid trouble fails the test because universal lying destroys communication)",
+      "Name the radical demand: you must act from duty, not from consequence or feeling — and explain why that's more demanding than common sense"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Deontological ethics, formulation plus implication"
+  },
+  {
+    "id": "explanation_7-8_philosophy_004",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "7-8",
+    "question": "Explain what utilitarianism is, why it has such intuitive appeal, and where it breaks down — to a smart high school student who's considering it as a moral framework.",
+    "tips": [
+      "State the core claim clearly: the right action is the one that produces the greatest good for the greatest number",
+      "Give one case where it's obviously right (diverting resources to save five lives over one) and one where it produces a monstrous conclusion (punishing an innocent person to prevent riots)",
+      "Name the fundamental tension: it treats persons as vessels of welfare rather than ends in themselves — explain why that bothers people"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Normative ethics, appeal-and-failure structure"
+  },
+  {
+    "id": "explanation_7-8_psychology_001",
+    "mode": "explanation",
+    "category": "psychology",
+    "difficultyBand": "7-8",
+    "question": "Explain what the Milgram obedience experiments found and why the implications are still uncomfortable for how we think about ordinary people doing terrible things.",
+    "tips": [
+      "Describe the setup precisely: participants believed they were administering electric shocks to a stranger on the authority of a researcher",
+      "Name the finding that shocked everyone: most ordinary people continued to the maximum voltage when an authority figure said to",
+      "Explain the uncomfortable implication: atrocities don't require monsters — they often require authority, distance, and small escalating steps"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Classic psychology study, moral implications"
+  },
+  {
+    "id": "explanation_7-8_science_001",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "7-8",
+    "question": "Explain entropy to a philosophy student who thinks it just means 'things fall apart' — and show why that's only half the story.",
+    "tips": [
+      "Distinguish thermodynamic entropy (disorder in physical systems) from the colloquial 'chaos' — they're related but not the same",
+      "Use the deck-of-cards analogy: there is one ordered arrangement and millions of disordered ones, so randomness trends toward disorder by sheer probability",
+      "Challenge the 'fall apart' version: life and structure can emerge locally, as long as total entropy in the universe still increases"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Physics concept with philosophical misreading, semi-technical audience"
+  },
+  {
+    "id": "explanation_7-8_science_002",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "7-8",
+    "question": "Explain what natural selection actually predicts versus what it doesn't — specifically why 'survival of the fittest' misleads, to a science-curious professional.",
+    "tips": [
+      "Define fitness in evolutionary terms: not strength, but reproductive success in a specific environment",
+      "Explain what selection cannot do: it has no foresight, no purpose, no drive toward complexity",
+      "Give one counterintuitive example — peacock tails are fitness-reducing in every way except mate attraction — to prove the point"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Evolutionary theory, correcting widespread misreading"
+  },
+  {
+    "id": "explanation_9-10_economics_001",
+    "mode": "explanation",
+    "category": "economics",
+    "difficultyBand": "9-10",
+    "question": "Explain what the efficient market hypothesis claims, why it is still the strongest prior in finance, and why behavioral economics hasn't replaced it so much as surrounded it, to a sophisticated general audience.",
+    "tips": [
+      "State the EMH precisely in its three forms — weak, semi-strong, strong — and explain what each rules out",
+      "Introduce behavioral finance not as a refutation but as a documentation of the exceptions: anomalies exist, persist somewhat, but shrink when identified and traded",
+      "Argue the productive synthesis: the EMH is wrong in its strong form, but it remains a hard prior — most strategies that appear to beat it disappear when you control for risk"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Finance theory, theory-and-anomaly synthesis"
+  },
+  {
+    "id": "explanation_9-10_finance_001",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "9-10",
+    "question": "Explain the 2008 financial crisis to a policy maker who wants to understand not just what happened but why the system's own risk models failed to see it coming.",
+    "tips": [
+      "Explain how mortgage-backed securities and CDOs created opacity: the people holding the risk often couldn't trace what they held",
+      "Name the model failure specifically: Value-at-Risk models were calibrated on recent calm data and assumed asset correlations would stay low — both assumptions collapsed simultaneously",
+      "Connect to the deeper problem: financial models can create the very calm conditions that make their assumptions look valid, right until they don't"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Financial crisis, model epistemology, expert policy audience"
+  },
+  {
+    "id": "explanation_9-10_finance_002",
+    "mode": "explanation",
+    "category": "finance",
+    "difficultyBand": "9-10",
+    "question": "Explain what the efficient frontier means in portfolio theory, what it actually asks investors to know, and why those inputs are epistemically impossible to get right, to a sophisticated investor who's heard of it but trusts it too much.",
+    "tips": [
+      "Derive the concept from first principles: for every level of risk, there's one portfolio that maximizes expected return — the curve of such portfolios is the frontier",
+      "Explain what the model requires: expected returns, variances, and covariances for every asset — and that these inputs must be estimated from past data",
+      "Make the critique sharp: the frontier is exquisitely sensitive to input estimation errors, and those errors compound in exactly the portfolios the model considers optimal"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Portfolio theory, epistemic limits of optimization"
+  },
+  {
+    "id": "explanation_9-10_healthcare_001",
+    "mode": "explanation",
+    "category": "healthcare",
+    "difficultyBand": "9-10",
+    "question": "Explain what evidence-based medicine actually requires versus what most clinical practice delivers, and why the gap persists even when everyone wants to close it, to a hospital administrator.",
+    "tips": [
+      "Define EBM precisely: integrating the best available external evidence with individual clinical expertise and patient values — not just following guidelines",
+      "Name the gap: most clinical guidelines rest on studies of populations that exclude the very patients doctors treat most (elderly, comorbid, polypharmacy)",
+      "Explain why closing the gap is structurally hard: trials are expensive, take decades, and can't keep up with clinical practice variation — and incentives don't reward uncertainty well"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Healthcare epistemology, evidence quality, administrator audience"
+  },
+  {
+    "id": "explanation_9-10_history_001",
+    "mode": "explanation",
+    "category": "history",
+    "difficultyBand": "9-10",
+    "question": "Explain why historical causation is so hard to establish and why the phrase 'History teaches us that...' should always be treated with suspicion, to a thoughtful policy audience.",
+    "tips": [
+      "Explain the counterfactual problem: to say X caused Y, you need to know what would have happened without X — but history doesn't run twice",
+      "Name two specific ways historians abuse analogies: selecting confirming cases and ignoring disconfirming ones, and treating structurally different situations as equivalent",
+      "Argue what historical reasoning is good for: generating hypotheses and ruling out extreme claims, not confirming predictions — and why that still makes it valuable"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Historical epistemology, causal inference limits, policy audience"
+  },
+  {
+    "id": "explanation_9-10_philosophy_002",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "9-10",
+    "question": "Explain the hard problem of consciousness to a neuroscientist who thinks neuroscience will eventually explain everything about the mind, and make the case that it might not.",
+    "tips": [
+      "Acknowledge what neuroscience does explain well: attention, memory, perception, behavior — the 'easy problems'",
+      "State Chalmers's challenge precisely: even a complete physical account of neural processes leaves open why there is something it is like to have those processes",
+      "Engage the neuroscientist's likely response (eliminativism or illusionism) and show what it costs: if consciousness is an illusion, who is being fooled?"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Philosophy of mind vs. neuroscience reductionism, expert audience"
+  },
+  {
+    "id": "explanation_9-10_philosophy_003",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "9-10",
+    "question": "Explain what Rawls's veil of ignorance thought experiment actually establishes, where it's been challenged, and whether it does the work political philosophers need it to do.",
+    "tips": [
+      "State the setup precisely: imagine choosing the principles of a society without knowing your place in it — what would you choose?",
+      "Explain what Rawls claims it justifies: the difference principle (inequalities are only just if they benefit the worst-off) and why it follows",
+      "Engage the strongest objections: communitarians argue the thought experiment strips away everything that makes our choices meaningful; libertarians argue it smuggles in risk-aversion as the only rational stance"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Political philosophy, thought experiment stress-testing"
+  },
+  {
+    "id": "explanation_9-10_philosophy_004",
+    "mode": "explanation",
+    "category": "philosophy",
+    "difficultyBand": "9-10",
+    "question": "Explain what moral relativism claims, why it has genuine arguments in its favor, and where it collapses under its own weight — to someone who holds it as an unexamined belief.",
+    "tips": [
+      "State the strongest version of moral relativism: moral claims are true relative to a cultural framework, and no framework is universally privileged",
+      "Give it the strongest defense: cross-cultural anthropology shows deep disagreement, and history shows confident moral certainties get revised",
+      "Then press where it breaks: relativism implies we cannot criticize historical atrocities that were culturally sanctioned, and the relativist herself makes cross-cultural judgments the moment she says 'tolerance is good'"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Metaethics, genuine arguments plus self-refutation"
+  },
+  {
+    "id": "explanation_9-10_psychology_001",
+    "mode": "explanation",
+    "category": "psychology",
+    "difficultyBand": "9-10",
+    "question": "Explain what the replication crisis in social psychology revealed about how science actually works versus how we teach it, to an audience of researchers who aren't psychologists.",
+    "tips": [
+      "Name the structural incentives that made the crisis likely: publish-or-perish, positive result bias, underpowered studies, and flexible analysis pipelines",
+      "Distinguish p-hacking from fraud: most of the problem was researchers following the incentives of the system honestly, not cheating",
+      "Argue the productive interpretation: the crisis is evidence that science's self-correction mechanism works — slowly, painfully, but it works — and explain what pre-registration changes"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Scientific methodology, incentive-to-error, meta-science audience"
+  },
+  {
+    "id": "explanation_9-10_science_001",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "9-10",
+    "question": "Explain the measurement problem in quantum mechanics and why the three leading interpretations give incompatible pictures of reality, to a philosophy PhD student who knows the math but not the physics.",
+    "tips": [
+      "Establish the formal problem first: the Schrödinger equation evolves smoothly, but measurement produces a single definite outcome — the formalism doesn't explain the jump",
+      "Walk through Copenhagen, many-worlds, and pilot-wave as genuinely different ontologies, not just different presentations",
+      "Make the philosophical stakes explicit: these interpretations agree on all experimental predictions, so what kind of question is 'which is true?' — and is that even a scientific question?"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Foundations of physics, interpretive ontology, philosophical audience"
+  },
+  {
+    "id": "explanation_9-10_science_002",
+    "mode": "explanation",
+    "category": "science",
+    "difficultyBand": "9-10",
+    "question": "Explain what emergence is, why it creates genuine explanatory gaps for reductionist science, and whether consciousness is an example or a different kind of problem entirely.",
+    "tips": [
+      "Distinguish weak emergence (surprising in practice but reducible in principle) from strong emergence (irreducible in principle) — wetness vs. consciousness as your two cases",
+      "Explain why reductionism handles weak emergence perfectly: in theory you could predict wetness from quantum mechanics, you just don't",
+      "Push on whether consciousness is strongly emergent or whether that's just a failure of current explanation — this is the contested frontier, and your listener should feel its difficulty"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Philosophy of science, reduction limits, contested territory"
+  }
+]

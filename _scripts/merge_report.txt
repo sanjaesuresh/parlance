@@ -1,0 +1,56 @@
+Pre-merge total: 737
+Rewrites applied: 97
+New prompts appended: 402
+Post-merge total: 1139
+
+Per-mode/band counts after merge:
+  ('casual', '1-2'): 20
+  ('casual', '3-4'): 20
+  ('casual', '5-6'): 20
+  ('casual', '7-8'): 20
+  ('casual', '9-10'): 20
+  ('debate', '1-2'): 40
+  ('debate', '3-4'): 40
+  ('debate', '5-6'): 40
+  ('debate', '7-8'): 40
+  ('debate', '9-10'): 39
+  ('explanation', '1-2'): 28 (+10)
+  ('explanation', '3-4'): 28 (+10)
+  ('explanation', '5-6'): 28 (+10)
+  ('explanation', '7-8'): 28 (+11)
+  ('explanation', '9-10'): 28 (+11)
+  ('impromptu', '1-2'): 20 (+17)
+  ('impromptu', '3-4'): 20 (+17)
+  ('impromptu', '5-6'): 20 (+17)
+  ('impromptu', '7-8'): 20 (+18)
+  ('impromptu', '9-10'): 20 (+18)
+  ('interview', '1-2'): 20
+  ('interview', '3-4'): 20
+  ('interview', '5-6'): 20
+  ('interview', '7-8'): 20
+  ('interview', '9-10'): 20
+  ('keynote', '1-2'): 20
+  ('keynote', '3-4'): 20
+  ('keynote', '5-6'): 20
+  ('keynote', '7-8'): 20
+  ('keynote', '9-10'): 20
+  ('negotiation', '1-2'): 20 (+17)
+  ('negotiation', '3-4'): 20 (+17)
+  ('negotiation', '5-6'): 20 (+18)
+  ('negotiation', '7-8'): 20 (+18)
+  ('negotiation', '9-10'): 20 (+18)
+  ('networking', '1-2'): 20 (+17)
+  ('networking', '3-4'): 20 (+17)
+  ('networking', '5-6'): 20 (+18)
+  ('networking', '7-8'): 20 (+18)
+  ('networking', '9-10'): 20 (+18)
+  ('pitch', '1-2'): 20
+  ('pitch', '3-4'): 20
+  ('pitch', '5-6'): 20
+  ('pitch', '7-8'): 20
+  ('pitch', '9-10'): 20
+  ('storytelling', '1-2'): 20 (+17)
+  ('storytelling', '3-4'): 20 (+17)
+  ('storytelling', '5-6'): 20 (+17)
+  ('storytelling', '7-8'): 20 (+18)
+  ('storytelling', '9-10'): 20 (+18)

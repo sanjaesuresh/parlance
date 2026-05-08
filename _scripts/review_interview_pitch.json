@@ -1,0 +1,302 @@
+[
+  {
+    "id": "interview_1-2_009",
+    "issue_type": "mode_mismatch",
+    "issue": "Salary negotiation is not a speaking/communication practice scenario — it's a factual question with no narrative to build, and it sits awkwardly in a speech coaching context.",
+    "original_question": "What are your salary expectations?",
+    "suggested_rewrite": "Walk me through how you'd negotiate your salary in an interview — what would you say?",
+    "new_tips": [
+      "Open by anchoring to the market rate you researched — state it as a number, not a vague range",
+      "Explain the value you bring in one sentence before you quote a figure",
+      "Practice ending with a confident question: 'Does that range work for you?'"
+    ]
+  },
+  {
+    "id": "interview_1-2_010",
+    "issue_type": "unclear",
+    "issue": "\"Do you have any questions for us?\" is not a speaking prompt — there is nothing to say without knowing what questions to ask, and it is answered in seconds. It does not generate any useful speech practice.",
+    "original_question": "Do you have any questions for us?",
+    "suggested_rewrite": "You're at the end of a job interview. Ask three thoughtful questions that show you've done your research and are genuinely evaluating the role.",
+    "new_tips": [
+      "Open with a question about the team's biggest current challenge — it signals you're thinking about how to contribute immediately",
+      "Ask one question about what success looks like in the first 90 days — concrete, not vague",
+      "Close with a question about the interviewer's own experience at the company — it builds rapport and humanizes the exchange"
+    ]
+  },
+  {
+    "id": "interview_1-2_020",
+    "issue_type": "weak_tips",
+    "issue": "Tips are generic time-management platitudes ('highlight productive habits') with no concrete coaching on how to structure or deliver the answer.",
+    "original_question": "Describe your typical workday.",
+    "suggested_rewrite": "Describe your typical workday.",
+    "new_tips": [
+      "Walk through the day chronologically using two or three anchor moments — not every hour",
+      "Mention one habit that makes you more effective, not just what you do",
+      "End with how your day connects to the team's goals, not just your personal task list"
+    ]
+  },
+  {
+    "id": "interview_3-4_010",
+    "issue_type": "missing_setup",
+    "issue": "Assumes the user has customer service experience, which is not true for many job seekers (engineers, researchers, corporate roles). Alienating for a wide slice of the user base at band 3-4.",
+    "original_question": "How have you handled a situation with an unhappy customer?",
+    "suggested_rewrite": "Tell me about a time you had to deal with an unhappy person — a customer, colleague, or stakeholder — and how you resolved it.",
+    "new_tips": [
+      "Describe the person's frustration in one sentence before explaining your response — context matters",
+      "Walk through your de-escalation steps in order: listen, acknowledge, then act",
+      "Close with the outcome and one thing you'd do differently if it happened again"
+    ]
+  },
+  {
+    "id": "interview_5-6_008",
+    "issue_type": "missing_setup",
+    "issue": "Many mid-level professionals haven't built a team from scratch — this is more of a 7-8 level scenario. The difficultyNote says 'Team building' but the question assumes full hiring authority at the 5-6 band.",
+    "original_question": "Tell me about building a team from scratch.",
+    "suggested_rewrite": "Tell me about a time you helped build or significantly shape a team — whether through hiring, onboarding, or defining how the team works together.",
+    "new_tips": [
+      "If you did hiring, explain what criteria mattered most and why you chose them",
+      "If you shaped culture or process, describe the specific norms or rituals you introduced",
+      "Close with a measurable outcome: retention, velocity, performance, or morale"
+    ]
+  },
+  {
+    "id": "interview_5-6_015",
+    "issue_type": "mode_mismatch",
+    "issue": "Technical debt vs. new features is a highly specific engineering/product management concept that will be irrelevant or confusing for users in sales, HR, finance, or operations roles. Too narrow for a general interview mode at 5-6.",
+    "original_question": "How did you balance technical debt with new features?",
+    "suggested_rewrite": "Describe a time you had to choose between maintaining or improving existing work and building something new. How did you decide which to prioritize?",
+    "new_tips": [
+      "Explain what was at stake on each side — make the trade-off concrete with stakes, not just abstract",
+      "Describe the framework or criteria you used to make the call",
+      "Share the outcome and whether the decision held up over time"
+    ]
+  },
+  {
+    "id": "interview_7-8_005",
+    "issue_type": "missing_setup",
+    "issue": "\"How would you handle a board-level disagreement?\" is hypothetical for most users — even senior ones at 7-8 may not be board members or regularly interface with boards. The hypothetical framing makes it hard to answer with a real story.",
+    "original_question": "How would you handle a board-level disagreement?",
+    "suggested_rewrite": "Tell me about a time you disagreed with a senior leader or decision-maker whose authority was significantly above yours. How did you handle it?",
+    "new_tips": [
+      "Name the specific disagreement — vague setups weaken the story",
+      "Walk through how you chose to raise it: directly, through data, or through an intermediary",
+      "Share what happened and how the relationship held up afterward"
+    ]
+  },
+  {
+    "id": "interview_7-8_012",
+    "issue_type": "awkward",
+    "issue": "'Tell me about making a unpopular but necessary decision' has a grammar error ('a unpopular') and reads slightly off. Should be 'an unpopular.'",
+    "original_question": "Tell me about making a unpopular but necessary decision.",
+    "suggested_rewrite": "Tell me about an unpopular but necessary decision you made. How did you handle it and bring people along?",
+    "new_tips": [
+      "Describe the business necessity first — what made this decision non-optional",
+      "Walk through how you communicated it: to whom, in what order, and with what framing",
+      "Share the long-term outcome and how your credibility held up"
+    ]
+  },
+  {
+    "id": "interview_7-8_014",
+    "issue_type": "unclear",
+    "issue": "'Innovation governance' is jargon that most users won't immediately understand. A user encountering this prompt won't know whether to talk about process, budget, culture, or something else.",
+    "original_question": "Describe your approach to innovation governance.",
+    "suggested_rewrite": "Describe how you've structured the process for evaluating and prioritizing new ideas in your organization — what gets resourced and what doesn't, and why.",
+    "new_tips": [
+      "Explain the criteria you use to evaluate new ideas — not just 'good ideas get funded'",
+      "Describe how you manage the tension between creative freedom and business focus",
+      "Share one initiative that made it through your process and the outcome"
+    ]
+  },
+  {
+    "id": "interview_9-10_001",
+    "issue_type": "missing_setup",
+    "issue": "'This industry' is undefined — the user has no industry context to work with. Without knowing what industry they're in, the prompt is too vague to practice meaningfully.",
+    "original_question": "Articulate your vision for the future of this industry.",
+    "suggested_rewrite": "Articulate your vision for the future of your industry. What are the two or three forces reshaping it, and where does your organization need to be in five years to stay relevant?",
+    "new_tips": [
+      "Open with one or two specific macro trends that are already visible — ground vision in evidence, not speculation",
+      "Describe the future state in concrete terms: what will have changed for customers, competitors, and employees",
+      "Connect the vision to a strategy your organization can actually execute, not just aspire to"
+    ]
+  },
+  {
+    "id": "interview_9-10_002",
+    "issue_type": "missing_setup",
+    "issue": "'Our five-year strategy' assumes a specific company context the user does not have, making it nearly impossible to answer without inventing fictional details. Sits in interview mode but feels like a pitch/presentation prompt.",
+    "original_question": "How would you present our five-year strategy to investors?",
+    "suggested_rewrite": "You're presenting your organization's five-year strategy to a room of investors. Walk us through how you'd structure and deliver that presentation.",
+    "new_tips": [
+      "Open with the market opportunity and why now is the right moment — not with the company history",
+      "Back each strategic pillar with a metric or milestone, not just a direction",
+      "Address risks proactively before they're raised — it signals credibility, not weakness"
+    ]
+  },
+  {
+    "id": "interview_9-10_003",
+    "issue_type": "mode_mismatch",
+    "issue": "Hostile takeover defense is a niche corporate governance scenario appropriate for C-suite executives at Fortune 500s — not realistic or relatable for 99% of users, even at level 9-10. The difficultyNote even calls it 'Extreme.' It reads more like a finance case study than a speech coaching prompt.",
+    "original_question": "Describe how you would navigate a hostile takeover attempt.",
+    "suggested_rewrite": "Your organization is facing a significant external threat — a well-funded competitor moving into your core market, a regulatory challenge, or a public crisis. How would you lead the organization through it?",
+    "new_tips": [
+      "Start by describing the threat clearly and honestly — what is actually at stake",
+      "Walk through your stakeholder communication plan: who hears what, in what order",
+      "Describe the decisions you'd make in the first 30 days and why"
+    ]
+  },
+  {
+    "id": "interview_9-10_018",
+    "issue_type": "awkward",
+    "issue": "'How would you manage a activist investor situation?' has a grammar error ('a activist') — should be 'an activist investor situation.'",
+    "original_question": "How would you manage a activist investor situation?",
+    "suggested_rewrite": "How would you manage an activist investor situation — from the moment you learn they've taken a position to how you engage with them publicly and privately?",
+    "new_tips": [
+      "Start by articulating what the activist likely wants and whether any of it has merit",
+      "Describe your sequenced communication plan: board first, then management, then public statement",
+      "Explain how you'd stay on offense with your own strategic narrative rather than just reacting"
+    ]
+  },
+  {
+    "id": "pitch_1-2_001",
+    "issue_type": "missing_setup",
+    "issue": "The prompt tells users to describe their product in 30 seconds, but there is no product context — users must invent one. For a level 1-2 user who is just starting out, this blank-canvas setup is potentially confusing. Also, the targetDuration is 60 seconds but the question says 30 seconds — contradiction.",
+    "original_question": "Describe your product or service in 30 seconds.",
+    "suggested_rewrite": "Pick any product, service, or idea you know well — real or imagined — and pitch it in 30 seconds.",
+    "new_tips": [
+      "Lead with the problem in one sentence, not with the product name or features",
+      "State your solution in plain language — avoid jargon even if you know the technical details",
+      "End by naming who this is for, so the listener knows if it's relevant to them"
+    ]
+  },
+  {
+    "id": "pitch_1-2_012",
+    "issue_type": "awkward",
+    "issue": "'Pitch this to your grandmother' — 'this' is undefined. The user is not carrying any product context from a prior prompt. They don't know what 'this' refers to.",
+    "original_question": "How would you pitch this to your grandmother?",
+    "suggested_rewrite": "Pick a product or app you use regularly and explain it to someone who has never heard of it — imagine they're your grandparent. What would you say?",
+    "new_tips": [
+      "Strip out every technical term and replace it with an analogy from everyday life",
+      "Lead with the benefit, not how it works",
+      "Keep the explanation under 20 seconds — if it takes longer, simplify further"
+    ]
+  },
+  {
+    "id": "pitch_1-2_014",
+    "issue_type": "missing_setup",
+    "issue": "'Pitch a product improvement to your manager' — the user has no defined product or improvement to pitch. The blank-canvas setup is fine at level 1 only if made explicit; as written, a new user may freeze.",
+    "original_question": "Pitch a product improvement to your manager.",
+    "suggested_rewrite": "Think of a product, tool, or process at work (or in your life) that frustrates you. Pitch a specific improvement to your manager — what would you change and why?",
+    "new_tips": [
+      "Lead with the problem you've observed, not the solution — make your manager feel the pain first",
+      "Present your proposed fix in one clear sentence before adding detail",
+      "Close with a concrete ask: budget, time, approval, or a pilot — make it easy to say yes"
+    ]
+  },
+  {
+    "id": "pitch_1-2_017",
+    "issue_type": "missing_setup",
+    "issue": "'Pitch a subscription model for your service' assumes the user has a specific service in mind. Without context, many users won't know what to pitch. Also slightly narrow for a level 1-2 prompt — subscription pricing models feel more like a 3-4 concept.",
+    "original_question": "Pitch a subscription model for your service.",
+    "suggested_rewrite": "Choose any service you use or can imagine — streaming, software, a gym, anything. Pitch why a subscription model makes sense for it and what the customer gets each month.",
+    "new_tips": [
+      "Explain the ongoing value the customer receives — not just 'access,' but what changes for them each month",
+      "Compare the subscription price to a one-time alternative to make the value feel concrete",
+      "End with a clear call to action: sign up, try a free month, or ask a question"
+    ]
+  },
+  {
+    "id": "pitch_3-4_001",
+    "issue_type": "missing_setup",
+    "issue": "'Present a 60-second pitch to a potential angel investor' — the user has no company, product, or financials defined. This blank-canvas setup works fine at higher bands where users are expected to draw from real experience, but at 3-4 the lack of scaffolding may cause the user to stall.",
+    "original_question": "Present a 60-second pitch to a potential angel investor.",
+    "suggested_rewrite": "You've just met an angel investor at a networking event. You have 60 seconds. Pitch your startup — real or imagined — and make them want to know more.",
+    "new_tips": [
+      "Hook with the market opportunity or problem size in the first five seconds — that's what gets investors to keep listening",
+      "State your solution, who it's for, and one proof point of traction before the clock runs out",
+      "End with a specific ask: a follow-up meeting, an intro, or a term sheet conversation"
+    ]
+  },
+  {
+    "id": "pitch_3-4_003",
+    "issue_type": "missing_setup",
+    "issue": "'Pitch your product to a different industry than your core market' — both the product and the new industry are undefined. The tips assume prior context that doesn't exist in the prompt.",
+    "original_question": "Pitch your product to a different industry than your core market.",
+    "suggested_rewrite": "Take a product you know well — real or imagined — that was built for one industry, and pitch it to a buyer in a completely different sector. Adapt the value proposition for that new audience.",
+    "new_tips": [
+      "Name the new industry upfront and identify the pain point your product can solve there — don't assume the listener knows your product",
+      "Swap out your usual language for terminology the new industry uses",
+      "Address the obvious objection head-on: why your product fits despite not being built for them"
+    ]
+  },
+  {
+    "id": "pitch_3-4_010",
+    "issue_type": "mode_mismatch",
+    "issue": "'Pitch a freemium model to your team' is an internal strategy discussion, not a sales or investor pitch. It reads more like a keynote or meeting presentation prompt. The tips also ask for conversion rate projections, which feels like a business school exercise more than a speech coaching prompt.",
+    "original_question": "Pitch a freemium model to your team.",
+    "suggested_rewrite": "You're proposing that your company shift to a freemium pricing model. Pitch the idea to your leadership team — what's the logic, what's the risk, and what would success look like?",
+    "new_tips": [
+      "Lead with the business case: what freemium unlocks that your current model doesn't",
+      "Address the biggest internal objection directly — usually 'we'll cannibalize paid users'",
+      "Define success in concrete terms: conversion rate, user growth, or a specific revenue milestone"
+    ]
+  },
+  {
+    "id": "pitch_5-6_007",
+    "issue_type": "missing_setup",
+    "issue": "'Deliver a product demo that tells a story' — no product, use case, or audience is defined. The demo scenario needs at least a minimal product type to ground the response; otherwise, the user is constructing fiction from scratch with no context.",
+    "original_question": "Deliver a product demo that tells a story.",
+    "suggested_rewrite": "Deliver a demo of a product you know well — software, hardware, or a service — framed as a story. Walk the audience through a specific user's problem and show how the product resolves it.",
+    "new_tips": [
+      "Open with the character and their problem — not the product name or the feature list",
+      "Show the before state vividly before you show the solution: the audience needs to feel the pain",
+      "End at the moment of resolution and let the product's value speak for itself — avoid summarizing it"
+    ]
+  },
+  {
+    "id": "pitch_5-6_018",
+    "issue_type": "unclear",
+    "issue": "'Pitch your product to a non-English speaking market' is ambiguous — is the user pitching in English to a translator? Pitching in the other language? Pitching about localization capabilities to a partner? The scenario is unclear enough that users won't know how to approach it.",
+    "original_question": "Pitch your product to a non-English speaking market.",
+    "suggested_rewrite": "You're pitching your product to a potential distributor or enterprise buyer in a country where English is not the primary language. You're pitching through an interpreter. How do you adapt your delivery and message?",
+    "new_tips": [
+      "Use shorter sentences and avoid idioms — your interpreter needs clean, translatable language",
+      "Lead with visuals and numbers over narrative: data crosses language barriers better than stories",
+      "Address localization explicitly: show you've thought about how the product works in their market, not just in yours"
+    ]
+  },
+  {
+    "id": "pitch_7-8_007",
+    "issue_type": "duplicate",
+    "issue": "Very close to pitch_5-6_001 (seed-stage pitch to VCs) and pitch_9-10_008 ('Deliver a pitch that changes how the audience sees an industry'). A conference pitch is not unique enough as a standalone 7-8 prompt — it overlaps with both the investor pitch format and the paradigm-shifting pitch.",
+    "original_question": "Deliver a pitch at a major industry conference.",
+    "suggested_rewrite": "You're on stage at a major industry conference in front of 500 practitioners. Your goal isn't just to introduce your product — it's to make the audience reconsider a common assumption in their field. What do you say?",
+    "new_tips": [
+      "Open with a provocative claim or counterintuitive data point — standard 'welcome everyone' openings lose conference audiences immediately",
+      "Build to your product as the proof point, not the starting point",
+      "End with a specific call to action the audience can take in the next 24 hours — not just 'learn more'"
+    ]
+  },
+  {
+    "id": "pitch_9-10_008",
+    "issue_type": "unclear",
+    "issue": "'Deliver a pitch that changes how the audience sees an industry' is vague enough that a user won't know what to actually say. There's no defined audience, no product, no industry. The grandiosity of the framing (paradigm-shifting) makes it harder, not more productive, as a speech prompt.",
+    "original_question": "Deliver a pitch that changes how the audience sees an industry.",
+    "suggested_rewrite": "Pick an industry you know well. Deliver a pitch built around one counterintuitive truth about that industry — something most people in the room believe that you think is wrong or outdated. Then show how your company is built on the opposite assumption.",
+    "new_tips": [
+      "State the conventional wisdom clearly before you challenge it — the audience needs to recognize their own belief",
+      "Back your counterintuitive claim with a data point or real-world example, not just assertion",
+      "Connect your company's approach to the new worldview — make the audience feel that buying in means they're ahead of the curve"
+    ]
+  },
+  {
+    "id": "pitch_9-10_013",
+    "issue_type": "mode_mismatch",
+    "issue": "'Pitch your vision to attract world-class talent' is a recruiting/employer-brand pitch, not a sales or investor pitch. It belongs more naturally in the keynote mode (internal talks, rallying address) than in pitch mode. The tips reinforce this — they're all about culture and mission storytelling.",
+    "original_question": "Pitch your vision to attract world-class talent.",
+    "suggested_rewrite": "You're recruiting a world-class candidate who has competing offers from top firms. Pitch them on why your company is the right bet for their career.",
+    "new_tips": [
+      "Lead with the mission and the size of the problem you're solving — top talent wants to matter, not just earn",
+      "Be specific about the role's impact: what will this person own in 12 months, and how will the company be different because of it",
+      "Address the risk honestly — acknowledge what's uncertain and explain why that's the opportunity, not the danger"
+    ]
+  }
+]

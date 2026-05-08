@@ -1,0 +1,1146 @@
+[
+  {
+    "id": "networking_1-2_014",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Someone at a work event asks 'What do you do outside of work?' Give a warm, genuine answer that opens a real conversation.",
+    "tips": [
+      "Pick one hobby and say why you love it — not just a list",
+      "Keep it to 2–3 sentences, then flip the question back",
+      "End with something that invites them to share too"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Casual social small talk"
+  },
+  {
+    "id": "networking_1-2_015",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You're standing in line at a networking event waiting for coffee. The person next to you smiles. Start a brief, easy conversation.",
+    "tips": [
+      "Use your shared surroundings as a natural opener",
+      "Introduce yourself by name early — don't wait",
+      "Keep it light and low-pressure"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Low-stakes opener in a shared moment"
+  },
+  {
+    "id": "networking_1-2_016",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Someone at a party asks how you know the host. Answer in a way that opens up conversation rather than closing it down.",
+    "tips": [
+      "Share a brief, specific story about how you met the host",
+      "Segue naturally to asking how they know the host",
+      "Stay conversational — this isn't an interrogation"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Standard party icebreaker"
+  },
+  {
+    "id": "networking_1-2_017",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You're at a class reunion and bump into someone you haven't seen in years. Reintroduce yourself naturally and pick up the thread.",
+    "tips": [
+      "Acknowledge the gap warmly without making it awkward",
+      "Give a quick one-sentence update on where life has taken you",
+      "Ask about something specific you remember about them"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Warm reconnection after a long gap"
+  },
+  {
+    "id": "networking_1-2_018",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Your coworker introduces you to their friend who's visiting the office. Greet them and make small talk for a minute.",
+    "tips": [
+      "Start with something easy: 'Is this your first time visiting the office?'",
+      "Find one thing you have in common within the first 30 seconds",
+      "Be warm — they're a guest; your friendliness matters"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Friendly greeting for a coworker's visitor"
+  },
+  {
+    "id": "networking_1-2_019",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You meet a friend of a friend at brunch. You're the only two people who don't already know each other. Introduce yourself and get the conversation going.",
+    "tips": [
+      "Lean on the mutual friend as an easy conversation bridge",
+      "Ask about something tangible nearby — the food, the place, their weekend",
+      "Be the one who makes it easy; don't wait for them"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Social introduction in a group setting"
+  },
+  {
+    "id": "networking_1-2_020",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Someone at a professional event asks 'Is this your first time at one of these?' Respond warmly and turn it into a real exchange.",
+    "tips": [
+      "Answer honestly and with genuine energy, not just 'yes' or 'no'",
+      "Share what brought you here — it gives them something to respond to",
+      "Ask the same question back and listen carefully"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Turning a throwaway question into a real moment"
+  },
+  {
+    "id": "networking_1-2_021",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You just moved to a new city. You bump into a neighbor in the hallway of your building. Introduce yourself and get things started on a friendly note.",
+    "tips": [
+      "Mention you're new — it's a natural opening and invites their help",
+      "Ask one simple question about the neighborhood or building",
+      "End with your name and a warm close so they remember you"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "New-to-a-place introduction"
+  },
+  {
+    "id": "networking_1-2_022",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "A classmate sits next to you in a workshop before it starts. You have two minutes. Say hello and start a quick, genuine conversation.",
+    "tips": [
+      "Open with something about the workshop itself — shared context is easy",
+      "Ask what they're hoping to get out of it",
+      "Keep it natural — you're not pitching, just connecting"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Casual pre-event conversation with a peer"
+  },
+  {
+    "id": "networking_1-2_023",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "At a community volunteer event, you're introduced to another volunteer you've never met. Start a friendly conversation while you work.",
+    "tips": [
+      "Ask what brought them to volunteer for this cause",
+      "Share your own reason genuinely — not the polished version",
+      "Look for a shared value or experience quickly"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Connection through shared activity"
+  },
+  {
+    "id": "networking_1-2_024",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Your manager introduces you to a visiting client before a meeting. You have sixty seconds before everyone sits down. Make a genuine first impression.",
+    "tips": [
+      "Lead with your name and role clearly — don't mumble",
+      "Find one quick, natural thing to say beyond 'nice to meet you'",
+      "Match their energy — if they're warm, be warm; if they're formal, be professional"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Brief professional first impression"
+  },
+  {
+    "id": "networking_1-2_025",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Someone at a holiday office party comes over and you've seen their face but never spoken. They say hi. Take it from there.",
+    "tips": [
+      "Start with something obvious and shared — the event, the food, the year",
+      "Ask a warm, non-work question to keep it light",
+      "If conversation slows, introduce them to someone else you know"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Casual workplace social setting"
+  },
+  {
+    "id": "networking_1-2_026",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "At a conference, someone asks 'What session are you most excited about?' Give a genuine, specific answer and let it become a conversation.",
+    "tips": [
+      "Be specific — name the session and say why you care about the topic",
+      "Ask the same question back and actually listen",
+      "Let the answer reveal something real about what you care about"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Conference-setting small talk with substance"
+  },
+  {
+    "id": "networking_1-2_027",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You're at an alumni event and meet someone who graduated ten years before you. Start the conversation as a peer, not a student.",
+    "tips": [
+      "Open with a shared experience — the school, a professor, a tradition",
+      "Be curious about their path without being starstruck",
+      "Share where you are now with confidence, not apology"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Cross-generation alumni small talk"
+  },
+  {
+    "id": "networking_1-2_028",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "Someone at a networking event is clearly nervous and not talking to anyone. You walk over. Make them feel included and get a real conversation going.",
+    "tips": [
+      "Open with warmth, not interrogation — make them feel safe first",
+      "Ask something easy that lets them answer without pressure",
+      "Be the person you'd have wanted someone to be for you in that moment"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Warmly initiating with a reluctant networker"
+  },
+  {
+    "id": "networking_1-2_029",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You meet someone at a dinner party who doesn't know anyone else there. Make them feel included and genuinely part of the conversation.",
+    "tips": [
+      "Invite them into the group with a natural bridge — 'Have you met...?'",
+      "Ask a question that lets them show who they are, not just what they do",
+      "Check in on them again later in the evening"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "Inclusive social hosting"
+  },
+  {
+    "id": "networking_1-2_030",
+    "mode": "networking",
+    "difficultyBand": "1-2",
+    "question": "You're at a job fair and walk up to a company booth. The recruiter looks up. Introduce yourself confidently and start the conversation.",
+    "tips": [
+      "Lead with your name and why you're interested in their company specifically",
+      "Have one prepared question that shows you've done your homework",
+      "Smile and make it a conversation, not a pitch"
+    ],
+    "targetDuration": 30,
+    "difficultyNote": "First-contact at a job fair booth"
+  },
+  {
+    "id": "networking_3-4_014",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You've been at a conference all day and someone asks 'What's been your biggest takeaway so far?' Answer in a way that's genuine and sparks real discussion.",
+    "tips": [
+      "Give a specific takeaway, not a generic one — name a session or idea",
+      "Connect it to something you're actively working on",
+      "Ask the same question back and build on their answer"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Conference-setting reflection and dialogue"
+  },
+  {
+    "id": "networking_3-4_015",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "At a meetup, someone asks you to give a quick overview of your career path. Keep it engaging — not a chronological LinkedIn recitation.",
+    "tips": [
+      "Lead with the thread that connects your roles, not the titles themselves",
+      "Give it a beginning, a pivot, and where you are now",
+      "Leave them with one thing about your path that's genuinely interesting"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Career narrative for a professional audience"
+  },
+  {
+    "id": "networking_3-4_016",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "A recruiter at a networking event asks why you're interested in changing roles. Answer honestly and professionally without oversharing.",
+    "tips": [
+      "Lead with what you're moving toward, not what you're escaping",
+      "Be specific about what kind of opportunity you're looking for",
+      "Show self-awareness — know what you want and why"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Candid career conversation with a recruiter"
+  },
+  {
+    "id": "networking_3-4_017",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You want to request a 30-minute coffee chat from someone you just met at an event. Make the ask in a way that's easy to say yes to.",
+    "tips": [
+      "Be specific about what you'd like to talk about — vague asks get ignored",
+      "Reference something from your conversation as the reason for following up",
+      "Give them an easy out — don't create pressure"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Asking for a follow-up meeting naturally"
+  },
+  {
+    "id": "networking_3-4_018",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at an alumni happy hour and meet someone who works at your dream company. Have a natural conversation without making it obvious you want something.",
+    "tips": [
+      "Be genuinely curious about their experience — don't interrogate for intel",
+      "Share what draws you to the company authentically, not strategically",
+      "If the conversation flows, a natural ask will emerge — don't force it"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Networking with a professional goal without being transactional"
+  },
+  {
+    "id": "networking_3-4_019",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "Someone in your network asks how they can help you right now. Answer with a specific, actionable ask — not 'just keep me in mind.'",
+    "tips": [
+      "Have one clear ask ready — vague answers waste their generosity",
+      "Make the ask something they can actually do, not aspirational",
+      "Thank them specifically and offer to return the favor concretely"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Making a specific ask when offered help"
+  },
+  {
+    "id": "networking_3-4_020",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You meet someone at a startup event who's building something in the same space as you. Start a conversation that's collaborative, not competitive.",
+    "tips": [
+      "Lead with curiosity — what are they seeing that you're not?",
+      "Be open about your own work without feeling the need to protect it",
+      "Look for the overlap that could benefit both of you"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Peer networking in a competitive space"
+  },
+  {
+    "id": "networking_3-4_021",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at a professional association's kickoff event. It's time for brief member introductions. Introduce yourself to the group in 30 seconds.",
+    "tips": [
+      "Name, role, and one reason you joined this community",
+      "Make the 'why I'm here' part genuine — it's more memorable than credentials",
+      "Keep it sharp — others are waiting their turn"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Group self-introduction in a professional community"
+  },
+  {
+    "id": "networking_3-4_022",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "At a workshop, you're paired with a stranger for a five-minute structured networking exercise. Make it count rather than going through the motions.",
+    "tips": [
+      "Ask one question that goes deeper than surface-level",
+      "Share something real about your own work or challenge",
+      "By the end, know one thing about them that you'll actually remember"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Structured speed networking with intention"
+  },
+  {
+    "id": "networking_3-4_023",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at a networking event where you only know one person — and they just got pulled away. Work the room on your own. Describe who you'd approach and how.",
+    "tips": [
+      "Look for someone else who's standing alone — they'll be relieved you came over",
+      "Approach groups of two or three with a natural entry point",
+      "Have a go-to opener ready so you don't freeze at the moment of approach"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Self-directed room-working without a social anchor"
+  },
+  {
+    "id": "networking_3-4_024",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at a panel event and want to approach the speaker afterward. Get their attention and make the first exchange worthwhile.",
+    "tips": [
+      "Open with a specific reference to something they said — not 'great talk'",
+      "Have one genuine question or observation ready, not a list",
+      "Be brief — there are others waiting; leave them wanting to continue"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Post-panel approach with a speaker"
+  },
+  {
+    "id": "networking_3-4_025",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You met someone great at a conference but only had a brief chat. You're following up on LinkedIn two days later. Write and deliver the message.",
+    "tips": [
+      "Reference one specific moment or detail from your conversation",
+      "State clearly what you'd like to do next — a call, a coffee, a resource to share",
+      "Keep it short — long follow-ups rarely get read"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Post-event LinkedIn follow-up"
+  },
+  {
+    "id": "networking_3-4_026",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at a startup pitch event and approach one of the founders afterward. Start a conversation that's genuine, not just flattery.",
+    "tips": [
+      "Engage with something specific in their pitch — a problem they named, a market insight",
+      "Share your own relevant perspective or experience",
+      "Ask a question that shows you thought deeply, not just politely"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Approaching a founder with substance after a pitch"
+  },
+  {
+    "id": "networking_3-4_027",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're at an industry dinner and seated next to someone from a completely different field. Find a meaningful connection within the first five minutes.",
+    "tips": [
+      "Ask about their work with genuine curiosity, not just politeness",
+      "Look for parallel challenges or experiences across your different worlds",
+      "Share something about your own work that they'd find genuinely interesting"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Cross-industry connection at a dinner"
+  },
+  {
+    "id": "networking_3-4_028",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "You're leaving a first coffee chat with a potential mentor. Close the conversation well and make a follow-up feel natural, not forced.",
+    "tips": [
+      "Summarize what you're taking away — it shows you were listening",
+      "Suggest a concrete next step before you stand up",
+      "Thank them for a specific thing they shared, not just their time"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Closing a mentor conversation with intention"
+  },
+  {
+    "id": "networking_3-4_029",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "Someone at a networking event is monopolizing your time. End the conversation gracefully so you can continue working the room.",
+    "tips": [
+      "Use a natural exit like introducing them to someone else nearby",
+      "Be warm and genuine — don't make them feel dismissed",
+      "Have a go-to exit line ready: 'I want to let you meet some others — I'll find you later'"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Gracefully exiting a stuck conversation"
+  },
+  {
+    "id": "networking_3-4_030",
+    "mode": "networking",
+    "difficultyBand": "3-4",
+    "question": "A friend offers to refer you for a job at their company. Walk them through how to position your candidacy in a way that makes their referral easy and compelling.",
+    "tips": [
+      "Give them two or three specific things to say about your strengths — not your full resume",
+      "Tell them what role you're targeting and why you're a fit",
+      "Make it effortless for them — don't put the work on their shoulders"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Coaching a friend on how to refer you"
+  },
+  {
+    "id": "networking_5-6_014",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "At a conference happy hour, you spot a group of three mid-conversation and want to join. Enter gracefully and contribute something meaningful within the first two minutes.",
+    "tips": [
+      "Listen for the thread before you open your mouth",
+      "Add a specific, relevant contribution — not just a general comment or laugh",
+      "Introduce yourself naturally at the right moment, not immediately"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Joining an existing conversation group"
+  },
+  {
+    "id": "networking_5-6_015",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're doing a coffee chat with someone more senior than you who seems distracted and rushed. Adapt and make the most of 15 minutes.",
+    "tips": [
+      "Acknowledge their time constraint explicitly — it signals self-awareness",
+      "Cut straight to your most important question",
+      "End sharp — don't cling to the full hour if it's not there"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Adapting to a time-pressured conversation"
+  },
+  {
+    "id": "networking_5-6_016",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You've been invited to a roundtable of 12 senior leaders in your field. It's your turn to introduce yourself. Earn respect from the room in 45 seconds.",
+    "tips": [
+      "Don't undersell — own your expertise clearly and without apology",
+      "Give one concrete example of your work, not just a job title",
+      "Signal that you're here to contribute, not just absorb"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Self-introduction in a high-caliber peer group"
+  },
+  {
+    "id": "networking_5-6_017",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're seated next to someone at an industry dinner who you've been trying to get a meeting with for months. You have one evening. Make it count without making it obvious.",
+    "tips": [
+      "Don't force the agenda — let the relationship happen naturally",
+      "Find personal common ground before professional",
+      "By dessert, create a reason to follow up that feels earned, not engineered"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Serendipitous high-value dinner opportunity"
+  },
+  {
+    "id": "networking_5-6_018",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're at a venture capital-hosted event and spot the GP you've been hoping to meet. Open a natural conversation without leading with your pitch.",
+    "tips": [
+      "Build genuine rapport before any mention of what you're building",
+      "Reference something specific about their portfolio or investing thesis",
+      "Find common ground that has nothing to do with funding"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Opening a relationship with a high-value investor"
+  },
+  {
+    "id": "networking_5-6_019",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You've been asked to be a panelist at a local industry event. When the MC asks you to briefly introduce yourself to the audience, nail the 30-second spot.",
+    "tips": [
+      "Keep it to 30–45 seconds — other panelists are waiting",
+      "Establish your relevant credential without delivering a full bio",
+      "Give the audience one specific reason to pay attention to your answers"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Panel self-introduction under a spotlight"
+  },
+  {
+    "id": "networking_5-6_020",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "Someone who was rude to you at a past industry event is now at the same networking dinner. Handle it professionally and give the relationship a fresh start.",
+    "tips": [
+      "Choose generosity over keeping score",
+      "Open with warmth and let their response show you who they are now",
+      "Don't bring up the past — let your presence do the work"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Resetting a tense prior history"
+  },
+  {
+    "id": "networking_5-6_021",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're at a client-facing event and need to introduce your colleague to a key client in a way that makes both of them feel seen and valued.",
+    "tips": [
+      "Give each person context about why the other is remarkable — don't just state names and titles",
+      "Frame the introduction around how they can help each other",
+      "Stay present enough to facilitate but don't dominate the exchange"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Client-facing professional introduction"
+  },
+  {
+    "id": "networking_5-6_022",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You have a 10-minute window with a keynote speaker before they're pulled away. You've thought about what to say. Make the exchange count.",
+    "tips": [
+      "Have one specific, smart question ready before you approach",
+      "Share one relevant thing about your work that creates common ground",
+      "End cleanly — don't overstay the window"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Making the most of a brief VIP window"
+  },
+  {
+    "id": "networking_5-6_023",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're at an industry conference and realize your direct competitor is in the same conversation group. Navigate the interaction without revealing anything sensitive.",
+    "tips": [
+      "Stay confident — your presence is your advantage",
+      "Engage genuinely without disclosing proprietary information",
+      "Find professional common ground that makes you peers, not threats"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Networking alongside a direct competitor"
+  },
+  {
+    "id": "networking_5-6_024",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're invited to a private dinner of 10 founders. You're the least established person at the table. Own your seat and contribute meaningfully.",
+    "tips": [
+      "Don't apologize for being earlier in your journey",
+      "Bring a fresh perspective that only your vantage point can offer",
+      "Ask questions that earn you credibility — smart questions reveal sharp thinking"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Holding your own in a room above your current level"
+  },
+  {
+    "id": "networking_5-6_025",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You want to build a relationship with someone who gets hundreds of outreach messages a week. You've just met them in person. Make your opening cut through.",
+    "tips": [
+      "Skip the flattery — lead with something specific and relevant to their work",
+      "Show you understand what they actually do, not just their title",
+      "Make any ask small and effortless to say yes to"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Breaking through to a high-profile contact in person"
+  },
+  {
+    "id": "networking_5-6_026",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You've been networking with a specific person for months and the relationship has been building. You're now ready to make a direct ask. Do it clearly without making it feel transactional.",
+    "tips": [
+      "Acknowledge the relationship you've built before making the ask",
+      "State the ask specifically and reasonably — vague asks are easy to ignore",
+      "Be prepared for them to say no and plan how to respond gracefully"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Transitioning from relationship-building to a direct ask"
+  },
+  {
+    "id": "networking_5-6_027",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You're being interviewed for a 'meet the team' lunch before a job offer. Navigate casual conversation that has real professional stakes underneath.",
+    "tips": [
+      "Treat it as an interview without looking like you're treating it as an interview",
+      "Show genuine curiosity about each team member — ask real questions",
+      "Leave everyone feeling like they'd genuinely enjoy working with you"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Casual conversation with hidden professional stakes"
+  },
+  {
+    "id": "networking_5-6_028",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You meet someone who could be a powerful professional ally, but they're openly skeptical of your industry. Shift the conversation without getting defensive.",
+    "tips": [
+      "Don't become defensive — lead with curiosity about their skepticism",
+      "Find a shared value or goal that exists across the divide",
+      "Let your own story change their perception — don't argue the abstract"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Overcoming industry skepticism in a first conversation"
+  },
+  {
+    "id": "networking_5-6_029",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You want to pitch yourself as a speaker for an industry conference. You've just met the program director at a happy hour. Make the case.",
+    "tips": [
+      "Lead with the specific insight you'd bring to their audience",
+      "Show you understand the conference's attendees and their needs",
+      "Make it easy to follow up — have your topic and credentials ready to send"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Pitching yourself for a speaking slot"
+  },
+  {
+    "id": "networking_5-6_030",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "After a great conversation at a networking event, you want to maintain the relationship long-term without it becoming transactional. Explain how you'd do it — and start with your next move.",
+    "tips": [
+      "Schedule a touchpoint before you leave the event",
+      "Give before you ask — send something useful within 48 hours of meeting",
+      "Make staying in touch feel like a friendship, not a networking obligation"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Building an authentic long-term professional connection"
+  },
+  {
+    "id": "networking_5-6_031",
+    "mode": "networking",
+    "difficultyBand": "5-6",
+    "question": "You've just published a piece of work publicly and are at a networking event. Someone asks what you're working on. Promote yourself without sounding self-promotional.",
+    "tips": [
+      "Only bring it up if it's genuinely relevant — don't force it in",
+      "Let the value speak for itself — share it, don't pitch it",
+      "Invite their reaction rather than broadcasting"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Self-promotion with restraint and grace"
+  },
+  {
+    "id": "networking_7-8_014",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're networking at a closed-door summit of senior executives — a room you've never operated in before. Describe how you'd show up and demonstrate it in your opening exchange.",
+    "tips": [
+      "Study the attendee list and prepare 3–4 specific people you want to meet",
+      "Lead with your perspective and your work — not your title",
+      "At this level, listening is the primary networking skill"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Operating in a room above your current level"
+  },
+  {
+    "id": "networking_7-8_015",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're building a personal board of advisors. You've identified one ideal candidate and are meeting them at an industry dinner. Pitch them on why they should invest time in you.",
+    "tips": [
+      "Show them what you're building with specificity and conviction",
+      "Explain why their particular expertise would accelerate your path",
+      "Be honest about where you're stuck and what kind of guidance you need"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Recruiting a high-caliber personal advisor"
+  },
+  {
+    "id": "networking_7-8_016",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "A major contact in your network has just gone through a significant professional setback. Reach out in a way that strengthens the relationship rather than making it awkward.",
+    "tips": [
+      "Focus entirely on them — this is not the time to mention your needs",
+      "Offer something concrete: a connection, a resource, a listening ear",
+      "Long-term network capital is built in moments like this, not in the good times"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Supporting a key contact during difficulty"
+  },
+  {
+    "id": "networking_7-8_017",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're facilitating a small-group networking session at an industry conference. Ten strangers have 10 minutes. Get them talking meaningfully.",
+    "tips": [
+      "Open with a question that forces specificity, not platitudes",
+      "Create a structure that gives everyone airtime — not just the loudest voices",
+      "End with a commitment that creates reasons to stay in touch"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Facilitating productive peer networking"
+  },
+  {
+    "id": "networking_7-8_018",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You've been asked to give a lightning talk at a networking dinner on the most important lesson you've learned in your career. Deliver it.",
+    "tips": [
+      "Open with the lesson itself — don't bury the insight at the end",
+      "Use one specific story to ground it in lived experience",
+      "Close with why it matters to the specific people in that room"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Personal insight talk to a professional dinner audience"
+  },
+  {
+    "id": "networking_7-8_019",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "Someone senior is gatekeeping your access to a key decision-maker. Navigate the relationship with the gatekeeper without going around them or burning the bridge.",
+    "tips": [
+      "Invest in the gatekeeper first — make them an ally, not an obstacle",
+      "Be transparent about your goals — don't appear to be maneuvering",
+      "Find something of value you can create for them that makes an introduction natural"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Navigating professional gatekeepers with integrity"
+  },
+  {
+    "id": "networking_7-8_020",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "Someone junior asks to shadow you for a day to learn how you build relationships. Describe your philosophy — then demonstrate it by introducing yourself to a stranger in the room.",
+    "tips": [
+      "Make your philosophy explicit — don't just show, explain",
+      "Demonstrate how to give, not just how to get",
+      "Share one mistake you made early in your networking that taught you something important"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Teaching networking by modeling it in real time"
+  },
+  {
+    "id": "networking_7-8_021",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're in a conversation and someone subtly tries to undermine your credentials in front of others. Respond with grace and confidence.",
+    "tips": [
+      "Don't take the bait defensively — elevate the conversation",
+      "Reframe with a specific example that quietly reestablishes your credibility",
+      "Stay warm — dignity under pressure is what people remember"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Handling a social credibility challenge"
+  },
+  {
+    "id": "networking_7-8_022",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "A peer you deeply respect is about to make what you believe is a major career mistake. They've asked for your honest opinion. Give it without damaging the relationship.",
+    "tips": [
+      "Separate your concern from your judgment — share both clearly",
+      "Ask questions before declaring conclusions",
+      "Respect their autonomy — advise without pressuring"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Honest peer mentorship with relational stakes"
+  },
+  {
+    "id": "networking_7-8_023",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "A powerful contact reaches out unexpectedly asking if you know anyone for a prestigious opportunity — and you'd actually be perfect for it. Respond without false modesty.",
+    "tips": [
+      "Don't be falsely modest — advocate for yourself clearly",
+      "Give one specific reason you're the right fit for this particular opportunity",
+      "Express genuine interest without desperation"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Self-advocacy when an opportunity surfaces unexpectedly"
+  },
+  {
+    "id": "networking_7-8_024",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're launching a new venture and need to activate your network for warm introductions to potential customers. Call a key contact and make the activation.",
+    "tips": [
+      "Be specific about who you're looking for — not 'anyone who might be interested'",
+      "Give them an easy, low-friction way to help",
+      "Express gratitude and close the loop when their introduction leads somewhere"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Activating a network for early business development"
+  },
+  {
+    "id": "networking_7-8_025",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You've attended the same conference for five years and have a dozen people you know superficially. Tonight you want to finally go deeper with one of them. Make that move.",
+    "tips": [
+      "Be the one who pushes past the pleasantries first",
+      "Ask about something real — challenges, decisions, what keeps them up at night",
+      "Share something real about yourself first to create safety for them to do the same"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Deepening a shallow but long-standing professional connection"
+  },
+  {
+    "id": "networking_7-8_026",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You want a specific senior person inside a large organization to become your internal champion. You've just seen them at an industry dinner. Develop and pitch the relationship.",
+    "tips": [
+      "Find a project or initiative they care about and contribute to it genuinely",
+      "Be explicit about wanting their mentorship — don't just orbit",
+      "Make it easy for them to champion you by giving them your narrative"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Deliberately cultivating an internal champion"
+  },
+  {
+    "id": "networking_7-8_027",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "Someone you mentored years ago has surpassed you professionally. They're now in the same room at an industry event. Celebrate it and evolve the relationship into something new.",
+    "tips": [
+      "Lead with genuine pride — no ego, no awkwardness",
+      "Ask to learn from them now — relationships grow when they become reciprocal",
+      "Show that you see this as a long-term partnership, not a hierarchy"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Evolving a mentor-mentee dynamic into a peer relationship"
+  },
+  {
+    "id": "networking_7-8_028",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're presenting yourself as a thought leader at a niche industry dinner. Introduce your area of expertise in a way that makes you the most interesting person in the room on this topic.",
+    "tips": [
+      "Lead with your counterintuitive take, not your conventional credentials",
+      "Invite debate — thought leaders attract pushback, not just nodding",
+      "Be specific enough that only someone who truly knows the space could say what you're saying"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Establishing thought leadership through conversation"
+  },
+  {
+    "id": "networking_7-8_029",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "A contact you've invested heavily in has never reciprocated. You've decided to have a direct conversation about the imbalance. Do it without burning the bridge.",
+    "tips": [
+      "Approach with curiosity, not accusation",
+      "Name what you've noticed specifically — be direct without being combative",
+      "Give them a genuine opportunity to show up differently"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Addressing a one-sided professional relationship"
+  },
+  {
+    "id": "networking_7-8_030",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're hosting a dinner for 12 people from across your network to strengthen relationships and spark new ones. Open the evening in a way that sets the right tone.",
+    "tips": [
+      "Welcome people individually before the formal opener",
+      "Set a theme or intention that makes the evening feel purposeful, not just social",
+      "Give people a reason to be curious about each other before the first course"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Hosting a relationship-building dinner with intention"
+  },
+  {
+    "id": "networking_7-8_031",
+    "mode": "networking",
+    "difficultyBand": "7-8",
+    "question": "You're at an international conference where you know no one. By the end of the evening you want two follow-up meetings booked and three genuine conversations had. Walk through your approach.",
+    "tips": [
+      "Have a clear target profile in mind before you arrive",
+      "Lead with giving: 'What would be useful to you?' before asking for anything",
+      "Own your story — you're here for a reason; let people feel that conviction"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Structured networking at an unfamiliar international conference"
+  },
+  {
+    "id": "networking_9-10_014",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You've just been introduced to a former rival who is now in a position to be a powerful ally. The history between you is real. Acknowledge it and reset the relationship.",
+    "tips": [
+      "Name the past lightly — don't pretend it didn't happen",
+      "Show how you've grown and what you see differently now",
+      "Extend genuine openness and let them decide how to respond"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Turning a professional rival into an ally"
+  },
+  {
+    "id": "networking_9-10_015",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "A major CEO had a 10-minute unplanned conversation with you at an event. Their assistant says they'd like to stay in touch. Craft and deliver your follow-up.",
+    "tips": [
+      "Reference a specific moment from the conversation that felt meaningful",
+      "Propose a concrete, low-friction next step",
+      "Be brief — a CEO's time is extremely constrained and every word counts"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Following up after an elite spontaneous connection"
+  },
+  {
+    "id": "networking_9-10_016",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're being considered for a board seat. During the informal pre-vote dinner, board members are quietly evaluating you between every course. Be authentically yourself while making the case.",
+    "tips": [
+      "Demonstrate strategic thinking through the questions you ask, not just the answers you give",
+      "Show you understand the board's role as distinct from management",
+      "Build individual connections — every board member is a separate vote"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Board-level evaluation through informal dinner"
+  },
+  {
+    "id": "networking_9-10_017",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're networking at the World Economic Forum. In a single conversation, you need to be credible to a senior policymaker, a billionaire entrepreneur, and an NGO director simultaneously.",
+    "tips": [
+      "Find the level of abstraction where all three perspectives converge",
+      "Speak to values, not just tactics — that's the universal currency at this level",
+      "Let each person feel specifically seen without ignoring the others"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Multi-stakeholder elite networking in one conversation"
+  },
+  {
+    "id": "networking_9-10_018",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "A journalist approaches you at a conference and asks for your on-the-record take on a controversial industry issue. Respond with precision.",
+    "tips": [
+      "Have a clear, defensible position — 'no comment' is still a position",
+      "Distinguish between your personal view and your organization's stance",
+      "Be quotable but not reckless — every word may end up in print"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "On-record media moment at a public industry event"
+  },
+  {
+    "id": "networking_9-10_019",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're the closing speaker at a leadership summit. Your job is to send 300 executives back into the world feeling energized, connected, and clear on what to do next. Close the summit.",
+    "tips": [
+      "Callback to the conference theme to give your close resonance and weight",
+      "Give them one specific action, not five — specificity creates momentum",
+      "End on a note of genuine inspiration, not rehearsed hype"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "High-stakes summit closing to a leadership audience"
+  },
+  {
+    "id": "networking_9-10_020",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're co-chairing a blue-ribbon committee and must build alignment among 15 high-ego experts during a two-hour kickoff dinner. Open the evening with purpose.",
+    "tips": [
+      "Establish authority without claiming dominance over theirs",
+      "Frame the mission so every person feels their expertise is essential",
+      "Create psychological safety for disagreement early — or the hard conversations won't happen"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Facilitating elite group alignment through relationship"
+  },
+  {
+    "id": "networking_9-10_021",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "A contact you haven't spoken to in five years — who is now extraordinarily powerful — runs into you at a conference. What do you say in the first 60 seconds?",
+    "tips": [
+      "Reconnect as a peer, not an admirer — you knew them when",
+      "Reference something specific and warm from when you worked together",
+      "Make the encounter feel like a beginning, not a nostalgia exercise"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Re-engaging a dormant elite connection"
+  },
+  {
+    "id": "networking_9-10_022",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're at a private equity leadership dinner and three of the people present have previously passed on investing in you. Carry the evening with confidence and let your growth speak.",
+    "tips": [
+      "Don't let past rejections shape how you show up tonight",
+      "Demonstrate growth — the person they passed on is not the person in the room",
+      "Be the most interesting person at the table, not the most eager"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Resilience and confidence in a room of prior rejectors"
+  },
+  {
+    "id": "networking_9-10_023",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're the founder of a growing company at an industry dinner and realize the person across from you may be considering acquiring you. You're not sure you want to sell. Navigate the dance.",
+    "tips": [
+      "Listen more than you speak — information asymmetry is your asset",
+      "Show strategic vision without tipping your hand on valuation or intent",
+      "Build the relationship without foreclosing any option"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Strategic ambiguity in a potential M&A conversation"
+  },
+  {
+    "id": "networking_9-10_024",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're being interviewed for a TEDx Talk slot. The curator asks: 'What is your idea worth spreading, and who are you to spread it?' Answer with precision and conviction.",
+    "tips": [
+      "Lead with the idea, not your credentials",
+      "State specifically why this idea matters now — timeliness is everything",
+      "Be honest about what you don't know yet as well as what you've figured out"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Pitching yourself as a thought leader to a high-bar audience"
+  },
+  {
+    "id": "networking_9-10_025",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You've built an extraordinary network over 20 years. A rising star at a conference asks what you wish you'd known at the very start. Give the honest, unsanitized answer.",
+    "tips": [
+      "Don't give platitudes — they want the hard truth you learned late",
+      "Share one specific mistake that changed how you build relationships",
+      "Tell them the thing no one tells you but that matters most"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Transmitting hard-won relationship wisdom to a newcomer"
+  },
+  {
+    "id": "networking_9-10_026",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're at a private retreat for 20 of the most accomplished professionals in your sector. You know no one. By the final evening, you want to be genuinely remembered. How do you carry yourself throughout?",
+    "tips": [
+      "Ask the question nobody else is willing to ask in group settings",
+      "Be the person who creates energy by listening deeply, not talking more",
+      "By the end, know something real about every person in the room"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Presence and impact at the highest-stakes retreat"
+  },
+  {
+    "id": "networking_9-10_027",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You've been asked to introduce a legendary figure in your industry to a room of their peers. Write and deliver a 90-second introduction that honors them without tipping into sycophancy.",
+    "tips": [
+      "Lead with specific impact — name the moment, the decision, the thing they changed",
+      "Include one detail the audience doesn't know — it shows you know the person, not the legend",
+      "Hand the floor to them in a way that sets exactly the right tone for what follows"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Introducing a legend with precision and restraint"
+  },
+  {
+    "id": "networking_9-10_028",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "Late-stage investor at a networking dinner starts questioning the founding team dynamics of your company. Defend your team with confidence and specificity.",
+    "tips": [
+      "Don't get defensive — lead with evidence, not emotion",
+      "Share a specific moment when the team was tested and how you handled it",
+      "Acknowledge any tension honestly — investors trust founders who see clearly"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Defending your team's credibility to a skeptical investor"
+  },
+  {
+    "id": "networking_9-10_029",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're being considered for a senior UN role. The final step is an informal dinner with the Secretary-General. How do you show up — and what do you say?",
+    "tips": [
+      "Demonstrate that you understand the weight of the institution you'd join",
+      "Show global awareness with depth, not breadth — don't be a generalist",
+      "Let your values lead — they're hiring a person, not a resume"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Highest-stakes informal conversation for an elite appointment"
+  },
+  {
+    "id": "networking_9-10_030",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You've just been named to your industry's most-influential-people list. A journalist at the event interviews you about your philosophy on influence and relationships. Give an answer that's true to how you actually think.",
+    "tips": [
+      "Be specific and non-generic — 'be authentic' is not an answer",
+      "Share the counterintuitive belief that actually drives how you build relationships",
+      "Be humble about what you're still learning"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Public articulation of relationship philosophy under a spotlight"
+  },
+  {
+    "id": "networking_9-10_031",
+    "mode": "networking",
+    "difficultyBand": "9-10",
+    "question": "You're a senior government official at a formal state dinner meeting an international counterpart for the first time. Build trust across cultural and political lines in a single evening.",
+    "tips": [
+      "Find human common ground before professional or political",
+      "Demonstrate knowledge of their context — it signals respect, not flattery",
+      "Say less than you want to — restraint is sophistication at this level"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Diplomatic networking at a state-level event"
+  }
+]

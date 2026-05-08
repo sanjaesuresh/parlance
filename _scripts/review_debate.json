@@ -1,0 +1,290 @@
+[
+  {
+    "id": "debate_1-2_004",
+    "issue_type": "unclear",
+    "issue": "No position instruction — user doesn't know whether to argue for or against",
+    "original_question": "Should video games be allowed in school during lunch breaks?",
+    "suggested_rewrite": "Should schools allow video games during lunch breaks? Pick a side and argue it.",
+    "new_tips": [
+      "State your position in the first sentence",
+      "Give one concrete reason — focus on learning, well-being, or fairness",
+      "Acknowledge the strongest objection in one sentence before closing"
+    ]
+  },
+  {
+    "id": "debate_1-2_006",
+    "issue_type": "unclear",
+    "issue": "Directed at 'kids' — awkward for an adult user who has no stake in the premise; framing collapses for anyone past school age",
+    "original_question": "Should kids be allowed to choose their own bedtimes?",
+    "suggested_rewrite": "Should parents set strict bedtimes for young children, or let them self-regulate their sleep? Take a position.",
+    "new_tips": [
+      "State your position clearly",
+      "Give one developmental or practical reason",
+      "Acknowledge what the opposing side gets right before closing"
+    ]
+  },
+  {
+    "id": "debate_1-2_020",
+    "issue_type": "weak_tips",
+    "issue": "Tips describe what to argue (individual freedom vs civic duty) rather than how to argue — they pre-script the content instead of coaching technique",
+    "original_question": "Should voting be made mandatory for all citizens?",
+    "suggested_rewrite": "Should voting be made mandatory for all citizens? Defend your position.",
+    "new_tips": [
+      "State your position in the opening sentence",
+      "Give one clear reason — then concede the strongest objection before closing",
+      "End with a sentence that captures the core trade-off your position accepts"
+    ]
+  },
+  {
+    "id": "debate_1-2_034",
+    "issue_type": "false_dichotomy",
+    "issue": "'Is breakfast the most important meal' has a factually contested answer (nutrition science doesn't support the claim) — makes both sides feel like arguing trivia rather than a real position",
+    "original_question": "Is breakfast the most important meal of the day?",
+    "suggested_rewrite": "Should people prioritize eating breakfast every day, or does skipping it have legitimate benefits? Take a side.",
+    "new_tips": [
+      "Commit to one position",
+      "Give one reason rooted in health, performance, or practicality",
+      "Acknowledge that the answer may vary by person before landing your conclusion"
+    ]
+  },
+  {
+    "id": "debate_1-2_036",
+    "issue_type": "false_dichotomy",
+    "issue": "'Is it better to own pets than not to?' is so personal and lifestyle-dependent that neither side is meaningfully defensible as a general claim — lacks a real debate axis",
+    "original_question": "Is it better to own pets than not to?",
+    "suggested_rewrite": "Should more people seriously consider getting a pet, or is the responsibility often underestimated? Argue your position.",
+    "new_tips": [
+      "Take a clear stance on the general case, not just your personal preference",
+      "Give one benefit or one caution that applies broadly",
+      "Close with the key point your position hinges on"
+    ]
+  },
+  {
+    "id": "debate_1-2_037",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_1-2_001 (school uniforms vs dress code) — both argue school clothing policy; covered twice in the same band",
+    "original_question": "Should all schools have a dress code even if not full uniforms?",
+    "suggested_rewrite": "Should schools regulate student clothing at all, or leave dress entirely to individual choice? Take a position.",
+    "new_tips": [
+      "Distinguish your argument from the uniform debate — focus on the principle of any school clothing rule",
+      "Give one reason about identity, equity, or school environment",
+      "Close with the specific policy you'd support or oppose"
+    ]
+  },
+  {
+    "id": "debate_1-2_038",
+    "issue_type": "leading",
+    "issue": "'Is watching too much TV harmful?' presupposes 'too much' — yes by definition; makes arguing 'no' nearly impossible without redefining the premise",
+    "original_question": "Is watching too much TV harmful?",
+    "suggested_rewrite": "Is heavy television viewing harmful, or are the concerns overstated? Pick a side.",
+    "new_tips": [
+      "Commit to yes or no on the general claim",
+      "Give one specific effect — cognitive, social, or physical — as your main evidence",
+      "Keep your argument focused and brief"
+    ]
+  },
+  {
+    "id": "debate_3-4_002",
+    "issue_type": "duplicate",
+    "issue": "Exact near-duplicate of debate_3-4_007 — both ask 'Is a college degree still worth the cost?' in the same difficulty band",
+    "original_question": "Is a college degree still worth the cost? Make your argument.",
+    "suggested_rewrite": "Is a four-year university degree the best investment for most young people, or are alternatives like trade school and self-directed learning undervalued? Argue your position.",
+    "new_tips": [
+      "State your position on the general case, not just for specific majors",
+      "Use one data point or example to support your argument",
+      "Acknowledge the strongest counterpoint in one sentence before concluding"
+    ]
+  },
+  {
+    "id": "debate_3-4_005",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_1-2_002 (work from home vs office) promoted to band 3-4 with minimal added complexity — essentially the same question",
+    "original_question": "Is remote work more productive than working in an office?",
+    "suggested_rewrite": "Should companies default to remote work rather than in-office arrangements? Build the case for your position.",
+    "new_tips": [
+      "Commit to a position on company policy, not personal preference",
+      "Support with two reasons: one about individual productivity, one about team or culture dynamics",
+      "Address the strongest objection before concluding"
+    ]
+  },
+  {
+    "id": "debate_3-4_009",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_1-2_027 (specialist vs generalist career) — same question reframed with marginal added complexity in same mode",
+    "original_question": "Is it better to specialize early in your career or stay generalist for longer?",
+    "suggested_rewrite": "Does early specialization give you a stronger career foundation than staying generalist, or does depth come at the cost of adaptability? Make the case.",
+    "new_tips": [
+      "Commit to one strategy and state it upfront",
+      "Give two supporting reasons: one about early outcomes, one about long-term trajectory",
+      "Address the risk of the path you chose"
+    ]
+  },
+  {
+    "id": "debate_3-4_025",
+    "issue_type": "unclear",
+    "issue": "'Is it better for consumers to negotiate salary' — 'consumers' is a category error; salary negotiation involves employees, not consumers",
+    "original_question": "Is it better for consumers to negotiate salary than accept the first offer?",
+    "suggested_rewrite": "Should job candidates always negotiate their salary rather than accepting the first offer? Take a position.",
+    "new_tips": [
+      "Commit to one strategy",
+      "Give one financial or relational reason",
+      "Acknowledge when accepting quickly might make sense before closing"
+    ]
+  },
+  {
+    "id": "debate_3-4_035",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_3-4_025 — both debate proactive salary negotiation vs waiting; only a slight framing shift separates them",
+    "original_question": "Is it better to negotiate a raise annually than wait to be recognized?",
+    "suggested_rewrite": "Should employees proactively ask for raises on a regular schedule, or is it smarter to wait until the timing and leverage are right? Argue your position.",
+    "new_tips": [
+      "Commit to one approach",
+      "Give one reason about outcomes — financial or relational",
+      "Address what your preferred approach risks before closing"
+    ]
+  },
+  {
+    "id": "debate_5-6_003",
+    "issue_type": "leading",
+    "issue": "The framing 'when there are problems on Earth' stacks the question against space exploration — it's a rhetorical presupposition that the contrast is unfair, nudging users toward anti-space",
+    "original_question": "Is space exploration a good use of public funding when there are problems on Earth? Argue your side.",
+    "suggested_rewrite": "Should governments continue investing heavily in space exploration, or should that funding be redirected to solving more immediate problems? Argue your position.",
+    "new_tips": [
+      "Acknowledge the tension directly — don't pretend the trade-off doesn't exist",
+      "Use one specific example of benefit or opportunity cost",
+      "Build toward a compelling conclusion that addresses what the other side gets right"
+    ]
+  },
+  {
+    "id": "debate_5-6_007",
+    "issue_type": "unclear",
+    "issue": "Third tip ('Address the specific failure mode of remote-first you acknowledge') is circular and confusing — it tells users to address a failure mode without first explaining what failure mode to pick",
+    "original_question": "Is remote-first culture better for long-term company culture than hybrid models?",
+    "suggested_rewrite": "Is remote-first culture better for long-term company culture than hybrid models? Take a position.",
+    "new_tips": [
+      "Commit to a position on which model builds stronger culture over time",
+      "Give two reasons grounded in trust formation, collaboration, or equity",
+      "Concede the strongest counterpoint and explain why your position still holds"
+    ]
+  },
+  {
+    "id": "debate_5-6_023",
+    "issue_type": "unclear",
+    "issue": "The question asks whether AVs should be approved 'before human-level safety is proven' — this essentially pre-decides the answer (no, don't approve an unsafe technology); making the pro-approval side require arguing for an incoherent position",
+    "original_question": "Should autonomous vehicles be approved for public roads before human-level safety is proven?",
+    "suggested_rewrite": "Should autonomous vehicles be permitted on public roads now, even without conclusive proof they are safer than human drivers? Argue your position.",
+    "new_tips": [
+      "Position yourself on the precautionary principle versus the cost of delay",
+      "Give two reasons: one about current safety data, one about the net harm from waiting",
+      "Address the liability and regulatory certification questions briefly"
+    ]
+  },
+  {
+    "id": "debate_5-6_038",
+    "issue_type": "unclear",
+    "issue": "Question asks if 'professional sports leagues' should pay college athletes — this conflates two separate institutions (NCAA vs pro leagues) and is factually confused; the debate is about the NCAA paying athletes, not the NFL or NBA paying them",
+    "original_question": "Should professional sports leagues be required to pay college athletes?",
+    "suggested_rewrite": "Should college athletes be compensated by their universities beyond scholarships? Argue your position.",
+    "new_tips": [
+      "Position yourself on amateurism versus labor rights in college athletics",
+      "Give two reasons: one about revenue sharing, one about education mission or equity",
+      "Address the Title IX or competitive balance implications briefly"
+    ]
+  },
+  {
+    "id": "debate_7-8_003",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_9-10_008 and debate_7-8_010 — all three ask about economic growth vs environmental/ecological sustainability; three prompts covering the same core tension across two adjacent bands",
+    "original_question": "Is economic growth fundamentally incompatible with environmental sustainability? Make your case.",
+    "suggested_rewrite": "Can economies achieve meaningful environmental sustainability without sacrificing growth, or is the green growth model fundamentally flawed? Make the case.",
+    "new_tips": [
+      "Use specific data points on decoupling or resource throughput",
+      "Address green growth versus degrowth frameworks directly",
+      "Conclude with a synthesis that names the condition under which your position holds"
+    ]
+  },
+  {
+    "id": "debate_7-8_010",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_7-8_003 and debate_9-10_008 — same economic growth vs. sustainability axis, third coverage of this theme across bands",
+    "original_question": "Should nations prioritize GDP growth or ecological sustainability when they conflict?",
+    "suggested_rewrite": "When economic growth and ecological sustainability conflict directly, which should governments prioritize, and why? Build a rigorous argument.",
+    "new_tips": [
+      "State your position on the prioritization question — don't hedge by saying both matter",
+      "Give two reasons: one about long-run viability, one about distributional justice",
+      "Address who suffers most from each choice and why that matters to your argument"
+    ]
+  },
+  {
+    "id": "debate_7-8_033",
+    "issue_type": "leading",
+    "issue": "'Is hybrid work ultimately destroying organizational culture' — 'destroying' is loaded language that presupposes harm and makes the pro-hybrid side argue against a straw man framing",
+    "original_question": "Is hybrid work ultimately destroying organizational culture compared to fully in-person?",
+    "suggested_rewrite": "Does hybrid work weaken organizational culture compared to fully in-person work, or does it create a stronger, more equitable culture? Take a position.",
+    "new_tips": [
+      "Define what a strong organizational culture means before arguing about which model achieves it",
+      "Give two reasons: one about trust formation, one about equity and access",
+      "Address the generational or role-specific variation in hybrid effectiveness"
+    ]
+  },
+  {
+    "id": "debate_9-10_001",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_9-10_029 — both ask whether advanced AI systems should receive legal personhood / constitutional rights; differ only in the instruction to rebut 'top three counterpoints' vs address the corporate personhood analogy",
+    "original_question": "Should we grant legal personhood to advanced AI systems? Construct a formal argument with rebuttals to the top three counterpoints.",
+    "suggested_rewrite": "Should advanced AI systems be granted legal personhood? Build a formal argument that defines your threshold criteria and addresses the three most powerful objections.",
+    "new_tips": [
+      "Build a philosophical framework for personhood — what criteria must be met and why",
+      "Anticipate and dismantle objections systematically: sentience, accountability, and corporate-personhood analogies",
+      "Close with the concrete legal or social implications if your position were adopted"
+    ]
+  },
+  {
+    "id": "debate_9-10_003",
+    "issue_type": "unclear",
+    "issue": "'Should billionaires exist?' is ambiguous — it conflates should billionaires be taxed, should wealth accumulation be capped, and should the economic system be redesigned; users won't know which level of claim to argue",
+    "original_question": "Should billionaires exist? Build a complete argument that addresses economic, moral, and systemic dimensions.",
+    "suggested_rewrite": "Should societies place an effective cap on individual wealth, preventing anyone from accumulating billionaire-level fortunes? Build a complete argument addressing economic, moral, and systemic dimensions.",
+    "new_tips": [
+      "Define your moral framework explicitly before making economic or systemic claims",
+      "Use data on wealth concentration to ground your argument",
+      "Address both incentive structures and systemic effects, and acknowledge the strongest counterargument"
+    ]
+  },
+  {
+    "id": "debate_9-10_012",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_7-8_011 — both ask whether representative democracy is sufficient given modern complexity; the 9-10 version adds 'technical complexity' framing but covers the same core thesis",
+    "original_question": "Is representative democracy as currently practiced sufficient to govern societies defined by deep technical complexity?",
+    "suggested_rewrite": "Is representative democracy capable of producing technically competent governance in domains like AI, pandemics, and climate — or does its design structurally fail in high-complexity environments?",
+    "new_tips": [
+      "Distinguish representation failures from epistemic failures — they require different remedies",
+      "Give two reasons: one about the knowledge gap between elected generalists and technical domains, one about temporal misalignment",
+      "Propose a specific institutional alternative or reform rather than leaving the critique abstract"
+    ]
+  },
+  {
+    "id": "debate_9-10_022",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_7-8_035 — both ask whether the international financial architecture is biased against developing economies; the 9-10 version adds 'perpetuate underdevelopment' framing but covers the same mechanisms",
+    "original_question": "Is the international financial system structurally biased against developing economies in ways that perpetuate underdevelopment?",
+    "suggested_rewrite": "Is reform of the international financial system — IMF conditionality, dollar hegemony, sovereign debt structures — necessary to allow developing economies to escape structural disadvantage? Build your argument.",
+    "new_tips": [
+      "Identify the specific mechanisms: original sin dynamics, reserve currency burden, or capital flow liberalization constraints",
+      "Give two reasons: one about policy space constraints, one about financial contagion or debt dynamics",
+      "Address the counterargument that integration has driven extraordinary growth in East Asia and why it doesn't undermine your position"
+    ]
+  },
+  {
+    "id": "debate_9-10_029",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of debate_9-10_001 — both argue whether AI systems should receive legal recognition / rights; differ only in framing ('capability thresholds' vs 'advanced AI systems')",
+    "original_question": "Should AI systems that meet certain capability thresholds be subject to constitutional rights analogous to legal personhood?",
+    "suggested_rewrite": "What legal obligations, if any, should societies have toward AI systems as they grow in capability? Argue for a specific framework — and defend it against the strongest objections.",
+    "new_tips": [
+      "Define the capability threshold and the specific rights or obligations you're proposing before giving reasons",
+      "Give two reasons: one about moral status criteria, one about legal system design and accountability",
+      "Address the corporate personhood analogy, its functional rationale, and whether it applies to AI"
+    ]
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "id": "keynote_1-2_001",
+    "issue_type": "mode_mismatch",
+    "issue": "Self-introduction at a small meetup is casual/conversational, not keynote-level speaking; no narrative arc, opening impact, or audience-centered hook needed",
+    "original_question": "Introduce yourself at a small meetup.",
+    "suggested_rewrite": "Give a 60-second opening to a small audience of 10–15 people to kick off a community event — introduce the event theme and why everyone is here.",
+    "new_tips": [
+      "Open with the shared purpose that brought people to the room",
+      "Set an energetic, welcoming tone that gets people excited for what's next",
+      "End with a clear handoff: what happens first and why it matters"
+    ]
+  },
+  {
+    "id": "keynote_1-2_005",
+    "issue_type": "mode_mismatch",
+    "issue": "Sharing a fun fact with a group is casual chitchat, not keynote practice; no presentation structure or narrative is required",
+    "original_question": "Share a fun fact about a topic you know well.",
+    "suggested_rewrite": "Open a short talk to a small audience by delivering one surprising fact about a topic you know well, then briefly explain why it matters.",
+    "new_tips": [
+      "Lead with the surprising hook before revealing the topic",
+      "Explain the fact's significance in one or two clear sentences",
+      "Invite the audience to think about what it means for them"
+    ]
+  },
+  {
+    "id": "keynote_1-2_006",
+    "issue_type": "mode_mismatch",
+    "issue": "Describing a vacation to a group is casual storytelling, not keynote speaking; tips reinforce casual register rather than any structured talk format",
+    "original_question": "Describe your favorite vacation to a group.",
+    "suggested_rewrite": "Give a brief talk to a small group about a place you've visited — use it to share one insight about the world or yourself that the trip revealed.",
+    "new_tips": [
+      "Open with a vivid single image that transports the audience",
+      "Build toward one clear insight or lesson, not just a highlight reel",
+      "Close with a line that makes the audience want to see it for themselves"
+    ]
+  },
+  {
+    "id": "keynote_1-2_010",
+    "issue_type": "mode_mismatch",
+    "issue": "Sharing a New Year's resolution with a group is casual sharing, not keynote practice; no structure, narrative arc, or audience-centered purpose",
+    "original_question": "Share your New Year's resolution with a group.",
+    "suggested_rewrite": "Give a brief 60-second talk encouraging a group to set a goal for the new year — share your own resolution as an example and make the case for why it matters.",
+    "new_tips": [
+      "Open with why goal-setting is worth the group's attention, not just your goal",
+      "Use your personal resolution to illustrate a broader point",
+      "Close with a call to action: encourage the audience to commit to something"
+    ]
+  },
+  {
+    "id": "keynote_1-2_020",
+    "issue_type": "mode_mismatch",
+    "issue": "Sharing your weekend highlight with the team is water-cooler conversation, not keynote practice; contradicts the mode's focus on narrative arc and opening impact",
+    "original_question": "Share your weekend highlight with the team.",
+    "suggested_rewrite": "Open a Monday team meeting with a 60-second energizer: share one moment from your weekend that connects to a value or goal the team cares about.",
+    "new_tips": [
+      "Pick a moment that has a relatable point, not just entertainment value",
+      "Keep the story tight — one scene, one insight",
+      "Connect back to the team or the week ahead to justify the air time"
+    ]
+  },
+  {
+    "id": "keynote_3-4_003",
+    "issue_type": "missing_setup",
+    "issue": "No context for what department, what results, or what time period; vague enough that a user won't know where to begin",
+    "original_question": "Present quarterly results to your department.",
+    "suggested_rewrite": "Present a mixed-result quarter to your department: one key metric improved, one declined. Explain what happened and what you'll do differently next quarter.",
+    "new_tips": [
+      "Lead with the headline — one number or outcome that frames everything else",
+      "Own the miss: explain what drove the decline with specifics, not excuses",
+      "Close with a concrete plan for next quarter, not vague optimism"
+    ]
+  },
+  {
+    "id": "keynote_3-4_010",
+    "issue_type": "mode_mismatch",
+    "issue": "Emceeing a holiday party is event hosting, not a keynote speech; tips are vague platitudes ('energy high with humor and warmth') and don't coach any speechmaking skill",
+    "original_question": "Emcee a company holiday party.",
+    "suggested_rewrite": "Open a company holiday celebration with a 90-second address: acknowledge the year's highs and lows honestly, celebrate the team, and set a festive tone for the evening.",
+    "new_tips": [
+      "Open with one specific moment or win from the year that the whole room can feel proud of",
+      "Keep the tone warm but not saccharine — authenticity beats cheerfulness",
+      "End with a toast line that gives everyone a shared, memorable moment"
+    ]
+  },
+  {
+    "id": "keynote_3-4_013",
+    "issue_type": "mode_mismatch",
+    "issue": "A safety briefing is a compliance task, not keynote speaking; even the difficultyNote frames it as 'mandatory topic' which signals it doesn't belong in a keynote practice mode",
+    "original_question": "Deliver a safety briefing in an engaging way.",
+    "suggested_rewrite": "Give a short talk to a team explaining why a specific safety protocol matters — make the case using a real scenario so people actually remember and follow it.",
+    "new_tips": [
+      "Open with a real-world consequence story, not a list of rules",
+      "Frame compliance as protecting people, not just avoiding liability",
+      "Close with one memorable takeaway that sticks after people leave the room"
+    ]
+  },
+  {
+    "id": "keynote_5-6_011",
+    "issue_type": "mode_mismatch",
+    "issue": "An impromptu speech prompt belongs in the casual/impromptu mode, not keynote; the tips are generic and don't address keynote-specific skills like narrative arc or stage presence",
+    "original_question": "Give an impromptu speech when asked to speak unexpectedly.",
+    "suggested_rewrite": "You've just been called to the stage unexpectedly at an industry event. Give a 90-second off-the-cuff keynote-style response to the event's central theme.",
+    "new_tips": [
+      "Take one beat to identify the single most relevant thing you can say to this room",
+      "Open with a concrete claim or observation, not 'I wasn't expecting this'",
+      "Close with something the audience can take away — make the moment count"
+    ]
+  },
+  {
+    "id": "keynote_5-6_020",
+    "issue_type": "missing_setup",
+    "issue": "No topic or domain is specified; 'a dry topic' is so open-ended it provides no useful constraint to practice against",
+    "original_question": "Give an informative talk that makes a dry topic fascinating.",
+    "suggested_rewrite": "Give a talk that makes supply chain logistics — or another notoriously dry business topic you know — genuinely compelling to a general audience.",
+    "new_tips": [
+      "Open with a surprising consequence of this topic that affects everyday life",
+      "Use one vivid analogy to make the mechanism click for a non-expert",
+      "Close with a 'so what' that makes the audience glad they paid attention"
+    ]
+  },
+  {
+    "id": "keynote_7-8_002",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of keynote_5-6_006 ('Present a TEDx-style talk on a personal passion'); both ask for a TED-style narrative speech with personal hook and universal lesson",
+    "original_question": "Give a TED talk that introduces a new concept.",
+    "suggested_rewrite": "Give a TED-style talk that introduces a concept your field takes for granted but the general public has never heard of — make it feel urgent and exciting.",
+    "new_tips": [
+      "Name the concept early and give it a memorable framing the audience can hold onto",
+      "Build through progressive revelation: let understanding unfold rather than front-loading",
+      "Close with a specific implication that makes the audience see something in their life differently"
+    ]
+  },
+  {
+    "id": "keynote_7-8_006",
+    "issue_type": "missing_setup",
+    "issue": "No topic is given; 'present to the UN or equivalent' is an intimidating context without any subject anchor — the user has no idea what they're supposed to be arguing for",
+    "original_question": "Present to the United Nations or equivalent body.",
+    "suggested_rewrite": "Present a 2-minute address to an international body (like the UN) making the case for urgent global cooperation on one specific issue — climate, pandemic preparedness, or tech governance.",
+    "new_tips": [
+      "Open by naming the shared stake — what all nations lose if this issue goes unaddressed",
+      "Present your proposal in plain language that survives translation",
+      "Close with a concrete ask: a resolution, a commitment, a next meeting"
+    ]
+  },
+  {
+    "id": "keynote_7-8_013",
+    "issue_type": "unclear",
+    "issue": "'Integrate live demonstration' assumes a physical prop or screen — it's unclear what the user is supposed to demo in a speech-recording app context, making the tip about 'backup plans for technical failures' nonsensical",
+    "original_question": "Give a keynote that integrates live demonstration.",
+    "suggested_rewrite": "Give a keynote that weaves a simulated live demonstration into your narrative — describe what you'd show on screen or stage, and use the reveal moment as the emotional peak of the talk.",
+    "new_tips": [
+      "Narrate the demo as if the audience is watching it unfold in real time",
+      "Make the demo illustrate your core claim, not just show a feature",
+      "Use the moment of revelation to anchor your key message"
+    ]
+  },
+  {
+    "id": "keynote_9-10_002",
+    "issue_type": "unclear",
+    "issue": "'A speech that will be quoted for decades' is aspirational framing, not a scenario — it gives the user no context, audience, or topic to work from; it's pure outcome without any setup",
+    "original_question": "Give a speech that will be quoted for decades.",
+    "suggested_rewrite": "Craft and deliver a short but historically significant speech — choose your moment (a movement, a milestone, a crisis) and make it feel like it will outlast the room.",
+    "new_tips": [
+      "Find the one sentence you want people to repeat — build everything toward it",
+      "Earn the emotional crescendo: let the argument build before you deliver the defining line",
+      "Speak as though history is listening — precision of language matters at this level"
+    ]
+  },
+  {
+    "id": "keynote_9-10_009",
+    "issue_type": "mode_mismatch",
+    "issue": "Giving a speech in a second language is a linguistic challenge, not a keynote skill; it tests language fluency rather than narrative arc, opening impact, or persuasive structure — and most users won't have a relevant second language",
+    "original_question": "Give a speech in a second language to a foreign audience.",
+    "suggested_rewrite": "Give a keynote to an international audience where many attendees are non-native English speakers — adapt your delivery, vocabulary, and cultural references to be universally clear and respectful.",
+    "new_tips": [
+      "Slow your pace deliberately and use concrete rather than idiomatic language",
+      "Avoid cultural references that don't travel — replace them with universal human experiences",
+      "Make your structure crystal-clear so the argument doesn't depend on every word landing"
+    ]
+  },
+  {
+    "id": "keynote_9-10_014",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of keynote_5-6_011 ('Give an impromptu speech when asked to speak unexpectedly'); both are impromptu speech prompts with nearly identical tips about speaking without preparation",
+    "original_question": "Give a spontaneous speech at a historic moment.",
+    "suggested_rewrite": "You're a leader at the exact moment a long-awaited breakthrough is announced — a peace deal, a scientific discovery, an election result. Speak to the room without prepared notes.",
+    "new_tips": [
+      "Read the emotional temperature of the room before your first word",
+      "Name what this moment means — don't just describe it, interpret it",
+      "Give the audience their role in what comes next: the moment isn't over when you stop speaking"
+    ]
+  },
+  {
+    "id": "casual_1-2_005",
+    "issue_type": "other",
+    "issue": "Too generic and unanchored — 'describe your morning routine' has no angle, tension, or reason to practice it; likely to produce flat, list-like responses with no persuasive or explanatory challenge",
+    "original_question": "Describe your morning routine.",
+    "suggested_rewrite": "Explain your morning routine to someone who struggles to start their day — and make the case for why one specific habit in it actually makes a difference.",
+    "new_tips": [
+      "Anchor the routine with a concrete detail that makes it feel real and specific",
+      "Build toward one insight: what habit matters most and why",
+      "Speak as if you're trying to convince them to try it, not just describing your day"
+    ]
+  },
+  {
+    "id": "casual_1-2_013",
+    "issue_type": "other",
+    "issue": "Describing the view from your window right now is hyper-situational and luck-dependent; many users are in featureless rooms or will have nothing interesting to describe, making the prompt a dead end",
+    "original_question": "Describe the view from your window right now.",
+    "suggested_rewrite": "Describe a place you know well — a street corner, park, or room — as if you're painting it in words for someone who will never see it.",
+    "new_tips": [
+      "Start with the big picture, then zoom into one specific detail that captures the place's character",
+      "Use sensory language beyond sight: sound, smell, temperature",
+      "End with the feeling the place gives you — not just what it looks like"
+    ]
+  },
+  {
+    "id": "casual_3-4_011",
+    "issue_type": "unclear",
+    "issue": "Asking users to explain a conspiracy theory 'and why people believe it' is ambiguous about stance — it could read as endorsing or legitimizing fringe theories, and the tip 'distinguish belief from evidence' is vague about what the user should conclude",
+    "original_question": "Explain a conspiracy theory and why people believe it.",
+    "suggested_rewrite": "Pick a well-known conspiracy theory and explain — without endorsing it — why it spreads and what psychological needs it fulfills for believers.",
+    "new_tips": [
+      "Present the theory factually and neutrally before analyzing it",
+      "Name the psychological mechanism at work: mistrust, pattern-seeking, community identity",
+      "Distinguish between the appeal of the narrative and the absence of evidence — clearly"
+    ]
+  },
+  {
+    "id": "casual_3-4_013",
+    "issue_type": "missing_setup",
+    "issue": "No item is specified; 'a common household item' is so open it gives users nothing to anchor on and risks producing generic, aimless responses",
+    "original_question": "Explain how a common household item works.",
+    "suggested_rewrite": "Explain how a microwave oven — or another everyday appliance you choose — actually works, at a level that's accurate but accessible to someone with no science background.",
+    "new_tips": [
+      "Start with what the person already observes ('you put food in, it gets hot') before explaining the mechanism",
+      "Use one strong analogy to make the underlying science click",
+      "End with one surprising fact about the item that reframes how they'll use it"
+    ]
+  },
+  {
+    "id": "casual_5-6_002",
+    "issue_type": "unclear",
+    "issue": "Asking to 'debate both sides of universal basic income' and then share which side you lean toward conflates debate and deliberation; it's also an awkward structure for a solo speech practice session — users need a clearer task frame",
+    "original_question": "Debate both sides of universal basic income.",
+    "suggested_rewrite": "Make the strongest possible case for universal basic income to a skeptical audience — address the most common objections and end with a clear position.",
+    "new_tips": [
+      "Open by defining what UBI actually means — many objections rest on a misunderstanding of the proposal",
+      "Acknowledge the strongest counterargument before dismantling it with evidence",
+      "Close with one concrete, real-world example of a UBI pilot and what it showed"
+    ]
+  },
+  {
+    "id": "casual_7-8_004",
+    "issue_type": "mode_mismatch",
+    "issue": "Teaching using only questions is a pedagogical technique, not a casual conversational skill; it requires a back-and-forth listener that doesn't exist in a solo recording session — the user cannot actually use questions interactively",
+    "original_question": "Teach a complex topic using only questions.",
+    "suggested_rewrite": "Explain a complex topic by walking your listener through your own thinking process — show how you'd figure it out step by step, not just announce conclusions.",
+    "new_tips": [
+      "Start by framing what makes this topic hard before you start explaining it",
+      "Think aloud: let the listener follow the reasoning, not just the outcome",
+      "Check in periodically with a rhetorical question to keep the listener oriented"
+    ]
+  },
+  {
+    "id": "casual_7-8_018",
+    "issue_type": "duplicate",
+    "issue": "Near-duplicate of casual_5-6_001 ('Explain the trolley problem and argue your position'); this prompt adds 'variants' but covers the same ground with the same ethical reasoning exercise",
+    "original_question": "Explain the trolley problem variants and their implications.",
+    "suggested_rewrite": "Walk through the fat man variant of the trolley problem and explain what it reveals about the gap between utilitarian logic and human moral intuition — and what that gap tells us about ethics.",
+    "new_tips": [
+      "Present the specific variant clearly before diving into analysis — don't assume familiarity",
+      "Show how the variants isolate different moral variables: agency, proximity, intention",
+      "Connect the insight to a real-world ethical decision, not just abstract philosophy"
+    ]
+  },
+  {
+    "id": "casual_9-10_003",
+    "issue_type": "unclear",
+    "issue": "'Explain the meaning of life using only first principles' is two prompts collapsed into one; first-principles reasoning and the meaning of life are both massive standalone topics — the constraint 'only first principles' is also unexplained",
+    "original_question": "Explain the meaning of life using only first principles.",
+    "suggested_rewrite": "Starting from only the basic facts of existence — that we are alive, aware, and temporary — build a logical case for what makes a life meaningful.",
+    "new_tips": [
+      "Define your starting assumptions explicitly before reasoning from them",
+      "Build the argument step by step: each claim should follow from the last",
+      "End with a framework the listener can apply, not a grand pronouncement"
+    ]
+  },
+  {
+    "id": "casual_9-10_020",
+    "issue_type": "missing_setup",
+    "issue": "'Improvised 2-minute speech on a random topic' gives no topic — it's an instruction, not a prompt; the user has nothing concrete to speak about, and the app can't randomly assign a topic in a static JSON prompt",
+    "original_question": "Deliver an improvised 2-minute speech on a random topic with depth and clarity.",
+    "suggested_rewrite": "You have 10 seconds to prepare. Your topic: the hidden cost of convenience. Go — deliver a 2-minute speech with a clear thesis and at least two supporting arguments.",
+    "new_tips": [
+      "Commit to a thesis in your first sentence — don't warm up, open strong",
+      "Use the thesis-evidence-counterpoint-conclusion structure to give instant shape to the talk",
+      "Trust your instincts: at this level, the quality of your thinking under pressure is the point"
+    ]
+  }
+]

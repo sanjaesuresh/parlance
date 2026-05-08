@@ -1,0 +1,296 @@
+[
+  {
+    "id": "storytelling_1-2_001",
+    "mode": "storytelling",
+    "issue_type": "awkward",
+    "issue": "Redundant wording: 'a time you learned something new for the first time' — 'new' and 'for the first time' say the same thing",
+    "original_question": "Tell a story about a time you learned something new for the first time.",
+    "suggested_rewrite": "Tell a story about the first time you learned something that genuinely surprised you."
+  },
+  {
+    "id": "storytelling_1-2_003",
+    "mode": "storytelling",
+    "issue_type": "unclear",
+    "issue": "Too vague to anchor a story — 'a pet or animal you've encountered' spans anything from your childhood dog to a squirrel; no moment or event is implied",
+    "original_question": "Tell a story about a pet or animal you've encountered.",
+    "suggested_rewrite": "Tell a story about a specific moment with an animal — a pet, a wild creature, anything — that made you feel something unexpected.",
+    "new_tips": [
+      "Ground it in one specific moment, not a general description of the animal",
+      "Show what you felt in the moment, not just what happened",
+      "End with why the encounter stuck with you"
+    ]
+  },
+  {
+    "id": "storytelling_7-8_002",
+    "mode": "storytelling",
+    "issue_type": "unclear",
+    "issue": "Asks user to 'illustrate the concept of resilience' — framing it as illustrating a concept turns it into a speech exercise, not a personal story; contradicts the mode",
+    "original_question": "Tell a story that illustrates the concept of resilience, drawn from your own life.",
+    "suggested_rewrite": "Tell a story about the hardest thing you've bounced back from. Don't name the lesson — let the story carry it.",
+    "new_tips": [
+      "Pick the moment when you almost gave up, not the moment you recovered",
+      "Show the process of getting through it — the doubt, the small steps, the setback",
+      "Let the meaning emerge from the events, not from a stated theme"
+    ]
+  },
+  {
+    "id": "explanation_1-2_tech_001",
+    "mode": "explanation",
+    "issue_type": "unclear",
+    "issue": "Audience is contradictory: 'someone who has never used the internet' cannot realistically be the user of a smartphone app; the constraint makes the scenario implausible and blocks concrete delivery",
+    "original_question": "Explain how a search engine works to someone who has never used the internet.",
+    "suggested_rewrite": "Explain how a search engine works to an older relative who uses Google but has no idea what's happening behind the results.",
+    "new_tips": [
+      "Start with what problem it solves: finding the right page among billions",
+      "Use an analogy they know, like a library index or a phonebook",
+      "Explain why results aren't random — someone decided that order"
+    ]
+  },
+  {
+    "id": "explanation_3-4_tech_001",
+    "mode": "explanation",
+    "issue_type": "missing_setup",
+    "issue": "No audience specified — the only prompt in the batch without a target listener; user has nothing to calibrate language or depth to",
+    "original_question": "Explain how GPS navigation works on your phone.",
+    "suggested_rewrite": "Explain how GPS navigation works on a phone to a curious friend who has always just assumed it's 'magic.'",
+    "new_tips": [
+      "Start with satellites as the key idea — they're the hook that surprises most people",
+      "Explain triangulation without the word 'triangulation': three signals narrow a location",
+      "Tie it back to the user experience: why GPS still works when there's no cell signal"
+    ]
+  },
+  {
+    "id": "explanation_3-4_finance_001",
+    "mode": "explanation",
+    "issue_type": "missing_setup",
+    "issue": "No audience specified — the only finance prompt without a target listener; user has no calibration for vocabulary or depth",
+    "original_question": "Explain how compound interest works and why it matters for saving money.",
+    "suggested_rewrite": "Explain how compound interest works to a friend in their 20s who has never opened a savings account.",
+    "new_tips": [
+      "Start with simple interest first, then show what changes when interest earns interest",
+      "Use a concrete number example with a small starting amount they can relate to",
+      "Show the long-term impact: what a 20-year difference in starting looks like"
+    ]
+  },
+  {
+    "id": "explanation_7-8_tech_005",
+    "mode": "explanation",
+    "issue_type": "awkward",
+    "issue": "Tip uses gendered pronoun 'she'll hear' for the CFO — inconsistent with the gender-neutral framing of all other prompts in the batch; a user whose CFO is male will find this jarring",
+    "original_question": "Explain to your CFO why generative AI in your product is a strategic bet, not a feature, and why the cost is worth it.",
+    "suggested_rewrite": "Explain to your CFO why generative AI in your product is a strategic bet, not a feature, and why the cost is worth it.",
+    "new_tips": [
+      "Frame it as a unit-economics shift, not a capability — that's the language a CFO will hear",
+      "Pick one moat the bet creates and one risk it introduces; don't dilute with five",
+      "Close with the decision criterion you'd use in 18 months to know if it worked"
+    ]
+  },
+  {
+    "id": "explanation_9-10_tech_002",
+    "mode": "explanation",
+    "issue_type": "mode_mismatch",
+    "issue": "This is a persuasive argument to a CEO (negotiation/pitch territory), not an explanation of a concept; it has no audience who needs to understand something, only someone who needs to be convinced of a decision",
+    "original_question": "Make the case to your CEO that your team needs three months to invest in technical foundations before adding new features, when revenue is up and the board wants velocity.",
+    "suggested_rewrite": "Explain to your CEO what 'technical foundations' actually means and why teams that skip them slow down later — without using the phrase 'technical debt.'",
+    "new_tips": [
+      "Translate the abstract into a physical analogy: what does building on shaky ground actually look like?",
+      "Connect it to a business outcome the CEO already cares about: speed of future features",
+      "Avoid using the ask as the explanation — the goal is understanding, not a decision"
+    ]
+  },
+  {
+    "id": "explanation_9-10_tech_003",
+    "mode": "explanation",
+    "issue_type": "mode_mismatch",
+    "issue": "This is a persuasive counter-argument (pitch/debate territory), not an explanation; 'Convince a board' is a rhetorical task, not an explanation task",
+    "original_question": "Convince a board that the company should NOT integrate generative AI into its product right now, when every competitor just announced one.",
+    "suggested_rewrite": "Explain to a board what the real risks of rushing a generative AI integration are, so they can make an informed decision — not just follow the competitive pressure.",
+    "new_tips": [
+      "Lead with the cost they aren't seeing — quality risk, trust erosion — not the benefit they've heard",
+      "Use one concrete failure mode from a known product launch, not an abstract list",
+      "Frame the explanation as giving them better information, not telling them what to decide"
+    ]
+  },
+  {
+    "id": "explanation_9-10_tech_005",
+    "mode": "explanation",
+    "issue_type": "mode_mismatch",
+    "issue": "'Convince a CFO' is a negotiation/persuasion task, not an explanation; the goal is a staffing decision, not audience understanding of a concept",
+    "original_question": "Convince a CFO that the engineering team should hire two senior engineers at top-of-band salaries, instead of four mid-level hires for the same budget.",
+    "suggested_rewrite": "Explain to a CFO why the output difference between senior and mid-level engineers is not linear — so they understand why the math of 'same budget, more people' doesn't hold.",
+    "new_tips": [
+      "Reframe from headcount to output per quarter — that's the language a CFO will hear",
+      "Use one concrete example of work only seniors unblock, without insider jargon",
+      "Distinguish explanation from ask: your goal is their understanding, not their approval"
+    ]
+  },
+  {
+    "id": "explanation_9-10_tech_007",
+    "mode": "explanation",
+    "issue_type": "awkward",
+    "issue": "Tip uses gendered 'she' for the CEO — same issue as explanation_7-8_tech_005; inconsistent with all other prompts in the batch",
+    "original_question": "Explain to a non-technical CEO why the engineering team needs to add latency to a feature, when every conversation so far has been about making it faster.",
+    "suggested_rewrite": "Explain to a non-technical CEO why the engineering team needs to add latency to a feature, when every conversation so far has been about making it faster.",
+    "new_tips": [
+      "Reframe latency as a property the CEO wants, not a cost they're paying — that single shift carries the explanation",
+      "Pick one specific failure mode the latency prevents, not a category",
+      "Avoid technical terms; the mechanism is what they need, not the vocabulary"
+    ]
+  },
+  {
+    "id": "negotiation_1-2_002",
+    "mode": "negotiation",
+    "issue_type": "mode_mismatch",
+    "issue": "Asking a roommate to swap a chore is a simple social request, not a negotiation — no competing interests, no stakes, no pushback expected; feels out of place in a mode focused on persuasion under resistance",
+    "original_question": "Ask your roommate to take over a chore you usually do this week because you have a big deadline.",
+    "suggested_rewrite": "You and your roommate disagree about splitting a shared expense — you think it should be 50/50, they think it should reflect who uses it more. Work it out.",
+    "new_tips": [
+      "Acknowledge the other person's logic before making your case",
+      "Propose a specific number or split, not just 'something fair'",
+      "Keep the relationship intact — this person still lives with you"
+    ]
+  },
+  {
+    "id": "negotiation_3-4_003",
+    "mode": "negotiation",
+    "issue_type": "mode_mismatch",
+    "issue": "This is one-sided persuasion to a manager, not a two-party negotiation — there is no opposing interest to negotiate against, just a case to make; more suited to impromptu or pitch mode",
+    "original_question": "Your team wants to push a product launch back by 2 weeks. Convince your manager this is the right call.",
+    "suggested_rewrite": "Your manager wants to hold the launch date. You believe pushing it back two weeks will prevent a critical defect from shipping. Negotiate the delay while keeping trust intact.",
+    "new_tips": [
+      "Acknowledge the cost of the delay to the manager before making your case",
+      "Quantify the risk of launching as planned — what specifically breaks?",
+      "Propose a compromise: what can you still ship on time to soften the ask?"
+    ]
+  },
+  {
+    "id": "negotiation_9-10_001",
+    "mode": "negotiation",
+    "issue_type": "mode_mismatch",
+    "issue": "Mediating a dispute is a facilitation/coaching task, not a negotiation — the user is a neutral third party with no position to negotiate from; contradicts the mode's definition",
+    "original_question": "You're mediating a dispute between two co-founders about the company's strategic direction. One wants to focus on enterprise, the other on consumer. Find a resolution.",
+    "suggested_rewrite": "You are one of the co-founders. You believe the company must go enterprise. Your co-founder is pushing hard for consumer. Negotiate a direction you can both commit to.",
+    "new_tips": [
+      "Identify shared goals before attacking the difference — both of you want the company to survive",
+      "Propose a framework for the decision, not just a compromise: what data would change your mind?",
+      "Address the emotional undercurrent: this disagreement is also about whose vision wins"
+    ]
+  },
+  {
+    "id": "impromptu_1-2_002",
+    "mode": "impromptu",
+    "issue_type": "weak_tips",
+    "issue": "Tip 3 says 'Keep it under a minute' but targetDuration is 30 seconds — the tip contradicts the actual time constraint set for this prompt",
+    "original_question": "If you could have dinner with any person, living or dead, who would it be and why?",
+    "suggested_rewrite": "If you could have dinner with any person, living or dead, who would it be and why?",
+    "new_tips": [
+      "Name the person in the first sentence — don't build up to the reveal",
+      "Pick one specific topic you'd want to discuss, not a general curiosity about them",
+      "End with what you'd take away from the conversation, not just what you'd say"
+    ]
+  },
+  {
+    "id": "impromptu_3-4_001",
+    "mode": "impromptu",
+    "issue_type": "awkward",
+    "issue": "The prompt says 'You have 60 seconds' but targetDuration is 45 seconds — the stated time limit in the question text contradicts the actual session timer",
+    "original_question": "You have 60 seconds. Convince someone to visit your hometown.",
+    "suggested_rewrite": "Convince someone to visit your hometown. You have 45 seconds — make it count.",
+    "new_tips": [
+      "Open with what makes your hometown unlike anywhere else — not its name or size",
+      "Hit one or two specific places, foods, or moments rather than a general list",
+      "End with an emotional hook: why would they regret not going?"
+    ]
+  },
+  {
+    "id": "impromptu_5-6_002",
+    "mode": "impromptu",
+    "issue_type": "awkward",
+    "issue": "Prompt says 'You have 60 seconds to respond' but targetDuration is 60 seconds — the stated time limit is accurate but adding it inside the question text is redundant with the app's timer and feels awkward compared to other prompts in the mode",
+    "original_question": "A friend says 'luck matters more than hard work.' Do you agree? You have 60 seconds to respond.",
+    "suggested_rewrite": "A friend says 'luck matters more than hard work.' Do you agree or disagree? Take a clear position and defend it.",
+    "new_tips": [
+      "State your position in the first sentence — no hedging",
+      "Use one specific example from your own life or someone you know",
+      "Acknowledge the strongest version of the opposite view before dismissing it"
+    ]
+  },
+  {
+    "id": "impromptu_9-10_001",
+    "mode": "impromptu",
+    "issue_type": "awkward",
+    "issue": "Prompt says 'Give a 2-minute speech' but targetDuration is 90 seconds — stated duration contradicts the actual timer",
+    "original_question": "You're given a random word: 'bridge.' Give a 2-minute speech that turns this word into a meaningful message.",
+    "suggested_rewrite": "You're given a word: 'bridge.' In 90 seconds, build it into a meaningful message.",
+    "new_tips": [
+      "Spend the first 5 seconds finding your angle — literal or metaphorical, not both at once",
+      "Build from the concrete meaning to a broader human truth",
+      "Land on something universal: what does 'bridge' reveal about people or decisions?"
+    ]
+  },
+  {
+    "id": "impromptu_9-10_002",
+    "mode": "impromptu",
+    "issue_type": "unclear",
+    "issue": "The prompt tells the user to pick a topic they 'just made up on the spot,' but recorded in a solo app there is no 'on the spot' moment — the user sees the prompt before recording, which breaks the premise entirely",
+    "original_question": "You have 90 seconds to explain why the person listening to you should care about a topic you just made up on the spot. Pick any topic and go.",
+    "suggested_rewrite": "Pick the most obscure topic you genuinely know something about. In 90 seconds, make someone care about it.",
+    "new_tips": [
+      "Name your topic in the first 3 seconds and commit — no second-guessing on camera",
+      "Use the rule of three: one hook, one surprising fact, one reason it matters to the listener",
+      "End with a question or provocation that stays with them after you stop talking"
+    ]
+  },
+  {
+    "id": "networking_1-2_002",
+    "mode": "networking",
+    "issue_type": "unclear",
+    "issue": "The scenario asks the user to 'start a conversation naturally' but the tip says 'Open with an observation, not a question about their work' — this contradicts itself since the whole scene is set up around someone working; also unclear what the user should actually say",
+    "original_question": "Introduce yourself to someone at a coffee shop who's working on their laptop. Start a conversation naturally.",
+    "suggested_rewrite": "You're at a coffee shop and notice someone working on something that looks interesting. Open the conversation without asking what they're working on.",
+    "new_tips": [
+      "Open with an observation about the space or moment, not the person's work",
+      "Share a brief, honest detail about yourself to give them something to respond to",
+      "Keep it light and easy to exit — they're working, not networking"
+    ]
+  },
+  {
+    "id": "networking_3-4_002",
+    "mode": "networking",
+    "issue_type": "missing_setup",
+    "issue": "No scene or listener is specified — a pure pitch exercise with no networking context; the user has no one to pitch to and no setting, making it more of a presentation drill than a networking scenario",
+    "original_question": "Deliver your 30-second elevator pitch: who you are, what you do, and what you're looking for.",
+    "suggested_rewrite": "You're at a professional mixer and someone asks 'So, what are you working on these days?' Give your 30-second answer — make it feel like a real conversation, not a rehearsed pitch.",
+    "new_tips": [
+      "Lead with the problem you solve or the thing you're building, not your job title",
+      "Make it specific enough to be memorable — 'marketing' is forgettable, 'helping restaurants fill tables on slow nights' is not",
+      "End with what you're looking for or curious about — give them an opening to respond"
+    ]
+  },
+  {
+    "id": "networking_5-6_001",
+    "mode": "networking",
+    "issue_type": "unclear",
+    "issue": "'Build rapport over the course of a conversation' — too open-ended; the user has no idea where to start, what to say, or what goal to pursue within 60 seconds; needs a clearer entry point",
+    "original_question": "You're at an industry dinner and seated next to a potential mentor. Build rapport over the course of a conversation.",
+    "suggested_rewrite": "You're at an industry dinner, seated next to someone 10 years ahead of you in your field. Open the conversation in a way that goes beyond small talk within the first two exchanges.",
+    "new_tips": [
+      "Ask about their journey, not their title — 'How did you get into this?' beats 'What do you do?'",
+      "Find one genuine point of connection: a challenge you share, a project they've worked on",
+      "Share something real about yourself — rapport requires giving, not just asking"
+    ]
+  },
+  {
+    "id": "networking_9-10_001",
+    "mode": "networking",
+    "issue_type": "awkward",
+    "issue": "Says '2 minutes at a podium' but targetDuration is 90 seconds — the stated and actual duration conflict",
+    "original_question": "You have 2 minutes at a podium to introduce yourself to a room of 200 people at a conference. Make them want to talk to you afterwards.",
+    "suggested_rewrite": "You have 90 seconds at a podium to introduce yourself to a room of 200 people at a conference. Make them want to find you during the break.",
+    "new_tips": [
+      "Open with a hook that creates curiosity about you — not your title, your problem or perspective",
+      "Share one specific story or moment that reveals something they wouldn't find on your bio",
+      "Close with an invitation that makes approaching you feel easy and low-stakes"
+    ]
+  }
+]
