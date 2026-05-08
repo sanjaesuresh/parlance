@@ -20,7 +20,7 @@ struct SyncServiceTests {
     @Test("avgScore rounds correctly")
     func avgScoreComputation() {
         #expect(SyncService.average(scores: [80, 70, 90]) == 80)
-        #expect(SyncService.average(scores: [71, 72]) == 71) // integer division
+        #expect(SyncService.average(scores: [71, 72]) == 72) // rounds half-up: 71.5 → 72
         #expect(SyncService.average(scores: []) == 0)
     }
 }

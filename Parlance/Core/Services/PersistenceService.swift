@@ -30,6 +30,15 @@ final class PersistenceService {
         return try! ModelContainer(for: schema, configurations: [config])
     }
 
+    // For unit tests only — creates an isolated in-memory instance separate from shared
+    static func forTesting() -> PersistenceService {
+        PersistenceService(container: inMemory())
+    }
+
+    private init(container: ModelContainer) {
+        self.container = container
+    }
+
     var context: ModelContext { container.mainContext }
 
     // MARK: - User

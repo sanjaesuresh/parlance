@@ -1,19 +1,20 @@
 // ParlanceTests/SubscriptionTests.swift
 import XCTest
+import SwiftData
 @testable import Parlance
 
 final class SubscriptionTests: XCTestCase {
     func testFreeModesMakesSense() {
-        XCTAssertEqual(SessionMode.freeModes.count, 2)
+        XCTAssertEqual(SessionMode.freeModes.count, 4)
         XCTAssertFalse(SessionMode.interview.isProMode)
         XCTAssertFalse(SessionMode.casual.isProMode)
+        XCTAssertFalse(SessionMode.impromptu.isProMode)
+        XCTAssertFalse(SessionMode.explanation.isProMode)
         XCTAssertTrue(SessionMode.pitch.isProMode)
         XCTAssertTrue(SessionMode.keynote.isProMode)
         XCTAssertTrue(SessionMode.debate.isProMode)
         XCTAssertTrue(SessionMode.storytelling.isProMode)
-        XCTAssertTrue(SessionMode.explanation.isProMode)
         XCTAssertTrue(SessionMode.negotiation.isProMode)
-        XCTAssertTrue(SessionMode.impromptu.isProMode)
         XCTAssertTrue(SessionMode.networking.isProMode)
     }
 
@@ -61,13 +62,15 @@ final class SubscriptionTests: XCTestCase {
     }
 
     @MainActor
-    func testFreeUserSessionLimitIsEnforced() {
-        let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
+    func testFreeUserSessionLimitIsEnforced() async {
+        let persistence = PersistenceService.forTesting()
         let user = User(displayName: "Test", avatarEmoji: "😀", dailySessionCount: AppConstants.freeSessionsPerDay)
+        persistence.context.insert(user)
+        let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
         let result = vm.startSession(
             mode: .interview,
             user: user,
-            persistence: PersistenceService.shared,
+            persistence: persistence,
             wasDailyChallenge: false,
             isPro: false
         )
@@ -76,14 +79,15 @@ final class SubscriptionTests: XCTestCase {
     }
 
     @MainActor
-    func testProUserExceedsFreeLimit() {
-        let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
+    func testProUserExceedsFreeLimit() async {
+        let persistence = PersistenceService.forTesting()
         let user = User(displayName: "Pro", avatarEmoji: "😎", dailySessionCount: AppConstants.freeSessionsPerDay)
-        // Pro user at the free limit should NOT trigger rate limit alert
+        persistence.context.insert(user)
+        let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
         let _ = vm.startSession(
             mode: .interview,
             user: user,
-            persistence: PersistenceService.shared,
+            persistence: persistence,
             wasDailyChallenge: false,
             isPro: true
         )
