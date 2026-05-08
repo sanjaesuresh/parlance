@@ -24,13 +24,42 @@ final class QuestionBankService {
         allQuestions.filter { $0.mode == mode && $0.difficultyBand == band }
     }
 
-    func selectQuestion(mode: SessionMode, band: String, excludingIds: Set<String>) -> Question? {
-        let eligible = questions(for: mode, band: band)
-        let unseen = eligible.filter { !excludingIds.contains($0.id) }
+    func selectQuestion(
+        mode: SessionMode,
+        band: String,
+        category: ExplanationCategory? = nil,
+        excludingIds: Set<String>
+    ) -> Question? {
+        let bandPool = questions(for: mode, band: band)
 
-        if unseen.isEmpty {
-            return eligible.randomElement()
+        // Non-explanation modes: ignore category, original behavior.
+        guard mode == .explanation else {
+            let unseen = bandPool.filter { !excludingIds.contains($0.id) }
+            return unseen.randomElement() ?? bandPool.randomElement()
         }
-        return unseen.randomElement()
+
+        // Explanation mode with a specific category.
+        let resolvedCategory = category ?? .any
+
+        if resolvedCategory != .any {
+            let categoryPool = bandPool.filter { $0.category == resolvedCategory }
+            let categoryUnseen = categoryPool.filter { !excludingIds.contains($0.id) }
+            if let pick = categoryUnseen.randomElement() {
+                return pick
+            }
+            // Fallback (a): same category, ignore seen.
+            if let pick = categoryPool.randomElement() {
+                return pick
+            }
+        }
+
+        // Fallback (b): any category, unseen.
+        let anyUnseen = bandPool.filter { !excludingIds.contains($0.id) }
+        if let pick = anyUnseen.randomElement() {
+            return pick
+        }
+
+        // Fallback (c): any category, ignore seen.
+        return bandPool.randomElement()
     }
 }

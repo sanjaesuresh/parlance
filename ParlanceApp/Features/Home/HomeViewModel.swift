@@ -32,7 +32,14 @@ final class HomeViewModel: ObservableObject {
         let band = DifficultyLevel.band(for: level)
         let seenIds = persistence.seenQuestionIds(mode: mode, band: band)
 
-        guard let question = questionBank.selectQuestion(mode: mode, band: band, excludingIds: seenIds) else {
+        let category: ExplanationCategory? = (mode == .explanation) ? user.lastExplanationCategory : nil
+
+        guard let question = questionBank.selectQuestion(
+            mode: mode,
+            band: band,
+            category: category,
+            excludingIds: seenIds
+        ) else {
             return nil
         }
 
