@@ -86,7 +86,7 @@ final class SyncService {
     func syncAfterSession(score: Int, mode: SessionMode, level: Int) async {
         guard let authUser = client.auth.currentUser else { return }
         let persistence = PersistenceService.shared
-        guard let user = persistence.getUser() else { return }
+        guard let user = persistence.getUser(uid: authUser.id.uuidString) else { return }
 
         let weeklySessions = persistence.sessionsThisWeek()
         let allSessions = persistence.recentSessions(limit: 9999)
