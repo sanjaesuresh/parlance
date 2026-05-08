@@ -13,6 +13,7 @@ struct LeagueView: View {
     @State private var selectedProfile: SocialProfile?
     @State private var showRequestsSheet = false
     @State private var isSearching = false
+    @FocusState private var isSearchFieldFocused: Bool
 
     private enum SocialTab {
         case leaderboard, friends
@@ -59,11 +60,21 @@ struct LeagueView: View {
                 .padding(.bottom, 32)
             }
             .background(AppColors.bg)
+            .scrollDismissesKeyboard(.interactively)
+            // Tap outside the search field dismisses the keyboard.
+            .simultaneousGesture(TapGesture().onEnded {
+                if isSearchFieldFocused {
+                    isSearchFieldFocused = false
+                }
+            })
             .navigationBarHidden(true)
             .safeAreaInset(edge: .top) {
                 headerView
             }
-            .sheet(item: $selectedProfile) { profile in
+            .sheet(item: $selectedProfile, onDismiss: {
+                // Clear focus so the keyboard doesn't reappear over the tab bar
+                isSearchFieldFocused = false
+            }) { profile in
                 UserProfileDetailView(profile: profile)
             }
             .sheet(isPresented: $showRequestsSheet, onDismiss: {
@@ -422,6 +433,7 @@ struct LeagueView: View {
                     .foregroundStyle(AppColors.text)
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
+                    .focused($isSearchFieldFocused)
                     .onChange(of: friendSearchText) { _, newValue in
                         if newValue.isEmpty {
                             searchResults = []
@@ -439,6 +451,7 @@ struct LeagueView: View {
                     Button {
                         friendSearchText = ""
                         searchResults = []
+                        isSearchFieldFocused = false
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundStyle(AppColors.dim)
