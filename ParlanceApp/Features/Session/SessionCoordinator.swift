@@ -3,12 +3,25 @@ import SwiftData
 
 struct SessionCoordinator: View {
     let state: ActiveSessionState
+    let onReshuffleQuestion: ((ExplanationCategory) -> Question?)?
     let onDismiss: () -> Void
 
+    @State private var currentQuestion: Question
     @State private var phase: SessionPhase = .loading
     @StateObject private var recorder = AudioRecorder()
     @EnvironmentObject private var permissionsService: PermissionsService
     @EnvironmentObject private var subscription: SubscriptionService
+
+    init(
+        state: ActiveSessionState,
+        onReshuffleQuestion: ((ExplanationCategory) -> Question?)? = nil,
+        onDismiss: @escaping () -> Void
+    ) {
+        self.state = state
+        self.onReshuffleQuestion = onReshuffleQuestion
+        self.onDismiss = onDismiss
+        self._currentQuestion = State(initialValue: state.question)
+    }
 
     enum SessionPhase {
         case loading
@@ -38,7 +51,7 @@ struct SessionCoordinator: View {
                 LoadingView(
                     mode: state.mode,
                     level: state.difficultyLevel,
-                    question: state.question,
+                    question: currentQuestion,
                     onReady: {
                         AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
                         phase = .countdown
@@ -57,7 +70,7 @@ struct SessionCoordinator: View {
 
             case .recording:
                 RecordingView(
-                    question: state.question,
+                    question: currentQuestion,
                     mode: state.mode,
                     level: state.difficultyLevel,
                     recorder: recorder,
@@ -67,7 +80,15 @@ struct SessionCoordinator: View {
                         phase = .processing
                         Task { await processSession() }
                     },
-                    onCancel: { onDismiss() }
+                    onCancel: { onDismiss() },
+                    currentTopicCategory: state.mode == .explanation
+                        ? PersistenceService.shared.getUser()?.lastExplanationCategory
+                        : nil,
+                    onReshuffleTopic: { newCategory in
+                        if let newQuestion = onReshuffleQuestion?(newCategory) {
+                            currentQuestion = newQuestion
+                        }
+                    }
                 )
 
             case .processing:
@@ -110,7 +131,7 @@ struct SessionCoordinator: View {
             case .results(let session):
                 ResultsView(
                     session: session,
-                    question: state.question,
+                    question: currentQuestion,
                     onTryAgain: { retrySession() },
                     onGoHome: { onDismiss() }
                 )
@@ -180,7 +201,7 @@ struct SessionCoordinator: View {
                 client: client,
                 mode: state.mode,
                 level: state.difficultyLevel,
-                question: state.question.question,
+                question: currentQuestion.question,
                 transcript: pendingTranscript,
                 timingStats: pendingTimingStats,
                 audioFeatures: pendingAudioFeatures,
@@ -202,7 +223,7 @@ struct SessionCoordinator: View {
             duration: pendingDuration,
             transcript: pendingTranscript,
             fillerCount: pendingFillerCount,
-            question: state.question.question,
+            question: currentQuestion.question,
             scoringResult: scoringResult,
             xpEarned: xpEarned,
             wasDailyChallenge: state.wasDailyChallenge,
@@ -223,9 +244,9 @@ struct SessionCoordinator: View {
         let persistence = PersistenceService.shared
         persistence.saveSession(session)
         persistence.markQuestionSeen(
-            questionId: state.question.id,
+            questionId: currentQuestion.id,
             mode: state.mode,
-            band: state.question.difficultyBand
+            band: currentQuestion.difficultyBand
         )
 
         // Gamification

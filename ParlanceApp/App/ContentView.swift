@@ -10,6 +10,7 @@ struct ContentView: View {
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
     @State private var activeSession: ActiveSessionState?
+    @State private var questionBank = QuestionBankService()
     @State private var showSplash = true
     @State private var isAppReady = false
     @State private var isSyncingProfile = false
@@ -52,6 +53,21 @@ struct ContentView: View {
             } else if let session = activeSession {
                 SessionCoordinator(
                     state: session,
+                    onReshuffleQuestion: { [questionBank] newCategory in
+                        guard let user = PersistenceService.shared.getUser() else { return nil }
+                        user.lastExplanationCategory = newCategory
+                        let band = session.question.difficultyBand
+                        let seenIds = PersistenceService.shared.seenQuestionIds(
+                            mode: session.mode,
+                            band: band
+                        )
+                        return questionBank.selectQuestion(
+                            mode: session.mode,
+                            band: band,
+                            category: newCategory,
+                            excludingIds: seenIds
+                        )
+                    },
                     onDismiss: {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             activeSession = nil

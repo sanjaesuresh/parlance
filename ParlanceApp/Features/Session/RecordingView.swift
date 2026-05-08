@@ -9,7 +9,10 @@ struct RecordingView: View {
     var autoStart: Bool = false
     let onStop: () -> Void
     var onCancel: (() -> Void)?
+    var currentTopicCategory: ExplanationCategory? = nil
+    var onReshuffleTopic: ((ExplanationCategory) -> Void)? = nil
 
+    @State private var showTopicPicker = false
     @StateObject private var viewModel = RecordingViewModel()
     @State private var showNudge = false
     @State private var didManualStop = false
@@ -70,6 +73,30 @@ struct RecordingView: View {
             .padding(.horizontal, 24)
             .padding(.top, 8)
             .padding(.bottom, 8)
+
+            if mode == .explanation,
+               let category = currentTopicCategory,
+               !recorder.isRecording {
+                Button {
+                    showTopicPicker = true
+                } label: {
+                    HStack(spacing: 6) {
+                        Text("Topic: \(category.displayName)")
+                            .font(AppFonts.bodyMedium(13))
+                            .foregroundStyle(AppColors.text)
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 11, weight: .semibold))
+                            .foregroundStyle(AppColors.sub)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(AppColors.card)
+                    .clipShape(Capsule())
+                }
+                .accessibilityIdentifier("explain.topicChip")
+                .padding(.horizontal, 24)
+                .padding(.bottom, 8)
+            }
 
             ScrollView {
                 VStack(spacing: 0) {
@@ -283,6 +310,15 @@ struct RecordingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg.ignoresSafeArea())
+        .sheet(isPresented: $showTopicPicker) {
+            TopicPickerSheet(
+                selected: currentTopicCategory ?? .any,
+                onPick: { newCategory in
+                    onReshuffleTopic?(newCategory)
+                }
+            )
+            .presentationDetents([.medium, .large])
+        }
         .sensoryFeedback(.impact(weight: .medium), trigger: startHaptic)
         .sensoryFeedback(.impact(weight: .light),  trigger: stopHaptic)
         .onAppear {

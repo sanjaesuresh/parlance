@@ -26,6 +26,7 @@ struct ModeGridView: View {
                     }
                     .accessibilityLabel("\(mode.displayName) practice mode\(locked ? " — Pro required" : "")")
                     .accessibilityHint(locked ? "Double-tap to view upgrade options" : "Double-tap to start a session")
+                    .accessibilityIdentifier("home.modeGrid.\(mode.rawValue)")
                 }
 
                 if showAllModes {
@@ -38,6 +39,7 @@ struct ModeGridView: View {
                         }
                         .accessibilityLabel("\(mode.displayName) practice mode\(locked ? " — Pro required" : "")")
                         .accessibilityHint(locked ? "Double-tap to view upgrade options" : "Double-tap to start a session")
+                        .accessibilityIdentifier("home.modeGrid.\(mode.rawValue)")
                         .transition(.opacity.combined(with: .scale(scale: 0.95)))
                     }
                 }
