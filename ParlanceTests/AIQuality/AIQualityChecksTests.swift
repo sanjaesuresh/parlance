@@ -168,3 +168,25 @@ struct AIQualityChecksTests {
         #expect(failure?.lowercased().contains("missing") == true || failure?.lowercased().contains("not found") == true)
     }
 }
+
+@Suite("AIQualityFixtures")
+struct AIQualityFixturesSanityTests {
+
+    @Test("all fixtures have a non-empty id")
+    func nonEmptyIds() {
+        for f in AIQualityFixtures.all {
+            #expect(!f.id.isEmpty)
+        }
+    }
+
+    @Test("fixture ids are unique")
+    func uniqueIds() {
+        let ids = AIQualityFixtures.all.map(\.id)
+        #expect(Set(ids).count == ids.count)
+    }
+
+    @Test("seed corpus is exactly 8 fixtures")
+    func sizeIsEight() {
+        #expect(AIQualityFixtures.all.count == 8)
+    }
+}
