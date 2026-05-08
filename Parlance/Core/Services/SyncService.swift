@@ -55,7 +55,7 @@ final class SyncService {
 
     // MARK: - Profile creation (called once from FirstLaunchSetupView)
 
-    func createProfile(for user: User, authService: AuthService) async {
+    func createProfile(for user: User, authService: AuthService) async throws {
         guard let authUser = authService.currentUser else { return }
         let profile = NewProfile(
             id: authUser.id,
@@ -71,14 +71,8 @@ final class SyncService {
             longestStreak: 0, avgScore: 0, totalSessions: 0,
             lastSessionAt: nil
         )
-        do {
-            try await client.from("profiles").upsert(profile, onConflict: "id").execute()
-            try await client.from("user_stats").upsert(stats, onConflict: "user_id").execute()
-        } catch {
-            #if DEBUG
-            print("[SyncService] createProfile failed: \(error)")
-            #endif
-        }
+        try await client.from("profiles").upsert(profile, onConflict: "id").execute()
+        try await client.from("user_stats").upsert(stats, onConflict: "user_id").execute()
     }
 
     // MARK: - Post-session sync
@@ -128,6 +122,11 @@ final class SyncService {
         await syncAfterSession(score: pending.score, mode: mode, level: pending.level)
     }
 
+    func flushIfNeeded() async {
+        guard loadPendingSync() != nil else { return }
+        await flushPendingSync()
+    }
+
     // MARK: - Static helpers (testable)
 
     static func sumXP(_ values: [Int]) -> Int {
@@ -136,7 +135,8 @@ final class SyncService {
 
     static func average(scores: [Int]) -> Int {
         guard !scores.isEmpty else { return 0 }
-        return scores.reduce(0, +) / scores.count
+        let sum = scores.reduce(0, +)
+        return Int((Double(sum) / Double(scores.count)).rounded())
     }
 
     // MARK: - Offline queue

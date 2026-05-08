@@ -68,9 +68,8 @@ final class AuthViewModel: ObservableObject {
                 avatar: avatar,
                 practiceLevel: comfortLevel
             )
-            // Mark this UID as needing the welcome splash (persists across restarts until dismissed)
             UserDefaults.standard.set(true, forKey: "parlance.show_welcome.\(uid)")
-            await SyncService.shared.createProfile(for: user, authService: authService)
+            try await SyncService.shared.createProfile(for: user, authService: authService)
         } catch {
             errorMessage = error.localizedDescription
         }
