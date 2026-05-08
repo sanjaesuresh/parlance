@@ -1,5 +1,6 @@
 import Foundation
 import Supabase
+import SwiftData
 
 @MainActor
 final class SyncService {
