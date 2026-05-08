@@ -9112,5 +9112,495 @@
       "Deploy the moral arbitrariness argument: Rawls's claim that natural talents are morally arbitrary extends in cosmopolitan readings to birthplace. Engage whether morally relevant differences between natural endowments and national membership limit this analogy.",
       "Address the political stability and legitimacy requirements: effective redistribution requires functioning political institutions, and prioritizing cosmopolitan over domestic obligations may undermine the domestic legitimacy that makes redistribution feasible. Engage this as a principled reason."
     ]
+  },
+  {
+    "id": "explanation_1-2_tech_002",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain to a grandparent what Wi-Fi is and why their phone stops working when they leave the house.",
+    "tips": [
+      "Compare Wi-Fi to something physical they already know, like a radio signal or a water hose.",
+      "Avoid the word 'network' — describe what it does, not what it's called.",
+      "Wrap up by tying it back to their daily experience: why the phone 'comes back to life' at home."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explain everyday tech to a non-tech audience"
+  },
+  {
+    "id": "explanation_1-2_tech_003",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain to a 10-year-old what cloud storage is and where their photos actually go.",
+    "tips": [
+      "Pick one familiar metaphor (a locker, a filing cabinet) and stay with it the whole time.",
+      "Resist the urge to mention specific brands like iCloud or Google Drive.",
+      "End with a concrete example: losing a phone but still having the photos."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explain a familiar concept simply"
+  },
+  {
+    "id": "explanation_1-2_tech_004",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend why a strong password matters, in plain language without scaring them.",
+    "tips": [
+      "Anchor the idea to a physical lock or key — keep the analogy consistent.",
+      "Skip the statistics; one clear example beats three abstract warnings.",
+      "Close with one practical takeaway, not a list of rules."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explain a safety concept without alarm"
+  },
+  {
+    "id": "explanation_1-2_tech_005",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain the difference between an app and a website to someone who uses both but has never thought about it.",
+    "tips": [
+      "Use one example they already use daily, like banking or weather.",
+      "Don't define 'browser' or 'install' — show them through the example instead.",
+      "Pick one defining difference and lead with it; don't list every difference."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Distinguish two everyday tech concepts"
+  },
+  {
+    "id": "explanation_1-2_tech_006",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain to a parent what email actually is and how a message gets from one person to another.",
+    "tips": [
+      "Use the postal mail analogy, but commit to it — addresses, mailboxes, delivery.",
+      "Avoid words like 'server' and 'protocol'; the analogy carries the weight.",
+      "Finish with why email arrives in seconds, not days."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explain a familiar concept simply"
+  },
+  {
+    "id": "explanation_1-2_tech_007",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain to a relative why their phone battery drains faster some days than others.",
+    "tips": [
+      "Compare the battery to a fuel tank and apps to passengers using fuel.",
+      "Pick two or three concrete drains (screen, video, location) — not a long list.",
+      "End with one habit they can change tomorrow."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explain everyday tech behavior simply"
+  },
+  {
+    "id": "explanation_1-2_tech_008",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend what 'updating' an app means and why they should bother doing it.",
+    "tips": [
+      "Compare an update to maintenance on something they own, like a car.",
+      "Resist listing technical reasons (security patches, bug fixes) — pick one.",
+      "Close with what happens if they ignore updates for a year."
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explain a routine tech action plainly"
+  },
+  {
+    "id": "explanation_3-4_tech_002",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how a video call connects two phones across the world, to a curious teenager.",
+    "tips": [
+      "Choose one clear analogy (a relay race, a postal route) and ride it from start to finish.",
+      "Mention 'packets' only if you can immediately ground them in something physical.",
+      "Resist the urge to detour into latency or codecs — keep the path linear."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain a connected system with one analogy"
+  },
+  {
+    "id": "explanation_3-4_tech_003",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how a QR code stores information and why scanning it opens the right thing.",
+    "tips": [
+      "Anchor the abstract pattern to something visual they already understand, like a barcode.",
+      "Walk through one example end-to-end rather than describing the format generally.",
+      "Avoid the words 'binary' and 'matrix' — describe the behavior instead."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain an everyday format with structure"
+  },
+  {
+    "id": "explanation_3-4_tech_004",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how two-factor authentication makes an account safer than a password alone.",
+    "tips": [
+      "Use a real-world security analogy (a key plus an ID check) and stay consistent.",
+      "Pick one concrete attack it stops and walk through it — don't list threat types.",
+      "Save 'authenticator app' for the example, not the explanation."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain a security mechanism with cause and effect"
+  },
+  {
+    "id": "explanation_3-4_tech_005",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how a touchscreen knows where your finger is, to someone who's never thought about it.",
+    "tips": [
+      "Pick one type of touchscreen (capacitive) and don't muddy it with comparisons.",
+      "Anchor the invisible (electrical field) to something they can imagine seeing.",
+      "End with why gloves don't always work — the payoff that proves you understood it."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain a hidden mechanism with one model"
+  },
+  {
+    "id": "explanation_3-4_tech_006",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how streaming video works without the whole movie being downloaded first.",
+    "tips": [
+      "Use a single metaphor — a water tap, a conveyor belt — and don't switch.",
+      "Introduce 'buffering' only after the listener already pictures the flow.",
+      "Tie it back to a moment they recognize: the spinning circle when Wi-Fi drops."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain a process with a flow analogy"
+  },
+  {
+    "id": "explanation_3-4_tech_007",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how facial recognition unlocks a phone without storing a photo of your face.",
+    "tips": [
+      "Compare a face map to a fingerprint, not a photograph — that single shift carries the explanation.",
+      "Avoid 'neural network'; describe the behavior, not the architecture.",
+      "Resolve the surprise: why a photo of you can't unlock the phone."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain a counterintuitive mechanism"
+  },
+  {
+    "id": "explanation_3-4_tech_008",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "3-4",
+    "question": "Explain how autocorrect predicts the word you meant to type, to a curious non-technical friend.",
+    "tips": [
+      "Use one analogy from human behavior, like guessing what a friend was about to say.",
+      "Mention probability without saying the word 'probability'.",
+      "Close with why autocorrect gets your slang wrong — it makes the model click."
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explain a prediction system through behavior"
+  },
+  {
+    "id": "explanation_5-6_tech_002",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a non-technical product manager what an API is and why teams keep arguing about them.",
+    "tips": [
+      "Pick one analogy (a restaurant order, a power outlet) and use it through the entire answer.",
+      "Connect the concept to a decision they'd actually make, not an abstract definition.",
+      "Resist the urge to compare REST and GraphQL — that's a different talk."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Explain a foundational concept to a peer"
+  },
+  {
+    "id": "explanation_5-6_tech_003",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a small business owner what HTTPS does and why a missing padlock icon should worry them.",
+    "tips": [
+      "Use a sealed envelope analogy and commit to it — encryption, identity, and trust all live inside.",
+      "Tie the explanation to a decision they care about: customers leaving the site.",
+      "Avoid 'certificate authority' unless you can ground it in something physical."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Explain a security concept tied to stakes"
+  },
+  {
+    "id": "explanation_5-6_tech_004",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a new junior teammate the difference between RAM and storage, using one example they'll remember.",
+    "tips": [
+      "Use the workbench-vs-toolshed analogy or invent one — but only one.",
+      "Tie it to a behavior they've seen: why closing tabs speeds up an old laptop.",
+      "Avoid GB numbers; the relationship is the point, not the units."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Explain a foundational distinction with cause-effect"
+  },
+  {
+    "id": "explanation_5-6_tech_005",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a marketing lead how a recommendation algorithm picks what to show each user, without saying 'AI.'",
+    "tips": [
+      "Frame it as patterns from past behavior, not as the system 'knowing' the user.",
+      "Use one product they recognize (a streaming service) as your single example.",
+      "End with why two users on the same product see different homepages."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Constraint-based explanation to a peer"
+  },
+  {
+    "id": "explanation_5-6_tech_006",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a designer why software has bugs even when smart people work hard on it.",
+    "tips": [
+      "Compare software complexity to a city, not a machine — emergent behavior is the point.",
+      "Use one concrete bug pattern (an edge case) rather than listing categories.",
+      "Avoid blame language; the mechanism is what they need, not a culprit."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Explain a systemic cause to a non-engineer"
+  },
+  {
+    "id": "explanation_5-6_tech_007",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a finance partner what a database actually does, and why the company has more than one.",
+    "tips": [
+      "Anchor with one analogy (filing cabinet, ledger) and don't reach for a second.",
+      "Tie 'why more than one' to a specific business reason — speed, separation, or backups.",
+      "Skip vendor names; the role of the database matters more than the brand."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Explain infrastructure to a business stakeholder"
+  },
+  {
+    "id": "explanation_5-6_tech_008",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "5-6",
+    "question": "Explain to a product manager what 'open source' means and why a company would give software away.",
+    "tips": [
+      "Lead with the counterintuitive part — giving it away — and resolve it through one mechanism.",
+      "Use one well-known example (Linux, Chromium) and don't overload with three.",
+      "Avoid licensing details; focus on incentives and trust."
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Explain an industry pattern with motive"
+  },
+  {
+    "id": "explanation_7-8_tech_002",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to a CEO why technical debt is slowing the engineering team, when from the outside everything still ships.",
+    "tips": [
+      "Translate technical debt into a financial concept they already feel: interest payments.",
+      "Resist citing three problems — pick the one with the clearest cost curve.",
+      "Land on a decision they have to make, not a complaint about the codebase."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive explanation to a skeptical executive"
+  },
+  {
+    "id": "explanation_7-8_tech_003",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to a board the tradeoffs of moving from a monolith to microservices, when half of them want to do it because a competitor did.",
+    "tips": [
+      "Lead with the cost they aren't seeing — operational complexity — not the benefit they've heard.",
+      "Use one concrete failure mode microservices introduce, not an abstract list.",
+      "End with the question they should be asking, not the answer they were expecting."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive tradeoff to motivated decision-makers"
+  },
+  {
+    "id": "explanation_7-8_tech_004",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to a head of marketing why scaling a social network past a million users is not just 'more servers.'",
+    "tips": [
+      "Reframe scale as coordination cost, not capacity — that single shift carries the talk.",
+      "Pick one concrete bottleneck (the feed, notifications, search) and walk through why it bites.",
+      "Avoid jargon like 'sharding'; explain the behavior, not the technique."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Explain non-linear complexity to a peer"
+  },
+  {
+    "id": "explanation_7-8_tech_005",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to your CFO why generative AI in your product is a strategic bet, not a feature, and why the cost is worth it.",
+    "tips": [
+      "Frame it as a unit-economics shift, not a capability — that's the language she'll hear.",
+      "Pick one moat the bet creates and one risk it introduces; don't dilute with five.",
+      "Close with the decision criterion you'd use in 18 months to know if it worked."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Strategic explanation under financial scrutiny"
+  },
+  {
+    "id": "explanation_7-8_tech_006",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to a product team why a popular tech product (your choice) failed, in a way that changes how they think about their next launch.",
+    "tips": [
+      "Pick one product and one root cause; resist the autopsy that lists everything.",
+      "Land the lesson as a constraint on a current decision, not as a story about the past.",
+      "Avoid hindsight tone — the failure was unobvious at the time, and that's the point."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive case study with applied lesson"
+  },
+  {
+    "id": "explanation_7-8_tech_007",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to a non-technical board member why your team needs a six-month rewrite, when the current product is still earning revenue.",
+    "tips": [
+      "Make the cost of inaction concrete and the cost of action bounded — both must be felt.",
+      "Pick one ceiling the current architecture is hitting, not a list of pains.",
+      "Acknowledge the risk before they raise it — credibility lives in that move."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuasive case for an unpopular investment"
+  },
+  {
+    "id": "explanation_7-8_tech_008",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "7-8",
+    "question": "Explain to a privacy-skeptical journalist how on-device machine learning is different from cloud AI, without sounding defensive.",
+    "tips": [
+      "Concede the legitimate concern up front; defensiveness reads as evasion.",
+      "Use one mechanism (data never leaves the device) and prove it through a specific feature.",
+      "Avoid marketing phrases like 'industry-leading' — they cost you the room."
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Sensitive explanation to a critical audience"
+  },
+  {
+    "id": "explanation_9-10_tech_002",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Make the case to your CEO that your team needs three months to invest in technical foundations before adding new features, when revenue is up and the board wants velocity.",
+    "tips": [
+      "Translate engineering work into a business risk-and-return frame she already uses.",
+      "Pick one specific failure mode the investment prevents, not a list of pains.",
+      "Acknowledge what you'll have to slow down — credibility lives in that admission."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Persuasive case under business scrutiny"
+  },
+  {
+    "id": "explanation_9-10_tech_003",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Convince a board that the company should NOT integrate generative AI into its product right now, when every competitor just announced one.",
+    "tips": [
+      "Concede the strategic pressure before pushing back; dismissing it loses the room.",
+      "Pick one specific risk and one specific cost — not a survey of objections.",
+      "Close with what you would do instead, not just what you'd avoid."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Counter-narrative argument to motivated decision-makers"
+  },
+  {
+    "id": "explanation_9-10_tech_004",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Explain to a founder who's never shipped a product before why their plan to 'add security after we launch' is the most expensive decision they could make.",
+    "tips": [
+      "Translate the cost into founder-language — runway, time-to-recover, customer trust.",
+      "Pick one concrete attack class that would change their mind, not a litany.",
+      "Avoid moralizing; this is a business argument, not a values one."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Persuasive case to a founder under cost framing"
+  },
+  {
+    "id": "explanation_9-10_tech_005",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Convince a CFO that the engineering team should hire two senior engineers at top-of-band salaries, instead of four mid-level hires for the same budget.",
+    "tips": [
+      "Reframe the comparison from 'people' to 'output per quarter' — that's the language she'll hear.",
+      "Pick one specific kind of work the seniors enable that the mids don't, with a recent project as evidence.",
+      "Acknowledge the real risk — fewer hands — and address it before she raises it."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Strategic argument to financial leadership"
+  },
+  {
+    "id": "explanation_9-10_tech_006",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Explain to a panel of non-technical thought leaders the philosophical implications of large language models becoming better than most humans at most cognitive tasks, without sliding into either hype or doom.",
+    "tips": [
+      "Pick one philosophical thread (agency, authorship, expertise) and stay on it the whole time.",
+      "Avoid timelines and benchmark numbers; this audience reads through them.",
+      "Resolve the tension you raise; an unresolved talk to thought leaders reads as evasive."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Sensitive expert framing without partisan tone"
+  },
+  {
+    "id": "explanation_9-10_tech_007",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Explain to a non-technical CEO why the engineering team needs to add latency to a feature, when every conversation so far has been about making it faster.",
+    "tips": [
+      "Reframe latency as a property she wants, not a cost she's paying — that single shift carries the explanation.",
+      "Pick one specific failure mode the latency prevents, not a category.",
+      "Avoid technical terms; the mechanism is what she needs, not the vocabulary."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Counterintuitive technical reframe to a non-technical exec"
+  },
+  {
+    "id": "explanation_9-10_tech_008",
+    "mode": "explanation",
+    "category": "tech",
+    "difficultyBand": "9-10",
+    "question": "Explain to a group of senior engineers why your team's incident last quarter was not a failure of process but a failure of system design, and what should change.",
+    "tips": [
+      "Resist the blameless-postmortem cliché; this audience needs the technical claim, sharply made.",
+      "Pick one design property that was missing — back-pressure, isolation, monitoring — and make it the spine.",
+      "End with a concrete change and a way to measure that it worked — vague lessons read as evasion."
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Technical accountability to expert peers"
   }
 ]
