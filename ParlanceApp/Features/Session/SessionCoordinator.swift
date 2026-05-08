@@ -60,7 +60,9 @@ struct SessionCoordinator: View {
                     question: currentQuestion,
                     onReady: {
                         AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
-                        phase = .countdown
+                        // Explanation mode skips countdown + auto-start so the
+                        // user can pick a topic via the chip before recording.
+                        phase = state.mode == .explanation ? .recording : .countdown
                     },
                     onCancel: { onDismiss() }
                 )
