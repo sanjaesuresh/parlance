@@ -78,11 +78,11 @@ final class AuthService: ObservableObject {
         do {
             try await deleteAuthUserViaWorker()
             let supabase = SupabaseManager.shared.client
-            try? await supabase.from("session_scores").delete().eq("user_id", value: uid).execute()
-            try? await supabase.from("user_stats").delete().eq("user_id", value: uid).execute()
-            try? await supabase.from("friend_requests").delete().eq("from_user_id", value: uid).execute()
-            try? await supabase.from("friendships").delete().or("user_id_1.eq.\(uid),user_id_2.eq.\(uid)").execute()
-            try? await supabase.from("profiles").delete().eq("id", value: uid).execute()
+            _ = try? await supabase.from("session_scores").delete().eq("user_id", value: uid).execute()
+            _ = try? await supabase.from("user_stats").delete().eq("user_id", value: uid).execute()
+            _ = try? await supabase.from("friend_requests").delete().eq("from_user_id", value: uid).execute()
+            _ = try? await supabase.from("friendships").delete().or("user_id_1.eq.\(uid),user_id_2.eq.\(uid)").execute()
+            _ = try? await supabase.from("profiles").delete().eq("id", value: uid).execute()
             PersistenceService.shared.resetAllData()
             try? await signOut()
             // isDeletingAccount stays true — AccountDeletedSplashView dismisses it via onDismiss
