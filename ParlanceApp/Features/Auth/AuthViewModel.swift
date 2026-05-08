@@ -44,6 +44,7 @@ final class AuthViewModel: ObservableObject {
         defer { isLoading = false }
         do {
             try await authService.signIn(email: email, password: password)
+            authService.didJustSignIn = true
         } catch {
             errorMessage = error.localizedDescription
         }
@@ -118,6 +119,7 @@ final class AuthViewModel: ObservableObject {
             defer { isLoading = false }
             do {
                 try await authService.signInWithApple(idToken: idToken, nonce: nonce)
+                authService.didJustSignIn = true
                 let nameParts = [credential.fullName?.givenName, credential.fullName?.familyName]
                 let formattedName = nameParts.compactMap { $0 }.joined(separator: " ")
                 if !formattedName.isEmpty {

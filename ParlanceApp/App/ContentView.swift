@@ -9,6 +9,7 @@ struct ContentView: View {
     @StateObject private var weekCache = SessionWeekCache()
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
+    @AppStorage("parlance.welcome_back_uid") private var pendingWelcomeBackUID = ""
     @State private var activeSession: ActiveSessionState?
     @State private var questionBank = QuestionBankService()
     @State private var showSplash = true
@@ -25,6 +26,11 @@ struct ContentView: View {
     private var shouldShowWelcome: Bool {
         guard let user = currentUser, !pendingWelcomeUID.isEmpty else { return false }
         return pendingWelcomeUID == user.supabaseUID
+    }
+
+    private var shouldShowWelcomeBack: Bool {
+        guard let user = currentUser, !pendingWelcomeBackUID.isEmpty else { return false }
+        return pendingWelcomeBackUID == user.supabaseUID
     }
 
     var body: some View {
@@ -48,6 +54,11 @@ struct ContentView: View {
             } else if shouldShowWelcome, let user = currentUser {
                 WelcomeSplashView(user: user) {
                     pendingWelcomeUID = ""
+                }
+                .transition(.opacity)
+            } else if shouldShowWelcomeBack, let user = currentUser {
+                WelcomeBackSplashView(user: user) {
+                    pendingWelcomeBackUID = ""
                 }
                 .transition(.opacity)
             } else if let session = activeSession {
@@ -111,6 +122,13 @@ struct ContentView: View {
                     await SyncService.shared.fetchAndImportProfile(uid: authService.currentUserID ?? "")
                     withAnimation { isSyncingProfile = false }
                 }
+                if authService.didJustSignIn,
+                   let user = currentUser,
+                   user.hasCompletedSetup,
+                   pendingWelcomeUID != user.supabaseUID {
+                    pendingWelcomeBackUID = user.supabaseUID
+                }
+                authService.didJustSignIn = false
                 await SyncService.shared.flushIfNeeded()
             }
         }

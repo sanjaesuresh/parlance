@@ -13,6 +13,7 @@ final class AuthService: ObservableObject {
     @Published private(set) var isLoading = true
     @Published var isCompletingSignUp = false
     @Published var isDeletingAccount = false
+    @Published var didJustSignIn = false
 
     private let client = SupabaseManager.shared.client
 

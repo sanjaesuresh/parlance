@@ -24,7 +24,7 @@ struct SessionCoordinator: View {
         self._currentQuestion = State(initialValue: state.question)
         self._currentTopicCategory = State(
             initialValue: state.mode == .explanation
-                ? PersistenceService.shared.getUser()?.lastExplanationCategory
+                ? (PersistenceService.shared.getUser()?.lastExplanationCategory ?? .any)
                 : nil
         )
     }
