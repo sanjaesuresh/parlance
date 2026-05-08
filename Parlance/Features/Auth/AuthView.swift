@@ -104,17 +104,13 @@ struct AuthView: View {
                         .frame(height: 22)
 
                         Button {
-                            withAnimation(.easeInOut(duration: 0.15)) { showPassword.toggle() }
+                            showPassword.toggle()
                         } label: {
-                            if showPassword {
-                                Image(systemName: "eye.slash.fill")
-                                    .font(.system(size: 16))
-                                    .foregroundStyle(AppColors.sub)
-                            } else {
-                                Text("●")
-                                    .font(.system(size: 18))
-                                    .foregroundStyle(AppColors.gold)
-                            }
+                            Image(systemName: showPassword ? "eye.slash.fill" : "eye.fill")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundStyle(AppColors.gold)
+                                .symbolEffect(.bounce, value: showPassword)
+                                .contentTransition(.symbolEffect(.replace.downUp))
                         }
                         .frame(width: 28)
                     }
