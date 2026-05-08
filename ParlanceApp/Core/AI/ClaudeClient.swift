@@ -1,14 +1,20 @@
 // Parlance/Core/AI/ClaudeClient.swift
 import Foundation
 
-final class ClaudeClient {
-    private let baseURL: URL
+protocol ScoringClient {
+    func fetchScoring(prompt: String) async throws -> ScoringResult
+}
 
-    init(baseURL: URL = AppConstants.apiBaseURL) {
+final class ClaudeClient: ScoringClient {
+    private let baseURL: URL
+    private let temperature: Double?
+
+    init(baseURL: URL = AppConstants.apiBaseURL, temperature: Double? = nil) {
         self.baseURL = baseURL
+        self.temperature = temperature
     }
 
-    // MARK: - New: full scoring response
+    // MARK: - Full scoring response
 
     func fetchScoring(prompt: String) async throws -> ScoringResult {
         let data = try await post(prompt: prompt, timeout: AppConstants.scoringTimeout)
@@ -33,7 +39,7 @@ final class ClaudeClient {
         throw URLError(.cannotParseResponse)
     }
 
-    // MARK: - Legacy: plain feedback string (kept for ResultsViewModel.retryFeedback)
+    // MARK: - Legacy plain-feedback path (kept for ResultsViewModel.retryFeedback)
 
     struct FeedbackResponse: Decodable {
         let feedback: String
@@ -54,9 +60,12 @@ final class ClaudeClient {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = timeout
 
-        let body: [String: Any] = [
+        var body: [String: Any] = [
             "messages": [["role": "user", "content": prompt]]
         ]
+        if let temperature {
+            body["temperature"] = temperature
+        }
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
 
         let (data, response) = try await URLSession.shared.data(for: request)
