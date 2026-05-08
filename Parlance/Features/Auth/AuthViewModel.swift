@@ -68,7 +68,7 @@ final class AuthViewModel: ObservableObject {
                 avatar: avatar,
                 practiceLevel: comfortLevel
             )
-            await SyncService.shared.createProfile(for: user, authService: authService)
+            try await SyncService.shared.createProfile(for: user, authService: authService)
         } catch {
             errorMessage = error.localizedDescription
         }

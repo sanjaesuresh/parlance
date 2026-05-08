@@ -66,12 +66,19 @@ struct ContentView: View {
         }
         .animation(.easeInOut(duration: 0.3), value: networkMonitor.isConnected)
         .onChange(of: authService.isAuthenticated) { _, isAuthenticated in
-            guard isAuthenticated, currentUser == nil, !authService.isCompletingSignUp else { return }
-            isSyncingProfile = true
+            guard isAuthenticated, !authService.isCompletingSignUp else { return }
             Task {
-                await SyncService.shared.fetchAndImportProfile(uid: authService.currentUserID ?? "")
-                withAnimation { isSyncingProfile = false }
+                if currentUser == nil {
+                    isSyncingProfile = true
+                    await SyncService.shared.fetchAndImportProfile(uid: authService.currentUserID ?? "")
+                    withAnimation { isSyncingProfile = false }
+                }
+                await SyncService.shared.flushIfNeeded()
             }
+        }
+        .onChange(of: networkMonitor.isConnected) { _, isConnected in
+            guard isConnected, authService.isAuthenticated else { return }
+            Task { await SyncService.shared.flushIfNeeded() }
         }
     }
 

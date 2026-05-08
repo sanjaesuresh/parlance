@@ -233,7 +233,14 @@ struct FirstLaunchSetupView: View {
             practiceLevel: comfortLevel
         )
         Task {
-            await SyncService.shared.createProfile(for: user, authService: authService)
+            do {
+                try await SyncService.shared.createProfile(for: user, authService: authService)
+            } catch {
+                #if DEBUG
+                print("[Setup] createProfile failed: \(error)")
+                #endif
+                // Silent fail here is acceptable — local user is created, profile will retry on next sync
+            }
         }
     }
 }
