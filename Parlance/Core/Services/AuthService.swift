@@ -11,6 +11,7 @@ final class AuthService: ObservableObject {
 
     var currentUserID: String? { currentUser?.id.uuidString }
     @Published private(set) var isLoading = true
+    @Published var isCompletingSignUp = false
 
     private let client = SupabaseManager.shared.client
 

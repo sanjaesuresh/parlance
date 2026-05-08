@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var activeSession: ActiveSessionState?
     @State private var showSplash = true
     @State private var isAppReady = false
+    @State private var isSyncingProfile = false
     @EnvironmentObject private var authService: AuthService
 
     private var currentUser: User? {
@@ -21,8 +22,8 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            if showSplash || authService.isLoading {
-                SplashView(isAppReady: isAppReady && !authService.isLoading) {
+            if showSplash || authService.isLoading || isSyncingProfile {
+                SplashView(isAppReady: isAppReady && !authService.isLoading && !isSyncingProfile) {
                     withAnimation { showSplash = false }
                 }
                 .ignoresSafeArea()
@@ -30,7 +31,7 @@ struct ContentView: View {
                 .transition(.opacity)
             } else if !authService.isAuthenticated {
                 AuthView(authService: authService)
-            } else if !hasCompletedSetup {
+            } else if !hasCompletedSetup && !authService.isCompletingSignUp {
                 FirstLaunchSetupView()
             } else if let session = activeSession {
                 SessionCoordinator(
@@ -64,6 +65,14 @@ struct ContentView: View {
             }
         }
         .animation(.easeInOut(duration: 0.3), value: networkMonitor.isConnected)
+        .onChange(of: authService.isAuthenticated) { _, isAuthenticated in
+            guard isAuthenticated, currentUser == nil, !authService.isCompletingSignUp else { return }
+            isSyncingProfile = true
+            Task {
+                await SyncService.shared.fetchAndImportProfile(uid: authService.currentUserID ?? "")
+                withAnimation { isSyncingProfile = false }
+            }
+        }
     }
 
     private var mainTabView: some View {

@@ -51,8 +51,9 @@ final class AuthViewModel: ObservableObject {
 
     func signUpWithProfile(name: String, username: String, occupation: String?, avatar: String, comfortLevel: Int) async {
         isLoading = true
+        authService.isCompletingSignUp = true
         errorMessage = nil
-        defer { isLoading = false }
+        defer { isLoading = false; authService.isCompletingSignUp = false }
         do {
             try await authService.signUp(email: email, password: password)
             let uid = authService.currentUserID ?? ""

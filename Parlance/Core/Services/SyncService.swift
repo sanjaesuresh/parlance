@@ -10,6 +10,49 @@ final class SyncService {
 
     private init() {}
 
+    // MARK: - Profile fetch (called on sign-in when no local user exists)
+
+    func fetchAndImportProfile(uid: String) async {
+        guard !uid.isEmpty else { return }
+        do {
+            let profile: ProfileRow = try await client
+                .from("profiles")
+                .select()
+                .eq("id", value: uid)
+                .single()
+                .execute()
+                .value
+
+            let stats: UserStatsRow? = try? await client
+                .from("user_stats")
+                .select()
+                .eq("user_id", value: uid)
+                .single()
+                .execute()
+                .value
+
+            let user = PersistenceService.shared.createUser(
+                supabaseUID: uid,
+                name: profile.displayName,
+                username: profile.username,
+                location: profile.location,
+                occupation: profile.occupation,
+                avatar: profile.avatarEmoji,
+                practiceLevel: 5
+            )
+            if let stats {
+                user.xp = stats.xp
+                user.currentStreak = stats.currentStreak
+                user.longestStreak = stats.longestStreak
+                try? PersistenceService.shared.context.save()
+            }
+        } catch {
+            #if DEBUG
+            print("[SyncService] fetchAndImportProfile: no profile found for \(uid): \(error)")
+            #endif
+        }
+    }
+
     // MARK: - Profile creation (called once from FirstLaunchSetupView)
 
     func createProfile(for user: User, authService: AuthService) async {
