@@ -55,18 +55,21 @@ struct ContentView: View {
                     state: session,
                     onReshuffleQuestion: { [questionBank] newCategory in
                         guard let user = PersistenceService.shared.getUser() else { return nil }
-                        user.lastExplanationCategory = newCategory
                         let band = session.question.difficultyBand
                         let seenIds = PersistenceService.shared.seenQuestionIds(
                             mode: session.mode,
                             band: band
                         )
-                        return questionBank.selectQuestion(
+                        guard let newQuestion = questionBank.selectQuestion(
                             mode: session.mode,
                             band: band,
                             category: newCategory,
                             excludingIds: seenIds
-                        )
+                        ) else {
+                            return nil
+                        }
+                        user.lastExplanationCategory = newCategory
+                        return newQuestion
                     },
                     onDismiss: {
                         withAnimation(.easeInOut(duration: 0.3)) {
@@ -129,7 +132,7 @@ struct ContentView: View {
                 Label("Home", systemImage: "house")
             }
 
-            ProgressView()
+            ProgressTabView()
                 .environmentObject(weekCache)
                 .tabItem {
                     Label("Progress", systemImage: "chart.bar")

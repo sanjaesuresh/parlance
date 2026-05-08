@@ -7,6 +7,7 @@ struct SessionCoordinator: View {
     let onDismiss: () -> Void
 
     @State private var currentQuestion: Question
+    @State private var currentTopicCategory: ExplanationCategory?
     @State private var phase: SessionPhase = .loading
     @StateObject private var recorder = AudioRecorder()
     @EnvironmentObject private var permissionsService: PermissionsService
@@ -21,6 +22,11 @@ struct SessionCoordinator: View {
         self.onReshuffleQuestion = onReshuffleQuestion
         self.onDismiss = onDismiss
         self._currentQuestion = State(initialValue: state.question)
+        self._currentTopicCategory = State(
+            initialValue: state.mode == .explanation
+                ? PersistenceService.shared.getUser()?.lastExplanationCategory
+                : nil
+        )
     }
 
     enum SessionPhase {
@@ -81,12 +87,11 @@ struct SessionCoordinator: View {
                         Task { await processSession() }
                     },
                     onCancel: { onDismiss() },
-                    currentTopicCategory: state.mode == .explanation
-                        ? PersistenceService.shared.getUser()?.lastExplanationCategory
-                        : nil,
+                    currentTopicCategory: currentTopicCategory,
                     onReshuffleTopic: { newCategory in
                         if let newQuestion = onReshuffleQuestion?(newCategory) {
                             currentQuestion = newQuestion
+                            currentTopicCategory = newCategory
                         }
                     }
                 )
