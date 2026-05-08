@@ -185,8 +185,8 @@ struct AIQualityFixturesSanityTests {
         #expect(Set(ids).count == ids.count)
     }
 
-    @Test("seed corpus is exactly 8 fixtures")
-    func sizeIsEight() {
-        #expect(AIQualityFixtures.all.count == 8)
+    @Test("seed corpus has at least 30 fixtures")
+    func sizeIsCalibrated() {
+        #expect(AIQualityFixtures.all.count >= 30)
     }
 }

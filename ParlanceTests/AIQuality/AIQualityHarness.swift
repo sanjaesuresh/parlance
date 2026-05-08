@@ -20,6 +20,10 @@ struct AIQualityHarness {
 
     @Test("scoring fixture", arguments: AIQualityFixtures.all)
     func scoringFixture(fixture: AIQualityFixture) async throws {
+        // Throttle: 4s gap between calls keeps us under Gemini's free-tier 20 RPM
+        // limit. Combined with ~5-8s per call, total fixture rate is ~5 RPM.
+        try await Task.sleep(nanoseconds: 4_000_000_000)
+
         let client = AIQualityTestClient()
 
         let result: ScoringResult
