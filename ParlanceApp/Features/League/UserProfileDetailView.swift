@@ -6,6 +6,7 @@ struct UserProfileDetailView: View {
     @State private var isLoadingRelationship = true
     @State private var resolvedProfile: SocialProfile
     @State private var requestActionHaptic = false
+    @State private var showUnfriendConfirm = false
     @Environment(\.dismiss) private var dismiss
 
     init(profile: SocialProfile) {
@@ -35,6 +36,24 @@ struct UserProfileDetailView: View {
             .toolbarBackground(AppColors.bg, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .sensoryFeedback(.success, trigger: requestActionHaptic)
+            .confirmationDialog(
+                "Unfriend \(resolvedProfile.displayName)?",
+                isPresented: $showUnfriendConfirm,
+                titleVisibility: .visible
+            ) {
+                Button("Unfriend", role: .destructive) {
+                    guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
+                    requestActionHaptic.toggle()
+                    Task {
+                        try? await socialService.removeFriend(profileId)
+                        relationshipState = .none
+                    }
+                }
+                .accessibilityIdentifier("confirmUnfriendButton")
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("You'll be removed from each other's friends lists. You can re-add them anytime.")
+            }
             .task {
                 guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
                 relationshipState = await socialService.relationshipState(for: profileId)
@@ -158,15 +177,22 @@ struct UserProfileDetailView: View {
             .accessibilityIdentifier("addFriendButton")
 
         case .pendingSent:
-            Text("Request Sent")
-                .font(AppFonts.bodyBold(13))
-                .foregroundStyle(AppColors.sub)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 9)
-                .background(AppColors.card)
-                .clipShape(Capsule())
-                .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
-                .accessibilityIdentifier("requestSentLabel")
+            Button("Cancel Request") {
+                guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
+                requestActionHaptic.toggle()
+                Task {
+                    try? await socialService.cancelFriendRequest(to: profileId)
+                    relationshipState = .none
+                }
+            }
+            .font(AppFonts.bodyBold(13))
+            .foregroundStyle(AppColors.sub)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 9)
+            .background(AppColors.card)
+            .clipShape(Capsule())
+            .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
+            .accessibilityIdentifier("cancelRequestButton")
 
         case .pendingReceived:
             Button("Accept Request") {
@@ -186,14 +212,16 @@ struct UserProfileDetailView: View {
             .accessibilityIdentifier("acceptRequestButton")
 
         case .friends:
-            Text("Friends")
-                .font(AppFonts.bodyBold(13))
-                .foregroundStyle(AppColors.teal)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 9)
-                .background(AppColors.teal.opacity(0.12))
-                .clipShape(Capsule())
-                .accessibilityIdentifier("friendsLabel")
+            Button("Unfriend", role: .destructive) {
+                showUnfriendConfirm = true
+            }
+            .font(AppFonts.bodyBold(13))
+            .foregroundStyle(.white)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 9)
+            .background(AppColors.red)
+            .clipShape(Capsule())
+            .accessibilityIdentifier("unfriendButton")
 
         case .isSelf:
             EmptyView()
