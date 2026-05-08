@@ -189,11 +189,7 @@ struct AuthProfileSetupView: View {
                 }
                 .disabled(disabled)
                 .padding(.horizontal, 24)
-
-                Text("Audio is processed on-device.")
-                    .font(AppFonts.body(11))
-                    .foregroundStyle(AppColors.dim)
-                    .padding(.bottom, 24)
+                .padding(.bottom, 24)
             }
         }
         .scrollDismissesKeyboard(.interactively)
