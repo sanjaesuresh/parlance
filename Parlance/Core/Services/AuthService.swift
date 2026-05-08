@@ -58,4 +58,19 @@ final class AuthService: ObservableObject {
     func sendPasswordReset(email: String) async throws {
         try await client.auth.resetPasswordForEmail(email)
     }
+
+    func deleteAccount() async throws {
+        guard let uid = currentUserID else { return }
+        let supabase = SupabaseManager.shared.client
+        // Delete all user-owned rows (RLS allows self-deletion)
+        try? await supabase.from("session_scores").delete().eq("user_id", value: uid).execute()
+        try? await supabase.from("user_stats").delete().eq("user_id", value: uid).execute()
+        try? await supabase.from("friend_requests").delete().eq("from_user_id", value: uid).execute()
+        try? await supabase.from("friendships").delete().or("user_id_1.eq.\(uid),user_id_2.eq.\(uid)").execute()
+        try? await supabase.from("profiles").delete().eq("id", value: uid).execute()
+        // Clear local SwiftData
+        PersistenceService.shared.resetAllData()
+        // Sign out (auth user record deletion requires a server-side admin call)
+        try await signOut()
+    }
 }
