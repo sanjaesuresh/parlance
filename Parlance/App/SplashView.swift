@@ -51,18 +51,17 @@ struct SplashView: View {
         }
         .onAppear {
             appReady = isAppReady
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            Task { @MainActor in
+                try? await Task.sleep(for: .seconds(0.5))
                 splashHaptic = 1
-                withAnimation(.spring(response: 0.75, dampingFraction: 0.82)) {
-                    showFull = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { splashHaptic = 2 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { splashHaptic = 3 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-                    revealDone = true
-                    scheduleIfReady()
-                }
+                withAnimation(.spring(response: 0.75, dampingFraction: 0.82)) { showFull = true }
+                try? await Task.sleep(for: .seconds(0.3))
+                splashHaptic = 2
+                try? await Task.sleep(for: .seconds(0.3))
+                splashHaptic = 3
+                try? await Task.sleep(for: .seconds(0.3))
+                revealDone = true
+                scheduleIfReady()
             }
         }
         .onChange(of: isAppReady) { _, ready in
@@ -72,17 +71,13 @@ struct SplashView: View {
     }
 
     private func scheduleIfReady() {
-        // All @State — closures always read live values
         guard revealDone, appReady, !dismissScheduled else { return }
         dismissScheduled = true
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation(.easeIn(duration: 0.4)) {
-                fadeOut = true
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-                onFinished()
-            }
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(0.5))
+            withAnimation(.easeIn(duration: 0.4)) { fadeOut = true }
+            try? await Task.sleep(for: .seconds(0.45))
+            onFinished()
         }
     }
 }

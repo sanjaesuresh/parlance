@@ -39,6 +39,12 @@ final class PersistenceService {
         return try? context.fetch(descriptor).first
     }
 
+    func getUser(uid: String) -> User? {
+        guard !uid.isEmpty else { return nil }
+        let descriptor = FetchDescriptor<User>()
+        return try? context.fetch(descriptor).first { $0.supabaseUID == uid }
+    }
+
     func createUser(supabaseUID: String, name: String, username: String = "", location: String? = nil, occupation: String? = nil, avatar: String, practiceLevel: Int = 1) -> User {
         let user = User(supabaseUID: supabaseUID, displayName: name, username: username, location: location, occupation: occupation, avatarEmoji: avatar, practiceLevel: practiceLevel, hasCompletedSetup: true)
         context.insert(user)
@@ -60,7 +66,8 @@ final class PersistenceService {
     }
 
     func sessionsThisWeek() -> [Session] {
-        let calendar = Calendar.current
+        var calendar = Calendar(identifier: .iso8601)
+        calendar.timeZone = TimeZone.current
         let now = Date.now
         guard let weekStart = calendar.dateInterval(of: .weekOfYear, for: now)?.start else { return [] }
         let predicate = #Predicate<Session> { $0.date >= weekStart }
@@ -88,8 +95,13 @@ final class PersistenceService {
     }
 
     func seedAchievementsIfNeeded() {
+        let key = "parlance.achievements_seeded"
+        guard !UserDefaults.standard.bool(forKey: key) else { return }
         let existing = getAchievements()
-        guard existing.isEmpty else { return }
+        guard existing.isEmpty else {
+            UserDefaults.standard.set(true, forKey: key)
+            return
+        }
         for def in Achievement.definitions {
             let achievement = Achievement(
                 id: def.id, name: def.name,
@@ -98,6 +110,7 @@ final class PersistenceService {
             context.insert(achievement)
         }
         try? context.save()
+        UserDefaults.standard.set(true, forKey: key)
     }
 
     func unlockAchievement(id: String) {

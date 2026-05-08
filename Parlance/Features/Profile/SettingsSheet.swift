@@ -10,6 +10,7 @@ struct SettingsSheet: View {
     @State private var showSafari = false
     @State private var safariURL: URL?
     @State private var showSignOutConfirmation = false
+    @State private var showDeleteAccountConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -122,6 +123,12 @@ struct SettingsSheet: View {
 
                     Divider().background(AppColors.border)
 
+                    menuRow(icon: "person.crop.circle.badge.minus", title: "Delete Account", isDestructive: true) {
+                        showDeleteAccountConfirmation = true
+                    }
+
+                    Divider().background(AppColors.border)
+
                     VStack(alignment: .leading, spacing: 4) {
                         Text("ABOUT YOUR DATA")
                             .font(AppFonts.bodyMedium(10))
@@ -149,11 +156,22 @@ struct SettingsSheet: View {
         .presentationDetents([.medium])
         .alert("Sign Out", isPresented: $showSignOutConfirmation) {
             Button("Sign Out", role: .destructive) {
-                Task { try? await authService.signOut() }
+                Task {
+                    PersistenceService.shared.resetAllData()
+                    try? await authService.signOut()
+                }
             }
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("You'll need to sign in again to access your account.")
+        }
+        .alert("Delete Account", isPresented: $showDeleteAccountConfirmation) {
+            Button("Delete Account", role: .destructive) {
+                Task { try? await authService.deleteAccount() }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This will permanently delete your account and all your data. This cannot be undone.")
         }
         .sheet(isPresented: $showSafari) {
             if let url = safariURL {
