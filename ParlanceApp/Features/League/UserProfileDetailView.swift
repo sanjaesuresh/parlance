@@ -28,6 +28,7 @@ struct UserProfileDetailView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                         .foregroundStyle(AppColors.gold)
+                        .accessibilityIdentifier("userProfileDoneButton")
                 }
             }
             .toolbarBackground(AppColors.bg, for: .navigationBar)
@@ -151,6 +152,7 @@ struct UserProfileDetailView: View {
             .padding(.vertical, 9)
             .background(AppColors.gold)
             .clipShape(Capsule())
+            .accessibilityIdentifier("addFriendButton")
 
         case .pendingSent:
             Text("Request Sent")
@@ -161,6 +163,7 @@ struct UserProfileDetailView: View {
                 .background(AppColors.card)
                 .clipShape(Capsule())
                 .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
+                .accessibilityIdentifier("requestSentLabel")
 
         case .pendingReceived:
             Button("Accept Request") {
@@ -176,6 +179,7 @@ struct UserProfileDetailView: View {
             .padding(.vertical, 9)
             .background(AppColors.teal)
             .clipShape(Capsule())
+            .accessibilityIdentifier("acceptRequestButton")
 
         case .friends:
             Text("Friends")
@@ -185,6 +189,7 @@ struct UserProfileDetailView: View {
                 .padding(.vertical, 9)
                 .background(AppColors.teal.opacity(0.12))
                 .clipShape(Capsule())
+                .accessibilityIdentifier("friendsLabel")
 
         case .isSelf:
             EmptyView()

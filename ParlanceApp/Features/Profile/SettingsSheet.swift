@@ -101,6 +101,7 @@ struct SettingsSheet: View {
                     menuRow(icon: "rectangle.portrait.and.arrow.right", title: "Sign Out", isDestructive: true) {
                         showSignOutConfirmation = true
                     }
+                    .accessibilityIdentifier("signOutButton")
 
                     Divider().background(AppColors.border)
 
@@ -113,6 +114,7 @@ struct SettingsSheet: View {
                     menuRow(icon: "person.crop.circle.badge.minus", title: "Delete Account", isDestructive: true) {
                         showDeleteAccountConfirmation = true
                     }
+                    .accessibilityIdentifier("deleteAccountButton")
 
                     Divider().background(AppColors.border)
 

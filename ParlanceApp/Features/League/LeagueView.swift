@@ -206,6 +206,7 @@ struct LeagueView: View {
 
     private func tabButton(title: String, tab: SocialTab) -> some View {
         let isSelected = selectedTab == tab
+        let identifier = tab == .leaderboard ? "socialTab_leaderboard" : "socialTab_friends"
         return Button {
             selectedTab = tab
         } label: {
@@ -221,6 +222,7 @@ struct LeagueView: View {
                         .stroke(isSelected ? AppColors.gold.opacity(0.5) : AppColors.border, lineWidth: 1)
                 )
         }
+        .accessibilityIdentifier(identifier)
     }
 
     // MARK: - Zone Legend
@@ -402,6 +404,7 @@ struct LeagueView: View {
                     .clipShape(Capsule())
                     .overlay(Capsule().stroke(AppColors.gold.opacity(0.4), lineWidth: 1))
                 }
+                .accessibilityIdentifier("shareProfileButton")
             }
 
             Text("Share your username so friends can search for you in Parlance.")
@@ -434,6 +437,7 @@ struct LeagueView: View {
                     .autocorrectionDisabled()
                     .textInputAutocapitalization(.never)
                     .focused($isSearchFieldFocused)
+                    .accessibilityIdentifier("friendSearchField")
                     .onChange(of: friendSearchText) { _, newValue in
                         if newValue.isEmpty {
                             searchResults = []
@@ -456,6 +460,7 @@ struct LeagueView: View {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundStyle(AppColors.dim)
                     }
+                    .accessibilityIdentifier("friendSearchClearButton")
                 }
             }
             .padding(12)
@@ -495,7 +500,8 @@ struct LeagueView: View {
     }
 
     private func searchResultRow(profile: SocialProfile) -> some View {
-        Button { selectedProfile = profile } label: {
+        let identifier = "searchResult_\(profile.username)"
+        return Button { selectedProfile = profile } label: {
             HStack(spacing: 12) {
                 Text(profile.avatarEmoji)
                     .font(.system(size: 20))
@@ -540,6 +546,7 @@ struct LeagueView: View {
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
                 .stroke(AppColors.border, lineWidth: 1)
         )
+        .accessibilityIdentifier(identifier)
     }
 
     private var noResultsView: some View {
@@ -558,6 +565,7 @@ struct LeagueView: View {
         .frame(maxWidth: .infinity)
         .padding(.vertical, 24)
         .cardStyle()
+        .accessibilityIdentifier("searchNoResultsState")
     }
 
     // MARK: - Friends Suggestions
@@ -574,6 +582,7 @@ struct LeagueView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 20)
                 .cardStyle()
+                .accessibilityIdentifier("friendsEmptyState")
             }
         }
     }
@@ -606,6 +615,7 @@ struct LeagueView: View {
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
                 .stroke(AppColors.border, lineWidth: 1)
         )
+        .accessibilityIdentifier("friendRow_\(profile.username)")
     }
 
     // MARK: - Pending Requests Banner
@@ -651,6 +661,7 @@ struct LeagueView: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("pendingRequestsBanner")
     }
 
     // MARK: - How XP Is Earned

@@ -93,6 +93,7 @@ struct ProfileView: View {
                     )
             }
             .accessibilityLabel("Settings")
+            .accessibilityIdentifier("settingsButton")
         }
         .padding(.horizontal, 16)
         .padding(.top, 16)

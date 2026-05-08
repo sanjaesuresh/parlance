@@ -22,6 +22,7 @@ struct FriendRequestsSheet: View {
                             .foregroundStyle(AppColors.sub)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .accessibilityIdentifier("friendRequestsEmptyState")
                 } else {
                     ScrollView {
                         VStack(spacing: 10) {
@@ -42,6 +43,7 @@ struct FriendRequestsSheet: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                         .foregroundStyle(AppColors.gold)
+                        .accessibilityIdentifier("friendRequestsDoneButton")
                 }
             }
             .toolbarBackground(AppColors.bg, for: .navigationBar)
@@ -54,7 +56,9 @@ struct FriendRequestsSheet: View {
     }
 
     private func requestRow(item: FriendRequestWithProfile) -> some View {
-        HStack(spacing: 12) {
+        let username = item.senderProfile?.username ?? ""
+
+        return HStack(spacing: 12) {
             Text(item.senderProfile?.avatarEmoji ?? "\u{1F464}")
                 .font(.system(size: 22))
                 .frame(width: 46, height: 46)
@@ -65,7 +69,7 @@ struct FriendRequestsSheet: View {
                 Text(item.senderProfile?.displayName ?? "Unknown")
                     .font(AppFonts.bodyMedium(14))
                     .foregroundStyle(AppColors.text)
-                Text("@\(item.senderProfile?.username ?? "")")
+                Text("@\(username)")
                     .font(AppFonts.body(12))
                     .foregroundStyle(AppColors.sub)
             }
@@ -88,6 +92,7 @@ struct FriendRequestsSheet: View {
                 .padding(.vertical, 7)
                 .background(AppColors.gold)
                 .clipShape(Capsule())
+                .accessibilityIdentifier("friendRequestAcceptButton_\(username)")
 
                 Button("Decline") {
                     Task {
@@ -102,6 +107,7 @@ struct FriendRequestsSheet: View {
                 .background(AppColors.card)
                 .clipShape(Capsule())
                 .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
+                .accessibilityIdentifier("friendRequestDeclineButton_\(username)")
             }
         }
         .padding(12)
@@ -111,5 +117,10 @@ struct FriendRequestsSheet: View {
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
                 .stroke(AppColors.border, lineWidth: 1)
         )
+        // Expose child buttons as their own accessibility elements while still
+        // keeping a row-level identifier — without this, the parent identifier
+        // overrides each child and XCUITest can't find the inner buttons.
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("friendRequestRow_\(username)")
     }
 }
