@@ -15,29 +15,23 @@ A Swift Testing suite under `ParlanceTests/AIQuality/` that runs curated transcr
 
 The harness is gated by the `RUN_AI_QUALITY` environment variable. Without it, the suite reports as skipped — so accidental `cmd-U` and default `xcodebuild test` runs do not hit the worker.
 
+**Important:** `xcodebuild test` runs in an isolated process; shell env vars don't propagate. Use the `TEST_RUNNER_` prefix to forward — `TEST_RUNNER_RUN_AI_QUALITY=1` becomes `RUN_AI_QUALITY=1` inside the test process.
+
 **Run all 8 fixtures (live worker):**
 
 ```bash
-RUN_AI_QUALITY=1 xcodebuild test \
-  -project ParlanceApp/Parlance.xcodeproj \
-  -scheme Parlance \
-  -destination "platform=iOS Simulator,name=iPhone 17" \
-  -only-testing:ParlanceTests/AIQualityHarness
-```
-
-**Run with verbose result printing** (each fixture prints its full `ScoringResult`):
-
-The harness already prints the full result per fixture to the test log. To capture them:
-
-```bash
-RUN_AI_QUALITY=1 xcodebuild test \
+TEST_RUNNER_RUN_AI_QUALITY=1 xcodebuild test \
   -project ParlanceApp/Parlance.xcodeproj \
   -scheme Parlance \
   -destination "platform=iOS Simulator,name=iPhone 17" \
   -only-testing:ParlanceTests/AIQualityHarness 2>&1 | tee /tmp/ai-harness.log
 ```
 
-Each run hits the live worker (Cloudflare → Gemini) and uses API quota. Cost: a few cents per full run (8 fixtures × ~1k tokens × Haiku/Flash pricing).
+The harness prints each fixture's full `ScoringResult` to the test log on completion (see `printResult` in `AIQualityHarness.swift`).
+
+Each run hits the live worker (Cloudflare → Gemini) and uses API quota. Cost: a few cents per full run (8 fixtures × ~1k tokens × Gemini Flash pricing).
+
+**Known flake:** the test process occasionally exits early after a couple of fixtures (Xcode logs "Restarting after unexpected exit, crash, or test timeout"). Cause appears to be the simulator's URL session resolver tripping `NSURLErrorDomain: -1003` (cannotFindHost) intermittently between consecutive scoring calls. Workaround: re-run. The harness is `.serialized` so all 8 fixtures run sequentially; flake rate is roughly 1 in 3 runs in our environment. Not yet deep-dived; if it becomes a problem, the fix is likely to use a fresh `URLSession` per fixture or add a small inter-fixture delay.
 
 ## When to run it
 
@@ -57,18 +51,20 @@ The Cloudflare worker accepts an optional `temperature` field in the `/feedback`
 
 **Important:** until the worker is deployed with the temperature change, the harness will run with the worker's hardcoded `temperature: 0.3` and produce more varied scores. Bands may need to be wider until then.
 
-Gemini at `temperature: 0` is not strictly deterministic. Observed spread (fill in after first runs):
+Gemini at `temperature: 0` turns out to be **highly deterministic** in practice — most fixtures returned an identical overall score on back-to-back runs. Observed spread (2 successful runs, 2026-05-08):
 
-| Fixture | Run 1 overall | Run 2 overall | Run 3 overall | Spread |
+| Fixture | Run 1 overall | Run 2 overall | Spread | Bands (after tuning) |
 |---|---|---|---|---|
-| `interview-empty` | TBD | TBD | TBD | TBD |
-| `interview-great-star` | TBD | TBD | TBD | TBD |
-| `interview-rambling` | TBD | TBD | TBD | TBD |
-| `interview-filler-heavy` | TBD | TBD | TBD | TBD |
-| `interview-off-topic` | TBD | TBD | TBD | TBD |
-| `pitch-strong-hook` | TBD | TBD | TBD | TBD |
-| `keynote-flat-open` | TBD | TBD | TBD | TBD |
-| `casual-clear` | TBD | TBD | TBD | TBD |
+| `interview-empty` | 10 | 10 | 0 | 0–15 |
+| `interview-great-star` | net err | 84 | n/a | 75–95 |
+| `interview-rambling` | 42 | 42 | 0 | 30–55 |
+| `interview-filler-heavy` | 52 | 52 | 0 | 25–55 *(widened from 30–50)* |
+| `interview-off-topic` | 30 | 30 | 0 | 25–50 |
+| `pitch-strong-hook` | net err | 88 | n/a | 70–90 |
+| `keynote-flat-open` | 35 | 38 | 3 | 35–55 |
+| `casual-clear` | net err | 88 | n/a | 60–95 *(widened from 65–85)* |
+
+Run 1 had three network errors (`NSURLErrorDomain: -1011 / -1017`) because the harness was running fixtures in parallel and overwhelming the worker. Adding `.serialized` to the suite trait fixed it.
 
 If a fixture flakes after band-tuning, prefer widening the band. Only escalate to N-run-median if multiple fixtures flake.
 
