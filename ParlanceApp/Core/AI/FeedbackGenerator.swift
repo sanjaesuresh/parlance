@@ -101,7 +101,7 @@ enum FeedbackGenerator {
     }
 
     static func fetchScoring(
-        client: ClaudeClient,
+        client: any ScoringClient,
         mode: SessionMode,
         level: Int,
         question: String,
