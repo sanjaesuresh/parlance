@@ -9602,5 +9602,565 @@
     ],
     "targetDuration": 120,
     "difficultyNote": "Technical accountability to expert peers"
+  },
+  {
+    "id": "explanation_1-2_business_001",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Explain to a younger sibling or cousin what you actually do at work all day.",
+    "tips": [
+      "Skip your job title — describe one task you did this week step by step",
+      "Use a comparison they'd recognize, like 'It's like being the person who...'",
+      "End with what would go wrong if nobody did your job"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Translating work into everyday language"
+  },
+  {
+    "id": "explanation_1-2_business_002",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend who has never had a full-time job why companies have so many meetings.",
+    "tips": [
+      "Give a real example of a meeting that was actually useful — describe what got decided",
+      "Acknowledge honestly that some meetings could be emails — that makes you credible",
+      "Focus on one specific type of meeting rather than meetings in general"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explaining a workplace staple with honest nuance"
+  },
+  {
+    "id": "explanation_1-2_business_003",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Tell a teenager what a deadline means in adult work life — and why missing one is a big deal.",
+    "tips": [
+      "Use a chain-reaction example: if you miss it, here's what breaks for someone else",
+      "Contrast it with a school deadline — what's different about the consequences",
+      "Keep it grounded in one specific kind of work, not work in general"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explaining stakes and accountability at work"
+  },
+  {
+    "id": "explanation_1-2_business_004",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Explain to a family member the difference between being employed by a company versus being self-employed.",
+    "tips": [
+      "Anchor the difference to money stability — guaranteed paycheck vs. variable income",
+      "Mention one upside and one downside of each path before giving your view",
+      "Avoid abstract terms like 'autonomy' — use a concrete trade-off instead"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Contrasting two employment models simply"
+  },
+  {
+    "id": "explanation_1-2_business_005",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Explain to a friend who just started their first job what 'getting feedback at work' actually means and why it feels awkward.",
+    "tips": [
+      "Distinguish between feedback that helps you improve and feedback that feels like criticism",
+      "Name one thing that makes feedback easier to hear — tone, timing, or specificity",
+      "Share a real example of feedback you found useful, even if uncomfortable at first"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Normalizing workplace feedback for a newcomer"
+  },
+  {
+    "id": "explanation_1-2_business_006",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Explain to a 12-year-old what a boss actually does — beyond just being in charge.",
+    "tips": [
+      "Pick two or three concrete things a manager does in a typical week",
+      "Include something that surprised you about management when you first encountered it",
+      "Avoid the word 'leadership' — describe behaviors instead"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Demystifying the manager role for a child"
+  },
+  {
+    "id": "explanation_1-2_business_007",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Tell a friend why some people love working in an office and others hate it — and what actually makes the difference.",
+    "tips": [
+      "Ground it in something observable: commute, noise, social energy, visibility",
+      "Represent both sides fairly before landing on a point of view",
+      "Use a specific type of person or job to make your case concrete"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Explaining workplace preferences without taking cheap shots"
+  },
+  {
+    "id": "explanation_1-2_business_008",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "1-2",
+    "question": "Explain to a parent what a 'performance review' is and why your company does them once or twice a year.",
+    "tips": [
+      "Describe what actually happens in the room — who talks, what's discussed",
+      "Explain the link between the review and things like raises or promotions",
+      "Be honest about what reviews get right and what they often miss"
+    ],
+    "targetDuration": 45,
+    "difficultyNote": "Translating a formal work ritual for a non-professional"
+  },
+  {
+    "id": "explanation_3-4_business_001",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to a curious friend how a hiring decision actually gets made — from résumé to offer.",
+    "tips": [
+      "Name the hidden filters that cut candidates before a human even reads the file",
+      "Describe what a hiring manager is really looking for beyond the job description",
+      "Acknowledge where bias tends to creep in — that's what makes your explanation credible"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Demystifying hiring with honest insider perspective"
+  },
+  {
+    "id": "explanation_3-4_business_002",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to a non-corporate friend what 'company culture' actually means in practice — not the values on the wall.",
+    "tips": [
+      "Give one example of a behavior that signals culture more than any poster does",
+      "Contrast what a company says its culture is vs. what employees actually experience",
+      "Anchor your definition to something observable, like how a decision gets made under pressure"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Making 'culture' concrete with a behavioral lens"
+  },
+  {
+    "id": "explanation_3-4_business_003",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to a smart friend outside the workforce how a project gets prioritized inside a company — and why the 'obvious' choice often loses.",
+    "tips": [
+      "Describe at least two competing forces: urgency vs. importance, or revenue vs. morale",
+      "Use one specific example of a project that got deprioritized for non-obvious reasons",
+      "Name who actually has the final say — and why that matters more than any framework"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Explaining prioritization as a political and practical process"
+  },
+  {
+    "id": "explanation_3-4_business_004",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to a college student what 'office politics' actually is — and why pretending it doesn't exist is a career mistake.",
+    "tips": [
+      "Distinguish between toxic politics (manipulation) and normal organizational dynamics",
+      "Give a concrete example of navigating office politics well — not a horror story",
+      "Name one skill that helps someone navigate it without becoming someone they dislike"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Reframing office politics as a navigable skill"
+  },
+  {
+    "id": "explanation_3-4_business_005",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Tell a curious non-manager why the difference between a manager and a team lead matters — even when the titles seem interchangeable.",
+    "tips": [
+      "Ground the difference in accountability: who owns the outcome vs. who guides the work",
+      "Give a scenario where the distinction became important — a decision, a conflict, a hire",
+      "Avoid org-chart jargon; describe what each person's day actually looks like"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Clarifying a commonly blurred role distinction"
+  },
+  {
+    "id": "explanation_3-4_business_006",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to an interested friend why some workplace emails demand immediate attention and others sit unread for days — and what makes the difference.",
+    "tips": [
+      "Name the signals people actually use to triage: sender, subject line, reply-all chains",
+      "Describe one consequence of misreading urgency in an email — in either direction",
+      "Give one concrete tip for writing an email that actually gets read quickly"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Unpacking workplace communication prioritization"
+  },
+  {
+    "id": "explanation_3-4_business_007",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to a friend considering a job change what an annual performance review is really evaluating — beyond the official criteria.",
+    "tips": [
+      "Name at least one unofficial factor that reliably influences ratings (visibility, timing, advocate)",
+      "Describe how the review connects to comp decisions in plain terms",
+      "Be honest about what a strong rating signals vs. what it actually guarantees"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Exposing the informal logic of performance reviews"
+  },
+  {
+    "id": "explanation_3-4_business_008",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "3-4",
+    "question": "Explain to a non-business friend what 'delegation' means at work — and why managers who are bad at it hurt their whole team.",
+    "tips": [
+      "Contrast delegating with dumping: one gives ownership, the other just offloads work",
+      "Give a specific example of poor delegation and what actually broke down",
+      "Name one thing a good delegator does that most managers skip"
+    ],
+    "targetDuration": 60,
+    "difficultyNote": "Distinguishing effective delegation from task-dumping"
+  },
+  {
+    "id": "explanation_5-6_business_001",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to a peer colleague how to give critical feedback to a teammate without damaging the working relationship.",
+    "tips": [
+      "Lead with the observable behavior, not an interpretation of motive",
+      "Name the specific moment to deliver it — timing is as important as content",
+      "Prepare your peer to handle defensiveness: what do you say when someone pushes back?"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Coaching a peer on feedback delivery under relational stakes"
+  },
+  {
+    "id": "explanation_5-6_business_002",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to a junior teammate why some meetings are genuinely valuable and others are a waste — and how to tell the difference before you walk in.",
+    "tips": [
+      "Give them a single diagnostic question they can ask before accepting any meeting invite",
+      "Name the two or three meeting types that almost always have high ROI vs. the ones that don't",
+      "Include what they can do when they realize mid-meeting it's going nowhere"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Teaching meeting judgment to an early-career teammate"
+  },
+  {
+    "id": "explanation_5-6_business_003",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to a new manager what makes a team high-performing — and why it's not just about having talented individuals.",
+    "tips": [
+      "Name a team dynamic (trust, conflict norms, clarity of ownership) that matters more than individual skill",
+      "Give a counterexample: a team with top talent that still underperformed, and why",
+      "Give the new manager one actionable thing they can do in their first 60 days to build it"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Reframing team performance beyond individual talent"
+  },
+  {
+    "id": "explanation_5-6_business_004",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to someone joining a mid-sized company how decisions actually get made there — and how to navigate it without getting stuck.",
+    "tips": [
+      "Name the difference between formal authority (titles) and informal influence (relationships, reputation)",
+      "Describe one moment where understanding decision-making dynamics changed an outcome",
+      "Give one practical tip for finding out how decisions really work at a new company"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Decoding organizational decision-making for a newcomer"
+  },
+  {
+    "id": "explanation_5-6_business_005",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain the difference between strategy and execution to a junior hire who thinks strategy is just a fancy word for planning.",
+    "tips": [
+      "Use a concrete company example where the strategy was right but execution failed, or vice versa",
+      "Clarify the different skill sets required — not everyone who's good at one is good at the other",
+      "Give the junior hire a way to think about which mode they're currently in at any given week"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Separating strategic thinking from operational execution"
+  },
+  {
+    "id": "explanation_5-6_business_006",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to a stressed team lead what to do — practically — when a project is behind and the deadline can't move.",
+    "tips": [
+      "Start with scope before schedule: name the things that can be cut without killing the outcome",
+      "Describe how to surface the delay to stakeholders without losing their confidence",
+      "Give them one thing to stop doing immediately that is probably making the delay worse"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Coaching practical recovery from a behind-schedule project"
+  },
+  {
+    "id": "explanation_5-6_business_007",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to a peer manager why onboarding a new hire well in the first 90 days is one of the highest-leverage things they'll do all year.",
+    "tips": [
+      "Quantify the cost of a bad onboarding — in time, team morale, and ramp time — even roughly",
+      "Name one thing most managers skip in onboarding that turns out to matter a lot",
+      "Give a concrete 30/60/90-day framing they can use without it feeling bureaucratic"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Arguing the ROI of structured onboarding to a peer"
+  },
+  {
+    "id": "explanation_5-6_business_008",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "5-6",
+    "question": "Explain to a colleague who just got their first direct report what 'psychological safety' in a team actually means — and why it's not about being nice.",
+    "tips": [
+      "Anchor the definition to a specific behavior: someone speaking up about a risk or mistake without fear",
+      "Name the opposite condition — what a psychologically unsafe team actually looks like day-to-day",
+      "Give one thing the new manager can do in their first team meeting to signal it"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Grounding psychological safety in observable team behavior"
+  },
+  {
+    "id": "explanation_7-8_business_001",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Make the case to a skeptical board that the company should discontinue a product line that customers love but that is quietly draining resources.",
+    "tips": [
+      "Lead with the opportunity cost — what the company can do with the freed resources — before defending the cut",
+      "Acknowledge the customer attachment directly; dismissing it will lose the room",
+      "Give a comparable company that made a similar cut and came out stronger — precedent matters to boards"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Persuading a skeptical board to cut a beloved product"
+  },
+  {
+    "id": "explanation_7-8_business_002",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Convince a CEO that the team restructuring they are proposing will cause more damage than the problem it is meant to solve.",
+    "tips": [
+      "Name the specific cost of reorganization that leaders underestimate: trust, momentum, informal networks",
+      "Propose an alternative that solves the same root problem with less disruption",
+      "Acknowledge what the CEO is right about — credibility with a CEO requires you to honor the real problem"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Pushing back on a CEO's restructuring plan with an alternative"
+  },
+  {
+    "id": "explanation_7-8_business_003",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Explain to a new manager, who is uncomfortable with it, how to have a termination conversation with an underperforming employee in a way that preserves the person's dignity.",
+    "tips": [
+      "Be specific about what to say and what not to say in the first 60 seconds of the conversation",
+      "Acknowledge the discomfort is real and won't go away — what helps is preparation, not avoidance",
+      "Name one thing that managers commonly do during terminations that makes the employee's exit harder"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Coaching humane termination practice to a reluctant manager"
+  },
+  {
+    "id": "explanation_7-8_business_004",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Explain to a senior leadership team why the company's slow, consensus-heavy decision-making process is costing them talent and speed — and propose a fix.",
+    "tips": [
+      "Name the exact type of decision where consensus adds no value but adds weeks of delay",
+      "Use a concrete example of a decision that took too long and what the cost was",
+      "Frame the fix as a protocol change, not a culture change — leaders respond better to systems than calls for behavior change"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Challenging consensus culture with a structural alternative"
+  },
+  {
+    "id": "explanation_7-8_business_005",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Argue to a skeptical executive team that hiring slowly is costing the company more than a bad hire would.",
+    "tips": [
+      "Quantify the cost of an open role in lost output and team burden — even roughly, it's more than most execs realize",
+      "Distinguish between roles where a hiring mistake is recoverable vs. where it is catastrophic",
+      "Propose a specific change to the hiring process that cuts time without cutting rigor"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Making the cost-of-vacancy case to a slow-hiring leadership team"
+  },
+  {
+    "id": "explanation_7-8_business_006",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Explain to a journalist interviewing you why a flat, title-light organizational structure that works beautifully at 30 people starts to break down at 150.",
+    "tips": [
+      "Name the coordination mechanism that informally handles clarity at small scale and stops working at large scale",
+      "Give a concrete signal that a flat structure is breaking: a decision that took weeks, a conflict that festered",
+      "Avoid sounding like you are endorsing hierarchy for its own sake — name the minimum structure actually needed"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Explaining organizational scaling limits to a skeptical journalist"
+  },
+  {
+    "id": "explanation_7-8_business_007",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Make the case to a board that poor internal communication is not a soft problem — it has a measurable cost that rivals any operational inefficiency.",
+    "tips": [
+      "Anchor the argument in a concrete category of cost: rework, misaligned launches, duplicated effort",
+      "Avoid the word 'culture' — boards respond to cost and risk framing, not cultural language",
+      "Propose one metric the company could track to put a number on the communication problem"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Monetizing poor internal communication for a numbers-focused board"
+  },
+  {
+    "id": "explanation_7-8_business_008",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "7-8",
+    "question": "Explain to a skeptical senior manager why the company's performance management system is producing compliance, not improvement — and what to replace it with.",
+    "tips": [
+      "Name the specific design flaw: ratings tied to comp, annual cadence, or recency bias",
+      "Give an example of a team or company that overhauled performance management and what changed",
+      "Propose one concrete change that is achievable inside a year, not a full-system overhaul"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Challenging a broken performance system with a workable alternative"
+  },
+  {
+    "id": "explanation_9-10_business_001",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Make the case to a divided leadership team that the company should pursue a strategic pivot that half the room believes is premature and the other half thinks is overdue.",
+    "tips": [
+      "Acknowledge the strongest version of the opposing view before making your case — a divided room won't move until they feel heard",
+      "Separate the question of 'should we pivot' from 'how fast' — collapsing them is why the room stays stuck",
+      "Anchor the argument in a concrete signal from the market or customer, not an internal conviction"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Moving a divided leadership team toward a contested strategic decision"
+  },
+  {
+    "id": "explanation_9-10_business_002",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Convince a leadership team that brought you in to advise them why their talent retention problem is caused by their own feedback culture — and not by compensation.",
+    "tips": [
+      "Lead with data or a pattern they will recognize, not a theory — credibility depends on grounding",
+      "Separate the compensation question (table stakes) from the feedback culture question (differentiator) — conflating them lets them off the hook",
+      "Give them one specific feedback behavior to change in the next 30 days that would shift the dynamic"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Delivering an unwelcome diagnosis to a defensive leadership team"
+  },
+  {
+    "id": "explanation_9-10_business_003",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Convince a CFO to approve investment in something with no measurable near-term ROI — improving manager quality — when they have three higher-return projects competing for the same budget.",
+    "tips": [
+      "Lead with the cost of not doing it: what bad management is currently costing in attrition, underperformance, and rework",
+      "Acknowledge the measurement problem directly rather than pretending you can quantify it fully",
+      "Propose a scoped pilot with one proxy metric — a CFO will fund a test more readily than an open-ended program"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Defending an unmeasurable investment to a ROI-focused CFO"
+  },
+  {
+    "id": "explanation_9-10_business_004",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Argue against a reorganization the CEO is pushing — in a room where disagreeing with the CEO publicly is culturally risky — without losing your standing or theirs.",
+    "tips": [
+      "Frame your disagreement as a concern about sequencing or risk, not about the goal — that keeps you on the same side",
+      "Surface the one assumption the reorganization depends on that hasn't been pressure-tested publicly yet",
+      "Give the CEO a face-saving path: a condition under which you would support it, rather than a flat no"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Opposing a CEO's plan without triggering a political rupture"
+  },
+  {
+    "id": "explanation_9-10_business_005",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Make the case to a skeptical board that the company should hire its first senior leader from outside the industry — when the board's instinct is always to promote from within.",
+    "tips": [
+      "Name the specific capability gap that the internal talent pool cannot close — be concrete, not general",
+      "Address the cultural risk head-on: boards worry about outside hires who don't understand the business; give your mitigation",
+      "Use one precedent — a company the board respects that made an outside hire and won — to neutralize the default instinct"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Overcoming a board's promote-from-within bias with a capability argument"
+  },
+  {
+    "id": "explanation_9-10_business_006",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Explain to a group of senior managers — who believe they already operate efficiently — why the company's accountability structure is the real reason execution keeps slipping.",
+    "tips": [
+      "Use a recent execution failure the room already knows about — shared context is more persuasive than abstract argument",
+      "Name the accountability gap precisely: unclear ownership, no follow-through mechanism, or no consequence for slippage",
+      "Avoid diagnosing individuals in the room; keep the argument structural so no one gets defensive"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Diagnosing accountability failure to a room that doesn't see it"
+  },
+  {
+    "id": "explanation_9-10_business_007",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Convince a founder-led leadership team to formalize the company's decision-making authority — when the founder sees it as adding bureaucracy to something that works.",
+    "tips": [
+      "Acknowledge what the founder has right: informal decision-making is genuinely faster at small scale",
+      "Name the specific failure mode that emerges as the company grows — a decision that fell through the cracks or took weeks because no one owned it",
+      "Propose the lightest-weight mechanism that would solve the problem: a RACI, an approval threshold, or a weekly decision log — not a governance overhaul"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Persuading a founder to formalize authority without feeling bureaucratic"
+  },
+  {
+    "id": "explanation_9-10_business_008",
+    "mode": "explanation",
+    "category": "business",
+    "difficultyBand": "9-10",
+    "question": "Make the case to a leadership team that the company should cut a high-revenue client relationship that is damaging the team — when the revenue dependence makes everyone in the room nervous.",
+    "tips": [
+      "Lead with the hidden cost the revenue masks: attrition, distortion of the product roadmap, or team morale — make the number concrete",
+      "Address the revenue replacement question before they raise it — come in with a plan, not just a diagnosis",
+      "Frame it as a risk management decision, not a values decision — that's the language a nervous leadership team can act on"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Arguing to exit a high-revenue but damaging client relationship"
   }
 ]
