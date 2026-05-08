@@ -118,20 +118,6 @@ struct SettingsSheet: View {
 
                     Divider().background(AppColors.border)
 
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("ABOUT YOUR DATA")
-                            .font(AppFonts.bodyMedium(10))
-                            .foregroundStyle(AppColors.dim)
-                            .kerning(1.0)
-                        Text("Recordings are transcribed on-device and immediately deleted. Your transcript is sent to our AI to generate coaching feedback. Pro subscribers' audio is also analyzed for emotion detection by our AI provider. All session data is stored locally on your device.")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.dim)
-                            .lineSpacing(3)
-                    }
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
                     menuRow(icon: "lock.shield", title: "Privacy Policy") {
                         safariURL = URL(string: "https://parlance.app/privacy")
                         showSafari = true
@@ -143,6 +129,20 @@ struct SettingsSheet: View {
                         safariURL = URL(string: "https://parlance.app/terms")
                         showSafari = true
                     }
+
+                    Divider().background(AppColors.border)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("ABOUT YOUR DATA")
+                            .font(AppFonts.bodyMedium(10))
+                            .foregroundStyle(AppColors.dim)
+                            .kerning(1.0)
+                        Text("Recordings are transcribed on-device and immediately deleted. Your transcript is sent to our AI to generate coaching feedback. Pro subscribers' audio is also analyzed for emotion detection by our AI provider. All session data is stored locally on your device.")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                            .lineSpacing(3)
+                    }
+                    .padding(.vertical, 12)
                 }
                 .padding(.horizontal, 16)
             }
