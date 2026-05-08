@@ -285,8 +285,8 @@ final class FriendsE2ETests: XCTestCase {
         addFriend.tap()
 
         XCTAssertTrue(
-            app.staticTexts["requestSentLabel"].waitForExistence(timeout: 10),
-            "Request Sent label should appear after tapping Add Friend"
+            app.buttons["cancelRequestButton"].waitForExistence(timeout: 10),
+            "Cancel Request button should appear after tapping Add Friend"
         )
 
         app.buttons["userProfileDoneButton"].tap()
@@ -490,6 +490,103 @@ final class FriendsE2ETests: XCTestCase {
         try deleteAccount()
     }
 
+    /// 6.8 — A and B become friends, then A unfriends B. Verify:
+    ///  - Unfriend button is visible when friends.
+    ///  - After confirm, button reverts to Add Friend.
+    ///  - A can re-send a friend request (proves friend_requests history was cleaned).
+    func testUnfriendRoundTrip() throws {
+        try signUp(email: aEmail, password: aPassword, displayName: aDisplayName, username: aUsername)
+        sendFriendRequest(toUsername: bUsername)
+
+        try signOut()
+        try signIn(email: bEmail, password: bPassword)
+
+        navigateToFriendsTab()
+        let banner = app.buttons["pendingRequestsBanner"]
+        XCTAssertTrue(banner.waitForExistence(timeout: 15),
+                      "Pending requests banner should appear for B after A's request")
+        banner.tap()
+
+        // Sheet may have many rows (orphan friend requests from prior failed runs).
+        // Scroll until our specific accept button is visible.
+        let acceptButton = app.buttons["friendRequestAcceptButton_\(aUsername)"]
+        var scrollAttempts = 0
+        while !acceptButton.exists && scrollAttempts < 8 {
+            let sheet = app.otherElements.containing(.navigationBar, identifier: "Friend Requests").firstMatch
+            sheet.swipeUp()
+            scrollAttempts += 1
+        }
+        XCTAssertTrue(acceptButton.waitForExistence(timeout: 5),
+                      "Accept button for \(aUsername) should appear in requests sheet")
+        acceptButton.tap()
+        app.buttons["friendRequestsDoneButton"].tap()
+
+        try signOut()
+        try signIn(email: aEmail, password: aPassword)
+        navigateToFriendsTab()
+
+        // Open B's profile from the Friends list
+        let bRow = app.buttons["friendRow_\(bUsername)"]
+        XCTAssertTrue(bRow.waitForExistence(timeout: 15), "B should be in A's friends list")
+        bRow.tap()
+
+        // Tap the destructive Unfriend button
+        let unfriend = app.buttons["unfriendButton"]
+        XCTAssertTrue(unfriend.waitForExistence(timeout: 10), "Unfriend button missing on friend's profile")
+        unfriend.tap()
+
+        // Confirm the destructive action in the dialog
+        let confirm = app.buttons["confirmUnfriendButton"]
+        XCTAssertTrue(confirm.waitForExistence(timeout: 5), "Unfriend confirm dialog button missing")
+        confirm.tap()
+
+        // After unfriend the relationship pill flips back to Add Friend
+        let addFriend = app.buttons["addFriendButton"]
+        XCTAssertTrue(addFriend.waitForExistence(timeout: 10), "After unfriend, Add Friend button did not appear")
+
+        // Re-friend to prove friend_requests history was wiped
+        addFriend.tap()
+        XCTAssertTrue(
+            app.buttons["cancelRequestButton"].waitForExistence(timeout: 10),
+            "Re-friend failed — Cancel Request button never appeared (likely friend_requests unique constraint)"
+        )
+
+        app.buttons["userProfileDoneButton"].tap()
+        try deleteAccount()
+    }
+
+    /// 6.9 — A sends a request to B, then A cancels it before B accepts.
+    /// The button should revert to Add Friend.
+    func testCancelOutgoingFriendRequest() throws {
+        try signUp(email: aEmail, password: aPassword, displayName: aDisplayName, username: aUsername)
+        sendFriendRequest(toUsername: bUsername)
+
+        // sendFriendRequest dismisses the profile sheet — re-open it from search
+        navigateToFriendsTab()
+        let searchField = app.textFields["friendSearchField"]
+        XCTAssertTrue(searchField.waitForExistence(timeout: 5), "Search field should appear on Friends tab")
+        searchField.tap()
+        searchField.typeText(bUsername)
+
+        let resultRow = app.buttons["searchResult_\(bUsername)"]
+        XCTAssertTrue(resultRow.waitForExistence(timeout: 15), "Search result for fixture B should appear")
+        resultRow.tap()
+
+        // Cancel the request
+        let cancel = app.buttons["cancelRequestButton"]
+        XCTAssertTrue(cancel.waitForExistence(timeout: 10), "Cancel Request button missing after sending request")
+        cancel.tap()
+
+        // Button reverts to Add Friend
+        XCTAssertTrue(
+            app.buttons["addFriendButton"].waitForExistence(timeout: 10),
+            "After cancel, Add Friend button did not reappear"
+        )
+
+        app.buttons["userProfileDoneButton"].tap()
+        try deleteAccount()
+    }
+
     // MARK: - Helpers
 
     private func signUp(email: String, password: String, displayName: String, username: String) throws {
@@ -646,7 +743,7 @@ final class FriendsE2ETests: XCTestCase {
         XCTAssertTrue(addFriend.waitForExistence(timeout: 10))
         addFriend.tap()
 
-        XCTAssertTrue(app.staticTexts["requestSentLabel"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.buttons["cancelRequestButton"].waitForExistence(timeout: 10))
         app.buttons["userProfileDoneButton"].tap()
     }
 
