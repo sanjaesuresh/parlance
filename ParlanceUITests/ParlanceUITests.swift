@@ -4,11 +4,12 @@ final class AccountE2ETests: XCTestCase {
 
     private var app: XCUIApplication!
 
-    // Unique per test run so we never collide with an existing account
-    private let testEmail = "parlancee2e+\(Int(Date().timeIntervalSince1970))@gmail.com"
-    private let testPassword = "TestPass123"
+    // UUID-based tag guarantees uniqueness across test class instances
+    private let testTag = UUID().uuidString.replacingOccurrences(of: "-", with: "").prefix(8).lowercased()
+    private var testEmail: String { "parlancee2e+\(testTag)@gmail.com" }
+    private let testPassword = "TestPass123!"
     private let testName = "E2E Tester"
-    private let testUsername = "e2etester\(Int(Date().timeIntervalSince1970) % 100000)"
+    private var testUsername: String { "e2e\(testTag)" }
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -84,21 +85,34 @@ final class AccountE2ETests: XCTestCase {
         nameField.tap()
         nameField.typeText(testName)
 
-        // 6. Fill username
+        // 6. Fill username then dismiss keyboard via Return
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
         usernameField.tap()
         usernameField.typeText(testUsername)
+        usernameField.typeText("\n")  // dismiss keyboard
 
-        // 7. Pick comfort level (Nervous = level 1)
+        // 7. Scroll down to reveal comfort options, then pick one
+        app.swipeUp()
         let comfortButton = app.buttons["comfortOption_1"]
         XCTAssertTrue(comfortButton.waitForExistence(timeout: 5))
         comfortButton.tap()
 
-        // 8. Tap "Let's go"
+        // 8. Scroll down to reveal "Let's go" and tap it
+        app.swipeUp()
         let letsGoButton = app.buttons["letsGoButton"]
         XCTAssertTrue(letsGoButton.waitForExistence(timeout: 5))
         letsGoButton.tap()
+
+        // 9. WelcomeSplashView is shown after first sign-up — dismiss it
+        // NOTE: Requires Supabase email auto-confirmation to be enabled
+        //       (Authentication > Settings > "Confirm email" must be OFF)
+        let startButton = app.buttons["Start practicing"]
+        XCTAssertTrue(
+            startButton.waitForExistence(timeout: 30),
+            "WelcomeSplashView should appear — ensure Supabase email confirmation is disabled for testing"
+        )
+        startButton.tap()
     }
 
     private func deleteAccount() throws {
@@ -112,11 +126,18 @@ final class AccountE2ETests: XCTestCase {
         XCTAssertTrue(settingsButton.waitForExistence(timeout: 5))
         settingsButton.tap()
 
-        // Scroll down to reveal "Delete Account" (sheet is a medium detent with ScrollView)
-        app.swipeUp()
+        // Wait for the sheet's navigation bar to confirm it's fully open
+        XCTAssertTrue(app.navigationBars["Settings"].waitForExistence(timeout: 5))
 
-        // Tap Delete Account in the settings sheet
-        let deleteAccountButton = app.buttons["Delete Account"]
+        // Scroll the sheet until "Delete Account" appears
+        let deleteAccountButton = app.buttons["deleteAccountButton"]
+        var attempts = 0
+        while !deleteAccountButton.exists && attempts < 5 {
+            // Target the scroll view inside the "Settings" navigation context
+            app.otherElements.containing(.navigationBar, identifier: "Settings")
+                .scrollViews.firstMatch.swipeUp()
+            attempts += 1
+        }
         XCTAssertTrue(deleteAccountButton.waitForExistence(timeout: 5))
         deleteAccountButton.tap()
 
