@@ -182,6 +182,37 @@ final class SocialService: ObservableObject {
         try await acceptRequest(request.id, fromUserId: userId)
     }
 
+    // MARK: - Unfriend
+
+    /// Atomically removes the friendship between the current user and `userId`,
+    /// and wipes any historical `friend_requests` rows between them so a future
+    /// re-friend isn't blocked by the unique (from_user_id, to_user_id) constraint.
+    func removeFriend(_ userId: UUID) async throws {
+        guard currentUserId != nil else { return }
+        struct UnfriendParams: Encodable {
+            let other_user_id: String
+        }
+        try await client
+            .rpc("unfriend_user", params: UnfriendParams(other_user_id: userId.uuidString))
+            .execute()
+        await fetchFriendsLeaderboard()
+    }
+
+    // MARK: - Cancel sent request
+
+    /// Deletes the current user's pending outgoing friend request to `userId`.
+    /// Relies on the `friend_requests_delete_own_pending` RLS policy.
+    func cancelFriendRequest(to userId: UUID) async throws {
+        guard let currentId = currentUserId else { return }
+        try await client
+            .from("friend_requests")
+            .delete()
+            .eq("from_user_id", value: currentId.uuidString)
+            .eq("to_user_id", value: userId.uuidString)
+            .eq("status", value: "pending")
+            .execute()
+    }
+
     // MARK: - Pending request count (for badge)
 
     func refreshPendingRequestCount() async {
