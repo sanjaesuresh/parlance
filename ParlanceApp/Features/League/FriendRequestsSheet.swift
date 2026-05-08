@@ -8,46 +8,20 @@ struct FriendRequestsSheet: View {
 
     var body: some View {
         NavigationStack {
-            Group {
-                if isLoading {
-                    ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if requestsWithProfiles.isEmpty {
-                    VStack(spacing: 12) {
-                        Image(systemName: "person.2")
-                            .font(.system(size: 32))
-                            .foregroundStyle(AppColors.sub)
-                        Text("No pending requests")
-                            .font(AppFonts.body(15))
-                            .foregroundStyle(AppColors.sub)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .accessibilityIdentifier("friendRequestsEmptyState")
-                } else {
-                    ScrollView {
-                        VStack(spacing: 10) {
-                            ForEach(requestsWithProfiles) { item in
-                                requestRow(item: item)
-                            }
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.top, 8)
-                        .padding(.bottom, 32)
+            content
+                .background(AppColors.bg)
+                .navigationTitle("Friend Requests")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Done") { dismiss() }
+                            .font(AppFonts.bodyMedium(15))
+                            .foregroundStyle(AppColors.gold)
+                            .accessibilityIdentifier("friendRequestsDoneButton")
                     }
                 }
-            }
-            .background(AppColors.bg)
-            .navigationTitle("Friend Requests")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
-                        .foregroundStyle(AppColors.gold)
-                        .accessibilityIdentifier("friendRequestsDoneButton")
-                }
-            }
-            .toolbarBackground(AppColors.bg, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
+                .toolbarBackground(AppColors.bg, for: .navigationBar)
+                .toolbarBackground(.visible, for: .navigationBar)
         }
         .task {
             requestsWithProfiles = await socialService.fetchPendingRequestsWithProfiles()
@@ -55,23 +29,120 @@ struct FriendRequestsSheet: View {
         }
     }
 
+    @ViewBuilder
+    private var content: some View {
+        if isLoading {
+            skeletonList
+        } else if requestsWithProfiles.isEmpty {
+            emptyState
+        } else {
+            requestList
+        }
+    }
+
+    private var skeletonList: some View {
+        ScrollView {
+            VStack(spacing: 10) {
+                ForEach(0..<3, id: \.self) { _ in skeletonRow }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+        }
+        .allowsHitTesting(false)
+    }
+
+    private var skeletonRow: some View {
+        HStack(spacing: 12) {
+            Circle()
+                .fill(AppColors.faint)
+                .frame(width: 48, height: 48)
+            VStack(alignment: .leading, spacing: 5) {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(AppColors.faint)
+                    .frame(width: 112, height: 13)
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(AppColors.faint)
+                    .frame(width: 74, height: 11)
+            }
+            Spacer()
+            HStack(spacing: 8) {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(AppColors.faint)
+                    .frame(width: 70, height: 34)
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(AppColors.faint)
+                    .frame(width: 70, height: 34)
+            }
+        }
+        .padding(14)
+        .background(AppColors.card)
+        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .overlay(RoundedRectangle(cornerRadius: AppConstants.cardRadius).stroke(AppColors.border, lineWidth: 1))
+    }
+
+    private var emptyState: some View {
+        VStack(spacing: 10) {
+            Image(systemName: "person.2.badge.plus")
+                .font(.system(size: 36, weight: .regular))
+                .foregroundStyle(AppColors.sub)
+            Text("No pending requests")
+                .font(AppFonts.bodyMedium(16))
+                .foregroundStyle(AppColors.text)
+            Text("When someone adds you, their request will appear here.")
+                .font(AppFonts.body(14))
+                .foregroundStyle(AppColors.sub)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: 260)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .accessibilityIdentifier("friendRequestsEmptyState")
+    }
+
+    private var requestList: some View {
+        ScrollView {
+            VStack(spacing: 10) {
+                ForEach(requestsWithProfiles) { item in
+                    requestRow(item: item)
+                        .transition(.asymmetric(
+                            insertion: .opacity,
+                            removal: .opacity.combined(with: .move(edge: .trailing))
+                        ))
+                }
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 32)
+        }
+    }
+
     private func requestRow(item: FriendRequestWithProfile) -> some View {
-        let username = item.senderProfile?.username ?? ""
+        let profile = item.senderProfile
+        let username = profile?.username ?? ""
+        let displayName = profile?.displayName ?? "Unknown"
+        let avatarEmoji = profile?.avatarEmoji ?? "👤"
+        let occupation = profile?.occupation
 
         return HStack(spacing: 12) {
-            Text(item.senderProfile?.avatarEmoji ?? "\u{1F464}")
-                .font(.system(size: 22))
-                .frame(width: 46, height: 46)
+            Text(avatarEmoji)
+                .font(.system(size: 24))
+                .frame(width: 48, height: 48)
                 .background(AppColors.faint)
                 .clipShape(Circle())
+                .overlay(Circle().stroke(AppColors.border, lineWidth: 1))
 
             VStack(alignment: .leading, spacing: 3) {
-                Text(item.senderProfile?.displayName ?? "Unknown")
-                    .font(AppFonts.bodyMedium(14))
+                Text(displayName)
+                    .font(AppFonts.bodyMedium(15))
                     .foregroundStyle(AppColors.text)
                 Text("@\(username)")
-                    .font(AppFonts.body(12))
+                    .font(AppFonts.body(13))
                     .foregroundStyle(AppColors.sub)
+                if let occ = occupation, !occ.isEmpty {
+                    Text(occ)
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.dim)
+                        .lineLimit(1)
+                }
             }
 
             Spacer()
@@ -83,13 +154,15 @@ struct FriendRequestsSheet: View {
                             item.request.id,
                             fromUserId: item.request.fromUserId
                         )
-                        requestsWithProfiles.removeAll { $0.id == item.id }
+                        withAnimation(.easeOut(duration: 0.22)) {
+                            requestsWithProfiles.removeAll { $0.id == item.id }
+                        }
                     }
                 }
                 .font(AppFonts.bodyBold(13))
                 .foregroundStyle(.black)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 7)
+                .padding(.horizontal, 15)
+                .padding(.vertical, 8)
                 .background(AppColors.gold)
                 .clipShape(Capsule())
                 .accessibilityIdentifier("friendRequestAcceptButton_\(username)")
@@ -97,20 +170,22 @@ struct FriendRequestsSheet: View {
                 Button("Decline") {
                     Task {
                         try? await socialService.declineRequest(item.request.id)
-                        requestsWithProfiles.removeAll { $0.id == item.id }
+                        withAnimation(.easeOut(duration: 0.22)) {
+                            requestsWithProfiles.removeAll { $0.id == item.id }
+                        }
                     }
                 }
                 .font(AppFonts.body(13))
                 .foregroundStyle(AppColors.sub)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 7)
-                .background(AppColors.card)
+                .padding(.horizontal, 15)
+                .padding(.vertical, 8)
+                .background(AppColors.card2)
                 .clipShape(Capsule())
                 .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
                 .accessibilityIdentifier("friendRequestDeclineButton_\(username)")
             }
         }
-        .padding(12)
+        .padding(14)
         .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
