@@ -49,6 +49,12 @@ struct ResultsView: View {
     }
 
     private func bestMetricName() -> String? {
+        if session.isAIScored {
+            return session.metricScores
+                .filter { $0.value > 0 }
+                .max(by: { $0.value < $1.value })
+                .flatMap { MetricKey(rawValue: $0.key)?.displayName.lowercased() }
+        }
         let scores: [(String, Int)] = [
             ("structure", session.structureScore),
             ("vocabulary", session.vocabularyScore),
@@ -60,6 +66,11 @@ struct ResultsView: View {
     }
 
     private func worstMetricName() -> String? {
+        if session.isAIScored {
+            return session.metricScores
+                .min(by: { $0.value < $1.value })
+                .flatMap { MetricKey(rawValue: $0.key)?.displayName.lowercased() }
+        }
         let scores: [(String, Int)] = [
             ("structure", session.structureScore),
             ("vocabulary", session.vocabularyScore),
@@ -585,7 +596,7 @@ struct ResultsView: View {
                             .font(AppFonts.bodyMedium(13))
                             .foregroundStyle(AppColors.text)
 
-                        Text("New question · +120 XP")
+                        Text("New question · +\(AppConstants.baseXP) XP")
                             .font(AppFonts.body(11))
                             .foregroundStyle(AppColors.dim)
                     }

@@ -69,9 +69,8 @@ final class Session {
 
     /// True if this session was scored by the new AI pipeline and has non-empty metric data.
     var isAIScored: Bool {
-        guard let data = metricScoresData,
-              let scores = try? JSONDecoder().decode([String: Int].self, from: data) else { return false }
-        return !scores.isEmpty
+        guard let data = metricScoresData else { return false }
+        return data.count > 2
     }
 
     var metricScores: [String: Int] {
