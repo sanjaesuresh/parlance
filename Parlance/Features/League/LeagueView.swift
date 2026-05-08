@@ -140,7 +140,7 @@ struct LeagueView: View {
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("Your rank")
+                    Text("Among friends")
                         .font(AppFonts.body(11))
                         .foregroundStyle(AppColors.dim)
                     Text("#\(userRank)")
@@ -244,15 +244,21 @@ struct LeagueView: View {
         let leaderboard = socialService.friendsLeaderboard
         let myWeeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
 
+        // Build rank map: merge current user + friends sorted by XP desc
+        var combined: [(id: String, xp: Int)] = [("__me__", myWeeklyXP)]
+        combined += leaderboard.map { (id: $0.id, xp: $0.weeklyXP) }
+        combined.sort { $0.xp > $1.xp }
+        let rankMap: [String: Int] = Dictionary(
+            uniqueKeysWithValues: combined.enumerated().map { ($1.id, $0 + 1) }
+        )
+        let myRank = rankMap["__me__"] ?? 1
+
         return VStack(alignment: .leading, spacing: 8) {
             SectionHeader(title: "This Week")
 
             if let user {
                 leaderboardRow(
-                    rank: {
-                        let index = leaderboard.firstIndex(where: { $0.weeklyXP <= myWeeklyXP }) ?? leaderboard.count
-                        return index + 1
-                    }(),
+                    rank: myRank,
                     name: user.displayName,
                     emoji: user.avatarEmoji,
                     xp: myWeeklyXP,
@@ -277,7 +283,7 @@ struct LeagueView: View {
             } else {
                 ForEach(Array(leaderboard.enumerated()), id: \.element.id) { index, profile in
                     leaderboardRow(
-                        rank: index + 1 + (viewModel.weeklyXP(from: weekCache.sessions) > profile.weeklyXP ? 1 : 0),
+                        rank: rankMap[profile.id] ?? index + 2,
                         name: profile.displayName,
                         emoji: profile.avatarEmoji,
                         xp: profile.weeklyXP,
@@ -633,10 +639,8 @@ struct LeagueView: View {
 
     private var howXPEarnedCard: some View {
         let xpItems: [(emoji: String, label: String, xp: String)] = [
-            ("\u{1F3A4}", "Session Completed", "+120 XP"),
-            ("\u{1F4C5}", "Daily Streak", "+30 XP"),
-            ("\u{1F4AF}", "Score 80+", "+50 bonus"),
-            ("\u{1F3C6}", "Top 3 Finish", "+200 XP")
+            ("\u{1F3A4}", "Session Completed", "+\(AppConstants.baseXP) XP"),
+            ("\u{1F4C5}", "Daily Challenge", "+\(AppConstants.dailyChallengeXP) XP bonus"),
         ]
 
         return VStack(alignment: .leading, spacing: 12) {
