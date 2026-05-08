@@ -12,6 +12,7 @@ final class AuthService: ObservableObject {
     var currentUserID: String? { currentUser?.id.uuidString }
     @Published private(set) var isLoading = true
     @Published var isCompletingSignUp = false
+    @Published var isDeletingAccount = false
 
     private let client = SupabaseManager.shared.client
 
@@ -61,16 +62,33 @@ final class AuthService: ObservableObject {
 
     func deleteAccount() async throws {
         guard let uid = currentUserID else { return }
-        let supabase = SupabaseManager.shared.client
-        // Delete all user-owned rows (RLS allows self-deletion)
-        try? await supabase.from("session_scores").delete().eq("user_id", value: uid).execute()
-        try? await supabase.from("user_stats").delete().eq("user_id", value: uid).execute()
-        try? await supabase.from("friend_requests").delete().eq("from_user_id", value: uid).execute()
-        try? await supabase.from("friendships").delete().or("user_id_1.eq.\(uid),user_id_2.eq.\(uid)").execute()
-        try? await supabase.from("profiles").delete().eq("id", value: uid).execute()
-        // Clear local SwiftData
-        PersistenceService.shared.resetAllData()
-        // Sign out (auth user record deletion requires a server-side admin call)
-        try await signOut()
+        isDeletingAccount = true
+        do {
+            try await deleteAuthUserViaWorker()
+            let supabase = SupabaseManager.shared.client
+            try? await supabase.from("session_scores").delete().eq("user_id", value: uid).execute()
+            try? await supabase.from("user_stats").delete().eq("user_id", value: uid).execute()
+            try? await supabase.from("friend_requests").delete().eq("from_user_id", value: uid).execute()
+            try? await supabase.from("friendships").delete().or("user_id_1.eq.\(uid),user_id_2.eq.\(uid)").execute()
+            try? await supabase.from("profiles").delete().eq("id", value: uid).execute()
+            PersistenceService.shared.resetAllData()
+            try? await signOut()
+            // isDeletingAccount stays true — AccountDeletedSplashView dismisses it via onDismiss
+        } catch {
+            isDeletingAccount = false
+            throw error
+        }
+    }
+
+    private func deleteAuthUserViaWorker() async throws {
+        let session = try await client.auth.session
+        let endpoint = AppConstants.apiBaseURL.appendingPathComponent("delete-user")
+        var request = URLRequest(url: endpoint, timeoutInterval: 15)
+        request.httpMethod = "POST"
+        request.setValue("Bearer \(session.accessToken)", forHTTPHeaderField: "Authorization")
+        let (_, response) = try await URLSession.shared.data(for: request)
+        guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
+            throw URLError(.badServerResponse)
+        }
     }
 }

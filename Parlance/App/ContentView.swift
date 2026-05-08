@@ -34,6 +34,11 @@ struct ContentView: View {
                 .ignoresSafeArea()
                 .zIndex(1)
                 .transition(.opacity)
+            } else if authService.isDeletingAccount {
+                AccountDeletedSplashView {
+                    authService.isDeletingAccount = false
+                }
+                .transition(.opacity)
             } else if !authService.isAuthenticated {
                 AuthView(authService: authService)
             } else if !hasCompletedSetup && !authService.isCompletingSignUp {
@@ -64,6 +69,9 @@ struct ContentView: View {
         .environmentObject(weekCache)
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
+            if ProcessInfo.processInfo.arguments.contains("UITesting") {
+                Task { try? await authService.signOut() }
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isAppReady = true
             }
