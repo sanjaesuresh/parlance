@@ -7,10 +7,10 @@ struct AuthProfileSetupView: View {
     @State private var name = ""
     @State private var username = ""
     @State private var occupation = ""
-    @State private var selectedAvatar = "\u{1F3A4}"
+    @State private var selectedAvatar = Self.avatars.randomElement()!
     @State private var comfortLevel = 0
 
-    private let avatars = [
+    private static let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}",
         "\u{1F525}", "\u{26A1}", "\u{1F3AF}", "\u{1F3C6}", "\u{1F4A1}",
         "\u{1F31F}", "\u{1F3AD}"
@@ -31,10 +31,10 @@ struct AuthProfileSetupView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 28) {
-                Spacer().frame(height: 20)
+                Spacer().frame(height: 4)
 
                 VStack(spacing: 6) {
-                    BouncingTitleView(text: "Set up your profile", fontSize: 30)
+                    BouncingTitleView(text: "Set up your profile", fontSize: 30, animated: false)
                     Text("Takes 30 seconds.")
                         .font(AppFonts.body(15))
                         .foregroundStyle(AppColors.sub)
@@ -131,7 +131,7 @@ struct AuthProfileSetupView: View {
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
-                            ForEach(avatars, id: \.self) { emoji in
+                            ForEach(Self.avatars, id: \.self) { emoji in
                                 Button {
                                     selectedAvatar = emoji
                                 } label: {
