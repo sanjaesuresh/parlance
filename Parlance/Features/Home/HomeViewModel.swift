@@ -45,8 +45,7 @@ final class HomeViewModel: ObservableObject {
     }
 
     func dailyChallengeMode() -> SessionMode {
-        let weekday = Calendar.current.component(.weekday, from: .now)
-        return SessionMode.dailyChallengeMode(weekday: weekday)
+        return SessionMode.dailyChallengeMode()
     }
 
     func lockDailyChallengeLevel(for user: User) {

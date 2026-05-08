@@ -22,12 +22,14 @@ final class SocialService: ObservableObject {
     // MARK: - User search
 
     func searchUsers(query: String) async -> [SocialProfile] {
-        guard !query.isEmpty, let currentId = currentUserId else { return [] }
+        let safe = query.filter { $0.isLetter || $0.isNumber || $0 == " " || $0 == "-" }
+            .trimmingCharacters(in: .whitespaces)
+        guard !safe.isEmpty, let currentId = currentUserId else { return [] }
         do {
             let profiles: [ProfileWithStats] = try await client
                 .from("profiles")
                 .select("*, user_stats(*)")
-                .or("username.ilike.%\(query)%,display_name.ilike.%\(query)%")
+                .or("username.ilike.%\(safe)%,display_name.ilike.%\(safe)%")
                 .neq("id", value: currentId.uuidString)
                 .limit(20)
                 .execute()

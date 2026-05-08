@@ -80,7 +80,7 @@ enum SessionMode: String, CaseIterable, Codable {
         return all[dayOfYear % all.count]
     }
 
-    static func dailyChallengeMode(weekday: Int) -> SessionMode {
+    static func dailyChallengeMode() -> SessionMode {
         let all = SessionMode.allCases
         let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: .now) ?? 1
         return all[dayOfYear % all.count]
