@@ -7,7 +7,14 @@ extension Tag {
     @Tag static var aiQuality: Self
 }
 
-@Suite("AI Quality Harness", .tags(.aiQuality))
+@Suite(
+    "AI Quality Harness",
+    .tags(.aiQuality),
+    .enabled(
+        if: ProcessInfo.processInfo.environment["RUN_AI_QUALITY"] == "1",
+        "set RUN_AI_QUALITY=1 to enable — these tests hit the live worker and use API quota"
+    )
+)
 struct AIQualityHarness {
 
     @Test("scoring fixture", arguments: AIQualityFixtures.all)
