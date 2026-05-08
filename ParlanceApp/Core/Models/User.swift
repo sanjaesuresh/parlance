@@ -22,6 +22,7 @@ final class User {
     var dailyChallengeLevelLock: Int?
     var dailyChallengeLockDate: Date?
     var dailyChallengeCompletedDate: Date?
+    var lastExplanationCategoryRaw: String = "any"
 
     init(
         supabaseUID: String = "",
@@ -41,7 +42,8 @@ final class User {
         lastDailySessionDate: Date? = nil,
         dailyChallengeLevelLock: Int? = nil,
         dailyChallengeLockDate: Date? = nil,
-        dailyChallengeCompletedDate: Date? = nil
+        dailyChallengeCompletedDate: Date? = nil,
+        lastExplanationCategoryRaw: String = "any"
     ) {
         self.supabaseUID = supabaseUID
         self.displayName = displayName
@@ -61,6 +63,7 @@ final class User {
         self.dailyChallengeLevelLock = dailyChallengeLevelLock
         self.dailyChallengeLockDate = dailyChallengeLockDate
         self.dailyChallengeCompletedDate = dailyChallengeCompletedDate
+        self.lastExplanationCategoryRaw = lastExplanationCategoryRaw
     }
 
     var rank: Rank { Rank.from(xp: xp) }
@@ -79,5 +82,10 @@ final class User {
         case 12..<17: return "Good afternoon"
         default: return "Good evening"
         }
+    }
+
+    var lastExplanationCategory: ExplanationCategory {
+        get { ExplanationCategory(rawValue: lastExplanationCategoryRaw) ?? .any }
+        set { lastExplanationCategoryRaw = newValue.rawValue }
     }
 }

@@ -8,4 +8,5 @@ struct Question: Codable, Identifiable {
     let tips: [String]
     let targetDuration: Int
     let difficultyNote: String
+    let category: ExplanationCategory?
 }
