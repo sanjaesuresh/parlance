@@ -11,6 +11,7 @@ struct SettingsSheet: View {
     @State private var safariURL: URL?
     @State private var showSignOutConfirmation = false
     @State private var showDeleteAccountConfirmation = false
+    @State private var deleteAccountError: String?
 
     var body: some View {
         NavigationStack {
@@ -97,20 +98,6 @@ struct SettingsSheet: View {
 
                     Divider().background(AppColors.border)
 
-                    menuRow(icon: "lock.shield", title: "Privacy Policy") {
-                        safariURL = URL(string: "https://parlance.app/privacy")
-                        showSafari = true
-                    }
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "doc.text", title: "Terms of Service") {
-                        safariURL = URL(string: "https://parlance.app/terms")
-                        showSafari = true
-                    }
-
-                    Divider().background(AppColors.border)
-
                     menuRow(icon: "rectangle.portrait.and.arrow.right", title: "Sign Out", isDestructive: true) {
                         showSignOutConfirmation = true
                     }
@@ -140,6 +127,20 @@ struct SettingsSheet: View {
                             .lineSpacing(3)
                     }
                     .padding(.vertical, 12)
+
+                    Divider().background(AppColors.border)
+
+                    menuRow(icon: "lock.shield", title: "Privacy Policy") {
+                        safariURL = URL(string: "https://parlance.app/privacy")
+                        showSafari = true
+                    }
+
+                    Divider().background(AppColors.border)
+
+                    menuRow(icon: "doc.text", title: "Terms of Service") {
+                        safariURL = URL(string: "https://parlance.app/terms")
+                        showSafari = true
+                    }
                 }
                 .padding(.horizontal, 16)
             }
@@ -153,7 +154,7 @@ struct SettingsSheet: View {
                 }
             }
         }
-        .presentationDetents([.medium])
+        .presentationDetents([.large])
         .alert("Sign Out", isPresented: $showSignOutConfirmation) {
             Button("Sign Out", role: .destructive) {
                 Task {
@@ -167,11 +168,25 @@ struct SettingsSheet: View {
         }
         .alert("Delete Account", isPresented: $showDeleteAccountConfirmation) {
             Button("Delete Account", role: .destructive) {
-                Task { try? await authService.deleteAccount() }
+                Task {
+                    do {
+                        try await authService.deleteAccount()
+                    } catch {
+                        deleteAccountError = "Could not delete your account. Please check your connection and try again."
+                    }
+                }
             }
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("This will permanently delete your account and all your data. This cannot be undone.")
+        }
+        .alert("Deletion Failed", isPresented: Binding(
+            get: { deleteAccountError != nil },
+            set: { if !$0 { deleteAccountError = nil } }
+        )) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(deleteAccountError ?? "")
         }
         .sheet(isPresented: $showSafari) {
             if let url = safariURL {
