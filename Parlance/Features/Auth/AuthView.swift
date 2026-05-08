@@ -25,7 +25,7 @@ struct AuthView: View {
             VStack(spacing: 28) {
                 Spacer().frame(height: 60)
 
-                bouncingTitle("Parlance")
+                BouncingTitleView(text: "Parlance")
                 Text("Your AI speech coach.")
                     .font(AppFonts.body(16))
                     .foregroundStyle(AppColors.sub)
@@ -164,25 +164,4 @@ struct AuthView: View {
         .navigationBarHidden(true)
     }
 
-    // MARK: - Shared
-
-    @ViewBuilder
-    func bouncingTitle(_ text: String) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: 0) {
-            Text(text)
-                .font(AppFonts.display(42))
-                .foregroundStyle(AppColors.text)
-            KeyframeAnimator(initialValue: CGFloat(0), repeating: true) { offset in
-                Text(".")
-                    .font(AppFonts.display(42))
-                    .foregroundStyle(AppColors.gold)
-                    .offset(y: offset)
-            } keyframes: { _ in
-                LinearKeyframe(0, duration: 0.45)
-                SpringKeyframe(-13, duration: 0.26, spring: .init(duration: 0.26, bounce: 0))
-                CubicKeyframe(2.5, duration: 0.20)
-                CubicKeyframe(0, duration: 0.09)
-            }
-        }
-    }
 }

@@ -34,14 +34,7 @@ struct AuthProfileSetupView: View {
                 Spacer().frame(height: 20)
 
                 VStack(spacing: 6) {
-                    HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text("Set up your profile")
-                            .font(AppFonts.display(30))
-                            .foregroundStyle(AppColors.text)
-                        Text(".")
-                            .font(AppFonts.display(30))
-                            .foregroundStyle(AppColors.gold)
-                    }
+                    BouncingTitleView(text: "Set up your profile", fontSize: 30)
                     Text("Takes 30 seconds.")
                         .font(AppFonts.body(15))
                         .foregroundStyle(AppColors.sub)
