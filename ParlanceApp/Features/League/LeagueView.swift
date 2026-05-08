@@ -67,7 +67,12 @@ struct LeagueView: View {
                 UserProfileDetailView(profile: profile)
             }
             .sheet(isPresented: $showRequestsSheet, onDismiss: {
-                Task { await socialService.refreshPendingRequestCount() }
+                Task {
+                    await socialService.refreshPendingRequestCount()
+                    // Refresh leaderboard so newly accepted friends appear without
+                    // requiring the user to leave and re-enter the tab.
+                    await socialService.fetchFriendsLeaderboard()
+                }
             }) {
                 FriendRequestsSheet(socialService: socialService)
             }
