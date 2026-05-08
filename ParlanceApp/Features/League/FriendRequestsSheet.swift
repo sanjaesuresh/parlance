@@ -66,12 +66,12 @@ struct FriendRequestsSheet: View {
             }
             Spacer()
             HStack(spacing: 8) {
-                RoundedRectangle(cornerRadius: 20)
+                Circle()
                     .fill(AppColors.faint)
-                    .frame(width: 70, height: 34)
-                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: 36, height: 36)
+                Circle()
                     .fill(AppColors.faint)
-                    .frame(width: 70, height: 34)
+                    .frame(width: 36, height: 36)
             }
         }
         .padding(14)
@@ -148,7 +148,7 @@ struct FriendRequestsSheet: View {
             Spacer()
 
             HStack(spacing: 8) {
-                Button("Accept") {
+                Button {
                     Task {
                         try? await socialService.acceptRequest(
                             item.request.id,
@@ -158,30 +158,34 @@ struct FriendRequestsSheet: View {
                             requestsWithProfiles.removeAll { $0.id == item.id }
                         }
                     }
+                } label: {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(.black)
+                        .frame(width: 36, height: 36)
+                        .background(AppColors.gold)
+                        .clipShape(Circle())
                 }
-                .font(AppFonts.bodyBold(13))
-                .foregroundStyle(.black)
-                .padding(.horizontal, 15)
-                .padding(.vertical, 8)
-                .background(AppColors.gold)
-                .clipShape(Capsule())
+                .accessibilityLabel("Accept")
                 .accessibilityIdentifier("friendRequestAcceptButton_\(username)")
 
-                Button("Decline") {
+                Button {
                     Task {
                         try? await socialService.declineRequest(item.request.id)
                         withAnimation(.easeOut(duration: 0.22)) {
                             requestsWithProfiles.removeAll { $0.id == item.id }
                         }
                     }
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundStyle(AppColors.sub)
+                        .frame(width: 36, height: 36)
+                        .background(AppColors.card2)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(AppColors.border, lineWidth: 1))
                 }
-                .font(AppFonts.body(13))
-                .foregroundStyle(AppColors.sub)
-                .padding(.horizontal, 15)
-                .padding(.vertical, 8)
-                .background(AppColors.card2)
-                .clipShape(Capsule())
-                .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
+                .accessibilityLabel("Decline")
                 .accessibilityIdentifier("friendRequestDeclineButton_\(username)")
             }
         }
