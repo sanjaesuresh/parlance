@@ -5564,8 +5564,9 @@
     "difficultyNote": "Non-linear storytelling mastery"
   },
   {
-    "id": "explanation_1-2_001",
+    "id": "explanation_1-2_tech_001",
     "mode": "explanation",
+    "category": "tech",
     "difficultyBand": "1-2",
     "question": "Explain how a search engine works to someone who has never used the internet.",
     "tips": [
@@ -5577,8 +5578,9 @@
     "difficultyNote": "Explain a familiar concept simply"
   },
   {
-    "id": "explanation_1-2_002",
+    "id": "explanation_1-2_science_001",
     "mode": "explanation",
+    "category": "science",
     "difficultyBand": "1-2",
     "question": "Explain why the sky is blue to a curious 8-year-old.",
     "tips": [
@@ -5590,8 +5592,9 @@
     "difficultyNote": "Audience-appropriate simplification"
   },
   {
-    "id": "explanation_1-2_003",
+    "id": "explanation_1-2_finance_001",
     "mode": "explanation",
+    "category": "finance",
     "difficultyBand": "1-2",
     "question": "Explain what a budget is and why it matters to someone just starting their first job.",
     "tips": [
@@ -5603,8 +5606,9 @@
     "difficultyNote": "Practical concept for beginners"
   },
   {
-    "id": "explanation_3-4_001",
+    "id": "explanation_3-4_science_001",
     "mode": "explanation",
+    "category": "science",
     "difficultyBand": "3-4",
     "question": "Explain the difference between a virus and a bacteria to someone with no science background.",
     "tips": [
@@ -5616,8 +5620,9 @@
     "difficultyNote": "Distinguishing similar concepts"
   },
   {
-    "id": "explanation_3-4_002",
+    "id": "explanation_3-4_finance_001",
     "mode": "explanation",
+    "category": "finance",
     "difficultyBand": "3-4",
     "question": "Explain how compound interest works and why it matters for saving money.",
     "tips": [
@@ -5629,8 +5634,9 @@
     "difficultyNote": "Abstract financial concept made concrete"
   },
   {
-    "id": "explanation_3-4_003",
+    "id": "explanation_3-4_tech_001",
     "mode": "explanation",
+    "category": "tech",
     "difficultyBand": "3-4",
     "question": "Explain how GPS navigation works on your phone.",
     "tips": [
@@ -5642,8 +5648,9 @@
     "difficultyNote": "Technology explanation requiring analogy"
   },
   {
-    "id": "explanation_5-6_001",
+    "id": "explanation_5-6_economics_001",
     "mode": "explanation",
+    "category": "economics",
     "difficultyBand": "5-6",
     "question": "Explain the concept of inflation to a smart teenager. Include why it happens and why it matters.",
     "tips": [
@@ -5655,8 +5662,9 @@
     "difficultyNote": "Economic concept with cause and effect"
   },
   {
-    "id": "explanation_5-6_002",
+    "id": "explanation_5-6_tech_001",
     "mode": "explanation",
+    "category": "tech",
     "difficultyBand": "5-6",
     "question": "Explain how machine learning is different from traditional programming to a non-technical manager.",
     "tips": [
@@ -5668,8 +5676,9 @@
     "difficultyNote": "Technical concept for non-technical audience"
   },
   {
-    "id": "explanation_5-6_003",
+    "id": "explanation_5-6_science_001",
     "mode": "explanation",
+    "category": "science",
     "difficultyBand": "5-6",
     "question": "Explain the concept of natural selection to someone who thinks evolution means 'survival of the strongest.'",
     "tips": [
@@ -5681,8 +5690,9 @@
     "difficultyNote": "Correcting a common misconception"
   },
   {
-    "id": "explanation_7-8_001",
+    "id": "explanation_7-8_tech_001",
     "mode": "explanation",
+    "category": "tech",
     "difficultyBand": "7-8",
     "question": "Explain blockchain technology to a skeptical business executive who thinks it's just hype.",
     "tips": [
@@ -5694,8 +5704,9 @@
     "difficultyNote": "Persuasive explanation to skeptical audience"
   },
   {
-    "id": "explanation_7-8_002",
+    "id": "explanation_7-8_healthcare_001",
     "mode": "explanation",
+    "category": "healthcare",
     "difficultyBand": "7-8",
     "question": "Explain how vaccines work, including mRNA vaccines, to someone who is hesitant about getting vaccinated.",
     "tips": [
@@ -5707,8 +5718,9 @@
     "difficultyNote": "Sensitive topic requiring empathy and precision"
   },
   {
-    "id": "explanation_9-10_001",
+    "id": "explanation_9-10_tech_001",
     "mode": "explanation",
+    "category": "tech",
     "difficultyBand": "9-10",
     "question": "Explain quantum computing to a room of investors who need to understand why it matters for their portfolio, without using the word 'quantum.'",
     "tips": [
@@ -5720,8 +5732,9 @@
     "difficultyNote": "Constraint-based expert explanation"
   },
   {
-    "id": "explanation_9-10_002",
+    "id": "explanation_9-10_philosophy_001",
     "mode": "explanation",
+    "category": "philosophy",
     "difficultyBand": "9-10",
     "question": "Explain the concept of consciousness to a group of AI researchers and philosophers. Address why it's hard to define and what we do and don't know.",
     "tips": [
