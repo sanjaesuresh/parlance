@@ -192,6 +192,14 @@ struct AuthProfileSetupView: View {
                 }
                 .disabled(disabled)
                 .padding(.horizontal, 24)
+
+                HStack(spacing: 6) {
+                    Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)
+                    Text("·").foregroundStyle(AppColors.dim)
+                    Link("Support", destination: URL(string: "https://theparlance.app/support")!)
+                }
+                .font(AppFonts.body(11))
+                .foregroundStyle(AppColors.dim)
                 .padding(.bottom, 24)
             }
         }

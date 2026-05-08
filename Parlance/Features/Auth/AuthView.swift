@@ -37,7 +37,7 @@ struct AuthView: View {
                     Task { await viewModel.handleAppleCompletion(result) }
                 }
                 .signInWithAppleButtonStyle(.white)
-                .frame(maxWidth: 375, minHeight: 50, maxHeight: 50)
+                .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
                 HStack {
@@ -154,6 +154,14 @@ struct AuthView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
                     .disabled(disabled)
+
+                    HStack(spacing: 6) {
+                        Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)
+                        Text("·").foregroundStyle(AppColors.dim)
+                        Link("Support", destination: URL(string: "https://theparlance.app/support")!)
+                    }
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
                 }
             }
             .padding(.horizontal, 24)
