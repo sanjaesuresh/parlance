@@ -7,7 +7,11 @@ final class QuestionBankService {
         guard let url = Bundle.main.url(forResource: "questions", withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let questions = try? JSONDecoder().decode([Question].self, from: data) else {
-            fatalError("Failed to load questions.json from bundle.")
+            #if DEBUG
+            print("[QuestionBankService] Failed to load questions.json — using empty bank")
+            #endif
+            self.allQuestions = []
+            return
         }
         self.allQuestions = questions
     }
