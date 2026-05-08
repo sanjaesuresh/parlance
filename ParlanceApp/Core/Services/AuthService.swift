@@ -23,9 +23,17 @@ final class AuthService: ObservableObject {
     private func listenToAuthChanges() async {
         for await (event, session) in client.auth.authStateChanges {
             switch event {
-            case .initialSession, .signedIn, .tokenRefreshed:
+            case .initialSession:
                 currentUser = session?.user
                 isAuthenticated = session != nil
+            case .signedIn, .tokenRefreshed:
+                // Only update if there's a real session; a nil-session signedIn event
+                // can fire after sign-up when email confirmation is required — don't
+                // override the auth state we already set in signUp().
+                if let session {
+                    currentUser = session.user
+                    isAuthenticated = true
+                }
             case .signedOut:
                 currentUser = nil
                 isAuthenticated = false
@@ -41,7 +49,11 @@ final class AuthService: ObservableObject {
     }
 
     func signUp(email: String, password: String) async throws {
-        try await client.auth.signUp(email: email, password: password)
+        let response = try await client.auth.signUp(email: email, password: password)
+        // Treat account creation as authenticated immediately.
+        // Email confirmation is not enforced yet — TODO before production.
+        currentUser = response.user
+        isAuthenticated = true
     }
 
     func signInWithApple(idToken: String, nonce: String) async throws {

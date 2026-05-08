@@ -34,6 +34,20 @@
                ReferencedContainer = "container:Parlance.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D4BDC09E2F7F971B00FE69B7"
+               BuildableName = "ParlanceUITests.xctest"
+               BlueprintName = "ParlanceUITests"
+               ReferencedContainer = "container:Parlance.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "D4BDC0942F7F971B00FE69B7"
                BuildableName = "ParlanceTests.xctest"
                BlueprintName = "ParlanceTests"
+               ReferencedContainer = "container:Parlance.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D4BDC09E2F7F971B00FE69B7"
+               BuildableName = "ParlanceUITests.xctest"
+               BlueprintName = "ParlanceUITests"
                ReferencedContainer = "container:Parlance.xcodeproj">
             </BuildableReference>
          </TestableReference>

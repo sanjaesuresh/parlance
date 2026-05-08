@@ -68,7 +68,7 @@ final class AuthViewModel: ObservableObject {
                 avatar: avatar,
                 practiceLevel: comfortLevel
             )
-            UserDefaults.standard.set(true, forKey: "parlance.show_welcome.\(uid)")
+            UserDefaults.standard.set(uid, forKey: "parlance.welcome_uid")
             try await SyncService.shared.createProfile(for: user, authService: authService)
         } catch {
             errorMessage = error.localizedDescription

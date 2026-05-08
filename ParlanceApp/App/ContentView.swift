@@ -8,6 +8,7 @@ struct ContentView: View {
     @StateObject private var networkMonitor = NetworkMonitor()
     @StateObject private var weekCache = SessionWeekCache()
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
+    @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
     @State private var activeSession: ActiveSessionState?
     @State private var showSplash = true
     @State private var isAppReady = false
@@ -21,8 +22,8 @@ struct ContentView: View {
     private var hasCompletedSetup: Bool { currentUser?.hasCompletedSetup ?? false }
 
     private var shouldShowWelcome: Bool {
-        guard let user = currentUser else { return false }
-        return UserDefaults.standard.bool(forKey: "parlance.show_welcome.\(user.supabaseUID)")
+        guard let user = currentUser, !pendingWelcomeUID.isEmpty else { return false }
+        return pendingWelcomeUID == user.supabaseUID
     }
 
     var body: some View {
@@ -45,7 +46,7 @@ struct ContentView: View {
                 FirstLaunchSetupView()
             } else if shouldShowWelcome, let user = currentUser {
                 WelcomeSplashView(user: user) {
-                    UserDefaults.standard.removeObject(forKey: "parlance.show_welcome.\(user.supabaseUID)")
+                    pendingWelcomeUID = ""
                 }
                 .transition(.opacity)
             } else if let session = activeSession {
