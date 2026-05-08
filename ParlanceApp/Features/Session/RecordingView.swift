@@ -74,28 +74,31 @@ struct RecordingView: View {
             .padding(.top, 8)
             .padding(.bottom, 8)
 
-            if mode == .explanation,
-               let category = currentTopicCategory,
-               !recorder.isRecording {
+            if mode == .explanation, !recorder.isRecording {
+                let category = currentTopicCategory ?? .any
                 Button {
                     showTopicPicker = true
                 } label: {
                     HStack(spacing: 6) {
                         Text("Topic: \(category.displayName)")
                             .font(AppFonts.bodyMedium(13))
-                            .foregroundStyle(AppColors.text)
+                            .foregroundStyle(AppColors.gold)
                         Image(systemName: "chevron.down")
                             .font(.system(size: 11, weight: .semibold))
-                            .foregroundStyle(AppColors.sub)
+                            .foregroundStyle(AppColors.gold)
                     }
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .background(AppColors.card)
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 9)
+                    .background(AppColors.gold.opacity(0.12))
                     .clipShape(Capsule())
+                    .overlay(
+                        Capsule()
+                            .stroke(AppColors.gold.opacity(0.5), lineWidth: 1)
+                    )
                 }
                 .accessibilityIdentifier("explain.topicChip")
                 .padding(.horizontal, 24)
-                .padding(.bottom, 8)
+                .padding(.bottom, 12)
             }
 
             ScrollView {
