@@ -4,6 +4,7 @@ import AuthenticationServices
 struct AuthView: View {
     @StateObject private var viewModel: AuthViewModel
     @State private var path = NavigationPath()
+    @State private var showPassword = false
 
     init(authService: AuthService) {
         _viewModel = StateObject(wrappedValue: AuthViewModel(authService: authService))
@@ -93,12 +94,34 @@ struct AuthView: View {
 
                     let passwordTooShort = viewModel.isSignUp && !viewModel.password.isEmpty && !viewModel.isPasswordLongEnough
 
-                    SecureField("Password", text: $viewModel.password)
-                        .font(AppFonts.body(15))
-                        .padding(14)
-                        .background(AppColors.card)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(passwordTooShort ? AppColors.red : AppColors.border, lineWidth: 1))
+                    HStack(spacing: 0) {
+                        GoldSecureTextField(
+                            text: $viewModel.password,
+                            placeholder: "Password",
+                            isRevealed: showPassword,
+                            textContentType: viewModel.isSignUp ? .newPassword : .password
+                        )
+                        .frame(height: 22)
+
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.15)) { showPassword.toggle() }
+                        } label: {
+                            if showPassword {
+                                Image(systemName: "eye.slash.fill")
+                                    .font(.system(size: 16))
+                                    .foregroundStyle(AppColors.sub)
+                            } else {
+                                Text("●")
+                                    .font(.system(size: 18))
+                                    .foregroundStyle(AppColors.gold)
+                            }
+                        }
+                        .frame(width: 28)
+                    }
+                    .padding(14)
+                    .background(AppColors.card)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                    .overlay(RoundedRectangle(cornerRadius: 12).stroke(passwordTooShort ? AppColors.red : AppColors.border, lineWidth: 1))
 
                     if passwordTooShort {
                         Text("Password must be at least \(AuthViewModel.minPasswordLength) characters.")
