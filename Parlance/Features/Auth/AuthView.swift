@@ -5,6 +5,7 @@ struct AuthView: View {
     @StateObject private var viewModel: AuthViewModel
     @State private var path = NavigationPath()
     @State private var showPassword = false
+    @Environment(\.colorScheme) private var colorScheme
 
     init(authService: AuthService) {
         _viewModel = StateObject(wrappedValue: AuthViewModel(authService: authService))
@@ -37,7 +38,7 @@ struct AuthView: View {
                 } onCompletion: { result in
                     Task { await viewModel.handleAppleCompletion(result) }
                 }
-                .signInWithAppleButtonStyle(.white)
+                .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
                 .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
