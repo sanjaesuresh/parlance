@@ -133,6 +133,8 @@ struct AuthProfileSetupView: View {
                     Text("Pick your avatar")
                         .font(AppFonts.bodyMedium(14))
                         .foregroundStyle(AppColors.sub)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24)
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
@@ -156,6 +158,7 @@ struct AuthProfileSetupView: View {
                             }
                         }
                         .padding(.horizontal, 24)
+                        .padding(.vertical, 4)
                     }
                 }
 
