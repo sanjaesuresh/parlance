@@ -9,6 +9,7 @@ final class RecordingViewModel: ObservableObject {
     @Published var showSpeechPrePrompt = false
     @Published var showPermissionDenied = false
     @Published var permissionDeniedMessage = ""
+    @Published var recordingStartFailed = false
 
     func handleRecordTap(
         recorder: AudioRecorder,
@@ -37,7 +38,7 @@ final class RecordingViewModel: ObservableObject {
         do {
             try recorder.startRecording()
         } catch {
-            // Recording failed to start
+            recordingStartFailed = true
         }
     }
 
