@@ -11,6 +11,7 @@ final class AudioRecorder: ObservableObject {
     private var timer: Timer?
     private var startTime: Date?
     private(set) var recordingURL: URL?
+    private var interruptionObserver: NSObjectProtocol?
 
     var canStop: Bool { elapsedTime >= AppConstants.minRecordingDuration }
     var shouldShowNudge: Bool { elapsedTime >= AppConstants.deliberateNudgeTime && elapsedTime < AppConstants.deliberateNudgeTime + 3 }
@@ -37,6 +38,18 @@ final class AudioRecorder: ObservableObject {
         recorder?.isMeteringEnabled = true
         recorder?.record()
 
+        interruptionObserver = NotificationCenter.default.addObserver(
+            forName: AVAudioSession.interruptionNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] notification in
+            guard let type = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt,
+                  type == AVAudioSession.InterruptionType.began.rawValue else { return }
+            Task { @MainActor [weak self] in
+                _ = self?.stopRecording()
+            }
+        }
+
         isRecording = true
         startTime = .now
 
@@ -52,6 +65,10 @@ final class AudioRecorder: ObservableObject {
         timer = nil
         recorder?.stop()
         isRecording = false
+        if let observer = interruptionObserver {
+            NotificationCenter.default.removeObserver(observer)
+            interruptionObserver = nil
+        }
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
         return recordingURL
     }

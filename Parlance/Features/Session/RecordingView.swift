@@ -16,7 +16,6 @@ struct RecordingView: View {
     @State private var showCancelConfirmation = false
     @State private var didAutoStart = false
     @State private var recordingDotVisible = true
-    @State private var recordingDotTimer: Timer? = nil
     @State private var startHaptic = false
     @State private var stopHaptic = false
 
@@ -197,16 +196,11 @@ struct RecordingView: View {
                 }
                 .opacity(0.8)
                 .padding(.top, 4)
-                .onAppear {
-                    let timer = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { _ in
+                .task {
+                    while !Task.isCancelled {
+                        try? await Task.sleep(nanoseconds: 800_000_000)
                         recordingDotVisible.toggle()
                     }
-                    RunLoop.current.add(timer, forMode: .common)
-                    recordingDotTimer = timer
-                }
-                .onDisappear {
-                    recordingDotTimer?.invalidate()
-                    recordingDotTimer = nil
                 }
             } else {
                 Text("Tap mic when ready")
@@ -327,6 +321,11 @@ struct RecordingView: View {
             Button("Cancel", role: .cancel) {}
         } message: {
             Text(viewModel.permissionDeniedMessage)
+        }
+        .alert("Recording Failed", isPresented: $viewModel.recordingStartFailed) {
+            Button("OK") {}
+        } message: {
+            Text("Could not start recording. Please check available storage and try again.")
         }
         .alert("End Session?", isPresented: $showCancelConfirmation) {
             Button("End", role: .destructive) {
