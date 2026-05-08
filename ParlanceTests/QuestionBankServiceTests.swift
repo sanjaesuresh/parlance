@@ -47,29 +47,35 @@ struct QuestionBankServiceTests {
         }
     }
 
-    @Test("any category returns from any bucket")
-    func test_anyCategory_returnsFromAnyBucket() {
+    @Test("any category pulls from knowledge tier only, not industries")
+    func test_anyCategory_pullsKnowledgeOnly() {
         let bank = QuestionBankService(questions: [
+            // industries — should be excluded from .any pool
             makeQ(id: "tech_1", category: .tech),
             makeQ(id: "health_1", category: .healthcare),
+            // knowledge tier — should be the .any pool
+            makeQ(id: "history_1", category: .history),
+            makeQ(id: "philosophy_1", category: .philosophy),
         ])
 
         var seen: Set<ExplanationCategory> = []
-        for _ in 0..<50 {
+        for _ in 0..<60 {
             if let result = bank.selectQuestion(
                 mode: .explanation,
                 band: "5-6",
                 category: .any,
                 excludingIds: []
-            ) {
-                if let cat = result.category {
-                    seen.insert(cat)
-                }
+            ), let cat = result.category {
+                seen.insert(cat)
             }
         }
 
-        #expect(seen.contains(.tech))
-        #expect(seen.contains(.healthcare))
+        // Should sample both knowledge categories given 60 trials.
+        #expect(seen.contains(.history))
+        #expect(seen.contains(.philosophy))
+        // Industries must never appear under .any.
+        #expect(!seen.contains(.tech))
+        #expect(!seen.contains(.healthcare))
     }
 
     @Test("fallback (a) re-serves same category when all same-category questions seen")
@@ -91,13 +97,13 @@ struct QuestionBankServiceTests {
         #expect(result?.id == "tech_1")
     }
 
-    @Test("fallback (b) returns any unseen when requested category has no questions")
-    func test_fallback_b_returnsAnyUnseen_whenCategoryEmpty() {
+    @Test("fallback (b) returns knowledge-tier unseen when requested category has no questions")
+    func test_fallback_b_returnsKnowledgeUnseen_whenCategoryEmpty() {
         let bank = QuestionBankService(questions: [
-            makeQ(id: "health_1", category: .healthcare),
+            makeQ(id: "history_1", category: .history),
         ])
 
-        // No tech questions exist at all → fall back to any unseen
+        // No tech questions exist at all → fall back to knowledge-tier unseen.
         let result = bank.selectQuestion(
             mode: .explanation,
             band: "5-6",
@@ -105,7 +111,7 @@ struct QuestionBankServiceTests {
             excludingIds: []
         )
 
-        #expect(result?.id == "health_1")
+        #expect(result?.id == "history_1")
     }
 
     @Test("non-explanation mode ignores category param")

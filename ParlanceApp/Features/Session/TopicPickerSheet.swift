@@ -14,47 +14,119 @@ struct TopicPickerSheet: View {
     }
 
     var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    row(.any)
+        VStack(spacing: 0) {
+            header
+
+            ScrollView {
+                VStack(alignment: .leading, spacing: 22) {
+                    section(label: nil, items: [.any])
+                    section(label: "INDUSTRIES", items: industries)
+                    section(label: "KNOWLEDGE", items: knowledge)
                 }
-                Section("Industries") {
-                    ForEach(industries, id: \.self) { row($0) }
-                }
-                Section("Knowledge") {
-                    ForEach(knowledge, id: \.self) { row($0) }
-                }
+                .padding(.horizontal, 20)
+                .padding(.top, 6)
+                .padding(.bottom, 28)
             }
-            .listStyle(.insetGrouped)
-            .navigationTitle("Pick a topic")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Close") { dismiss() }
-                        .accessibilityIdentifier("explain.topicPicker.close")
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(AppColors.bg)
+        .accessibilityIdentifier("explain.topicPicker")
+    }
+
+    private var header: some View {
+        VStack(spacing: 0) {
+            // Drag handle (mimics iOS native, but on our solid bg)
+            Capsule()
+                .fill(AppColors.dim.opacity(0.4))
+                .frame(width: 36, height: 5)
+                .padding(.top, 8)
+                .padding(.bottom, 14)
+
+            HStack(alignment: .firstTextBaseline) {
+                HStack(spacing: 0) {
+                    Text("Pick a")
+                        .font(AppFonts.display(22))
+                        .foregroundStyle(AppColors.text)
+                    Text(" topic")
+                        .font(AppFonts.display(22))
+                        .foregroundStyle(AppColors.gold)
                 }
+                Spacer()
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundStyle(AppColors.sub)
+                        .frame(width: 28, height: 28)
+                        .background(AppColors.card)
+                        .clipShape(Circle())
+                }
+                .accessibilityLabel("Close")
+                .accessibilityIdentifier("explain.topicPicker.close")
             }
-            .accessibilityIdentifier("explain.topicPicker")
+            .padding(.horizontal, 20)
+            .padding(.bottom, 16)
+
+            Rectangle()
+                .fill(AppColors.border)
+                .frame(height: 1)
         }
     }
 
     @ViewBuilder
+    private func section(label: String?, items: [ExplanationCategory]) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            if let label {
+                HStack(spacing: 8) {
+                    Text(label)
+                        .font(AppFonts.bodyBold(10))
+                        .kerning(1.4)
+                        .foregroundStyle(AppColors.dim)
+                    Rectangle()
+                        .fill(AppColors.border)
+                        .frame(height: 1)
+                }
+                .padding(.top, 4)
+            }
+
+            VStack(spacing: 8) {
+                ForEach(items, id: \.self) { row($0) }
+            }
+        }
+    }
+
     private func row(_ category: ExplanationCategory) -> some View {
-        Button {
+        let isSelected = category == selected
+        return Button {
             onPick(category)
             dismiss()
         } label: {
-            HStack {
+            HStack(spacing: 12) {
                 Text(category.displayName)
-                    .foregroundStyle(AppColors.text)
-                Spacer()
-                if category == selected {
+                    .font(AppFonts.bodyMedium(15))
+                    .foregroundStyle(isSelected ? AppColors.text : AppColors.text.opacity(0.85))
+                Spacer(minLength: 8)
+                if isSelected {
                     Image(systemName: "checkmark")
+                        .font(.system(size: 13, weight: .bold))
                         .foregroundStyle(AppColors.gold)
                 }
             }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(isSelected ? AppColors.gold.opacity(0.08) : AppColors.card)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(
+                        isSelected ? AppColors.gold.opacity(0.55) : AppColors.border,
+                        lineWidth: isSelected ? 1.5 : 1
+                    )
+            )
         }
+        .buttonStyle(.plain)
         .accessibilityIdentifier("explain.topicPicker.\(category.rawValue)")
     }
 }

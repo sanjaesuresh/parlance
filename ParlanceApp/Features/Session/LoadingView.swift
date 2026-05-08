@@ -6,6 +6,10 @@ struct LoadingView: View {
     let question: Question
     let onReady: () -> Void
     var onCancel: (() -> Void)?
+    var currentTopicCategory: ExplanationCategory? = nil
+    var onReshuffleTopic: ((ExplanationCategory) -> Void)? = nil
+
+    @State private var showTopicPicker = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -46,6 +50,32 @@ struct LoadingView: View {
             .padding(.horizontal, 24)
             .padding(.top, 8)
             .padding(.bottom, 12)
+
+            if mode == .explanation {
+                let category = currentTopicCategory ?? .any
+                Button {
+                    showTopicPicker = true
+                } label: {
+                    HStack(spacing: 6) {
+                        Text("Topic: \(category.displayName)")
+                            .font(AppFonts.bodyMedium(13))
+                            .foregroundStyle(AppColors.gold)
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 11, weight: .semibold))
+                            .foregroundStyle(AppColors.gold)
+                    }
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 9)
+                    .background(AppColors.gold.opacity(0.12))
+                    .clipShape(Capsule())
+                    .overlay(
+                        Capsule()
+                            .stroke(AppColors.gold.opacity(0.5), lineWidth: 1)
+                    )
+                }
+                .accessibilityIdentifier("explain.topicChip")
+                .padding(.bottom, 8)
+            }
 
             ScrollView {
                 VStack(spacing: 20) {
@@ -144,5 +174,17 @@ struct LoadingView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg.ignoresSafeArea())
+        .sheet(isPresented: $showTopicPicker) {
+            TopicPickerSheet(
+                selected: currentTopicCategory ?? .any,
+                onPick: { newCategory in
+                    onReshuffleTopic?(newCategory)
+                }
+            )
+            .presentationDetents([.fraction(0.78)])
+            .presentationBackground(AppColors.bg)
+            .presentationDragIndicator(.hidden)
+            .presentationCornerRadius(28)
+        }
     }
 }

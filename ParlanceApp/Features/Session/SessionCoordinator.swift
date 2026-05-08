@@ -60,11 +60,16 @@ struct SessionCoordinator: View {
                     question: currentQuestion,
                     onReady: {
                         AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
-                        // Explanation mode skips countdown + auto-start so the
-                        // user can pick a topic via the chip before recording.
-                        phase = state.mode == .explanation ? .recording : .countdown
+                        phase = .countdown
                     },
-                    onCancel: { onDismiss() }
+                    onCancel: { onDismiss() },
+                    currentTopicCategory: currentTopicCategory,
+                    onReshuffleTopic: { newCategory in
+                        if let newQuestion = onReshuffleQuestion?(newCategory) {
+                            currentQuestion = newQuestion
+                            currentTopicCategory = newCategory
+                        }
+                    }
                 )
 
             case .countdown:
@@ -88,14 +93,7 @@ struct SessionCoordinator: View {
                         phase = .processing
                         Task { await processSession() }
                     },
-                    onCancel: { onDismiss() },
-                    currentTopicCategory: currentTopicCategory,
-                    onReshuffleTopic: { newCategory in
-                        if let newQuestion = onReshuffleQuestion?(newCategory) {
-                            currentQuestion = newQuestion
-                            currentTopicCategory = newCategory
-                        }
-                    }
+                    onCancel: { onDismiss() }
                 )
 
             case .processing:

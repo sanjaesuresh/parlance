@@ -38,8 +38,12 @@ final class QuestionBankService {
             return unseen.randomElement() ?? bandPool.randomElement()
         }
 
-        // Explanation mode with a specific category.
         let resolvedCategory = category ?? .any
+
+        // "Any topic" pulls from knowledge-tier prompts only — industries
+        // (Tech, Healthcare, Finance, etc.) require domain familiarity that
+        // a general user shouldn't be assumed to have.
+        let anyPool = bandPool.filter { $0.category?.tier == .knowledge }
 
         if resolvedCategory != .any {
             let categoryPool = bandPool.filter { $0.category == resolvedCategory }
@@ -53,13 +57,14 @@ final class QuestionBankService {
             }
         }
 
-        // Fallback (b): any category, unseen.
-        let anyUnseen = bandPool.filter { !excludingIds.contains($0.id) }
+        // Fallback (b): broader pool, unseen.
+        let anyUnseen = anyPool.filter { !excludingIds.contains($0.id) }
         if let pick = anyUnseen.randomElement() {
             return pick
         }
 
-        // Fallback (c): any category, ignore seen.
-        return bandPool.randomElement()
+        // Fallback (c): broader pool, ignore seen. Final defensive fall-through
+        // to bandPool covers the (unexpected) case of an empty knowledge pool.
+        return anyPool.randomElement() ?? bandPool.randomElement()
     }
 }
