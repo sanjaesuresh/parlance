@@ -132,7 +132,7 @@ struct ProfileWithStats: Codable {
     let avatarEmoji: String
     let location: String?
     let occupation: String?
-    let userStats: [UserStatsRow]?
+    let userStats: UserStatsRow?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -145,7 +145,7 @@ struct ProfileWithStats: Codable {
     }
 
     func asSocialProfile(recentScores: [Int] = []) -> SocialProfile {
-        let stats = userStats?.first
+        let stats = userStats
         return SocialProfile(
             id: id.uuidString,
             displayName: displayName,
