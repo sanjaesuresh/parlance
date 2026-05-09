@@ -36,7 +36,7 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            if showSplash || authService.isLoading || isSyncingProfile {
+            if showSplash {
                 SplashView(isAppReady: isAppReady && !authService.isLoading && !isSyncingProfile) {
                     withAnimation { showSplash = false }
                 }
