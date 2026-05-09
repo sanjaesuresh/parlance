@@ -1303,7 +1303,7 @@
     "id": "pitch_1-2_001",
     "mode": "pitch",
     "difficultyBand": "1-2",
-    "question": "Pick any product, service, or idea you know well — real or imagined — and pitch it in 30 seconds.",
+    "question": "Pick any product, service, or idea you know well — real or imagined — and pitch it.",
     "tips": [
       "Lead with the problem in one sentence, not with the product name or features",
       "State your solution in plain language — avoid jargon even if you know the technical details",
@@ -1563,7 +1563,7 @@
     "id": "pitch_3-4_001",
     "mode": "pitch",
     "difficultyBand": "3-4",
-    "question": "You've just met an angel investor at a networking event. You have 60 seconds. Pitch your startup — real or imagined — and make them want to know more.",
+    "question": "You've just met an angel investor at a networking event. Pitch your startup — real or imagined — and make them want to know more.",
     "tips": [
       "Hook with the market opportunity or problem size in the first five seconds — that's what gets investors to keep listening",
       "State your solution, who it's for, and one proof point of traction before the clock runs out",
@@ -2603,7 +2603,7 @@
     "id": "keynote_1-2_001",
     "mode": "keynote",
     "difficultyBand": "1-2",
-    "question": "Give a 60-second opening to a small audience of 10–15 people to kick off a community event — introduce the event theme and why everyone is here.",
+    "question": "Give an opening to a small audience of 10–15 people to kick off a community event — introduce the event theme and why everyone is here.",
     "tips": [
       "Open with the shared purpose that brought people to the room",
       "Set an energetic, welcoming tone that gets people excited for what's next",
@@ -2681,7 +2681,7 @@
     "id": "keynote_1-2_007",
     "mode": "keynote",
     "difficultyBand": "1-2",
-    "question": "Give a one-minute update on a project.",
+    "question": "Give an update on a project.",
     "tips": [
       "State progress in 2-3 bullet points",
       "Highlight one win",
@@ -2720,7 +2720,7 @@
     "id": "keynote_1-2_010",
     "mode": "keynote",
     "difficultyBand": "1-2",
-    "question": "Give a brief 60-second talk encouraging a group to set a goal for the new year — share your own resolution as an example and make the case for why it matters.",
+    "question": "Give a talk encouraging a group to set a goal for the new year — share your own resolution as an example and make the case for why it matters.",
     "tips": [
       "Open with why goal-setting is worth the group's attention, not just your goal",
       "Use your personal resolution to illustrate a broader point",
@@ -2850,7 +2850,7 @@
     "id": "keynote_1-2_020",
     "mode": "keynote",
     "difficultyBand": "1-2",
-    "question": "Open a Monday team meeting with a 60-second energizer: share one moment from your weekend that connects to a value or goal the team cares about.",
+    "question": "Open a Monday team meeting with an energizer: share one moment from your weekend that connects to a value or goal the team cares about.",
     "tips": [
       "Pick a moment that has a relatable point, not just entertainment value",
       "Keep the story tight — one scene, one insight",
@@ -2863,7 +2863,7 @@
     "id": "keynote_3-4_001",
     "mode": "keynote",
     "difficultyBand": "3-4",
-    "question": "Give a 3-minute presentation on a topic you know well.",
+    "question": "Give a presentation on a topic you know well.",
     "tips": [
       "Structure with opening, body, and close",
       "Include one data point or statistic",
@@ -2980,7 +2980,7 @@
     "id": "keynote_3-4_010",
     "mode": "keynote",
     "difficultyBand": "3-4",
-    "question": "Open a company holiday celebration with a 90-second address: acknowledge the year's highs and lows honestly, celebrate the team, and set a festive tone for the evening.",
+    "question": "Open a company holiday celebration with an address: acknowledge the year's highs and lows honestly, celebrate the team, and set a festive tone for the evening.",
     "tips": [
       "Open with one specific moment or win from the year that the whole room can feel proud of",
       "Keep the tone warm but not saccharine — authenticity beats cheerfulness",
@@ -3123,7 +3123,7 @@
     "id": "keynote_5-6_001",
     "mode": "keynote",
     "difficultyBand": "5-6",
-    "question": "Deliver a 10-minute conference talk on your area of expertise.",
+    "question": "Deliver a conference talk on your area of expertise.",
     "tips": [
       "Open with a story that hooks the audience",
       "Present 3 key insights with supporting evidence",
@@ -3253,7 +3253,7 @@
     "id": "keynote_5-6_011",
     "mode": "keynote",
     "difficultyBand": "5-6",
-    "question": "You've just been called to the stage unexpectedly at an industry event. Give a 90-second off-the-cuff keynote-style response to the event's central theme.",
+    "question": "You've just been called to the stage unexpectedly at an industry event. Give an off-the-cuff keynote-style response to the event's central theme.",
     "tips": [
       "Take one beat to identify the single most relevant thing you can say to this room",
       "Open with a concrete claim or observation, not 'I wasn't expecting this'",
@@ -3448,7 +3448,7 @@
     "id": "keynote_7-8_006",
     "mode": "keynote",
     "difficultyBand": "7-8",
-    "question": "Present a 2-minute address to an international body (like the UN) making the case for urgent global cooperation on one specific issue — climate, pandemic preparedness, or tech governance.",
+    "question": "Present an address to an international body (like the UN) making the case for urgent global cooperation on one specific issue — climate, pandemic preparedness, or tech governance.",
     "tips": [
       "Open by naming the shared stake — what all nations lose if this issue goes unaddressed",
       "Present your proposal in plain language that survives translation",
@@ -5177,7 +5177,7 @@
     "id": "casual_9-10_020",
     "mode": "casual",
     "difficultyBand": "9-10",
-    "question": "You have 10 seconds to prepare. Your topic: the hidden cost of convenience. Go — deliver a 2-minute speech with a clear thesis and at least two supporting arguments.",
+    "question": "Your topic: the hidden cost of convenience. Go — deliver a speech with a clear thesis and at least two supporting arguments.",
     "tips": [
       "Commit to a thesis in your first sentence — don't warm up, open strong",
       "Use the thesis-evidence-counterpoint-conclusion structure to give instant shape to the talk",
@@ -5931,7 +5931,7 @@
     "id": "impromptu_3-4_001",
     "mode": "impromptu",
     "difficultyBand": "3-4",
-    "question": "Convince someone to visit your hometown. You have 45 seconds — make it count.",
+    "question": "Convince someone to visit your hometown.",
     "tips": [
       "Open with what makes your hometown unlike anywhere else — not its name or size",
       "Hit one or two specific places, foods, or moments rather than a general list",
@@ -6009,7 +6009,7 @@
     "id": "impromptu_7-8_001",
     "mode": "impromptu",
     "difficultyBand": "7-8",
-    "question": "You're asked to give a 90-second toast at a colleague's farewell party. You barely know them. Go.",
+    "question": "You're asked to give a toast at a colleague's farewell party. You barely know them. Go.",
     "tips": [
       "Open with a universal workplace truth",
       "Pivot to something specific about the person",
@@ -6035,7 +6035,7 @@
     "id": "impromptu_9-10_001",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "You're given a word: 'bridge.' In 90 seconds, build it into a meaningful message.",
+    "question": "You're given a word: 'bridge.' Build it into a meaningful message.",
     "tips": [
       "Spend the first 5 seconds finding your angle — literal or metaphorical, not both at once",
       "Build from the concrete meaning to a broader human truth",
@@ -6048,7 +6048,7 @@
     "id": "impromptu_9-10_002",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "Pick the most obscure topic you genuinely know something about. In 90 seconds, make someone care about it.",
+    "question": "Pick the most obscure topic you genuinely know something about. Make someone care about it.",
     "tips": [
       "Name your topic in the first 3 seconds and commit — no second-guessing on camera",
       "Use the rule of three: one hook, one surprising fact, one reason it matters to the listener",
@@ -6113,7 +6113,7 @@
     "id": "networking_3-4_002",
     "mode": "networking",
     "difficultyBand": "3-4",
-    "question": "You're at a professional mixer and someone asks 'So, what are you working on these days?' Give your 30-second answer — make it feel like a real conversation, not a rehearsed pitch.",
+    "question": "You're at a professional mixer and someone asks 'So, what are you working on these days?' Give your answer — make it feel like a real conversation, not a rehearsed pitch.",
     "tips": [
       "Lead with the problem you solve or the thing you're building, not your job title",
       "Make it specific enough to be memorable — 'marketing' is forgettable, 'helping restaurants fill tables on slow nights' is not",
@@ -6191,7 +6191,7 @@
     "id": "networking_9-10_001",
     "mode": "networking",
     "difficultyBand": "9-10",
-    "question": "You have 90 seconds at a podium to introduce yourself to a room of 200 people at a conference. Make them want to find you during the break.",
+    "question": "Introduce yourself at a podium to a room of 200 people at a conference. Make them want to find you during the break.",
     "tips": [
       "Open with a hook that creates curiosity about you — not your title, your problem or perspective",
       "Share one specific story or moment that reveals something they wouldn't find on your bio",
@@ -11025,7 +11025,7 @@
     "id": "impromptu_1-2_025",
     "mode": "impromptu",
     "difficultyBand": "1-2",
-    "question": "Describe your favorite place in the world in 30 seconds.",
+    "question": "Describe your favorite place in the world.",
     "tips": [
       "Start with the place name and one vivid image",
       "Use specific sensory details",
@@ -11259,7 +11259,7 @@
     "id": "impromptu_3-4_026",
     "mode": "impromptu",
     "difficultyBand": "3-4",
-    "question": "Speak for 45 seconds on why boredom is actually good for you.",
+    "question": "Speak to why boredom is actually good for you.",
     "tips": [
       "Open with a surprising or counterintuitive claim",
       "Give one piece of logic or evidence",
@@ -11415,7 +11415,7 @@
     "id": "impromptu_5-6_021",
     "mode": "impromptu",
     "difficultyBand": "5-6",
-    "question": "Speak for 60 seconds on why the way we spend our attention — not our time — is what really determines quality of life.",
+    "question": "Speak to why the way we spend our attention — not our time — is what really determines quality of life.",
     "tips": [
       "Define what you mean by attention vs. time upfront",
       "Give two examples that illustrate the distinction",
@@ -11454,7 +11454,7 @@
     "id": "impromptu_5-6_024",
     "mode": "impromptu",
     "difficultyBand": "5-6",
-    "question": "You have 60 seconds to explain what 'good judgment' actually means. Go.",
+    "question": "Explain what 'good judgment' actually means. Go.",
     "tips": [
       "Resist giving a dictionary definition — give your own framing",
       "Use a concrete example to show good judgment in action",
@@ -11597,7 +11597,7 @@
     "id": "impromptu_7-8_018",
     "mode": "impromptu",
     "difficultyBand": "7-8",
-    "question": "Speak for 75 seconds on why most people are bad at receiving feedback, and what it actually takes to be good at it.",
+    "question": "Speak to why most people are bad at receiving feedback, and what it actually takes to be good at it.",
     "tips": [
       "Open with the core reason — not a list of surface symptoms",
       "Give a concrete example that the listener can recognize in themselves",
@@ -11779,7 +11779,7 @@
     "id": "impromptu_9-10_014",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "A stranger gives you the word 'friction.' You have 90 seconds to build a speech that makes friction feel essential, not problematic.",
+    "question": "A stranger gives you the word 'friction.' Build a speech that makes friction feel essential, not problematic.",
     "tips": [
       "Find your angle in the first five seconds — literal, metaphorical, scientific, philosophical",
       "Move between registers: start concrete, end abstract, or vice versa",
@@ -11792,7 +11792,7 @@
     "id": "impromptu_9-10_015",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "What does justice actually require when past wrongs cannot be undone? Build a principled argument in 90 seconds.",
+    "question": "What does justice actually require when past wrongs cannot be undone? Build a principled argument.",
     "tips": [
       "Don't start with a definition — start with the tension",
       "Give your principled framework with two supporting reasons",
@@ -11805,7 +11805,7 @@
     "id": "impromptu_9-10_016",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "Speak for 90 seconds on whether the idea of 'authentic self' is a useful concept or an obstacle to growth.",
+    "question": "Speak to whether the idea of 'authentic self' is a useful concept or an obstacle to growth.",
     "tips": [
       "Challenge the premise with philosophical rigor, not casual skepticism",
       "Offer two distinct critiques or defenses depending on your position",
@@ -11818,7 +11818,7 @@
     "id": "impromptu_9-10_017",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "You are given the word 'silence.' Turn it into a 90-second speech that changes how someone thinks about communication.",
+    "question": "You are given the word 'silence.' Turn it into a speech that changes how someone thinks about communication.",
     "tips": [
       "Subvert the obvious interpretation immediately",
       "Move from a concrete image to an abstract principle",
@@ -11857,7 +11857,7 @@
     "id": "impromptu_9-10_020",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "Speak for 90 seconds on the paradox that the more connected we are, the lonelier we seem to be.",
+    "question": "Speak to the paradox that the more connected we are, the lonelier we seem to be.",
     "tips": [
       "Don't treat this as a simple observation — treat it as a paradox that requires resolution",
       "Name the mechanism driving the paradox with specificity",
@@ -11870,7 +11870,7 @@
     "id": "impromptu_9-10_021",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "Speak for 90 seconds on whether the idea of 'the arc of history bending toward justice' is an empirical observation, a moral aspiration, or a dangerous illusion.",
+    "question": "Speak to whether the idea of 'the arc of history bending toward justice' is an empirical observation, a moral aspiration, or a dangerous illusion.",
     "tips": [
       "Classify it precisely and defend your classification",
       "Give two specific historical examples that support and two that complicate your view",
@@ -11896,7 +11896,7 @@
     "id": "impromptu_9-10_023",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "You are given the word 'inheritance.' Build a 90-second speech that makes the concept feel both heavier and more urgent than your audience expected.",
+    "question": "You are given the word 'inheritance.' Build a speech that makes the concept feel both heavier and more urgent than your audience expected.",
     "tips": [
       "Choose your primary angle in the first five seconds and commit",
       "Layer the meaning: move from literal to metaphorical to universal",
@@ -11909,7 +11909,7 @@
     "id": "impromptu_9-10_024",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "Speak for 90 seconds on what it means to live a life that will have mattered — without appealing to legacy, impact, or fame.",
+    "question": "Speak to what it means to live a life that will have mattered — without appealing to legacy, impact, or fame.",
     "tips": [
       "Reject the easy answers right away",
       "Build from a first principle that is genuinely yours",
@@ -11935,7 +11935,7 @@
     "id": "impromptu_9-10_026",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "You are given the word 'threshold.' Build a 90-second speech that uses it to illuminate something about human courage or change.",
+    "question": "You are given the word 'threshold.' Build a speech that uses it to illuminate something about human courage or change.",
     "tips": [
       "Resist the obvious metaphor — find a less expected angle",
       "Move between concrete and abstract at least twice",
@@ -12000,7 +12000,7 @@
     "id": "impromptu_9-10_031",
     "mode": "impromptu",
     "difficultyBand": "9-10",
-    "question": "Speak for 90 seconds on what the word 'responsibility' actually means when structures, not individuals, produce the worst outcomes.",
+    "question": "Speak to what the word 'responsibility' actually means when structures, not individuals, produce the worst outcomes.",
     "tips": [
       "Name the philosophical problem precisely in your opening",
       "Give two examples where structural responsibility cannot be reduced to individual accountability",
@@ -12221,7 +12221,7 @@
     "id": "negotiation_1-2_030",
     "mode": "negotiation",
     "difficultyBand": "1-2",
-    "question": "You're at a popular restaurant on a busy Saturday without a reservation. The host says there's a 45-minute wait, but the bar has open seats and there are empty tables near the back. Negotiate your way to a seat sooner.",
+    "question": "You're at a popular restaurant on a busy Saturday without a reservation. The host says there's a wait, but the bar has open seats and there are empty tables near the back. Negotiate your way to a seat sooner.",
     "tips": [
       "Be polite and memorable — hosts can move you up the list or seat you early if they like the interaction",
       "Offer flexibility: bar seating, a smaller table, or an earlier time that opens up their schedule",
@@ -13209,7 +13209,7 @@
     "id": "networking_1-2_018",
     "mode": "networking",
     "difficultyBand": "1-2",
-    "question": "Your coworker introduces you to their friend who's visiting the office. Greet them and make small talk for a minute.",
+    "question": "Your coworker introduces you to their friend who's visiting the office. Greet them and make small talk.",
     "tips": [
       "Start with something easy: 'Is this your first time visiting the office?'",
       "Find one thing you have in common within the first 30 seconds",
@@ -13417,7 +13417,7 @@
     "id": "networking_3-4_017",
     "mode": "networking",
     "difficultyBand": "3-4",
-    "question": "You want to request a 30-minute coffee chat from someone you just met at an event. Make the ask in a way that's easy to say yes to.",
+    "question": "You want to request a coffee chat from someone you just met at an event. Make the ask in a way that's easy to say yes to.",
     "tips": [
       "Be specific about what you'd like to talk about — vague asks get ignored",
       "Reference something from your conversation as the reason for following up",
@@ -13469,7 +13469,7 @@
     "id": "networking_3-4_021",
     "mode": "networking",
     "difficultyBand": "3-4",
-    "question": "You're at a professional association's kickoff event. It's time for brief member introductions. Introduce yourself to the group in 30 seconds.",
+    "question": "You're at a professional association's kickoff event. It's time for brief member introductions. Introduce yourself to the group.",
     "tips": [
       "Name, role, and one reason you joined this community",
       "Make the 'why I'm here' part genuine — it's more memorable than credentials",
@@ -13482,7 +13482,7 @@
     "id": "networking_3-4_022",
     "mode": "networking",
     "difficultyBand": "3-4",
-    "question": "At a workshop, you're paired with a stranger for a five-minute structured networking exercise. Make it count rather than going through the motions.",
+    "question": "At a workshop, you're paired with a stranger for a structured networking exercise. Make it count rather than going through the motions.",
     "tips": [
       "Ask one question that goes deeper than surface-level",
       "Share something real about your own work or challenge",
@@ -13625,7 +13625,7 @@
     "id": "networking_5-6_016",
     "mode": "networking",
     "difficultyBand": "5-6",
-    "question": "You've been invited to a roundtable of 12 senior leaders in your field. It's your turn to introduce yourself. Earn respect from the room in 45 seconds.",
+    "question": "You've been invited to a roundtable of 12 senior leaders in your field. It's your turn to introduce yourself. Earn respect from the room.",
     "tips": [
       "Don't undersell — own your expertise clearly and without apology",
       "Give one concrete example of your work, not just a job title",
@@ -13664,7 +13664,7 @@
     "id": "networking_5-6_019",
     "mode": "networking",
     "difficultyBand": "5-6",
-    "question": "You've been asked to be a panelist at a local industry event. When the MC asks you to briefly introduce yourself to the audience, nail the 30-second spot.",
+    "question": "You've been asked to be a panelist at a local industry event. When the MC asks you to briefly introduce yourself to the audience, make your introduction count.",
     "tips": [
       "Keep it to 30–45 seconds — other panelists are waiting",
       "Establish your relevant credential without delivering a full bio",
@@ -13703,7 +13703,7 @@
     "id": "networking_5-6_022",
     "mode": "networking",
     "difficultyBand": "5-6",
-    "question": "You have a 10-minute window with a keynote speaker before they're pulled away. You've thought about what to say. Make the exchange count.",
+    "question": "You have a window with a keynote speaker before they're pulled away. You've thought about what to say. Make the exchange count.",
     "tips": [
       "Have one specific, smart question ready before you approach",
       "Share one relevant thing about your work that creates common ground",
@@ -14080,7 +14080,7 @@
     "id": "networking_9-10_015",
     "mode": "networking",
     "difficultyBand": "9-10",
-    "question": "A major CEO had a 10-minute unplanned conversation with you at an event. Their assistant says they'd like to stay in touch. Craft and deliver your follow-up.",
+    "question": "A major CEO had an unplanned conversation with you at an event. Their assistant says they'd like to stay in touch. Craft and deliver your follow-up.",
     "tips": [
       "Reference a specific moment from the conversation that felt meaningful",
       "Propose a concrete, low-friction next step",
@@ -14158,7 +14158,7 @@
     "id": "networking_9-10_021",
     "mode": "networking",
     "difficultyBand": "9-10",
-    "question": "A contact you haven't spoken to in five years — who is now extraordinarily powerful — runs into you at a conference. What do you say in the first 60 seconds?",
+    "question": "A contact you haven't spoken to in five years — who is now extraordinarily powerful — runs into you at a conference. What do you say?",
     "tips": [
       "Reconnect as a peer, not an admirer — you knew them when",
       "Reference something specific and warm from when you worked together",
@@ -14236,7 +14236,7 @@
     "id": "networking_9-10_027",
     "mode": "networking",
     "difficultyBand": "9-10",
-    "question": "You've been asked to introduce a legendary figure in your industry to a room of their peers. Write and deliver a 90-second introduction that honors them without tipping into sycophancy.",
+    "question": "You've been asked to introduce a legendary figure in your industry to a room of their peers. Write and deliver an introduction that honors them without tipping into sycophancy.",
     "tips": [
       "Lead with specific impact — name the moment, the decision, the thing they changed",
       "Include one detail the audience doesn't know — it shows you know the person, not the legend",
@@ -16553,7 +16553,7 @@
     "mode": "explanation",
     "category": "marketing",
     "difficultyBand": "5-6",
-    "question": "Explain how the marketing funnel actually works to a peer who's skeptical that it's anything more than a made-up diagram. Keep it under 75 seconds.",
+    "question": "Explain how the marketing funnel actually works to a peer who's skeptical that it's anything more than a made-up diagram.",
     "tips": [
       "Lead with a real customer journey — someone who goes from seeing an Instagram post to buying a product six weeks later",
       "Acknowledge the funnel's limitations: real customer journeys aren't linear",
@@ -17631,7 +17631,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "7-8",
-    "question": "A local community distrusts a science-based environmental policy that will affect their town. Address that community in 90 seconds — acknowledging their concerns while making the scientific case for the policy.",
+    "question": "A local community distrusts a science-based environmental policy that will affect their town. Address that community — acknowledging their concerns while making the scientific case for the policy.",
     "tips": [
       "Open by naming what they stand to lose — not the science — so they know you understand what the stakes feel like to them",
       "Separate scientific consensus from the policy choice; the science narrows options, it doesn't make decisions for communities",
@@ -17645,7 +17645,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "7-8",
-    "question": "You are speaking to a school board that wants to teach creationism alongside evolution in science class. Explain in 90 seconds why that would be a disservice to students — without dismissing anyone's faith.",
+    "question": "You are speaking to a school board that wants to teach creationism alongside evolution in science class. Explain why that would be a disservice to students — without dismissing anyone's faith.",
     "tips": [
       "The distinction between a scientific theory and personal belief is the entire argument — make it clearly and without condescension",
       "Science class teaches methods of evidence and falsifiability; creationism isn't excluded because of its conclusions but because it doesn't use that method",
@@ -17659,7 +17659,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "7-8",
-    "question": "Persuade a corporate board of directors, in 90 seconds, that climate risk is a material business risk they need to account for — not a political position.",
+    "question": "Persuade a corporate board of directors, that climate risk is a material business risk they need to account for — not a political position.",
     "tips": [
       "Lead with their language: supply chain disruption, insurance pricing, stranded assets — not degrees Celsius",
       "One concrete sector example (coastal real estate, agriculture, reinsurance) makes the risk tangible, not theoretical",
@@ -17673,7 +17673,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "7-8",
-    "question": "A news outlet has mischaracterized a scientific study, and the story is spreading. Explain to a journalist in 90 seconds what the study actually found — and what the coverage got wrong — without being defensive.",
+    "question": "A news outlet has mischaracterized a scientific study, and the story is spreading. Explain to a journalist what the study actually found — and what the coverage got wrong — without being defensive.",
     "tips": [
       "Lead with what the study does show — give them something they can use — before correcting what was wrong",
       "Identify the single biggest misreading (correlation vs. causation, relative vs. absolute risk) and explain it in one clean sentence",
@@ -17687,7 +17687,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "7-8",
-    "question": "Explain to a hesitant general audience, in 90 seconds, why the placebo effect is a real physiological phenomenon — not just 'imagining you feel better' — and why it matters for medicine.",
+    "question": "Explain to a hesitant general audience, why the placebo effect is a real physiological phenomenon — not just 'imagining you feel better' — and why it matters for medicine.",
     "tips": [
       "The word 'imagining' is the misconception to dismantle first — measurable biochemical changes (endorphins, blood pressure) make this physical, not mental",
       "Pick one concrete finding: open-label placebo studies where patients know it's a sugar pill but still improve — it's the counterintuitive hook",
@@ -17701,7 +17701,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "7-8",
-    "question": "A widely reported scientific finding — that a common food or behavior is harmful — has now been reversed by new research. Explain to a divided public audience in 90 seconds why science changing its mind is a sign of health, not failure.",
+    "question": "A widely reported scientific finding — that a common food or behavior is harmful — has now been reversed by new research. Explain to a divided public audience why science changing its mind is a sign of health, not failure.",
     "tips": [
       "Name the emotion in the room first: 'I know this feels like scientists don't know what they're talking about'",
       "The mechanism of self-correction (new data, larger studies, replication) is what makes science trustworthy — describe it as a process, not a defense",
@@ -17715,7 +17715,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "9-10",
-    "question": "As a spokesperson for a major scientific institution that mishandled a public controversy, address a mixed panel of journalists and policymakers in 2 minutes — acknowledging the failure while making the case for the institution's continued credibility.",
+    "question": "As a spokesperson for a major scientific institution that mishandled a public controversy, address a mixed panel of journalists and policymakers — acknowledging the failure while making the case for the institution's continued credibility.",
     "tips": [
       "Open with a specific, unhedged acknowledgment — 'we got this wrong and here is exactly how' — vague apology reads as deflection to this audience",
       "Separate the institutional failure from the underlying science: the mishandling was real, and so is the research",
@@ -17729,7 +17729,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "9-10",
-    "question": "Address a panel of policymakers who are wary of AI-driven scientific tools — including genome editing and predictive epidemiology — in 2 minutes. Explain the research without downplaying legitimate concerns about misuse.",
+    "question": "Address a panel of policymakers who are wary of AI-driven scientific tools — including genome editing and predictive epidemiology. Explain the research without downplaying legitimate concerns about misuse.",
     "tips": [
       "Name the specific fear before explaining the tool — policymakers disengage when they feel the briefer is skipping past their concern",
       "Distinguish between what the technology can do now, what it might do in 10 years, and what safeguards govern each stage — the conflation of those timeframes is the source of most alarm",
@@ -17743,7 +17743,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "9-10",
-    "question": "Argue to a faculty senate, in 2 minutes, that your institution should redirect significant resources to an emerging research paradigm that most senior faculty consider premature — without dismissing their skepticism as resistance to change.",
+    "question": "Argue to a faculty senate, that your institution should redirect significant resources to an emerging research paradigm that most senior faculty consider premature — without dismissing their skepticism as resistance to change.",
     "tips": [
       "Acknowledge that skepticism is the correct scientific response to new paradigms — Kuhn is on their side and yours",
       "Distinguish between 'the paradigm is unproven' and 'we cannot afford to miss it if it proves out' — resource allocation and epistemic confidence are different decisions",
@@ -17757,7 +17757,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "9-10",
-    "question": "Defend a contested public health recommendation — one where the evidence is strong but public trust has eroded — at a public hearing with an adversarial audience, in 2 minutes.",
+    "question": "Defend a contested public health recommendation — one where the evidence is strong but public trust has eroded — at a public hearing with an adversarial audience.",
     "tips": [
       "Do not open with data — open with acknowledgment that trust was broken and name one specific thing that broke it",
       "The evidence summary should be short (30 seconds maximum) and use absolute, not relative, risk numbers — relative risk figures are what audiences distrust most",
@@ -17771,7 +17771,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "9-10",
-    "question": "Persuade a board of philanthropists to fund an unfashionable but scientifically important research area — one that has been neglected precisely because it isn't generating headlines — in 2 minutes.",
+    "question": "Persuade a board of philanthropists to fund an unfashionable but scientifically important research area — one that has been neglected precisely because it isn't generating headlines.",
     "tips": [
       "The unfashionability is actually part of your argument: neglected fields are systematically underfunded relative to their scientific importance — that's an opportunity, not a weakness",
       "Name one specific knowledge gap that the neglect has created, and one concrete thing that filling it would unlock",
@@ -17785,7 +17785,7 @@
     "mode": "explanation",
     "category": "science",
     "difficultyBand": "9-10",
-    "question": "Address an audience of journalists and policymakers on a politically charged scientific topic — where the science is clear but the policy implications split along ideological lines — in 2 minutes. Explain the science without endorsing a political position.",
+    "question": "Address an audience of journalists and policymakers on a politically charged scientific topic — where the science is clear but the policy implications split along ideological lines. Explain the science without endorsing a political position.",
     "tips": [
       "Draw the line between scientific consensus and policy choice explicitly and early: science tells us what is happening and what will happen under different choices; it does not tell us which choice to make",
       "Steelman the political concern on both sides before presenting the data — it signals you understand the room",
@@ -17799,7 +17799,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "A neighbor asks you at a barbecue: 'Why did the Roman Empire fall?' Give them the short, honest answer in 45 seconds.",
+    "question": "A neighbor asks you at a barbecue: 'Why did the Roman Empire fall?' Give them the short, honest answer.",
     "tips": [
       "Pick two causes max — one military, one internal — and connect them",
       "Avoid the 'Rome just got weak' cliché; name something specific",
@@ -17813,7 +17813,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "A younger sibling asks what the Renaissance was. Explain what changed and why it mattered, in 45 seconds.",
+    "question": "A younger sibling asks what the Renaissance was. Explain what changed and why it mattered.",
     "tips": [
       "Start with what came before — contrast makes the change vivid",
       "Name one person or artwork to make it concrete, not just 'a period of ideas'",
@@ -17827,7 +17827,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "A tourist at a museum asks why ancient Egyptians built pyramids. Give your best 45-second explanation.",
+    "question": "A tourist at a museum asks why ancient Egyptians built pyramids. Give your best explanation.",
     "tips": [
       "Cover the 'what' in one sentence, spend most time on the 'why'",
       "Mention who actually built them — that detail usually surprises people",
@@ -17841,7 +17841,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "Your friend says Genghis Khan was just a brutal warlord. Explain the fuller picture in 45 seconds.",
+    "question": "Your friend says Genghis Khan was just a brutal warlord. Explain the fuller picture.",
     "tips": [
       "Acknowledge the violence first — don't skip past it",
       "Name one genuinely constructive thing his empire enabled",
@@ -17855,7 +17855,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "At a dinner party someone asks what the Silk Road actually was. Explain it in 45 seconds — most people think it's just a road.",
+    "question": "At a dinner party someone asks what the Silk Road actually was. Explain it — most people think it's just a road.",
     "tips": [
       "Start by correcting the 'road' image with one vivid alternative",
       "Name at least two things besides silk that traveled it — ideas count",
@@ -17869,7 +17869,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "A friend asks what the Industrial Revolution actually changed in everyday life. Skip the textbook version — explain it like you mean it in 45 seconds.",
+    "question": "A friend asks what the Industrial Revolution actually changed in everyday life. Skip the textbook version — explain it like you mean it.",
     "tips": [
       "Focus on one person's daily life before vs. after, not GDP stats",
       "Name one thing that was gained and one thing that was lost",
@@ -17883,7 +17883,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "1-2",
-    "question": "Someone at a pub quiz asks why the Vikings left Scandinavia to raid and settle elsewhere. Give the honest short answer in 45 seconds.",
+    "question": "Someone at a pub quiz asks why the Vikings left Scandinavia to raid and settle elsewhere. Give the honest short answer.",
     "tips": [
       "Cover land scarcity and birth rates briefly, then move to the 'why raid' angle",
       "Note that 'raider' was only part of what Vikings were",
@@ -17897,7 +17897,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "Your book club wants to know: how did Gutenberg's printing press actually change the world? Explain the ripple effects in 60 seconds.",
+    "question": "Your book club wants to know: how did Gutenberg's printing press actually change the world? Explain the ripple effects.",
     "tips": [
       "Start with what information looked like before — slow, expensive, controlled",
       "Name one direct consequence that shocked existing power structures",
@@ -17911,7 +17911,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "A friend back from Paris asks why the French Revolution happened — they've seen the sites but want the real explanation. Give it in 60 seconds.",
+    "question": "A friend back from Paris asks why the French Revolution happened — they've seen the sites but want the real explanation. Walk them through it.",
     "tips": [
       "Layer causes: financial crisis, food shortage, Enlightenment ideas — pick two",
       "Resist the 'peasants were angry' oversimplification; name the structural failure",
@@ -17925,7 +17925,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "Your neighbor grew up during the Cold War but never quite understood what it was actually about. Explain the core conflict in 60 seconds.",
+    "question": "Your neighbor grew up during the Cold War but never quite understood what it was actually about. Explain the core conflict.",
     "tips": [
       "Start with the ideological split — capitalism vs. communism — before the geopolitics",
       "Name one proxy conflict that shows what it looked like on the ground",
@@ -17939,7 +17939,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "A foreign exchange student asks how the United States ended up covering so much of North America. Explain the territorial expansion story in 60 seconds.",
+    "question": "A foreign exchange student asks how the United States ended up covering so much of North America. Explain the territorial expansion story.",
     "tips": [
       "Sequence the key acquisitions: original colonies, Louisiana, war with Mexico, etc.",
       "Name the cost — displacement, war, negotiation — not just the land gained",
@@ -17953,7 +17953,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "A study group asks you to explain the economic role of slavery in the Atlantic world — not just in America — in 60 seconds.",
+    "question": "A study group asks you to explain the economic role of slavery in the Atlantic world — not just in America.",
     "tips": [
       "Start with the Atlantic triangle structure before narrowing to any one country",
       "Name the commodities and who profited beyond the plantation owners",
@@ -17967,7 +17967,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "Someone at a networking event asks: 'Why do empires always seem to fall?' Give them the honest pattern-level answer in 60 seconds.",
+    "question": "Someone at a networking event asks: 'Why do empires always seem to fall?' Give them the honest pattern-level answer.",
     "tips": [
       "Name two structural reasons that recur — overextension and succession crises are classics",
       "Use one concrete empire as a brief example, not abstract generalities",
@@ -17981,7 +17981,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "3-4",
-    "question": "A friend who loved a medieval fantasy show asks what feudalism was actually like day to day for ordinary people. Explain it in 60 seconds.",
+    "question": "A friend who loved a medieval fantasy show asks what feudalism was actually like day to day for ordinary people. Explain it.",
     "tips": [
       "Ground it in the relationship: lord provides protection, peasant provides labor — the deal",
       "Name one concrete obligation or ritual that captures the system",
@@ -17995,7 +17995,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "Explain to a peer how Christianity went from a persecuted minority sect in 100 AD to the official religion of the Roman Empire by 380 AD. What actually drove that shift in 75 seconds?",
+    "question": "Explain to a peer how Christianity went from a persecuted minority sect in 100 AD to the official religion of the Roman Empire by 380 AD. What actually drove that shift?",
     "tips": [
       "Don't start with Constantine — work up to him through earlier structural changes",
       "Name both political utility and genuine belief as factors — don't reduce to cynicism",
@@ -18009,7 +18009,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "Your colleagues want to understand the Mongol Empire — what made it so effective, and why it broke apart. Cover both in 75 seconds.",
+    "question": "Your colleagues want to understand the Mongol Empire — what made it so effective, and why it broke apart. Cover both.",
     "tips": [
       "Lead with military innovation: mobility, psychological warfare, adaptive tactics",
       "Explain fragmentation as a structural problem of succession, not moral decline",
@@ -18023,7 +18023,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "Explain to a peer group how decolonization after World War II reshaped the global political map — and why some of those new states struggled so quickly. 75 seconds.",
+    "question": "Explain to a peer group how decolonization after World War II reshaped the global political map — and why some of those new states struggled so quickly.",
     "tips": [
       "Connect the war's weakening of European powers to the opportunity for independence movements",
       "Name arbitrary borders and Cold War interference as two legacies that created instability",
@@ -18037,7 +18037,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "Explain to a peer why the Spanish Empire — the world's dominant power in 1550 — had largely collapsed by 1820. What went wrong? 75 seconds.",
+    "question": "Explain to a peer why the Spanish Empire — the world's dominant power in 1550 — had largely collapsed by 1820. What went wrong?",
     "tips": [
       "Name silver dependency and inflation as economic causes before the political ones",
       "The Armada's defeat is a symbol, not a cause — flag that explicitly",
@@ -18051,7 +18051,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "Explain how the Black Death of 1347–1351 helped reshape medieval European society — labor, church authority, and art. Make the causal links clear in 75 seconds.",
+    "question": "Explain how the Black Death of 1347–1351 helped reshape medieval European society — labor, church authority, and art. Make the causal links clear.",
     "tips": [
       "Open with the mortality scale — 30–60% of Europe — so the stakes are felt",
       "Name the labor shortage as the key structural lever: peasants gained bargaining power",
@@ -18065,7 +18065,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "A peer group asks: what made the British Empire structurally different from earlier empires — Rome, the Mongols, Spain? Explain the distinctive features in 75 seconds.",
+    "question": "A peer group asks: what made the British Empire structurally different from earlier empires — Rome, the Mongols, Spain? Explain the distinctive features.",
     "tips": [
       "Focus on two differentiators: sea power + commercial capitalism, vs. land-based conquest",
       "Name the East India Company as a novel instrument — not a government army, a corporation",
@@ -18079,7 +18079,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "5-6",
-    "question": "Explain to a peer group how the Civil War transformed the United States — politically, economically, and constitutionally — beyond the abolition of slavery. 75 seconds.",
+    "question": "Explain to a peer group how the Civil War transformed the United States — politically, economically, and constitutionally — beyond the abolition of slavery.",
     "tips": [
       "Name the 13th, 14th, and 15th Amendments as a constitutional revolution, not just additions",
       "Explain how federal power expanded permanently relative to states",
@@ -18093,7 +18093,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "A panel of history educators is skeptical that World War II could have ended differently. Defend the view that the war's outcome was not inevitable — contingency mattered. 90 seconds.",
+    "question": "A panel of history educators is skeptical that World War II could have ended differently. Defend the view that the war's outcome was not inevitable — contingency mattered.",
     "tips": [
       "Name two specific turning points where a different decision could have changed the trajectory",
       "Distinguish 'could have gone differently' from 'the Allies would have lost' — that's a weaker claim",
@@ -18107,7 +18107,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "You're addressing a community meeting about a Confederate statue in a public park. Make the historical case for why the context and date of its installation matters as much as what it depicts. 90 seconds.",
+    "question": "You're addressing a community meeting about a Confederate statue in a public park. Make the historical case for why the context and date of its installation matters as much as what it depicts.",
     "tips": [
       "Lead with the installation date — most were built during Jim Crow or the Civil Rights era, not right after the war",
       "Separate 'remember history' from 'honor in public space' — that distinction is your key move",
@@ -18121,7 +18121,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "Explain to a skeptical audience why the pattern of empires overextending and collapsing actually does apply to American foreign policy since 1990 — and why that's a historical observation, not a political attack. 90 seconds.",
+    "question": "Explain to a skeptical audience why the pattern of empires overextending and collapsing actually does apply to American foreign policy since 1990 — and why that's a historical observation, not a political attack.",
     "tips": [
       "Define 'imperial overextension' as a structural term before applying it — don't let it sound ideological",
       "Name two historical parallels precisely: which empire, which moment, which similarity",
@@ -18135,7 +18135,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "A panel of teachers is debating whether to teach the 'great man' theory of history or structural forces. Defend the view that individuals genuinely changed history — and make it rigorous, not romantic. 90 seconds.",
+    "question": "A panel of teachers is debating whether to teach the 'great man' theory of history or structural forces. Defend the view that individuals genuinely changed history — and make it rigorous, not romantic.",
     "tips": [
       "Name one moment where a specific person's decision was genuinely pivotal — not just symbolic",
       "Acknowledge the structural forces argument fairly before you counter it",
@@ -18149,7 +18149,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "Argue to a school board that the popular myth that the Civil War was primarily about 'states' rights' — not slavery — is historically inaccurate and why teaching it accurately matters. 90 seconds.",
+    "question": "Argue to a school board that the popular myth that the Civil War was primarily about 'states' rights' — not slavery — is historically inaccurate and why teaching it accurately matters.",
     "tips": [
       "Lead with primary sources: the secession declarations themselves name slavery explicitly",
       "Define 'states' rights' as it was used at the time: the right to maintain slavery",
@@ -18163,7 +18163,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "Explain to a journalist why comparing today's political polarization to the Weimar Republic's collapse is both useful and dangerously misleading. 90 seconds.",
+    "question": "Explain to a journalist why comparing today's political polarization to the Weimar Republic's collapse is both useful and dangerously misleading.",
     "tips": [
       "First, steelman the comparison — name the real structural similarities",
       "Then name two ways it breaks down: institutional differences, economic context, party structure",
@@ -18177,7 +18177,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "7-8",
-    "question": "You're addressing a panel skeptical of the claim that the New Deal saved American democracy. Make the historical case — without overclaiming — in 90 seconds.",
+    "question": "You're addressing a panel skeptical of the claim that the New Deal saved American democracy. Make the historical case — without overclaiming.",
     "tips": [
       "Establish what 'saving democracy' means concretely: legitimacy, avoiding authoritarian turn",
       "Name the political context: what was happening in Europe in 1933 that makes this claim credible",
@@ -18191,7 +18191,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Defend to a public hearing the position that a city's founding myth — settler heroism — should be revised in school curricula to include Indigenous displacement. Persuade people who feel their community identity is under attack. 120 seconds.",
+    "question": "Defend to a public hearing the position that a city's founding myth — settler heroism — should be revised in school curricula to include Indigenous displacement. Persuade people who feel their community identity is under attack.",
     "tips": [
       "Acknowledge what the existing narrative gave people — pride, belonging, continuity — before you challenge it",
       "Make the argument that a fuller story is a stronger foundation for civic identity, not a weaker one",
@@ -18205,7 +18205,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Persuade a skeptical general audience that the fall of the Western Roman Empire in 476 AD is a misleading date — and that what we call 'the fall' was actually a slow transformation that lasted centuries and shaped everything we inherited. 120 seconds.",
+    "question": "Persuade a skeptical general audience that the fall of the Western Roman Empire in 476 AD is a misleading date — and that what we call 'the fall' was actually a slow transformation that lasted centuries and shaped everything we inherited.",
     "tips": [
       "Start by granting the audience's intuition: yes, something did end — but date it better",
       "Name the institutional and cultural continuities — the Church, Roman law, Latin — that persisted",
@@ -18219,7 +18219,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Argue at a museum board meeting that the museum's permanent collection — built largely from 19th-century imperial acquisitions — should be reframed with provenance and context labels, not returned or removed. Make the case that transparency strengthens the institution. 120 seconds.",
+    "question": "Argue at a museum board meeting that the museum's permanent collection — built largely from 19th-century imperial acquisitions — should be reframed with provenance and context labels, not returned or removed. Make the case that transparency strengthens the institution.",
     "tips": [
       "Separate the reframing argument from the repatriation debate — you're not arguing about ownership today",
       "Name what transparency gives the institution: credibility, audience trust, educational value",
@@ -18233,7 +18233,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Defend to a journalist panel the historical record on the Marshall Plan — arguing it was both genuinely altruistic and strategically self-interested, and that this duality makes it a better model for foreign aid, not a worse one. 120 seconds.",
+    "question": "Defend to a journalist panel the historical record on the Marshall Plan — arguing it was both genuinely altruistic and strategically self-interested, and that this duality makes it a better model for foreign aid, not a worse one.",
     "tips": [
       "Name the dual motivations explicitly and early — don't let the journalists land the 'it was just self-interest' punch",
       "Name specific outcomes: GDP recovery, democratic stability in West Germany, containment — all real",
@@ -18247,7 +18247,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Address a public commemoration of the bombing of Hiroshima where both victims' advocates and military historians are present. Make a statement that is honest about the moral complexity without flattering either side. 120 seconds.",
+    "question": "Address a public commemoration of the bombing of Hiroshima where both victims' advocates and military historians are present. Make a statement that is honest about the moral complexity without flattering either side.",
     "tips": [
       "Do not start with a verdict — start with what is not in dispute (the deaths, the scale, the end of the war)",
       "Hold both truths: genuine military logic existed AND the humanitarian cost was catastrophic",
@@ -18261,7 +18261,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Persuade a community that has resisted acknowledging past racial violence in their town's history to support a historical truth and reconciliation process. You have one chance to make this case. 120 seconds.",
+    "question": "Persuade a community that has resisted acknowledging past racial violence in their town's history to support a historical truth and reconciliation process. You have one chance to make this case.",
     "tips": [
       "Lead with what the community will gain, not with accusation — research shows this framing lands better",
       "Name a comparable community that went through this process and is stronger for it",
@@ -18275,7 +18275,7 @@
     "mode": "explanation",
     "category": "history",
     "difficultyBand": "9-10",
-    "question": "Defend the counterintuitive thesis that Abraham Lincoln's cautious, incremental approach to emancipation was strategically essential — and that a bolder early stance would likely have lost the war and freed no one — to an audience divided between admirers and critics of Lincoln. 120 seconds.",
+    "question": "Defend the counterintuitive thesis that Abraham Lincoln's cautious, incremental approach to emancipation was strategically essential — and that a bolder early stance would likely have lost the war and freed no one — to an audience divided between admirers and critics of Lincoln.",
     "tips": [
       "Open by acknowledging the moral discomfort of the thesis — don't pretend it's easy",
       "Walk through the military and political constraints of 1861–1862 that Lincoln actually faced",
@@ -20417,7 +20417,7 @@
     "mode": "explanation",
     "category": "healthWellness",
     "difficultyBand": "5-6",
-    "question": "Explain to a peer group familiar with self-improvement content why willpower is an unreliable strategy for habit change — and what approaches actually work — in under 75 seconds.",
+    "question": "Explain to a peer group familiar with self-improvement content why willpower is an unreliable strategy for habit change — and what approaches actually work.",
     "tips": [
       "Name one concrete alternative to willpower — like environment design or implementation intentions — instead of staying abstract.",
       "Acknowledge that willpower exists and matters short-term; the argument is about sustainability.",
@@ -21537,7 +21537,7 @@
     "mode": "explanation",
     "category": "realEstate",
     "difficultyBand": "5-6",
-    "question": "Explain how a real estate market cycle works — expansion, peak, contraction, recovery — to a peer audience, without using a single piece of economic jargon. You have 75 seconds.",
+    "question": "Explain how a real estate market cycle works — expansion, peak, contraction, recovery — to a peer audience, without using a single piece of economic jargon.",
     "tips": [
       "Use a local market story rather than abstract phases — make the cycle feel lived-in",
       "Jargon ban means no 'GDP,' 'monetary policy,' or 'cap rates' — find plain substitutes",
@@ -21761,7 +21761,7 @@
     "mode": "explanation",
     "category": "realEstate",
     "difficultyBand": "9-10",
-    "question": "Convince a municipal planning commission to upzone a residential neighborhood — allowing multi-family buildings where only single-family homes are permitted today. Residents are organized in opposition. You have two minutes.",
+    "question": "Convince a municipal planning commission to upzone a residential neighborhood — allowing multi-family buildings where only single-family homes are permitted today. Residents are organized in opposition.",
     "tips": [
       "Open with the human cost of the status quo — who can't afford to live there today — before making any policy argument",
       "Name and directly rebut the two strongest resident objections before they raise them",
@@ -22125,7 +22125,7 @@
     "mode": "explanation",
     "category": "consulting",
     "difficultyBand": "5-6",
-    "question": "Explain, under a strict 75-second limit, why over-reliance on benchmarks is a consulting trap — and how to use them properly.",
+    "question": "Explain why over-reliance on benchmarks is a consulting trap — and how to use them properly.",
     "tips": [
       "Name the seduction: benchmarks feel objective but encode assumptions",
       "Explain what questions to ask before citing a benchmark in a client presentation",
@@ -22209,7 +22209,7 @@
     "mode": "explanation",
     "category": "consulting",
     "difficultyBand": "7-8",
-    "question": "Defend your diagnosis to a client CEO who is skeptical — they believe the problem is external market conditions, but your data says it's internal execution. You have 90 seconds.",
+    "question": "Defend your diagnosis to a client CEO who is skeptical — they believe the problem is external market conditions, but your data says it's internal execution.",
     "tips": [
       "Lead with what the CEO is right about before redirecting — acknowledge market headwinds first",
       "Anchor your diagnosis in their own data, not your framework",
@@ -22307,7 +22307,7 @@
     "mode": "explanation",
     "category": "consulting",
     "difficultyBand": "7-8",
-    "question": "Explain to a new client CEO — in 90 seconds — why your recommendation contradicts what their previous consultants told them, and why that's not a red flag.",
+    "question": "Explain to a new client CEO — why your recommendation contradicts what their previous consultants told them, and why that's not a red flag.",
     "tips": [
       "Don't disparage the prior firm — explain how the context changed or the question shifted",
       "Anchor the difference in specific data or timing, not in claiming superior insight",
@@ -22321,7 +22321,7 @@
     "mode": "explanation",
     "category": "consulting",
     "difficultyBand": "9-10",
-    "question": "Convince your firm's partnership to walk away from a marquee client because continuing the engagement would require you to sign off on work you believe is misleading. You have two minutes.",
+    "question": "Convince your firm's partnership to walk away from a marquee client because continuing the engagement would require you to sign off on work you believe is misleading.",
     "tips": [
       "Lead with what's at stake for the firm, not just the ethical principle — partners respond to risk",
       "Be specific about what 'misleading' means; vague ethics claims lose rooms",
@@ -22377,7 +22377,7 @@
     "mode": "explanation",
     "category": "consulting",
     "difficultyBand": "9-10",
-    "question": "Persuade your firm's leadership to invest in building a new capability that several senior partners believe is a distraction from core business. Two minutes.",
+    "question": "Persuade your firm's leadership to invest in building a new capability that several senior partners believe is a distraction from core business.",
     "tips": [
       "Name the partners' concern directly — don't argue against a strawman",
       "Ground the case in a client problem you are currently losing work on, not an abstract future opportunity",
@@ -22713,7 +22713,7 @@
     "mode": "explanation",
     "category": "mediaEntertainment",
     "difficultyBand": "5-6",
-    "question": "A peer audience of TV writers asks you to explain what a showrunner actually does — and why the role is so hard to hire for. You have 75 seconds.",
+    "question": "A peer audience of TV writers asks you to explain what a showrunner actually does — and why the role is so hard to hire for.",
     "tips": [
       "Separate the three distinct skill sets the role requires — writing, production management, talent leadership",
       "Explain why strong writers often fail as showrunners",
@@ -22881,7 +22881,7 @@
     "mode": "explanation",
     "category": "mediaEntertainment",
     "difficultyBand": "9-10",
-    "question": "Convince a major studio's board to walk away from its most profitable franchise — because continuing it is destroying the studio's ability to develop anything new. You have two minutes.",
+    "question": "Convince a major studio's board to walk away from its most profitable franchise — because continuing it is destroying the studio's ability to develop anything new.",
     "tips": [
       "Open with the franchise's genuine value — you lose the room if you dismiss what they built",
       "Make the opportunity-cost argument with specifics: what deals, directors, or projects the franchise is crowding out",
