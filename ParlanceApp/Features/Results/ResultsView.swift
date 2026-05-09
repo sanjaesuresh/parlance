@@ -12,6 +12,7 @@ struct ResultsView: View {
     @EnvironmentObject private var subscription: SubscriptionService
     @State private var showXPToast = true
     @State private var showPaywall = false
+    @State private var showXPBanner = false
 
     private enum ResultsPhase {
         case scoreReveal, breakdown
@@ -144,6 +145,13 @@ struct ResultsView: View {
                     .padding(.bottom, 24)
             }
         }
+        .overlay(alignment: .top) {
+            if showXPBanner {
+                XPBannerView(xpEarned: session.xpEarned)
+                    .padding(.top, 8)
+                    .transition(.move(edge: .top).combined(with: .opacity))
+            }
+        }
         .sheet(isPresented: $showPaywall) {
             PaywallView(source: "results")
         }
@@ -250,6 +258,18 @@ struct ResultsView: View {
             }
             .padding(.horizontal, 32)
             .padding(.bottom, 48)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                withAnimation(.spring(response: 0.45, dampingFraction: 0.75)) {
+                    showXPBanner = true
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.8) {
+                withAnimation(.easeOut(duration: 0.3)) {
+                    showXPBanner = false
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
