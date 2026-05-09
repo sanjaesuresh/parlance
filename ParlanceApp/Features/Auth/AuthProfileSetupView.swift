@@ -7,6 +7,7 @@ struct AuthProfileSetupView: View {
     @State private var name = ""
     @State private var username = ""
     @State private var occupation = ""
+    @State private var location = ""
     @State private var selectedAvatar = Self.avatars.randomElement()!
     @State private var comfortLevel = 0
 
@@ -71,6 +72,13 @@ struct AuthProfileSetupView: View {
                 // Occupation (optional)
                 setupField(label: "Job or role", hint: "Optional — helps tailor your practice") {
                     TextField("e.g. Software Engineer, Student…", text: $occupation)
+                        .font(AppFonts.body(17))
+                        .foregroundStyle(AppColors.text)
+                }
+
+                // Location (optional)
+                setupField(label: "Where are you based?", hint: "Optional") {
+                    TextField("City, Country", text: $location)
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
                 }
@@ -173,6 +181,7 @@ struct AuthProfileSetupView: View {
                         await viewModel.signUpWithProfile(
                             name: name,
                             username: username,
+                            location: location,
                             occupation: occupation,
                             avatar: selectedAvatar,
                             comfortLevel: comfortLevel

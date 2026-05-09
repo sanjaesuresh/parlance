@@ -50,7 +50,7 @@ final class AuthViewModel: ObservableObject {
         }
     }
 
-    func signUpWithProfile(name: String, username: String, occupation: String?, avatar: String, comfortLevel: Int) async {
+    func signUpWithProfile(name: String, username: String, location: String?, occupation: String?, avatar: String, comfortLevel: Int) async {
         isLoading = true
         authService.isCompletingSignUp = true
         errorMessage = nil
@@ -60,11 +60,13 @@ final class AuthViewModel: ObservableObject {
             let uid = authService.currentUserID ?? ""
             let trimmed = name.trimmingCharacters(in: .whitespaces)
             let finalUsername = username.isEmpty ? Self.makeUsername(from: trimmed) : username
+            let loc = location.flatMap { $0.trimmingCharacters(in: .whitespaces).isEmpty ? nil : $0 }
             let occ = occupation.flatMap { $0.trimmingCharacters(in: .whitespaces).isEmpty ? nil : $0 }
             let user = PersistenceService.shared.createUser(
                 supabaseUID: uid,
                 name: trimmed,
                 username: finalUsername,
+                location: loc,
                 occupation: occ,
                 avatar: avatar,
                 practiceLevel: comfortLevel
