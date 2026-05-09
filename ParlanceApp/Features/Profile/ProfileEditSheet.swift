@@ -100,6 +100,7 @@ struct ProfileEditSheet: View {
                                 }
                             }
                             .padding(.horizontal, 16)
+                            .padding(.vertical, 6)
                         }
                     }
                     .padding(.top, 8)
