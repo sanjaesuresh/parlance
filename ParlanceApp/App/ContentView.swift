@@ -7,6 +7,7 @@ struct ContentView: View {
     @StateObject private var permissionsService = PermissionsService()
     @StateObject private var networkMonitor = NetworkMonitor()
     @StateObject private var weekCache = SessionWeekCache()
+    @ObservedObject private var router = DeepLinkRouter.shared
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
     @AppStorage("parlance.welcome_back_uid") private var pendingWelcomeBackUID = ""
@@ -139,7 +140,7 @@ struct ContentView: View {
     }
 
     private var mainTabView: some View {
-        TabView {
+        TabView(selection: $router.selectedTab) {
             HomeView(onStartSession: { state in
                 withAnimation(.easeInOut(duration: 0.3)) {
                     activeSession = state
@@ -149,24 +150,28 @@ struct ContentView: View {
             .tabItem {
                 Label("Home", systemImage: "house")
             }
+            .tag(0)
 
             ProgressTabView()
                 .environmentObject(weekCache)
                 .tabItem {
                     Label("Progress", systemImage: "chart.bar")
                 }
+                .tag(1)
 
-            LeagueView()
+            LeagueView(openFriendRequests: $router.openFriendRequests)
                 .environmentObject(weekCache)
                 .tabItem {
                     Label("League", systemImage: "trophy")
                 }
+                .tag(2)
 
             ProfileView()
                 .environmentObject(weekCache)
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
+                .tag(3)
         }
         .tint(AppColors.gold)
         .environmentObject(weekCache)
