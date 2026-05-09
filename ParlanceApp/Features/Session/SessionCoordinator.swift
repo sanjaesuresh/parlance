@@ -216,11 +216,14 @@ struct SessionCoordinator: View {
                 emotionResult: pendingEmotionResult
             )
         } catch {
-            #if DEBUG
-            print("[Scoring] Failed: \(error)")
-            #endif
-            phase = .scoringFailed
-            return
+            print("[Scoring] AI unavailable, using local scoring: \(error)")
+            scoringResult = FeedbackGenerator.localScoringResult(
+                fillerCount: pendingFillerCount,
+                duration: pendingDuration,
+                timingStats: pendingTimingStats,
+                transcript: pendingTranscript,
+                mode: state.mode
+            )
         }
 
         let xpEarned = GamificationService.xpForSession(

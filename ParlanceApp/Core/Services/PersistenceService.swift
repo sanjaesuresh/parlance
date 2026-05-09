@@ -12,14 +12,29 @@ final class PersistenceService {
         let persistentConfig = ModelConfiguration(isStoredInMemoryOnly: false)
         do {
             container = try ModelContainer(for: schema, configurations: [persistentConfig])
-        } catch {
-            // Persistent store failed (e.g. schema migration after an update).
-            // Fall back to in-memory so the app stays alive; data won't persist this session.
-            let memoryConfig = ModelConfiguration(isStoredInMemoryOnly: true)
+            UserDefaults.standard.removeObject(forKey: "parlance.store_wiped")
+        } catch let firstError {
+            // Migration failed — wipe the store and recreate fresh rather than silently
+            // falling back to in-memory (which causes sessions to vanish on restart).
+            print("[PersistenceService] Persistent store failed, wiping: \(firstError)")
+            Self.wipePersistentStore()
+            UserDefaults.standard.set(true, forKey: "parlance.store_wiped")
             do {
-                container = try ModelContainer(for: schema, configurations: [memoryConfig])
+                container = try ModelContainer(for: schema, configurations: [persistentConfig])
             } catch {
-                fatalError("Failed to create ModelContainer (persistent and in-memory): \(error)")
+                fatalError("[PersistenceService] Store unrecoverable after wipe: \(error)")
+            }
+        }
+    }
+
+    private static func wipePersistentStore() {
+        let fm = FileManager.default
+        guard let support = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask).first,
+              let contents = try? fm.contentsOfDirectory(at: support, includingPropertiesForKeys: nil) else { return }
+        for url in contents {
+            let name = url.lastPathComponent
+            if name.hasSuffix(".store") || name.hasSuffix(".store-shm") || name.hasSuffix(".store-wal") {
+                try? fm.removeItem(at: url)
             }
         }
     }
@@ -75,13 +90,11 @@ final class PersistenceService {
     }
 
     func sessionsThisWeek() -> [Session] {
-        var calendar = Calendar(identifier: .iso8601)
-        calendar.timeZone = TimeZone.current
-        let now = Date.now
-        guard let weekStart = calendar.dateInterval(of: .weekOfYear, for: now)?.start else { return [] }
-        let predicate = #Predicate<Session> { $0.date >= weekStart }
-        let descriptor = FetchDescriptor<Session>(predicate: predicate, sortBy: [SortDescriptor(\.date, order: .reverse)])
-        return (try? context.fetch(descriptor)) ?? []
+        let cal = Calendar.current
+        let weekStart = cal.date(from: cal.dateComponents([.yearForWeekOfYear, .weekOfYear], from: .now)) ?? .distantPast
+        let descriptor = FetchDescriptor<Session>(sortBy: [SortDescriptor(\.date, order: .reverse)])
+        let all = (try? context.fetch(descriptor)) ?? []
+        return all.filter { $0.date >= weekStart }
     }
 
     func totalSessionCount() -> Int {

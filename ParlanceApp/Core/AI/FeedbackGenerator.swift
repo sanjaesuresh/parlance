@@ -100,6 +100,70 @@ enum FeedbackGenerator {
         """
     }
 
+    /// Computes a ScoringResult entirely from local signals — no network required.
+    /// Used as a fallback when the AI scoring call fails.
+    static func localScoringResult(
+        fillerCount: Int,
+        duration: TimeInterval,
+        timingStats: TimingStats,
+        transcript: String,
+        mode: SessionMode
+    ) -> ScoringResult {
+        let wpm = duration > 0 ? Double(timingStats.wordCount) / (duration / 60.0) : 0
+
+        let fillerScore = max(0, 10 - fillerCount)
+
+        let paceScore: Int
+        switch wpm {
+        case 130...160: paceScore = 10
+        case 110..<130, 160..<185: paceScore = 7
+        default: paceScore = 4
+        }
+
+        let sentences = transcript
+            .components(separatedBy: CharacterSet(charactersIn: ".!?"))
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+            .filter { !$0.isEmpty }
+        var clarityScore = 10
+        for s in sentences {
+            let wc = s.split(separator: " ").count
+            if wc > 25 { clarityScore -= 1 }
+            else if wc < 5 { clarityScore = max(0, clarityScore - 1) }
+        }
+        clarityScore = max(0, clarityScore)
+
+        let structureScore: Int
+        switch timingStats.wordCount {
+        case 150...: structureScore = 8
+        case 80..<150: structureScore = 6
+        case 40..<80: structureScore = 4
+        default: structureScore = 3
+        }
+
+        let words = transcript.lowercased().split(separator: " ").map(String.init)
+        let ttr = words.isEmpty ? 0.5 : Double(Set(words).count) / Double(words.count)
+        let vocabScore = min(10, Int(ttr * 12))
+
+        let metricScores = [fillerScore, paceScore, clarityScore, structureScore, vocabScore]
+        let overall = metricScores.reduce(0, +) * 10 / metricScores.count
+
+        let metrics: [String: MetricScore] = [
+            MetricKey.fillerWords.rawValue: MetricScore(score: fillerScore, tip: "Reducing filler words will make you sound more confident."),
+            MetricKey.pace.rawValue: MetricScore(score: paceScore, tip: "Aim for 130–160 words per minute for clear, comfortable delivery."),
+            MetricKey.clarity.rawValue: MetricScore(score: clarityScore, tip: "Shorter sentences are easier for listeners to follow."),
+            MetricKey.structure.rawValue: MetricScore(score: structureScore, tip: "Ensure your response has a clear opening, body, and close."),
+            MetricKey.vocabulary.rawValue: MetricScore(score: vocabScore, tip: "Varying your word choice shows range and precision.")
+        ]
+
+        return ScoringResult(
+            metrics: metrics,
+            overallScore: overall,
+            feedback: nil,
+            bestMoment: ScoringMoment(quote: "", reason: ""),
+            worstMoment: ScoringMoment(quote: "", reason: "")
+        )
+    }
+
     static func fetchScoring(
         client: any ScoringClient,
         mode: SessionMode,

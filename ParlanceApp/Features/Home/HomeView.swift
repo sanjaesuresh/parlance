@@ -12,6 +12,12 @@ struct HomeView: View {
 
     private var user: User? { users.first }
 
+    private var thisWeekSessions: [Session] {
+        let cal = Calendar.current
+        let weekStart = cal.date(from: cal.dateComponents([.yearForWeekOfYear, .weekOfYear], from: .now)) ?? .distantPast
+        return allSessions.filter { $0.date >= weekStart }
+    }
+
     @Environment(\.scenePhase) private var scenePhase
 
     @State private var sectionVisible: [Bool] = Array(repeating: false, count: 6)
@@ -384,21 +390,21 @@ struct HomeView: View {
     // MARK: - Weekly Stats
 
     private var weeklyStatsSection: some View {
-        let stats = viewModel.weeklyStats(sessions: weekCache.sessions)
+        let stats = viewModel.weeklyStats(sessions: thisWeekSessions)
 
         return VStack(spacing: 10) {
             SectionHeader(title: "This Week")
 
-            if weekCache.sessions.isEmpty {
+            if thisWeekSessions.isEmpty {
                 VStack(spacing: 8) {
                     Image(systemName: "chart.bar.doc.horizontal")
                         .font(.system(size: 24))
                         .foregroundStyle(AppColors.dim)
-                    Text("Complete your first session to see weekly stats")
+                    Text(allSessions.isEmpty ? "Complete your first session to see weekly stats" : "No sessions this week yet")
                         .font(AppFonts.body(12))
                         .foregroundStyle(AppColors.sub)
                         .multilineTextAlignment(.center)
-                    Text("Try a Daily Convo to get started")
+                    Text(allSessions.isEmpty ? "Try a Daily Convo to get started" : "Keep your streak going — practice today")
                         .font(AppFonts.body(11))
                         .foregroundStyle(AppColors.dim)
                 }
