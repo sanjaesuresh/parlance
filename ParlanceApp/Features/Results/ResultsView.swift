@@ -89,7 +89,7 @@ struct ResultsView: View {
             VStack(spacing: 0) {
                 topNavBar
                     .padding(.horizontal, 16)
-                    .padding(.top, 16)
+                    .padding(.vertical, 10)
 
                 switch resultsPhase {
                 case .scoreReveal:
@@ -517,28 +517,12 @@ struct ResultsView: View {
         Group {
             if session.isAIScored {
                 if !session.bestMomentQuote.isEmpty || !session.worstMomentQuote.isEmpty {
-                    HStack(spacing: 10) {
-                        if !session.bestMomentQuote.isEmpty {
-                            AIMomentCard(
-                                label: "✅ BEST MOMENT",
-                                quote: session.bestMomentQuote,
-                                reason: session.bestMomentReason,
-                                labelColor: AppColors.teal,
-                                bgColor: AppColors.momentBestBg,
-                                borderColor: AppColors.teal.opacity(0.3)
-                            )
-                        }
-                        if !session.worstMomentQuote.isEmpty {
-                            AIMomentCard(
-                                label: "⚠️ WEAKEST MOMENT",
-                                quote: session.worstMomentQuote,
-                                reason: session.worstMomentReason,
-                                labelColor: AppColors.red,
-                                bgColor: AppColors.momentWorstBg,
-                                borderColor: AppColors.red.opacity(0.3)
-                            )
-                        }
-                    }
+                    AIMomentsCard(
+                        bestQuote: session.bestMomentQuote,
+                        bestReason: session.bestMomentReason,
+                        worstQuote: session.worstMomentQuote,
+                        worstReason: session.worstMomentReason
+                    )
                 } else {
                     Text("No specific moments identified for this session.")
                         .font(AppFonts.body(12))
@@ -547,27 +531,13 @@ struct ResultsView: View {
                         .padding(.horizontal, 4)
                 }
             } else {
-                HStack(spacing: 10) {
-                    if !session.bestMomentText.isEmpty {
-                        MomentCard(
-                            label: "✅ BEST MOMENT",
-                            timestamp: formatTimestamp(session.bestMomentTimestamp),
-                            text: session.bestMomentText,
-                            labelColor: AppColors.teal,
-                            bgColor: AppColors.momentBestBg,
-                            borderColor: AppColors.teal.opacity(0.3)
-                        )
-                    }
-                    if !session.worstMomentText.isEmpty {
-                        MomentCard(
-                            label: "⚠️ WEAKEST MOMENT",
-                            timestamp: formatTimestamp(session.worstMomentTimestamp),
-                            text: session.worstMomentText,
-                            labelColor: AppColors.red,
-                            bgColor: AppColors.momentWorstBg,
-                            borderColor: AppColors.red.opacity(0.3)
-                        )
-                    }
+                if !session.bestMomentText.isEmpty || !session.worstMomentText.isEmpty {
+                    MomentsCard(
+                        bestTimestamp: formatTimestamp(session.bestMomentTimestamp),
+                        bestText: session.bestMomentText,
+                        worstTimestamp: formatTimestamp(session.worstMomentTimestamp),
+                        worstText: session.worstMomentText
+                    )
                 }
             }
         }

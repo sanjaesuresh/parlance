@@ -337,7 +337,7 @@ private struct AnalyzingView: View {
                         .foregroundStyle(AppColors.gold)
                 }
 
-                HStack(alignment: .center, spacing: 0) {
+                HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("Analyzing your performance")
                         .font(AppFonts.body(13))
                         .foregroundStyle(AppColors.text)
