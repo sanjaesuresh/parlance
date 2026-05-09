@@ -193,7 +193,7 @@ struct FirstLaunchSetupView: View {
             }
         }
         .sheet(isPresented: $showPrivacyPolicy) {
-            SafariView(url: URL(string: "https://parlance.app/privacy")!)
+            SafariView(url: URL(string: "https://theparlance.app/privacy")!)
         }
     }
 

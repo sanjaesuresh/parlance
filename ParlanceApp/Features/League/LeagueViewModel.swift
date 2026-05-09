@@ -4,8 +4,6 @@ import UIKit
 
 @MainActor
 final class LeagueViewModel: ObservableObject {
-    @Published var dailyReminderEnabled = false
-    @Published var soundEffectsEnabled = true
     @Published var countdownText: String = ""
 
     private var countdownTimer: Timer?
@@ -72,7 +70,4 @@ final class LeagueViewModel: ObservableObject {
         sessions.map(\.xpEarned).reduce(0, +)
     }
 
-    func weeklyBestScore(from sessions: [Session]) -> Int {
-        sessions.map(\.overallScore).max() ?? 0
-    }
 }

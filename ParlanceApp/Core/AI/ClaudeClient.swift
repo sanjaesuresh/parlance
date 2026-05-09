@@ -39,18 +39,6 @@ final class ClaudeClient: ScoringClient {
         throw URLError(.cannotParseResponse)
     }
 
-    // MARK: - Legacy plain-feedback path (kept for ResultsViewModel.retryFeedback)
-
-    struct FeedbackResponse: Decodable {
-        let feedback: String
-    }
-
-    func fetchFeedback(prompt: String) async throws -> String {
-        let data = try await post(prompt: prompt)
-        let decoded = try JSONDecoder().decode(FeedbackResponse.self, from: data)
-        return decoded.feedback
-    }
-
     // MARK: - Shared transport
 
     private func post(prompt: String, timeout: TimeInterval = 8) async throws -> Data {

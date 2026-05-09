@@ -216,7 +216,9 @@ struct SessionCoordinator: View {
                 emotionResult: pendingEmotionResult
             )
         } catch {
+            #if DEBUG
             print("[Scoring] AI unavailable, using local scoring: \(error)")
+            #endif
             scoringResult = FeedbackGenerator.localScoringResult(
                 fillerCount: pendingFillerCount,
                 duration: pendingDuration,

@@ -30,14 +30,21 @@ enum SpeechAnalyzer {
         ("\\bi guess\\b", "I guess")
     ]
 
+    // Compiled once at first use; NSRegularExpression is thread-safe after init.
+    private static let compiledRegexes: [(regex: NSRegularExpression, label: String)] = {
+        fillerPatterns.compactMap { (pattern, label) in
+            guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return nil }
+            return (regex, label)
+        }
+    }()
+
     /// Returns character ranges of filler words in the original text.
     /// Used by the transcript UI to highlight fillers inline.
     static func fillerRanges(in text: String) -> [Range<String.Index>] {
         let lower = text.lowercased()
         var ranges: [Range<String.Index>] = []
-        for (pattern, _) in fillerPatterns {
-            guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { continue }
-            let nsRange = NSRange(lower.startIndex..., in: lower)
+        let nsRange = NSRange(lower.startIndex..., in: lower)
+        for (regex, _) in compiledRegexes {
             regex.enumerateMatches(in: lower, range: nsRange) { match, _, _ in
                 guard let m = match, let r = Range(m.range, in: text) else { return }
                 ranges.append(r)
@@ -50,12 +57,12 @@ enum SpeechAnalyzer {
     /// Counts filler words for display in the transcript card header.
     static func analyzeFillers(in text: String) -> FillerResult {
         let lower = text.lowercased()
+        let nsRange = NSRange(lower.startIndex..., in: lower)
         var totalCount = 0
         var frequency: [String: Int] = [:]
 
-        for (pattern, label) in fillerPatterns {
-            let regex = try? NSRegularExpression(pattern: pattern, options: [])
-            let matches = regex?.numberOfMatches(in: lower, range: NSRange(lower.startIndex..., in: lower)) ?? 0
+        for (regex, label) in compiledRegexes {
+            let matches = regex.numberOfMatches(in: lower, range: nsRange)
             totalCount += matches
             if matches > 0 { frequency[label, default: 0] += matches }
         }

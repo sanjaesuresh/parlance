@@ -17,7 +17,9 @@ final class PushTokenService {
     /// push delivery is non-critical.
     func upsert(token: String) async {
         guard let userID = client.auth.currentUser?.id else {
+            #if DEBUG
             print("[PushTokenService] No authenticated user — skipping token upsert")
+            #endif
             return
         }
 
@@ -34,9 +36,13 @@ final class PushTokenService {
                     onConflict: "user_id"
                 )
                 .execute()
+            #if DEBUG
             print("[PushTokenService] Token upserted for user \(userID)")
+            #endif
         } catch {
+            #if DEBUG
             print("[PushTokenService] Failed to upsert token: \(error)")
+            #endif
         }
     }
 
@@ -45,7 +51,9 @@ final class PushTokenService {
     /// still valid. Failures are logged and swallowed.
     func deleteToken() async {
         guard let userID = client.auth.currentUser?.id else {
+            #if DEBUG
             print("[PushTokenService] No authenticated user — skipping token deletion")
+            #endif
             return
         }
 
@@ -55,9 +63,13 @@ final class PushTokenService {
                 .delete()
                 .eq("user_id", value: userID.uuidString)
                 .execute()
+            #if DEBUG
             print("[PushTokenService] Token deleted for user \(userID)")
+            #endif
         } catch {
+            #if DEBUG
             print("[PushTokenService] Failed to delete token: \(error)")
+            #endif
         }
     }
 }

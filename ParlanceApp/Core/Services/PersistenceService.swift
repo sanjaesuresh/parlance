@@ -16,7 +16,9 @@ final class PersistenceService {
         } catch let firstError {
             // Migration failed — wipe the store and recreate fresh rather than silently
             // falling back to in-memory (which causes sessions to vanish on restart).
+            #if DEBUG
             print("[PersistenceService] Persistent store failed, wiping: \(firstError)")
+            #endif
             Self.wipePersistentStore()
             UserDefaults.standard.set(true, forKey: "parlance.store_wiped")
             do {

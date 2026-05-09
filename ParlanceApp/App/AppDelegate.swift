@@ -16,7 +16,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
     ) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        #if DEBUG
         print("[AppDelegate] APNs device token: \(token)")
+        #endif
         Task { await PushTokenService.shared.upsert(token: token) }
     }
 
@@ -24,7 +26,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: Error
     ) {
+        #if DEBUG
         print("[AppDelegate] Failed to register for remote notifications: \(error)")
+        #endif
     }
 }
 

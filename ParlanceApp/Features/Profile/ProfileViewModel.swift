@@ -6,13 +6,11 @@ import UserNotifications
 final class ProfileViewModel: ObservableObject {
     @Published var dailyReminderEnabled = false
     @Published var soundEffectsEnabled = true
-    @Published var autoAdvanceEnabled = false
     @Published var showResetConfirmation = false
 
     func loadSettings() {
         dailyReminderEnabled = UserDefaults.standard.bool(forKey: "dailyReminderEnabled")
         soundEffectsEnabled = UserDefaults.standard.object(forKey: "soundEffectsEnabled") as? Bool ?? true
-        autoAdvanceEnabled = UserDefaults.standard.bool(forKey: "autoAdvanceEnabled")
     }
 
     func toggleDailyReminder(_ enabled: Bool) {
@@ -29,11 +27,6 @@ final class ProfileViewModel: ObservableObject {
     func toggleSoundEffects(_ enabled: Bool) {
         soundEffectsEnabled = enabled
         UserDefaults.standard.set(enabled, forKey: "soundEffectsEnabled")
-    }
-
-    func toggleAutoAdvance(_ enabled: Bool) {
-        autoAdvanceEnabled = enabled
-        UserDefaults.standard.set(enabled, forKey: "autoAdvanceEnabled")
     }
 
     func resetAllData() {
