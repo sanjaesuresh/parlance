@@ -270,6 +270,7 @@ struct SessionCoordinator: View {
                     score: session.overallScore,
                     difficultyLevel: state.difficultyLevel
                 )
+            SoundService.play(.sessionComplete)
             let rankAfter = user.rank
             if rankAfter.level > rankBefore.level {
                 AnalyticsService.rankUp(newRank: rankAfter.level, rankName: rankAfter.name)

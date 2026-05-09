@@ -219,6 +219,7 @@ struct ResultsView: View {
             }
             .padding(.top, 20)
             .onAppear {
+                SoundService.play(.xpEarned)
                 xpAnimationTask = Task { await animateXP() }
             }
             .onDisappear {
