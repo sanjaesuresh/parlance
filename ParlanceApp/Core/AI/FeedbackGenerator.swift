@@ -97,6 +97,7 @@ enum FeedbackGenerator {
         - A high pitch std dev means dynamic delivery — reward it when no Hume data is available
         - Tips must reference what they actually said, not generic advice
         - If transcript is empty or fewer than 10 words, score all metrics 1-2 and explain in feedback
+        - Do not address the user by name or use any name in the feedback paragraph
         """
     }
 
