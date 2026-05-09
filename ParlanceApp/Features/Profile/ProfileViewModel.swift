@@ -45,8 +45,10 @@ final class ProfileViewModel: ObservableObject {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, _ in
             Task { @MainActor in
                 if granted {
+                    AnalyticsService.notificationPermissionGranted()
                     self.scheduleDailyReminder()
                 } else {
+                    AnalyticsService.notificationPermissionDenied()
                     self.dailyReminderEnabled = false
                     UserDefaults.standard.set(false, forKey: "dailyReminderEnabled")
                 }

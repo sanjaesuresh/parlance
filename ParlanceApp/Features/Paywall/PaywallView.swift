@@ -3,6 +3,8 @@ import SwiftUI
 import StoreKit
 
 struct PaywallView: View {
+    let source: String
+
     @EnvironmentObject private var subscription: SubscriptionService
     @Environment(\.dismiss) private var dismiss
 
@@ -43,6 +45,7 @@ struct PaywallView: View {
             }
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onAppear { AnalyticsService.paywallShown(source: source) }
         .task { await loadProduct() }
         .alert("Something went wrong", isPresented: $showErrorAlert) {
             Button("OK") { errorMessage = nil }
@@ -171,6 +174,7 @@ struct PaywallView: View {
         isPurchasing = true
         do {
             try await subscription.purchase()
+            AnalyticsService.paywallConverted(productId: AppConstants.proProductID)
             dismiss()
         } catch {
             errorMessage = error.localizedDescription
