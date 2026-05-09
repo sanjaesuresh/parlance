@@ -93,7 +93,10 @@ struct SessionCoordinator: View {
                         phase = .processing
                         Task { await processSession() }
                     },
-                    onCancel: { onDismiss() }
+                    onCancel: {
+                        AnalyticsService.sessionAbandoned(mode: state.mode.rawValue, secondsElapsed: Int(recorder.elapsedTime))
+                        onDismiss()
+                    }
                 )
 
             case .processing:
@@ -256,7 +259,12 @@ struct SessionCoordinator: View {
 
         // Gamification
         if let user = persistence.getUser() {
+            let rankBefore = user.rank
             GamificationService.awardXP(to: user, wasDailyChallenge: state.wasDailyChallenge)
+            let rankAfter = user.rank
+            if rankAfter.level > rankBefore.level {
+                AnalyticsService.rankUp(newRank: rankAfter.level, rankName: rankAfter.name)
+            }
             GamificationService.updateStreak(for: user)
             GamificationService.incrementDailySessionCount(for: user)
             if state.wasDailyChallenge { user.dailyChallengeCompletedDate = .now }
@@ -323,7 +331,6 @@ private struct AnalyzingView: View {
                         BouncingDot(delay: 0.18)
                         BouncingDot(delay: 0.36)
                     }
-                    .offset(y: 3)
                     .padding(.leading, 2)
                 }
             }
@@ -339,15 +346,13 @@ private struct BouncingDot: View {
         Circle()
             .fill(AppColors.gold)
             .frame(width: 3, height: 3)
-            .offset(y: up ? -4 : 3)
+            .offset(y: up ? -3 : 3)
             .opacity(up ? 1 : 0.4)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                    withAnimation(.easeInOut(duration: 0.6).repeatForever(autoreverses: true)) {
-                        up = true
-                    }
-                }
-            }
+            .animation(
+                .easeInOut(duration: 0.5).repeatForever(autoreverses: true).delay(delay),
+                value: up
+            )
+            .onAppear { up = true }
     }
 }
 
