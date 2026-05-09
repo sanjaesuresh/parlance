@@ -337,16 +337,16 @@ private struct AnalyzingView: View {
                         .foregroundStyle(AppColors.gold)
                 }
 
-                HStack(alignment: .bottom, spacing: 0) {
+                HStack(alignment: .center, spacing: 0) {
                     Text("Analyzing your performance")
                         .font(AppFonts.body(13))
                         .foregroundStyle(AppColors.text)
-                    HStack(spacing: 2) {
+                    HStack(spacing: 3) {
                         BouncingDot(delay: 0.00)
-                        BouncingDot(delay: 0.18)
-                        BouncingDot(delay: 0.36)
+                        BouncingDot(delay: 0.20)
+                        BouncingDot(delay: 0.40)
                     }
-                    .padding(.leading, 2)
+                    .padding(.leading, 3)
                 }
             }
         }
@@ -355,19 +355,25 @@ private struct AnalyzingView: View {
 
 private struct BouncingDot: View {
     let delay: Double
-    @State private var up = false
+    @State private var lifted = false
 
     var body: some View {
         Circle()
             .fill(AppColors.gold)
-            .frame(width: 3, height: 3)
-            .offset(y: up ? -3 : 3)
-            .opacity(up ? 1 : 0.4)
-            .animation(
-                .easeInOut(duration: 0.5).repeatForever(autoreverses: true).delay(delay),
-                value: up
-            )
-            .onAppear { up = true }
+            .frame(width: 4, height: 4)
+            .offset(y: lifted ? -6 : 0)
+            .opacity(lifted ? 1 : 0.45)
+            .task {
+                try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+                while !Task.isCancelled {
+                    // Rise slowly — working against gravity
+                    withAnimation(.easeOut(duration: 0.36)) { lifted = true }
+                    try? await Task.sleep(nanoseconds: 380_000_000)
+                    // Fall fast — pulled by gravity
+                    withAnimation(.easeIn(duration: 0.20)) { lifted = false }
+                    try? await Task.sleep(nanoseconds: 440_000_000)
+                }
+            }
     }
 }
 

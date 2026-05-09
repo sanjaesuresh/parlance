@@ -343,7 +343,6 @@ struct ResultsView: View {
             }
             .accessibilityLabel("Retry session")
         }
-        .padding(.top, 12)
     }
 
     // MARK: - Score Hero (breakdown view — no ring, just stats)
