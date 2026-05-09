@@ -29,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		D41786FB2FAE4FCE00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D417884D2FAEAC8D00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D4178D962FAEB61800EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4705FF32FA99E9B0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D47063482FA9C65C0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
@@ -85,6 +87,16 @@
 
 /* Begin PBXGroup section */
 		D41786FE2FAE4FCE00EB5925 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D41788502FAEAC8D00EB5925 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4178D992FAEB61800EB5925 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
@@ -251,8 +263,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D4DB95B02FAA5FFC000578F8 /* Products */;
-					ProjectRef = D4DB95AE2FAA5FFC000578F8 /* Parlance.xcodeproj */;
+					ProductGroup = D4DBA31D2FAD813A000578F8 /* Products */;
+					ProjectRef = D4DBA31A2FAD813A000578F8 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4178D992FAEB61800EB5925 /* Products */;
+					ProjectRef = D4178D962FAEB61800EB5925 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4705FF52FA99E9B0037F17E /* Products */;
+					ProjectRef = D4705FF32FA99E9B0037F17E /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D41786FE2FAE4FCE00EB5925 /* Products */;
@@ -263,20 +283,20 @@
 					ProjectRef = D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D4DB99672FABC45E000578F8 /* Products */;
-					ProjectRef = D4DB99642FABC45E000578F8 /* Parlance.xcodeproj */;
+					ProductGroup = D41788502FAEAC8D00EB5925 /* Products */;
+					ProjectRef = D417884D2FAEAC8D00EB5925 /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D4705FF52FA99E9B0037F17E /* Products */;
-					ProjectRef = D4705FF32FA99E9B0037F17E /* Parlance.xcodeproj */;
+					ProductGroup = D4DB99672FABC45E000578F8 /* Products */;
+					ProjectRef = D4DB99642FABC45E000578F8 /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D470634A2FA9C65C0037F17E /* Products */;
 					ProjectRef = D47063482FA9C65C0037F17E /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D4DBA31D2FAD813A000578F8 /* Products */;
-					ProjectRef = D4DBA31A2FAD813A000578F8 /* Parlance.xcodeproj */;
+					ProductGroup = D4DB95B02FAA5FFC000578F8 /* Products */;
+					ProjectRef = D4DB95AE2FAA5FFC000578F8 /* Parlance.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -478,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ParlanceDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 497VU99KK9;
@@ -490,11 +511,12 @@
 				INFOPLIST_KEY_SupabaseURL = "https://xekrfjufgorrcnpnsaei.supabase.co";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
 				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = LaunchBackground;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ParlanceDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 497VU99KK9;
@@ -529,11 +552,12 @@
 				INFOPLIST_KEY_SupabaseURL = "https://xekrfjufgorrcnpnsaei.supabase.co";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
 				INFOPLIST_KEY_UILaunchScreen_BackgroundColor = LaunchBackground;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

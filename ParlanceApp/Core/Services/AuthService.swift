@@ -66,6 +66,8 @@ final class AuthService: ObservableObject {
     }
 
     func signOut() async throws {
+        // Delete the push token first while we still have an authenticated session.
+        await PushTokenService.shared.deleteToken()
         try await client.auth.signOut()
     }
 
