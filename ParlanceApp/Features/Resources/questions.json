@@ -4498,19 +4498,6 @@
     "difficultyNote": "Cultural policy debate"
   },
   {
-    "id": "casual_5-6_007",
-    "mode": "casual",
-    "difficultyBand": "5-6",
-    "question": "Explain blockchain to a skeptic without using jargon.",
-    "tips": [
-      "Start with the problem it solves",
-      "Use a physical-world analogy",
-      "Address common skepticisms fairly"
-    ],
-    "targetDuration": 90,
-    "difficultyNote": "Technical explanation for skeptics"
-  },
-  {
     "id": "casual_5-6_008",
     "mode": "casual",
     "difficultyBand": "5-6",
