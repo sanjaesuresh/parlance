@@ -88,6 +88,7 @@ struct ResultsView: View {
             VStack(spacing: 0) {
                 topNavBar
                     .padding(.horizontal, 16)
+                    .padding(.top, 16)
 
                 switch resultsPhase {
                 case .scoreReveal:
@@ -144,7 +145,7 @@ struct ResultsView: View {
             }
         }
         .sheet(isPresented: $showPaywall) {
-            PaywallView()
+            PaywallView(source: "results")
         }
         .sensoryFeedback(.success, trigger: revealHaptic)
         .sensoryFeedback(.impact(weight: .light), trigger: breakdownHaptic)
