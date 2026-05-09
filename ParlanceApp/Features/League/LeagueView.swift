@@ -7,6 +7,7 @@ struct LeagueView: View {
     @StateObject private var viewModel = LeagueViewModel()
     @StateObject private var socialService = SocialService()
     @EnvironmentObject private var weekCache: SessionWeekCache
+    @Binding var openFriendRequests: Bool
     @State private var selectedTab: SocialTab = .leaderboard
     @State private var friendSearchText = ""
     @State private var searchResults: [SocialProfile] = []
@@ -14,6 +15,10 @@ struct LeagueView: View {
     @State private var showRequestsSheet = false
     @State private var isSearching = false
     @FocusState private var isSearchFieldFocused: Bool
+
+    init(openFriendRequests: Binding<Bool> = .constant(false)) {
+        self._openFriendRequests = openFriendRequests
+    }
 
     private enum SocialTab {
         case leaderboard, friends
@@ -78,6 +83,7 @@ struct LeagueView: View {
                 UserProfileDetailView(profile: profile)
             }
             .sheet(isPresented: $showRequestsSheet, onDismiss: {
+                openFriendRequests = false
                 Task {
                     await socialService.refreshPendingRequestCount()
                     // Refresh leaderboard so newly accepted friends appear without
@@ -90,6 +96,14 @@ struct LeagueView: View {
             .task {
                 await socialService.fetchFriendsLeaderboard()
                 await socialService.refreshPendingRequestCount()
+            }
+            .onChange(of: openFriendRequests) { _, shouldOpen in
+                if shouldOpen {
+                    selectedTab = .friends
+                    showRequestsSheet = true
+                    // openFriendRequests is reset in onDismiss to survive cold-launch
+                    // auth flow transitions where this view may be transiently replaced.
+                }
             }
         }
     }
@@ -148,7 +162,7 @@ struct LeagueView: View {
                         .font(AppFonts.display(24))
                         .foregroundStyle(AppColors.text)
 
-                    Text(viewModel.timeUntilReset())
+                    Text(viewModel.countdownText)
                         .font(AppFonts.body(12))
                         .foregroundStyle(AppColors.dim)
                 }
@@ -376,7 +390,7 @@ struct LeagueView: View {
 
     private var shareProfileCard: some View {
         let username = user?.username ?? user?.displayName ?? "parlance user"
-        let shareText = "Find me on Parlance: @\(username)"
+        let inviteURL = URL(string: "https://theparlance.app/invite?user=\(username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? username)")!
 
         return VStack(spacing: 10) {
             HStack {
@@ -390,11 +404,15 @@ struct LeagueView: View {
                         .foregroundStyle(AppColors.gold)
                 }
                 Spacer()
-                ShareLink(item: shareText) {
+                ShareLink(
+                    item: inviteURL,
+                    subject: Text("Join me on Parlance"),
+                    message: Text("I'm practicing public speaking on Parlance — join me! @\(username)")
+                ) {
                     HStack(spacing: 5) {
                         Image(systemName: "square.and.arrow.up")
                             .font(.system(size: 13, weight: .medium))
-                        Text("Share")
+                        Text("Invite")
                             .font(AppFonts.bodyMedium(13))
                     }
                     .foregroundStyle(AppColors.gold)
@@ -407,7 +425,7 @@ struct LeagueView: View {
                 .accessibilityIdentifier("shareProfileButton")
             }
 
-            Text("Share your username so friends can search for you in Parlance.")
+            Text("Friends without the app will be taken to download it.")
                 .font(AppFonts.body(11))
                 .foregroundStyle(AppColors.dim)
                 .frame(maxWidth: .infinity, alignment: .leading)
