@@ -24,6 +24,7 @@ struct ResultsView: View {
     @State private var xpAnimationTask: Task<Void, Never>? = nil
     @State private var revealHaptic = false
     @State private var breakdownHaptic = false
+    @State private var cachedVerdictText: String = ""
 
     private var durationString: String {
         let minutes = Int(session.duration) / 60
@@ -31,7 +32,7 @@ struct ResultsView: View {
         return String(format: "%d:%02d", minutes, seconds)
     }
 
-    private var verdictText: String {
+    private func computeVerdictText() -> String {
         let score = session.overallScore
         if score >= 80 {
             if let best = bestMetricName() {
@@ -162,6 +163,7 @@ struct ResultsView: View {
             // results screen first appears, regardless of phase, so it lands
             // alongside the ring animation rather than after the user taps.
             revealHaptic.toggle()
+            cachedVerdictText = computeVerdictText()
             let prior = allSessions.filter { $0.id != session.id }
             if !prior.isEmpty {
                 let sum = prior.map(\.overallScore).reduce(0, +)
@@ -192,7 +194,7 @@ struct ResultsView: View {
             ScoreRingView(score: session.overallScore)
                 .padding(.bottom, 20)
 
-            Text(verdictText)
+            Text(cachedVerdictText)
                 .font(AppFonts.display(26))
                 .foregroundStyle(AppColors.text)
                 .multilineTextAlignment(.center)
@@ -368,7 +370,7 @@ struct ResultsView: View {
                 }
             }
 
-            Text(verdictText)
+            Text(cachedVerdictText)
                 .font(AppFonts.display(22))
                 .foregroundStyle(AppColors.text)
 
