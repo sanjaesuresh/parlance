@@ -12,6 +12,9 @@ struct HomeView: View {
 
     private var user: User? { users.first }
 
+    @Environment(\.scenePhase) private var scenePhase
+
+    @State private var sectionVisible: [Bool] = Array(repeating: false, count: 6)
     @State private var sliderLevel: Double = 1
     @State private var showPaywall = false
     @State private var startSessionHaptic = false
@@ -23,11 +26,23 @@ struct HomeView: View {
             ScrollView {
                 VStack(spacing: 20) {
                     headerRow
+                        .opacity(sectionVisible[0] ? 1 : 0)
+                        .offset(y: sectionVisible[0] ? 0 : 16)
                     xpBar
+                        .opacity(sectionVisible[1] ? 1 : 0)
+                        .offset(y: sectionVisible[1] ? 0 : 16)
                     dailyChallengeSection
+                        .opacity(sectionVisible[2] ? 1 : 0)
+                        .offset(y: sectionVisible[2] ? 0 : 16)
                     difficultySlider
+                        .opacity(sectionVisible[3] ? 1 : 0)
+                        .offset(y: sectionVisible[3] ? 0 : 16)
                     modeGrid
+                        .opacity(sectionVisible[4] ? 1 : 0)
+                        .offset(y: sectionVisible[4] ? 0 : 16)
                     weeklyStatsSection
+                        .opacity(sectionVisible[5] ? 1 : 0)
+                        .offset(y: sectionVisible[5] ? 0 : 16)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -50,6 +65,12 @@ struct HomeView: View {
                     viewModel.lockDailyChallengeLevel(for: user)
                     sliderLevel = Double(user.practiceLevel)
                 }
+                animateIn()
+            }
+            .onChange(of: scenePhase) { oldPhase, newPhase in
+                if oldPhase == .background && newPhase == .active {
+                    animateIn()
+                }
             }
             .alert("Daily Limit Reached", isPresented: $viewModel.showRateLimitAlert) {
                 Button("OK") {}
@@ -63,11 +84,25 @@ struct HomeView: View {
                 )
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(source: "session_limit")
             }
             .sensoryFeedback(.impact(weight: .medium), trigger: startSessionHaptic)
             .sensoryFeedback(.selection, trigger: difficultyHaptic)
             .sensoryFeedback(.warning, trigger: lockedHaptic)
+        }
+    }
+
+    // MARK: - Entrance Animation
+
+    private func animateIn() {
+        sectionVisible = Array(repeating: false, count: 6)
+        let delays: [Double] = [0.05, 0.15, 0.25, 0.35, 0.45, 0.55]
+        for (i, delay) in delays.enumerated() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                withAnimation(.easeOut(duration: 0.4)) {
+                    sectionVisible[i] = true
+                }
+            }
         }
     }
 
@@ -254,12 +289,22 @@ struct HomeView: View {
         }
     }
 
+    private func bandAccentColor(_ band: Band) -> Color {
+        switch band.id {
+        case 1:  Color(red: 0.27, green: 0.80, blue: 0.47)   // green
+        case 3:  Color(red: 0.20, green: 0.73, blue: 0.86)   // teal
+        case 5:  AppColors.gold                                 // gold (existing)
+        case 7:  Color(red: 1.00, green: 0.55, blue: 0.25)   // orange
+        default: Color(red: 0.93, green: 0.35, blue: 0.35)   // coral/red
+        }
+    }
+
     private func bandCard(_ band: Band, isSelected: Bool, locked: Bool) -> some View {
         VStack(alignment: .leading, spacing: 5) {
             HStack(alignment: .center, spacing: 0) {
                 Text(band.range)
                     .font(AppFonts.bodyBold(10))
-                    .foregroundStyle(isSelected ? AppColors.gold : AppColors.dim)
+                    .foregroundStyle(isSelected ? bandAccentColor(band) : AppColors.dim)
                     .kerning(0.2)
                 Spacer()
                 if locked {
@@ -288,12 +333,18 @@ struct HomeView: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 13)
         .frame(width: 158, alignment: .leading)
-        .background(isSelected ? AppColors.gold.opacity(0.07) : AppColors.bg)
+        .background(
+            isSelected
+                ? bandAccentColor(band).opacity(0.10)
+                : bandAccentColor(band).opacity(0.04)
+        )
         .clipShape(RoundedRectangle(cornerRadius: 13))
         .overlay(
             RoundedRectangle(cornerRadius: 13)
                 .stroke(
-                    isSelected ? AppColors.gold.opacity(0.75) : AppColors.border,
+                    isSelected
+                        ? bandAccentColor(band).opacity(0.75)
+                        : bandAccentColor(band).opacity(0.25),
                     lineWidth: isSelected ? 1.5 : 1
                 )
         )
