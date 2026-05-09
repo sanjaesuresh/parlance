@@ -57,7 +57,7 @@ struct ProfileView: View {
                 }
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(source: "profile")
             }
         }
     }
@@ -260,51 +260,53 @@ struct ProfileView: View {
 
     // MARK: - Achievements
 
+    @ViewBuilder
     private var achievementsSection: some View {
-        let unlockedCount = achievements.filter(\.isUnlocked).count
+        if !achievements.isEmpty {
+            let unlockedCount = achievements.filter(\.isUnlocked).count
+            VStack(spacing: 12) {
+                HStack {
+                    SectionHeader(title: "Achievements")
+                    Spacer()
+                    Text("\(unlockedCount) / \(achievements.count)")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.dim)
+                }
 
-        return VStack(spacing: 12) {
-            HStack {
-                SectionHeader(title: "Achievements")
-                Spacer()
-                Text("\(unlockedCount) / \(achievements.count)")
-                    .font(AppFonts.body(11))
-                    .foregroundStyle(AppColors.dim)
-            }
-
-            LazyVGrid(columns: achievementColumns, spacing: 8) {
-                ForEach(achievements, id: \.id) { achievement in
-                    VStack(spacing: 6) {
-                        if achievement.isUnlocked {
-                            Text(achievement.emoji)
-                                .font(.system(size: 22))
-                        } else {
-                            Text("\u{1F512}")
-                                .font(.system(size: 22))
-                        }
-
-                        Text(achievement.name)
-                            .font(AppFonts.bodyMedium(9))
-                            .foregroundStyle(AppColors.text)
-                            .multilineTextAlignment(.center)
-                            .lineLimit(2)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(12)
-                    .background(
-                        ZStack {
-                            AppColors.card
-                            if !achievement.isUnlocked {
-                                Color.black.opacity(0.3)
+                LazyVGrid(columns: achievementColumns, spacing: 8) {
+                    ForEach(achievements, id: \.id) { achievement in
+                        VStack(spacing: 6) {
+                            if achievement.isUnlocked {
+                                Text(achievement.emoji)
+                                    .font(.system(size: 22))
+                            } else {
+                                Text("\u{1F512}")
+                                    .font(.system(size: 22))
                             }
+
+                            Text(achievement.name)
+                                .font(AppFonts.bodyMedium(9))
+                                .foregroundStyle(AppColors.text)
+                                .multilineTextAlignment(.center)
+                                .lineLimit(2)
                         }
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(achievement.isUnlocked ? AppColors.gold.opacity(0.35) : AppColors.border, lineWidth: 1)
-                    )
-                    .opacity(achievement.isUnlocked ? 1.0 : 0.35)
+                        .frame(maxWidth: .infinity)
+                        .padding(12)
+                        .background(
+                            ZStack {
+                                AppColors.card
+                                if !achievement.isUnlocked {
+                                    Color.black.opacity(0.3)
+                                }
+                            }
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(achievement.isUnlocked ? AppColors.gold.opacity(0.35) : AppColors.border, lineWidth: 1)
+                        )
+                        .opacity(achievement.isUnlocked ? 1.0 : 0.35)
+                    }
                 }
             }
         }
