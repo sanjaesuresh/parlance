@@ -1,11 +1,57 @@
 import SwiftUI
 import Combine
+import UIKit
 
 @MainActor
 final class LeagueViewModel: ObservableObject {
     @Published var dailyReminderEnabled = false
     @Published var soundEffectsEnabled = true
-    
+    @Published var countdownText: String = ""
+
+    private var countdownTimer: Timer?
+    private var notificationTokens: [NSObjectProtocol] = []
+
+    init() {
+        startCountdownTimer()
+
+        let resignToken = NotificationCenter.default.addObserver(
+            forName: UIApplication.willResignActiveNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated { self?.stopCountdownTimer() }
+        }
+
+        let activeToken = NotificationCenter.default.addObserver(
+            forName: UIApplication.didBecomeActiveNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            MainActor.assumeIsolated { self?.startCountdownTimer() }
+        }
+
+        notificationTokens = [resignToken, activeToken]
+    }
+
+    deinit {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        notificationTokens.forEach { NotificationCenter.default.removeObserver($0) }
+    }
+
+    private func startCountdownTimer() {
+        stopCountdownTimer()
+        countdownText = timeUntilReset()
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
+            MainActor.assumeIsolated { self?.countdownText = self?.timeUntilReset() ?? "" }
+        }
+    }
+
+    private func stopCountdownTimer() {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+    }
+
     func timeUntilReset() -> String {
         let calendar = Calendar.current
         let now = Date.now
