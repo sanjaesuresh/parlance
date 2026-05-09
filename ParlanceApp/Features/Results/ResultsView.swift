@@ -119,12 +119,12 @@ struct ResultsView: View {
                             // 6 — Breakdown section
                             breakdownSection
 
-                            // 7 — Tone analysis
-                            ToneAnalysisCard(
-                                isPro: subscription.isPro,
-                                emotionResult: session.emotionResult,
-                                onUpgrade: { showPaywall = true }
-                            )
+                            // 7 — Tone analysis (hidden for now; re-enable when ready to ship)
+                            // ToneAnalysisCard(
+                            //     isPro: subscription.isPro,
+                            //     emotionResult: session.emotionResult,
+                            //     onUpgrade: { showPaywall = true }
+                            // )
 
                             // 8 — Up Next card
                             upNextCard
