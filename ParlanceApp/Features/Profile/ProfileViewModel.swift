@@ -16,6 +16,7 @@ final class ProfileViewModel: ObservableObject {
     func toggleDailyReminder(_ enabled: Bool) {
         dailyReminderEnabled = enabled
         UserDefaults.standard.set(enabled, forKey: "dailyReminderEnabled")
+        Task { await SyncService.shared.syncDailyReminderEnabled(enabled) }
 
         if enabled {
             requestNotificationPermission()

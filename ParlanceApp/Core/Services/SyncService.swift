@@ -140,6 +140,22 @@ final class SyncService {
         return Int((Double(sum) / Double(scores.count)).rounded())
     }
 
+    // MARK: - Preference sync
+
+    func syncDailyReminderEnabled(_ enabled: Bool) async {
+        guard let authUser = client.auth.currentUser else { return }
+        do {
+            try await client.from("profiles")
+                .update(["daily_reminder_enabled": enabled])
+                .eq("id", value: authUser.id)
+                .execute()
+        } catch {
+            #if DEBUG
+            print("[SyncService] syncDailyReminderEnabled failed: \(error)")
+            #endif
+        }
+    }
+
     // MARK: - Offline queue
 
     private struct PendingSync: Codable {
