@@ -2,11 +2,8 @@ import Foundation
 
 enum GamificationService {
 
-    static func awardXP(to user: User, wasDailyChallenge: Bool) {
-        user.xp += AppConstants.baseXP
-        if wasDailyChallenge {
-            user.xp += AppConstants.dailyChallengeXP
-        }
+    static func awardXP(to user: User, wasDailyChallenge: Bool, score: Int, difficultyLevel: Int) {
+        user.xp += xpForSession(wasDailyChallenge: wasDailyChallenge, score: score, difficultyLevel: difficultyLevel)
     }
 
     static func updateStreak(for user: User) {
@@ -58,7 +55,22 @@ enum GamificationService {
         }
     }
 
-    static func xpForSession(wasDailyChallenge: Bool) -> Int {
-        AppConstants.baseXP + (wasDailyChallenge ? AppConstants.dailyChallengeXP : 0)
+    static func xpForSession(wasDailyChallenge: Bool, score: Int, difficultyLevel: Int) -> Int {
+        AppConstants.baseXP
+            + (wasDailyChallenge ? AppConstants.dailyChallengeXP : 0)
+            + scoreBonus(for: score)
+            + difficultyBonus(for: difficultyLevel)
+    }
+
+    static func scoreBonus(for score: Int) -> Int {
+        if score >= 90 { return AppConstants.excellentScoreXPBonus }
+        if score >= 80 { return AppConstants.highScoreXPBonus }
+        return 0
+    }
+
+    static func difficultyBonus(for level: Int) -> Int {
+        guard level >= 6 else { return 0 }
+        let multiplier = min((level - 4) / 2, 3)
+        return multiplier * AppConstants.difficultyXPBonus
     }
 }

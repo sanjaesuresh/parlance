@@ -223,7 +223,11 @@ struct SessionCoordinator: View {
             return
         }
 
-        let xpEarned = GamificationService.xpForSession(wasDailyChallenge: state.wasDailyChallenge)
+        let xpEarned = GamificationService.xpForSession(
+            wasDailyChallenge: state.wasDailyChallenge,
+            score: scoringResult.overallScore,
+            difficultyLevel: state.difficultyLevel
+        )
 
         let session = Session(
             mode: state.mode,
@@ -260,7 +264,12 @@ struct SessionCoordinator: View {
         // Gamification
         if let user = persistence.getUser() {
             let rankBefore = user.rank
-            GamificationService.awardXP(to: user, wasDailyChallenge: state.wasDailyChallenge)
+            GamificationService.awardXP(
+                    to: user,
+                    wasDailyChallenge: state.wasDailyChallenge,
+                    score: session.overallScore,
+                    difficultyLevel: state.difficultyLevel
+                )
             let rankAfter = user.rank
             if rankAfter.level > rankBefore.level {
                 AnalyticsService.rankUp(newRank: rankAfter.level, rankName: rankAfter.name)
