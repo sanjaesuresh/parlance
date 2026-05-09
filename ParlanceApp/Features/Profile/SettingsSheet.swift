@@ -119,14 +119,14 @@ struct SettingsSheet: View {
                     Divider().background(AppColors.border)
 
                     menuRow(icon: "lock.shield", title: "Privacy Policy") {
-                        safariURL = URL(string: "https://parlance.app/privacy")
+                        safariURL = URL(string: "https://theparlance.app/privacy")
                         showSafari = true
                     }
 
                     Divider().background(AppColors.border)
 
                     menuRow(icon: "doc.text", title: "Terms of Service") {
-                        safariURL = URL(string: "https://parlance.app/terms")
+                        safariURL = URL(string: "https://theparlance.app/terms")
                         showSafari = true
                     }
 
