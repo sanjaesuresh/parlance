@@ -504,6 +504,7 @@
 				DEVELOPMENT_TEAM = 497VU99KK9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance uses speech recognition to transcribe your practice sessions and analyze your speaking performance.";
 				INFOPLIST_KEY_ParlanceAPIBaseURL = "https://parlance-api.parlance-app.workers.dev";
@@ -545,6 +546,7 @@
 				DEVELOPMENT_TEAM = 497VU99KK9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance uses speech recognition to transcribe your practice sessions and analyze your speaking performance.";
 				INFOPLIST_KEY_ParlanceAPIBaseURL = "https://parlance-api.parlance-app.workers.dev";
