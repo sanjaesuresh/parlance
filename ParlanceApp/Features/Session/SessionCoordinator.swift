@@ -345,6 +345,7 @@ private struct AnalyzingView: View {
                         BouncingDot(delay: 0.40)
                     }
                     .padding(.leading, 3)
+                    .alignmentGuide(.firstTextBaseline) { d in d[.bottom] }
                 }
             }
         }
@@ -369,7 +370,7 @@ private struct BouncingDot: View {
                     try? await Task.sleep(nanoseconds: 380_000_000)
                     // Fall fast — pulled by gravity
                     withAnimation(.easeIn(duration: 0.20)) { lifted = false }
-                    try? await Task.sleep(nanoseconds: 440_000_000)
+                    try? await Task.sleep(nanoseconds: 1_100_000_000)
                 }
             }
     }
