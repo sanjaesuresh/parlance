@@ -24,16 +24,6 @@ enum DifficultyLevel {
         }
     }
 
-    static func descriptor(for level: Int) -> String {
-        switch level {
-        case 1...2: "Build the habit"
-        case 3...4: "Finding your rhythm"
-        case 5...6: "In the groove"
-        case 7...8: "High stakes"
-        default: "The edge"
-        }
-    }
-
     static func band(for level: Int) -> String {
         switch level {
         case 1...2: "1-2"

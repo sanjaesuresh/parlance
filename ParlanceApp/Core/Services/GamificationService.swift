@@ -47,14 +47,6 @@ enum GamificationService {
         }
     }
 
-    static func headlineVerdict(for score: Int) -> String {
-        switch score {
-        case 80...100: "Strong performance."
-        case 60..<80: "Getting there."
-        default: "Room to grow."
-        }
-    }
-
     static func xpForSession(wasDailyChallenge: Bool, score: Int, difficultyLevel: Int) -> Int {
         AppConstants.baseXP
             + (wasDailyChallenge ? AppConstants.dailyChallengeXP : 0)
