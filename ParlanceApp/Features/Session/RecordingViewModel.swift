@@ -7,6 +7,7 @@ import Speech
 final class RecordingViewModel: ObservableObject {
     @Published var showMicPrePrompt = false
     @Published var showSpeechPrePrompt = false
+    @Published var showSpeechDenied = false
     @Published var showPermissionDenied = false
     @Published var permissionDeniedMessage = ""
     @Published var recordingStartFailed = false
@@ -28,6 +29,11 @@ final class RecordingViewModel: ObservableObject {
                 showPermissionDenied = true
                 return
             }
+        }
+
+        if permissions.speechStatus == .denied || permissions.speechStatus == .restricted {
+            showSpeechDenied = true
+            return
         }
 
         if !permissions.speechGranted && permissions.speechStatus == .notDetermined {

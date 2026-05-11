@@ -316,6 +316,12 @@ struct RecordingView: View {
         } message: {
             Text("Parlance transcribes what you say so the AI coach can give specific feedback. Apple's speech recognition may briefly send audio to Apple to produce the transcript.")
         }
+        .alert("Speech Recognition Disabled", isPresented: $viewModel.showSpeechDenied) {
+            Button("Open Settings") { permissionsService.openSettings() }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Parlance needs Speech Recognition to transcribe your sessions. Enable it in Settings → Privacy & Security → Speech Recognition.")
+        }
         .alert("Permission Required", isPresented: $viewModel.showPermissionDenied) {
             Button("Open Settings") { permissionsService.openSettings() }
             Button("Cancel", role: .cancel) {}
