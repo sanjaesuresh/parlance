@@ -31,6 +31,7 @@
 		D41786FB2FAE4FCE00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D417884D2FAEAC8D00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4178D962FAEB61800EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D4178EFA2FAFC50C00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4705FF32FA99E9B0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D47063482FA9C65C0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
@@ -97,6 +98,11 @@
 			sourceTree = "<group>";
 		};
 		D4178D992FAEB61800EB5925 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4178EFD2FAFC50C00EB5925 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
@@ -277,6 +283,10 @@
 				{
 					ProductGroup = D41786FE2FAE4FCE00EB5925 /* Products */;
 					ProjectRef = D41786FB2FAE4FCE00EB5925 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4178EFD2FAFC50C00EB5925 /* Products */;
+					ProjectRef = D4178EFA2FAFC50C00EB5925 /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D4705CDA2FA9219D0037F17E /* Products */;
@@ -540,7 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ParlanceDebug.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Parlance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 497VU99KK9;
