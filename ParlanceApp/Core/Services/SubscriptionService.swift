@@ -54,10 +54,17 @@ final class SubscriptionService: ObservableObject {
 
     func refreshStatus() async {
         isLoading = true
-        #if DEBUG
+        #if DEBUG && targetEnvironment(simulator)
         isPro = true
         isLoading = false
         #else
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["PARLANCE_PRO_OVERRIDE"] == "1" {
+            isPro = true
+            isLoading = false
+            return
+        }
+        #endif
         var hasPro = false
         for await result in Transaction.currentEntitlements {
             if case .verified(let transaction) = result,
