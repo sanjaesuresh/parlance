@@ -43,14 +43,27 @@ extension XCUIApplication {
         }
     }
 
-    /// Tap a text field and wait for the keyboard to appear. The coordinate-tap
-    /// fallback occasionally lands without raising the keyboard immediately;
-    /// retry once if focus didn't take. After this returns, `typeText` is safe.
-    func tapAndFocus(_ field: XCUIElement) {
-        field.safeTap()
-        if !keyboards.element.waitForExistence(timeout: 2) {
-            field.safeTap()
-            _ = keyboards.element.waitForExistence(timeout: 3)
+    /// Tap a text field and wait until *that specific field* has keyboard
+    /// focus. Keyboard-existence alone is insufficient: when switching between
+    /// adjacent SwiftUI TextFields the keyboard stays up, and a misfired tap
+    /// can leave the previous field focused, causing `typeText` to fail with
+    /// "Neither element nor any descendant has keyboard focus". Retries with
+    /// a coordinate tap if focus doesn't land on the target element.
+    func tapAndFocus(_ field: XCUIElement, maxAttempts: Int = 3) {
+        let focusPredicate = NSPredicate(format: "hasKeyboardFocus == true")
+        for attempt in 0..<maxAttempts {
+            if attempt == 0 {
+                field.safeTap()
+            } else {
+                // Vary the tap method on retry — same safeTap path tends to
+                // reproduce the same near-miss on SwiftUI fields nested in
+                // padded containers.
+                field.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            }
+            let exp = XCTNSPredicateExpectation(predicate: focusPredicate, object: field)
+            if XCTWaiter().wait(for: [exp], timeout: 2) == .completed {
+                return
+            }
         }
     }
 
