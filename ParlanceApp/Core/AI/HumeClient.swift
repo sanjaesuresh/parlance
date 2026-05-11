@@ -1,5 +1,6 @@
 // Parlance/Core/AI/HumeClient.swift
 import Foundation
+import Supabase
 
 enum HumeClient {
     /// Uploads the audio file at `audioURL` to the Cloudflare Worker's `/emotion` endpoint

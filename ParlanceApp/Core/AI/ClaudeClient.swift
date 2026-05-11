@@ -1,5 +1,6 @@
 // Parlance/Core/AI/ClaudeClient.swift
 import Foundation
+import Supabase
 
 protocol ScoringClient {
     func fetchScoring(prompt: String) async throws -> ScoringResult
