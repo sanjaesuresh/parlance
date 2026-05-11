@@ -188,5 +188,6 @@ final class PersistenceService {
         try? context.delete(model: SeenQuestion.self)
         try? context.delete(model: User.self)
         try? context.save()
+        RealLifeScenarioHistoryStore.shared.clear()
     }
 }
