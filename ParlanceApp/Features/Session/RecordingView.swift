@@ -306,7 +306,7 @@ struct RecordingView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("Parlance needs your microphone to record your practice sessions. Your audio is processed on-device.")
+            Text("Parlance records your voice on this device. The audio is deleted after the session — only the transcript is sent to our AI for coaching feedback.")
         }
         .alert("Speech Recognition", isPresented: $viewModel.showSpeechPrePrompt) {
             Button("Enable") {
@@ -314,7 +314,7 @@ struct RecordingView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("To analyze your speech, Parlance uses on-device transcription. Your transcript is never stored beyond your session.")
+            Text("Parlance transcribes what you say so the AI coach can give specific feedback. Apple's speech recognition may briefly send audio to Apple to produce the transcript.")
         }
         .alert("Permission Required", isPresented: $viewModel.showPermissionDenied) {
             Button("Open Settings") { permissionsService.openSettings() }

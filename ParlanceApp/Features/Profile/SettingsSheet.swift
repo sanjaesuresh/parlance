@@ -137,7 +137,7 @@ struct SettingsSheet: View {
                             .font(AppFonts.bodyMedium(10))
                             .foregroundStyle(AppColors.dim)
                             .kerning(1.0)
-                        Text("Recordings are transcribed on-device and immediately deleted. Your transcript is sent to our AI to generate coaching feedback. Pro subscribers' audio is also analyzed for emotion detection by our AI provider. All session data is stored locally on your device.")
+                        Text("Your recording is transcribed via Apple Speech Recognition and then deleted from your device. The transcript is sent to our AI provider over an encrypted connection to generate coaching feedback. Session data (scores, transcripts, XP) is stored locally on your device; your profile and stats also sync to our server so you can use Parlance across devices.")
                             .font(AppFonts.body(11))
                             .foregroundStyle(AppColors.dim)
                             .lineSpacing(3)
