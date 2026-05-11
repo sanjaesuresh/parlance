@@ -27,8 +27,27 @@ enum RealLifeContentDenylist {
         #"\bsexual\b[^.]{0,40}\b(child|minor|kid|\d{1,2}\s*year\s*old)\b"#,
         #"\b\d{1,2}\s*(year\s*old|yo|y/?o)\b[^.]{0,30}\b(sexual|sex|nude|naked)\b"#,
 
-        // Slurs — leave this list deliberately empty here and populate via
-        // a sealed internal helper in a follow-up PR. We do not want
-        // canonical slurs checked into the public planning doc.
+        // ---------------------------------------------------------------
+        // SLURS — sealed list.
+        //
+        // Each entry below is an unambiguous slur with no legitimate
+        // non-derogatory usage in modern English. Word-boundary anchored
+        // so common words ("spice", "thinking", "Pakistan") do not
+        // collide. Variant forms cover the most common 1337-substitutions
+        // (0 for o, 1/! for i) but are not exhaustive — Claude's own
+        // moderation handles bypasses.
+        //
+        // Do NOT extend this list to general profanity (fuck, shit,
+        // damn, asshole) or to terms with legitimate non-derogatory
+        // usage. The bar is: no reasonable speaker uses this word in a
+        // non-attacking context.
+        // ---------------------------------------------------------------
+        #"\bn[i1!]gg(?:er|a)s?\b"#,           // racial slur, anti-Black
+        #"\bfagg?(?:ot)?s?\b"#,                // anti-gay slur (fag + faggot)
+        #"\btrann(?:y|ies)\b"#,                // anti-trans slur
+        #"\bch[i1!]nks?\b"#,                   // anti-East-Asian racial slur
+        #"\bsp[i1!]cs?\b"#,                    // anti-Latin racial slur
+        #"\bk[i1!]kes?\b"#,                    // anti-Jewish slur
+        #"\bret[a4]rd(?:ed|ing|s)?\b"#,        // ableist slur (incl. inflections)
     ]
 }
