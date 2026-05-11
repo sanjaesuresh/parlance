@@ -181,16 +181,19 @@ struct SessionCoordinator: View {
         let audioFeatures: AudioFeatures
         let emotionResult: EmotionResult?
 
+        let shouldAnalyzeEmotion = subscription.isPro
+        let apiURL = AppConstants.apiBaseURL
+
         async let transcriptionTask: TranscriptionResult? = {
             return try? await SpeechTranscriber.transcribe(url: audioURL)
         }()
         async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
-        // Hume emotion analysis disabled until ToneAnalysisCard is re-enabled
-        // async let emotionTask: EmotionResult? = {
-        //     return try? await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
-        // }()
-        (transcriptionResult, audioFeatures) = await (transcriptionTask, audioFeaturesTask)
-        emotionResult = nil
+        async let emotionTask: EmotionResult? = {
+            guard shouldAnalyzeEmotion else { return nil }
+            return try? await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+        }()
+
+        (transcriptionResult, audioFeatures, emotionResult) = await (transcriptionTask, audioFeaturesTask, emotionTask)
 
         // Delete audio file — no longer needed
         recorder.deleteRecording()
