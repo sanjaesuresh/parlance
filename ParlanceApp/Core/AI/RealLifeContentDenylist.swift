@@ -9,7 +9,7 @@ enum RealLifeContentDenylist {
 
     /// Returns true if the scenario contains denylisted content and should
     /// be hard-gated client-side before reaching the LLM.
-    static func matches(_ scenario: String) -> Bool {
+    nonisolated static func matches(_ scenario: String) -> Bool {
         let text = scenario.lowercased()
         guard !text.isEmpty else { return false }
         return patterns.contains(where: { text.range(of: $0, options: .regularExpression) != nil })

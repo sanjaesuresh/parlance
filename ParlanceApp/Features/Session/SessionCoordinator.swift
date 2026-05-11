@@ -181,7 +181,6 @@ struct SessionCoordinator: View {
         let audioFeatures: AudioFeatures
         let emotionResult: EmotionResult?
 
-        let apiURL = AppConstants.apiBaseURL
         async let transcriptionTask: TranscriptionResult? = {
             return try? await SpeechTranscriber.transcribe(url: audioURL)
         }()
