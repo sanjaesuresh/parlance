@@ -76,29 +76,23 @@ final class AuthService: ObservableObject {
     }
 
     func deleteAccount() async throws {
-        guard let uid = currentUserID else { return }
+        guard currentUserID != nil else { return }
         isDeletingAccount = true
         do {
-            try await deleteAuthUserViaWorker()
-            let supabase = SupabaseManager.shared.client
-            _ = try? await supabase.from("session_scores").delete().eq("user_id", value: uid).execute()
-            _ = try? await supabase.from("user_stats").delete().eq("user_id", value: uid).execute()
-            _ = try? await supabase.from("friend_requests").delete().eq("from_user_id", value: uid).execute()
-            _ = try? await supabase.from("friendships").delete().or("user_id_1.eq.\(uid),user_id_2.eq.\(uid)").execute()
-            _ = try? await supabase.from("profiles").delete().eq("id", value: uid).execute()
+            try await deleteAccountViaWorker()
             PersistenceService.shared.resetAllData()
             try? await signOut()
-            // isDeletingAccount stays true — AccountDeletedSplashView dismisses it via onDismiss
+            // isDeletingAccount stays true until the splash dismisses it
         } catch {
             isDeletingAccount = false
             throw error
         }
     }
 
-    private func deleteAuthUserViaWorker() async throws {
+    private func deleteAccountViaWorker() async throws {
         let session = try await client.auth.session
         let endpoint = AppConstants.apiBaseURL.appendingPathComponent("delete-user")
-        var request = URLRequest(url: endpoint, timeoutInterval: 15)
+        var request = URLRequest(url: endpoint, timeoutInterval: 30)
         request.httpMethod = "POST"
         request.setValue("Bearer \(session.accessToken)", forHTTPHeaderField: "Authorization")
         let (_, response) = try await URLSession.shared.data(for: request)
