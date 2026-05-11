@@ -1,8 +1,8 @@
 // Parlance/Features/Auth/AuthViewModel.swift
-import Foundation
-import Combine
 import AuthenticationServices
+import Combine
 import CryptoKit
+import Foundation
 
 @MainActor
 final class AuthViewModel: ObservableObject {

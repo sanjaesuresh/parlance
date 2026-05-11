@@ -1,7 +1,7 @@
 import AVFoundation
+import Combine
 import Speech
 import UIKit
-import Combine
 
 @MainActor
 final class PermissionsService: ObservableObject {

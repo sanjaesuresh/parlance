@@ -1,6 +1,6 @@
 // Parlance/Features/Results/ResultsViewModel.swift
-import SwiftUI
 import Combine
+import SwiftUI
 
 @MainActor
 final class ResultsViewModel: ObservableObject {

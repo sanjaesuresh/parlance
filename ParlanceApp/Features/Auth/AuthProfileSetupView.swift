@@ -1,6 +1,6 @@
 import SwiftUI
-import MapKit
 import Combine
+import MapKit
 
 // MARK: - Location search completer
 
