@@ -127,9 +127,20 @@ struct ContentView: View {
             guard isAuthenticated, !authService.isCompletingSignUp else { return }
             Task {
                 if currentUser == nil {
-                    isSyncingProfile = true
-                    await SyncService.shared.fetchAndImportProfile(uid: authService.currentUserID ?? "")
-                    withAnimation { isSyncingProfile = false }
+                    #if DEBUG
+                    // UI-test seed already creates the local user synchronously
+                    // and has no Supabase session to fetch from; awaiting the
+                    // Supabase round-trip here keeps the splash up past the
+                    // test's existence-wait window.
+                    let skipSync = UITestBootstrap.isSeedProEnabled
+                    #else
+                    let skipSync = false
+                    #endif
+                    if !skipSync {
+                        isSyncingProfile = true
+                        await SyncService.shared.fetchAndImportProfile(uid: authService.currentUserID ?? "")
+                        withAnimation { isSyncingProfile = false }
+                    }
                 }
                 if authService.didJustSignIn,
                    let user = currentUser,
