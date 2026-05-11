@@ -65,10 +65,6 @@ final class SubscriptionService: ObservableObject {
 
     func refreshStatus() async {
         isLoading = true
-        #if DEBUG && targetEnvironment(simulator)
-        isPro = true
-        isLoading = false
-        #else
         #if DEBUG
         if ProcessInfo.processInfo.environment["PARLANCE_PRO_OVERRIDE"] == "1" {
             isPro = true
@@ -86,7 +82,6 @@ final class SubscriptionService: ObservableObject {
         }
         isPro = hasPro
         isLoading = false
-        #endif
     }
 
     // MARK: - Private
