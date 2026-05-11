@@ -5,22 +5,23 @@ import SwiftData
 
 final class SubscriptionTests: XCTestCase {
     func testFreeModesMakesSense() {
-        XCTAssertEqual(SessionMode.freeModes.count, 4)
+        XCTAssertEqual(SessionMode.freeModes.count, 5)
         XCTAssertFalse(SessionMode.interview.isProMode)
         XCTAssertFalse(SessionMode.casual.isProMode)
         XCTAssertFalse(SessionMode.impromptu.isProMode)
         XCTAssertFalse(SessionMode.explanation.isProMode)
+        XCTAssertFalse(SessionMode.networking.isProMode)
         XCTAssertTrue(SessionMode.pitch.isProMode)
         XCTAssertTrue(SessionMode.keynote.isProMode)
         XCTAssertTrue(SessionMode.debate.isProMode)
         XCTAssertTrue(SessionMode.storytelling.isProMode)
         XCTAssertTrue(SessionMode.negotiation.isProMode)
-        XCTAssertTrue(SessionMode.networking.isProMode)
+        XCTAssertTrue(SessionMode.realLife.isProMode)
     }
 
     func testFreeSessionsPerDayIsLessThanMax() {
         XCTAssertLessThan(AppConstants.freeSessionsPerDay, AppConstants.maxSessionsPerDay)
-        XCTAssertEqual(AppConstants.freeSessionsPerDay, 5)
+        XCTAssertEqual(AppConstants.freeSessionsPerDay, 2)
     }
 
     func testProProductIDIsSet() {
