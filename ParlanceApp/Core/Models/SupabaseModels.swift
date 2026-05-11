@@ -197,6 +197,44 @@ struct NewFriendship: Encodable {
     }
 }
 
+// MARK: - Blocked users
+
+struct BlockedUserRow: Decodable {
+    let blockerId: UUID
+    let blockedId: UUID
+
+    enum CodingKeys: String, CodingKey {
+        case blockerId = "blocker_id"
+        case blockedId = "blocked_id"
+    }
+}
+
+struct NewBlockedUser: Encodable {
+    let blockerId: UUID
+    let blockedId: UUID
+
+    enum CodingKeys: String, CodingKey {
+        case blockerId = "blocker_id"
+        case blockedId = "blocked_id"
+    }
+}
+
+// MARK: - User reports
+
+struct NewUserReport: Encodable {
+    let reporterId: UUID
+    let reportedId: UUID
+    let reason: String
+    let details: String?
+
+    enum CodingKeys: String, CodingKey {
+        case reporterId = "reporter_id"
+        case reportedId = "reported_id"
+        case reason
+        case details
+    }
+}
+
 struct NewProfile: Encodable {
     let id: UUID
     let displayName: String

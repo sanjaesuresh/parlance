@@ -55,6 +55,21 @@ final class AuthViewModel: ObservableObject {
         authService.isCompletingSignUp = true
         errorMessage = nil
         defer { isLoading = false; authService.isCompletingSignUp = false }
+
+        // Profanity check before touching the network
+        let fieldsToCheck: [(String, String)] = [
+            (name, "Name"),
+            (username, "Username"),
+            (location ?? "", "Location"),
+            (occupation ?? "", "Occupation")
+        ]
+        for (value, label) in fieldsToCheck {
+            if let rejection = ProfanityFilter.validate(value, fieldName: label) {
+                errorMessage = rejection
+                return
+            }
+        }
+
         do {
             try await authService.signUp(email: email, password: password)
             let uid = authService.currentUserID ?? ""

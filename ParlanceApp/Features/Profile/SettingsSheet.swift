@@ -132,6 +132,13 @@ struct SettingsSheet: View {
 
                     Divider().background(AppColors.border)
 
+                    menuRow(icon: "person.2.fill", title: "Community Guidelines") {
+                        safariURL = URL(string: "https://theparlance.app/guidelines")
+                        showSafari = true
+                    }
+
+                    Divider().background(AppColors.border)
+
                     VStack(alignment: .leading, spacing: 4) {
                         Text("ABOUT YOUR DATA")
                             .font(AppFonts.bodyMedium(10))

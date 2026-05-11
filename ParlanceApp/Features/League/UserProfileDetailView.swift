@@ -7,6 +7,9 @@ struct UserProfileDetailView: View {
     @State private var resolvedProfile: SocialProfile
     @State private var requestActionHaptic = false
     @State private var showUnfriendConfirm = false
+    @State private var showBlockConfirm = false
+    @State private var showReportSheet = false
+    @State private var blockSuccessHaptic = false
     @Environment(\.dismiss) private var dismiss
 
     init(profile: SocialProfile) {
@@ -28,14 +31,37 @@ struct UserProfileDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
-                        .foregroundStyle(AppColors.gold)
-                        .accessibilityIdentifier("userProfileDoneButton")
+                    HStack(spacing: 4) {
+                        Menu {
+                            Button {
+                                showReportSheet = true
+                            } label: {
+                                Label("Report user", systemImage: "exclamationmark.bubble")
+                            }
+                            Button(role: .destructive) {
+                                showBlockConfirm = true
+                            } label: {
+                                Label("Block user", systemImage: "nosign")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundStyle(AppColors.sub)
+                                .frame(width: 36, height: 36)
+                                .contentShape(Rectangle())
+                        }
+                        .accessibilityIdentifier("userProfileOverflowMenu")
+
+                        Button("Done") { dismiss() }
+                            .foregroundStyle(AppColors.gold)
+                            .accessibilityIdentifier("userProfileDoneButton")
+                    }
                 }
             }
             .toolbarBackground(AppColors.bg, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .sensoryFeedback(.success, trigger: requestActionHaptic)
+            .sensoryFeedback(.warning, trigger: blockSuccessHaptic)
             .confirmationDialog(
                 "Unfriend \(resolvedProfile.displayName)?",
                 isPresented: $showUnfriendConfirm,
@@ -53,6 +79,33 @@ struct UserProfileDetailView: View {
                 Button("Cancel", role: .cancel) {}
             } message: {
                 Text("You'll be removed from each other's friends lists. You can re-add them anytime.")
+            }
+            .confirmationDialog(
+                "Block \(resolvedProfile.displayName)?",
+                isPresented: $showBlockConfirm,
+                titleVisibility: .visible
+            ) {
+                Button("Block", role: .destructive) {
+                    guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
+                    blockSuccessHaptic.toggle()
+                    Task {
+                        try? await socialService.blockUser(profileId)
+                        dismiss()
+                    }
+                }
+                .accessibilityIdentifier("confirmBlockButton")
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("They won't be able to find you or send you friend requests. You can unblock them from Settings.")
+            }
+            .sheet(isPresented: $showReportSheet) {
+                ReportUserSheet(
+                    displayName: resolvedProfile.displayName,
+                    onSubmit: { reason, details in
+                        guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
+                        Task { try? await socialService.reportUser(profileId, reason: reason, details: details) }
+                    }
+                )
             }
             .task {
                 guard let profileId = UUID(uuidString: resolvedProfile.id) else { return }
@@ -302,5 +355,68 @@ struct UserProfileDetailView: View {
         if score >= 80 { return AppColors.teal }
         if score >= 60 { return AppColors.gold }
         return AppColors.red
+    }
+}
+
+// MARK: - ReportUserSheet
+
+private struct ReportUserSheet: View {
+    let displayName: String
+    let onSubmit: (String, String?) -> Void
+
+    @Environment(\.dismiss) private var dismiss
+    @State private var selectedReason = "Harassment"
+    @State private var details = ""
+    @State private var isSubmitted = false
+
+    private let reasons = ["Harassment", "Spam", "Impersonation", "Inappropriate content", "Other"]
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section {
+                    Picker("Reason", selection: $selectedReason) {
+                        ForEach(reasons, id: \.self) { reason in
+                            Text(reason).tag(reason)
+                        }
+                    }
+                    .pickerStyle(.inline)
+                    .labelsHidden()
+                } header: {
+                    Text("Why are you reporting \(displayName)?")
+                }
+
+                Section {
+                    TextField("Additional details (optional)", text: $details, axis: .vertical)
+                        .lineLimit(3...6)
+                        .font(AppFonts.body(15))
+                } header: {
+                    Text("Details")
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .background(AppColors.bg)
+            .navigationTitle("Report User")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Cancel") { dismiss() }
+                        .foregroundStyle(AppColors.sub)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Submit") {
+                        let trimmedDetails = details.trimmingCharacters(in: .whitespacesAndNewlines)
+                        onSubmit(selectedReason, trimmedDetails.isEmpty ? nil : trimmedDetails)
+                        isSubmitted = true
+                        dismiss()
+                    }
+                    .foregroundStyle(AppColors.gold)
+                    .fontWeight(.semibold)
+                    .disabled(isSubmitted)
+                    .accessibilityIdentifier("reportSubmitButton")
+                }
+            }
+        }
+        .presentationDetents([.medium, .large])
     }
 }

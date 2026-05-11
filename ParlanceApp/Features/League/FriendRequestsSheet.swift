@@ -9,6 +9,7 @@ struct FriendRequestsSheet: View {
     @State private var errorMessage: String?
     @State private var acceptHaptic = false
     @State private var declineHaptic = false
+    @State private var blockTargetItem: FriendRequestWithProfile?
 
     var body: some View {
         NavigationStack {
@@ -33,6 +34,24 @@ struct FriendRequestsSheet: View {
         }
         .sensoryFeedback(.success, trigger: acceptHaptic)
         .sensoryFeedback(.selection, trigger: declineHaptic)
+        .confirmationDialog(
+            "Block \(blockTargetItem?.senderProfile?.displayName ?? "this user")?",
+            isPresented: Binding(
+                get: { blockTargetItem != nil },
+                set: { if !$0 { blockTargetItem = nil } }
+            ),
+            titleVisibility: .visible
+        ) {
+            Button("Block", role: .destructive) {
+                if let item = blockTargetItem {
+                    blockSender(item)
+                }
+                blockTargetItem = nil
+            }
+            Button("Cancel", role: .cancel) { blockTargetItem = nil }
+        } message: {
+            Text("They won't be able to find you or send you friend requests.")
+        }
         .alert(
             "Couldn't update request",
             isPresented: Binding(
@@ -210,6 +229,26 @@ struct FriendRequestsSheet: View {
                 .disabled(inFlight.contains(item.id))
                 .accessibilityLabel("Decline")
                 .accessibilityIdentifier("friendRequestDeclineButton_\(username)")
+
+                Menu {
+                    Button(role: .destructive) {
+                        blockTargetItem = item
+                    } label: {
+                        Label("Block", systemImage: "nosign")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(AppColors.dim)
+                        .frame(
+                            width: AppConstants.IconButton.hitTarget,
+                            height: AppConstants.IconButton.hitTarget
+                        )
+                        .contentShape(Rectangle())
+                }
+                .disabled(inFlight.contains(item.id))
+                .accessibilityLabel("More options")
+                .accessibilityIdentifier("friendRequestMoreButton_\(username)")
             }
         }
         .padding(14)
@@ -258,6 +297,22 @@ struct FriendRequestsSheet: View {
                 }
             } catch {
                 errorMessage = "Couldn't decline the request. Please try again."
+            }
+            inFlight.remove(item.id)
+        }
+    }
+
+    private func blockSender(_ item: FriendRequestWithProfile) {
+        guard !inFlight.contains(item.id) else { return }
+        inFlight.insert(item.id)
+        Task {
+            do {
+                try await socialService.blockUser(item.request.fromUserId)
+                withAnimation(.easeOut(duration: 0.22)) {
+                    requestsWithProfiles.removeAll { $0.id == item.id }
+                }
+            } catch {
+                errorMessage = "Couldn't block this user. Please try again."
             }
             inFlight.remove(item.id)
         }

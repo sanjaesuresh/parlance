@@ -30,6 +30,8 @@ struct ProfileEditSheet: View {
         _pickedImageData = State(initialValue: user.profileImageData)
     }
 
+    @State private var profanityError: String?
+
     private var isValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty && username.count >= 3
     }
@@ -164,6 +166,18 @@ struct ProfileEditSheet: View {
                         .disabled(!isValid)
                 }
             }
+            .alert(
+                "Content Not Allowed",
+                isPresented: Binding(
+                    get: { profanityError != nil },
+                    set: { if !$0 { profanityError = nil } }
+                ),
+                presenting: profanityError
+            ) { _ in
+                Button("OK", role: .cancel) { profanityError = nil }
+            } message: { msg in
+                Text(msg)
+            }
         }
     }
 
@@ -202,6 +216,20 @@ struct ProfileEditSheet: View {
         let trimmedName = name.trimmingCharacters(in: .whitespaces)
         let trimmedLocation = location.trimmingCharacters(in: .whitespaces)
         let trimmedOccupation = occupation.trimmingCharacters(in: .whitespaces)
+
+        // Profanity check before persisting
+        let fieldsToCheck: [(String, String)] = [
+            (trimmedName, "Name"),
+            (username, "Username"),
+            (trimmedLocation, "Location"),
+            (trimmedOccupation, "Occupation")
+        ]
+        for (value, label) in fieldsToCheck {
+            if let rejection = ProfanityFilter.validate(value, fieldName: label) {
+                profanityError = rejection
+                return
+            }
+        }
 
         user.displayName = trimmedName
         user.username = username

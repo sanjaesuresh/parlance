@@ -13,6 +13,7 @@ struct FirstLaunchSetupView: View {
     @State private var selectedAvatar = "\u{1F3A4}"
     @State private var comfortLevel = 0
     @State private var showPrivacyPolicy = false
+    @State private var profanityError: String?
 
     private let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}",
@@ -201,6 +202,18 @@ struct FirstLaunchSetupView: View {
         .sheet(isPresented: $showPrivacyPolicy) {
             SafariView(url: URL(string: "https://theparlance.app/privacy")!)
         }
+        .alert(
+            "Content Not Allowed",
+            isPresented: Binding(
+                get: { profanityError != nil },
+                set: { if !$0 { profanityError = nil } }
+            ),
+            presenting: profanityError
+        ) { _ in
+            Button("OK", role: .cancel) { profanityError = nil }
+        } message: { msg in
+            Text(msg)
+        }
     }
 
     private func setupField<Content: View>(label: String, hint: String? = nil, @ViewBuilder content: () -> Content) -> some View {
@@ -226,10 +239,24 @@ struct FirstLaunchSetupView: View {
 
     private func createUser() {
         let trimmedName = name.trimmingCharacters(in: .whitespaces)
-        guard !trimmedName.isEmpty, comfortLevel > 0 else { return }
-        let uid = authService.currentUserID ?? ""
         let finalUsername = username.isEmpty ? AuthViewModel.makeUsername(from: trimmedName) : username
         let occ = occupation.trimmingCharacters(in: .whitespaces)
+        guard !trimmedName.isEmpty, comfortLevel > 0 else { return }
+
+        // Profanity check before persisting
+        let fieldsToCheck: [(String, String)] = [
+            (trimmedName, "Name"),
+            (finalUsername, "Username"),
+            (occ, "Occupation")
+        ]
+        for (value, label) in fieldsToCheck {
+            if let rejection = ProfanityFilter.validate(value, fieldName: label) {
+                profanityError = rejection
+                return
+            }
+        }
+
+        let uid = authService.currentUserID ?? ""
         let user = PersistenceService.shared.createUser(
             supabaseUID: uid,
             name: trimmedName,

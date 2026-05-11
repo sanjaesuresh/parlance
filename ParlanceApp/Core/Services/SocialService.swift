@@ -14,6 +14,7 @@ enum RelationshipState {
 final class SocialService: ObservableObject {
     @Published private(set) var friendsLeaderboard: [SocialProfile] = []
     @Published private(set) var pendingRequestCount: Int = 0
+    @Published private(set) var blockedUserIds: Set<UUID> = []
 
     private let client = SupabaseManager.shared.client
 
@@ -34,7 +35,9 @@ final class SocialService: ObservableObject {
                 .limit(20)
                 .execute()
                 .value
-            return profiles.map { $0.asSocialProfile() }
+            return profiles
+                .map { $0.asSocialProfile() }
+                .filter { !blockedUserIds.contains(UUID(uuidString: $0.id) ?? UUID()) }
         } catch {
             return []
         }
@@ -44,6 +47,7 @@ final class SocialService: ObservableObject {
 
     func fetchFriendsLeaderboard() async {
         guard let currentId = currentUserId else { friendsLeaderboard = []; return }
+        if blockedUserIds.isEmpty { await refreshBlockedUsers() }
         do {
             let friendships: [FriendshipRow] = try await client
                 .from("friendships")
@@ -61,6 +65,7 @@ final class SocialService: ObservableObject {
                 .value
             friendsLeaderboard = profiles
                 .map { $0.asSocialProfile() }
+                .filter { !blockedUserIds.contains(UUID(uuidString: $0.id) ?? UUID()) }
                 .sorted { $0.weeklyXP > $1.weeklyXP }
         } catch {
             friendsLeaderboard = []
@@ -256,5 +261,61 @@ final class SocialService: ObservableObject {
         } catch {
             return []
         }
+    }
+
+    // MARK: - Block / Unblock
+
+    func refreshBlockedUsers() async {
+        guard let currentId = currentUserId else { blockedUserIds = []; return }
+        do {
+            let rows: [BlockedUserRow] = try await client
+                .from("blocked_users")
+                .select()
+                .eq("blocker_id", value: currentId.uuidString)
+                .execute()
+                .value
+            blockedUserIds = Set(rows.compactMap { UUID(uuidString: $0.blockedId.uuidString) })
+        } catch {
+            blockedUserIds = []
+        }
+    }
+
+    func blockUser(_ userId: UUID) async throws {
+        guard let currentId = currentUserId else { return }
+        try await client
+            .from("blocked_users")
+            .insert(NewBlockedUser(blockerId: currentId, blockedId: userId))
+            .execute()
+        blockedUserIds.insert(userId)
+        // Remove any existing friendship and pending requests in both directions
+        _ = try? await client.from("friendships").delete()
+            .or("user_id_1.eq.\(currentId.uuidString),user_id_2.eq.\(currentId.uuidString)")
+            .or("user_id_1.eq.\(userId.uuidString),user_id_2.eq.\(userId.uuidString)")
+            .execute()
+        _ = try? await client.from("friend_requests").delete()
+            .or("from_user_id.eq.\(userId.uuidString),to_user_id.eq.\(userId.uuidString)")
+            .execute()
+        await fetchFriendsLeaderboard()
+    }
+
+    func unblockUser(_ userId: UUID) async throws {
+        guard let currentId = currentUserId else { return }
+        try await client
+            .from("blocked_users")
+            .delete()
+            .eq("blocker_id", value: currentId.uuidString)
+            .eq("blocked_id", value: userId.uuidString)
+            .execute()
+        blockedUserIds.remove(userId)
+    }
+
+    // MARK: - Report
+
+    func reportUser(_ userId: UUID, reason: String, details: String?) async throws {
+        guard let currentId = currentUserId else { return }
+        try await client
+            .from("user_reports")
+            .insert(NewUserReport(reporterId: currentId, reportedId: userId, reason: reason, details: details))
+            .execute()
     }
 }
