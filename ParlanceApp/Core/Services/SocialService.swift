@@ -137,7 +137,6 @@ final class SocialService: ObservableObject {
             .from("friend_requests")
             .insert(NewFriendRequest(fromUserId: currentId, toUserId: userId, status: "pending"))
             .execute()
-        AnalyticsService.friendRequestSent()
     }
 
     // MARK: - Accept/decline
@@ -157,7 +156,6 @@ final class SocialService: ObservableObject {
             ])
             .execute()
         await refreshPendingRequestCount()
-        AnalyticsService.friendRequestAccepted()
     }
 
     func declineRequest(_ requestId: UUID) async throws {
@@ -167,7 +165,6 @@ final class SocialService: ObservableObject {
             .eq("id", value: requestId.uuidString)
             .execute()
         await refreshPendingRequestCount()
-        AnalyticsService.friendRequestDeclined()
     }
 
     func acceptRequestFrom(_ userId: UUID) async throws {

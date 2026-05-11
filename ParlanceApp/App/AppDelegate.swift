@@ -44,7 +44,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     ) {
         let userInfo = response.notification.request.content.userInfo
         if let type = userInfo["type"] as? String {
-            AnalyticsService.notificationTapped(type: type)
             Task { @MainActor in
                 DeepLinkRouter.shared.route(type: type)
             }

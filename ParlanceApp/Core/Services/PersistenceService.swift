@@ -145,7 +145,6 @@ final class PersistenceService {
         achievement.unlockedDate = .now
         achievement.progress = achievement.goal
         try? context.save()
-        AnalyticsService.achievementUnlocked(id: id, name: achievement.name)
     }
 
     func updateAchievementProgress(id: String, progress: Int) {
@@ -155,7 +154,6 @@ final class PersistenceService {
         if achievement.progress >= achievement.goal && !achievement.isUnlocked {
             achievement.isUnlocked = true
             achievement.unlockedDate = .now
-            AnalyticsService.achievementUnlocked(id: id, name: achievement.name)
         }
         try? context.save()
     }

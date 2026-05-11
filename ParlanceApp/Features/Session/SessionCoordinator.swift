@@ -59,7 +59,6 @@ struct SessionCoordinator: View {
                     level: state.difficultyLevel,
                     question: currentQuestion,
                     onReady: {
-                        AnalyticsService.sessionStarted(mode: state.mode, level: state.difficultyLevel)
                         phase = .countdown
                     },
                     onCancel: { onDismiss() },
@@ -94,7 +93,6 @@ struct SessionCoordinator: View {
                         Task { await processSession() }
                     },
                     onCancel: {
-                        AnalyticsService.sessionAbandoned(mode: state.mode.rawValue, secondsElapsed: Int(recorder.elapsedTime))
                         onDismiss()
                     }
                 )
@@ -245,16 +243,6 @@ struct SessionCoordinator: View {
             emotionResult: pendingEmotionResult
         )
 
-        // Analytics
-        AnalyticsService.sessionCompleted(
-            mode: state.mode, level: state.difficultyLevel,
-            overallScore: session.overallScore, duration: pendingDuration,
-            wasDailyChallenge: state.wasDailyChallenge
-        )
-        if state.wasDailyChallenge {
-            AnalyticsService.dailyChallengeCompleted(mode: state.mode, level: state.difficultyLevel)
-        }
-
         // Persist
         let persistence = PersistenceService.shared
         persistence.saveSession(session)
@@ -266,7 +254,6 @@ struct SessionCoordinator: View {
 
         // Gamification
         if let user = persistence.getUser() {
-            let rankBefore = user.rank
             GamificationService.awardXP(
                     to: user,
                     wasDailyChallenge: state.wasDailyChallenge,
@@ -274,10 +261,6 @@ struct SessionCoordinator: View {
                     difficultyLevel: state.difficultyLevel
                 )
             SoundService.play(.sessionComplete)
-            let rankAfter = user.rank
-            if rankAfter.level > rankBefore.level {
-                AnalyticsService.rankUp(newRank: rankAfter.level, rankName: rankAfter.name)
-            }
             GamificationService.updateStreak(for: user)
             GamificationService.incrementDailySessionCount(for: user)
             if state.wasDailyChallenge { user.dailyChallengeCompletedDate = .now }

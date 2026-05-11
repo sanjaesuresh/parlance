@@ -9,7 +9,6 @@ struct ParlanceApp: App {
 
     init() {
         registerFonts()
-        AnalyticsService.initialize()
     }
 
     private func registerFonts() {
