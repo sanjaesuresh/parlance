@@ -202,33 +202,17 @@ struct HomeView: View {
                 let level = user.dailyChallengeLevelLock ?? user.practiceLevel
                 let completed = user.hasDailyChallengeCompletedToday
 
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack {
-                        SectionHeader(title: "Today's Challenge")
-                        Spacer()
-                        if completed {
-                            Text("\u{2705} COMPLETED")
-                                .font(AppFonts.bodyBold(11))
-                                .foregroundStyle(AppColors.teal)
-                        } else {
-                            Text("+\(AppConstants.dailyChallengeXP) XP BONUS")
-                                .font(AppFonts.bodyBold(11))
-                                .foregroundStyle(AppColors.gold)
-                        }
-                    }
-
-                    DailyChallengeCard(mode: mode, level: level, completed: completed) {
-                        if !completed {
-                            if let state = viewModel.startSession(
-                                mode: mode,
-                                user: user,
-                                persistence: .shared,
-                                wasDailyChallenge: true,
-                                isPro: subscription.isPro
-                            ) {
-                                startSessionHaptic.toggle()
-                                onStartSession(state)
-                            }
+                DailyChallengeCard(mode: mode, level: level, completed: completed) {
+                    if !completed {
+                        if let state = viewModel.startSession(
+                            mode: mode,
+                            user: user,
+                            persistence: .shared,
+                            wasDailyChallenge: true,
+                            isPro: subscription.isPro
+                        ) {
+                            startSessionHaptic.toggle()
+                            onStartSession(state)
                         }
                     }
                 }
@@ -260,6 +244,31 @@ struct HomeView: View {
         }
     }
 
+    /// Yellow → red ramp by tier. Starter is gold, expert is red.
+    private func bandColor(_ id: Int) -> Color {
+        switch id {
+        case 1: AppColors.gold                            // #E8A838 yellow-gold
+        case 3: Color(hex: "#E89438")                     // amber
+        case 5: Color(hex: "#E87538")                     // orange
+        case 7: Color(hex: "#E55A4A")                     // red-orange
+        default: AppColors.red                            // #E05A4E red
+        }
+    }
+
+    /// Editorial section header: hairline top + Fraunces title.
+    private func sectionTitle(_ title: String) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Rectangle()
+                .fill(AppColors.border)
+                .frame(height: 1)
+                .padding(.bottom, 22)
+            Text(title)
+                .font(AppFonts.display(18))
+                .foregroundStyle(AppColors.text)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     private var difficultySection: some View {
         Group {
             if let user {
@@ -267,30 +276,32 @@ struct HomeView: View {
                 let currentName = bands.first(where: { $0.id == currentId })?.name ?? "Confident"
 
                 VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        SectionHeader(title: "Difficulty")
-                        Spacer()
-                        Button {
-                            showDifficultySheet = true
-                        } label: {
-                            HStack(spacing: 4) {
-                                Text("Change")
-                                    .font(AppFonts.bodyMedium(11))
-                                Image(systemName: "arrow.up.right")
-                                    .font(.system(size: 10, weight: .semibold))
+                    VStack(alignment: .leading, spacing: 4) {
+                        HStack(alignment: .firstTextBaseline) {
+                            sectionTitle("Difficulty")
+                            Spacer()
+                            Button {
+                                showDifficultySheet = true
+                            } label: {
+                                HStack(spacing: 4) {
+                                    Text("Change")
+                                        .font(AppFonts.bodyMedium(12))
+                                    Image(systemName: "arrow.up.right")
+                                        .font(.system(size: 10, weight: .semibold))
+                                }
+                                .foregroundStyle(AppColors.gold)
                             }
-                            .foregroundStyle(AppColors.gold)
+                            .accessibilityLabel("Change difficulty")
                         }
-                        .accessibilityLabel("Change difficulty")
-                    }
 
-                    Text("Sets how challenging each session feels.")
-                        .font(AppFonts.body(12))
-                        .foregroundStyle(AppColors.sub)
+                        Text("Sets how challenging each session feels.")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.sub)
+                    }
 
                     HStack(alignment: .firstTextBaseline) {
                         Text("\(currentName) · L\(user.practiceLevel)")
-                            .font(AppFonts.display(20))
+                            .font(AppFonts.display(22))
                             .foregroundStyle(AppColors.text)
                         Spacer()
                     }
@@ -298,11 +309,11 @@ struct HomeView: View {
 
                     HStack(spacing: 6) {
                         ForEach(bands) { band in
-                            let on = band.id == currentId
+                            let filled = band.id <= currentId
                             let locked = band.isPro && !subscription.isPro
                             Capsule()
-                                .fill(on
-                                      ? AppColors.gold
+                                .fill(filled
+                                      ? bandColor(band.id)
                                       : (locked ? AppColors.card2.opacity(0.5) : AppColors.card2))
                                 .frame(height: 4)
                         }
@@ -318,13 +329,6 @@ struct HomeView: View {
                     .foregroundStyle(AppColors.dim)
                     .padding(.top, 2)
                 }
-                .padding(16)
-                .background(AppColors.card)
-                .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                .overlay(
-                    RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                        .stroke(AppColors.border, lineWidth: 1)
-                )
                 .contentShape(Rectangle())
                 .onTapGesture { showDifficultySheet = true }
             }
@@ -334,8 +338,8 @@ struct HomeView: View {
     // MARK: - Mode Grid
 
     private var modeGridSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            SectionHeader(title: "Practice Modes")
+        VStack(alignment: .leading, spacing: 16) {
+            sectionTitle("Practice modes")
             ModeGridView(
                 level: user?.practiceLevel ?? 5,
                 isPro: subscription.isPro,

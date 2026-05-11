@@ -7,68 +7,70 @@ struct DailyChallengeCard: View {
     let onTap: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
-            HStack {
+        Button(action: { if !completed { onTap() } }) {
+            HStack(alignment: .center, spacing: 16) {
                 VStack(alignment: .leading, spacing: 10) {
-                    HStack(spacing: 8) {
-                        PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
-                        PillBadge(text: "Lv \(level)", color: AppColors.gold, small: true)
+                    HStack(spacing: 0) {
+                        Text("TODAY'S CHALLENGE")
+                            .font(AppFonts.bodyBold(10))
+                            .kerning(1.8)
+                            .foregroundStyle(AppColors.dim)
+                        Text(" · ")
+                            .font(AppFonts.bodyBold(10))
+                            .foregroundStyle(AppColors.dim)
+                        if completed {
+                            Text("COMPLETED")
+                                .font(AppFonts.bodyBold(10))
+                                .kerning(1.8)
+                                .foregroundStyle(AppColors.teal)
+                        } else {
+                            Text("+\(AppConstants.dailyChallengeXP) XP")
+                                .font(AppFonts.bodyBold(10))
+                                .kerning(1.8)
+                                .foregroundStyle(AppColors.gold)
+                        }
                     }
 
-                    Text("Daily Challenge")
-                        .font(AppFonts.display(18))
+                    Text(mode.displayName)
+                        .font(AppFonts.display(20))
                         .foregroundStyle(AppColors.text)
 
-                    if completed {
-                        Text("Come back tomorrow for a new one")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.teal)
-                    } else {
-                        Text("Fresh question every session")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.dim)
-                    }
+                    Text(completed
+                         ? "Come back tomorrow for a new one"
+                         : "Level \(level) · Fresh question every day"
+                    )
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                        .lineSpacing(2)
                 }
 
-                Spacer()
+                Spacer(minLength: 0)
 
                 ZStack {
                     Circle()
                         .fill(completed ? AppColors.teal : AppColors.gold)
-                        .frame(width: 46, height: 46)
-
-                    if completed {
-                        Image(systemName: "checkmark")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundStyle(.white)
-                    } else {
-                        Image(systemName: "play.fill")
-                            .font(.system(size: 16))
-                            .foregroundStyle(AppColors.challengeIconFg)
-                            .offset(x: 1.5)
-                    }
+                        .frame(width: 50, height: 50)
+                    Image(systemName: completed ? "checkmark" : "play.fill")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(AppColors.onGold)
                 }
             }
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(
-                LinearGradient(
-                    colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+            .background(AppColors.card2)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(
-                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                    .stroke((completed ? AppColors.teal : AppColors.gold).opacity(0.3), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(AppColors.border, lineWidth: 1)
             )
-            .opacity(completed ? 0.7 : 1.0)
         }
+        .buttonStyle(.plain)
         .disabled(completed)
+        .accessibilityElement(children: .combine)
         .accessibilityLabel(completed
             ? "Daily challenge completed"
-            : "Daily challenge, \(mode.displayName), level \(level), plus \(AppConstants.dailyChallengeXP) XP"
+            : "Today's challenge, \(mode.displayName), level \(level), plus \(AppConstants.dailyChallengeXP) XP"
         )
+        .accessibilityAddTraits(completed ? [] : .isButton)
     }
 }

@@ -38,7 +38,7 @@ struct HomeXPHero: View {
                     .kerning(1.4)
                     .foregroundStyle(AppColors.gold)
             }
-            .padding(.bottom, 18)
+            .padding(.bottom, 10)
 
             Text("Day \(max(user.currentStreak, 1)).")
                 .font(AppFonts.display(32))

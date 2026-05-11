@@ -62,16 +62,15 @@ struct HomeGreeting: View {
                 .kerning(1.6)
                 .foregroundStyle(AppColors.dim)
 
-            VStack(alignment: .leading, spacing: 2) {
-                Text(headline)
-                    .font(AppFonts.display(28))
-                    .foregroundStyle(AppColors.text)
-                Text(imperative)
-                    .font(AppFonts.display(28))
-                    .italic()
-                    .foregroundStyle(AppColors.gold)
-            }
-            .lineSpacing(2)
+            (Text(headline)
+                .foregroundStyle(AppColors.text)
+             + Text(" ")
+             + Text(imperative)
+                .italic()
+                .foregroundStyle(AppColors.gold))
+                .font(AppFonts.display(28))
+                .lineSpacing(2)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .combine)
