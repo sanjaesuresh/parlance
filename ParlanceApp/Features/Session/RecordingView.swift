@@ -214,7 +214,7 @@ struct RecordingView: View {
                 if recorder.isRecording && recorder.canStop {
                     stopHaptic.toggle()
                     didManualStop = true
-                    let _ = recorder.stopRecording()
+                    _ = recorder.stopRecording()
                     onStop()
                 } else if !recorder.isRecording {
                     startHaptic.toggle()
@@ -329,7 +329,7 @@ struct RecordingView: View {
         }
         .alert("End Session?", isPresented: $showCancelConfirmation) {
             Button("End", role: .destructive) {
-                let _ = recorder.stopRecording()
+                _ = recorder.stopRecording()
                 recorder.deleteRecording()
                 onCancel?()
             }
