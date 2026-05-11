@@ -5,6 +5,7 @@ struct AuthView: View {
     @StateObject private var viewModel: AuthViewModel
     @State private var path = NavigationPath()
     @State private var showPassword = false
+    @State private var showSamplePreview = false
     @Environment(\.colorScheme) private var colorScheme
 
     init(authService: AuthService) {
@@ -17,6 +18,15 @@ struct AuthView: View {
                 .navigationDestination(for: String.self) { _ in
                     AuthProfileSetupView(viewModel: viewModel)
                 }
+        }
+        .fullScreenCover(isPresented: $showSamplePreview) {
+            SamplePreviewView(
+                onDismiss: { showSamplePreview = false },
+                onSignUp: {
+                    showSamplePreview = false
+                    viewModel.isSignUp = true
+                }
+            )
         }
     }
 
@@ -178,6 +188,14 @@ struct AuthView: View {
                     }
                     .disabled(disabled)
                     .accessibilityIdentifier("authSubmitButton")
+
+                    Button {
+                        showSamplePreview = true
+                    } label: {
+                        Text("Try a sample session →")
+                            .font(AppFonts.bodyMedium(13))
+                            .foregroundStyle(AppColors.sub)
+                    }
 
                     HStack(spacing: 6) {
                         Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)
