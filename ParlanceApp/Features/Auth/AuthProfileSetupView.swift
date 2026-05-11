@@ -66,7 +66,9 @@ struct AuthProfileSetupView: View {
     @State private var comfortLevel = 0
 
     @StateObject private var locationCompleter = LocationSearchCompleter()
-    @FocusState private var isLocationFocused: Bool
+
+    private enum Field: Hashable { case name, username, occupation, location }
+    @FocusState private var focusedField: Field?
 
     private static let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}",
@@ -104,6 +106,9 @@ struct AuthProfileSetupView: View {
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
                         .textInputAutocapitalization(.words)
+                        .focused($focusedField, equals: .name)
+                        .submitLabel(.next)
+                        .onSubmit { focusedField = .username }
                         .accessibilityIdentifier("nameField")
                         .onChange(of: name) { _, newValue in
                             if newValue.count > AppConstants.maxNameLength {
@@ -119,6 +124,9 @@ struct AuthProfileSetupView: View {
                         .foregroundStyle(AppColors.text)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
+                        .focused($focusedField, equals: .username)
+                        .submitLabel(.next)
+                        .onSubmit { focusedField = .occupation }
                         .accessibilityIdentifier("usernameField")
                         .onChange(of: username) { _, newValue in
                             let filtered = newValue.lowercased().filter { $0.isLetter || $0.isNumber || $0 == "_" }
@@ -132,6 +140,9 @@ struct AuthProfileSetupView: View {
                     TextField("e.g. Software Engineer, Student…", text: $occupation)
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
+                        .focused($focusedField, equals: .occupation)
+                        .submitLabel(.next)
+                        .onSubmit { focusedField = .location }
                 }
 
                 // Location (optional) with autocomplete dropdown
@@ -309,10 +320,12 @@ struct AuthProfileSetupView: View {
                 TextField("City, Country", text: $location)
                     .font(AppFonts.body(17))
                     .foregroundStyle(AppColors.text)
-                    .focused($isLocationFocused)
+                    .focused($focusedField, equals: .location)
+                    .submitLabel(.done)
+                    .onSubmit { focusedField = nil }
                     .padding(14)
                     .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: locationCompleter.suggestions.isEmpty || !isLocationFocused ? 12 : 12))
+                    .clipShape(RoundedRectangle(cornerRadius: locationCompleter.suggestions.isEmpty || focusedField != .location ? 12 : 12))
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(AppColors.border, lineWidth: 1)
@@ -321,13 +334,13 @@ struct AuthProfileSetupView: View {
                         locationCompleter.search(newValue)
                     }
 
-                if isLocationFocused && !locationCompleter.suggestions.isEmpty {
+                if focusedField == .location && !locationCompleter.suggestions.isEmpty {
                     VStack(spacing: 0) {
                         ForEach(Array(locationCompleter.suggestions.enumerated()), id: \.offset) { index, suggestion in
                             Button {
                                 location = suggestion
                                 locationCompleter.suggestions = []
-                                isLocationFocused = false
+                                focusedField = nil
                             } label: {
                                 HStack(spacing: 10) {
                                     Image(systemName: "mappin")
