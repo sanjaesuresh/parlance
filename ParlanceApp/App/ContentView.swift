@@ -102,7 +102,15 @@ struct ContentView: View {
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
             if ProcessInfo.processInfo.arguments.contains("UITesting") {
+                #if DEBUG
+                if UITestBootstrap.isSeedProEnabled {
+                    UITestBootstrap.seedIfNeeded(authService: authService)
+                } else {
+                    Task { try? await authService.signOut() }
+                }
+                #else
                 Task { try? await authService.signOut() }
+                #endif
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isAppReady = true

@@ -113,20 +113,18 @@ struct HomeView: View {
                 }
             }
             .fullScreenCover(isPresented: $showRealLifeSetup) {
-                if let user {
-                    RealLifeSetupView(
-                        level: user.practiceLevel,
-                        onStart: { state in
-                            showRealLifeSetup = false
-                            startSessionHaptic.toggle()
-                            // Let the cover dismiss animation finish before the
-                            // session coordinator's full-screen takeover transition.
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                                onStartSession(state)
-                            }
+                RealLifeSetupView(
+                    level: user?.practiceLevel ?? 5,
+                    onStart: { state in
+                        showRealLifeSetup = false
+                        startSessionHaptic.toggle()
+                        // Let the cover dismiss animation finish before the
+                        // session coordinator's full-screen takeover transition.
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            onStartSession(state)
                         }
-                    )
-                }
+                    }
+                )
             }
             .sensoryFeedback(.impact(weight: .medium), trigger: startSessionHaptic)
             .sensoryFeedback(.selection, trigger: difficultyHaptic)
@@ -361,11 +359,11 @@ struct HomeView: View {
                 level: user?.practiceLevel ?? 5,
                 isPro: subscription.isPro,
                 onSelect: { mode in
-                    guard let user else { return }
                     if mode == .realLife {
                         showRealLifeSetup = true
                         return
                     }
+                    guard let user else { return }
                     if let state = viewModel.startSession(
                         mode: mode,
                         user: user,

@@ -1,26 +1,15 @@
 import XCTest
 
-// Currently disabled. Like ExplainTopicFilterUITests, these tests need a
-// test-only bootstrap path that seeds an authenticated Pro user and lands
-// the app on the home tab. The app currently only reads `UITesting` and
-// uses it to force sign-out — so the home mode grid is never visible
-// during UI tests, and every assertion below would fail at the first tap.
+// Real Life mode end-to-end UI test.
 //
-// To re-enable:
-//   1. Add a launch arg (e.g. `--ui-test-seed-pro`) that, when set,
-//      seeds a SwiftData User with `hasCompletedSetup = true`, marks
-//      AuthService authenticated, and forces SubscriptionService.isPro
-//      to true.
-//   2. Dismiss SplashView when the launch arg is set.
-//   3. Remove the XCTSkip below.
-//
-// Until that harness exists, skipping keeps CI green without losing the
-// documented intent of the test.
+// Uses the `--ui-test-seed-pro` launch arg to seed an authenticated Pro
+// user (see `UITestBootstrap` in the app target). The seeded user has
+// `hasCompletedSetup = true` and `practiceLevel = 5`, so the app lands
+// directly on the home tab with the Real Life tile available.
 final class RealLifeUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-        throw XCTSkip("Pending: --ui-test-seed-pro harness is not implemented in the app.")
     }
 
     func test_realLifeTile_proUser_opensSetupAndStarts() throws {
@@ -31,25 +20,44 @@ final class RealLifeUITests: XCTestCase {
         ]
         app.launch()
 
-        // Wait for the home mode grid to render, then tap the Real Life tile.
+        // Wait for the home mode grid to render. The grid sits at the bottom
+        // of a tall scrollable home page (greeting → XP hero → daily challenge
+        // → difficulty → modeGrid), so we scroll to bring the tile into view
+        // before tapping. Uses safeTap to work around iOS 26 SwiftUI hit-test
+        // quirks where the first tap can be silently dropped.
         let realLifeTile = app.buttons["home.modeGrid.realLife"]
-        XCTAssertTrue(realLifeTile.waitForExistence(timeout: 5))
-        realLifeTile.tap()
+        XCTAssertTrue(realLifeTile.waitForExistence(timeout: 10))
 
-        // Setup view appears — SwiftUI TextField with axis: .vertical
-        // surfaces in XCUITest as a textView, not a textField.
-        let scenarioField = app.textViews["realLife.scenarioField"].firstMatch
-        XCTAssertTrue(scenarioField.waitForExistence(timeout: 3))
-        scenarioField.tap()
+        // Scroll the home tab until the tile is visible (hittable).
+        var attempts = 0
+        while !realLifeTile.isHittable && attempts < 8 {
+            app.swipeUp()
+            attempts += 1
+        }
+        XCTAssertTrue(realLifeTile.isHittable, "Real Life tile never became hittable after scrolling")
+
+        realLifeTile.safeTap()
+
+        // Setup view appears. SwiftUI TextField with axis: .vertical can
+        // surface as textView or otherElement depending on iOS version,
+        // so match by identifier across all descendants. Retry the tile
+        // tap once if the setup view doesn't appear — see hit-test note above.
+        let scenarioField = app.descendants(matching: .any)["realLife.scenarioField"].firstMatch
+        if !scenarioField.waitForExistence(timeout: 4) {
+            realLifeTile.safeTap()
+            XCTAssertTrue(scenarioField.waitForExistence(timeout: 6))
+        }
+        app.tapAndFocus(scenarioField)
         scenarioField.typeText("Asking my manager for time off after a death in the family.")
+        app.dismissKeyboard()
 
         // Start button is enabled (duration default 1:00 ≥ 0:15).
         let startBtn = app.buttons["realLife.startButton"]
-        XCTAssertTrue(startBtn.exists)
+        XCTAssertTrue(startBtn.waitForExistence(timeout: 3))
         XCTAssertTrue(startBtn.isEnabled)
-        startBtn.tap()
+        startBtn.safeTap()
 
-        // We left the setup screen — the field should no longer exist.
-        XCTAssertFalse(scenarioField.waitForExistence(timeout: 2))
+        // We left the setup screen — the field should disappear.
+        XCTAssertFalse(scenarioField.waitForExistence(timeout: 3))
     }
 }

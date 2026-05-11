@@ -9,7 +9,19 @@ final class AuthService: ObservableObject {
     @Published private(set) var isAuthenticated = false
     @Published var pendingAppleDisplayName: String?
 
-    var currentUserID: String? { currentUser?.id.uuidString }
+    var currentUserID: String? {
+        #if DEBUG
+        if let testOverrideUserID { return testOverrideUserID }
+        #endif
+        return currentUser?.id.uuidString
+    }
+
+    #if DEBUG
+    /// UI-test-only override. When set via `_uiTestSeedAuthenticated(userID:)`,
+    /// `currentUserID` returns this string and the auth state listener is
+    /// skipped — see init().
+    private var testOverrideUserID: String?
+    #endif
     @Published private(set) var isLoading = true
     @Published var isCompletingSignUp = false
     @Published var isDeletingAccount = false
@@ -18,8 +30,28 @@ final class AuthService: ObservableObject {
     private let client = SupabaseManager.shared.client
 
     init() {
+        #if DEBUG
+        // UI-test bootstrap: when `--ui-test-seed-pro` is set, skip the
+        // Supabase auth listener entirely so UITestBootstrap can seed
+        // auth state synchronously without race conditions.
+        if ProcessInfo.processInfo.arguments.contains("--ui-test-seed-pro") {
+            isLoading = false
+            return
+        }
+        #endif
         Task { await listenToAuthChanges() }
     }
+
+    #if DEBUG
+    /// UI-test-only: seed an authenticated session without going through
+    /// Supabase. Called by `UITestBootstrap` when the `--ui-test-seed-pro`
+    /// launch arg is present.
+    func _uiTestSeedAuthenticated(userID: String) {
+        testOverrideUserID = userID
+        isAuthenticated = true
+        isLoading = false
+    }
+    #endif
 
     private func listenToAuthChanges() async {
         for await (event, session) in client.auth.authStateChanges {

@@ -52,6 +52,17 @@ final class SubscriptionService: ObservableObject {
 
     // MARK: - Internal (exposed for tests)
 
+    #if DEBUG
+    /// UI-test-only: synchronously mark the user Pro without going through
+    /// StoreKit. Called by `UITestBootstrap` when `--ui-test-seed-pro` is
+    /// set, so a test can tap the Real Life (or any Pro) mode tile before
+    /// the async `refreshStatus()` has a chance to finish.
+    func _uiTestSeedPro() {
+        isPro = true
+        isLoading = false
+    }
+    #endif
+
     func refreshStatus() async {
         isLoading = true
         #if DEBUG && targetEnvironment(simulator)
