@@ -518,8 +518,6 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance uses speech recognition to transcribe your practice sessions and analyze your speaking performance.";
 				INFOPLIST_KEY_ParlanceAPIBaseURL = "https://parlance-api.parlance-app.workers.dev";
-				INFOPLIST_KEY_SupabaseAnonKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhla3JmanVmZ29ycmNucG5zYWVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMjMxNzgsImV4cCI6MjA5MzU5OTE3OH0.w4gjaTtnrYyDLoqRMYPNwm0vBYRLfUp1jYOrvVhWxfc;
-				INFOPLIST_KEY_SupabaseURL = "https://xekrfjufgorrcnpnsaei.supabase.co";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
@@ -560,8 +558,6 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Parlance needs your microphone to record your practice sessions.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Parlance uses speech recognition to transcribe your practice sessions and analyze your speaking performance.";
 				INFOPLIST_KEY_ParlanceAPIBaseURL = "https://parlance-api.parlance-app.workers.dev";
-				INFOPLIST_KEY_SupabaseAnonKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhla3JmanVmZ29ycmNucG5zYWVpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgwMjMxNzgsImV4cCI6MjA5MzU5OTE3OH0.w4gjaTtnrYyDLoqRMYPNwm0vBYRLfUp1jYOrvVhWxfc;
-				INFOPLIST_KEY_SupabaseURL = "https://xekrfjufgorrcnpnsaei.supabase.co";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UIBackgroundModes = "remote-notification";
