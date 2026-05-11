@@ -164,6 +164,12 @@ struct FirstLaunchSetupView: View {
                 .disabled(!isValid)
                 .padding(.horizontal, 24)
 
+                Text("AI feedback is for practice. Not professional coaching, therapy, or medical advice.")
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 24)
+
                 VStack(spacing: 8) {
                     Button { showPrivacyPolicy = true } label: {
                         Text("Privacy Policy")

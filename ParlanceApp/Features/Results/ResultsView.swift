@@ -433,6 +433,12 @@ struct ResultsView: View {
                     .font(AppFonts.body(13))
                     .foregroundStyle(AppColors.dim)
                     .lineSpacing(6)
+
+                Text("Practice feedback only. Not professional coaching or medical advice.")
+                    .font(AppFonts.body(10))
+                    .italic()
+                    .foregroundStyle(AppColors.dim)
+                    .padding(.top, 2)
             } else if viewModel.isRetryingFeedback {
                 RoundedRectangle(cornerRadius: 8)
                     .fill(AppColors.border)

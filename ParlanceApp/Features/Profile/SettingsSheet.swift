@@ -143,6 +143,20 @@ struct SettingsSheet: View {
                             .lineSpacing(3)
                     }
                     .padding(.vertical, 12)
+
+                    Divider().background(AppColors.border)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("ABOUT THE AI")
+                            .font(AppFonts.bodyMedium(10))
+                            .foregroundStyle(AppColors.dim)
+                            .kerning(1.0)
+                        Text("AI scores and feedback are for practice only. They aren't a substitute for professional coaching, therapy, or medical advice.")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                            .lineSpacing(3)
+                    }
+                    .padding(.vertical, 12)
                 }
                 .padding(.horizontal, 16)
             }
