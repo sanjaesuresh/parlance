@@ -23,6 +23,7 @@ struct HomeView: View {
     @State private var sectionVisible: [Bool] = Array(repeating: false, count: 5)
     @State private var showPaywall = false
     @State private var showDifficultySheet = false
+    @State private var showRealLifeSetup = false
     @State private var startSessionHaptic = false
     @State private var difficultyHaptic = false
     @State private var lockedHaptic = false
@@ -107,6 +108,22 @@ struct HomeView: View {
                             lockedHaptic.toggle()
                             showDifficultySheet = false
                             showPaywall = true
+                        }
+                    )
+                }
+            }
+            .fullScreenCover(isPresented: $showRealLifeSetup) {
+                if let user {
+                    RealLifeSetupView(
+                        level: user.practiceLevel,
+                        onStart: { state in
+                            showRealLifeSetup = false
+                            startSessionHaptic.toggle()
+                            // Let the cover dismiss animation finish before the
+                            // session coordinator's full-screen takeover transition.
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                onStartSession(state)
+                            }
                         }
                     )
                 }
@@ -345,6 +362,10 @@ struct HomeView: View {
                 isPro: subscription.isPro,
                 onSelect: { mode in
                     guard let user else { return }
+                    if mode == .realLife {
+                        showRealLifeSetup = true
+                        return
+                    }
                     if let state = viewModel.startSession(
                         mode: mode,
                         user: user,
