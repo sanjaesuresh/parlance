@@ -10,6 +10,7 @@ struct ProfileView: View {
     @EnvironmentObject private var weekCache: SessionWeekCache
     @State private var showSettings = false
     @State private var showEditProfile = false
+    @State private var showAvatarPicker = false
     @State private var showPaywall = false
     @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
 
@@ -22,12 +23,19 @@ struct ProfileView: View {
         GridItem(.flexible(), spacing: 8)
     ]
 
+    private let statsColumns = [
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10)
+    ]
+
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(alignment: .leading, spacing: 24) {
                     heroSection
-                    keyStatsGrid
+                    levelCard
+                    lifetimeSection
+                    thisWeekSection
                     achievementsSection
                     footerSection
                 }
@@ -54,6 +62,11 @@ struct ProfileView: View {
             .sheet(isPresented: $showEditProfile) {
                 if let user {
                     ProfileEditSheet(user: user, onDismiss: { showEditProfile = false })
+                }
+            }
+            .sheet(isPresented: $showAvatarPicker) {
+                if let user {
+                    AvatarPickerSheet(user: user, onDismiss: { showAvatarPicker = false })
                 }
             }
             .sheet(isPresented: $showPaywall) {
@@ -87,10 +100,7 @@ struct ProfileView: View {
                     .frame(width: 36, height: 36)
                     .background(AppColors.card)
                     .clipShape(Circle())
-                    .overlay(
-                        Circle()
-                            .stroke(AppColors.border, lineWidth: 1)
-                    )
+                    .overlay(Circle().stroke(AppColors.border, lineWidth: 1))
             }
             .accessibilityLabel("Settings")
             .accessibilityIdentifier("settingsButton")
@@ -101,51 +111,78 @@ struct ProfileView: View {
         .background(AppColors.bg)
     }
 
+    // MARK: - Editorial section header
+
+    private func sectionTitle(_ title: String, trailing: AnyView? = nil) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Rectangle()
+                .fill(AppColors.border)
+                .frame(height: 1)
+                .padding(.bottom, 22)
+            HStack(alignment: .firstTextBaseline) {
+                Text(title)
+                    .font(AppFonts.display(18))
+                    .foregroundStyle(AppColors.text)
+                Spacer()
+                if let trailing { trailing }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     // MARK: - Hero
 
     private var heroSection: some View {
         VStack(spacing: 10) {
             if let user {
-                ZStack(alignment: .bottomTrailing) {
-                    Group {
-                        if let data = user.profileImageData, let uiImage = UIImage(data: data) {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 80, height: 80)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
-                        } else {
-                            Circle()
-                                .fill(AppColors.gold.opacity(0.2))
-                                .frame(width: 80, height: 80)
-                                .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
-                                .overlay(Text(user.avatarEmoji).font(.system(size: 38)))
+                Button {
+                    showAvatarPicker = true
+                } label: {
+                    ZStack(alignment: .bottomTrailing) {
+                        Group {
+                            if let data = user.profileImageData, let uiImage = UIImage(data: data) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
+                            } else {
+                                Circle()
+                                    .fill(AppColors.gold.opacity(0.2))
+                                    .frame(width: 80, height: 80)
+                                    .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
+                                    .overlay(Text(user.avatarEmoji).font(.system(size: 38)))
+                            }
                         }
+
+                        Image(systemName: "pencil")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(AppColors.onGold)
+                            .frame(width: 26, height: 26)
+                            .background(AppColors.gold)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(AppColors.bg, lineWidth: 2))
+                            .offset(x: 4, y: 4)
                     }
-
-                    Text("LV \(user.rank.level)")
-                        .font(AppFonts.bodyBold(10))
-                        .foregroundStyle(.black)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 2)
-                        .background(AppColors.gold)
-                        .clipShape(Capsule())
-                        .offset(x: 4, y: 4)
                 }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Edit avatar")
 
-                Text(user.displayName)
-                    .font(AppFonts.display(24))
-                    .foregroundStyle(AppColors.text)
+                HStack(spacing: 8) {
+                    Text(user.displayName)
+                        .font(AppFonts.display(24))
+                        .foregroundStyle(AppColors.text)
 
-                if subscription.isPro {
-                    Text("PRO")
-                        .font(AppFonts.bodyBold(10))
-                        .foregroundStyle(.black)
-                        .padding(.horizontal, 9)
-                        .padding(.vertical, 3)
-                        .background(AppColors.gold)
-                        .clipShape(Capsule())
+                    if subscription.isPro {
+                        Text("PRO")
+                            .font(AppFonts.bodyBold(10))
+                            .foregroundStyle(AppColors.onGold)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background(AppColors.gold)
+                            .clipShape(Capsule())
+                    }
                 }
 
                 if let username = user.username, !username.isEmpty {
@@ -154,9 +191,21 @@ struct ProfileView: View {
                         .foregroundStyle(AppColors.sub)
                 }
 
-                Text(user.rank.name)
-                    .font(AppFonts.body(13))
-                    .foregroundStyle(AppColors.dim)
+                if let location = user.location, !location.isEmpty || (user.occupation?.isEmpty == false) {
+                    HStack(spacing: 12) {
+                        if let location = user.location, !location.isEmpty {
+                            Label(location, systemImage: "mappin")
+                                .font(AppFonts.body(11))
+                                .foregroundStyle(AppColors.sub)
+                        }
+                        if let occupation = user.occupation, !occupation.isEmpty {
+                            Label(occupation, systemImage: "briefcase")
+                                .font(AppFonts.body(11))
+                                .foregroundStyle(AppColors.sub)
+                        }
+                    }
+                    .labelStyle(.titleAndIcon)
+                }
 
                 Button {
                     showEditProfile = true
@@ -172,88 +221,194 @@ struct ProfileView: View {
                     .padding(.vertical, 7)
                     .background(AppColors.gold.opacity(0.12))
                     .clipShape(Capsule())
-                    .overlay(
-                        Capsule()
-                            .stroke(AppColors.gold.opacity(0.4), lineWidth: 1)
-                    )
+                    .overlay(Capsule().stroke(AppColors.gold.opacity(0.4), lineWidth: 1))
                 }
-                .padding(.top, 2)
-
-                // Location + Occupation
-                HStack(spacing: 12) {
-                    if let location = user.location, !location.isEmpty {
-                        HStack(spacing: 4) {
-                            Image(systemName: "mappin")
-                                .font(.system(size: 10))
-                                .foregroundStyle(AppColors.dim)
-                            Text(location)
-                                .font(AppFonts.body(11))
-                                .foregroundStyle(AppColors.sub)
-                        }
-                    }
-                    if let occupation = user.occupation, !occupation.isEmpty {
-                        HStack(spacing: 4) {
-                            Image(systemName: "briefcase")
-                                .font(.system(size: 10))
-                                .foregroundStyle(AppColors.dim)
-                            Text(occupation)
-                                .font(AppFonts.body(11))
-                                .foregroundStyle(AppColors.sub)
-                        }
-                    }
-                }
-
-                HStack(spacing: 8) {
-                    PillBadge(text: "\(user.currentStreak)-day streak", emoji: "🔥", color: AppColors.gold, small: true)
-
-                    let weeklyXP = weekCache.sessions.map(\.xpEarned).reduce(0, +)
-                    let tier = LeagueTier.from(weeklyXP: weeklyXP)
-                    PillBadge(text: "\(tier.displayName) League", color: AppColors.purple, small: true)
-                }
+                .padding(.top, 4)
             }
         }
         .frame(maxWidth: .infinity)
-        .padding(.top, 8)
+        .padding(.top, 4)
     }
 
-    // MARK: - Key Stats
+    // MARK: - Level / XP card
 
-    private var keyStatsGrid: some View {
+    private var levelCard: some View {
+        Group {
+            if let user {
+                let rank = user.rank
+                let progressPct: Double = {
+                    guard !rank.isMaxRank, let next = rank.xpForNextRank else { return 1.0 }
+                    let span = max(1, next - rank.xpRequired)
+                    return min(1, max(0, Double(user.xp - rank.xpRequired) / Double(span)))
+                }()
+                let nextRankName = Rank.forLevel(rank.level + 1)?.name
+
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(alignment: .center) {
+                        Text(rank.name)
+                            .font(AppFonts.display(20))
+                            .foregroundStyle(AppColors.text)
+                        Spacer()
+                        Text("L\(rank.level)")
+                            .font(AppFonts.bodyBold(11))
+                            .kerning(1.4)
+                            .foregroundStyle(AppColors.gold)
+                    }
+                    .padding(.bottom, 12)
+
+                    GeometryReader { geo in
+                        ZStack(alignment: .leading) {
+                            Capsule()
+                                .fill(AppColors.card2)
+                            Capsule()
+                                .fill(AppColors.gold)
+                                .frame(width: geo.size.width * progressPct)
+                        }
+                    }
+                    .frame(height: 5)
+
+                    HStack(alignment: .firstTextBaseline) {
+                        if rank.isMaxRank {
+                            Text("Max rank reached · \(user.xp) xp")
+                                .font(AppFonts.body(11))
+                                .foregroundStyle(AppColors.sub)
+                        } else if let next = rank.xpForNextRank, let nextName = nextRankName {
+                            let remaining = max(0, next - user.xp)
+                            Text("\(user.xp) xp")
+                                .font(AppFonts.bodyBold(11))
+                                .foregroundStyle(AppColors.text)
+                            Text("\(remaining) to \(nextName)")
+                                .font(AppFonts.body(11))
+                                .foregroundStyle(AppColors.sub)
+                        }
+                        Spacer()
+                        Text("Joined \(user.joinDate.formatted(.dateTime.month(.abbreviated).year()))")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                    }
+                    .padding(.top, 10)
+                }
+                .padding(20)
+                .background(
+                    LinearGradient(
+                        colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(AppColors.gold.opacity(0.25), lineWidth: 1)
+                )
+            }
+        }
+    }
+
+    // MARK: - Lifetime stats
+
+    private var lifetimeSection: some View {
         let totalSessions = sessions.count
         let hasSessions = totalSessions > 0
+        let avgScore = hasSessions ? sessions.map(\.overallScore).reduce(0, +) / totalSessions : 0
         let bestScore = sessions.map(\.overallScore).max() ?? 0
-        let totalMinutes = Int(sessions.map(\.duration).reduce(0, +) / 60)
-        let streak = user?.currentStreak ?? 0
+        let totalSeconds = Int(sessions.map(\.duration).reduce(0, +))
+        let totalTime = formatDuration(totalSeconds)
+        let totalXP = sessions.map(\.xpEarned).reduce(0, +)
+        let currentStreak = user?.currentStreak ?? 0
+        let longestStreak = user?.longestStreak ?? 0
 
-        let statColumns = [
-            GridItem(.flexible(), spacing: 10),
-            GridItem(.flexible(), spacing: 10)
-        ]
+        return VStack(alignment: .leading, spacing: 16) {
+            sectionTitle("Lifetime")
 
-        return LazyVGrid(columns: statColumns, spacing: 10) {
-            keyStatCell(value: hasSessions ? "\(totalSessions)" : "—", label: "Total Sessions")
-            keyStatCell(value: hasSessions ? "\(bestScore)" : "—", label: "Best Score")
-            keyStatCell(value: hasSessions ? "\(totalMinutes)m" : "—", label: "Time Spoken")
-            keyStatCell(value: streak > 0 ? "\(streak)" : "—", label: "Day Streak")
+            LazyVGrid(columns: statsColumns, spacing: 10) {
+                statCell(value: hasSessions ? "\(totalSessions)" : "—", label: "Sessions")
+                statCell(value: hasSessions ? "\(avgScore)" : "—", label: "Average score")
+                statCell(value: hasSessions ? "\(bestScore)" : "—", label: "Best score")
+                statCell(value: hasSessions ? "\(totalXP)" : "—", label: "Total XP")
+                statCell(value: hasSessions ? totalTime : "—", label: "Time spoken")
+                statCell(value: longestStreak > 0 ? "\(longestStreak)" : "—", label: "Longest streak")
+            }
+
+            if currentStreak > 0 {
+                HStack(spacing: 6) {
+                    Text("🔥").font(.system(size: 13))
+                    Text("On a ")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                    Text("\(currentStreak)-day streak")
+                        .font(AppFonts.bodyBold(12))
+                        .foregroundStyle(AppColors.gold)
+                    Text(" right now")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                }
+            }
         }
     }
 
-    private func keyStatCell(value: String, label: String) -> some View {
-        VStack(spacing: 4) {
+    private func statCell(value: String, label: String) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
             Text(value)
-                .font(AppFonts.display(26))
-                .foregroundStyle(AppColors.gold)
-            Text(label.uppercased())
+                .font(AppFonts.display(24))
+                .foregroundStyle(AppColors.text)
+            Text(label)
                 .font(AppFonts.bodyMedium(11))
                 .foregroundStyle(AppColors.dim)
-                .kerning(0.5)
+                .kerning(0.4)
         }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 14)
-        .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(AppColors.card2)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
         .overlay(
-            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(AppColors.border, lineWidth: 1)
+        )
+    }
+
+    private func formatDuration(_ seconds: Int) -> String {
+        let hours = seconds / 3600
+        let minutes = (seconds % 3600) / 60
+        if hours > 0 { return "\(hours)h \(minutes)m" }
+        return "\(minutes)m"
+    }
+
+    // MARK: - This Week
+
+    private var thisWeekSection: some View {
+        let weekSessions = weekCache.sessions
+        let weekCount = weekSessions.count
+        let weekXP = weekSessions.map(\.xpEarned).reduce(0, +)
+        let tier = LeagueTier.from(weeklyXP: weekXP)
+
+        return VStack(alignment: .leading, spacing: 16) {
+            sectionTitle("This week")
+
+            HStack(spacing: 10) {
+                weekCell(value: "\(weekCount)", label: "Sessions")
+                weekCell(value: "\(weekXP)", label: "XP earned")
+                weekCell(value: tier.displayName, label: "League", color: tier.color)
+            }
+        }
+    }
+
+    private func weekCell(value: String, label: String, color: Color? = nil) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(value)
+                .font(AppFonts.display(20))
+                .foregroundStyle(color ?? AppColors.text)
+            Text(label)
+                .font(AppFonts.bodyMedium(10))
+                .foregroundStyle(AppColors.dim)
+                .kerning(0.4)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(14)
+        .background(AppColors.card2)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
                 .stroke(AppColors.border, lineWidth: 1)
         )
     }
@@ -264,14 +419,15 @@ struct ProfileView: View {
     private var achievementsSection: some View {
         if !achievements.isEmpty {
             let unlockedCount = achievements.filter(\.isUnlocked).count
-            VStack(spacing: 12) {
-                HStack {
-                    SectionHeader(title: "Achievements")
-                    Spacer()
-                    Text("\(unlockedCount) / \(achievements.count)")
-                        .font(AppFonts.body(11))
-                        .foregroundStyle(AppColors.dim)
-                }
+            VStack(alignment: .leading, spacing: 16) {
+                sectionTitle(
+                    "Achievements",
+                    trailing: AnyView(
+                        Text("\(unlockedCount) / \(achievements.count)")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                    )
+                )
 
                 LazyVGrid(columns: achievementColumns, spacing: 8) {
                     ForEach(achievements, id: \.id) { achievement in
@@ -294,7 +450,7 @@ struct ProfileView: View {
                         .padding(12)
                         .background(
                             ZStack {
-                                AppColors.card
+                                AppColors.card2
                                 if !achievement.isUnlocked {
                                     Color.black.opacity(0.3)
                                 }
@@ -321,5 +477,4 @@ struct ProfileView: View {
             .frame(maxWidth: .infinity)
             .padding(.top, 8)
     }
-
 }

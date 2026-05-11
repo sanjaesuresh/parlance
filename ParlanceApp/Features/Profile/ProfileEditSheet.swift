@@ -13,6 +13,12 @@ struct ProfileEditSheet: View {
     @State private var selectedAvatar: String  // "__photo__" when a custom photo is active
     @State private var photoPickerItem: PhotosPickerItem?
     @State private var pickedImageData: Data?
+    @State private var pendingCropImage: UIImage?
+
+    private struct CroppingImage: Identifiable {
+        let id = UUID()
+        let image: UIImage
+    }
 
     private let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}", "\u{1F525}",
@@ -78,9 +84,10 @@ struct ProfileEditSheet: View {
                                 }
                                 .onChange(of: photoPickerItem) { _, item in
                                     Task {
-                                        if let data = try? await item?.loadTransferable(type: Data.self) {
-                                            pickedImageData = data
-                                            selectedAvatar = "__photo__"
+                                        guard let item else { return }
+                                        if let data = try? await item.loadTransferable(type: Data.self),
+                                           let uiImage = UIImage(data: data) {
+                                            pendingCropImage = uiImage
                                         }
                                     }
                                 }
@@ -177,6 +184,22 @@ struct ProfileEditSheet: View {
                 Button("OK", role: .cancel) { profanityError = nil }
             } message: { msg in
                 Text(msg)
+            }
+            .sheet(item: Binding(
+                get: { pendingCropImage.map { CroppingImage(image: $0) } },
+                set: { newValue in
+                    if newValue == nil { pendingCropImage = nil }
+                }
+            )) { wrapper in
+                ImageCropSheet(
+                    image: wrapper.image,
+                    onSave: { data in
+                        pickedImageData = data
+                        selectedAvatar = "__photo__"
+                        pendingCropImage = nil
+                    },
+                    onCancel: { pendingCropImage = nil }
+                )
             }
         }
     }
