@@ -20,9 +20,9 @@ struct HomeView: View {
 
     @Environment(\.scenePhase) private var scenePhase
 
-    @State private var sectionVisible: [Bool] = Array(repeating: false, count: 6)
-    @State private var sliderLevel: Double = 1
+    @State private var sectionVisible: [Bool] = Array(repeating: false, count: 5)
     @State private var showPaywall = false
+    @State private var showDifficultySheet = false
     @State private var startSessionHaptic = false
     @State private var difficultyHaptic = false
     @State private var lockedHaptic = false
@@ -30,25 +30,25 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
-                    headerRow
+                VStack(alignment: .leading, spacing: 24) {
+                    brandRow
                         .opacity(sectionVisible[0] ? 1 : 0)
                         .offset(y: sectionVisible[0] ? 0 : 16)
-                    xpBar
+                    greetSection
                         .opacity(sectionVisible[1] ? 1 : 0)
                         .offset(y: sectionVisible[1] ? 0 : 16)
-                    dailyChallengeSection
+                    xpHeroSection
                         .opacity(sectionVisible[2] ? 1 : 0)
                         .offset(y: sectionVisible[2] ? 0 : 16)
-                    difficultySlider
+                    dailyChallengeSection
                         .opacity(sectionVisible[3] ? 1 : 0)
                         .offset(y: sectionVisible[3] ? 0 : 16)
-                    modeGrid
+                    difficultySection
                         .opacity(sectionVisible[4] ? 1 : 0)
                         .offset(y: sectionVisible[4] ? 0 : 16)
-                    weeklyStatsSection
-                        .opacity(sectionVisible[5] ? 1 : 0)
-                        .offset(y: sectionVisible[5] ? 0 : 16)
+                    modeGridSection
+                        .opacity(sectionVisible[4] ? 1 : 0)
+                        .offset(y: sectionVisible[4] ? 0 : 16)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -69,7 +69,6 @@ struct HomeView: View {
             .onAppear {
                 if let user {
                     viewModel.lockDailyChallengeLevel(for: user)
-                    sliderLevel = Double(user.practiceLevel)
                 }
                 animateIn()
             }
@@ -92,6 +91,26 @@ struct HomeView: View {
             .sheet(isPresented: $showPaywall) {
                 PaywallView(source: "session_limit")
             }
+            .sheet(isPresented: $showDifficultySheet) {
+                if let user {
+                    DifficultyChangeSheet(
+                        selectedLevel: Binding(
+                            get: { user.practiceLevel },
+                            set: { user.practiceLevel = $0 }
+                        ),
+                        isPro: subscription.isPro,
+                        onConfirm: { newLevel in
+                            difficultyHaptic.toggle()
+                            user.practiceLevel = newLevel
+                        },
+                        onUpgrade: {
+                            lockedHaptic.toggle()
+                            showDifficultySheet = false
+                            showPaywall = true
+                        }
+                    )
+                }
+            }
             .sensoryFeedback(.impact(weight: .medium), trigger: startSessionHaptic)
             .sensoryFeedback(.selection, trigger: difficultyHaptic)
             .sensoryFeedback(.warning, trigger: lockedHaptic)
@@ -101,8 +120,8 @@ struct HomeView: View {
     // MARK: - Entrance Animation
 
     private func animateIn() {
-        sectionVisible = Array(repeating: false, count: 6)
-        let delays: [Double] = [0.05, 0.15, 0.25, 0.35, 0.45, 0.55]
+        sectionVisible = Array(repeating: false, count: 5)
+        let delays: [Double] = [0.05, 0.15, 0.25, 0.35, 0.45]
         for (i, delay) in delays.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 withAnimation(.easeOut(duration: 0.4)) {
@@ -112,16 +131,16 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Header
+    // MARK: - Brand row
 
-    private var headerRow: some View {
+    private var brandRow: some View {
         HStack(alignment: .center) {
             HStack(spacing: 0) {
                 Text("Parlance")
-                    .font(AppFonts.display(28))
+                    .font(AppFonts.display(24))
                     .foregroundStyle(AppColors.text)
                 Text(".")
-                    .font(AppFonts.display(28))
+                    .font(AppFonts.display(24))
                     .foregroundStyle(AppColors.gold)
             }
 
@@ -129,32 +148,47 @@ struct HomeView: View {
 
             if let user {
                 HStack(spacing: 6) {
-                    Text("🔥")
-                        .font(.system(size: 13))
+                    Text("🔥").font(.system(size: 12))
                     Text("\(user.currentStreak)")
-                        .font(AppFonts.bodyBold(13))
+                        .font(AppFonts.bodyBold(12))
                         .foregroundStyle(AppColors.gold)
                 }
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
                 .background(AppColors.card)
                 .clipShape(Capsule())
-                .overlay(
-                    Capsule()
-                        .stroke(AppColors.border, lineWidth: 1)
-                )
+                .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("\(user.currentStreak)-day streak")
             }
         }
     }
 
-    // MARK: - XP Bar
+    // MARK: - Greet
 
-    private var xpBar: some View {
+    private var greetSection: some View {
         Group {
             if let user {
-                XPProgressBar(currentXP: user.xp, rank: user.rank)
+                HomeGreeting(
+                    user: user,
+                    hasSessionsEver: !allSessions.isEmpty,
+                    leveledUpRecently: false
+                )
+            }
+        }
+    }
+
+    // MARK: - XP Hero
+
+    private var xpHeroSection: some View {
+        Group {
+            if let user {
+                let stats = viewModel.weeklyStats(sessions: thisWeekSessions)
+                HomeXPHero(
+                    user: user,
+                    weeklySessionCount: stats.count,
+                    weeklyAvgScore: stats.avgScore
+                )
             }
         }
     }
@@ -168,8 +202,7 @@ struct HomeView: View {
                 let level = user.dailyChallengeLevelLock ?? user.practiceLevel
                 let completed = user.hasDailyChallengeCompletedToday
 
-                VStack(spacing: 10) {
-                    // Section header row with bonus text
+                VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         SectionHeader(title: "Today's Challenge")
                         Spacer()
@@ -203,168 +236,108 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Difficulty Picker
+    // MARK: - Difficulty (quiet 5-tick bar)
 
     private struct Band: Identifiable {
-        let id: Int           // lower bound stored in practiceLevel (1, 3, 5, 7, 9)
-        let range: String
-        let tierName: String
-        let descriptor: String
-        let isProTier: Bool
+        let id: Int
+        let name: String
+        let isPro: Bool
     }
-
-    private let difficultyBands: [Band] = [
-        Band(id: 1, range: "1–2", tierName: "Starter",    descriptor: "Build the habit",     isProTier: false),
-        Band(id: 3, range: "3–4", tierName: "Developing", descriptor: "Finding your rhythm",  isProTier: false),
-        Band(id: 5, range: "5–6", tierName: "Confident",  descriptor: "In the groove",        isProTier: false),
-        Band(id: 7, range: "7–8", tierName: "Advanced",   descriptor: "High stakes",           isProTier: true),
-        Band(id: 9, range: "9–10", tierName: "Expert",    descriptor: "The edge",              isProTier: true),
+    private let bands: [Band] = [
+        Band(id: 1, name: "Starter",    isPro: false),
+        Band(id: 3, name: "Developing", isPro: false),
+        Band(id: 5, name: "Confident",  isPro: false),
+        Band(id: 7, name: "Advanced",   isPro: true),
+        Band(id: 9, name: "Expert",     isPro: true),
     ]
-
-    private var selectedBandId: Int {
-        let level = Int(sliderLevel)
+    private func bandId(for level: Int) -> Int {
         switch level {
-        case 1...2: return 1
-        case 3...4: return 3
-        case 7...8: return 7
-        case 9...10: return 9
-        default:   return 5
+        case 1...2: 1
+        case 3...4: 3
+        case 7...8: 7
+        case 9...10: 9
+        default: 5
         }
     }
 
-    private var difficultySlider: some View {
+    private var difficultySection: some View {
         Group {
             if let user {
-                VStack(alignment: .leading, spacing: 0) {
+                let currentId = bandId(for: user.practiceLevel)
+                let currentName = bands.first(where: { $0.id == currentId })?.name ?? "Confident"
+
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        SectionHeader(title: "Difficulty")
+                        Spacer()
+                        Button {
+                            showDifficultySheet = true
+                        } label: {
+                            HStack(spacing: 4) {
+                                Text("Change")
+                                    .font(AppFonts.bodyMedium(11))
+                                Image(systemName: "arrow.up.right")
+                                    .font(.system(size: 10, weight: .semibold))
+                            }
+                            .foregroundStyle(AppColors.gold)
+                        }
+                        .accessibilityLabel("Change difficulty")
+                    }
+
+                    Text("Sets how challenging each session feels.")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+
                     HStack(alignment: .firstTextBaseline) {
-                        Text("Difficulty")
-                            .font(AppFonts.bodyMedium(13))
+                        Text("\(currentName) · L\(user.practiceLevel)")
+                            .font(AppFonts.display(20))
                             .foregroundStyle(AppColors.text)
                         Spacer()
-                        Text(difficultyBands.first(where: { $0.id == selectedBandId })?.tierName ?? "")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.sub)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.top, 14)
-                    .padding(.bottom, 10)
+                    .padding(.top, 2)
 
-                    ScrollViewReader { proxy in
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) {
-                                ForEach(difficultyBands) { band in
-                                    let isSelected = selectedBandId == band.id
-                                    let locked = band.isProTier && !subscription.isPro
-
-                                    Button {
-                                        if locked {
-                                            lockedHaptic.toggle()
-                                            showPaywall = true
-                                        } else if Int(sliderLevel) != band.id {
-                                            difficultyHaptic.toggle()
-                                            sliderLevel = Double(band.id)
-                                            user.practiceLevel = band.id
-                                        }
-                                    } label: {
-                                        bandCard(band, isSelected: isSelected, locked: locked)
-                                    }
-                                    .id(band.id)
-                                    .accessibilityLabel("\(band.tierName), levels \(band.range)\(isSelected ? ", selected" : "")")
-                                }
-                            }
-                            .padding(.leading, 16)
-                            .padding(.trailing, 16)
-                            .padding(.bottom, 14)
-                            .scrollTargetLayout()
-                        }
-                        .scrollTargetBehavior(.viewAligned)
-                        .onAppear {
-                            DispatchQueue.main.async {
-                                proxy.scrollTo(selectedBandId, anchor: .leading)
-                            }
+                    HStack(spacing: 6) {
+                        ForEach(bands) { band in
+                            let on = band.id == currentId
+                            let locked = band.isPro && !subscription.isPro
+                            Capsule()
+                                .fill(on
+                                      ? AppColors.gold
+                                      : (locked ? AppColors.card2.opacity(0.5) : AppColors.card2))
+                                .frame(height: 4)
                         }
                     }
+
+                    HStack {
+                        Text("Starter")
+                        Spacer()
+                        Text("Expert · Pro")
+                    }
+                    .font(AppFonts.bodyBold(10))
+                    .kerning(0.6)
+                    .foregroundStyle(AppColors.dim)
+                    .padding(.top, 2)
                 }
+                .padding(16)
                 .background(AppColors.card)
                 .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
                 .overlay(
                     RoundedRectangle(cornerRadius: AppConstants.cardRadius)
                         .stroke(AppColors.border, lineWidth: 1)
                 )
+                .contentShape(Rectangle())
+                .onTapGesture { showDifficultySheet = true }
             }
         }
-    }
-
-    private func bandAccentColor(_ band: Band) -> Color {
-        switch band.id {
-        case 1:  Color(red: 0.27, green: 0.80, blue: 0.47)   // green
-        case 3:  Color(red: 0.20, green: 0.73, blue: 0.86)   // teal
-        case 5:  AppColors.gold                                 // gold (existing)
-        case 7:  Color(red: 1.00, green: 0.55, blue: 0.25)   // orange
-        default: Color(red: 0.93, green: 0.35, blue: 0.35)   // coral/red
-        }
-    }
-
-    private func bandCard(_ band: Band, isSelected: Bool, locked: Bool) -> some View {
-        VStack(alignment: .leading, spacing: 5) {
-            HStack(alignment: .center, spacing: 0) {
-                Text(band.range)
-                    .font(AppFonts.bodyBold(10))
-                    .foregroundStyle(isSelected ? bandAccentColor(band) : AppColors.dim)
-                    .kerning(0.2)
-                Spacer()
-                if locked {
-                    HStack(spacing: 3) {
-                        Image(systemName: "lock.fill")
-                            .font(.system(size: 7, weight: .bold))
-                        Text("PRO")
-                            .font(AppFonts.bodyBold(8))
-                    }
-                    .foregroundStyle(AppColors.gold)
-                    .padding(.horizontal, 5)
-                    .padding(.vertical, 2)
-                    .background(AppColors.gold.opacity(0.15))
-                    .clipShape(Capsule())
-                }
-            }
-
-            Text(band.tierName)
-                .font(AppFonts.bodyBold(17))
-                .foregroundStyle(isSelected ? AppColors.text : AppColors.sub)
-
-            Text(band.descriptor)
-                .font(AppFonts.body(11))
-                .foregroundStyle(isSelected ? AppColors.sub : AppColors.dim)
-        }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 13)
-        .frame(width: 158, alignment: .leading)
-        .background(
-            isSelected
-                ? bandAccentColor(band).opacity(0.10)
-                : bandAccentColor(band).opacity(0.04)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 13))
-        .overlay(
-            RoundedRectangle(cornerRadius: 13)
-                .stroke(
-                    isSelected
-                        ? bandAccentColor(band).opacity(0.75)
-                        : bandAccentColor(band).opacity(0.25),
-                    lineWidth: isSelected ? 1.5 : 1
-                )
-        )
-        .opacity(locked ? 0.55 : 1.0)
     }
 
     // MARK: - Mode Grid
 
-    private var modeGrid: some View {
-        VStack(spacing: 10) {
+    private var modeGridSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
             SectionHeader(title: "Practice Modes")
-
             ModeGridView(
-                level: Int(sliderLevel),
+                level: user?.practiceLevel ?? 5,
                 isPro: subscription.isPro,
                 onSelect: { mode in
                     guard let user else { return }
@@ -385,53 +358,5 @@ struct HomeView: View {
                 }
             )
         }
-    }
-
-    // MARK: - Weekly Stats
-
-    private var weeklyStatsSection: some View {
-        let stats = viewModel.weeklyStats(sessions: thisWeekSessions)
-
-        return VStack(spacing: 10) {
-            SectionHeader(title: "This Week")
-
-            if thisWeekSessions.isEmpty {
-                VStack(spacing: 8) {
-                    Image(systemName: "chart.bar.doc.horizontal")
-                        .font(.system(size: 24))
-                        .foregroundStyle(AppColors.dim)
-                    Text(allSessions.isEmpty ? "Complete your first session to see weekly stats" : "No sessions this week yet")
-                        .font(AppFonts.body(12))
-                        .foregroundStyle(AppColors.sub)
-                        .multilineTextAlignment(.center)
-                    Text(allSessions.isEmpty ? "Try a Daily Convo to get started" : "Keep your streak going — practice today")
-                        .font(AppFonts.body(11))
-                        .foregroundStyle(AppColors.dim)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 18)
-                .cardStyle()
-            } else {
-                HStack(spacing: 0) {
-                    statItem(value: "\(stats.count)", label: "Sessions")
-                    statItem(value: "\(stats.avgScore)", label: "Avg Score")
-                    statItem(value: "\(stats.bestScore)", label: "Best Score")
-                    statItem(value: "\(stats.fillerTotal)", label: "Fillers")
-                }
-                .cardStyle()
-            }
-        }
-    }
-
-    private func statItem(value: String, label: String) -> some View {
-        VStack(spacing: 4) {
-            Text(value)
-                .font(AppFonts.display(19))
-                .foregroundStyle(AppColors.gold)
-            Text(label)
-                .font(AppFonts.body(10))
-                .foregroundStyle(AppColors.dim)
-        }
-        .frame(maxWidth: .infinity)
     }
 }
