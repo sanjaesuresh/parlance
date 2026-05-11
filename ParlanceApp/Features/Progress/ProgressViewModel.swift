@@ -63,7 +63,7 @@ final class ProgressViewModel: ObservableObject {
     }
 
     func modeBreakdown(from sessions: [Session]) -> [ModeBreakdown] {
-        SessionMode.allCases.map { mode in
+        SessionMode.allCases.filter { $0 != .realLife }.map { mode in
             let modeSessions = sessions.filter { $0.mode == mode }
             return ModeBreakdown(
                 mode: mode,

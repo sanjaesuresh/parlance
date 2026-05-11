@@ -98,16 +98,20 @@ final class SyncService {
             totalSessions: allSessions.count,
             lastSessionAt: Date()
         )
-        let scoreRow = SessionScoreRow(
-            userId: authUser.id,
-            score: score,
-            mode: mode.rawValue,
-            level: level
-        )
-
         do {
             try await client.from("user_stats").upsert(stats).execute()
-            try await client.from("session_scores").insert(scoreRow).execute()
+            // Real Life sessions count for XP/streak/global stats above, but are
+            // excluded from session_scores (the leaderboard feed) to prevent
+            // prompt-gamed scoring.
+            if mode != .realLife {
+                let scoreRow = SessionScoreRow(
+                    userId: authUser.id,
+                    score: score,
+                    mode: mode.rawValue,
+                    level: level
+                )
+                try await client.from("session_scores").insert(scoreRow).execute()
+            }
             clearPendingSync()
         } catch {
             #if DEBUG
