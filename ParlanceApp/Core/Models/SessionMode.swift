@@ -1,6 +1,7 @@
 import SwiftUI
 
 enum SessionMode: String, CaseIterable, Codable {
+    case realLife
     case interview
     case pitch
     case keynote
@@ -14,6 +15,7 @@ enum SessionMode: String, CaseIterable, Codable {
 
     var displayName: String {
         switch self {
+        case .realLife: "Real Life"
         case .interview: "Job Interview"
         case .pitch: "Pitch / Sales"
         case .keynote: "Keynote / Talk"
@@ -29,6 +31,7 @@ enum SessionMode: String, CaseIterable, Codable {
 
     var emoji: String {
         switch self {
+        case .realLife: "\u{1F3AF}"
         case .interview: "\u{1F4BC}"
         case .pitch: "\u{1F680}"
         case .keynote: "\u{1F3A4}"
@@ -44,6 +47,7 @@ enum SessionMode: String, CaseIterable, Codable {
 
     var accentColor: Color {
         switch self {
+        case .realLife: Color(hex: "#D44A6F")
         case .interview: AppColors.gold
         case .pitch: AppColors.red
         case .keynote: AppColors.purple
@@ -59,6 +63,7 @@ enum SessionMode: String, CaseIterable, Codable {
 
     var description: String {
         switch self {
+        case .realLife: "Practice your actual conversation."
         case .interview: "Answer with confidence. No rambling."
         case .pitch: "Hooks, urgency, persuasion."
         case .keynote: "Structure, flow, and presence."
@@ -76,14 +81,14 @@ enum SessionMode: String, CaseIterable, Codable {
     static let defaultModes: [SessionMode] = [.interview, .casual, .impromptu, .explanation]
 
     static func dailyChallengeMode(dayOfYear: Int) -> SessionMode {
-        let all = SessionMode.allCases
-        return all[dayOfYear % all.count]
+        let pool = SessionMode.allCases.filter { $0 != .realLife }
+        return pool[dayOfYear % pool.count]
     }
 
     static func dailyChallengeMode() -> SessionMode {
-        let all = SessionMode.allCases
+        let pool = SessionMode.allCases.filter { $0 != .realLife }
         let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: .now) ?? 1
-        return all[dayOfYear % all.count]
+        return pool[dayOfYear % pool.count]
     }
 
     /// Modes available on the free tier. All others require Pro.

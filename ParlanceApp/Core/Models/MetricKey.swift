@@ -50,6 +50,7 @@ enum MetricKey: String, CaseIterable {
     static func metrics(for mode: SessionMode) -> [MetricKey] {
         var keys = universal
         switch mode {
+        case .realLife:     keys += [.engagement]
         case .interview:    keys += [.deliveryConfidence]
         case .pitch:        keys += [.deliveryConfidence, .persuasiveness]
         case .keynote:      keys += [.deliveryConfidence, .persuasiveness, .engagement]
