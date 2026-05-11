@@ -109,7 +109,7 @@ struct PaywallView: View {
 
     private var priceSection: some View {
         VStack(spacing: 4) {
-            Text(product?.displayPrice ?? "$9.99")
+            Text(product?.displayPrice ?? "$4.99")
                 .font(AppFonts.display(36))
                 .foregroundStyle(AppColors.gold)
             Text("per month · cancel anytime")
@@ -126,7 +126,7 @@ struct PaywallView: View {
                 if isPurchasing {
                     SwiftUI.ProgressView().tint(.black)
                 } else {
-                    Text("Start Pro · \(product?.displayPrice ?? "$9.99")/mo")
+                    Text("Start Pro · \(product?.displayPrice ?? "$4.99")/mo")
                         .font(AppFonts.bodyBold(16))
                         .foregroundStyle(.black)
                 }
