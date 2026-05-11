@@ -478,6 +478,7 @@ struct LeagueView: View {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundStyle(AppColors.dim)
                     }
+                    .accessibilityLabel("Clear search")
                     .accessibilityIdentifier("friendSearchClearButton")
                 }
             }

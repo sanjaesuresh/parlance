@@ -20,6 +20,7 @@ struct AnimatedWaveformView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(isActive ? "Microphone active, recording in progress" : "Microphone inactive")
         .accessibilityIgnoresInvertColors(true)
+        .accessibilityHidden(true)
     }
 
     private func barHeight(for index: Int) -> CGFloat {

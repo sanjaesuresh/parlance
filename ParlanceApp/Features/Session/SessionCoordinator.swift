@@ -329,6 +329,7 @@ private struct AnalyzingView: View {
                     }
                     .padding(.leading, 3)
                     .alignmentGuide(.firstTextBaseline) { d in d[.bottom] }
+                    .accessibilityHidden(true)
                 }
             }
         }
