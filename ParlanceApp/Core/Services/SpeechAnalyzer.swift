@@ -5,7 +5,6 @@ enum SpeechAnalyzer {
 
     struct FillerResult {
         let count: Int
-        let mostFrequent: String?
     }
 
     private static let fillerPatterns: [(pattern: String, label: String)] = [
@@ -59,15 +58,11 @@ enum SpeechAnalyzer {
         let lower = text.lowercased()
         let nsRange = NSRange(lower.startIndex..., in: lower)
         var totalCount = 0
-        var frequency: [String: Int] = [:]
 
-        for (regex, label) in compiledRegexes {
-            let matches = regex.numberOfMatches(in: lower, range: nsRange)
-            totalCount += matches
-            if matches > 0 { frequency[label, default: 0] += matches }
+        for (regex, _) in compiledRegexes {
+            totalCount += regex.numberOfMatches(in: lower, range: nsRange)
         }
 
-        let mostFrequent = frequency.max(by: { $0.value < $1.value })?.key
-        return FillerResult(count: totalCount, mostFrequent: mostFrequent)
+        return FillerResult(count: totalCount)
     }
 }

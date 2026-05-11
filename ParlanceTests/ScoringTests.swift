@@ -297,7 +297,6 @@ struct SpeechAnalyzerTests {
         let transcript = "The quarterly results exceeded expectations across all regions."
         let result = SpeechAnalyzer.analyzeFillers(in: transcript)
         #expect(result.count == 0)
-        #expect(result.mostFrequent == nil)
     }
 
     @Test("returns zero for empty string")
@@ -306,12 +305,12 @@ struct SpeechAnalyzerTests {
         #expect(result.count == 0)
     }
 
-    @Test("identifies most frequent filler")
-    func mostFrequentFiller() {
+    @Test("counts multiple distinct filler types correctly")
+    func multipleFillerTypes_countedCorrectly() {
         let transcript = "um we uh should um try um this uh approach"
-        // "um" x3, "uh" x2
+        // "um" x3, "uh" x2 = 5 total
         let result = SpeechAnalyzer.analyzeFillers(in: transcript)
-        #expect(result.mostFrequent == "um")
+        #expect(result.count == 5)
     }
 
     @Test("fillerRanges returns correct count for highlighting")
