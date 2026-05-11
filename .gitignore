@@ -56,3 +56,6 @@ PRODUCT.md
 
 # Cloudflare Worker (local dev, deployed separately)
 cloudflare-worker/
+
+# Wrangler local cache (created by `wrangler deploy` at repo root)
+.wrangler/
