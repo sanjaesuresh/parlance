@@ -6,10 +6,14 @@ enum HumeClient {
     /// and returns the parsed EmotionResult. Throws if the network call fails or the Worker
     /// returns a non-2xx status.
     static func analyzeEmotion(audioURL: URL, workerBaseURL: URL) async throws -> EmotionResult {
+        let supabaseClient = await MainActor.run { SupabaseManager.shared.client }
+        let accessToken = try await supabaseClient.auth.session.accessToken
+
         let endpoint = workerBaseURL.appendingPathComponent("emotion")
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("audio/mp4", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = AppConstants.humeTimeout
 
         let audioData = try Data(contentsOf: audioURL)

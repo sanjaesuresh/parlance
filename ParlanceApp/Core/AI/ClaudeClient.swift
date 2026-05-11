@@ -42,10 +42,14 @@ final class ClaudeClient: ScoringClient {
     // MARK: - Shared transport
 
     private func post(prompt: String, timeout: TimeInterval = 8) async throws -> Data {
+        let supabaseClient = await MainActor.run { SupabaseManager.shared.client }
+        let accessToken = try await supabaseClient.auth.session.accessToken
+
         let endpoint = baseURL.appendingPathComponent("feedback")
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         request.timeoutInterval = timeout
 
         var body: [String: Any] = [
