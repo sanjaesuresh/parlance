@@ -95,12 +95,14 @@ final class FriendsE2ETests: XCTestCase {
     }
 
     private static func bootstrapSignOut(app: XCUIApplication) {
-        let profileTab = app.tabBars.buttons["Profile"]
-        XCTAssertTrue(profileTab.waitForExistence(timeout: 10))
-        _ = waitForHittable(profileTab, timeout: 10)
-        profileTab.tap()
+        // iOS 26 SwiftUI tab bars sometimes drop the first tap when a splash
+        // (WelcomeBackSplashView) has only just finished animating. Use the
+        // retrying switchTab helper, verifying via the settings button.
         let settingsButton = app.buttons["settingsButton"]
-        XCTAssertTrue(settingsButton.waitForExistence(timeout: 10))
+        XCTAssertTrue(
+            app.switchTab("Profile", verifyVisible: settingsButton),
+            "Profile tab did not activate after retries"
+        )
         settingsButton.tap()
 
         let signOutButton = app.buttons["signOutButton"]
@@ -153,24 +155,25 @@ final class FriendsE2ETests: XCTestCase {
         // Profile setup
         let nameField = app.textFields["nameField"]
         XCTAssertTrue(nameField.waitForExistence(timeout: 10))
-        nameField.tap()
+        app.tapAndFocus(nameField)
         nameField.typeText(bDisplayName)
+        app.dismissKeyboard()
 
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
-        usernameField.tap()
+        app.tapAndFocus(usernameField)
         usernameField.typeText(bUsername)
-        usernameField.typeText("\n")
+        app.dismissKeyboard()
 
         app.swipeUp()
         let comfortButton = app.buttons["comfortOption_1"]
         XCTAssertTrue(comfortButton.waitForExistence(timeout: 5))
-        comfortButton.tap()
+        comfortButton.safeTap()
 
         app.swipeUp()
         let letsGoButton = app.buttons["letsGoButton"]
         XCTAssertTrue(letsGoButton.waitForExistence(timeout: 5))
-        letsGoButton.tap()
+        letsGoButton.safeTap()
 
         // WelcomeSplashView
         let startButton = app.buttons["Start practicing"]
@@ -473,9 +476,11 @@ final class FriendsE2ETests: XCTestCase {
         try signOut()
         try signIn(email: aEmail, password: aPassword)
 
-        app.tabBars.buttons["League"].tap()
         let leaderboardTab = app.buttons["socialTab_leaderboard"]
-        XCTAssertTrue(leaderboardTab.waitForExistence(timeout: 5))
+        XCTAssertTrue(
+            app.switchTab("League", verifyVisible: leaderboardTab),
+            "League tab did not activate"
+        )
         leaderboardTab.tap()
 
         // Leaderboard rows are buttons; B's row will contain B's display name.
@@ -535,8 +540,11 @@ final class FriendsE2ETests: XCTestCase {
         XCTAssertTrue(unfriend.waitForExistence(timeout: 10), "Unfriend button missing on friend's profile")
         unfriend.tap()
 
-        // Confirm the destructive action in the dialog
-        let confirm = app.buttons["confirmUnfriendButton"]
+        // Confirm the destructive action in the dialog.
+        // iOS 26 SwiftUI confirmation dialogs expose two matching buttons
+        // (legacy Button + modern PopUpButton accessibility nodes) for the same
+        // identifier, so use .firstMatch to pick one deterministically.
+        let confirm = app.buttons.matching(identifier: "confirmUnfriendButton").firstMatch
         XCTAssertTrue(confirm.waitForExistence(timeout: 5), "Unfriend confirm dialog button missing")
         confirm.tap()
 
@@ -608,24 +616,25 @@ final class FriendsE2ETests: XCTestCase {
 
         let nameField = app.textFields["nameField"]
         XCTAssertTrue(nameField.waitForExistence(timeout: 10))
-        nameField.tap()
+        app.tapAndFocus(nameField)
         nameField.typeText(displayName)
+        app.dismissKeyboard()
 
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
-        usernameField.tap()
+        app.tapAndFocus(usernameField)
         usernameField.typeText(username)
-        usernameField.typeText("\n")
+        app.dismissKeyboard()
 
         app.swipeUp()
         let comfortButton = app.buttons["comfortOption_1"]
         XCTAssertTrue(comfortButton.waitForExistence(timeout: 5))
-        comfortButton.tap()
+        comfortButton.safeTap()
 
         app.swipeUp()
         let letsGoButton = app.buttons["letsGoButton"]
         XCTAssertTrue(letsGoButton.waitForExistence(timeout: 5))
-        letsGoButton.tap()
+        letsGoButton.safeTap()
 
         let startButton = app.buttons["Start practicing"]
         XCTAssertTrue(

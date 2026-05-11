@@ -73,6 +73,9 @@ final class AccountE2ETests: XCTestCase {
         XCTAssertTrue(passwordField.waitForExistence(timeout: 5))
         passwordField.tap()
         passwordField.typeText(testPassword)
+        // Dismiss password keyboard so the auth → profile-setup transition isn't racing
+        // an in-flight keyboard dismissal animation (causes nameField "not hittable").
+        app.dismissKeyboard()
 
         // 4. Tap Continue
         let continueButton = app.buttons["authSubmitButton"]
@@ -82,27 +85,30 @@ final class AccountE2ETests: XCTestCase {
         // 5. Profile setup — fill name
         let nameField = app.textFields["nameField"]
         XCTAssertTrue(nameField.waitForExistence(timeout: 10))
-        nameField.tap()
+        app.tapAndFocus(nameField)
         nameField.typeText(testName)
+        // Dismiss before moving to username so SwiftUI scroll-to-focused-field
+        // doesn't shift the next field mid-tap (causes "no keyboard focus" failure).
+        app.dismissKeyboard()
 
-        // 6. Fill username then dismiss keyboard via Return
+        // 6. Fill username
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
-        usernameField.tap()
+        app.tapAndFocus(usernameField)
         usernameField.typeText(testUsername)
-        usernameField.typeText("\n")  // dismiss keyboard
+        app.dismissKeyboard()
 
         // 7. Scroll down to reveal comfort options, then pick one
         app.swipeUp()
         let comfortButton = app.buttons["comfortOption_1"]
         XCTAssertTrue(comfortButton.waitForExistence(timeout: 5))
-        comfortButton.tap()
+        comfortButton.safeTap()
 
         // 8. Scroll down to reveal "Let's go" and tap it
         app.swipeUp()
         let letsGoButton = app.buttons["letsGoButton"]
         XCTAssertTrue(letsGoButton.waitForExistence(timeout: 5))
-        letsGoButton.tap()
+        letsGoButton.safeTap()
 
         // 9. WelcomeSplashView is shown after first sign-up — dismiss it
         // NOTE: Requires Supabase email auto-confirmation to be enabled
