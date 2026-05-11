@@ -29,13 +29,25 @@ struct SessionCoordinator: View {
         )
     }
 
-    enum SessionPhase {
+    enum SessionPhase: Equatable {
         case loading
         case countdown
         case recording
         case processing
         case scoringFailed
         case results(Session)
+
+        static func == (lhs: SessionPhase, rhs: SessionPhase) -> Bool {
+            switch (lhs, rhs) {
+            case (.loading, .loading): return true
+            case (.countdown, .countdown): return true
+            case (.recording, .recording): return true
+            case (.processing, .processing): return true
+            case (.scoringFailed, .scoringFailed): return true
+            case let (.results(a), .results(b)): return a === b
+            default: return false
+            }
+        }
     }
 
     @State private var autoStartRecording = false
@@ -141,6 +153,11 @@ struct SessionCoordinator: View {
                     onTryAgain: { retrySession() },
                     onGoHome: { onDismiss() }
                 )
+            }
+        }
+        .onChange(of: phase) { _, newPhase in
+            if case .processing = newPhase, state.mode == .realLife {
+                RealLifeScenarioHistoryStore.shared.record(currentQuestion.question)
             }
         }
     }
