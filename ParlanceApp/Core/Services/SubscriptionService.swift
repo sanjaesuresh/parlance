@@ -30,22 +30,27 @@ final class SubscriptionService: ObservableObject {
     func purchase() async throws {
         let products = try await Product.products(for: [AppConstants.proProductID])
         guard let product = products.first else {
+            print("[SubscriptionService] purchase: product not found for id=\(AppConstants.proProductID)")
             throw SubscriptionError.productNotFound
         }
         let result = try await product.purchase()
         switch result {
         case .success(let verification):
             let transaction = try checkVerified(verification)
+            print("[SubscriptionService] purchase: success id=\(transaction.productID) txn=\(transaction.id)")
             await transaction.finish()
             await refreshStatus()
-        case .userCancelled, .pending:
-            break
+        case .userCancelled:
+            print("[SubscriptionService] purchase: user cancelled")
+        case .pending:
+            print("[SubscriptionService] purchase: pending (deferred — will arrive via Transaction.updates)")
         @unknown default:
-            break
+            print("[SubscriptionService] purchase: unknown result")
         }
     }
 
     func restorePurchases() async {
+        print("[SubscriptionService] restorePurchases: AppStore.sync()")
         try? await AppStore.sync()
         await refreshStatus()
     }
@@ -81,24 +86,32 @@ final class SubscriptionService: ObservableObject {
         }
         #endif
         var hasPro = false
+        var entitlementCount = 0
         for await result in Transaction.currentEntitlements {
+            entitlementCount += 1
             if case .verified(let transaction) = result,
                transaction.productID == AppConstants.proProductID,
                transaction.revocationDate == nil {
                 hasPro = true
             }
         }
+        let previous = isPro
         isPro = hasPro
         isLoading = false
+        print("[SubscriptionService] refreshStatus: entitlements=\(entitlementCount) isPro=\(hasPro) (was=\(previous))")
     }
 
     // MARK: - Private
 
     private func listenForTransactions() async {
         for await result in Transaction.updates {
-            if case .verified(let transaction) = result {
+            switch result {
+            case .verified(let transaction):
+                print("[SubscriptionService] Transaction.updates: verified id=\(transaction.productID) txn=\(transaction.id)")
                 await transaction.finish()
                 await refreshStatus()
+            case .unverified(_, let error):
+                print("[SubscriptionService] Transaction.updates: unverified — \(error.localizedDescription)")
             }
         }
     }

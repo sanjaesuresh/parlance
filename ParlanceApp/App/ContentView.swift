@@ -17,6 +17,8 @@ struct ContentView: View {
     @State private var isAppReady = false
     @State private var isSyncingProfile = false
     @EnvironmentObject private var authService: AuthService
+    @EnvironmentObject private var subscription: SubscriptionService
+    @Environment(\.scenePhase) private var scenePhase
 
     private var currentUser: User? {
         let uid = authService.currentUserID ?? ""
@@ -155,6 +157,11 @@ struct ContentView: View {
         .onChange(of: networkMonitor.isConnected) { _, isConnected in
             guard isConnected, authService.isAuthenticated else { return }
             Task { await SyncService.shared.flushIfNeeded() }
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            if oldPhase != .active && newPhase == .active {
+                Task { await subscription.refreshStatus() }
+            }
         }
     }
 
