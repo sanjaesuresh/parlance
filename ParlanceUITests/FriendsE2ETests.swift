@@ -190,6 +190,7 @@ final class FriendsE2ETests: XCTestCase {
     // MARK: - Per-test setup / teardown
 
     override func setUpWithError() throws {
+        try skipIfBrokenSESimulator()
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments = ["UITesting"]

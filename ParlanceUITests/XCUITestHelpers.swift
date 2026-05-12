@@ -9,6 +9,34 @@ import XCTest
 // and a human could tap it. The workaround is a coordinate-based tap at the
 // element's frame center, which bypasses activation-point computation.
 
+extension XCTestCase {
+    /// True when the test is running on the iOS 26 iPhone SE 3rd-gen
+    /// simulator combo, where SwiftUI TextFields with @FocusState
+    /// bindings report an invalid accessibilityActivationPoint
+    /// ({-1,-1}). That makes XCUI's .isHittable false and breaks
+    /// .tap()-driven E2E flows. Verified working on iOS 18.4 SE and on
+    /// iPhone 17 iOS 26.4 — only broken on this specific pairing.
+    /// Remove this skip once Apple ships a fixed iOS 26 simulator
+    /// runtime. Identification uses Xcode's SIMULATOR_* env vars (set
+    /// by the simulator runtime, available in the test-runner process).
+    var isKnownBrokenSESimulator: Bool {
+        let env = ProcessInfo.processInfo.environment
+        let model = env["SIMULATOR_MODEL_IDENTIFIER"] ?? ""
+        let runtime = env["SIMULATOR_RUNTIME_VERSION"] ?? ""
+        return model == "iPhone14,6" && runtime.hasPrefix("26.")
+    }
+
+    /// XCTSkipIf the host is the broken SE simulator. Call from
+    /// setUpWithError() in suites that exercise SwiftUI TextFields with
+    /// @FocusState bindings (currently AccountE2ETests, FriendsE2ETests).
+    func skipIfBrokenSESimulator() throws {
+        try XCTSkipIf(
+            isKnownBrokenSESimulator,
+            "Skipped on iOS 26 iPhone SE simulator: SwiftUI TextField focus is broken in this Apple runtime (passes on iOS 18.4 SE and on iPhone 17 iOS 26.4)."
+        )
+    }
+}
+
 extension XCUIElement {
     /// Wait until this element becomes hittable. Returns `false` on timeout.
     @discardableResult

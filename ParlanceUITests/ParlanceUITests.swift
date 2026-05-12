@@ -12,6 +12,7 @@ final class AccountE2ETests: XCTestCase {
     private var testUsername: String { "e2e\(testTag)" }
 
     override func setUpWithError() throws {
+        try skipIfBrokenSESimulator()
         continueAfterFailure = false
         app = XCUIApplication()
         app.launchArguments = ["UITesting"]
