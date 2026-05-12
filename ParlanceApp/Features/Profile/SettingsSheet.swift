@@ -26,6 +26,7 @@ struct SettingsSheet: View {
                                 Image(systemName: "crown.fill")
                                     .foregroundStyle(AppColors.gold)
                                     .frame(width: 24)
+                                    .accessibilityHidden(true)
                                 Text("Upgrade to Pro")
                                     .font(AppFonts.body(14))
                                     .foregroundStyle(AppColors.gold)
@@ -33,6 +34,7 @@ struct SettingsSheet: View {
                                 Text("\u{203A}")
                                     .font(.system(size: 18))
                                     .foregroundStyle(AppColors.dim)
+                                    .accessibilityHidden(true)
                             }
                             .padding(.vertical, 12)
                         }
@@ -48,6 +50,7 @@ struct SettingsSheet: View {
                             Image(systemName: "bell.fill")
                                 .foregroundStyle(AppColors.sub)
                                 .frame(width: 24)
+                                .accessibilityHidden(true)
                             Text("Daily Reminder")
                                 .font(AppFonts.body(14))
                                 .foregroundStyle(AppColors.text)
@@ -66,6 +69,7 @@ struct SettingsSheet: View {
                             Image(systemName: "speaker.wave.2.fill")
                                 .foregroundStyle(AppColors.sub)
                                 .frame(width: 24)
+                                .accessibilityHidden(true)
                             Text("Sound Effects")
                                 .font(AppFonts.body(14))
                                 .foregroundStyle(AppColors.text)
@@ -80,6 +84,7 @@ struct SettingsSheet: View {
                         Image(systemName: "circle.lefthalf.filled")
                             .foregroundStyle(AppColors.sub)
                             .frame(width: 24)
+                            .accessibilityHidden(true)
                         Text("Appearance")
                             .font(AppFonts.body(14))
                             .foregroundStyle(AppColors.text)
@@ -223,10 +228,12 @@ struct SettingsSheet: View {
                 if !emoji.isEmpty {
                     Text(emoji)
                         .frame(width: 24)
+                        .accessibilityHidden(true)
                 } else if !icon.isEmpty {
                     Image(systemName: icon)
                         .foregroundStyle(isDestructive ? AppColors.red : AppColors.sub)
                         .frame(width: 24)
+                        .accessibilityHidden(true)
                 }
                 Text(title)
                     .font(AppFonts.body(14))
@@ -235,6 +242,7 @@ struct SettingsSheet: View {
                 Text("\u{203A}")
                     .font(.system(size: 18))
                     .foregroundStyle(AppColors.dim)
+                    .accessibilityHidden(true)
             }
             .padding(.vertical, 12)
         }

@@ -303,15 +303,19 @@ struct ResultsView: View {
                 HStack(spacing: 4) {
                     Image(systemName: "chevron.left")
                         .font(.system(size: 11, weight: .semibold))
+                        .accessibilityHidden(true)
                     Text("Home")
                         .font(AppFonts.bodyMedium(13))
                 }
                 .foregroundStyle(AppColors.text)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 7)
+                .frame(minHeight: AppConstants.IconButton.hitTarget)
                 .background(AppColors.card)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .contentShape(Rectangle())
             }
+            .accessibilityLabel("Back to home")
 
             Spacer()
 
