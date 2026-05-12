@@ -33,6 +33,8 @@
 		D4178D962FAEB61800EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4178EFA2FAFC50C00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D41793152FB1A60B00EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D417962D2FB2D44500EB5925 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D41796F52FB2E80600EB5925 /* Parlance.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = Parlance.storekit; path = ../Parlance.storekit; sourceTree = "<group>"; };
 		D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4705FF32FA99E9B0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D47063482FA9C65C0037F17E /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
@@ -113,6 +115,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D41796312FB2D44500EB5925 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D4705CDA2FA9219D0037F17E /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
@@ -131,6 +138,7 @@
 		D4BDC07F2F7F971900FE69B7 = {
 			isa = PBXGroup;
 			children = (
+				D41796F52FB2E80600EB5925 /* Parlance.storekit */,
 				D4BDC08A2F7F971900FE69B7 /* . */,
 				D4BDC0982F7F971B00FE69B7 /* ../ParlanceTests */,
 				D4BDC0A22F7F971B00FE69B7 /* ../ParlanceUITests */,
@@ -275,8 +283,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D4DB95B02FAA5FFC000578F8 /* Products */;
-					ProjectRef = D4DB95AE2FAA5FFC000578F8 /* Parlance.xcodeproj */;
+					ProductGroup = D4DBA31D2FAD813A000578F8 /* Products */;
+					ProjectRef = D4DBA31A2FAD813A000578F8 /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D4178D992FAEB61800EB5925 /* Products */;
@@ -293,6 +301,10 @@
 				{
 					ProductGroup = D41786FE2FAE4FCE00EB5925 /* Products */;
 					ProjectRef = D41786FB2FAE4FCE00EB5925 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D41796312FB2D44500EB5925 /* Products */;
+					ProjectRef = D417962D2FB2D44500EB5925 /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D4178EFD2FAFC50C00EB5925 /* Products */;
@@ -315,8 +327,8 @@
 					ProjectRef = D47063482FA9C65C0037F17E /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D4DBA31D2FAD813A000578F8 /* Products */;
-					ProjectRef = D4DBA31A2FAD813A000578F8 /* Parlance.xcodeproj */;
+					ProductGroup = D4DB95B02FAA5FFC000578F8 /* Products */;
+					ProjectRef = D4DB95AE2FAA5FFC000578F8 /* Parlance.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -548,7 +560,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -587,7 +599,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
