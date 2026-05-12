@@ -20,7 +20,7 @@ struct HomeView: View {
 
     @Environment(\.scenePhase) private var scenePhase
 
-    @State private var sectionVisible: [Bool] = Array(repeating: false, count: 5)
+    @State private var sectionVisible: [Bool] = Array(repeating: false, count: 6)
     @State private var showPaywall = false
     @State private var showDifficultySheet = false
     @State private var showRealLifeSetup = false
@@ -47,6 +47,9 @@ struct HomeView: View {
                     modeGridSection
                         .opacity(sectionVisible[4] ? 1 : 0)
                         .offset(y: sectionVisible[4] ? 0 : 16)
+                    allTimeStatsSection
+                        .opacity(sectionVisible[5] ? 1 : 0)
+                        .offset(y: sectionVisible[5] ? 0 : 16)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -140,8 +143,8 @@ struct HomeView: View {
     // MARK: - Entrance Animation
 
     private func animateIn() {
-        sectionVisible = Array(repeating: false, count: 5)
-        let delays: [Double] = [0.05, 0.15, 0.25, 0.35, 0.45]
+        sectionVisible = Array(repeating: false, count: 6)
+        let delays: [Double] = [0.05, 0.15, 0.25, 0.35, 0.45, 0.55]
         for (i, delay) in delays.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 withAnimation(.easeOut(duration: 0.4)) {
@@ -404,5 +407,66 @@ struct HomeView: View {
                 }
             )
         }
+    }
+
+    // MARK: - All-Time Stats
+
+    private var allTimeStatsSection: some View {
+        Group {
+            if let user {
+                let totalSessions = allSessions.count
+                let avgScore = totalSessions == 0
+                    ? 0
+                    : allSessions.map(\.overallScore).reduce(0, +) / totalSessions
+                let bestStreak = max(user.longestStreak, user.currentStreak)
+
+                VStack(alignment: .leading, spacing: 16) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Rectangle()
+                            .fill(AppColors.border)
+                            .frame(height: 1)
+                            .padding(.bottom, 22)
+                        Text("All-time stats.")
+                            .font(AppFonts.display(18))
+                            .foregroundStyle(AppColors.text)
+                        Text("Every session, every streak.")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.sub)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    let columns = [
+                        GridItem(.flexible(), spacing: 10),
+                        GridItem(.flexible(), spacing: 10)
+                    ]
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        allTimeStatCell(value: "\(user.xp)", label: "Total XP")
+                        allTimeStatCell(value: "\(totalSessions)", label: "Sessions")
+                        allTimeStatCell(value: totalSessions == 0 ? "—" : "\(avgScore)", label: "Avg Score")
+                        allTimeStatCell(value: "\(bestStreak)", label: "Best Streak")
+                    }
+                }
+            }
+        }
+    }
+
+    private func allTimeStatCell(value: String, label: String) -> some View {
+        VStack(spacing: 4) {
+            Text(value)
+                .font(AppFonts.display(22))
+                .foregroundStyle(AppColors.gold)
+            Text(label.uppercased())
+                .font(AppFonts.bodyMedium(11))
+                .foregroundStyle(AppColors.dim)
+                .kerning(0.5)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 14)
+        .background(AppColors.card2)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(AppColors.border, lineWidth: 1)
+        )
     }
 }
