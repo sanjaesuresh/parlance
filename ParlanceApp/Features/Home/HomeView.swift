@@ -365,7 +365,19 @@ struct HomeView: View {
 
     private var modeGridSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            sectionTitle("Practice modes")
+            VStack(alignment: .leading, spacing: 4) {
+                Rectangle()
+                    .fill(AppColors.border)
+                    .frame(height: 1)
+                    .padding(.bottom, 22)
+                Text("Pick a mode to start.")
+                    .font(AppFonts.display(18))
+                    .foregroundStyle(AppColors.text)
+                Text("Tap any card to begin a session.")
+                    .font(AppFonts.body(12))
+                    .foregroundStyle(AppColors.sub)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
             ModeGridView(
                 level: user?.practiceLevel ?? 5,
                 isPro: subscription.isPro,
