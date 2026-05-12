@@ -144,7 +144,7 @@ struct SettingsSheet: View {
                             .font(AppFonts.bodyMedium(10))
                             .foregroundStyle(AppColors.dim)
                             .kerning(1.0)
-                        Text("Your recording is transcribed via Apple Speech Recognition and then deleted from your device. The transcript is sent to our AI provider over an encrypted connection to generate coaching feedback. Session data (scores, transcripts, XP) is stored locally on your device; your profile and stats also sync to our server so you can use Parlance across devices.")
+                        Text("Your recording is transcribed on-device by Apple Speech Recognition, then deleted from your device. The transcript is sent over an encrypted connection through our Cloudflare Worker proxy to Google Gemini, which generates your coaching feedback. On Pro, a short audio clip is also sent through the same proxy to Hume AI for vocal tone analysis and is not retained. Session data (scores, transcripts, XP) is stored locally on your device; your profile and aggregate stats sync to Supabase so you can use Parlance across devices.")
                             .font(AppFonts.body(11))
                             .foregroundStyle(AppColors.dim)
                             .lineSpacing(3)
