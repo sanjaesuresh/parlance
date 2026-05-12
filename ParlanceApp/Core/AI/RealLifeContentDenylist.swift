@@ -18,7 +18,7 @@ enum RealLifeContentDenylist {
     /// Patterns are lowercase-anchored regex strings. Keep this list small
     /// and conservative — extending it to "edgy" or "uncomfortable" content
     /// defeats the purpose of the Real Life mode.
-    private static let patterns: [String] = [
+    nonisolated private static let patterns: [String] = [
         // Named-target violence: kill/murder/harm + a proper-name pattern
         #"\b(kill|murder|shoot|stab|attack|harm)\s+[a-z]+\s+[a-z]+\b"#,
 

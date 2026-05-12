@@ -7,7 +7,7 @@ struct ScenarioHistoryEntry: Codable, Identifiable, Equatable {
 }
 
 final class RealLifeScenarioHistoryStore {
-    nonisolated(unsafe) static let shared = RealLifeScenarioHistoryStore()
+    static let shared = RealLifeScenarioHistoryStore()
 
     private let defaults: UserDefaults
     private let key = "realLife.recentScenarios"
