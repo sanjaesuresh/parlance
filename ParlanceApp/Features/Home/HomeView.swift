@@ -32,9 +32,6 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    brandRow
-                        .opacity(sectionVisible[0] ? 1 : 0)
-                        .offset(y: sectionVisible[0] ? 0 : 16)
                     greetSection
                         .opacity(sectionVisible[1] ? 1 : 0)
                         .offset(y: sectionVisible[1] ? 0 : 16)
@@ -57,15 +54,23 @@ struct HomeView: View {
             }
             .background(AppColors.bg)
             .navigationBarHidden(true)
-            .overlay(alignment: .top) {
-                LinearGradient(
-                    colors: [AppColors.bg, AppColors.bg.opacity(0)],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-                .frame(height: 60)
-                .ignoresSafeArea(edges: .top)
-                .allowsHitTesting(false)
+            .safeAreaInset(edge: .top, spacing: 0) {
+                VStack(spacing: 0) {
+                    brandRow
+                        .padding(.horizontal, 16)
+                        .padding(.top, 4)
+                        .padding(.bottom, 8)
+                        .opacity(sectionVisible[0] ? 1 : 0)
+                        .offset(y: sectionVisible[0] ? 0 : 16)
+                        .background(AppColors.bg, ignoresSafeAreaEdges: .top)
+                    LinearGradient(
+                        colors: [AppColors.bg, AppColors.bg.opacity(0)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: 16)
+                    .allowsHitTesting(false)
+                }
             }
             .onAppear {
                 if let user {
@@ -292,8 +297,14 @@ struct HomeView: View {
 
                 VStack(alignment: .leading, spacing: 12) {
                     VStack(alignment: .leading, spacing: 4) {
+                        Rectangle()
+                            .fill(AppColors.border)
+                            .frame(height: 1)
+                            .padding(.bottom, 22)
                         HStack(alignment: .firstTextBaseline) {
-                            sectionTitle("Difficulty")
+                            Text("Difficulty")
+                                .font(AppFonts.display(18))
+                                .foregroundStyle(AppColors.text)
                             Spacer()
                             Button {
                                 showDifficultySheet = true
