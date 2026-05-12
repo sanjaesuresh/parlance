@@ -71,6 +71,14 @@ final class SubscriptionService: ObservableObject {
             isLoading = false
             return
         }
+        // Honor the UI-test seed: the init() task races with bootstrap,
+        // and without this guard StoreKit's empty entitlements would clobber
+        // the seeded isPro=true back to false, locking Pro-only modes.
+        if UITestBootstrap.isSeedProEnabled {
+            isPro = true
+            isLoading = false
+            return
+        }
         #endif
         var hasPro = false
         for await result in Transaction.currentEntitlements {

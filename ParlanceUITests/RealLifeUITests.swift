@@ -20,17 +20,28 @@ final class RealLifeUITests: XCTestCase {
         ]
         app.launch()
 
-        // Wait for the home mode grid to render. The grid sits at the bottom
-        // of a tall scrollable home page (greeting → XP hero → daily challenge
-        // → difficulty → modeGrid), so we scroll to bring the tile into view
-        // before tapping. Uses safeTap to work around iOS 26 SwiftUI hit-test
-        // quirks where the first tap can be silently dropped.
-        let realLifeTile = app.buttons["home.modeGrid.realLife"]
-        XCTAssertTrue(realLifeTile.waitForExistence(timeout: 10))
+        // Wait for the home tab to render. The realLife tile lives inside a
+        // LazyVGrid below the fold (greeting → XP hero → daily challenge →
+        // difficulty → modeGrid), so it does not enter the accessibility
+        // tree until scrolled into view — we cannot wait on its existence
+        // up front. Use a known visible anchor instead.
+        XCTAssertTrue(
+            app.tabBars.buttons["Home"].waitForExistence(timeout: 10),
+            "Home tab should be visible after seed-pro launch"
+        )
 
-        // Scroll the home tab until the tile is visible (hittable).
+        // Scroll the home tab until the LazyVGrid materializes the tile,
+        // then keep scrolling until it becomes hittable.
+        let realLifeTile = app.buttons["home.modeGrid.realLife"]
         var attempts = 0
-        while !realLifeTile.isHittable && attempts < 8 {
+        while !realLifeTile.exists && attempts < 8 {
+            app.swipeUp()
+            attempts += 1
+        }
+        XCTAssertTrue(realLifeTile.exists, "Real Life tile never appeared in the mode grid after scrolling")
+
+        attempts = 0
+        while !realLifeTile.isHittable && attempts < 4 {
             app.swipeUp()
             attempts += 1
         }
