@@ -8,6 +8,7 @@ struct LoadingView: View {
     var onCancel: (() -> Void)?
     var currentTopicCategory: ExplanationCategory? = nil
     var onReshuffleTopic: ((ExplanationCategory) -> Void)? = nil
+    var onPromptRewritten: ((String) -> Void)? = nil
     var tipsClient: RealLifeTipsFetching = RealLifeTipsClient()
 
     enum TipsState: Equatable {
@@ -18,6 +19,7 @@ struct LoadingView: View {
     }
 
     @State private var tipsState: TipsState
+    @State private var displayedPrompt: String
     @State private var showTopicPicker = false
 
     init(
@@ -28,6 +30,7 @@ struct LoadingView: View {
         onCancel: (() -> Void)? = nil,
         currentTopicCategory: ExplanationCategory? = nil,
         onReshuffleTopic: ((ExplanationCategory) -> Void)? = nil,
+        onPromptRewritten: ((String) -> Void)? = nil,
         tipsClient: RealLifeTipsFetching = RealLifeTipsClient()
     ) {
         self.mode = mode
@@ -37,8 +40,10 @@ struct LoadingView: View {
         self.onCancel = onCancel
         self.currentTopicCategory = currentTopicCategory
         self.onReshuffleTopic = onReshuffleTopic
+        self.onPromptRewritten = onPromptRewritten
         self.tipsClient = tipsClient
         _tipsState = State(initialValue: mode == .realLife ? .loading : .ready(question.tips))
+        _displayedPrompt = State(initialValue: question.question)
     }
 
     var body: some View {
@@ -131,10 +136,24 @@ struct LoadingView: View {
                             PillBadge(text: "\(question.targetDuration)s", emoji: "⏱", color: mode.accentColor, small: true)
                         }
 
-                        Text("\"\(question.question)\"")
-                            .font(AppFonts.display(20))
-                            .foregroundStyle(AppColors.text)
-                            .lineSpacing(6)
+                        if mode == .realLife, case .loading = tipsState {
+                            VStack(alignment: .leading, spacing: 8) {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(AppColors.card2)
+                                    .frame(height: 18)
+                                    .shimmering()
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(AppColors.card2)
+                                    .frame(width: 220, height: 18)
+                                    .shimmering()
+                            }
+                            .accessibilityLabel("Polishing your scenario…")
+                        } else {
+                            Text("\"\(displayedPrompt)\"")
+                                .font(AppFonts.display(20))
+                                .foregroundStyle(AppColors.text)
+                                .lineSpacing(6)
+                        }
                     }
                     .padding(20)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -207,9 +226,14 @@ struct LoadingView: View {
             )
             await MainActor.run {
                 switch result {
-                case .tips(let tips):  tipsState = .ready(tips)
-                case .refused(let r):  tipsState = .refused(r)
-                case .failed:          tipsState = .failed
+                case .tips(let rewrittenPrompt, let tips):
+                    displayedPrompt = rewrittenPrompt
+                    onPromptRewritten?(rewrittenPrompt)
+                    tipsState = .ready(tips)
+                case .refused(let r):
+                    tipsState = .refused(r)
+                case .failed:
+                    tipsState = .failed
                 }
             }
         }

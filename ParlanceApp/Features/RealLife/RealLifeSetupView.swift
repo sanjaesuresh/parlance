@@ -39,19 +39,20 @@ struct RealLifeSetupView: View {
     // MARK: - Top nav
 
     private var topNav: some View {
-        HStack {
-            Button(action: { dismiss() }) {
-                Text("← Back")
-                    .font(AppFonts.body(13))
-                    .foregroundStyle(AppColors.text)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+        ZStack {
+            HStack {
+                Button(action: { dismiss() }) {
+                    Text("← Back")
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.text)
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                Spacer()
             }
-            Spacer()
             modeChip
-            Spacer().frame(width: 72)
         }
         .padding(.horizontal, 16)
         .padding(.top, 8)
@@ -232,10 +233,10 @@ struct RealLifeSetupView: View {
             onStart(buildState())
         } label: {
             HStack(spacing: 10) {
-                Image(systemName: "mic.fill")
-                    .font(.system(size: 15, weight: .semibold))
-                Text("Start Recording")
+                Text("Continue")
                     .font(AppFonts.bodyBold(16))
+                Image(systemName: "arrow.right")
+                    .font(.system(size: 14, weight: .semibold))
             }
             .foregroundStyle(AppColors.onGold)
             .frame(maxWidth: .infinity)

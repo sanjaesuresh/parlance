@@ -80,6 +80,18 @@ struct SessionCoordinator: View {
                             currentQuestion = newQuestion
                             currentTopicCategory = newCategory
                         }
+                    },
+                    onPromptRewritten: { rewritten in
+                        currentQuestion = Question(
+                            id: currentQuestion.id,
+                            mode: currentQuestion.mode,
+                            difficultyBand: currentQuestion.difficultyBand,
+                            question: rewritten,
+                            tips: currentQuestion.tips,
+                            targetDuration: currentQuestion.targetDuration,
+                            difficultyNote: currentQuestion.difficultyNote,
+                            category: currentQuestion.category
+                        )
                     }
                 )
 
@@ -157,7 +169,7 @@ struct SessionCoordinator: View {
         }
         .onChange(of: phase) { _, newPhase in
             if case .processing = newPhase, state.mode == .realLife {
-                RealLifeScenarioHistoryStore.shared.record(currentQuestion.question)
+                RealLifeScenarioHistoryStore.shared.record(state.question.question)
             }
         }
     }

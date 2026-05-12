@@ -2,7 +2,7 @@ import Foundation
 import Supabase
 
 enum RealLifeTipsResult: Equatable {
-    case tips([String])
+    case tips(rewrittenPrompt: String, tips: [String])
     case refused(reason: String)
     case failed
 }
@@ -44,15 +44,16 @@ final class RealLifeTipsClient: RealLifeTipsFetching {
                 return .failed
             }
 
-            struct Success: Decodable { let tips: [String] }
+            struct Success: Decodable { let rewrittenPrompt: String; let tips: [String] }
             struct Refusal: Decodable { let refused: Bool; let reason: String }
 
             if let refusal = try? JSONDecoder().decode(Refusal.self, from: data), refusal.refused {
                 return .refused(reason: refusal.reason)
             }
             if let ok = try? JSONDecoder().decode(Success.self, from: data),
+               !ok.rewrittenPrompt.isEmpty,
                ok.tips.count == 3, ok.tips.allSatisfy({ !$0.isEmpty }) {
-                return .tips(ok.tips)
+                return .tips(rewrittenPrompt: ok.rewrittenPrompt, tips: ok.tips)
             }
             return .failed
         } catch {
