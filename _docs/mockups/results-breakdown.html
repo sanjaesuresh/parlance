@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Parlance — Results, Direction A (reordered)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: oklch(0.18 0.005 70);
+    --bg-deep: oklch(0.14 0.005 70);
+    --card: oklch(0.22 0.006 70);
+    --card-hi: oklch(0.25 0.008 70);
+    --ai-coach-bg: oklch(0.24 0.014 80);
+    --text: oklch(0.96 0.005 80);
+    --sub: oklch(0.72 0.008 80);
+    --dim: oklch(0.55 0.008 80);
+    --faint: oklch(0.30 0.008 80);
+    --border: oklch(0.30 0.006 70);
+    --border-soft: oklch(0.26 0.006 70);
+    --rule: oklch(0.28 0.006 70);
+    --gold: oklch(0.78 0.13 84);
+    --gold-soft: oklch(0.78 0.13 84 / 0.16);
+    --teal: oklch(0.78 0.12 195);
+    --teal-soft: oklch(0.78 0.12 195 / 0.15);
+    --red: oklch(0.70 0.18 22);
+    --red-soft: oklch(0.70 0.18 22 / 0.16);
+    --purple: oklch(0.72 0.13 305);
+    --purple-soft: oklch(0.72 0.13 305 / 0.18);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg-deep);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 56px 32px 96px;
+  }
+
+  .page-head { max-width: 1180px; margin: 0 auto 40px; }
+  .page-head .crumb {
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    font-weight: 600; margin-bottom: 10px;
+  }
+  .page-head h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 500; font-size: 34px;
+    letter-spacing: -0.01em; margin: 0 0 12px;
+  }
+  .page-head p {
+    margin: 0; color: var(--sub); font-size: 15px;
+    max-width: 70ch; line-height: 1.6;
+  }
+
+  /* Two phones side by side */
+  .stage {
+    max-width: 1180px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 1000px) {
+    .stage { grid-template-columns: 1fr; max-width: 480px; }
+  }
+
+  .phone-col .phone-label {
+    font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--dim);
+    font-weight: 700; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .phone-col .phone-label .planned {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 1px 6px; border-radius: 4px;
+    background: var(--purple-soft); color: var(--purple);
+  }
+  .phone-col .phone-caption {
+    font-size: 12px; color: var(--sub);
+    line-height: 1.55; margin-bottom: 18px; max-width: 44ch;
+  }
+
+  .phone {
+    background: var(--bg); border: 1px solid var(--border-soft);
+    border-radius: 38px; padding: 14px;
+    box-shadow:
+      0 0 0 1px oklch(0.08 0 0),
+      0 30px 80px -20px oklch(0 0 0 / 0.6),
+      0 8px 16px -8px oklch(0 0 0 / 0.4);
+  }
+  .phone-screen {
+    background: var(--bg); border-radius: 26px;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+  }
+  .status-bar {
+    height: 38px; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 24px;
+    font-size: 13px; font-weight: 600; color: var(--text);
+    flex: 0 0 auto;
+  }
+  .status-bar .right { display: flex; gap: 5px; align-items: center; opacity: 0.85; font-size: 11px; }
+  .top-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 16px 10px; flex: 0 0 auto;
+  }
+  .nav-btn {
+    background: var(--card); border-radius: 10px; padding: 7px 12px;
+    font-size: 12px; font-weight: 500; color: var(--text);
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .nav-btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--sub); font-size: 11px; }
+  .mode-pill {
+    background: oklch(0.78 0.13 84 / 0.15); color: var(--gold);
+    padding: 5px 11px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+    display: inline-flex; gap: 5px; align-items: center;
+  }
+  .screen-body {
+    padding: 4px 18px 28px;
+    display: flex; flex-direction: column;
+  }
+  /* Uniform vertical rhythm between sections */
+  .screen-body > section { padding: 18px 0; border-top: 1px solid var(--rule); }
+  .screen-body > section:first-child { border-top: 0; padding-top: 8px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--dim); margin: 0 0 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label .badge {
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em;
+    padding: 1px 6px; border-radius: 4px;
+    background: var(--purple-soft); color: var(--purple);
+  }
+  .section-label .pro {
+    margin-left: auto;
+    font-size: 9px; font-weight: 700; color: #111;
+    background: var(--gold); padding: 2px 7px; border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── 1. Verdict hero ─── */
+  .verdict-block .avg-line {
+    display: flex; gap: 8px; align-items: center;
+    font-size: 11px; color: var(--sub); margin-bottom: 10px;
+  }
+  .verdict-block .avg-line .delta {
+    font-weight: 700; font-size: 10px;
+    padding: 2px 7px; border-radius: 999px;
+    background: var(--teal-soft); color: var(--teal);
+  }
+  .verdict {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 26px;
+    line-height: 1.18; letter-spacing: -0.015em;
+    color: var(--text); margin: 0 0 10px;
+  }
+  .verdict .focus-word { color: var(--red); }
+  .verdict-q {
+    font-size: 12.5px; color: var(--sub);
+    font-style: italic; line-height: 1.5;
+    margin: 0 0 8px;
+  }
+  .verdict-meta { color: var(--dim); font-size: 11px; }
+
+  /* ─── 2. Breakdown (editorial) ─── */
+  .a-row {
+    display: grid; grid-template-columns: 56px 1fr auto;
+    column-gap: 12px; align-items: center;
+    padding: 11px 0; border-bottom: 1px solid var(--border-soft);
+  }
+  .a-row:last-child { border-bottom: 0; }
+  .a-row.expanded { align-items: start; }
+  .a-row .num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 26px;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .a-row.strong .num { color: var(--teal); }
+  .a-row.watch .num  { color: var(--gold); }
+  .a-row.focus .num  { color: var(--red); }
+  .a-row .name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .a-row .status {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .a-row.strong .status { color: var(--teal); }
+  .a-row.watch .status  { color: var(--gold); }
+  .a-row.focus .status  { color: var(--red); }
+  .a-row .bar-mini {
+    grid-column: 2 / -1; margin-top: 10px;
+    height: 3px; background: var(--faint); border-radius: 2px;
+    position: relative; overflow: hidden;
+  }
+  .a-row .bar-mini > i {
+    position: absolute; left: 0; top: 0; bottom: 0; border-radius: 2px;
+  }
+  .a-row.watch .bar-mini > i { background: var(--gold); }
+  .a-row.focus .bar-mini > i { background: var(--red); }
+  .a-row .note {
+    grid-column: 2 / -1; font-size: 12.5px;
+    color: var(--sub); line-height: 1.55;
+    margin-top: 8px; font-style: italic;
+  }
+  .see-all {
+    margin-top: 12px; font-size: 11.5px;
+    color: var(--sub); text-align: center;
+    padding: 11px; border: 1px dashed var(--border); border-radius: 12px;
+  }
+
+  /* ─── 3. Moments (editorial paired blockquotes) ─── */
+  .moments-row { padding: 10px 0; }
+  .moments-row + .moments-row { border-top: 1px solid var(--border-soft); }
+  .moments-row .head {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .moments-row .head .icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+  .moments-row.best .head { color: var(--teal); }
+  .moments-row.best .head .icon { background: var(--teal-soft); }
+  .moments-row.worst .head { color: var(--red); }
+  .moments-row.worst .head .icon { background: var(--red-soft); }
+  .moments-row .quote {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; font-style: italic;
+    font-size: 15px; color: var(--text);
+    line-height: 1.4; margin: 0;
+  }
+  .moments-row .reason {
+    font-size: 12px; color: var(--sub);
+    margin-top: 4px; line-height: 1.55;
+  }
+
+  /* ─── 4. AI Coach callout ─── */
+  .coach {
+    position: relative;
+    background:
+      radial-gradient(
+        120% 80% at 0% 0%,
+        oklch(0.78 0.13 84 / 0.10) 0%,
+        oklch(0.24 0.014 80 / 0) 55%
+      ),
+      var(--ai-coach-bg);
+    border: 1.5px solid oklch(0.78 0.13 84 / 0.5);
+    border-radius: 18px;
+    padding: 22px 20px 18px;
+    box-shadow:
+      0 1px 0 oklch(1 0 0 / 0.04) inset,
+      0 18px 36px -22px oklch(0.78 0.13 84 / 0.35);
+  }
+  .coach .coach-head {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .coach .coach-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: oklch(0.78 0.13 84 / 0.18);
+    border: 1px solid oklch(0.78 0.13 84 / 0.55);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 13px;
+    flex: 0 0 auto;
+  }
+  .coach .coach-title {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); line-height: 1;
+  }
+  .coach .coach-sub {
+    font-size: 10px; color: var(--dim);
+    margin-top: 3px; letter-spacing: 0.02em;
+  }
+  .coach .feedback {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.55;
+    letter-spacing: 0;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .coach .feedback .accent {
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .coach .fine {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid oklch(0.78 0.13 84 / 0.18);
+    font-size: 10px; color: var(--dim);
+    font-style: italic; letter-spacing: 0.01em;
+  }
+
+  /* ─── 5. Tone — premium Pro card ─── */
+  .tone {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(
+        140% 90% at 100% 0%,
+        oklch(0.72 0.13 305 / 0.22) 0%,
+        oklch(0.72 0.13 305 / 0.06) 38%,
+        oklch(0.22 0.006 70 / 0) 70%
+      ),
+      var(--card);
+    border: 1.5px solid oklch(0.72 0.13 305 / 0.55);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow:
+      0 1px 0 oklch(1 0 0 / 0.04) inset,
+      0 24px 48px -28px oklch(0.72 0.13 305 / 0.4);
+  }
+  .tone .tone-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .tone .tone-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--purple);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tone .tone-label .badge {
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 1px 6px; border-radius: 4px;
+    background: var(--purple-soft); color: var(--purple);
+  }
+  .tone .pro-badge {
+    font-size: 9.5px; font-weight: 700;
+    background: linear-gradient(135deg, oklch(0.86 0.13 84) 0%, oklch(0.72 0.13 84) 100%);
+    color: #181818;
+    padding: 3px 10px 3px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.1em;
+    display: inline-flex; align-items: center; gap: 5px;
+    box-shadow:
+      0 1px 0 oklch(1 0 0 / 0.25) inset,
+      0 2px 8px oklch(0.78 0.13 84 / 0.35);
+  }
+  .tone .pro-badge::before { content: "✦"; font-size: 11px; line-height: 1; }
+
+  /* Hero — dominant emotion as serif headline */
+  .tone .hero { margin-bottom: 16px; }
+  .tone .hero .lbl {
+    font-size: 9.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--dim);
+  }
+  .tone .hero .name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 28px;
+    color: var(--text); letter-spacing: -0.015em;
+    margin: 4px 0 0; line-height: 1.05;
+  }
+  .tone .hero .stat {
+    font-size: 12px; color: var(--sub); margin-top: 6px;
+  }
+  .tone .hero .stat em {
+    font-style: normal; color: var(--text); font-weight: 500;
+  }
+
+  /* Mini sparkline preview — hints at the chart in the sheet */
+  .tone .spark-wrap {
+    margin-bottom: 16px;
+    background: oklch(0.17 0.005 70);
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 22px 12px 8px;
+    position: relative;
+  }
+  .tone .spark-wrap .spark-label {
+    position: absolute; top: 8px; left: 12px;
+    font-size: 9px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--dim);
+    font-weight: 700;
+  }
+  .tone .spark-wrap .spark-axis {
+    position: absolute; top: 8px; right: 12px;
+    font-size: 9px; color: var(--dim); letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .tone .spark-svg { width: 100%; height: 50px; display: block; }
+  .tone .spark-svg .grid { stroke: var(--faint); stroke-width: 0.5; stroke-dasharray: 2 3; }
+  .tone .spark-svg .l-main { fill: none; stroke: var(--teal); stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }
+  .tone .spark-svg .l-side { fill: none; stroke: var(--red); stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+  .tone .spark-svg .peak { fill: var(--teal); stroke: var(--bg); stroke-width: 1.5; }
+
+  /* Three bars */
+  .tone .bars { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+  .tone .bar .lab { display: flex; justify-content: space-between; font-size: 11.5px; }
+  .tone .bar .lab .l { color: var(--sub); font-weight: 500; }
+  .tone .bar .lab .v {
+    font-weight: 600; font-variant-numeric: tabular-nums;
+  }
+  .tone .bar .lab .v.teal { color: var(--teal); }
+  .tone .bar .lab .v.gold { color: var(--gold); }
+  .tone .bar .lab .v.red  { color: var(--red); }
+  .tone .bar .track {
+    margin-top: 5px; height: 6px;
+    background: var(--faint); border-radius: 3px; overflow: hidden;
+  }
+  .tone .bar .track > i { display: block; height: 100%; border-radius: 3px; }
+  .tone .bar .track > i.teal { background: var(--teal); }
+  .tone .bar .track > i.gold { background: var(--gold); }
+  .tone .bar .track > i.red  { background: var(--red); }
+
+  /* Meta line — teases the depth of the data */
+  .tone .meta-line {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px;
+    font-size: 11px;
+    padding: 11px 0;
+    border-top: 1px solid oklch(0.72 0.13 305 / 0.18);
+    border-bottom: 1px solid oklch(0.72 0.13 305 / 0.18);
+    margin-bottom: 16px;
+  }
+  .tone .meta-line .more {
+    color: var(--text); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .tone .meta-line .more::before {
+    content: ""; width: 4px; height: 4px;
+    border-radius: 50%; background: var(--purple);
+  }
+  .tone .meta-line .arc-mini {
+    color: var(--dim); display: inline-flex; align-items: center; gap: 5px;
+  }
+  .tone .meta-line .arc-mini b { color: var(--teal); font-weight: 500; }
+
+  /* Premium CTA — earns the tap */
+  .tone .cta {
+    display: flex; align-items: center; gap: 14px;
+    background:
+      linear-gradient(135deg,
+        oklch(0.72 0.13 305 / 0.24) 0%,
+        oklch(0.72 0.13 305 / 0.08) 100%);
+    border: 1.5px solid oklch(0.72 0.13 305 / 0.65);
+    border-radius: 14px;
+    padding: 14px 14px 14px 12px;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 120ms ease-out;
+  }
+  .tone .cta::after {
+    content: ""; position: absolute; inset: 0;
+    border-radius: 13px;
+    box-shadow: 0 0 32px -10px oklch(0.72 0.13 305 / 0.55) inset;
+    pointer-events: none;
+  }
+  .tone .cta:hover { transform: translateY(-1px); }
+  .tone .cta-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: oklch(0.72 0.13 305 / 0.32);
+    border: 1px solid oklch(0.72 0.13 305 / 0.65);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--purple);
+    flex: 0 0 auto;
+  }
+  .tone .cta-icon svg { width: 18px; height: 18px; }
+  .tone .cta-body { flex: 1 1 auto; line-height: 1.25; }
+  .tone .cta-title {
+    font-size: 14px; font-weight: 600; color: var(--text);
+    letter-spacing: 0.005em;
+  }
+  .tone .cta-sub {
+    font-size: 10.5px; color: var(--sub);
+    margin-top: 3px; letter-spacing: 0.02em;
+  }
+  .tone .cta-arrow {
+    font-size: 20px; color: var(--purple);
+    font-weight: 600; line-height: 1;
+    transition: transform 160ms ease-out;
+  }
+  .tone .cta:hover .cta-arrow { transform: translateX(2px); }
+
+  /* ─── 6. Transcript ─── */
+  .transcript-head {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 8px;
+  }
+  .transcript-head .section-label { margin: 0; }
+  .transcript-head .filler-tag {
+    font-size: 8.5px; font-weight: 700;
+    color: var(--red); background: var(--red-soft);
+    padding: 2px 6px; border-radius: 999px; letter-spacing: 0.04em;
+  }
+  .transcript-head .expand {
+    margin-left: auto; font-size: 11px; color: var(--sub);
+  }
+  .transcript p {
+    margin: 0; font-size: 12.5px; color: var(--sub); line-height: 1.65;
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .filler {
+    color: var(--red); background: var(--red-soft);
+    font-weight: 500; padding: 0 3px; border-radius: 3px;
+  }
+
+  /* ─── 7. Up next ─── */
+  .up-next-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 15px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .up-next-card .icon-box {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: oklch(0.78 0.13 84 / 0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex: 0 0 auto;
+  }
+  .up-next-card .text-col { flex: 1 1 auto; }
+  .up-next-card .title { font-size: 13px; color: var(--text); font-weight: 500; }
+  .up-next-card .sub { font-size: 11px; color: var(--dim); margin-top: 2px; }
+  .up-next-card .chev { font-size: 20px; color: var(--dim); }
+
+  /* ═══════════ Tone Detail Sheet (planned, right phone) ═══════════ */
+  .sheet-handle {
+    display: flex; justify-content: center; padding: 8px 0 4px;
+  }
+  .sheet-handle i {
+    width: 36px; height: 4px; border-radius: 2px;
+    background: var(--faint);
+  }
+  .sheet-titlebar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 18px 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .sheet-titlebar .t {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  .sheet-titlebar .done {
+    font-size: 13px; color: var(--purple);
+    font-weight: 500;
+  }
+
+  .sheet-body {
+    padding: 4px 18px 28px;
+    display: flex; flex-direction: column;
+  }
+  .sheet-body > section {
+    padding: 18px 0; border-top: 1px solid var(--rule);
+  }
+  .sheet-body > section:first-child {
+    border-top: 0; padding-top: 14px;
+  }
+
+  /* Hero summary */
+  .ts-hero { display: flex; flex-direction: column; gap: 4px; }
+  .ts-hero .lbl {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--purple);
+  }
+  .ts-hero .dom-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 24px;
+    color: var(--text); letter-spacing: -0.01em;
+    margin: 4px 0 0;
+  }
+  .ts-hero .dom-stat {
+    font-size: 12px; color: var(--sub); margin-top: 2px;
+  }
+  .ts-hero .dom-stat em {
+    font-style: normal; color: var(--purple); font-weight: 500;
+  }
+  .ts-hero .meta {
+    font-size: 11px; color: var(--dim); margin-top: 6px;
+  }
+
+  /* Chart */
+  .chart-wrap {
+    margin-top: 8px;
+    background: oklch(0.20 0.005 70);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 14px 12px 10px;
+  }
+  .chart-svg { width: 100%; height: auto; display: block; }
+  .chart-grid { stroke: var(--faint); stroke-width: 0.5; stroke-dasharray: 2 3; }
+  .chart-line { fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+  .chart-line.faint { stroke-width: 1; opacity: 0.45; stroke-dasharray: 3 3; }
+  .chart-line.teal { stroke: var(--teal); }
+  .chart-line.gold { stroke: var(--gold); }
+  .chart-line.red  { stroke: var(--red); }
+  .chart-line.purple { stroke: var(--purple); }
+  .chart-line.sub { stroke: var(--sub); }
+  .chart-axis-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px; fill: var(--dim);
+  }
+  .chart-peak {
+    fill: var(--teal); stroke: var(--bg); stroke-width: 2;
+  }
+  .chart-dip {
+    fill: var(--red); stroke: var(--bg); stroke-width: 2;
+  }
+
+  .chart-legend {
+    margin-top: 10px;
+    display: flex; flex-wrap: wrap;
+    gap: 6px 14px;
+    font-size: 10.5px;
+    color: var(--sub);
+  }
+  .chart-legend span { display: inline-flex; align-items: center; gap: 5px; }
+  .chart-legend .swatch {
+    width: 12px; height: 2px; border-radius: 1px;
+  }
+  .chart-legend .swatch.teal { background: var(--teal); }
+  .chart-legend .swatch.gold { background: var(--gold); }
+  .chart-legend .swatch.red  { background: var(--red); }
+  .chart-legend .faint-key {
+    color: var(--dim); font-size: 10px;
+    display: inline-flex; align-items: center; gap: 4px;
+    margin-left: 4px;
+  }
+  .chart-legend .faint-key i {
+    width: 12px; height: 0; border-top: 1px dashed var(--purple); display: inline-block;
+  }
+
+  /* Peaks & dips */
+  .pd-row { padding: 11px 0; }
+  .pd-row + .pd-row { border-top: 1px solid var(--border-soft); }
+  .pd-head {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .pd-head .icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+  .pd-row.peak .pd-head { color: var(--teal); }
+  .pd-row.peak .pd-head .icon { background: var(--teal-soft); }
+  .pd-row.dip  .pd-head { color: var(--red); }
+  .pd-row.dip  .pd-head .icon { background: var(--red-soft); }
+  .pd-head .ts {
+    margin-left: auto;
+    font-size: 10.5px; letter-spacing: 0.04em;
+    color: var(--sub); font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+  .pd-quote {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; font-style: italic;
+    font-size: 14.5px; color: var(--text);
+    line-height: 1.45; margin: 0;
+  }
+  .pd-stat { font-size: 11px; color: var(--sub); margin-top: 5px; }
+  .pd-stat em { color: var(--text); font-style: normal; font-weight: 500; }
+
+  /* Ranked list */
+  .ranked-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    column-gap: 12px;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .ranked-row:last-child { border-bottom: 0; }
+  .ranked-row .nm {
+    font-size: 12.5px; color: var(--text); font-weight: 500;
+  }
+  .ranked-row.mute .nm { color: var(--sub); font-weight: 400; }
+  .ranked-row .bar {
+    height: 4px; background: var(--faint);
+    border-radius: 2px; overflow: hidden;
+  }
+  .ranked-row .bar > i { display: block; height: 100%; border-radius: 2px; }
+  .ranked-row.teal .bar > i { background: var(--teal); }
+  .ranked-row.gold .bar > i { background: var(--gold); }
+  .ranked-row.red  .bar > i { background: var(--red); }
+  .ranked-row.mute .bar > i { background: var(--dim); }
+  .ranked-row .pct {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 14px;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .ranked-row.teal .pct { color: var(--teal); }
+  .ranked-row.gold .pct { color: var(--gold); }
+  .ranked-row.red  .pct { color: var(--red); }
+  .ranked-row.mute .pct { color: var(--sub); }
+
+  /* ─── Side notes (legacy, kept hidden) ─── */
+  .notes-hidden { display: none; }
+  /* ─── Side notes ─── */
+  .notes h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 19px;
+    margin: 0 0 8px; letter-spacing: -0.005em;
+  }
+  .notes .order-list {
+    list-style: none; padding: 0; margin: 0 0 36px;
+    counter-reset: step;
+  }
+  .notes .order-list li {
+    counter-increment: step;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    column-gap: 12px;
+    align-items: baseline;
+  }
+  .notes .order-list li:first-child { border-top: 0; }
+  .notes .order-list li:before {
+    content: counter(step);
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 18px;
+    color: var(--gold);
+    letter-spacing: -0.01em;
+  }
+  .notes .order-list .step-title {
+    font-size: 13.5px; color: var(--text); font-weight: 500;
+  }
+  .notes .order-list .step-why {
+    font-size: 12px; color: var(--sub);
+    margin-top: 4px; line-height: 1.5;
+  }
+  .notes .principles {
+    border-top: 1px solid var(--rule);
+    padding-top: 24px;
+  }
+  .notes .principles p {
+    margin: 0 0 12px; font-size: 13px;
+    color: var(--sub); line-height: 1.6;
+  }
+  .notes .principles p strong { color: var(--text); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <div class="crumb">Direction A · reordered</div>
+  <h1>Coach's notes, in the order a reader actually wants them</h1>
+  <p>The verdict tells you how you did. The breakdown tells you what to fix. Everything after that is supporting evidence and reference, in decreasing order of who reads it. Uniform top-rules between sections give the whole scroll one consistent rhythm.</p>
+</div>
+
+<div class="stage">
+
+  <!-- LEFT PHONE — Results breakdown -->
+  <div class="phone-col">
+    <div class="phone-label">Results breakdown</div>
+    <div class="phone-caption">The full screen, scroll top to bottom. Same as before, but reordered so the actionable signal sits right under the verdict.</div>
+  <div class="phone"><div class="phone-screen">
+    <div class="status-bar"><span>9:41</span><span class="right">●●●●● 5G 100</span></div>
+    <div class="top-nav">
+      <span class="nav-btn">‹ Home</span>
+      <span class="mode-pill">📊 Pitch</span>
+      <span class="nav-btn ghost">↻ Retry</span>
+    </div>
+    <div class="screen-body">
+
+      <!-- 1. Verdict + question (merged) -->
+      <section class="verdict-block">
+        <div class="avg-line">Your average: 62 <span class="delta">+6 from avg</span></div>
+        <h2 class="verdict">Room to grow. Focus on <span class="focus-word">delivery confidence</span> first.</h2>
+        <p class="verdict-q">"Walk me through your pitch for a Series A in two minutes."</p>
+        <div class="verdict-meta">Level 6 · Polished Speaker · 1:42 · Score 68</div>
+      </section>
+
+      <!-- 2. Breakdown — most actionable, now second -->
+      <section>
+        <div class="section-label">Breakdown</div>
+
+        <div class="a-row focus expanded">
+          <span class="num">41</span>
+          <span class="name">Filler Words</span>
+          <span class="status">Focus</span>
+          <div class="bar-mini"><i style="width:41%"></i></div>
+          <p class="note">11 fillers in 90 seconds, most clustered at sentence starts. Pause for half a beat instead.</p>
+        </div>
+        <div class="a-row focus expanded">
+          <span class="num">48</span>
+          <span class="name">Delivery Confidence</span>
+          <span class="status">Focus</span>
+          <div class="bar-mini"><i style="width:48%"></i></div>
+          <p class="note">Three hedges in the first 20 seconds: "I think," "kind of," "maybe." Cut them. The rest of your answer is confident enough to stand without them.</p>
+        </div>
+        <div class="a-row watch expanded">
+          <span class="num">62</span>
+          <span class="name">Structure</span>
+          <span class="status">Watch</span>
+          <div class="bar-mini"><i style="width:62%"></i></div>
+          <p class="note">Your opening landed, but the close trailed off. End on the single sentence you most want them to remember.</p>
+        </div>
+
+        <div class="a-row strong"><span class="num">78</span><span class="name">Relevance</span><span class="status">Strong</span></div>
+        <div class="a-row strong"><span class="num">84</span><span class="name">Vocabulary</span><span class="status">Strong</span></div>
+        <div class="a-row strong"><span class="num">88</span><span class="name">Pace</span><span class="status">Strong</span></div>
+        <div class="a-row strong"><span class="num">92</span><span class="name">Clarity</span><span class="status">Strong</span></div>
+
+        <div class="see-all">2 more metrics · tap to see all</div>
+      </section>
+
+      <!-- 3. Moments — concrete grounding for the breakdown -->
+      <section>
+        <div class="section-label">Moments</div>
+
+        <div class="moments-row best">
+          <div class="head">
+            <span class="icon">★</span>
+            <span>Best moment</span>
+          </div>
+          <p class="quote">"We already have three pilots paying us $50K each."</p>
+          <p class="reason">That's the moment they leaned in. Anchor your pitch there.</p>
+        </div>
+        <div class="moments-row worst">
+          <div class="head">
+            <span class="icon">!</span>
+            <span>Weakest moment</span>
+          </div>
+          <p class="quote">"I think there's a really big market for this."</p>
+          <p class="reason">Too tentative for an investor pitch. Lead with conviction.</p>
+        </div>
+      </section>
+
+      <!-- 4. AI Coach paragraph -->
+      <section>
+        <div class="coach">
+          <div class="coach-head">
+            <div class="coach-avatar">★</div>
+            <div>
+              <div class="coach-title">From your coach</div>
+              <div class="coach-sub">Pitch · Level 6 · just now</div>
+            </div>
+          </div>
+          <p class="feedback">Strong commercial signal in the middle of the pitch, but the opening took 25 seconds to get to what you actually sell. <span class="accent">Investors decide in the first 15.</span> Open with the problem and the proof. Cut the throat-clearing.</p>
+          <p class="fine">Practice feedback only. Not professional coaching or medical advice.</p>
+        </div>
+      </section>
+
+      <!-- 5. Vocal tone (Pro, planned mode-aware) -->
+      <section>
+        <div class="tone">
+          <div class="tone-head">
+            <span class="tone-label">Vocal Tone <span class="badge">PLANNED</span></span>
+            <span class="pro-badge">PRO</span>
+          </div>
+
+          <div class="hero">
+            <div class="lbl">Your strongest signal</div>
+            <div class="name">Enthusiasm</div>
+            <div class="stat"><em>72%</em> · came through across most of your pitch</div>
+          </div>
+
+          <div class="spark-wrap">
+            <span class="spark-label">Tone arc</span>
+            <span class="spark-axis">0:00 → 1:42</span>
+            <svg class="spark-svg" viewBox="0 0 320 50" preserveAspectRatio="none">
+              <line class="grid" x1="0" y1="25" x2="320" y2="25" />
+              <polyline class="l-side" points="0,21 36,23 71,24 107,26 142,29 178,30 213,32 249,31 284,30 320,30" />
+              <polyline class="l-main" points="0,29 36,26 71,23 107,20 142,17 178,11 213,14 249,16 284,18 320,16" />
+              <circle class="peak" cx="178" cy="11" r="3.5" />
+            </svg>
+          </div>
+
+          <div class="bars">
+            <div class="bar">
+              <div class="lab"><span class="l">Enthusiasm</span><span class="v teal">72%</span></div>
+              <div class="track"><i class="teal" style="width:72%"></i></div>
+            </div>
+            <div class="bar">
+              <div class="lab"><span class="l">Determination</span><span class="v gold">64%</span></div>
+              <div class="track"><i class="gold" style="width:64%"></i></div>
+            </div>
+            <div class="bar">
+              <div class="lab"><span class="l">Nervousness</span><span class="v red">38%</span></div>
+              <div class="track"><i class="red" style="width:38%"></i></div>
+            </div>
+          </div>
+
+          <div class="meta-line">
+            <span class="more">+ 7 more emotions tracked</span>
+            <span class="arc-mini">Confidence <b>↑ 58 → 74%</b></span>
+          </div>
+
+          <a class="cta">
+            <div class="cta-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 17 9 11 13 15 21 7"/>
+                <polyline points="14 7 21 7 21 14"/>
+              </svg>
+            </div>
+            <div class="cta-body">
+              <div class="cta-title">See your full tone analysis</div>
+              <div class="cta-sub">10 emotions · arc over time · peaks &amp; dips</div>
+            </div>
+            <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 6. Transcript — reference, near the bottom -->
+      <section>
+        <div class="transcript-head">
+          <span class="section-label">Your response</span>
+          <span class="filler-tag">11 fillers</span>
+          <span class="expand">Expand</span>
+        </div>
+        <p>So <span class="filler">um</span> I want to start by saying that we're <span class="filler">like</span> building a platform for <span class="filler">you know</span> teams who need to coordinate across timezones. <span class="filler">I think</span> there's a really big market for this and <span class="filler">kind of</span> we've been getting strong early signal from...</p>
+      </section>
+
+      <!-- 7. Up next -->
+      <section>
+        <div class="up-next-card">
+          <div class="icon-box">📊</div>
+          <div class="text-col">
+            <div class="title">Another Pitch · Polished Speaker</div>
+            <div class="sub">New question · +50 XP</div>
+          </div>
+          <div class="chev">›</div>
+        </div>
+      </section>
+
+    </div>
+  </div></div>
+  </div>
+
+  <!-- RIGHT PHONE — Tone detail sheet (planned, owned by the other stream) -->
+  <div class="phone-col">
+    <div class="phone-label">Tone detail sheet <span class="planned">PLANNED</span></div>
+    <div class="phone-caption">Opens as a full-screen sheet when you tap <em>View tone breakdown →</em> on the Vocal Tone card. Owned by the other stream; rendered here in Direction A's editorial style for context.</div>
+  <div class="phone"><div class="phone-screen">
+    <div class="status-bar"><span>9:41</span><span class="right">●●●●● 5G 100</span></div>
+
+    <div class="sheet-handle"><i></i></div>
+    <div class="sheet-titlebar">
+      <span class="t">Vocal Tone</span>
+      <span class="done">Done</span>
+    </div>
+
+    <div class="sheet-body">
+
+      <!-- 1. Hero summary -->
+      <section class="ts-hero">
+        <div class="lbl">Dominant emotion</div>
+        <div class="dom-name">Enthusiasm</div>
+        <div class="dom-stat"><em>72%</em> · highest sustained signal in your delivery</div>
+        <div class="meta">Pitch · 1:42 · 6 emotion lines sampled every ~2s</div>
+      </section>
+
+      <!-- 2. Chart -->
+      <section>
+        <div class="section-label">Intensity over time</div>
+        <div class="chart-wrap">
+          <svg class="chart-svg" viewBox="0 0 360 160" preserveAspectRatio="none">
+            <!-- midline grid -->
+            <line class="chart-grid" x1="20" y1="72.5" x2="340" y2="72.5" />
+            <line class="chart-grid" x1="20" y1="15" x2="340" y2="15" />
+            <line class="chart-grid" x1="20" y1="130" x2="340" y2="130" />
+
+            <!-- faint lines first (back) -->
+            <polyline class="chart-line faint purple"
+              points="20,78 56,73 91,67 127,61 162,55 198,45 233,52 269,59 304,63 340,63" />
+            <polyline class="chart-line faint sub"
+              points="20,84 56,82 91,78 127,73 162,67 198,61 233,63 269,67 304,70 340,71" />
+
+            <!-- highlighted (mode-aware) -->
+            <polyline class="chart-line red"
+              points="20,59 56,63 91,67 127,75 162,82 198,86 233,90 269,89 304,86 340,86" />
+            <polyline class="chart-line gold"
+              points="20,67 56,63 91,59 127,55 162,52 198,50 233,52 269,56 304,59 340,56" />
+            <polyline class="chart-line teal"
+              points="20,82 56,75 91,67 127,59 162,50 198,32 233,40 269,47 304,52 340,47" />
+
+            <!-- peak + dip markers on confidence (purple faint) -->
+            <circle class="chart-peak" cx="198" cy="45" r="4.5" />
+            <circle class="chart-dip"  cx="56"  cy="73" r="4.5" />
+
+            <!-- x axis labels -->
+            <text class="chart-axis-text" x="20"  y="146">0:00</text>
+            <text class="chart-axis-text" x="114" y="146" text-anchor="middle">0:30</text>
+            <text class="chart-axis-text" x="208" y="146" text-anchor="middle">1:00</text>
+            <text class="chart-axis-text" x="302" y="146" text-anchor="middle">1:30</text>
+            <text class="chart-axis-text" x="340" y="146" text-anchor="end">1:42</text>
+          </svg>
+          <div class="chart-legend">
+            <span><i class="swatch teal"></i>Enthusiasm</span>
+            <span><i class="swatch gold"></i>Determination</span>
+            <span><i class="swatch red"></i>Nervousness</span>
+            <span class="faint-key"><i></i>+ Confidence, Joy (faded)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Peaks and dips -->
+      <section>
+        <div class="section-label">Peaks and dips · confidence</div>
+
+        <div class="pd-row peak">
+          <div class="pd-head">
+            <span class="icon">▲</span>
+            <span>Peak</span>
+            <span class="ts">0:54</span>
+          </div>
+          <p class="pd-quote">"We already have three pilots paying us $50K each."</p>
+          <p class="pd-stat"><em>74%</em> confidence · your highest moment of the session</p>
+        </div>
+
+        <div class="pd-row dip">
+          <div class="pd-head">
+            <span class="icon">▼</span>
+            <span>Dip</span>
+            <span class="ts">0:12</span>
+          </div>
+          <p class="pd-quote">"I think there's a really big market for this."</p>
+          <p class="pd-stat"><em>45%</em> confidence · hedging clustered around the opening</p>
+        </div>
+      </section>
+
+      <!-- 4. Ranked all emotions -->
+      <section>
+        <div class="section-label">All emotions, ranked</div>
+
+        <div class="ranked-row teal">
+          <span class="nm">Enthusiasm</span>
+          <span class="bar"><i style="width:72%"></i></span>
+          <span class="pct">72%</span>
+        </div>
+        <div class="ranked-row gold">
+          <span class="nm">Determination</span>
+          <span class="bar"><i style="width:64%"></i></span>
+          <span class="pct">64%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Confidence</span>
+          <span class="bar"><i style="width:58%"></i></span>
+          <span class="pct">58%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Joy</span>
+          <span class="bar"><i style="width:51%"></i></span>
+          <span class="pct">51%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Interest</span>
+          <span class="bar"><i style="width:47%"></i></span>
+          <span class="pct">47%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Calmness</span>
+          <span class="bar"><i style="width:42%"></i></span>
+          <span class="pct">42%</span>
+        </div>
+        <div class="ranked-row red">
+          <span class="nm">Nervousness</span>
+          <span class="bar"><i style="width:38%"></i></span>
+          <span class="pct">38%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Doubt</span>
+          <span class="bar"><i style="width:28%"></i></span>
+          <span class="pct">28%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Awkwardness</span>
+          <span class="bar"><i style="width:22%"></i></span>
+          <span class="pct">22%</span>
+        </div>
+        <div class="ranked-row mute">
+          <span class="nm">Boredom</span>
+          <span class="bar"><i style="width:14%"></i></span>
+          <span class="pct">14%</span>
+        </div>
+      </section>
+
+    </div>
+  </div></div>
+  </div>
+</div>
+
+</body>
+</html>

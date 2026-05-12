@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: - AI-scored moments (combined card)
+// MARK: - AI-scored moments (editorial)
 
 struct AIMomentsCard: View {
     let bestQuote: String
@@ -9,7 +9,7 @@ struct AIMomentsCard: View {
     let worstReason: String
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(alignment: .leading, spacing: 0) {
             if !bestQuote.isEmpty {
                 momentSection(
                     label: "BEST MOMENT",
@@ -37,12 +37,6 @@ struct AIMomentsCard: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
-        .overlay(
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(AppColors.border, lineWidth: 1)
-        )
     }
 
     private func momentSection(
@@ -52,36 +46,44 @@ struct AIMomentsCard: View {
         reason: String,
         accentColor: Color
     ) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 5) {
-                Image(systemName: symbol)
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(accentColor)
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 9) {
+                ZStack {
+                    Circle()
+                        .fill(accentColor.opacity(0.15))
+                        .frame(width: 18, height: 18)
+                    Image(systemName: symbol)
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(accentColor)
+                }
                 Text(label)
                     .font(AppFonts.bodyBold(10))
+                    .kerning(1.2)
                     .foregroundStyle(accentColor)
-                    .kerning(0.6)
             }
 
+            Spacer().frame(height: 6)
+
             Text("\u{201C}\(quote)\u{201D}")
-                .font(AppFonts.body(13))
+                .font(AppFonts.display(15))
                 .italic()
                 .foregroundStyle(AppColors.text)
                 .lineSpacing(4)
 
             if !reason.isEmpty {
+                Spacer().frame(height: 4)
                 Text(reason)
                     .font(AppFonts.body(12))
-                    .foregroundStyle(AppColors.dim)
-                    .lineSpacing(3)
+                    .foregroundStyle(AppColors.sub)
+                    .lineSpacing(4)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
+        .padding(.vertical, 10)
     }
 }
 
-// MARK: - Rule-based moments (combined card)
+// MARK: - Rule-based moments (editorial)
 
 struct MomentsCard: View {
     let bestTimestamp: String
@@ -90,7 +92,7 @@ struct MomentsCard: View {
     let worstText: String
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(alignment: .leading, spacing: 0) {
             if !bestText.isEmpty {
                 momentSection(
                     label: "BEST MOMENT",
@@ -118,12 +120,6 @@ struct MomentsCard: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: 14))
-        .overlay(
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(AppColors.border, lineWidth: 1)
-        )
     }
 
     private func momentSection(
@@ -133,15 +129,20 @@ struct MomentsCard: View {
         text: String,
         accentColor: Color
     ) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 5) {
-                Image(systemName: symbol)
-                    .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(accentColor)
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 9) {
+                ZStack {
+                    Circle()
+                        .fill(accentColor.opacity(0.15))
+                        .frame(width: 18, height: 18)
+                    Image(systemName: symbol)
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(accentColor)
+                }
                 Text(label)
                     .font(AppFonts.bodyBold(10))
+                    .kerning(1.2)
                     .foregroundStyle(accentColor)
-                    .kerning(0.6)
                 Spacer()
                 Text(timestamp)
                     .font(AppFonts.bodyMedium(10))
@@ -152,12 +153,15 @@ struct MomentsCard: View {
                     .clipShape(Capsule())
             }
 
+            Spacer().frame(height: 6)
+
             Text(text)
-                .font(AppFonts.body(13))
-                .foregroundStyle(AppColors.dim)
+                .font(AppFonts.display(15))
+                .italic()
+                .foregroundStyle(AppColors.text)
                 .lineSpacing(4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(16)
+        .padding(.vertical, 10)
     }
 }
