@@ -110,9 +110,10 @@ struct DifficultyChangeSheet: View {
         }
         .padding(.horizontal, 24)
         .padding(.bottom, 24)
-        .background(AppColors.bg)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .presentationDetents([.fraction(0.65), .large])
         .presentationDragIndicator(.hidden)
+        .presentationBackground(AppColors.bg)
     }
 
     private func tierRow(tier: Tier, selected: Bool, locked: Bool) -> some View {
