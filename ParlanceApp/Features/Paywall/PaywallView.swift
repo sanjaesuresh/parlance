@@ -155,11 +155,21 @@ struct PaywallView: View {
     }
 
     private var legalText: some View {
-        Text("Subscription renews monthly unless cancelled at least 24 hours before the renewal date. Manage in App Store Settings.")
-            .font(AppFonts.body(10))
-            .foregroundStyle(AppColors.dim)
-            .multilineTextAlignment(.center)
-            .lineSpacing(3)
+        VStack(spacing: 10) {
+            Text("\(product?.displayPrice ?? "$4.99")/month, auto-renewing. Cancel at least 24 hours before the renewal date in App Store Settings or it will renew automatically.")
+                .font(AppFonts.body(10))
+                .foregroundStyle(AppColors.dim)
+                .multilineTextAlignment(.center)
+                .lineSpacing(3)
+
+            HStack(spacing: 6) {
+                Link("Terms of Use", destination: URL(string: "https://theparlance.app/terms")!)
+                Text("·").foregroundStyle(AppColors.dim)
+                Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)
+            }
+            .font(AppFonts.bodyMedium(11))
+            .foregroundStyle(AppColors.sub)
+        }
     }
 
     // MARK: - Actions
