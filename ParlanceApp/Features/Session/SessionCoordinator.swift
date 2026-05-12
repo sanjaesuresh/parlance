@@ -59,6 +59,7 @@ struct SessionCoordinator: View {
     @State private var pendingAudioFeatures: AudioFeatures = .empty
     @State private var pendingFillerCount: Int = 0
     @State private var pendingEmotionResult: EmotionResult? = nil
+    @State private var pendingEmotionAnalysisFailed: Bool = false
 
     var body: some View {
         ZStack {
@@ -162,6 +163,7 @@ struct SessionCoordinator: View {
                 ResultsView(
                     session: session,
                     question: currentQuestion,
+                    toneAnalysisFailed: pendingEmotionAnalysisFailed,
                     onTryAgain: { retrySession() },
                     onGoHome: { onDismiss() }
                 )
@@ -192,6 +194,7 @@ struct SessionCoordinator: View {
         let transcriptionResult: TranscriptionResult?
         let audioFeatures: AudioFeatures
         let emotionResult: EmotionResult?
+        let emotionFailed: Bool
 
         let shouldAnalyzeEmotion = subscription.isPro
         let apiURL = AppConstants.apiBaseURL
@@ -200,12 +203,23 @@ struct SessionCoordinator: View {
             return try? await SpeechTranscriber.transcribe(url: audioURL)
         }()
         async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
-        async let emotionTask: EmotionResult? = {
-            guard shouldAnalyzeEmotion else { return nil }
-            return try? await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+        async let emotionTask: (result: EmotionResult?, failed: Bool) = {
+            guard shouldAnalyzeEmotion else { return (nil, false) }
+            do {
+                let result = try await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+                return (result, false)
+            } catch {
+                #if DEBUG
+                print("[Hume] tone analysis failed: \(error)")
+                #endif
+                return (nil, true)
+            }
         }()
 
-        (transcriptionResult, audioFeatures, emotionResult) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+        let emotionOutcome: (result: EmotionResult?, failed: Bool)
+        (transcriptionResult, audioFeatures, emotionOutcome) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+        emotionResult = emotionOutcome.result
+        emotionFailed = emotionOutcome.failed
 
         // Delete audio file — no longer needed
         recorder.deleteRecording()
@@ -222,6 +236,7 @@ struct SessionCoordinator: View {
         pendingAudioFeatures = audioFeatures
         pendingFillerCount = fillerCount
         pendingEmotionResult = emotionResult
+        pendingEmotionAnalysisFailed = emotionFailed
 
         await scoreAndSave()
     }

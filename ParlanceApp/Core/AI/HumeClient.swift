@@ -20,14 +20,25 @@ enum HumeClient {
         let audioData = try Data(contentsOf: audioURL)
         let (data, response) = try await URLSession.shared.upload(for: request, from: audioData)
 
-        guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
-            throw HumeError.serverError
+        guard let http = response as? HTTPURLResponse else {
+            throw HumeError.serverError(status: -1, body: "no HTTPURLResponse")
+        }
+        guard (200..<300).contains(http.statusCode) else {
+            let body = String(data: data, encoding: .utf8) ?? "<non-utf8 body>"
+            throw HumeError.serverError(status: http.statusCode, body: body)
         }
 
         return try JSONDecoder().decode(EmotionResult.self, from: data)
     }
 }
 
-enum HumeError: Error {
-    case serverError
+enum HumeError: Error, CustomStringConvertible {
+    case serverError(status: Int, body: String)
+
+    var description: String {
+        switch self {
+        case .serverError(let status, let body):
+            return "serverError status=\(status) body=\(body.prefix(300))"
+        }
+    }
 }
