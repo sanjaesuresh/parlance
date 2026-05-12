@@ -181,7 +181,6 @@ struct SettingsSheet: View {
         .alert("Sign Out", isPresented: $showSignOutConfirmation) {
             Button("Sign Out", role: .destructive) {
                 Task {
-                    PersistenceService.shared.resetAllData()
                     try? await authService.signOut()
                 }
             }
