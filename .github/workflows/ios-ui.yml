@@ -1,18 +1,25 @@
-name: iOS Build & Unit Tests
+name: iOS UI Tests
+
+# UI tests are slower, flakier (SwiftUI focus races, sim activation-point
+# bugs), and depend on external Supabase state. They run on PRs targeting
+# main, nightly, and on-demand — but NOT on push-to-main, so a green
+# fast-build isn't blocked by transient UI flakes.
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  schedule:
+    # 07:00 UTC nightly — pick a slot that won't collide with PR runs
+    - cron: '0 7 * * *'
+  workflow_dispatch:
 
 concurrency:
-  group: ios-fast-${{ github.ref }}
+  group: ios-ui-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build and Unit Test
+  ui-test:
+    name: UI Tests
     runs-on: macos-latest
 
     steps:
@@ -22,9 +29,6 @@ jobs:
       - name: Select destination
         id: dest
         run: |
-          # Only consider an iOS simulator if the runtime is actually installed.
-          # xcrun simctl list devices returns records even for runtimes that are
-          # not installed; xcrun simctl list runtimes tells us what's really there.
           IOS_RUNTIME=$(xcrun simctl list runtimes available 2>/dev/null \
             | grep "^iOS" | grep -v "unavailable" | head -1 \
             | grep -oE "com\.apple\.CoreSimulator\.SimRuntime\.iOS-[0-9-]+" || true)
@@ -38,7 +42,6 @@ jobs:
           fi
 
           if [ -z "$DEST" ]; then
-            # Fall back to visionOS simulator (supports Designed for iPad,iPhone)
             VISION_ID=$(xcrun simctl list devices available -j 2>/dev/null \
               | python3 -c "
 import json, sys
@@ -70,15 +73,13 @@ for runtime, devices in d['devices'].items():
           ID=$(echo "${{ steps.dest.outputs.destination }}" | grep -oE 'id=[^,]+' | cut -d= -f2)
           xcrun simctl boot "$ID" 2>/dev/null || true
 
-      - name: Unit tests
+      - name: UI tests
         run: |
-          # Run ParlanceTests only — UI tests live in a separate workflow
-          # (.github/workflows/ios-ui.yml) that runs on PRs + nightly.
           xcodebuild test-without-building \
             -project ParlanceApp/Parlance.xcodeproj \
             -scheme Parlance \
             -destination "${{ steps.dest.outputs.destination }}" \
-            -only-testing:ParlanceTests \
+            -only-testing:ParlanceUITests \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
