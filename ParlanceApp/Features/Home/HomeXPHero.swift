@@ -33,10 +33,14 @@ struct HomeXPHero: View {
                         .foregroundStyle(AppColors.sub)
                 }
                 Spacer()
-                Text("L\(user.rank.level) · \(user.rank.name.uppercased())")
-                    .font(AppFonts.bodyBold(10))
-                    .kerning(1.4)
-                    .foregroundStyle(AppColors.gold)
+                HStack(spacing: 4) {
+                    Text("L\(user.rank.level) · \(user.rank.name.uppercased())")
+                        .font(AppFonts.bodyBold(10))
+                        .kerning(1.4)
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 9, weight: .semibold))
+                }
+                .foregroundStyle(AppColors.gold)
             }
             .padding(.bottom, 10)
 

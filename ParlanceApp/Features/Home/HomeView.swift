@@ -9,6 +9,7 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject private var subscription: SubscriptionService
     @EnvironmentObject private var weekCache: SessionWeekCache
+    @ObservedObject private var router = DeepLinkRouter.shared
 
     private var user: User? { users.first }
 
@@ -207,11 +208,17 @@ struct HomeView: View {
         Group {
             if let user {
                 let stats = viewModel.weeklyStats(sessions: thisWeekSessions)
-                HomeXPHero(
-                    user: user,
-                    weeklySessionCount: stats.count,
-                    weeklyAvgScore: stats.avgScore
-                )
+                Button {
+                    router.selectedTab = 1
+                } label: {
+                    HomeXPHero(
+                        user: user,
+                        weeklySessionCount: stats.count,
+                        weeklyAvgScore: stats.avgScore
+                    )
+                }
+                .buttonStyle(.plain)
+                .accessibilityHint("Opens Progress tab")
             }
         }
     }
