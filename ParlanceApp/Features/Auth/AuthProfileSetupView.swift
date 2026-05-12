@@ -100,7 +100,11 @@ struct AuthProfileSetupView: View {
                         .foregroundStyle(AppColors.sub)
                 }
 
-                // Name
+                // Padding/background is applied inside each TextField's modifier
+                // chain (before .accessibilityIdentifier) — matching the
+                // emailField pattern in AuthView — so the accessibility element
+                // resolves to the full padded card rather than the inner 22pt
+                // text strip. setupField stays a pure label/hint wrapper.
                 setupField(label: "What should we call you?") {
                     TextField("Your name", text: $name)
                         .font(AppFonts.body(17))
@@ -109,6 +113,10 @@ struct AuthProfileSetupView: View {
                         .focused($focusedField, equals: .name)
                         .submitLabel(.next)
                         .onSubmit { focusedField = .username }
+                        .padding(14)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
                         .accessibilityIdentifier("nameField")
                         .onChange(of: name) { _, newValue in
                             if newValue.count > AppConstants.maxNameLength {
@@ -127,6 +135,10 @@ struct AuthProfileSetupView: View {
                         .focused($focusedField, equals: .username)
                         .submitLabel(.next)
                         .onSubmit { focusedField = .occupation }
+                        .padding(14)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
                         .accessibilityIdentifier("usernameField")
                         .onChange(of: username) { _, newValue in
                             let filtered = newValue.lowercased().filter { $0.isLetter || $0.isNumber || $0 == "_" }
@@ -143,6 +155,10 @@ struct AuthProfileSetupView: View {
                         .focused($focusedField, equals: .occupation)
                         .submitLabel(.next)
                         .onSubmit { focusedField = .location }
+                        .padding(14)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
                 }
 
                 // Location (optional) with autocomplete dropdown
@@ -392,10 +408,6 @@ struct AuthProfileSetupView: View {
                 .foregroundStyle(AppColors.sub)
 
             content()
-                .padding(14)
-                .background(AppColors.card)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
 
             if let hint {
                 Text(hint)
