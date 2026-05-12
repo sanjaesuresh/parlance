@@ -225,18 +225,19 @@ struct LeagueView: View {
             selectedTab = tab
         } label: {
             Text(title)
-                .font(AppFonts.bodyMedium(13))
-                .foregroundStyle(isSelected ? AppColors.gold : AppColors.sub)
+                .font(AppFonts.bodyBold(13))
+                .foregroundStyle(isSelected ? AppColors.onGold : AppColors.sub)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 10)
-                .background(isSelected ? AppColors.gold.opacity(0.15) : AppColors.card)
+                .padding(.vertical, 11)
+                .background(isSelected ? AppColors.gold : AppColors.card)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(isSelected ? AppColors.gold.opacity(0.5) : AppColors.border, lineWidth: 1)
+                        .stroke(isSelected ? Color.clear : AppColors.border, lineWidth: 1)
                 )
         }
         .accessibilityIdentifier(identifier)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
     // MARK: - Zone Legend
@@ -250,24 +251,22 @@ struct LeagueView: View {
     }
 
     private func zonePill(emoji: String, label: String, color: Color) -> some View {
-        HStack(spacing: 3) {
-            Text(emoji)
-                .font(.system(size: 10))
-            Text(label)
-                .font(AppFonts.body(9))
-                .foregroundStyle(color)
+        HStack(spacing: 4) {
+            Circle()
+                .fill(color)
+                .frame(width: 6, height: 6)
+            Text(label.uppercased())
+                .font(AppFonts.bodyMedium(9))
+                .kerning(0.6)
+                .foregroundStyle(AppColors.sub)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
         }
         .frame(maxWidth: .infinity)
-        .padding(.vertical, 8)
+        .padding(.vertical, 7)
         .padding(.horizontal, 4)
-        .background(color.opacity(0.1))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(color.opacity(0.3), lineWidth: 1)
-        )
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(label) zone")
     }
 
     // MARK: - Leaderboard
