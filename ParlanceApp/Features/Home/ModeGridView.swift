@@ -14,7 +14,7 @@ struct ModeGridView: View {
 
     private var orderedModes: [SessionMode] {
         let free = displayModes
-        let pro = SessionMode.allCases.filter { !free.contains($0) }
+        let pro = SessionMode.allCases.filter { !free.contains($0) && $0 != .storytelling }
         return free + pro
     }
 
