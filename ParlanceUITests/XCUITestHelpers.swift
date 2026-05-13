@@ -39,18 +39,26 @@ extension XCTestCase {
 
 extension XCUIElement {
     /// Wait until this element becomes hittable. Returns `false` on timeout.
+    /// Polls rather than using `XCTNSPredicateExpectation(isHittable)`, because
+    /// the predicate evaluator records a "Failed to determine hittability"
+    /// system failure when SwiftUI reports `accessibilityActivationPoint =
+    /// {-1, -1}` — under `continueAfterFailure = false` that halts the test
+    /// even though we just want a Bool.
     @discardableResult
     func waitForHittable(timeout: TimeInterval = 5) -> Bool {
-        let predicate = NSPredicate(format: "isHittable == true")
-        let exp = XCTNSPredicateExpectation(predicate: predicate, object: self)
-        return XCTWaiter().wait(for: [exp], timeout: timeout) == .completed
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if exists && isHittable { return true }
+            Thread.sleep(forTimeInterval: 0.1)
+        }
+        return exists && isHittable
     }
 
     /// Tap robustly. Falls back to a coordinate tap when `isHittable` is false,
     /// which catches the SwiftUI {-1, -1} activation-point case.
     func safeTap() {
         _ = waitForHittable(timeout: 5)
-        if isHittable {
+        if exists && isHittable {
             tap()
         } else {
             coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
@@ -59,16 +67,27 @@ extension XCUIElement {
 }
 
 extension XCUIApplication {
-    /// Send Return to the focused element to dismiss the SwiftUI keyboard.
-    /// More reliable than swipeDown (which can trigger unintended scrolls).
+    /// Tap the keyboard's submit key. NOTE: when a SwiftUI TextField uses
+    /// `.submitLabel(.next)` + `.onSubmit { focusedField = .next }`, this
+    /// *advances* focus rather than dismissing the keyboard. Tests that rely
+    /// on the focus chain to move to the next field can use this directly;
+    /// callers that need an actual dismiss should defocus another way.
     func dismissKeyboard() {
         guard keyboards.element.exists else { return }
-        let returnKey = keyboards.buttons["return"]
-        if returnKey.exists {
-            returnKey.tap()
-        } else {
-            typeText("\n")
+        // Submit-button accessibility identifier varies by submitLabel.
+        // Check every label SwiftUI exposes; whichever is present is the
+        // visible right-side key.
+        for label in ["return", "Return", "Next", "Done", "Continue", "Go", "Search", "Send"] {
+            let key = keyboards.buttons[label]
+            if key.exists {
+                key.tap()
+                return
+            }
         }
+        // Last resort: typing "\n" into a SwiftUI TextField inserts a newline
+        // character rather than triggering onSubmit, so this does NOT advance
+        // focus in modern SwiftUI — but it does match older XCUITest examples.
+        typeText("\n")
     }
 
     /// Tap a text field and wait until *that specific field* has keyboard
@@ -79,6 +98,14 @@ extension XCUIApplication {
     /// a coordinate tap if focus doesn't land on the target element.
     func tapAndFocus(_ field: XCUIElement, maxAttempts: Int = 3) {
         let focusPredicate = NSPredicate(format: "hasKeyboardFocus == true")
+        // Short-circuit if focus is already on the target — e.g. the previous
+        // field's onSubmit handler already advanced the focus chain to here.
+        // Tapping again would race the scroll-to-focused-field animation and
+        // can leave focus stuck on the previous field.
+        let preCheck = XCTNSPredicateExpectation(predicate: focusPredicate, object: field)
+        if XCTWaiter().wait(for: [preCheck], timeout: 0.2) == .completed {
+            return
+        }
         for attempt in 0..<maxAttempts {
             if attempt == 0 {
                 field.safeTap()
