@@ -24,9 +24,7 @@ final class RealLifeSetupViewModel: ObservableObject {
         self.history = history
         self.denylist = denylist
         if let prefill = prefillScenario, !prefill.isEmpty {
-            let clamped = String(prefill.prefix(Self.maxLength))
-            scenarioText = clamped
-            denylistTripped = denylist(clamped)
+            onScenarioChange(prefill)
         }
     }
 
