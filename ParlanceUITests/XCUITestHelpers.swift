@@ -73,10 +73,10 @@ extension XCUIApplication {
     /// on the focus chain to move to the next field can use this directly;
     /// callers that need an actual dismiss should defocus another way.
     func dismissKeyboard() {
-        guard keyboards.element.exists else { return }
-        // Submit-button accessibility identifier varies by submitLabel.
-        // Check every label SwiftUI exposes; whichever is present is the
-        // visible right-side key.
+        // Don't early-return on `keyboards.element.exists` — XCUI reports the
+        // keyboard as non-existent transiently right after typeText, even
+        // while it's still up. Just probe the buttons directly: the existence
+        // check on each candidate is cheap and authoritative.
         for label in ["return", "Return", "Next", "Done", "Continue", "Go", "Search", "Send"] {
             let key = keyboards.buttons[label]
             if key.exists {
@@ -84,9 +84,10 @@ extension XCUIApplication {
                 return
             }
         }
-        // Last resort: typing "\n" into a SwiftUI TextField inserts a newline
-        // character rather than triggering onSubmit, so this does NOT advance
-        // focus in modern SwiftUI — but it does match older XCUITest examples.
+        // Fallback: type a newline at the app level. Empirically this dismisses
+        // the keyboard / advances focus on iOS 26 simulators even though the
+        // comment in older XCUITest sample code says it shouldn't on modern
+        // SwiftUI. Only reached when no labeled key was found.
         typeText("\n")
     }
 
@@ -96,6 +97,13 @@ extension XCUIApplication {
     /// can leave the previous field focused, causing `typeText` to fail with
     /// "Neither element nor any descendant has keyboard focus". Retries with
     /// a coordinate tap if focus doesn't land on the target element.
+    ///
+    /// Always uses a coordinate-based tap rather than `.tap()` — SwiftUI
+    /// TextFields nested in padded containers can pass `isHittable` and then
+    /// fail the synthesized event with "Not hittable" because their
+    /// `accessibilityActivationPoint` reports as {-1, -1}. With
+    /// `continueAfterFailure = false` that crashes the test before our retry
+    /// loop can recover. Coordinate taps bypass the activation-point path.
     func tapAndFocus(_ field: XCUIElement, maxAttempts: Int = 3) {
         let focusPredicate = NSPredicate(format: "hasKeyboardFocus == true")
         // Short-circuit if focus is already on the target — e.g. the previous
@@ -106,15 +114,11 @@ extension XCUIApplication {
         if XCTWaiter().wait(for: [preCheck], timeout: 0.2) == .completed {
             return
         }
-        for attempt in 0..<maxAttempts {
-            if attempt == 0 {
-                field.safeTap()
-            } else {
-                // Vary the tap method on retry — same safeTap path tends to
-                // reproduce the same near-miss on SwiftUI fields nested in
-                // padded containers.
-                field.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
-            }
+        // Wait for the element to settle on-screen before tapping; the
+        // scroll-to-focused-field animation can move the frame mid-tap.
+        _ = field.waitForHittable(timeout: 5)
+        for _ in 0..<maxAttempts {
+            field.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
             let exp = XCTNSPredicateExpectation(predicate: focusPredicate, object: field)
             if XCTWaiter().wait(for: [exp], timeout: 2) == .completed {
                 return
