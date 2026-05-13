@@ -40,15 +40,8 @@ jobs:
           if [ -z "$DEST" ]; then
             # Fall back to visionOS simulator (supports Designed for iPad,iPhone)
             VISION_ID=$(xcrun simctl list devices available -j 2>/dev/null \
-              | python3 -c "
-import json, sys
-d = json.load(sys.stdin)
-for runtime, devices in d['devices'].items():
-    if 'visionOS' in runtime:
-        for dev in devices:
-            if dev.get('isAvailable'):
-                print(dev['udid']); exit()
-" || true)
+              | jq -r '.devices | to_entries[] | select(.key | contains("visionOS")) | .value[] | select(.isAvailable) | .udid' \
+              | head -1)
             DEST="platform=visionOS Simulator,id=$VISION_ID"
           fi
 
