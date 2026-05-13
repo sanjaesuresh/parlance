@@ -5,6 +5,7 @@ struct SessionCoordinator: View {
     let state: ActiveSessionState
     let onReshuffleQuestion: ((ExplanationCategory) -> Question?)?
     let onDismiss: () -> Void
+    var onEditScenario: ((String) -> Void)? = nil
 
     @State private var currentQuestion: Question
     @State private var currentTopicCategory: ExplanationCategory?
@@ -16,11 +17,13 @@ struct SessionCoordinator: View {
     init(
         state: ActiveSessionState,
         onReshuffleQuestion: ((ExplanationCategory) -> Question?)? = nil,
-        onDismiss: @escaping () -> Void
+        onDismiss: @escaping () -> Void,
+        onEditScenario: ((String) -> Void)? = nil
     ) {
         self.state = state
         self.onReshuffleQuestion = onReshuffleQuestion
         self.onDismiss = onDismiss
+        self.onEditScenario = onEditScenario
         self._currentQuestion = State(initialValue: state.question)
         self._currentTopicCategory = State(
             initialValue: state.mode == .explanation
@@ -93,6 +96,9 @@ struct SessionCoordinator: View {
                             difficultyNote: currentQuestion.difficultyNote,
                             category: currentQuestion.category
                         )
+                    },
+                    onEditScenario: { originalScenario in
+                        onEditScenario?(originalScenario)
                     }
                 )
 

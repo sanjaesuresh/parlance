@@ -9,12 +9,13 @@ struct LoadingView: View {
     var currentTopicCategory: ExplanationCategory? = nil
     var onReshuffleTopic: ((ExplanationCategory) -> Void)? = nil
     var onPromptRewritten: ((String) -> Void)? = nil
+    var onEditScenario: ((String) -> Void)? = nil
     var tipsClient: RealLifeTipsFetching = RealLifeTipsClient()
 
     enum TipsState: Equatable {
         case ready([String])
         case loading
-        case refused(String)
+        case refused(reason: String, kind: RealLifeRefusalKind)
         case failed
     }
 
@@ -31,6 +32,7 @@ struct LoadingView: View {
         currentTopicCategory: ExplanationCategory? = nil,
         onReshuffleTopic: ((ExplanationCategory) -> Void)? = nil,
         onPromptRewritten: ((String) -> Void)? = nil,
+        onEditScenario: ((String) -> Void)? = nil,
         tipsClient: RealLifeTipsFetching = RealLifeTipsClient()
     ) {
         self.mode = mode
@@ -41,6 +43,7 @@ struct LoadingView: View {
         self.currentTopicCategory = currentTopicCategory
         self.onReshuffleTopic = onReshuffleTopic
         self.onPromptRewritten = onPromptRewritten
+        self.onEditScenario = onEditScenario
         self.tipsClient = tipsClient
         _tipsState = State(initialValue: mode == .realLife ? .loading : .ready(question.tips))
         _displayedPrompt = State(initialValue: question.question)
@@ -123,46 +126,57 @@ struct LoadingView: View {
                         .padding(.top, 8)
 
                     // Prompt card
-                    VStack(alignment: .leading, spacing: 12) {
-                        HStack(spacing: 7) {
-                            Text(DifficultyLevel.tier(for: level))
-                                .font(AppFonts.bodyMedium(10))
-                                .foregroundStyle(AppColors.dim)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 3)
-                                .background(AppColors.faint)
-                                .clipShape(Capsule())
-
-                            PillBadge(text: "\(question.targetDuration)s", emoji: "⏱", color: mode.accentColor, small: true)
-                        }
-
-                        if mode == .realLife, case .loading = tipsState {
-                            VStack(alignment: .leading, spacing: 8) {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(AppColors.card2)
-                                    .frame(height: 18)
-                                    .shimmering()
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(AppColors.card2)
-                                    .frame(width: 220, height: 18)
-                                    .shimmering()
-                            }
-                            .accessibilityLabel("Polishing your scenario…")
+                    Group {
+                        if mode == .realLife, case .refused(let reason, let kind) = tipsState {
+                            recoverableRefusalCard(reason: reason, kind: kind)
+                        } else if mode == .realLife, case .failed = tipsState {
+                            recoverableRefusalCard(
+                                reason: "Couldn't reach the coach. Try again.",
+                                kind: .notASpeakingPrompt
+                            )
                         } else {
-                            Text("\"\(displayedPrompt)\"")
-                                .font(AppFonts.display(20))
-                                .foregroundStyle(AppColors.text)
-                                .lineSpacing(6)
+                            VStack(alignment: .leading, spacing: 12) {
+                                HStack(spacing: 7) {
+                                    Text(DifficultyLevel.tier(for: level))
+                                        .font(AppFonts.bodyMedium(10))
+                                        .foregroundStyle(AppColors.dim)
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 3)
+                                        .background(AppColors.faint)
+                                        .clipShape(Capsule())
+
+                                    PillBadge(text: "\(question.targetDuration)s", emoji: "⏱", color: mode.accentColor, small: true)
+                                }
+
+                                if mode == .realLife, case .loading = tipsState {
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .fill(AppColors.card2)
+                                            .frame(height: 18)
+                                            .shimmering()
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .fill(AppColors.card2)
+                                            .frame(width: 220, height: 18)
+                                            .shimmering()
+                                    }
+                                    .accessibilityLabel("Polishing your scenario…")
+                                } else {
+                                    Text("\"\(displayedPrompt)\"")
+                                        .font(AppFonts.display(20))
+                                        .foregroundStyle(AppColors.text)
+                                        .lineSpacing(6)
+                                }
+                            }
+                            .padding(20)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(AppColors.card)
+                            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                                    .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
+                            )
                         }
                     }
-                    .padding(20)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                            .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
-                    )
                     .padding(.horizontal, 24)
 
                     // Coaching tips
@@ -172,9 +186,9 @@ struct LoadingView: View {
                             tipsBlock(tips: tips, shimmer: false)
                         case .loading:
                             tipsBlock(tips: ["", "", ""], shimmer: true)
-                        case .refused(let reason):
-                            refusedBlock(reason: reason)
-                        case .ready, .failed:
+                        case .refused, .failed:
+                            EmptyView()
+                        case .ready:
                             EmptyView()
                         }
                     }
@@ -186,22 +200,24 @@ struct LoadingView: View {
             Spacer(minLength: 0)
 
             // Start recording button
-            Button(action: onReady) {
-                HStack(spacing: 10) {
-                    Image(systemName: "mic.fill")
-                        .font(.system(size: 15, weight: .semibold))
-                    Text("Start Recording")
-                        .font(AppFonts.bodyBold(16))
+            if !isUnrecoverable {
+                Button(action: onReady) {
+                    HStack(spacing: 10) {
+                        Image(systemName: "mic.fill")
+                            .font(.system(size: 15, weight: .semibold))
+                        Text("Start Recording")
+                            .font(AppFonts.bodyBold(16))
+                    }
+                    .foregroundStyle(AppColors.bg)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 16)
+                    .background(AppColors.gold)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
                 }
-                .foregroundStyle(AppColors.bg)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
-                .background(AppColors.gold)
-                .clipShape(RoundedRectangle(cornerRadius: 14))
+                .padding(.horizontal, 24)
+                .padding(.bottom, 32)
+                .accessibilityLabel("Start recording")
             }
-            .padding(.horizontal, 24)
-            .padding(.bottom, 32)
-            .accessibilityLabel("Start recording")
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg.ignoresSafeArea())
@@ -230,8 +246,8 @@ struct LoadingView: View {
                     displayedPrompt = rewrittenPrompt
                     onPromptRewritten?(rewrittenPrompt)
                     tipsState = .ready(tips)
-                case .refused(let r):
-                    tipsState = .refused(r)
+                case .refused(let r, let k):
+                    tipsState = .refused(reason: r, kind: k)
                 case .failed:
                     tipsState = .failed
                 }
@@ -274,21 +290,49 @@ struct LoadingView: View {
         }
     }
 
-    private func refusedBlock(reason: String) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("CAN'T COACH THIS ONE")
+    private var isUnrecoverable: Bool {
+        if case .refused = tipsState { return true }
+        if case .failed = tipsState { return true }
+        return false
+    }
+
+    private func recoverableRefusalCard(reason: String, kind: RealLifeRefusalKind) -> some View {
+        let title = (kind == .notASpeakingPrompt) ? "LET'S TRY AGAIN" : "CAN'T COACH THIS ONE"
+        return VStack(alignment: .leading, spacing: 14) {
+            Text(title)
                 .font(AppFonts.bodyBold(9))
                 .kerning(1.3)
                 .foregroundStyle(AppColors.dim)
             Text(reason)
-                .font(AppFonts.body(13))
-                .foregroundStyle(AppColors.text.opacity(0.88))
+                .font(AppFonts.body(14))
+                .foregroundStyle(AppColors.text.opacity(0.92))
                 .fixedSize(horizontal: false, vertical: true)
+            if kind == .notASpeakingPrompt {
+                Button {
+                    onEditScenario?(question.question)
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "pencil")
+                            .font(.system(size: 13, weight: .semibold))
+                        Text("Edit Scenario")
+                            .font(AppFonts.bodyBold(14))
+                    }
+                    .foregroundStyle(AppColors.bg)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(AppColors.gold)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                .accessibilityIdentifier("realLife.editScenario")
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(14)
+        .padding(20)
         .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .overlay(
+            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
+        )
     }
 }

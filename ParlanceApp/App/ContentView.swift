@@ -12,6 +12,7 @@ struct ContentView: View {
     @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
     @AppStorage("parlance.welcome_back_uid") private var pendingWelcomeBackUID = ""
     @State private var activeSession: ActiveSessionState?
+    @State private var pendingRealLifeEditText: String? = nil
     @State private var questionBank = QuestionBankService()
     @State private var showSplash = true
     @State private var isAppReady = false
@@ -90,6 +91,12 @@ struct ContentView: View {
                             activeSession = nil
                         }
                         weekCache.refresh()
+                    },
+                    onEditScenario: { originalScenario in
+                        pendingRealLifeEditText = originalScenario
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            activeSession = nil
+                        }
                     }
                 )
                 .transition(.move(edge: .bottom))
@@ -179,11 +186,14 @@ struct ContentView: View {
 
     private var mainTabView: some View {
         TabView(selection: $router.selectedTab) {
-            HomeView(onStartSession: { state in
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    activeSession = state
-                }
-            })
+            HomeView(
+                onStartSession: { state in
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        activeSession = state
+                    }
+                },
+                pendingRealLifeEditText: $pendingRealLifeEditText
+            )
             .environmentObject(weekCache)
             .tabItem {
                 Label("Home", systemImage: "house")

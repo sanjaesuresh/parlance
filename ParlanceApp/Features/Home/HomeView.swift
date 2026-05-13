@@ -3,6 +3,7 @@ import SwiftData
 
 struct HomeView: View {
     let onStartSession: (ActiveSessionState) -> Void
+    @Binding var pendingRealLifeEditText: String?
 
     @Query private var users: [User]
     @Query(sort: \Session.date, order: .reverse) private var allSessions: [Session]
@@ -25,6 +26,7 @@ struct HomeView: View {
     @State private var showPaywall = false
     @State private var showDifficultySheet = false
     @State private var showRealLifeSetup = false
+    @State private var realLifePrefill: String? = nil
     @State private var startSessionHaptic = false
     @State private var difficultyHaptic = false
     @State private var lockedHaptic = false
@@ -124,9 +126,11 @@ struct HomeView: View {
             .fullScreenCover(isPresented: $showRealLifeSetup) {
                 RealLifeSetupView(
                     level: user?.practiceLevel ?? 5,
+                    prefillScenario: realLifePrefill,
                     onStart: { state in
                         showRealLifeSetup = false
                         startSessionHaptic.toggle()
+                        realLifePrefill = nil
                         // Let the cover dismiss animation finish before the
                         // session coordinator's full-screen takeover transition.
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
@@ -138,6 +142,12 @@ struct HomeView: View {
             .sensoryFeedback(.impact(weight: .medium), trigger: startSessionHaptic)
             .sensoryFeedback(.selection, trigger: difficultyHaptic)
             .sensoryFeedback(.warning, trigger: lockedHaptic)
+            .onChange(of: pendingRealLifeEditText) { _, newValue in
+                guard let text = newValue, !text.isEmpty else { return }
+                realLifePrefill = text
+                showRealLifeSetup = true
+                pendingRealLifeEditText = nil
+            }
         }
     }
 

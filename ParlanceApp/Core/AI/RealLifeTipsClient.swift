@@ -1,9 +1,14 @@
 import Foundation
 import Supabase
 
+enum RealLifeRefusalKind: String, Decodable {
+    case notASpeakingPrompt
+    case unsafe
+}
+
 enum RealLifeTipsResult: Equatable {
     case tips(rewrittenPrompt: String, tips: [String])
-    case refused(reason: String)
+    case refused(reason: String, kind: RealLifeRefusalKind)
     case failed
 }
 
@@ -45,10 +50,15 @@ final class RealLifeTipsClient: RealLifeTipsFetching {
             }
 
             struct Success: Decodable { let rewrittenPrompt: String; let tips: [String] }
-            struct Refusal: Decodable { let refused: Bool; let reason: String }
+            struct Refusal: Decodable {
+                let refused: Bool
+                let reason: String
+                let kind: String?
+            }
 
             if let refusal = try? JSONDecoder().decode(Refusal.self, from: data), refusal.refused {
-                return .refused(reason: refusal.reason)
+                let kind = RealLifeRefusalKind(rawValue: refusal.kind ?? "") ?? .unsafe
+                return .refused(reason: refusal.reason, kind: kind)
             }
             if let ok = try? JSONDecoder().decode(Success.self, from: data),
                !ok.rewrittenPrompt.isEmpty,
