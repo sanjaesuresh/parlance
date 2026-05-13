@@ -5,7 +5,16 @@ import SwiftUI
 @MainActor
 final class ResultsBreakdownSnapshotTests: XCTestCase {
 
+    /// Development utility that re-renders the breakdown screen and writes
+    /// the PNG into `_docs/mockups/snapshots/`. Skipped on CI because the
+    /// runner's filesystem has no project tree to write into and the
+    /// regenerated PNG would just be thrown away.
     func test_renderBreakdownScreen_savesPNG() throws {
+        try XCTSkipIf(
+            ProcessInfo.processInfo.environment["CI"] != nil,
+            "Snapshot regeneration is a dev-only utility; skipped on CI."
+        )
+
         let snapshotView = ResultsBreakdownSnapshotComposition()
             .frame(width: 390)
             .background(AppColors.bg)
@@ -21,11 +30,18 @@ final class ResultsBreakdownSnapshotTests: XCTestCase {
             return
         }
 
-        let outDir = URL(
-            fileURLWithPath: "/Users/sanjaesuresh/Apps/Parlance/_docs/mockups/snapshots",
-            isDirectory: true
-        )
-        try? FileManager.default.createDirectory(at: outDir, withIntermediateDirectories: true)
+        // Derive the snapshots dir from this file's location so the path
+        // travels with the repo and doesn't depend on a hard-coded $HOME.
+        // `#file` → .../ParlanceTests/ResultsBreakdownSnapshotTests.swift
+        let thisFile = URL(fileURLWithPath: #file)
+        let repoRoot = thisFile
+            .deletingLastPathComponent() // ParlanceTests
+            .deletingLastPathComponent() // repo root
+        let outDir = repoRoot
+            .appendingPathComponent("_docs", isDirectory: true)
+            .appendingPathComponent("mockups", isDirectory: true)
+            .appendingPathComponent("snapshots", isDirectory: true)
+        try FileManager.default.createDirectory(at: outDir, withIntermediateDirectories: true)
         let outURL = outDir.appendingPathComponent("results_breakdown_implementation.png")
         try data.write(to: outURL)
         print("Snapshot saved: \(outURL.path)  bytes=\(data.count)")
