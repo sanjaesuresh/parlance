@@ -6,6 +6,7 @@ final class RealLifeSetupViewModel: ObservableObject {
     @Published var scenarioText: String = ""
     @Published var durationSeconds: Int = 60          // default 1:00
     @Published private(set) var denylistTripped: Bool = false
+    @Published private(set) var validationFailure: RealLifeScenarioValidator.Failure?
 
     private let history: RealLifeScenarioHistoryStore
     private let denylist: (String) -> Bool
@@ -17,10 +18,16 @@ final class RealLifeSetupViewModel: ObservableObject {
 
     init(
         history: RealLifeScenarioHistoryStore = .shared,
-        denylist: @escaping (String) -> Bool = RealLifeContentDenylist.matches
+        denylist: @escaping (String) -> Bool = RealLifeContentDenylist.matches,
+        prefillScenario: String? = nil
     ) {
         self.history = history
         self.denylist = denylist
+        if let prefill = prefillScenario, !prefill.isEmpty {
+            let clamped = String(prefill.prefix(Self.maxLength))
+            scenarioText = clamped
+            denylistTripped = denylist(clamped)
+        }
     }
 
     var trimmedScenario: String {
@@ -53,6 +60,19 @@ final class RealLifeSetupViewModel: ObservableObject {
         let clamped = String(newValue.prefix(Self.maxLength))
         scenarioText = clamped
         denylistTripped = denylist(clamped)
+        validationFailure = nil
+    }
+
+    /// Validates the scenario text. Returns true if valid (ready to start),
+    /// false and sets `validationFailure` if not. Called on Continue tap.
+    @discardableResult
+    func attemptStart() -> Bool {
+        if let failure = RealLifeScenarioValidator.validate(trimmedScenario) {
+            validationFailure = failure
+            return false
+        }
+        validationFailure = nil
+        return true
     }
 
     /// Called when the user taps a recent chip.
