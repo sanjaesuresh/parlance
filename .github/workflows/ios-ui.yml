@@ -1,16 +1,11 @@
 name: iOS UI Tests
 
-# UI tests are slower, flakier (SwiftUI focus races, sim activation-point
-# bugs), and depend on external Supabase state. They run on PRs targeting
-# main, nightly, and on-demand — but NOT on push-to-main, so a green
-# fast-build isn't blocked by transient UI flakes.
+# Full end-to-end UI tests. Slow (~20 min) and dependent on external
+# Supabase state, so they're MANUAL-ONLY — run them before releases or
+# when explicitly investigating a UI regression. Per-PR smoke coverage
+# is handled by the launch-tests step in ios.yml.
 
 on:
-  pull_request:
-    branches: [ "main" ]
-  schedule:
-    # 07:00 UTC nightly — pick a slot that won't collide with PR runs
-    - cron: '0 7 * * *'
   workflow_dispatch:
 
 concurrency:

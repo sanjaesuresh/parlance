@@ -72,13 +72,42 @@ for runtime, devices in d['devices'].items():
 
       - name: Unit tests
         run: |
-          # Run ParlanceTests only — UI tests live in a separate workflow
-          # (.github/workflows/ios-ui.yml) that runs on PRs + nightly.
+          # Run ParlanceTests only — full UI tests live in a separate
+          # manual-trigger workflow (.github/workflows/ios-ui.yml). The
+          # launch-test smoke step below covers the boots-without-crashing
+          # case for every PR.
           xcodebuild test-without-building \
             -project ParlanceApp/Parlance.xcodeproj \
             -scheme Parlance \
             -destination "${{ steps.dest.outputs.destination }}" \
             -only-testing:ParlanceTests \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: UI launch tests
+        run: |
+          # Two-test smoke suite (~10s) that just boots the app + screenshots
+          # it. Catches catastrophic startup regressions without the
+          # SwiftUI-focus / Supabase flakes of the full UI suite.
+          xcodebuild test-without-building \
+            -project ParlanceApp/Parlance.xcodeproj \
+            -scheme Parlance \
+            -destination "${{ steps.dest.outputs.destination }}" \
+            -only-testing:ParlanceUITests/ParlanceUITestsLaunchTests \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Release build
+        run: |
+          # Catches optimizer-only regressions (dead-code elimination,
+          # ObjC bridging, inlined-stripped APIs) that Debug builds let pass.
+          xcodebuild build \
+            -project ParlanceApp/Parlance.xcodeproj \
+            -scheme Parlance \
+            -configuration Release \
+            -destination "${{ steps.dest.outputs.destination }}" \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
