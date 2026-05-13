@@ -749,11 +749,16 @@ final class FriendsE2ETests: XCTestCase {
         XCTAssertTrue(resultRow.waitForExistence(timeout: 15))
         resultRow.tap()
 
+        // The Add Friend button only renders after UserProfileDetailView's
+        // async .task completes (Supabase relationshipState round-trip), so
+        // we need a wide-enough timeout to cover slow networks.
         let addFriend = app.buttons["addFriendButton"]
-        XCTAssertTrue(addFriend.waitForExistence(timeout: 10))
+        XCTAssertTrue(addFriend.waitForExistence(timeout: 25))
         addFriend.tap()
 
-        XCTAssertTrue(app.buttons["cancelRequestButton"].waitForExistence(timeout: 10))
+        // Tapping Add Friend kicks off another Supabase write before the
+        // button flips to Cancel Request — same network-bound wait applies.
+        XCTAssertTrue(app.buttons["cancelRequestButton"].waitForExistence(timeout: 20))
         app.buttons["userProfileDoneButton"].tap()
     }
 
