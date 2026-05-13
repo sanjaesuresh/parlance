@@ -405,4 +405,43 @@ struct RealLifeScenarioValidatorTests {
             "I want to learn how to play guitar this year"
         ) == .noSpeechActOrAudience)
     }
+
+    // MARK: - Coaching phrasings with question prefixes (should NOT be askingAI)
+
+    @Test("valid: how do I tell my boss")
+    func valid_howDoITellBoss() {
+        #expect(RealLifeScenarioValidator.validate(
+            "how do I tell my boss I'm quitting next month"
+        ) == nil)
+    }
+
+    @Test("valid: what should I say to my partner")
+    func valid_whatShouldISayPartner() {
+        #expect(RealLifeScenarioValidator.validate(
+            "what should I say to my partner about the situation"
+        ) == nil)
+    }
+
+    @Test("valid: how do I open my pitch to the board")
+    func valid_howDoIOpenPitch() {
+        #expect(RealLifeScenarioValidator.validate(
+            "how do I open my pitch to the board next week"
+        ) == nil)
+    }
+
+    // MARK: - Curly apostrophe (iOS autocorrect) regression guards
+
+    @Test("valid: curly-apostrophe I'm about to give a talk")
+    func valid_curlyApostrophe_imAboutToGive() {
+        #expect(RealLifeScenarioValidator.validate(
+            "I\u{2019}m about to give a difficult talk this week"
+        ) == nil)
+    }
+
+    @Test("valid: curly-apostrophe I'm about to break up with my partner")
+    func valid_curlyApostrophe_imAboutToBreakup() {
+        #expect(RealLifeScenarioValidator.validate(
+            "I\u{2019}m about to break up with my partner of three years"
+        ) == nil)
+    }
 }

@@ -43,15 +43,27 @@ enum RealLifeScenarioValidator {
         }
 
         let lower = trimmed.lowercased()
+            .replacingOccurrences(of: "\u{2019}", with: "'")  // RIGHT SINGLE QUOTATION MARK
+            .replacingOccurrences(of: "\u{2018}", with: "'")  // LEFT SINGLE QUOTATION MARK
 
-        // Rule 3: "ask the AI" patterns. Any match → failure.
-        if askingAIPatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil }) {
+        // Rule 3a: strong "ask the AI" patterns — reject regardless of context.
+        if strongAskingAIPatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil }) {
+            return .askingTheAI
+        }
+
+        // Compute coaching signals for Rules 3b and 4.
+        let hasSpeechAct = speechActPatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil })
+        let hasAudience  = audiencePatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil })
+
+        // Rule 3b: weak "ask the AI" pattern (question-word + auxiliary). Only
+        // rejects when neither a speech act nor an audience marker is present —
+        // otherwise it'd swallow coaching phrasings like "how do I tell my boss…".
+        if !hasSpeechAct && !hasAudience,
+           weakAskingAIPatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil }) {
             return .askingTheAI
         }
 
         // Rule 4: must match at least one speech-act OR one audience pattern.
-        let hasSpeechAct = speechActPatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil })
-        let hasAudience  = audiencePatterns.contains(where: { lower.range(of: $0, options: .regularExpression) != nil })
         if !hasSpeechAct && !hasAudience {
             return .noSpeechActOrAudience
         }
@@ -61,13 +73,16 @@ enum RealLifeScenarioValidator {
 
     // MARK: - Patterns
 
-    private static let askingAIPatterns: [String] = [
+    private static let strongAskingAIPatterns: [String] = [
         #"^(write|give|make|generate|draft|create|compose|produce) (me|us|a|an|the)\b"#,
         #"^(tell|read) me (a|an|the) (joke|story|recipe|poem|fact|secret|riddle)\b"#,
-        #"^(what|who|where|when|why|how) (is|are|was|were|do|does|did|can|could|should|would)\b"#,
         #"^(explain|describe|define|summari[sz]e) .{0,80}\b(to me|for me)\b"#,
         #"\bignore (previous|prior|the above|all) (instructions?|prompts?)\b"#,
         #"^(act as|pretend to be|you are now|roleplay as)\b"#,
+    ]
+
+    private static let weakAskingAIPatterns: [String] = [
+        #"^(what|who|where|when|why|how) (is|are|was|were|do|does|did|can|could|should|would)\b"#,
     ]
 
     private static let speechActPatterns: [String] = [
