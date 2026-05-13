@@ -55,6 +55,14 @@ enum AppColors {
     static let gold = Color(hex: "#E8A838")
     static let red = Color(hex: "#E05A4E")
 
+    // Deeper gold for the bottom of the trend-chart bar gradient.
+    // Approximates oklch(0.62 0.13 80) from the Progress-tab mockup.
+    static let goldDeep = Color(hex: "#A57E1B")
+
+    // Softer red used for inline negative emphasis in the coach brief.
+    // Approximates oklch(0.78 0.10 28) — lighter than the alarm/danger red.
+    static let redSoft = Color(hex: "#E89180")
+
     // Foreground for content placed on AppColors.gold (icons, glyphs, text).
     // Gold is the same in light and dark mode, so this is intentionally a fixed
     // near-black for contrast in both schemes.
