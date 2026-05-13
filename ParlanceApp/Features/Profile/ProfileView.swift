@@ -6,6 +6,7 @@ struct ProfileView: View {
     @Query(sort: \Session.date, order: .reverse) private var sessions: [Session]
     @Query(sort: \Achievement.id) private var achievements: [Achievement]
     @StateObject private var viewModel = ProfileViewModel()
+    @ObservedObject private var router = DeepLinkRouter.shared
     @EnvironmentObject private var subscription: SubscriptionService
     @EnvironmentObject private var weekCache: SessionWeekCache
     @State private var showSettings = false
@@ -185,6 +186,27 @@ struct ProfileView: View {
                     }
                 }
 
+                HStack(spacing: 6) {
+                    Text("LVL \(user.rank.level)")
+                        .font(AppFonts.bodyBold(10))
+                        .kerning(0.8)
+                        .foregroundStyle(AppColors.gold)
+                        .padding(.horizontal, 7)
+                        .padding(.vertical, 3)
+                        .background(AppColors.gold.opacity(0.14))
+                        .clipShape(Capsule())
+                        .overlay(Capsule().stroke(AppColors.gold.opacity(0.35), lineWidth: 1))
+                    Text(user.rank.name)
+                        .font(AppFonts.bodyMedium(12))
+                        .foregroundStyle(AppColors.sub)
+                    Text("·")
+                        .foregroundStyle(AppColors.dim)
+                    Text("\(user.xp) XP")
+                        .font(AppFonts.bodyMedium(12))
+                        .foregroundStyle(AppColors.sub)
+                }
+                .padding(.top, 2)
+
                 if let username = user.username, !username.isEmpty {
                     Text("@\(username)")
                         .font(AppFonts.body(13))
@@ -243,64 +265,76 @@ struct ProfileView: View {
                 }()
                 let nextRankName = Rank.forLevel(rank.level + 1)?.name
 
-                VStack(alignment: .leading, spacing: 0) {
-                    HStack(alignment: .center) {
-                        Text(rank.name)
-                            .font(AppFonts.display(20))
-                            .foregroundStyle(AppColors.text)
-                        Spacer()
-                        Text("L\(rank.level)")
-                            .font(AppFonts.bodyBold(11))
-                            .kerning(1.4)
-                            .foregroundStyle(AppColors.gold)
-                    }
-                    .padding(.bottom, 12)
-
-                    GeometryReader { geo in
-                        ZStack(alignment: .leading) {
-                            Capsule()
-                                .fill(AppColors.card2)
-                            Capsule()
-                                .fill(AppColors.gold)
-                                .frame(width: geo.size.width * progressPct)
-                        }
-                    }
-                    .frame(height: 5)
-
-                    HStack(alignment: .firstTextBaseline) {
-                        if rank.isMaxRank {
-                            Text("Max rank reached · \(user.xp) xp")
-                                .font(AppFonts.body(11))
-                                .foregroundStyle(AppColors.sub)
-                        } else if let next = rank.xpForNextRank, let nextName = nextRankName {
-                            let remaining = max(0, next - user.xp)
-                            Text("\(user.xp) xp")
-                                .font(AppFonts.bodyBold(11))
+                Button {
+                    router.selectedTab = 1
+                } label: {
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(alignment: .center, spacing: 8) {
+                            Text(rank.name)
+                                .font(AppFonts.display(20))
                                 .foregroundStyle(AppColors.text)
-                            Text("\(remaining) to \(nextName)")
-                                .font(AppFonts.body(11))
-                                .foregroundStyle(AppColors.sub)
+                            Spacer()
+                            Text("L\(rank.level)")
+                                .font(AppFonts.bodyBold(11))
+                                .kerning(1.4)
+                                .foregroundStyle(AppColors.gold)
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 11, weight: .semibold))
+                                .foregroundStyle(AppColors.dim)
                         }
-                        Spacer()
-                        Text("Joined \(user.joinDate.formatted(.dateTime.month(.abbreviated).year()))")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.dim)
+                        .padding(.bottom, 12)
+
+                        GeometryReader { geo in
+                            ZStack(alignment: .leading) {
+                                Capsule()
+                                    .fill(AppColors.card2)
+                                Capsule()
+                                    .fill(AppColors.gold)
+                                    .frame(width: geo.size.width * progressPct)
+                            }
+                        }
+                        .frame(height: 5)
+
+                        HStack(alignment: .firstTextBaseline) {
+                            if rank.isMaxRank {
+                                Text("Max rank reached · \(user.xp) xp")
+                                    .font(AppFonts.body(11))
+                                    .foregroundStyle(AppColors.sub)
+                            } else if let next = rank.xpForNextRank, let nextName = nextRankName {
+                                let remaining = max(0, next - user.xp)
+                                Text("\(user.xp) xp")
+                                    .font(AppFonts.bodyBold(11))
+                                    .foregroundStyle(AppColors.text)
+                                Text("\(remaining) to \(nextName)")
+                                    .font(AppFonts.body(11))
+                                    .foregroundStyle(AppColors.sub)
+                            }
+                            Spacer()
+                            Text("View progress")
+                                .font(AppFonts.bodyMedium(11))
+                                .foregroundStyle(AppColors.gold)
+                        }
+                        .padding(.top, 10)
                     }
-                    .padding(.top, 10)
-                }
-                .padding(20)
-                .background(
-                    LinearGradient(
-                        colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+                    .padding(20)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        LinearGradient(
+                            colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
                     )
-                )
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(AppColors.gold.opacity(0.25), lineWidth: 1)
-                )
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(AppColors.gold.opacity(0.25), lineWidth: 1)
+                    )
+                    .contentShape(RoundedRectangle(cornerRadius: 20))
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Level \(rank.level), \(rank.name). \(user.xp) XP. Tap to view progress.")
+                .accessibilityIdentifier("profileLevelCard")
             }
         }
     }
