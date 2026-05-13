@@ -88,14 +88,13 @@ final class AccountE2ETests: XCTestCase {
         XCTAssertTrue(nameField.waitForExistence(timeout: 10))
         app.tapAndFocus(nameField)
         nameField.typeText(testName)
-        // Dismiss before moving to username so SwiftUI scroll-to-focused-field
-        // doesn't shift the next field mid-tap (causes "no keyboard focus" failure).
-        app.dismissKeyboard()
 
-        // 6. Fill username
+        // 6. Fill username — advanceFocus walks Next-key / newline / coord-tap
+        // until focus actually lands on usernameField. On 393pt iOS 26 sims a
+        // plain coordinate tap doesn't transfer focus while the keyboard is up.
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
-        app.tapAndFocus(usernameField)
+        app.advanceFocus(from: nameField, to: usernameField)
         usernameField.typeText(testUsername)
         app.dismissKeyboard()
 

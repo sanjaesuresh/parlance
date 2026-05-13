@@ -126,6 +126,48 @@ extension XCUIApplication {
         }
     }
 
+    /// Advance keyboard focus from `currentField` to `nextField`. On some iOS
+    /// 26 simulators (notably 393pt-wide devices) plain coordinate taps on the
+    /// next field don't transfer focus while the keyboard is up and the
+    /// previous field is still focused — `typeText` then fails with "Neither
+    /// element nor any descendant has keyboard focus." This walks through a
+    /// chain of strategies, verifying focus moved after each before giving up.
+    func advanceFocus(from currentField: XCUIElement, to nextField: XCUIElement, timeout: TimeInterval = 6) {
+        let focusPredicate = NSPredicate(format: "hasKeyboardFocus == true")
+        func focusLanded() -> Bool {
+            let exp = XCTNSPredicateExpectation(predicate: focusPredicate, object: nextField)
+            return XCTWaiter().wait(for: [exp], timeout: 1.5) == .completed
+        }
+
+        // Strategy 1: tap a labeled keyboard key that fires SwiftUI's onSubmit
+        // → onSubmit advances focus via @FocusState binding.
+        for label in ["Next", "next", "Return", "return", "Done", "done", "Continue", "Go", "go", "Search", "Send"] {
+            let key = keyboards.buttons[label]
+            if key.exists {
+                key.tap()
+                if focusLanded() { return }
+                break
+            }
+        }
+
+        // Strategy 2: send a newline directly into the focused field. On some
+        // SwiftUI versions this triggers onSubmit even when the keyboard
+        // button query missed.
+        if currentField.exists {
+            currentField.typeText("\n")
+            if focusLanded() { return }
+        }
+
+        // Strategy 3: coordinate-tap nextField directly, retried a few times.
+        // Works on larger sims where focus transfers cleanly; here it's the
+        // last-resort path before failure.
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            nextField.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            if focusLanded() { return }
+        }
+    }
+
     /// Switch to a tab bar tab, verifying the switch actually took. On iOS 26
     /// SwiftUI tab bars sometimes drop the first tap (animation race), so we
     /// retry with a coordinate tap until a recognizable post-switch element
