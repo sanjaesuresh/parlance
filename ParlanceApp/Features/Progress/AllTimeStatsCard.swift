@@ -16,12 +16,12 @@ struct AllTimeStatsCard: View {
                 .padding(.bottom, 16)
 
             LazyVGrid(columns: columns, alignment: .leading, spacing: 16) {
-                cell(value: "\(stats.sessionCount)", label: "Sessions", gold: true)
-                cell(value: "\(stats.avgScore)", label: "Avg score", gold: false)
-                cell(value: "\(stats.bestScore)", label: "Best score", gold: false)
-                cell(value: Self.formatSpokenDuration(stats.totalDuration), label: "Spoken", gold: false)
-                cell(value: formattedXP, label: "Total XP", gold: true)
-                cell(value: "\(stats.longestStreak)", label: "Longest streak", gold: false)
+                cell(value: empty ? "—" : "\(stats.sessionCount)", label: "Sessions", gold: true)
+                cell(value: empty ? "—" : "\(stats.avgScore)", label: "Avg score", gold: false)
+                cell(value: empty ? "—" : "\(stats.bestScore)", label: "Best score", gold: false)
+                cell(value: empty ? "—" : Self.formatSpokenDuration(stats.totalDuration), label: "Spoken", gold: false)
+                cell(value: empty ? "—" : formattedXP, label: "Total XP", gold: true)
+                cell(value: empty ? "—" : "\(stats.longestStreak)", label: "Longest streak", gold: false)
             }
         }
         .padding(20)
@@ -83,6 +83,8 @@ struct AllTimeStatsCard: View {
     private var formattedXP: String {
         stats.totalXP.formatted(.number.grouping(.automatic))
     }
+
+    private var empty: Bool { stats.sessionCount == 0 }
 
     static func formatSpokenDuration(_ totalSeconds: TimeInterval) -> String {
         let s = totalSeconds

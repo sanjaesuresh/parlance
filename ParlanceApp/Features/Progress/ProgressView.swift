@@ -81,25 +81,51 @@ struct ProgressTabView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 0) {
-                    header
-                    ProgressSegmentedControl(selection: $period)
-                        .padding(.top, 18)
-                    StatsStripView(aggregate: aggregate)
-                        .padding(.top, 18)
-                    standoutSection
-                    skillsSection
-                    recentSessionsSection
-                    coachBriefSection
-                    AllTimeStatsCard(stats: allTime)
-                        .padding(.top, 22)
+                if effectiveSessions.isEmpty {
+                    firstLaunchPrimer
+                } else {
+                    VStack(spacing: 0) {
+                        header
+                        ProgressSegmentedControl(selection: $period)
+                            .padding(.top, 18)
+                        StatsStripView(aggregate: aggregate)
+                            .padding(.top, 18)
+                        standoutSection
+                        skillsSection
+                        recentSessionsSection
+                        coachBriefSection
+                        AllTimeStatsCard(stats: allTime)
+                            .padding(.top, 22)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 32)
                 }
-                .padding(.horizontal, 16)
-                .padding(.bottom, 32)
             }
             .background(AppColors.bg)
             .navigationBarHidden(true)
         }
+    }
+
+    // MARK: - First-launch primer (zero lifetime sessions)
+
+    private var firstLaunchPrimer: some View {
+        VStack(spacing: 0) {
+            header
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Your progress shows up here after your first session.")
+                    .font(AppFonts.display(20))
+                    .foregroundStyle(AppColors.text)
+                    .lineSpacing(4)
+                Text("Try a 60-second Daily Convo to start.")
+                    .font(AppFonts.body(13))
+                    .foregroundStyle(AppColors.sub)
+                    .padding(.top, 4)
+            }
+            .padding(.top, 32)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.horizontal, 16)
+        .padding(.bottom, 32)
     }
 
     // MARK: - Header
