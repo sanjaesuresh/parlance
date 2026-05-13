@@ -4,6 +4,7 @@ import Foundation
 @testable import Parlance
 
 @Suite("Question.category")
+@MainActor
 struct QuestionCategoryTests {
 
     @Test("JSON with category decodes correctly")

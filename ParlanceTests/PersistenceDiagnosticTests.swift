@@ -112,8 +112,9 @@ struct PersistentStoreTests {
 
         let storeURL = tmpDir.appendingPathComponent("test.store")
         let container = try makePersistentContainer(url: storeURL)
-        let ctx = container.mainContext
-        #expect(ctx != nil, "Container must have a valid mainContext")
+        // `mainContext` is non-optional — reaching this line means it exists.
+        // We exercise it once to ensure SwiftData lazy-initializes without throwing.
+        _ = container.mainContext
         print("[Diagnostic] Persistent container initialized at \(storeURL.path)")
     }
 
