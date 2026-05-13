@@ -103,6 +103,18 @@ struct ContentView: View {
         .environmentObject(weekCache)
         .onAppear {
             PersistenceService.shared.seedAchievementsIfNeeded()
+            #if DEBUG
+            // Visual-verification harness: seed the curated Progress-tab
+            // dataset before any UI renders. ProgressMockData wipes existing
+            // Session/User rows in the context so repeated launches are
+            // deterministic. We also auth a synthetic user so ContentView's
+            // gates fall straight through to mainTabView. Production builds
+            // never see this branch.
+            if CommandLine.arguments.contains("-mockProgressData") {
+                ProgressMockData.seed(into: modelContext)
+                authService._uiTestSeedAuthenticated(userID: "mock-progress-user")
+            }
+            #endif
             if ProcessInfo.processInfo.arguments.contains("UITesting") {
                 #if DEBUG
                 if UITestBootstrap.isSeedProEnabled {
