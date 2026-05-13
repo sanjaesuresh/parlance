@@ -19,22 +19,41 @@ Parlance is a personal speaking coach in your pocket. Each session follows the s
 ### Requirements
 
 - iOS 17 or later
+- Apple ID for Sign in with Apple (required to create an account)
 - Active internet connection (required — AI scoring needs a network connection)
 - Microphone permission (granted on first session)
 - Speech recognition permission (granted on first session)
 
+### Creating an Account
+
+Parlance uses **Sign in with Apple**. On first launch:
+
+1. Tap **Continue with Apple** on the welcome screen
+2. Choose whether to share your name and email
+3. Set a display name and username (must be unique)
+4. Optionally add location and occupation — these help personalize coaching context
+
+Your profile, session history, friend graph, and progress sync across any device you sign into. You can delete your account from **Profile → Settings → Delete Account** at any time; this wipes your data from Parlance's servers.
+
 ---
 
-## The Four Core Practice Modes
+## Practice Modes
 
 | Mode | What It Trains | Best For |
 |------|---------------|----------|
+| **Real Life** | Whatever your actual situation requires | A specific upcoming conversation — paste the scenario and Parlance builds a session around it |
 | **Job Interview** | STAR structure, conciseness, confidence signals | Behavioral and situational questions |
 | **Pitch / Sales** | Hook strength, urgency, persuasion | Investor pitches, cold outreach, objection handling |
 | **Keynote / Talk** | Narrative arc, opening impact, pacing | TED-style talks, conference sessions, toasts |
-| **Daily Conversation** | Clarity, naturalness, holding attention | Explaining ideas, impromptu speaking, debate |
+| **Daily Convo** | Clarity, naturalness, holding attention | Everyday conversations, reflection, observational chat |
+| **Debate / Argue** | Argument flow, rebuttal, position-taking | Holding a stance under pressure, persuasion structure |
+| **Storytelling** | Narrative arc, vivid detail, engagement | Personal anecdotes, audience attention |
+| **Explain a Topic** | Clarity, analogy, simplification | Teaching complex ideas; sub-categorized into knowledge domains (philosophy, science, economics, etc.) and industries (tech, healthcare, finance, etc.) |
+| **Negotiation** | Persuasion, framing, active listening | Salary, business deals, conflict |
+| **Impromptu** | Quick thinking, coherence under pressure | Off-the-cuff prompts, no prep |
+| **Networking** | Introduction, rapport, memorable delivery | Events, intros, building connections |
 
-Additional modes (Debate, Storytelling, Explanation, Negotiation, Impromptu, Networking) are available at higher difficulty tiers.
+**Job Interview**, **Daily Convo**, **Impromptu**, **Explain a Topic**, and **Networking** are available on the free tier. The remaining modes — including **Real Life** — require Pro.
 
 ---
 
@@ -67,7 +86,9 @@ The loading screen shows:
 - Three coaching tips tailored to the mode and your difficulty tier
 - A **"Tap when ready"** button
 
-Read everything before tapping. Questions are drawn from a bank of 400+ prompts, deduplicated so you rarely repeat.
+Read everything before tapping. Questions are drawn from a bundled bank of roughly 1,750 prompts (10 modes × 5 difficulty bands), deduplicated against your last 50 questions in that mode+band so you rarely repeat.
+
+For **Real Life**, instead of a generated prompt you'll type or paste the scenario you're preparing for. The app validates that what you typed looks like a real speaking situation (a conversation, pitch, talk, etc.) and generates coaching tips tailored to it.
 
 ### Step 3 — Countdown
 
@@ -214,8 +235,19 @@ Shows the current weekly leaderboard. Includes:
 
 - Your current tier badge and rank
 - Global leaderboard (all users by weekly XP)
-- Friends leaderboard (people you follow)
+- Friends leaderboard (people who have accepted your friend request)
 - Countdown timer to the next weekly reset
+
+### Friends
+
+From the League tab you can:
+
+- **Search users** by display name or username
+- **Send a friend request** from any profile
+- **Accept or decline** incoming requests
+- **Block** users you don't want to see or hear from again — blocked users are hidden from search, leaderboards, and friend suggestions
+
+Friend requests and accepts trigger push notifications if you've granted notification permission.
 
 ---
 
@@ -235,7 +267,9 @@ Practice prompts and tips are bundled on-device and load instantly — the netwo
 - Audio recordings are transcribed on-device using Apple's SFSpeechRecognizer. The audio file is deleted immediately after transcription completes.
 - Your transcript and audio features (pitch, pace, energy) are sent to Parlance's AI backend for scoring. They are not stored after the scoring call completes.
 - **Pro subscribers only:** your audio is also sent to an AI emotion analysis provider (Hume AI) via Parlance's secure backend to generate the Tone Analysis results. The audio is not retained after analysis.
-- All session data (scores, transcripts, feedback) is stored locally on your device only. Nothing is backed up to the cloud.
+- Your profile (name, username, location, occupation, XP, level, streak) and session metadata (scores, mode, date, duration) sync to Parlance's Supabase backend so they're available across your devices. Full transcripts and AI feedback paragraphs stay on-device.
+- Friend graph (requests, accepts, blocks) is stored server-side so it works across devices.
+- **Delete Account** in Settings permanently removes your data from Parlance's servers and signs you out.
 
 ---
 

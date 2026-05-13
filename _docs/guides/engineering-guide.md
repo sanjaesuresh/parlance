@@ -22,24 +22,34 @@
 14. [Social / Leaderboard](#14-social--leaderboard)
 15. [Network Gate](#15-network-gate)
 16. [Persistence Layer (SwiftData)](#16-persistence-layer-swiftdata)
-17. [Known Issues & Gotchas](#17-known-issues--gotchas)
-18. [Key Constants](#18-key-constants)
-19. [File Map](#19-file-map)
+17. [Auth — Apple Sign-In + Supabase](#17-auth--apple-sign-in--supabase)
+18. [Cloud Sync — SyncService](#18-cloud-sync--syncservice)
+19. [Real Life Mode](#19-real-life-mode)
+20. [Push Notifications](#20-push-notifications)
+21. [Known Issues & Gotchas](#21-known-issues--gotchas)
+22. [Key Constants](#22-key-constants)
+23. [File Map](#23-file-map)
 
 ---
 
 ## 1. Architecture Overview
 
-**Platform:** iOS 17+ (SwiftUI, portrait-only, no UIKit)  
-**Persistence:** SwiftData (on-device SQLite, no cloud sync)  
-**AI:** Gemini via a Cloudflare Worker proxy (one scoring call per session; Pro users also get an emotion analysis call via Hume AI)  
-**Audio:** AVFoundation (recording) + Speech framework (transcription) + Accelerate/vDSP (audio feature extraction)  
-**Backend:** A single Cloudflare Worker at `ParlanceAPIBaseURL` (set in Info.plist). No other server infrastructure. Two endpoints: `POST /feedback` (Gemini scoring) and `POST /emotion` (Hume AI emotion analysis, Pro-only).  
-**Questions:** Pre-generated static JSON bundled in the app. Zero network calls for questions.  
-**Social:** Mock data only. No backend for leaderboards yet.  
+**Platform:** iOS 17+ (SwiftUI, portrait-only, no UIKit)
+**Local persistence:** SwiftData (on-device SQLite) — source of truth for sessions, transcripts, achievements, and `SeenQuestion` dedupe.
+**Cloud backend:** Supabase — auth, profile sync, friend graph, leaderboard feed, push tokens. Local SwiftData is reconciled with server-side `profiles`, `user_stats`, `session_scores`, and friendship tables via `SyncService`.
+**AI inference:** Gemini via a Cloudflare Worker proxy (one scoring call per session; Pro users also get an emotion analysis call via Hume AI; Real Life mode fetches AI-generated tips).
+**Audio:** AVFoundation (recording) + Speech framework (transcription) + Accelerate/vDSP (audio feature extraction).
+**Cloudflare Worker** at `AppConstants.apiBaseURL` (set in Info.plist as `ParlanceAPIBaseURL`). Three endpoints:
+- `POST /feedback` — Gemini scoring
+- `POST /emotion` — Hume AI emotion analysis (Pro)
+- `POST /real-life/tips` — AI-generated tips for Real Life scenarios
+**Questions:** Pre-generated static JSON bundled in the app (`ParlanceApp/Features/Resources/questions.json`, ~1,750 prompts across 10 modes × 5 difficulty bands). Zero network calls for question selection.
+**Auth:** Sign in with Apple via `AuthService`, which wraps `SupabaseClient.auth`. Account creation is required to use the app; an unauthenticated user sees `AuthView`.
+**Social:** Real, server-backed. Friend requests, accepts, blocks, friend leaderboard, user search — all via `SocialService` against Supabase tables with RLS.
+**Push:** APNs token registration via `PushTokenService`; tokens are stored in Supabase and consumed by Edge Functions for daily reminders and social events.
 **Subscriptions:** `SubscriptionService` manages StoreKit 2 purchases. `isPro` is the gating flag throughout the app.
 
-**Navigation model:** TabView (Home / Progress / League / Profile) as the root. Sessions take over full-screen via `SessionCoordinator`, hiding the tab bar until the user returns home.
+**Navigation model:** TabView (Home / Progress / League / Profile) as the root, gated behind `AuthView`. Sessions take over full-screen via `SessionCoordinator`, hiding the tab bar until the user returns home. `DeepLinkRouter` handles universal links and push-notification opens.
 
 **State management:** SwiftUI-native (`@State`, `@StateObject`, `@Published`, `@EnvironmentObject`). No Redux, TCA, or third-party state library. ViewModels are `@MainActor ObservableObject`.
 
@@ -55,7 +65,7 @@ The session lifecycle is managed entirely by `SessionCoordinator.swift` (a Swift
 .loading → .countdown → .recording → .processing → .results(Session)
 ```
 
-**`.loading`** — `LoadingView` shows for a minimum of 500ms (cosmetic). The question is already selected before this screen appears. Fires `AnalyticsService.sessionStarted`.
+**`.loading`** — `LoadingView` shows for a minimum of 500ms (cosmetic). The question is already selected before this screen appears.
 
 **`.countdown`** — 3-second countdown. When complete, sets `autoStartRecording = true` and transitions to `.recording`.
 
@@ -120,7 +130,7 @@ The AI scoring call (step 6) can fail. On failure, the coordinator transitions t
 
 ## 3. Audio Recording
 
-**File:** `Parlance/Core/Services/AudioRecorder.swift`
+**File:** `ParlanceApp/Core/Services/AudioRecorder.swift`
 
 Records to a UUID-named temp file in `FileManager.default.temporaryDirectory`. Format: MPEG4 AAC, 44100Hz, mono, high quality.
 
@@ -280,7 +290,7 @@ Score these metrics:
 
 ### AI response structure
 
-Claude returns raw JSON (no markdown fences):
+Gemini returns raw JSON (no markdown fences):
 
 ```json
 {
@@ -336,10 +346,10 @@ This result is passed into `FeedbackGenerator.fetchScoring()` to enrich the AI p
 ## 6. The Cloudflare Worker
 
 **File:** `cloudflare-worker/src/index.js` (gitignored — deployed separately)  
-**Deployed to:** URL stored in `Info.plist` as `ParlanceAPIBaseURL`  
+**Deployed to:** URL stored in `Info.plist` as `ParlanceAPIBaseURL` and exposed as `AppConstants.apiBaseURL`  
 **Config:** `cloudflare-worker/wrangler.toml`
 
-Two endpoints:
+Three endpoints:
 
 ### `POST /feedback` — AI scoring
 
@@ -369,13 +379,23 @@ Receives multipart form data with the `.m4a` audio file. Submits it to Hume AI's
 ```
 Auth: `HUME_API_KEY` (Cloudflare Worker secret).
 
+### `POST /real-life/tips` — Real Life scenario tips
+
+Receives a scenario string, calls Gemini with a short prompt asking for 3 mode-aware coaching tips, and returns:
+
+```json
+{ "tips": ["...", "...", "..."] }
+```
+
+Timeout client-side is 4s (`RealLifeTipsClient`). On worker-side failure, the client falls back to a static tip set so the session can still launch.
+
 **Secrets:** Set via `wrangler secret put GEMINI_API_KEY` and `wrangler secret put HUME_API_KEY`.
 
 ---
 
 ## 7. Session Model & Data Storage
 
-**File:** `Parlance/Core/Models/Session.swift`
+**File:** `ParlanceApp/Core/Models/Session.swift`
 
 SwiftData `@Model` class. All sessions are stored on-device. No cloud backup.
 
@@ -440,7 +460,7 @@ SwiftData cannot persist `[String: Int]` or `[String: String]` directly. The wor
 
 ## 8. Gamification — XP, Ranks, Streaks
 
-**File:** `Parlance/Core/Services/GamificationService.swift`
+**File:** `ParlanceApp/Core/Services/GamificationService.swift`
 
 Stateless enum with static methods — no singleton, no state.
 
@@ -490,9 +510,12 @@ XP is awarded by `GamificationService.awardXP(to:wasDailyChallenge:)`, which dir
 
 ## 9. League System
 
-**Files:** `Parlance/Core/Models/LeagueTier.swift`, `Parlance/Features/League/LeagueViewModel.swift`
+**Files:** `ParlanceApp/Core/Models/LeagueTier.swift`, `ParlanceApp/Features/League/LeagueViewModel.swift`, `ParlanceApp/Core/Services/SocialService.swift`
 
-The league system is **entirely local**. There is no backend. The leaderboard data is mock `SocialProfile` objects in `SocialProfile.swift`.
+The league reads from two sources:
+
+- **Local SwiftData** for the current user's weekly XP and own tier
+- **Supabase `session_scores` table** (via `SocialService`) for global and friends leaderboards
 
 ### Tier thresholds (weekly XP)
 
@@ -504,15 +527,29 @@ The league system is **entirely local**. There is no backend. The leaderboard da
 | Platinum | 3,000 |
 | Diamond | 6,000 |
 
-`LeagueTier.from(weeklyXP:)` computes the user's current tier. Weekly XP is calculated by summing `session.xpEarned` for all sessions in the current calendar week (Monday–Sunday reset).
+`LeagueTier.from(weeklyXP:)` computes the user's current tier. Weekly XP is summed from local `session.xpEarned` for the current ISO week via `PersistenceService.sessionsThisWeek()` (Monday–Sunday).
 
-`LeagueViewModel.weeklyXP(from sessions:)` does this sum. The sessions are fetched from SwiftData by `PersistenceService.sessionsThisWeek()`, which queries sessions with `date >= weekStart` (start of the current ISO week).
+### Leaderboard feeds
+
+After each session, `SyncService.syncAfterSession(...)` inserts a row into Supabase's `session_scores` table:
+
+```swift
+struct SessionScoreRow {
+    let userId: UUID
+    let score: Int
+    let mode: String
+    let level: Int
+    // server-side: createdAt timestamp
+}
+```
+
+**Real Life sessions are intentionally excluded** from `session_scores` so users can't game the leaderboard with custom prompts. They still count toward local XP, streak, and `user_stats`.
+
+The friends leaderboard pulls the user's accepted friendships, joins against `session_scores` for the current week, and sums per-user. Same query for the global leaderboard but without the friendship filter (with blocked users excluded).
 
 ### Reset
 
-League resets every Monday at midnight. `LeagueViewModel.timeUntilReset()` computes time until next Monday using `Calendar.nextDate(after:matching:)`.
-
-There is no server-side reset. The tier computation is recalculated live from local session data each time the League tab opens.
+The league resets every Monday at midnight. `LeagueViewModel.timeUntilReset()` computes time until next Monday using `Calendar.nextDate(after:matching:)`. The reset is client-computed against `session_scores.created_at` — there is no scheduled server job.
 
 ---
 
@@ -539,8 +576,8 @@ If `dailyChallengeLockDate` is today, the locked level is used. Otherwise it get
 
 ## 11. Question Bank
 
-**Service:** `QuestionBankService` (not shown above but referenced in `HomeViewModel`)  
-**Data:** `Parlance/Resources/questions.json` — static JSON bundled in the app binary  
+**Service:** `ParlanceApp/Core/Services/QuestionBankService.swift`
+**Data:** `ParlanceApp/Features/Resources/questions.json` — static JSON bundled in the app binary (~1,750 entries)
 **Format:**
 
 ```swift
@@ -551,23 +588,44 @@ struct Question: Codable, Identifiable {
     let question: String
     let tips: [String]          // 3 coaching tips shown during recording
     let targetDuration: Int     // suggested duration in seconds
-    let difficultyNote: String  // e.g. "This is a Starter-level prompt"
+    let difficultyNote: String  // short tag
+    let category: ExplanationCategory?  // only set for explanation mode
 }
 ```
 
-**Selection logic:**
-1. Map `user.practiceLevel` → difficulty band (levels 1-2 → "1-2", 3-4 → "3-4", etc.)
-2. Fetch seen question IDs for this mode + band from SwiftData (last 50, via `SeenQuestion` model)
-3. Filter questions for this mode + band, excluding seen IDs
-4. Pick randomly from unseen questions. If all seen, fall back to any question in the band.
+**Counts per mode** (as of the most recent rebalance):
+
+| Mode | Total |
+|------|------:|
+| explanation | 711 |
+| debate | 235 |
+| keynote | 102 |
+| casual | 100 |
+| impromptu | 100 |
+| interview | 100 |
+| negotiation | 100 |
+| networking | 100 |
+| pitch | 100 |
+| storytelling | 100 |
+
+Every `(mode, band)` pair is populated — `selectQuestion` never returns `nil` for a valid combo.
+
+**Selection logic** (`QuestionBankService.selectQuestion(mode:band:category:excludingIds:)`):
+
+- **Non-explanation modes:** filter `mode + band`, exclude seen IDs (last 50 from `SeenQuestion`), pick random. Fall back to the full band pool if all seen.
+- **Explanation mode** (sub-categorized): if a specific `ExplanationCategory` is selected, prefer unseen matches in that category, then any match in that category, then knowledge-tier ("Any topic") unseen, then knowledge-tier any. Industry categories (tech, healthcare, finance, etc.) are excluded from the "Any topic" pool to avoid imposing domain familiarity.
 
 Questions are never fetched from the network. Zero latency, works fully offline (the network gate blocks the app, but once online all question selection is local).
+
+### Real Life mode bypasses the bank
+
+When `mode == .realLife`, the bank is not consulted. The user enters a scenario in `RealLifeSetupView`, it's validated locally by `RealLifeScenarioValidator`, and `RealLifeTipsClient` fetches AI-generated coaching tips before the session starts. The scenario is persisted in `RealLifeScenarioHistoryStore` for the "use a recent scenario" affordance.
 
 ---
 
 ## 12. Progress & Skill Trends
 
-**File:** `Parlance/Features/Progress/ProgressViewModel.swift`
+**File:** `ParlanceApp/Features/Progress/ProgressViewModel.swift`
 
 ### Score history chart
 
@@ -594,7 +652,7 @@ Only the 7 universal metrics are tracked in trends (mode-specific metrics like `
 
 ## 13. Achievements
 
-**File:** `Parlance/Core/Models/Achievement.swift`
+**File:** `ParlanceApp/Core/Models/Achievement.swift`
 
 8 achievements, seeded into SwiftData on first launch by `PersistenceService.seedAchievementsIfNeeded()`:
 
@@ -615,25 +673,54 @@ Achievements are checked in `SessionCoordinator.checkAchievements()` after every
 
 ## 14. Social / Leaderboard
 
-**Current state: entirely mocked.**
+**File:** `ParlanceApp/Core/Services/SocialService.swift`
 
-`SocialProfile.swift` contains a static array of 12 hardcoded users with fake names, XP, scores, and avatars. These are displayed in the League tab as "other users."
+Social is **fully server-backed via Supabase** with row-level security policies enforcing access control.
 
-The user's own entry in the leaderboard is built live from `User` and their session history.
+### Tables (Supabase)
 
-**There is no backend for social.** Friend connections, real leaderboards, and real weekly rankings are planned features but not built. The league tab currently shows the local user ranked against mock profiles.
+| Table | Purpose |
+|-------|---------|
+| `profiles` | Public profile (display name, username, location, occupation, avatar, daily reminder pref) |
+| `user_stats` | XP, level, current streak, longest streak, total sessions |
+| `session_scores` | One row per scoreable session; powers leaderboards (Real Life excluded) |
+| `friendships` | Directed friend requests and accepted friendships |
+| `blocks` | One-way user blocks; queries filter against this on both ends |
+| `push_tokens` | APNs device tokens per user, written by `PushTokenService` |
 
-**When real social is built,** the likely integration points are:
-- `LeagueViewModel` — replace mock profiles with API-fetched `SocialProfile` objects
-- `User.username` — already a stored optional field, ready for a handle-based system
-- `User.xp` / weekly XP — computed locally, would need to be synced to a backend on session completion
+### `SocialService` capabilities
+
+```swift
+func searchUsers(query: String) async -> [SocialProfile]
+func sendFriendRequest(to userId: UUID) async -> Bool
+func acceptFriendRequest(from userId: UUID) async -> Bool
+func declineFriendRequest(from userId: UUID) async -> Bool
+func removeFriend(_ userId: UUID) async -> Bool
+func blockUser(_ userId: UUID) async -> Bool
+func unblockUser(_ userId: UUID) async -> Bool
+func relationshipState(with userId: UUID) async -> RelationshipState
+func refreshFriendsLeaderboard() async
+```
+
+`RelationshipState` enum: `.none | .pendingSent | .pendingReceived | .friends | .isSelf`.
+
+User search sanitizes input (letters, numbers, space, dash only) and runs `ilike` on `username` / `display_name` with a `limit(20)` cap. Blocked users are stripped from results client-side via the in-memory `blockedUserIds` set.
+
+### Profile creation flow
+
+On first sign-in:
+
+1. `AuthService` completes Apple Sign-In and obtains the Supabase session
+2. `SyncService.fetchAndImportProfile(uid:)` queries `profiles` and `user_stats`; if neither exists (new user), `AuthProfileSetupView` collects display name, username, optional location and occupation
+3. `SyncService.createProfile(...)` upserts `profiles` and `user_stats` rows
+4. Local SwiftData `User` is created with the same `supabaseUID`
 
 ---
 
 ## 15. Network Gate
 
-**File:** `Parlance/Core/Services/NetworkMonitor.swift`  
-**File:** `Parlance/Features/NoConnection/NoConnectionView.swift`
+**File:** `ParlanceApp/Core/Services/NetworkMonitor.swift`  
+**File:** `ParlanceApp/Features/NoConnection/NoConnectionView.swift`
 
 `NetworkMonitor` wraps `NWPathMonitor` (Apple's Network framework) as an `@MainActor ObservableObject`. It publishes `isConnected: Bool` (defaults to `true`). The monitor starts when `ContentView` initializes (app launch) and runs for the app's lifetime via `deinit { monitor.cancel() }`.
 
@@ -647,7 +734,7 @@ Auto-dismisses when connectivity is restored (no "Try Again" button needed).
 
 ## 16. Persistence Layer (SwiftData)
 
-**File:** `Parlance/Core/Services/PersistenceService.swift`
+**File:** `ParlanceApp/Core/Services/PersistenceService.swift`
 
 Singleton `@MainActor` class. All database operations run on the main context (`container.mainContext`).
 
@@ -663,7 +750,118 @@ Singleton `@MainActor` class. All database operations run on the main context (`
 
 ---
 
-## 17. Known Issues & Gotchas
+## 17. Auth — Apple Sign-In + Supabase
+
+**File:** `ParlanceApp/Core/Services/AuthService.swift`
+**File:** `ParlanceApp/Features/Auth/AuthViewModel.swift`
+**File:** `ParlanceApp/Features/Auth/AuthView.swift`
+
+`AuthService` is an `@MainActor ObservableObject` published as `@EnvironmentObject` from `ParlanceApp.swift`. It exposes:
+
+```swift
+@Published private(set) var currentUser: Supabase.User?
+@Published private(set) var isAuthenticated: Bool
+@Published private(set) var isLoading: Bool
+@Published var didJustSignIn: Bool
+@Published var pendingAppleDisplayName: String?  // captured from Apple credential, used by profile setup
+var currentUserID: String? { currentUser?.id.uuidString }
+```
+
+### Flow
+
+1. `AuthView` presents the "Continue with Apple" button (`SignInWithAppleButton` from `AuthenticationServices`)
+2. `AuthViewModel` generates a nonce, requests `[.fullName, .email]`, hashes the nonce, and submits the resulting ID token to Supabase via `client.auth.signInWithIdToken(...)`
+3. On success, `AuthService` observes the auth state change and updates `currentUser` / `isAuthenticated`
+4. `SyncService.fetchAndImportProfile(uid:)` runs; if no profile row exists, `AuthProfileSetupView` collects the missing fields before unlocking the app
+
+### Sign-out and deletion
+
+- **Sign out:** `AuthService.signOut()` clears the Supabase session and wipes the local SwiftData store (so a different account on the same device starts fresh).
+- **Delete account:** `AuthService.deleteAccount()` invokes a Supabase Edge Function that cascades a delete across all user-owned rows (`profiles`, `user_stats`, `session_scores`, `friendships`, `blocks`, `push_tokens`) and then deletes the auth row. The client signs out and shows `AccountDeletedSplashView`.
+
+### UI-test bypass
+
+In DEBUG builds, passing `--ui-test-seed-pro` as a launch argument skips the Supabase auth listener entirely. `UITestBootstrap` seeds an authenticated state directly so UI tests don't need real Apple credentials.
+
+---
+
+## 18. Cloud Sync — SyncService
+
+**File:** `ParlanceApp/Core/Services/SyncService.swift`
+
+`SyncService` reconciles local SwiftData with Supabase. It is **not** general bidirectional sync — it's a curated set of write paths plus a one-shot fetch on sign-in.
+
+### What syncs to Supabase
+
+| Local trigger | Server-side write |
+|---------------|------------------|
+| Sign-in (new account) | `profiles` + `user_stats` upsert |
+| Profile edit | `profiles` update |
+| Session completion | `user_stats` upsert (XP, level, streak, total sessions) + `session_scores` insert (excluded for Real Life) |
+| Settings change (daily reminder, etc.) | `profiles` update |
+| First launch after grant | `push_tokens` upsert via `PushTokenService` |
+
+### What does NOT sync
+
+- **Full session records** — transcripts, AI feedback paragraphs, per-metric tips, best/worst moment quotes, audio features all stay local in SwiftData.
+- **Achievements** — earned locally; not exposed cross-device.
+- **`SeenQuestion` history** — dedupe is per-device.
+- **Real Life scenarios** — `RealLifeScenarioHistoryStore` keeps them in UserDefaults, never uploaded.
+
+### Failure handling
+
+If `syncAfterSession(...)` fails (network blip, RLS rejection, server error), the score/mode/level are JSON-encoded to UserDefaults under `parlance.pendingSync`. On the next successful sync, the pending row is retried before the new one. There's no exponential backoff — retries happen opportunistically when a sync is next triggered.
+
+---
+
+## 19. Real Life Mode
+
+**Files:**
+- `ParlanceApp/Features/RealLife/RealLifeSetupView.swift`
+- `ParlanceApp/Features/RealLife/RealLifeSetupViewModel.swift`
+- `ParlanceApp/Core/AI/RealLifeScenarioValidator.swift`
+- `ParlanceApp/Core/AI/RealLifeTipsClient.swift`
+- `ParlanceApp/Core/Services/RealLifeScenarioHistoryStore.swift`
+
+Real Life mode lets a user paste their actual upcoming scenario instead of receiving a generated prompt. It is Pro-only.
+
+### Flow
+
+1. User taps the **Real Life** mode tile (gated by `subscription.isPro`)
+2. `RealLifeSetupView` shows a multi-line text field and recent scenarios (from `RealLifeScenarioHistoryStore`)
+3. On **Continue**, `RealLifeScenarioValidator.validate(_:)` runs locally — a rule-based filter (length floor, letter ratio, "ask the AI" pattern guards, must contain a speech-act or audience term). On failure, an inline message guides the user.
+4. `RealLifeTipsClient.fetchTips(scenario:)` calls `POST /real-life/tips` to get 3 AI-generated coaching tips. Timeout: 4s. On failure, fall back to a static tip set so the session can still run.
+5. Scenario + tips are wrapped into an `ActiveSessionState` and the standard `SessionCoordinator` flow proceeds.
+6. The scenario text is appended to `RealLifeScenarioHistoryStore` (UserDefaults, capped to N most recent) for the "recent scenarios" affordance.
+
+### Scoring caveat
+
+Real Life sessions are scored exactly like other modes by the same `FeedbackGenerator.fetchScoring(...)` path. However, they are **excluded from `session_scores`** in `SyncService` to prevent users gaming the leaderboard with prompt-tuned scenarios. XP, streak, and `user_stats` aggregates still count Real Life sessions.
+
+The local rule-based validator is intentionally lenient; the Cloudflare worker performs additional server-side classification as a defense in depth.
+
+---
+
+## 20. Push Notifications
+
+**File:** `ParlanceApp/Core/Services/PushTokenService.swift`
+**File:** `ParlanceApp/App/AppDelegate.swift`
+
+The app registers for APNs after the user authenticates and grants notification permission. `AppDelegate.application(_:didRegisterForRemoteNotificationsWithDeviceToken:)` hands the token to `PushTokenService.uploadToken(_:)`, which upserts a row in `push_tokens` keyed on `(user_id, device_token)`.
+
+### Notification categories
+
+| Category | Trigger | Payload |
+|----------|---------|---------|
+| Daily reminder | Supabase scheduled Edge Function (per-user opt-in via `profiles.daily_reminder_enabled`) | Generic copy + deep link to Home |
+| Friend request received | `SocialService.sendFriendRequest` writes `friendships` row → DB trigger fires Edge Function | `userId` payload → `DeepLinkRouter` opens the requester's profile |
+| Friend request accepted | `acceptFriendRequest` → DB trigger fires Edge Function | Same deep link payload |
+
+`DeepLinkRouter` handles the foreground tap by switching the tab and pushing the appropriate destination on the navigation stack.
+
+---
+
+## 21. Known Issues & Gotchas
 
 ### Important
 
@@ -692,9 +890,9 @@ No error logging means data loss on save failure is undetectable.
 
 ---
 
-## 18. Key Constants
+## 22. Key Constants
 
-Defined in `Parlance/UI/Theme/AppConstants.swift`:
+Defined in `ParlanceApp/UI/Theme/AppConstants.swift`:
 
 | Constant | Value | Purpose |
 |----------|-------|---------|
@@ -712,86 +910,123 @@ Defined in `Parlance/UI/Theme/AppConstants.swift`:
 
 ---
 
-## 19. File Map
+## 23. File Map
 
 ```
-Parlance/
+ParlanceApp/                                   main app source (also contains Parlance.xcodeproj)
 ├── App/
-│   ├── ActiveSessionState.swift      Session context (mode, level, question, isChallenge)
-│   ├── ContentView.swift             Root TabView + NetworkMonitor overlay
+│   ├── ActiveSessionState.swift              Session context (mode, level, question, isChallenge)
+│   ├── AppDelegate.swift                     APNs registration + DeepLink hand-off
+│   ├── ContentView.swift                     Root TabView + AuthView gate + NetworkMonitor overlay
+│   ├── DeepLinkRouter.swift                  Universal links + push-notification routing
 │   └── SplashView.swift
 ├── Core/
 │   ├── AI/
-│   │   ├── ClaudeClient.swift        HTTP client → Cloudflare Worker /feedback
-│   │   ├── FeedbackGenerator.swift   Prompt builder + fetchScoring()
-│   │   └── HumeClient.swift          Emotion analysis → Cloudflare Worker /emotion (Pro)
+│   │   ├── ClaudeClient.swift                HTTP client → Cloudflare Worker /feedback
+│   │   ├── FeedbackGenerator.swift           Prompt builder + fetchScoring()
+│   │   ├── HumeClient.swift                  Emotion analysis → Cloudflare Worker /emotion (Pro)
+│   │   ├── RealLifeScenarioValidator.swift   Local rule-based scenario pre-flight check
+│   │   └── RealLifeTipsClient.swift          AI-generated tips → Cloudflare Worker /real-life/tips
 │   ├── Models/
-│   │   ├── Achievement.swift         8 achievement definitions + SwiftData model
-│   │   ├── AudioFeatures.swift       Pitch/energy summary stats (transient)
-│   │   ├── DifficultyLevel.swift     Level names, tiers, bands
-│   │   ├── EmotionResult.swift       Hume AI response model (Pro-only)
-│   │   ├── LeagueTier.swift          Bronze–Diamond tiers with XP thresholds
-│   │   ├── MetricKey.swift           10 metric keys with mode mapping
-│   │   ├── Question.swift            Question struct (from JSON bank)
-│   │   ├── Rank.swift                10 rank levels with XP thresholds
-│   │   ├── ScoringResult.swift       AI response model (Codable)
-│   │   ├── SeenQuestion.swift        Question deduplication (SwiftData)
-│   │   ├── Session.swift             Session record (SwiftData, ~20 fields)
-│   │   ├── SessionMode.swift         10 practice mode enum
-│   │   ├── SocialProfile.swift       Mock leaderboard profiles
-│   │   ├── TimingStats.swift         Computed timing stats from word segments
-│   │   ├── User.swift                User profile (SwiftData)
-│   │   └── WordSegment.swift         Per-word timestamp + duration
+│   │   ├── Achievement.swift                 Achievement definitions + SwiftData model
+│   │   ├── AudioFeatures.swift               Pitch/energy summary stats (transient)
+│   │   ├── DifficultyLevel.swift             Level names, tiers, bands
+│   │   ├── EmotionResult.swift               Hume AI response model (Pro-only)
+│   │   ├── ExplanationCategory.swift         Knowledge/industry sub-categories for explanation mode
+│   │   ├── LeagueTier.swift                  Bronze–Diamond tiers with XP thresholds
+│   │   ├── MetricKey.swift                   10 metric keys with mode mapping
+│   │   ├── Question.swift                    Question struct (from JSON bank)
+│   │   ├── Rank.swift                        10 rank levels with XP thresholds
+│   │   ├── ScoringResult.swift               AI response model (Codable)
+│   │   ├── SeenQuestion.swift                Question deduplication (SwiftData)
+│   │   ├── Session.swift                     Session record (SwiftData)
+│   │   ├── SessionMode.swift                 11-case practice mode enum (incl. realLife)
+│   │   ├── SocialProfile.swift               Social profile DTO (real users via Supabase)
+│   │   ├── SupabaseModels.swift              Codable row types for Supabase tables
+│   │   ├── TimingStats.swift                 Computed timing stats from word segments
+│   │   ├── User.swift                        User profile (SwiftData, mirrors Supabase profile)
+│   │   └── WordSegment.swift                 Per-word timestamp + duration
 │   └── Services/
-│       ├── AnalyticsService.swift    Event tracking (stub)
-│       ├── AudioFeatureExtractor.swift  vDSP pitch/RMS extraction
-│       ├── AudioRecorder.swift       AVAudioRecorder wrapper
-│       ├── FriendsService.swift      Friends/social data (stub)
-│       ├── GamificationService.swift XP, streaks, daily limits
-│       ├── NetworkMonitor.swift      NWPathMonitor wrapper
-│       ├── PermissionsService.swift  Mic + speech recognition permissions
-│       ├── PersistenceService.swift  SwiftData singleton
-│       ├── QuestionBankService.swift Loads + filters questions.json
-│       ├── SessionWeekCache.swift    In-memory cache for weekly session queries
-│       ├── SpeechAnalyzer.swift      Filler detection only (scoring removed)
-│       ├── SpeechTranscriber.swift   SFSpeechRecognizer → TranscriptionResult
-│       └── SubscriptionService.swift StoreKit 2 purchase + isPro gating
+│       ├── AudioFeatureExtractor.swift       vDSP pitch/RMS extraction
+│       ├── AudioRecorder.swift               AVAudioRecorder wrapper
+│       ├── AuthService.swift                 Apple Sign-In + Supabase session state
+│       ├── GamificationService.swift         XP, streaks, daily limits
+│       ├── NetworkMonitor.swift              NWPathMonitor wrapper
+│       ├── PermissionsService.swift          Mic + speech recognition permissions
+│       ├── PersistenceService.swift          SwiftData singleton
+│       ├── ProfanityFilter.swift             Username + display-name content filter
+│       ├── PushTokenService.swift            APNs token upsert into Supabase
+│       ├── QuestionBankService.swift         Loads + filters questions.json
+│       ├── RealLifeScenarioHistoryStore.swift Recent Real Life scenarios (UserDefaults)
+│       ├── SessionWeekCache.swift            In-memory cache for weekly session queries
+│       ├── SocialService.swift               Friend graph, blocks, leaderboards (Supabase)
+│       ├── SoundService.swift                In-app sound effects (optional)
+│       ├── SpeechAnalyzer.swift              Filler detection (scoring removed)
+│       ├── SpeechTranscriber.swift           SFSpeechRecognizer → TranscriptionResult
+│       ├── SubscriptionService.swift         StoreKit 2 purchase + isPro gating
+│       ├── SupabaseManager.swift             Configured SupabaseClient singleton
+│       ├── SyncService.swift                 Local↔Supabase reconciliation
+│       └── UITestBootstrap.swift             DEBUG-only seeding for UI tests
 ├── Features/
+│   ├── Auth/
+│   │   ├── AccountDeletedSplashView.swift
+│   │   ├── AuthProfileSetupView.swift        Display name, username, location, occupation
+│   │   ├── AuthView.swift                    Sign in with Apple
+│   │   ├── AuthViewModel.swift
+│   │   ├── SamplePreviewView.swift           Pre-auth sample/teaser content
+│   │   ├── WelcomeBackSplashView.swift
+│   │   └── WelcomeSplashView.swift
 │   ├── Home/
 │   │   ├── HomeView.swift
-│   │   ├── HomeViewModel.swift       Session init, daily challenge logic
+│   │   ├── HomeViewModel.swift               Session init, daily challenge logic
 │   │   ├── DailyChallengeCard.swift
 │   │   └── ModeGridView.swift
 │   ├── League/
-│   │   ├── LeagueView.swift          Leaderboard + tier display
-│   │   ├── LeagueViewModel.swift     Weekly XP, reset countdown
+│   │   ├── LeagueView.swift                  Leaderboard + tier display
+│   │   ├── LeagueViewModel.swift             Weekly XP, reset countdown
 │   │   └── UserProfileDetailView.swift
 │   ├── NoConnection/
-│   │   └── NoConnectionView.swift    Full-screen offline gate
+│   │   └── NoConnectionView.swift            Full-screen offline gate
 │   ├── Paywall/
-│   │   └── PaywallView.swift         Pro subscription purchase screen
+│   │   └── PaywallView.swift                 Pro subscription purchase screen
 │   ├── Profile/
-│   │   ├── ProfileView.swift
+│   │   ├── ProfileView.swift                 Level/XP badge, tappable rank card
 │   │   ├── ProfileViewModel.swift
 │   │   ├── ProfileEditSheet.swift
-│   │   └── SettingsSheet.swift       Settings sheet (appearance, reminders, sound effects)
+│   │   └── SettingsSheet.swift               Appearance, reminders, sound effects, sign out, delete account
 │   ├── Progress/
+│   │   ├── AllTimeStatsCard.swift
+│   │   ├── CoachBriefView.swift              Weekly coach brief summary
+│   │   ├── PeriodFilter.swift                Period scope enum (week/month/all)
+│   │   ├── ProgressSegmentedControl.swift    Period selector
 │   │   ├── ProgressView.swift
-│   │   └── ProgressViewModel.swift   Charts, skill trends, mode breakdown
+│   │   ├── ProgressViewModel.swift           Charts, skill trends, period-scoped methods
+│   │   ├── RecentSessionRow.swift
+│   │   ├── SkillCardView.swift
+│   │   ├── SkillTrendChart.swift
+│   │   ├── StandoutMomentCard.swift
+│   │   └── StatsStripView.swift
+│   ├── RealLife/
+│   │   ├── RealLifeSetupView.swift           Scenario input + recent scenarios
+│   │   └── RealLifeSetupViewModel.swift
+│   ├── Resources/
+│   │   ├── questions.json                    ~1,750 bundled questions (static, offline)
+│   │   └── *.ttf                             Bundled fonts (Inter, Fraunces)
 │   ├── Results/
-│   │   ├── MetricCardView.swift      Score bar + tip card
-│   │   ├── MomentCard.swift          AIMomentCard + MomentCard (best/worst moment UI)
-│   │   ├── ResultsView.swift         Full results screen (AI + legacy paths)
-│   │   ├── ResultsViewModel.swift    Retry feedback logic
+│   │   ├── MetricCardView.swift              Score bar + tip card
+│   │   ├── MomentCard.swift                  AIMomentCard + MomentCard (best/worst moment UI)
+│   │   ├── ResultsView.swift                 Full results screen (AI + legacy paths)
+│   │   ├── ResultsViewModel.swift            Retry feedback logic
 │   │   ├── ScoreRingView.swift
-│   │   ├── ToneAnalysisCard.swift    Emotion analysis display (Pro-only)
+│   │   ├── SessionDetailView.swift           Per-session deep dive (from Progress / League)
+│   │   ├── ToneAnalysisCard.swift            Emotion analysis display (Pro-only)
 │   │   └── XPToastView.swift
 │   ├── Session/
 │   │   ├── CountdownView.swift
 │   │   ├── LoadingView.swift
 │   │   ├── RecordingView.swift
 │   │   ├── RecordingViewModel.swift
-│   │   └── SessionCoordinator.swift  Main session state machine
+│   │   └── SessionCoordinator.swift          Main session state machine
 │   └── Setup/
 │       └── FirstLaunchSetupView.swift
 ├── UI/
@@ -799,29 +1034,28 @@ Parlance/
 │   │   ├── AnimatedWaveformView.swift
 │   │   ├── PillBadge.swift
 │   │   ├── ProgressBar.swift
-│   │   ├── SafariView.swift          UIViewControllerRepresentable → SFSafariViewController
+│   │   ├── SafariView.swift                  UIViewControllerRepresentable → SFSafariViewController
 │   │   ├── SectionHeader.swift
 │   │   └── XPProgressBar.swift
 │   ├── Extensions/
 │   │   ├── Color+Hex.swift
 │   │   ├── Score+Color.swift
 │   │   ├── View+CardStyle.swift
-│   │   └── View+Shimmer.swift        Shimmer loading animation modifier
+│   │   └── View+Shimmer.swift                Shimmer loading animation modifier
 │   └── Theme/
 │       ├── AppColors.swift
 │       ├── AppConstants.swift
 │       ├── AppFonts.swift
 │       └── AppTheme.swift
-├── Resources/
-│   └── questions.json               400+ bundled questions (static, offline)
-└── ParlanceApp.swift                App entry point
+└── ParlanceApp.swift                         App entry point + @EnvironmentObject root
 
-cloudflare-worker/                   (gitignored — deployed separately)
-├── src/index.js                     POST /feedback (Gemini scoring) + POST /emotion (Hume AI)
+cloudflare-worker/                            (gitignored — deployed separately)
+├── src/index.js                              POST /feedback, /emotion, /real-life/tips
 └── wrangler.toml
 
 _docs/
-├── decisions/                       Architecture decision records
-├── plans/                           Implementation plans
-└── specs/                           Feature specs
+├── decisions/                                Architecture decision records
+├── plans/                                    Implementation plans
+├── specs/                                    Feature specs
+└── guides/                                   This file + parlance-user-guide.md
 ```
