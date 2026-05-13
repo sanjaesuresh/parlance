@@ -333,8 +333,6 @@ struct ProgressTabView: View {
 
     // MARK: - Recent Sessions
 
-    @State private var expandedSessionId: UUID?
-
     private var recentSessionsCard: some View {
         let recent = Array(effectiveSessions.prefix(5))
 
@@ -347,124 +345,56 @@ struct ProgressTabView: View {
                     .foregroundStyle(AppColors.sub)
             } else {
                 ForEach(recent, id: \.id) { session in
-                    let isExpanded = expandedSessionId == session.id
+                    NavigationLink {
+                        SessionDetailView(session: session)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Text(session.mode.emoji)
+                                .font(.system(size: 18))
+                                .frame(width: 38, height: 38)
+                                .background(session.mode.accentColor.opacity(0.2))
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
-                    VStack(alignment: .leading, spacing: 0) {
-                        // Session summary row
-                        Button {
-                            withAnimation(.easeInOut(duration: 0.2)) {
-                                expandedSessionId = isExpanded ? nil : session.id
-                            }
-                        } label: {
-                            HStack(spacing: 12) {
-                                Text(session.mode.emoji)
-                                    .font(.system(size: 18))
-                                    .frame(width: 38, height: 38)
-                                    .background(session.mode.accentColor.opacity(0.2))
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(session.mode.displayName)
-                                        .font(AppFonts.bodyMedium(13))
-                                        .foregroundStyle(AppColors.text)
-                                    HStack(spacing: 6) {
-                                        Text(session.date.formatted(date: .abbreviated, time: .omitted))
-                                            .font(AppFonts.body(10))
-                                            .foregroundStyle(AppColors.sub)
-                                        Text("\u{00B7}")
-                                            .foregroundStyle(AppColors.dim)
-                                        Text("\(Int(session.duration / 60))m \(Int(session.duration) % 60)s")
-                                            .font(AppFonts.body(10))
-                                            .foregroundStyle(AppColors.sub)
-                                    }
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(session.mode.displayName)
+                                    .font(AppFonts.bodyMedium(13))
+                                    .foregroundStyle(AppColors.text)
+                                HStack(spacing: 6) {
+                                    Text(session.date.formatted(date: .abbreviated, time: .omitted))
+                                        .font(AppFonts.body(10))
+                                        .foregroundStyle(AppColors.sub)
+                                    Text("\u{00B7}")
+                                        .foregroundStyle(AppColors.dim)
+                                    Text("\(Int(session.duration / 60))m \(Int(session.duration) % 60)s")
+                                        .font(AppFonts.body(10))
+                                        .foregroundStyle(AppColors.sub)
                                 }
-
-                                Spacer()
-
-                                Text("\(session.overallScore)")
-                                    .font(AppFonts.display(20))
-                                    .foregroundStyle(AppColors.scoreColor(session.overallScore))
-
-                                Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                                    .font(.system(size: 11, weight: .medium))
-                                    .foregroundStyle(AppColors.dim)
                             }
+
+                            Spacer()
+
+                            Text("\(session.overallScore)")
+                                .font(AppFonts.display(20))
+                                .foregroundStyle(AppColors.scoreColor(session.overallScore))
+
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 11, weight: .medium))
+                                .foregroundStyle(AppColors.dim)
                         }
-
-                        // Expanded detail
-                        if isExpanded {
-                            VStack(alignment: .leading, spacing: 10) {
-                                Divider().background(AppColors.border)
-
-                                // Question
-                                Text("Q: \(session.question)")
-                                    .font(AppFonts.body(11))
-                                    .italic()
-                                    .foregroundStyle(AppColors.sub)
-                                    .lineLimit(2)
-
-                                // Scores row
-                                if session.isAIScored {
-                                    let pace = session.metricScores["pace"] ?? 0
-                                    let clarity = session.metricScores["clarity"] ?? 0
-                                    let structure = session.metricScores["structure"] ?? 0
-                                    let vocab = session.metricScores["vocabulary"] ?? 0
-                                    HStack(spacing: 0) {
-                                        miniMetric(label: "Filler", value: "\(session.fillerCount)", color: session.fillerCount <= 2 ? AppColors.teal : AppColors.red)
-                                        miniMetric(label: "Pace", value: "\(pace)/10", color: pace >= 7 ? AppColors.teal : AppColors.gold)
-                                        miniMetric(label: "Clarity", value: "\(clarity)/10", color: clarity >= 7 ? AppColors.teal : AppColors.gold)
-                                        miniMetric(label: "Structure", value: "\(structure)/10", color: structure >= 7 ? AppColors.teal : AppColors.gold)
-                                        miniMetric(label: "Vocab", value: "\(vocab)/10", color: vocab >= 7 ? AppColors.teal : AppColors.gold)
-                                    }
-                                } else {
-                                    HStack(spacing: 0) {
-                                        miniMetric(label: "Filler", value: "\(session.fillerCount)", color: session.fillerCount <= 2 ? AppColors.teal : AppColors.red)
-                                        miniMetric(label: "Pace", value: "\(session.paceScore)/10", color: session.paceScore >= 7 ? AppColors.teal : AppColors.gold)
-                                        miniMetric(label: "Clarity", value: "\(session.clarityScore)/10", color: session.clarityScore >= 7 ? AppColors.teal : AppColors.gold)
-                                        miniMetric(label: "Structure", value: "\(session.structureScore)/10", color: session.structureScore >= 7 ? AppColors.teal : AppColors.gold)
-                                        miniMetric(label: "Vocab", value: "\(session.vocabularyScore)/10", color: session.vocabularyScore >= 7 ? AppColors.teal : AppColors.gold)
-                                    }
-                                }
-
-                                // AI Coach feedback
-                                if let feedback = session.aiCoachFeedback {
-                                    VStack(alignment: .leading, spacing: 4) {
-                                        Text("AI COACH")
-                                            .font(AppFonts.bodyBold(9))
-                                            .foregroundStyle(AppColors.gold)
-                                            .kerning(0.8)
-                                        Text(feedback)
-                                            .font(AppFonts.body(11))
-                                            .foregroundStyle(AppColors.sub)
-                                            .lineSpacing(4)
-                                    }
-                                }
-                            }
-                            .padding(.top, 10)
-                        }
+                        .padding(12)
+                        .background(AppColors.card)
+                        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                                .stroke(AppColors.border, lineWidth: 1)
+                        )
+                        .contentShape(Rectangle())
                     }
-                    .padding(12)
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                            .stroke(isExpanded ? AppColors.gold.opacity(0.3) : AppColors.border, lineWidth: 1)
-                    )
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("\(session.mode.displayName) session, score \(session.overallScore). Tap for full breakdown.")
                 }
             }
         }
-    }
-
-    private func miniMetric(label: String, value: String, color: Color) -> some View {
-        VStack(spacing: 2) {
-            Text(value)
-                .font(AppFonts.bodyBold(11))
-                .foregroundStyle(color)
-            Text(label)
-                .font(AppFonts.body(8))
-                .foregroundStyle(AppColors.dim)
-        }
-        .frame(maxWidth: .infinity)
     }
 
     // MARK: - Mode Breakdown
