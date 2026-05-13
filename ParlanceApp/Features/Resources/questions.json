@@ -4161,7 +4161,7 @@
   },
   {
     "id": "casual_3-4_001",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Argue for or against remote work.",
     "tips": [
@@ -4187,7 +4187,7 @@
   },
   {
     "id": "casual_3-4_003",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Debate: Is social media more helpful or harmful?",
     "tips": [
@@ -4252,7 +4252,7 @@
   },
   {
     "id": "casual_3-4_008",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Argue whether college is still worth the investment.",
     "tips": [
@@ -4278,7 +4278,7 @@
   },
   {
     "id": "casual_3-4_010",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Debate: Should we prioritize space exploration or ocean research?",
     "tips": [
@@ -4291,7 +4291,7 @@
   },
   {
     "id": "casual_3-4_011",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "3-4",
     "question": "Pick a well-known conspiracy theory and explain — without endorsing it — why it spreads and what psychological needs it fulfills for believers.",
     "tips": [
@@ -4300,7 +4300,8 @@
       "Distinguish between the appeal of the narrative and the absence of evidence — clearly"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Analytical explanation practice"
+    "difficultyNote": "Analytical explanation practice",
+    "category": "psychology"
   },
   {
     "id": "casual_3-4_012",
@@ -4317,7 +4318,7 @@
   },
   {
     "id": "casual_3-4_013",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "3-4",
     "question": "Explain how a microwave oven — or another everyday appliance you choose — actually works, at a level that's accurate but accessible to someone with no science background.",
     "tips": [
@@ -4326,11 +4327,12 @@
       "End with one surprising fact about the item that reframes how they'll use it"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Technical explanation practice"
+    "difficultyNote": "Technical explanation practice",
+    "category": "science"
   },
   {
     "id": "casual_3-4_014",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Debate: Is it better to be a specialist or generalist?",
     "tips": [
@@ -4356,7 +4358,7 @@
   },
   {
     "id": "casual_3-4_016",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Argue for or against a four-day work week.",
     "tips": [
@@ -4369,7 +4371,7 @@
   },
   {
     "id": "casual_3-4_017",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "3-4",
     "question": "Explain a scientific concept using only everyday objects.",
     "tips": [
@@ -4378,11 +4380,12 @@
       "Build complexity gradually"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Analogy-building exercise"
+    "difficultyNote": "Analogy-building exercise",
+    "category": "science"
   },
   {
     "id": "casual_3-4_018",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "3-4",
     "question": "Debate: Are books better than movies?",
     "tips": [
@@ -4421,7 +4424,7 @@
   },
   {
     "id": "casual_5-6_001",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Explain the trolley problem and argue your position.",
     "tips": [
@@ -4434,7 +4437,7 @@
   },
   {
     "id": "casual_5-6_002",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Make the strongest possible case for universal basic income to a skeptical audience — address the most common objections and end with a clear position.",
     "tips": [
@@ -4447,7 +4450,7 @@
   },
   {
     "id": "casual_5-6_003",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain artificial intelligence to someone who fears it.",
     "tips": [
@@ -4456,11 +4459,12 @@
       "Present a balanced view of risks and benefits"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Complex topic with emotional audience"
+    "difficultyNote": "Complex topic with emotional audience",
+    "category": "science"
   },
   {
     "id": "casual_5-6_004",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Argue whether privacy or security should take priority.",
     "tips": [
@@ -4473,7 +4477,7 @@
   },
   {
     "id": "casual_5-6_005",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain the concept of compound interest to make someone excited about saving.",
     "tips": [
@@ -4482,11 +4486,12 @@
       "Make it personal to their situation"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Making abstract concepts tangible"
+    "difficultyNote": "Making abstract concepts tangible",
+    "category": "economics"
   },
   {
     "id": "casual_5-6_006",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Debate: Should art be publicly funded?",
     "tips": [
@@ -4499,7 +4504,7 @@
   },
   {
     "id": "casual_5-6_008",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Argue for or against genetic engineering in food.",
     "tips": [
@@ -4512,7 +4517,7 @@
   },
   {
     "id": "casual_5-6_009",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain why empathy is a competitive advantage in business.",
     "tips": [
@@ -4521,11 +4526,12 @@
       "Counter the 'soft skill' dismissal"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Business philosophy argument"
+    "difficultyNote": "Business philosophy argument",
+    "category": "business"
   },
   {
     "id": "casual_5-6_010",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Debate: Is technology making us more or less connected?",
     "tips": [
@@ -4538,7 +4544,7 @@
   },
   {
     "id": "casual_5-6_011",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain a geopolitical conflict to someone unfamiliar with the region.",
     "tips": [
@@ -4547,11 +4553,12 @@
       "Avoid taking sides while being clear"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Geopolitical explanation practice"
+    "difficultyNote": "Geopolitical explanation practice",
+    "category": "politics"
   },
   {
     "id": "casual_5-6_012",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Argue whether happiness or meaning is more important in life.",
     "tips": [
@@ -4564,7 +4571,7 @@
   },
   {
     "id": "casual_5-6_013",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain climate change solutions to a disengaged audience.",
     "tips": [
@@ -4573,11 +4580,12 @@
       "End with their specific role and impact"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Engagement on complex topic"
+    "difficultyNote": "Engagement on complex topic",
+    "category": "science"
   },
   {
     "id": "casual_5-6_014",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Debate: Should voting be mandatory?",
     "tips": [
@@ -4590,7 +4598,7 @@
   },
   {
     "id": "casual_5-6_015",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain how cognitive biases affect everyday decisions.",
     "tips": [
@@ -4599,11 +4607,12 @@
       "Suggest practical ways to counteract them"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Cognitive science explanation"
+    "difficultyNote": "Cognitive science explanation",
+    "category": "psychology"
   },
   {
     "id": "casual_5-6_016",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Argue for or against the gig economy.",
     "tips": [
@@ -4616,7 +4625,7 @@
   },
   {
     "id": "casual_5-6_017",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain why storytelling is the most powerful communication tool.",
     "tips": [
@@ -4625,11 +4634,12 @@
       "Demonstrate by telling a brief illustrative story"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Meta-communication argument"
+    "difficultyNote": "Meta-communication argument",
+    "category": "psychology"
   },
   {
     "id": "casual_5-6_018",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Debate: Is meritocracy achievable?",
     "tips": [
@@ -4642,7 +4652,7 @@
   },
   {
     "id": "casual_5-6_019",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "5-6",
     "question": "Explain the concept of opportunity cost to improve someone's decisions.",
     "tips": [
@@ -4651,11 +4661,12 @@
       "Give a framework for applying it"
     ],
     "targetDuration": 90,
-    "difficultyNote": "Economic concept explanation"
+    "difficultyNote": "Economic concept explanation",
+    "category": "economics"
   },
   {
     "id": "casual_5-6_020",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "5-6",
     "question": "Argue whether social media platforms should be regulated.",
     "tips": [
@@ -4668,7 +4679,7 @@
   },
   {
     "id": "casual_7-8_001",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain quantum computing to a dinner party audience.",
     "tips": [
@@ -4677,11 +4688,12 @@
       "Make people feel smarter, not confused"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Expert explanation for sophisticated audience"
+    "difficultyNote": "Expert explanation for sophisticated audience",
+    "category": "science"
   },
   {
     "id": "casual_7-8_002",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Debate the ethics of autonomous weapons.",
     "tips": [
@@ -4694,7 +4706,7 @@
   },
   {
     "id": "casual_7-8_003",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain why democracy is fragile and worth protecting.",
     "tips": [
@@ -4703,11 +4715,12 @@
       "End with what individuals can do"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Political philosophy argument"
+    "difficultyNote": "Political philosophy argument",
+    "category": "politics"
   },
   {
     "id": "casual_7-8_004",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain a complex topic by walking your listener through your own thinking process — show how you'd figure it out step by step, not just announce conclusions.",
     "tips": [
@@ -4716,11 +4729,12 @@
       "Check in periodically with a rhetorical question to keep the listener oriented"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Socratic teaching method"
+    "difficultyNote": "Socratic teaching method",
+    "category": "philosophy"
   },
   {
     "id": "casual_7-8_005",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Argue whether consciousness can be replicated in machines.",
     "tips": [
@@ -4733,7 +4747,7 @@
   },
   {
     "id": "casual_7-8_006",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain the refugee crisis to someone with no context.",
     "tips": [
@@ -4742,11 +4756,12 @@
       "Address common misconceptions with facts"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Complex humanitarian topic explanation"
+    "difficultyNote": "Complex humanitarian topic explanation",
+    "category": "politics"
   },
   {
     "id": "casual_7-8_007",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Debate: Is economic growth compatible with environmental sustainability?",
     "tips": [
@@ -4759,7 +4774,7 @@
   },
   {
     "id": "casual_7-8_008",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain how misinformation spreads and how to combat it.",
     "tips": [
@@ -4768,11 +4783,12 @@
       "Provide actionable media literacy strategies"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Information literacy explanation"
+    "difficultyNote": "Information literacy explanation",
+    "category": "psychology"
   },
   {
     "id": "casual_7-8_009",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Argue for a radical change to the education system.",
     "tips": [
@@ -4785,7 +4801,7 @@
   },
   {
     "id": "casual_7-8_010",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain the concept of privilege without alienating your audience.",
     "tips": [
@@ -4794,11 +4810,12 @@
       "Focus on systems, not blame"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Sensitive topic, skilled delivery"
+    "difficultyNote": "Sensitive topic, skilled delivery",
+    "category": "psychology"
   },
   {
     "id": "casual_7-8_011",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Debate: Should we colonize Mars?",
     "tips": [
@@ -4811,7 +4828,7 @@
   },
   {
     "id": "casual_7-8_012",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain complex financial instruments in plain language.",
     "tips": [
@@ -4820,11 +4837,12 @@
       "Show how they affect ordinary people"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Financial literacy explanation"
+    "difficultyNote": "Financial literacy explanation",
+    "category": "economics"
   },
   {
     "id": "casual_7-8_013",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Argue whether free will is an illusion.",
     "tips": [
@@ -4837,7 +4855,7 @@
   },
   {
     "id": "casual_7-8_014",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain why trust is the foundation of civilization.",
     "tips": [
@@ -4846,11 +4864,12 @@
       "Show what happens when trust breaks down"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Foundational concept argument"
+    "difficultyNote": "Foundational concept argument",
+    "category": "philosophy"
   },
   {
     "id": "casual_7-8_015",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Debate: Should billionaires exist?",
     "tips": [
@@ -4863,7 +4882,7 @@
   },
   {
     "id": "casual_7-8_016",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain how language shapes thought.",
     "tips": [
@@ -4872,11 +4891,12 @@
       "Show practical implications for communication"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Linguistics concept explanation"
+    "difficultyNote": "Linguistics concept explanation",
+    "category": "philosophy"
   },
   {
     "id": "casual_7-8_017",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Argue for the importance of failure in innovation.",
     "tips": [
@@ -4889,7 +4909,7 @@
   },
   {
     "id": "casual_7-8_018",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Walk through the fat man variant of the trolley problem and explain what it reveals about the gap between utilitarian logic and human moral intuition — and what that gap tells us about ethics.",
     "tips": [
@@ -4898,11 +4918,12 @@
       "Connect the insight to a real-world ethical decision, not just abstract philosophy"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Advanced ethics explanation"
+    "difficultyNote": "Advanced ethics explanation",
+    "category": "philosophy"
   },
   {
     "id": "casual_7-8_019",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "7-8",
     "question": "Debate: Is objectivity in journalism possible?",
     "tips": [
@@ -4915,7 +4936,7 @@
   },
   {
     "id": "casual_7-8_020",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "7-8",
     "question": "Explain game theory in a way that changes someone's approach to negotiation.",
     "tips": [
@@ -4924,11 +4945,12 @@
       "Give actionable negotiation strategies"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Applied theory explanation"
+    "difficultyNote": "Applied theory explanation",
+    "category": "economics"
   },
   {
     "id": "casual_9-10_001",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain the nature of time to a curious non-physicist.",
     "tips": [
@@ -4937,11 +4959,12 @@
       "End with the philosophical questions that remain open"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Expert-level concept, accessible delivery"
+    "difficultyNote": "Expert-level concept, accessible delivery",
+    "category": "science"
   },
   {
     "id": "casual_9-10_002",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Debate whether morality is objective or subjective.",
     "tips": [
@@ -4954,7 +4977,7 @@
   },
   {
     "id": "casual_9-10_003",
-    "mode": "casual",
+    "mode": "keynote",
     "difficultyBand": "9-10",
     "question": "Starting from only the basic facts of existence — that we are alive, aware, and temporary — build a logical case for what makes a life meaningful.",
     "tips": [
@@ -4967,7 +4990,7 @@
   },
   {
     "id": "casual_9-10_004",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Debate: Has the internet been net positive for humanity?",
     "tips": [
@@ -4980,7 +5003,7 @@
   },
   {
     "id": "casual_9-10_005",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain how to think about thinking.",
     "tips": [
@@ -4989,11 +5012,12 @@
       "Make the audience immediately better thinkers"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Meta-cognitive mastery explanation"
+    "difficultyNote": "Meta-cognitive mastery explanation",
+    "category": "philosophy"
   },
   {
     "id": "casual_9-10_006",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Argue whether beauty is objective or subjective.",
     "tips": [
@@ -5006,7 +5030,7 @@
   },
   {
     "id": "casual_9-10_007",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain the ship of Theseus and its implications for identity.",
     "tips": [
@@ -5015,11 +5039,12 @@
       "Connect to modern identity questions"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Identity philosophy explanation"
+    "difficultyNote": "Identity philosophy explanation",
+    "category": "philosophy"
   },
   {
     "id": "casual_9-10_008",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Debate: Should we try to achieve immortality?",
     "tips": [
@@ -5032,7 +5057,7 @@
   },
   {
     "id": "casual_9-10_009",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain the concept of emergence to illuminate how simple rules create complex systems.",
     "tips": [
@@ -5041,11 +5066,12 @@
       "Explain why it matters for understanding the world"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Complex systems explanation"
+    "difficultyNote": "Complex systems explanation",
+    "category": "science"
   },
   {
     "id": "casual_9-10_010",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Argue for a new human right that doesn't currently exist.",
     "tips": [
@@ -5058,7 +5084,7 @@
   },
   {
     "id": "casual_9-10_011",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain the Fermi Paradox and what it means for humanity.",
     "tips": [
@@ -5067,11 +5093,12 @@
       "Share what you think the answer reveals about us"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Cosmological philosophy explanation"
+    "difficultyNote": "Cosmological philosophy explanation",
+    "category": "science"
   },
   {
     "id": "casual_9-10_012",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Debate: Is suffering necessary for growth?",
     "tips": [
@@ -5084,7 +5111,7 @@
   },
   {
     "id": "casual_9-10_013",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain how metaphors shape our reality.",
     "tips": [
@@ -5093,11 +5120,12 @@
       "Reveal the metaphors that most constrain us"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Cognitive linguistics mastery"
+    "difficultyNote": "Cognitive linguistics mastery",
+    "category": "philosophy"
   },
   {
     "id": "casual_9-10_014",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Argue whether progress is inevitable or fragile.",
     "tips": [
@@ -5110,7 +5138,7 @@
   },
   {
     "id": "casual_9-10_015",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain the difference between intelligence and wisdom.",
     "tips": [
@@ -5119,11 +5147,12 @@
       "Argue why wisdom matters more in our era"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Conceptual distinction mastery"
+    "difficultyNote": "Conceptual distinction mastery",
+    "category": "philosophy"
   },
   {
     "id": "casual_9-10_016",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Debate: Is it ethical to create superintelligent AI?",
     "tips": [
@@ -5136,7 +5165,7 @@
   },
   {
     "id": "casual_9-10_017",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain Gödel's incompleteness theorems to show the limits of logic.",
     "tips": [
@@ -5145,11 +5174,12 @@
       "Connect to broader questions about knowledge"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Mathematical philosophy explanation"
+    "difficultyNote": "Mathematical philosophy explanation",
+    "category": "philosophy"
   },
   {
     "id": "casual_9-10_018",
-    "mode": "casual",
+    "mode": "debate",
     "difficultyBand": "9-10",
     "question": "Argue for or against the simulation hypothesis.",
     "tips": [
@@ -5162,7 +5192,7 @@
   },
   {
     "id": "casual_9-10_019",
-    "mode": "casual",
+    "mode": "explanation",
     "difficultyBand": "9-10",
     "question": "Explain how to have a productive conversation with someone you disagree with.",
     "tips": [
@@ -5171,11 +5201,12 @@
       "Model the approach in your own delivery"
     ],
     "targetDuration": 120,
-    "difficultyNote": "Meta-communication mastery"
+    "difficultyNote": "Meta-communication mastery",
+    "category": "psychology"
   },
   {
     "id": "casual_9-10_020",
-    "mode": "casual",
+    "mode": "keynote",
     "difficultyBand": "9-10",
     "question": "Your topic: the hidden cost of convenience. Go — deliver a speech with a clear thesis and at least two supporting arguments.",
     "tips": [
@@ -22987,5 +23018,915 @@
     ],
     "targetDuration": 120,
     "difficultyNote": "Public crisis statement, clarity under scrutiny"
+  },
+  {
+    "id": "casual_5-6_101",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a friendship that drifted apart and what you learned from it.",
+    "tips": [
+      "Name the friend in a way that makes them feel like a real person, not a role",
+      "Be specific about when you first noticed the drift",
+      "End on what stayed with you, not on blame"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Friendship arc reflection"
+  },
+  {
+    "id": "casual_5-6_102",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe a habit you've quietly given up on and how you feel about it now.",
+    "tips": [
+      "Skip the apology — just say what you stopped doing",
+      "Be honest about whether you actually miss it",
+      "Notice if your tone shifts from defensive to relieved as you talk"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Honest self-disclosure"
+  },
+  {
+    "id": "casual_5-6_103",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Share something you used to be embarrassed about that you've grown to like.",
+    "tips": [
+      "Start with the embarrassment, vividly — don't smooth it over",
+      "Name the moment something flipped",
+      "Resist the urge to wrap it in a lesson"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Self-acceptance arc"
+  },
+  {
+    "id": "casual_5-6_104",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a piece of advice you ignored and how it played out.",
+    "tips": [
+      "Quote the advice almost word-for-word if you can",
+      "Be honest about why you ignored it at the time",
+      "Resist a tidy ending — say where you actually landed"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Hindsight narrative"
+  },
+  {
+    "id": "casual_5-6_105",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe what you do when you can't sleep at 3 a.m.",
+    "tips": [
+      "Get specific — the room, the light, what's in your hand",
+      "Resist explaining why it works; just describe what you do",
+      "Let the strangeness of it show, don't sand it down"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Private-moment description"
+  },
+  {
+    "id": "casual_5-6_106",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about something small that consistently improves your week.",
+    "tips": [
+      "Stay small — if it sounds impressive, you're aiming wrong",
+      "Anchor it in a recent specific instance",
+      "Speak like you're telling a friend, not pitching a hack"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Small-pleasure recognition"
+  },
+  {
+    "id": "casual_5-6_107",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe a place you go to think — and what about it works for you.",
+    "tips": [
+      "Open with one concrete detail of the place, not a category",
+      "Name what your mind does there that it doesn't do elsewhere",
+      "Don't make it sound like a meditation app description"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Place-as-mood essay"
+  },
+  {
+    "id": "casual_5-6_108",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a stranger you remember for some reason.",
+    "tips": [
+      "Name a single moment — where, when, what they did",
+      "Don't try to explain why they stayed with you — let it stay mysterious",
+      "Keep it short; over-explaining flattens it"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Micro-memory narrative"
+  },
+  {
+    "id": "casual_5-6_109",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe what your home would tell someone about you if you weren't there.",
+    "tips": [
+      "Pick three specific objects or surfaces, not categories",
+      "Let one of them contradict the others",
+      "Avoid the temptation to make yourself sound interesting"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Indirect self-portrait"
+  },
+  {
+    "id": "casual_5-6_110",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a compliment that landed wrong.",
+    "tips": [
+      "Quote the compliment exactly",
+      "Describe the gap between what they meant and how it felt",
+      "Don't make the person who said it sound bad — they didn't know"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Social nuance description"
+  },
+  {
+    "id": "casual_5-6_111",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe a moment when you realized you were becoming more like — or unlike — a parent.",
+    "tips": [
+      "Pick one specific moment, not a pattern",
+      "Be honest about how it felt: warmth, dread, both",
+      "Don't reach for closure if you don't have it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Inherited-trait recognition"
+  },
+  {
+    "id": "casual_5-6_112",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a meal that tasted better than the food itself actually was.",
+    "tips": [
+      "Anchor in who was there, where, and what was happening",
+      "Describe the food matter-of-factly — its ordinariness is the point",
+      "Let context do the work; don't explain why it mattered"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Context-over-content story"
+  },
+  {
+    "id": "casual_5-6_113",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe what you do when a friend cancels last minute.",
+    "tips": [
+      "Be honest about the first reaction, even if it's not flattering",
+      "Notice what you actually do — not what a healthy person would do",
+      "End with what kind of friend you are about it"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Real-reaction narrative"
+  },
+  {
+    "id": "casual_5-6_114",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a song you wore out by overplaying.",
+    "tips": [
+      "Name the song and the era — be specific",
+      "Describe what state of mind you played it into",
+      "Say what changed when you finally stopped"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Music-as-memory marker"
+  },
+  {
+    "id": "casual_5-6_115",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe how you handle small talk with someone you don't know well.",
+    "tips": [
+      "Be honest — not aspirational",
+      "Name your actual moves, including the awkward ones",
+      "End with whether you think your way works or not"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Honest social inventory"
+  },
+  {
+    "id": "casual_5-6_116",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about something you bought that turned out to be more important than you expected.",
+    "tips": [
+      "Don't pick something obviously meaningful — pick the surprising one",
+      "Describe what you thought you were buying",
+      "Then what it actually became"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Object-meaning shift"
+  },
+  {
+    "id": "casual_5-6_117",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe the gap between how you think you come across and how people actually describe you.",
+    "tips": [
+      "Lead with what you assume, then a real piece of feedback that contradicted it",
+      "Don't perform humility — just describe the surprise",
+      "End on whether the new version feels more or less true"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Self-perception calibration"
+  },
+  {
+    "id": "casual_5-6_118",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a tradition you've started for yourself.",
+    "tips": [
+      "Keep it small enough that no one else would notice it",
+      "Describe when and why it started",
+      "Don't dress it up as a 'practice' — talk like a person"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Private-ritual story"
+  },
+  {
+    "id": "casual_5-6_119",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Describe what makes you trust someone within the first few minutes.",
+    "tips": [
+      "Skip clichés — name the actual cue, not a virtue",
+      "Use a recent example to ground it",
+      "Notice whether your real answer matches the one you'd usually say"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Trust-cue introspection"
+  },
+  {
+    "id": "casual_5-6_120",
+    "mode": "casual",
+    "difficultyBand": "5-6",
+    "question": "Talk about a time you stayed somewhere longer than you should have — a party, a job, a relationship — and what finally moved you.",
+    "tips": [
+      "Pick the specific moment that finally moved you, not the slow buildup",
+      "Be honest about what kept you there for so long",
+      "Don't moralize the staying — just describe it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Threshold-moment narrative"
+  },
+  {
+    "id": "casual_7-8_101",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about a version of yourself from five years ago and what they'd think of you now.",
+    "tips": [
+      "Anchor in one specific thing past-you cared about that present-you doesn't",
+      "Be honest about whether they'd be impressed, disappointed, or both",
+      "Don't smooth the answer into self-congratulation"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Self-continuity reflection"
+  },
+  {
+    "id": "casual_7-8_102",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a fear you've made peace with — and what helped.",
+    "tips": [
+      "Name the fear specifically, not in a category",
+      "Be honest that peace isn't the same as absence",
+      "Give credit to what actually helped, even if it's mundane"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Fear-management narrative"
+  },
+  {
+    "id": "casual_7-8_103",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about something you used to want intensely that you no longer want.",
+    "tips": [
+      "Describe the wanting first — make us feel how badly you wanted it",
+      "Then the moment, or stretch, it dimmed",
+      "Resist a clean explanation — it usually isn't one"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Desire-shift narrative"
+  },
+  {
+    "id": "casual_7-8_104",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a friendship that survived something that should have killed it.",
+    "tips": [
+      "Name the rupture in concrete terms — what was actually said or done",
+      "Describe what was repaired, and what wasn't",
+      "Don't sentimentalize; the durability is the interesting part"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Relationship-resilience story"
+  },
+  {
+    "id": "casual_7-8_105",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about the difference between what you say you value and what your calendar actually shows.",
+    "tips": [
+      "Pick one value, not five — be specific",
+      "Cite a recent week, not 'usually'",
+      "Sit in the gap; don't rush to resolve it"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Stated-vs-lived audit"
+  },
+  {
+    "id": "casual_7-8_106",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a moment when you understood your parents differently for the first time.",
+    "tips": [
+      "Place us in the moment: where you were, what they said or did",
+      "Describe the old understanding and the new one",
+      "Avoid making it neat — most real shifts are partial"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Parental-reframe moment"
+  },
+  {
+    "id": "casual_7-8_107",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about something you've been wrong about for a long time without realizing it.",
+    "tips": [
+      "Describe the belief in its strongest form, as you held it",
+      "Name what finally cracked it",
+      "Be honest about how the wrongness fed something in you"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Held-belief unraveling"
+  },
+  {
+    "id": "casual_7-8_108",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe what loneliness feels like for you — not the cliché, the actual texture.",
+    "tips": [
+      "Name a specific instance, not the general state",
+      "Use sensory or physical detail, not just emotional vocabulary",
+      "Distinguish your loneliness from the kinds you've read about"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Felt-experience description"
+  },
+  {
+    "id": "casual_7-8_109",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about a piece of feedback that hurt at the time but ended up being right.",
+    "tips": [
+      "Quote it — the exact words still matter",
+      "Describe why it hurt specifically, not generally",
+      "Be honest about what you did with it once you stopped flinching"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Hard-feedback reckoning"
+  },
+  {
+    "id": "casual_7-8_110",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a relationship where you were the one who had to change.",
+    "tips": [
+      "Skip the 'we both had to' framing — own the asymmetry",
+      "Name what you actually did differently",
+      "Say what it cost and what it gave back"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Asymmetric-change story"
+  },
+  {
+    "id": "casual_7-8_111",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about something you do that no one else seems to do — and why you've kept it.",
+    "tips": [
+      "Describe the habit in concrete enough detail that we could picture you doing it",
+      "Don't apologize for its weirdness",
+      "Say what you suspect it does for you, even if you're not sure"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Personal-eccentricity defense"
+  },
+  {
+    "id": "casual_7-8_112",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a moment when you knew something was over before anyone said anything.",
+    "tips": [
+      "Anchor in a sensory cue — what tipped you off",
+      "Describe the gap between knowing and naming",
+      "End where the knowing landed, not where the announcement did"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Quiet-ending narrative"
+  },
+  {
+    "id": "casual_7-8_113",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about the role boredom plays in your life.",
+    "tips": [
+      "Distinguish the kinds of boredom you experience",
+      "Be honest about whether you actually let yourself be bored",
+      "Name what shows up when you don't fill the silence"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Inner-life observation"
+  },
+  {
+    "id": "casual_7-8_114",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a conversation you keep replaying — and what about it stays with you.",
+    "tips": [
+      "Set the scene tightly — who, where, the last thing said",
+      "Don't replay it line by line; tell us what the replay is reaching for",
+      "Be honest if you still want a different outcome"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Replay-loop reflection"
+  },
+  {
+    "id": "casual_7-8_115",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about a kind of person you used to dismiss and now respect.",
+    "tips": [
+      "Name the type honestly — including how you used to caricature them",
+      "Describe the encounter or experience that opened a crack",
+      "Be honest about what you still don't fully get"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Stereotype-correction story"
+  },
+  {
+    "id": "casual_7-8_116",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe the most honest thing someone ever said to you.",
+    "tips": [
+      "Quote it, or get close to the wording",
+      "Place us in the room — what it cost them to say it",
+      "End with how it travels with you, not what you 'learned'"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Received-honesty moment"
+  },
+  {
+    "id": "casual_7-8_117",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about how you've changed how you handle being wrong.",
+    "tips": [
+      "Open with how you used to do it — be specific about the moves",
+      "Describe what you've replaced them with, or are trying to",
+      "Don't claim to have it figured out"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Repair-pattern evolution"
+  },
+  {
+    "id": "casual_7-8_118",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe a moment when you noticed yourself performing — and stopped.",
+    "tips": [
+      "Name the performance precisely: voice, posture, audience",
+      "Describe the click of self-recognition",
+      "Say what dropped away when you stopped, and what didn't"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Self-awareness pivot"
+  },
+  {
+    "id": "casual_7-8_119",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Talk about something you've outgrown about your hometown, or something you've grown back into.",
+    "tips": [
+      "Pick one specific thing — a street, a habit, a kind of person",
+      "Place the old you and the current you against it",
+      "Resist a nostalgic or dismissive tone — split the difference"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Origin-place reckoning"
+  },
+  {
+    "id": "casual_7-8_120",
+    "mode": "casual",
+    "difficultyBand": "7-8",
+    "question": "Describe what you're protecting when you say you 'don't have time' for something — be specific.",
+    "tips": [
+      "Pick a real recent instance you said it",
+      "Skip the literal calendar — name the underlying thing",
+      "Be honest about whether the protection is worth the cost"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Self-deception inventory"
+  },
+  {
+    "id": "casual_9-10_101",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about a belief you hold that you suspect might be wrong — and why you keep holding it anyway.",
+    "tips": [
+      "State the belief plainly, without hedging",
+      "Describe what holding it does for you, beyond being true",
+      "Don't resolve the tension — let us hear you sit in it"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Held-belief examination"
+  },
+  {
+    "id": "casual_9-10_102",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe the version of success you've been chasing — and whether you still want it.",
+    "tips": [
+      "Sketch the picture concretely — not abstract goals, the actual scene",
+      "Trace where you got that picture from",
+      "Be honest about which parts you still want and which you've outgrown"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Goal-genealogy reckoning"
+  },
+  {
+    "id": "casual_9-10_103",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about a relationship in your life where the unspoken thing is bigger than the spoken thing.",
+    "tips": [
+      "Anonymize if you need to, but be specific about the dynamic",
+      "Name what's unspoken, even just to us",
+      "Don't pretend to know why it stays unspoken — explore it"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Unspoken-dynamic exploration"
+  },
+  {
+    "id": "casual_9-10_104",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe what you've been telling yourself about your work that isn't quite true.",
+    "tips": [
+      "Quote the story you tell — to others, to yourself",
+      "Name the part that doesn't survive close inspection",
+      "Resist replacing it with a more flattering story"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Work-narrative audit"
+  },
+  {
+    "id": "casual_9-10_105",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about something you used to think was a personality trait that turned out to be a coping mechanism.",
+    "tips": [
+      "Name the trait as you used to describe it — proudly, probably",
+      "Describe the moment the frame slipped",
+      "Be honest about whether it still functions, even if you see through it now"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Self-frame revision"
+  },
+  {
+    "id": "casual_9-10_106",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe how your sense of time has changed as you've gotten older.",
+    "tips": [
+      "Avoid clichés about years flying — get more specific",
+      "Pick one thing that used to feel long and now feels short, or vice versa",
+      "Connect the change to something concrete in your life, not just age"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Temporal-experience shift"
+  },
+  {
+    "id": "casual_9-10_107",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about a kind of conversation you avoid — and what you'd lose if you stopped avoiding it.",
+    "tips": [
+      "Name the kind precisely — not 'difficult conversations'",
+      "Describe what the avoidance protects",
+      "Be honest about the cost of the protection"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Avoidance-cost analysis"
+  },
+  {
+    "id": "casual_9-10_108",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe what you mean when you say you're 'doing fine' — and what you'd say if you were being more honest.",
+    "tips": [
+      "Quote your usual 'fine' answer, including its tone",
+      "Then the honest version, sentence by sentence",
+      "Don't dramatize — the honest version may be quieter, not bigger"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Public-private gap"
+  },
+  {
+    "id": "casual_9-10_109",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about a person whose absence shaped you more than their presence ever did.",
+    "tips": [
+      "Don't recap who they were — focus on the shape of the absence",
+      "Name a specific way you became who you are because they weren't there",
+      "Resist resolving the absence into a lesson"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Negative-space portrait"
+  },
+  {
+    "id": "casual_9-10_110",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe a way you've been performing competence longer than you've actually had it.",
+    "tips": [
+      "Pick one domain, be specific",
+      "Describe what the performance covers for",
+      "Be honest about whether the performance has become competence, or just better performance"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Competence-mask audit"
+  },
+  {
+    "id": "casual_9-10_111",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about what you've been postponing — and what it would cost to start tomorrow.",
+    "tips": [
+      "Pick the real one, not a respectable one",
+      "Describe the postponement honestly — the moves you use to defer",
+      "Don't perform commitment at the end; just describe the cost"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Postponement reckoning"
+  },
+  {
+    "id": "casual_9-10_112",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe a memory you keep returning to and what it's trying to tell you.",
+    "tips": [
+      "Set the scene tightly — under a minute",
+      "Then sit with the question of why it returns",
+      "Be honest if you don't know yet — the not-knowing is the work"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Recurring-memory inquiry"
+  },
+  {
+    "id": "casual_9-10_113",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about a way you've changed that no one in your life has noticed.",
+    "tips": [
+      "Pick something internal, not a habit anyone would see",
+      "Be specific about the old version and the new",
+      "Notice how it feels to describe a change without a witness"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Unwitnessed-change reflection"
+  },
+  {
+    "id": "casual_9-10_114",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe the difference between the life you imagined at 18 and the one you're in — without making it a verdict.",
+    "tips": [
+      "Sketch the 18-year-old picture in specific scenes, not categories",
+      "Then the actual current life, in matching detail",
+      "Resist judgment in either direction — describe, don't grade"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Imagined-vs-lived comparison"
+  },
+  {
+    "id": "casual_9-10_115",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about something you've forgiven without quite meaning to.",
+    "tips": [
+      "Name what happened in enough detail that the forgiveness has weight",
+      "Describe the drift toward forgiveness rather than a decision",
+      "Be honest if some of it is still uncashed"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Drift-toward-forgiveness story"
+  },
+  {
+    "id": "casual_9-10_116",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe a moment in the last year you would relive — and one you'd rewrite.",
+    "tips": [
+      "Set both moments tightly: where, who, what",
+      "For the rewrite, name exactly what you'd change, not just 'do better'",
+      "Notice the contrast in your voice between the two — let it show"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Year-in-review pair"
+  },
+  {
+    "id": "casual_9-10_117",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about a story you tell about yourself that you suspect is more flattering than accurate.",
+    "tips": [
+      "Tell the flattering version first, in the voice you usually use",
+      "Then dismantle it, gently and specifically",
+      "Resist replacing it with a self-flagellating version"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Self-mythology audit"
+  },
+  {
+    "id": "casual_9-10_118",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe what you're afraid you'll regret if you don't say something to a specific person.",
+    "tips": [
+      "Anonymize if you need to, but keep the person sharp in your mind",
+      "Name what specifically needs saying, not 'how you feel'",
+      "Be honest about what's stopping you, beyond the easy reasons"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Unsaid-thing reckoning"
+  },
+  {
+    "id": "casual_9-10_119",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Talk about the gap between how you want to be remembered and how you currently spend your days.",
+    "tips": [
+      "Sketch the remembered version in concrete scenes",
+      "Then describe a real recent day, in matching detail",
+      "Don't end on a vow — end on what the gap is showing you"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Legacy-vs-daily audit"
+  },
+  {
+    "id": "casual_9-10_120",
+    "mode": "casual",
+    "difficultyBand": "9-10",
+    "question": "Describe a quiet truth you've come to about love, work, or yourself — without dressing it up.",
+    "tips": [
+      "Resist a quotable opener — start in the middle of the thought",
+      "Use the simplest words you can — the truth doesn't need adornment",
+      "If it feels too tidy as you say it, it probably is"
+    ],
+    "targetDuration": 120,
+    "difficultyNote": "Plain-language insight"
+  },
+  {
+    "id": "casual_3-4_101",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Talk about a piece of media — a show, book, podcast, song — that you keep recommending and why.",
+    "tips": [
+      "Name it in the first sentence — don't make us wait",
+      "Skip the plot summary; describe the effect it has on people",
+      "Be specific about who you recommend it to, and who you don't"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Curatorial-recommendation chat"
+  },
+  {
+    "id": "casual_3-4_102",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe what your phone's home screen says about how you actually live.",
+    "tips": [
+      "Pick three real apps in concrete positions, not categories",
+      "Let one of them slightly embarrass you",
+      "Don't editorialize — let the layout tell the story"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Indirect self-portrait"
+  },
+  {
+    "id": "casual_3-4_103",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Talk about something you used to think was cool that you've quietly stopped finding cool.",
+    "tips": [
+      "Be specific — a band, a style, a kind of person",
+      "Describe how it used to feel, vividly",
+      "Don't make fun of past-you — just notice the shift"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Taste-evolution observation"
+  },
+  {
+    "id": "casual_3-4_104",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe a small change in your routine that turned out to matter more than you expected.",
+    "tips": [
+      "Keep the change small — if it sounds impressive, you're aiming wrong",
+      "Anchor in a specific day or week you noticed the difference",
+      "Don't pitch it as a productivity tip; talk like a friend"
+    ],
+    "targetDuration": 75,
+    "difficultyNote": "Small-change observation"
+  },
+  {
+    "id": "casual_3-4_105",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Talk about a place you've never been but feel like you know.",
+    "tips": [
+      "Name where the picture came from — a book, a friend, a movie",
+      "Describe the version in your head with specific details",
+      "Be honest about whether you actually want to go, or whether you prefer the imagined one"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Imagined-place portrait"
+  },
+  {
+    "id": "casual_3-4_106",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe what you'd want someone visiting your city for a day to do — and what you'd warn them away from.",
+    "tips": [
+      "Skip the tourist list; pick the things you actually like",
+      "Be specific about the warning — a particular street, hour, or trap",
+      "Let your real opinions show, not the polite ones"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Insider-view tour"
+  },
+  {
+    "id": "casual_3-4_107",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Talk about something you spend more time on than anyone in your life realizes.",
+    "tips": [
+      "Don't make it sound impressive — keep it as low-stakes as it really is",
+      "Describe the actual time it takes in a week",
+      "Be honest about why you've kept it quiet"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Private-time admission"
+  },
+  {
+    "id": "casual_3-4_108",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe what your ideal Saturday actually looks like — not the aspirational one, the honest one.",
+    "tips": [
+      "Hour by hour or scene by scene, not in categories",
+      "Resist the temptation to make it sound interesting",
+      "Notice where your aspirational version and your honest one diverge"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Real-vs-ideal day"
+  },
+  {
+    "id": "casual_3-4_109",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Talk about a movie or show you watched at the wrong age — too young or too old — and what that did to it.",
+    "tips": [
+      "Name the title and the age you were",
+      "Describe what landed differently because of the timing",
+      "Be honest about whether you'd want to revisit it now"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Mistimed-media memory"
+  },
+  {
+    "id": "casual_3-4_110",
+    "mode": "casual",
+    "difficultyBand": "3-4",
+    "question": "Describe what you wish someone had told you about being an adult, that no one actually said.",
+    "tips": [
+      "Skip the inspirational; pick the unglamorous true thing",
+      "Anchor in a moment you wish you'd had the information",
+      "Resist generalizing into advice — keep it personal"
+    ],
+    "targetDuration": 90,
+    "difficultyNote": "Unsaid-adult-truth reflection"
   }
 ]
