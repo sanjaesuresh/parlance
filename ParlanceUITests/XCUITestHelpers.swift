@@ -133,38 +133,57 @@ extension XCUIApplication {
     /// element nor any descendant has keyboard focus." This walks through a
     /// chain of strategies, verifying focus moved after each before giving up.
     func advanceFocus(from currentField: XCUIElement, to nextField: XCUIElement, timeout: TimeInterval = 6) {
+        // Poll for focus rather than XCTNSPredicateExpectation, so we can
+        // observe focus landing on either field without recording a system
+        // failure on accessibilityActivationPoint == {-1,-1}.
         let focusPredicate = NSPredicate(format: "hasKeyboardFocus == true")
-        func focusLanded() -> Bool {
-            let exp = XCTNSPredicateExpectation(predicate: focusPredicate, object: nextField)
-            return XCTWaiter().wait(for: [exp], timeout: 1.5) == .completed
+        func hasFocus(_ element: XCUIElement) -> Bool {
+            element.exists && focusPredicate.evaluate(with: element)
+        }
+        func currentlyFocused() -> XCUIElement? {
+            if hasFocus(nextField) { return nextField }
+            if hasFocus(currentField) { return currentField }
+            return nil
+        }
+        func waitForFocusOnNext(_ seconds: Double) -> Bool {
+            let deadline = Date().addingTimeInterval(seconds)
+            while Date() < deadline {
+                if hasFocus(nextField) { return true }
+                Thread.sleep(forTimeInterval: 0.1)
+            }
+            return false
         }
 
         // Strategy 1: tap a labeled keyboard key that fires SwiftUI's onSubmit
-        // → onSubmit advances focus via @FocusState binding.
+        // → onSubmit advances focus via @FocusState binding. SwiftUI's focus
+        // propagation can lag the tap by a few hundred ms, so give it 2.5s
+        // before deciding the tap missed.
         for label in ["Next", "next", "Return", "return", "Done", "done", "Continue", "Go", "go", "Search", "Send"] {
             let key = keyboards.buttons[label]
             if key.exists {
                 key.tap()
-                if focusLanded() { return }
+                if waitForFocusOnNext(2.5) { return }
                 break
             }
         }
 
-        // Strategy 2: send a newline directly into the focused field. On some
-        // SwiftUI versions this triggers onSubmit even when the keyboard
-        // button query missed.
-        if currentField.exists {
-            currentField.typeText("\n")
-            if focusLanded() { return }
+        // Strategy 2: send a newline into whatever field currently holds
+        // focus. Only safe if the *previous* field still has focus — if a
+        // labeled-key tap above succeeded but our wait read it too early,
+        // focus is already on nextField and typeText("\n") into currentField
+        // would crash with "no keyboard focus."
+        if let focused = currentlyFocused() {
+            if focused == nextField { return }
+            focused.typeText("\n")
+            if waitForFocusOnNext(2.5) { return }
         }
 
-        // Strategy 3: coordinate-tap nextField directly, retried a few times.
-        // Works on larger sims where focus transfers cleanly; here it's the
-        // last-resort path before failure.
+        // Strategy 3: coordinate-tap nextField directly. Works on larger
+        // sims where focus transfers cleanly via a fresh tap.
         let deadline = Date().addingTimeInterval(timeout)
         while Date() < deadline {
             nextField.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
-            if focusLanded() { return }
+            if waitForFocusOnNext(1.5) { return }
         }
     }
 

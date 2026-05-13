@@ -41,11 +41,21 @@ final class FriendsE2ETests: XCTestCase {
 
     /// Wait for an element to be hittable (covers cases where it exists in the hierarchy
     /// but is obscured by an overlay like SplashView).
+    ///
+    /// Polls rather than using `XCTNSPredicateExpectation(isHittable)`: the
+    /// predicate evaluator records a "Failed to determine hittability"
+    /// system failure when SwiftUI reports `accessibilityActivationPoint =
+    /// {-1, -1}` (a known iOS 26 sim quirk), and under
+    /// `continueAfterFailure = false` that halts the test even though we
+    /// just want a Bool.
     @discardableResult
     fileprivate static func waitForHittable(_ element: XCUIElement, timeout: TimeInterval) -> Bool {
-        let hittable = NSPredicate(format: "isHittable == true")
-        let exp = XCTNSPredicateExpectation(predicate: hittable, object: element)
-        return XCTWaiter.wait(for: [exp], timeout: timeout) == .completed
+        let deadline = Date().addingTimeInterval(timeout)
+        while Date() < deadline {
+            if element.exists && element.isHittable { return true }
+            Thread.sleep(forTimeInterval: 0.1)
+        }
+        return element.exists && element.isHittable
     }
 
     /// Bootstrap fixture B: try to sign in; if it fails, run the full sign-up flow.
@@ -157,11 +167,10 @@ final class FriendsE2ETests: XCTestCase {
         XCTAssertTrue(nameField.waitForExistence(timeout: 10))
         app.tapAndFocus(nameField)
         nameField.typeText(bDisplayName)
-        app.dismissKeyboard()
 
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
-        app.tapAndFocus(usernameField)
+        app.advanceFocus(from: nameField, to: usernameField)
         usernameField.typeText(bUsername)
         app.dismissKeyboard()
 
@@ -619,11 +628,10 @@ final class FriendsE2ETests: XCTestCase {
         XCTAssertTrue(nameField.waitForExistence(timeout: 10))
         app.tapAndFocus(nameField)
         nameField.typeText(displayName)
-        app.dismissKeyboard()
 
         let usernameField = app.textFields["usernameField"]
         XCTAssertTrue(usernameField.waitForExistence(timeout: 5))
-        app.tapAndFocus(usernameField)
+        app.advanceFocus(from: nameField, to: usernameField)
         usernameField.typeText(username)
         app.dismissKeyboard()
 
