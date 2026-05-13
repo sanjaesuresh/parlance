@@ -24,22 +24,24 @@ jobs:
       - name: Select destination
         id: dest
         run: |
-          IOS_RUNTIME=$(xcrun simctl list runtimes available 2>/dev/null \
-            | grep "^iOS" | grep -v "unavailable" | head -1 \
-            | grep -oE "com\.apple\.CoreSimulator\.SimRuntime\.iOS-[0-9-]+" || true)
+          SIM_JSON=$(xcrun simctl list devices available -j 2>/dev/null)
 
-          DEST=""
-          if [ -n "$IOS_RUNTIME" ]; then
-            IOS_ID=$(xcrun simctl list devices available "$IOS_RUNTIME" 2>/dev/null \
-              | grep "iPhone" | grep -v "unavailable" | head -1 \
-              | grep -oE "[0-9A-F-]{36}" || true)
-            [ -n "$IOS_ID" ] && DEST="platform=iOS Simulator,id=$IOS_ID"
-          fi
+          IOS_ID=$(echo "$SIM_JSON" \
+            | jq -r '.devices | to_entries[] | select(.key | test("iOS")) | .value[] | select(.isAvailable and (.name | test("iPhone"))) | .udid' \
+            | head -1)
 
-          if [ -z "$DEST" ]; then
-            VISION_ID=$(xcrun simctl list devices available -j 2>/dev/null \
-              | jq -r '.devices | to_entries[] | select(.key | contains("visionOS")) | .value[] | select(.isAvailable) | .udid' \
+          if [ -n "$IOS_ID" ]; then
+            DEST="platform=iOS Simulator,id=$IOS_ID"
+          else
+            VISION_ID=$(echo "$SIM_JSON" \
+              | jq -r '.devices | to_entries[] | select(.key | test("visionOS|xrOS")) | .value[] | select(.isAvailable) | .udid' \
               | head -1)
+            if [ -z "$VISION_ID" ]; then
+              echo "No iOS or visionOS simulator available on this runner." >&2
+              echo "Installed runtimes:" >&2
+              xcrun simctl list runtimes >&2
+              exit 1
+            fi
             DEST="platform=visionOS Simulator,id=$VISION_ID"
           fi
 
