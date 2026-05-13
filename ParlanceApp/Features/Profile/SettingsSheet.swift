@@ -182,6 +182,7 @@ struct SettingsSheet: View {
                 }
             }
         }
+        .preferredColorScheme(AppTheme(rawValue: appThemeRaw)?.colorScheme)
         .presentationDetents([.large])
         .alert("Sign Out", isPresented: $showSignOutConfirmation) {
             Button("Sign Out", role: .destructive) {
