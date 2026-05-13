@@ -1,10 +1,16 @@
 import SwiftUI
 
 struct RealLifeSetupView: View {
-    @StateObject private var vm = RealLifeSetupViewModel()
+    @StateObject private var vm: RealLifeSetupViewModel
     @Environment(\.dismiss) private var dismiss
     let level: Int
     let onStart: (ActiveSessionState) -> Void
+
+    init(level: Int, prefillScenario: String? = nil, onStart: @escaping (ActiveSessionState) -> Void) {
+        self.level = level
+        self.onStart = onStart
+        _vm = StateObject(wrappedValue: RealLifeSetupViewModel(prefillScenario: prefillScenario))
+    }
 
     @State private var sliderValue: Double = 60
     @State private var startHaptic = false
@@ -23,6 +29,7 @@ struct RealLifeSetupView: View {
                     textField
                     counter
                     if vm.denylistTripped { denylistWarning }
+                    if vm.validationFailure != nil { validationWarning }
                     durationCard
                     if !vm.recentScenarios.isEmpty { recentSection }
                 }
@@ -147,6 +154,38 @@ struct RealLifeSetupView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
+    private var validationWarning: some View {
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: "exclamationmark.bubble.fill")
+                .foregroundStyle(AppColors.red)
+                .font(.system(size: 14))
+            Text(validationMessage)
+                .font(AppFonts.body(12))
+                .foregroundStyle(AppColors.red)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(12)
+        .background(AppColors.red.opacity(0.12))
+        .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.red.opacity(0.45), lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .accessibilityIdentifier("realLife.validationWarning")
+    }
+
+    private var validationMessage: String {
+        switch vm.validationFailure {
+        case .tooShort:
+            return "Describe the conversation in a sentence or two."
+        case .mostlyNonLetters:
+            return "Use words, not symbols — describe the conversation."
+        case .askingTheAI:
+            return "Tell us about a conversation you're about to have, not what to write."
+        case .noSpeechActOrAudience:
+            return "We couldn't tell who you're speaking to. Describe who you're talking to and what about."
+        case nil:
+            return ""
+        }
+    }
+
     // MARK: - Duration
 
     private var durationCard: some View {
@@ -229,6 +268,7 @@ struct RealLifeSetupView: View {
     private var startButton: some View {
         Button {
             guard vm.canStart else { return }
+            guard vm.attemptStart() else { return }
             startHaptic.toggle()
             onStart(buildState())
         } label: {
