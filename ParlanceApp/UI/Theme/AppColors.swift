@@ -63,6 +63,26 @@ enum AppColors {
     // Approximates oklch(0.78 0.10 28) — lighter than the alarm/danger red.
     static let redSoft = Color(hex: "#E89180")
 
+    // MARK: - Badge tiers
+    //
+    // Used by the profile badge row. Bronze and silver are intentionally
+    // a touch muted in dark mode so the gold tier still feels the most
+    // prestigious in the row. All three share warm-to-cool sequencing.
+
+    static let bronze = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#B07A4A")
+            : UIColor(hex: "#8E5A2E")
+    })
+
+    static let silver = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#B8C0CE")
+            : UIColor(hex: "#7A8597")
+    })
+
+    // (Gold tier uses the existing `gold` token — keeps the brand accent.)
+
     // Foreground for content placed on AppColors.gold (icons, glyphs, text).
     // Gold is the same in light and dark mode, so this is intentionally a fixed
     // near-black for contrast in both schemes.

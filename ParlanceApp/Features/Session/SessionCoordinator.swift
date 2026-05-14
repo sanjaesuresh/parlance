@@ -335,21 +335,41 @@ struct SessionCoordinator: View {
     private func checkAchievements(user: User, session: Session, persistence: PersistenceService) {
         let totalSessions = persistence.totalSessionCount()
 
+        // --- Volume ---
         if totalSessions >= 1 { persistence.unlockAchievement(id: "first_session") }
-
         persistence.updateAchievementProgress(id: "sessions_30", progress: totalSessions)
 
+        let totalSpoken = persistence.totalSpokenSeconds()
+        persistence.updateAchievementProgress(id: "spoke_10h", progress: totalSpoken)
+
+        // --- Streak ---
+        persistence.updateAchievementProgress(id: "streak_3", progress: user.currentStreak)
         if user.currentStreak >= 7 { persistence.unlockAchievement(id: "streak_7") }
+        persistence.updateAchievementProgress(id: "streak_30", progress: user.currentStreak)
+        persistence.updateAchievementProgress(id: "streak_100", progress: user.currentStreak)
 
-        if session.overallScore >= 80 { persistence.unlockAchievement(id: "score_80") }
+        // --- Score (single session) ---
+        if session.overallScore >= 80  { persistence.unlockAchievement(id: "score_80") }
+        if session.overallScore >= 90  { persistence.unlockAchievement(id: "score_90") }
+        if session.overallScore >= 100 { persistence.unlockAchievement(id: "score_100") }
 
+        // --- Quality ---
         if session.fillerCount == 0 && session.hasTranscript { persistence.unlockAchievement(id: "zero_fillers") }
 
+        // --- Consistency (lifetime avg, gated on ≥10 sessions to avoid trivial unlocks) ---
+        if totalSessions >= 10 {
+            let avg = persistence.lifetimeAverageScore()
+            if avg >= 80 { persistence.unlockAchievement(id: "avg_80") }
+            if avg >= 90 { persistence.unlockAchievement(id: "avg_90") }
+        }
+
+        // --- Variety ---
+        persistence.updateAchievementProgress(id: "tour_modes", progress: persistence.distinctFreeModesPracticed())
         let interviewCount = persistence.interviewSessionCount()
         persistence.updateAchievementProgress(id: "interview_pro", progress: interviewCount)
 
-        if user.rank.level >= 5 { persistence.unlockAchievement(id: "rank_5") }
-
+        // --- Mastery ---
+        if user.rank.level >= 5  { persistence.unlockAchievement(id: "rank_5") }
         if user.rank.level >= 10 { persistence.unlockAchievement(id: "master") }
     }
 }

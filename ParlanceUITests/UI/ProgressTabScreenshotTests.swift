@@ -80,6 +80,20 @@ final class ProgressTabScreenshotTests: XCTestCase {
         tapFirstRecentSession()
         sleep(forUI: 0.8)
         snapshot(named: "session-detail.png")
+
+        // 5. Profile tab — captures the new badge row.
+        navigateToProfile()
+        snapshot(named: "profile-badges.png")
+    }
+
+    // MARK: - Profile navigation
+
+    private func navigateToProfile() {
+        let profileTab = app.tabBars.buttons["Profile"]
+        if profileTab.waitForExistence(timeout: 5) {
+            profileTab.tap()
+            sleep(forUI: 1.5)
+        }
     }
 
     // MARK: - Navigation

@@ -35,9 +35,9 @@ struct ProfileView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     heroSection
                     levelCard
+                    badgeRow
                     lifetimeSection
                     thisWeekSection
-                    achievementsSection
                     footerSection
                 }
                 .padding(.horizontal, 16)
@@ -447,8 +447,18 @@ struct ProfileView: View {
         )
     }
 
-    // MARK: - Achievements
+    // MARK: - Badges (replaces the old achievementsSection grid)
 
+    @ViewBuilder
+    private var badgeRow: some View {
+        if !achievements.isEmpty {
+            BadgeRowView(achievements: Array(achievements))
+        }
+    }
+
+    // The legacy 4-column achievement grid is kept as a private builder for
+    // reference; it is no longer mounted in the main scroll. Tap a single
+    // badge in `badgeRow` to see its detail sheet instead.
     @ViewBuilder
     private var achievementsSection: some View {
         if !achievements.isEmpty {

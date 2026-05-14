@@ -32,6 +32,72 @@ enum ProgressMockData {
         seedUser(context: context)
         seedSessions(context: context)
         try? context.save()
+        unlockExpectedAchievements(context: context)
+    }
+
+    /// Apply the same unlock checks that `SessionCoordinator.checkAchievements`
+    /// would have fired during normal play, so the seeded user has a realistic
+    /// badge state on the Profile tab. Mirrors the logic in SessionCoordinator
+    /// — keep in sync if that file evolves.
+    @MainActor
+    private static func unlockExpectedAchievements(context: ModelContext) {
+        let sessions = (try? context.fetch(FetchDescriptor<Session>())) ?? []
+        let users = (try? context.fetch(FetchDescriptor<User>())) ?? []
+        guard let user = users.first, !sessions.isEmpty else { return }
+
+        // Make sure the catalog rows exist before we try to mark any of them
+        // unlocked — seed runs before the persistence service's normal seed.
+        let achievements = (try? context.fetch(FetchDescriptor<Achievement>())) ?? []
+        let byID = Dictionary(uniqueKeysWithValues: achievements.map { ($0.id, $0) })
+
+        func unlock(_ id: String) {
+            guard let row = byID[id], !row.isUnlocked else { return }
+            row.isUnlocked = true
+            row.unlockedDate = .now
+            row.progress = row.goal
+        }
+        func progress(_ id: String, _ value: Int) {
+            guard let row = byID[id] else { return }
+            row.progress = min(value, row.goal)
+            if row.progress >= row.goal { unlock(id) }
+        }
+
+        let totalSessions = sessions.count
+        let totalSpoken = Int(sessions.map(\.duration).reduce(0, +))
+        let bestScore = sessions.map(\.overallScore).max() ?? 0
+        let avgScore = sessions.map(\.overallScore).reduce(0, +) / max(1, totalSessions)
+        let hasZeroFiller = sessions.contains { $0.fillerCount == 0 && !$0.transcript.isEmpty }
+        let freeModes: Set<String> = Set(SessionMode.freeModes.map(\.rawValue))
+        let distinctFree = Set(sessions.map(\.modeRaw)).intersection(freeModes).count
+        let interviewCount = sessions.filter { $0.modeRaw == SessionMode.interview.rawValue }.count
+
+        if totalSessions >= 1 { unlock("first_session") }
+        progress("sessions_30", totalSessions)
+        progress("spoke_10h", totalSpoken)
+
+        progress("streak_3", user.currentStreak)
+        if user.currentStreak >= 7 { unlock("streak_7") }
+        progress("streak_30", user.currentStreak)
+        progress("streak_100", user.currentStreak)
+
+        if bestScore >= 80  { unlock("score_80") }
+        if bestScore >= 90  { unlock("score_90") }
+        if bestScore >= 100 { unlock("score_100") }
+
+        if hasZeroFiller { unlock("zero_fillers") }
+
+        if totalSessions >= 10 {
+            if avgScore >= 80 { unlock("avg_80") }
+            if avgScore >= 90 { unlock("avg_90") }
+        }
+
+        progress("tour_modes", distinctFree)
+        progress("interview_pro", interviewCount)
+
+        if user.rank.level >= 5  { unlock("rank_5") }
+        if user.rank.level >= 10 { unlock("master") }
+
+        try? context.save()
     }
 
     // MARK: - Wipe

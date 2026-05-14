@@ -111,6 +111,30 @@ final class PersistenceService {
         return (try? context.fetchCount(descriptor)) ?? 0
     }
 
+    /// Total seconds spoken across all sessions.
+    func totalSpokenSeconds() -> Int {
+        let descriptor = FetchDescriptor<Session>()
+        let sessions = (try? context.fetch(descriptor)) ?? []
+        return Int(sessions.map(\.duration).reduce(0, +))
+    }
+
+    /// Lifetime average overallScore. Returns 0 when no sessions yet.
+    func lifetimeAverageScore() -> Int {
+        let descriptor = FetchDescriptor<Session>()
+        let sessions = (try? context.fetch(descriptor)) ?? []
+        guard !sessions.isEmpty else { return 0 }
+        return sessions.map(\.overallScore).reduce(0, +) / sessions.count
+    }
+
+    /// Distinct free-tier modes the user has practiced at least once. Used
+    /// by the "Tourist" badge (try all 4 free modes).
+    func distinctFreeModesPracticed() -> Int {
+        let descriptor = FetchDescriptor<Session>()
+        let sessions = (try? context.fetch(descriptor)) ?? []
+        let freeModes: Set<String> = Set(SessionMode.freeModes.map(\.rawValue))
+        return Set(sessions.map(\.modeRaw)).intersection(freeModes).count
+    }
+
     // MARK: - Achievements
 
     func getAchievements() -> [Achievement] {
@@ -118,23 +142,35 @@ final class PersistenceService {
         return (try? context.fetch(descriptor)) ?? []
     }
 
+    /// Idempotent seed + upsert. Always runs to:
+    ///   1. insert any badge in `Achievement.definitions` that isn't persisted yet
+    ///      (handles catalog expansions on app updates).
+    ///   2. refresh `name`, `descriptionText`, `iconName`, `goal`, `tier`,
+    ///      and `category` on existing rows so renames and tier changes
+    ///      propagate without resetting unlock state.
     func seedAchievementsIfNeeded() {
-        let key = "parlance.achievements_seeded"
-        guard !UserDefaults.standard.bool(forKey: key) else { return }
         let existing = getAchievements()
-        guard existing.isEmpty else {
-            UserDefaults.standard.set(true, forKey: key)
-            return
-        }
+        let existingByID = Dictionary(uniqueKeysWithValues: existing.map { ($0.id, $0) })
+
         for def in Achievement.definitions {
-            let achievement = Achievement(
-                id: def.id, name: def.name,
-                descriptionText: def.description, iconName: def.icon, goal: def.goal
-            )
-            context.insert(achievement)
+            if let row = existingByID[def.id] {
+                // Refresh catalog metadata (but never reset unlock state).
+                row.name = def.name
+                row.descriptionText = def.description
+                row.iconName = def.icon
+                row.goal = def.goal
+                row.tier = def.tier
+                row.category = def.category
+            } else {
+                let achievement = Achievement(
+                    id: def.id, name: def.name,
+                    descriptionText: def.description, iconName: def.icon, goal: def.goal,
+                    tier: def.tier, category: def.category
+                )
+                context.insert(achievement)
+            }
         }
         try? context.save()
-        UserDefaults.standard.set(true, forKey: key)
     }
 
     func unlockAchievement(id: String) {
