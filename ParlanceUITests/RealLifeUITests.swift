@@ -71,4 +71,65 @@ final class RealLifeUITests: XCTestCase {
         // We left the setup screen — the field should disappear.
         XCTAssertFalse(scenarioField.waitForExistence(timeout: 3))
     }
+
+    func test_realLifeSetup_invalidScenario_showsValidationWarning() throws {
+        let app = XCUIApplication()
+        app.launchArguments += [
+            "UITesting",
+            "--ui-test-seed-pro",
+        ]
+        app.launch()
+
+        XCTAssertTrue(
+            app.tabBars.buttons["Home"].waitForExistence(timeout: 10),
+            "Home tab should be visible after seed-pro launch"
+        )
+
+        let realLifeTile = app.buttons["home.modeGrid.realLife"]
+        var attempts = 0
+        while !realLifeTile.exists && attempts < 8 {
+            app.swipeUp()
+            attempts += 1
+        }
+        XCTAssertTrue(realLifeTile.exists)
+        attempts = 0
+        while !realLifeTile.isHittable && attempts < 4 {
+            app.swipeUp()
+            attempts += 1
+        }
+        realLifeTile.safeTap()
+
+        let scenarioField = app.descendants(matching: .any)["realLife.scenarioField"].firstMatch
+        if !scenarioField.waitForExistence(timeout: 4) {
+            realLifeTile.safeTap()
+            XCTAssertTrue(scenarioField.waitForExistence(timeout: 6))
+        }
+        app.tapAndFocus(scenarioField)
+        scenarioField.typeText("the weather is nice today and the sun is warm outside")
+        app.dismissKeyboard()
+
+        // Tap Continue. Validation should fail (no audience/speech act) and
+        // the warning card should appear — the screen must not advance.
+        let startBtn = app.buttons["realLife.startButton"]
+        XCTAssertTrue(startBtn.waitForExistence(timeout: 3))
+        startBtn.safeTap()
+
+        let warning = app.descendants(matching: .any)["realLife.validationWarning"].firstMatch
+        XCTAssertTrue(
+            warning.waitForExistence(timeout: 2),
+            "Validation warning should appear for a non-speaking-prompt scenario"
+        )
+        XCTAssertTrue(scenarioField.exists, "Setup screen should not have advanced")
+
+        // Editing the field should clear the warning.
+        app.tapAndFocus(scenarioField)
+        // Append a speech-act + audience clause so the heuristic now passes.
+        scenarioField.typeText(" so I'm telling my manager about it")
+        app.dismissKeyboard()
+
+        XCTAssertFalse(
+            warning.waitForExistence(timeout: 1),
+            "Warning should disappear once the user edits to a valid scenario"
+        )
+    }
 }
