@@ -5,11 +5,14 @@ struct ProgressTabView: View {
     @Query(sort: \Session.date, order: .reverse) private var sessions: [Session]
     @Query private var users: [User]
     @StateObject private var viewModel = ProgressViewModel()
+    @StateObject private var briefStore = CoachBriefStore()
+    @EnvironmentObject private var subscription: SubscriptionService
 
     @State private var period: PeriodFilter = .month
     @State private var openSkill: MetricKey? = .structure
     @State private var standoutExpanded: Bool = false
     @State private var showAllSessions: Bool = false
+    @State private var isRefreshingBrief: Bool = false
 
     // MARK: - Mock data (DEBUG only, shown when no real sessions exist)
 
@@ -103,6 +106,42 @@ struct ProgressTabView: View {
             }
             .background(AppColors.bg)
             .navigationBarHidden(true)
+            .refreshable {
+                await refreshBrief(manual: true)
+            }
+            .task {
+                if briefStore.shouldAutoRefresh() {
+                    await refreshBrief(manual: false)
+                }
+            }
+        }
+    }
+
+    // MARK: - Server-side coach brief
+
+    private func refreshBrief(manual: Bool) async {
+        if manual, !briefStore.canManuallyRefresh() { return }
+        guard !isRefreshingBrief else { return }
+        isRefreshingBrief = true
+        defer { isRefreshingBrief = false }
+
+        guard let payload = WeeklyBriefAggregator.build(
+            sessions: effectiveSessions,
+            user: currentUser,
+            isPro: subscription.isPro
+        ) else {
+            briefStore.markAttempt()
+            return
+        }
+
+        do {
+            let brief = try await WeeklyBriefClient.fetch(payload: payload)
+            briefStore.save(brief, manual: manual)
+        } catch {
+            briefStore.markAttempt()
+            #if DEBUG
+            print("[ProgressTab] weekly-brief refresh failed:", error)
+            #endif
         }
     }
 
@@ -271,7 +310,15 @@ struct ProgressTabView: View {
 
     @ViewBuilder
     private var coachBriefSection: some View {
-        if let coachBrief {
+        if let serverBrief = briefStore.latest {
+            CoachBriefView(brief: ProgressViewModel.CoachBrief(
+                body: serverBrief.brief,
+                signature: "— Updated \(serverBrief.generatedAt.formatted(.dateTime.weekday().hour().minute()))",
+                positiveHighlights: serverBrief.highlights.filter { $0.kind == "positive" }.map(\.phrase),
+                negativeHighlights: serverBrief.highlights.filter { $0.kind == "negative" }.map(\.phrase)
+            ))
+            .padding(.top, 28)
+        } else if let coachBrief {
             CoachBriefView(brief: coachBrief)
                 .padding(.top, 28)
         }
