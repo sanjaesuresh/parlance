@@ -43,17 +43,10 @@ struct AllTimeStatsCard: View {
     // MARK: - Header
 
     private var header: some View {
-        HStack(alignment: .firstTextBaseline) {
-            Text("All-time")
-                .font(AppFonts.display(18))
-                .foregroundStyle(AppColors.text)
-            Spacer()
-            Text(sinceText)
-                .font(AppFonts.body(10))
-                .kerning(1.0)
-                .textCase(.uppercase)
-                .foregroundStyle(AppColors.dim)
-        }
+        Text("All-time")
+            .font(AppFonts.display(18))
+            .foregroundStyle(AppColors.text)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     // MARK: - Cell
@@ -73,12 +66,6 @@ struct AllTimeStatsCard: View {
     }
 
     // MARK: - Formatting
-
-    private var sinceText: String {
-        guard let joinDate = stats.joinDate else { return "Since today" }
-        let formatted = joinDate.formatted(.dateTime.month(.abbreviated).year())
-        return "Since \(formatted)"
-    }
 
     private var formattedXP: String {
         stats.totalXP.formatted(.number.grouping(.automatic))
