@@ -189,7 +189,7 @@ struct ProgressTabView: View {
 
     @ViewBuilder
     private var standoutSection: some View {
-        sectionHeader(title: "Standout moment", meta: "Tap for breakdown", topPadding: 18)
+        sectionHeader(title: "Standout moment", meta: nil, topPadding: 18)
             .padding(.top, 18)
 
         if let standout {

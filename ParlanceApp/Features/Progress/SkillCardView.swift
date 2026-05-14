@@ -62,10 +62,15 @@ struct SkillCardView: View {
                     .foregroundStyle(AppColors.text)
 
                 if let delta = card.delta {
-                    Text(formattedDelta(delta))
-                        .font(AppFonts.bodyMedium(11))
-                        .foregroundStyle(delta >= 0 ? AppColors.teal : AppColors.red)
-                        .lineLimit(1)
+                    // Round to 1dp; suppress when the rounded delta is exactly 0
+                    // (e.g. "↑ +0.0" is visual noise, same rule as the trend chart).
+                    let rounded = (delta * 10).rounded() / 10
+                    if rounded != 0 {
+                        Text(formattedDelta(rounded))
+                            .font(AppFonts.bodyMedium(11))
+                            .foregroundStyle(rounded >= 0 ? AppColors.teal : AppColors.red)
+                            .lineLimit(1)
+                    }
                 }
 
                 Image(systemName: "chevron.right")

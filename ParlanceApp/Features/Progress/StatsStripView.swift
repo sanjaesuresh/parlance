@@ -37,6 +37,8 @@ struct StatsStripView: View {
                 showDelta: aggregate.sessionCount > 0 && aggregate.totalDurationDelta != nil
             )
         }
+        .fixedSize(horizontal: false, vertical: true)
+        .background(AppColors.card2)
         .clipShape(RoundedRectangle(cornerRadius: 14))
         .overlay(
             RoundedRectangle(cornerRadius: 14)
@@ -74,16 +76,16 @@ struct StatsStripView: View {
                     .padding(.top, 4)
             }
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.vertical, 14)
         .padding(.horizontal, 8)
-        .background(AppColors.card2)
     }
 
     private var divider: some View {
         Rectangle()
             .fill(AppColors.border)
             .frame(width: 1)
+            .frame(maxHeight: .infinity)
     }
 
     // MARK: - Formatted values

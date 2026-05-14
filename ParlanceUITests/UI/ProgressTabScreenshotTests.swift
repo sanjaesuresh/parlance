@@ -85,25 +85,58 @@ final class ProgressTabScreenshotTests: XCTestCase {
     // MARK: - Navigation
 
     private func navigateToProgress() {
-        let tab = app.tabBars.buttons["Progress"]
-        if !tab.isSelected {
-            tab.tap()
+        // The tab bar can rebuild during the splash → mainTabView transition;
+        // retry the tap a few times until the period filter (the canary inside
+        // the Progress tab) appears.
+        let filter = periodFilter("month")
+        for attempt in 0..<6 {
+            let tab = app.tabBars.buttons["Progress"]
+            if tab.exists {
+                tab.tap()
+            }
+            sleep(forUI: 0.8)
+            if filter.exists { break }
+            if attempt == 5 {
+                attachElementTree()
+            }
         }
+
+        // Snapshot once we've settled — gives us SOMETHING on failure.
+        sleep(forUI: 1.0)
+        snapshot(named: "00-progress-tab-landed.png")
+
         // Confirm the period filter rendered before continuing.
-        let filter = app.buttons["periodFilter.month"]
-        XCTAssertTrue(
-            filter.waitForExistence(timeout: 10),
-            "Period filter should be visible on the Progress tab"
-        )
+        if !filter.waitForExistence(timeout: 5) {
+            attachElementTree()
+            XCTFail("Period filter should be visible on the Progress tab — see element-tree attachment")
+        }
+    }
+
+    private func periodFilter(_ key: String) -> XCUIElement {
+        let id = "periodFilter.\(key)"
+        if app.buttons[id].exists { return app.buttons[id] }
+        if app.otherElements[id].exists { return app.otherElements[id] }
+        return app.descendants(matching: .any).matching(identifier: id).firstMatch
     }
 
     private func tapPeriod(_ key: String) {
-        let button = app.buttons["periodFilter.\(key)"]
+        let button = periodFilter(key)
         XCTAssertTrue(
             button.waitForExistence(timeout: 5),
             "periodFilter.\(key) should exist"
         )
         button.tap()
+    }
+
+    /// Attach the element-hierarchy debug description so failures are
+    /// diagnosable from the .xcresult bundle alone.
+    private func attachElementTree() {
+        let dump = app.debugDescription
+        let data = Data(dump.utf8)
+        let attachment = XCTAttachment(data: data, uniformTypeIdentifier: "public.plain-text")
+        attachment.name = "element-tree.txt"
+        attachment.lifetime = .keepAlways
+        add(attachment)
     }
 
     private func tapStandoutIfPresent() {
@@ -119,18 +152,20 @@ final class ProgressTabScreenshotTests: XCTestCase {
     }
 
     private func tapSkillCardByName(_ name: String) {
-        // SkillCardView is a Button whose label contains the metric's
-        // displayName as a static text. XCUITest collapses Button label
-        // text into the button's `label`, so we can match either.
-        let direct = app.buttons[name]
-        if direct.exists {
-            direct.tap()
+        // SkillCardView is a Button whose accessibility label begins with the
+        // metric's displayName (e.g. "Pace, 7.5, ↑ +0.0, Holding steady...").
+        // Use a BEGINSWITH predicate so we hit the Button, not the bare
+        // StaticText with the same name that appears in the chart label.
+        let predicate = NSPredicate(format: "label BEGINSWITH[c] %@", "\(name),")
+        let button = app.buttons.matching(predicate).firstMatch
+        if button.waitForExistence(timeout: 3) {
+            button.tap()
             return
         }
-        // Fallback: tap the static text element directly.
-        let text = app.staticTexts[name]
-        if text.exists {
-            text.tap()
+        // Fallback: match a button whose label simply contains the name.
+        let fallback = app.buttons.containing(NSPredicate(format: "label CONTAINS[c] %@", name)).firstMatch
+        if fallback.exists {
+            fallback.tap()
         }
     }
 

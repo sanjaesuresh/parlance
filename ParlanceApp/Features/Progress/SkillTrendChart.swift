@@ -48,9 +48,14 @@ struct SkillTrendChart: View {
 
     @ViewBuilder
     private func deltaRow(for trend: ProgressViewModel.SkillTrendItem) -> some View {
-        let isHidden = trend.deltaVsAllTime == nil
-        let delta = trend.deltaVsAllTime ?? 0
-        let isUp = delta >= 0
+        // Hide entirely on All-time (nil) AND when the rounded delta is 0.0
+        // — "↑ +0.0" is visual noise. Reserve the row's vertical space with
+        // an .opacity(0) so the bar/label/score below stay aligned across
+        // columns even when one column has no delta to show.
+        let rawDelta = trend.deltaVsAllTime
+        let rounded = (rawDelta.map { ($0 * 10).rounded() / 10 }) ?? 0
+        let shouldHide = rawDelta == nil || rounded == 0
+        let isUp = rounded >= 0
         let arrow = isUp ? "↑" : "↓"
         let color: Color = isUp ? AppColors.teal : AppColors.red
 
@@ -58,13 +63,13 @@ struct SkillTrendChart: View {
             Text(arrow)
                 .font(AppFonts.bodyMedium(10))
                 .foregroundStyle(color)
-            Text(formattedDelta(delta))
+            Text(formattedDelta(rounded))
                 .font(AppFonts.bodyMedium(10))
                 .foregroundStyle(color)
         }
         .frame(height: 14)
         .lineLimit(1)
-        .opacity(isHidden ? 0 : 1)
+        .opacity(shouldHide ? 0 : 1)
     }
 
     @ViewBuilder
