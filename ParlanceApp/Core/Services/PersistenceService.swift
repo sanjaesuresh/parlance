@@ -9,6 +9,23 @@ final class PersistenceService {
 
     private init() {
         let schema = Schema([User.self, Session.self, Achievement.self, SeenQuestion.self])
+
+        #if DEBUG
+        // When running under a test harness, back the shared container with
+        // an in-memory store. Keeps UI-test seeds (UITestBootstrap,
+        // ProgressMockData) from leaking into the developer's on-disk
+        // sandbox between runs on a shared simulator.
+        if Self.isRunningUnderTestHarness {
+            let inMemoryConfig = ModelConfiguration(isStoredInMemoryOnly: true)
+            do {
+                container = try ModelContainer(for: schema, configurations: [inMemoryConfig])
+                return
+            } catch {
+                fatalError("[PersistenceService] In-memory container failed: \(error)")
+            }
+        }
+        #endif
+
         let persistentConfig = ModelConfiguration(isStoredInMemoryOnly: false)
         do {
             container = try ModelContainer(for: schema, configurations: [persistentConfig])
@@ -75,17 +92,21 @@ final class PersistenceService {
         "mock-progress-user"
     ]
 
-    /// Removes orphan `User` rows seeded by UI tests on this simulator's
-    /// shared sandbox. Skipped when the app is currently running under a
-    /// test harness (so tests don't wipe their own seed). Sessions and
-    /// achievements are intentionally left in place — they have no user
-    /// FK, so the read-side UID filter handles them.
-    func cleanUITestResidueIfNeeded() {
+    private static var isRunningUnderTestHarness: Bool {
         let args = ProcessInfo.processInfo.arguments
-        let underTest = args.contains("UITesting")
+        return args.contains("UITesting")
             || args.contains("--ui-test-seed-pro")
             || args.contains("-mockProgressData")
-        if underTest { return }
+    }
+
+    /// Removes legacy `User` rows seeded by UI tests on this simulator's
+    /// shared on-disk sandbox before the in-memory test container existed.
+    /// Skipped when running under a test harness (the container is already
+    /// in-memory there, so nothing to clean). Sessions and achievements
+    /// are intentionally left in place — they have no user FK, so the
+    /// read-side UID filter handles them.
+    func cleanUITestResidueIfNeeded() {
+        if Self.isRunningUnderTestHarness { return }
 
         let descriptor = FetchDescriptor<User>()
         guard let users = try? context.fetch(descriptor) else { return }
