@@ -14,67 +14,32 @@ struct ProgressTabView: View {
     @State private var showAllSessions: Bool = false
     @State private var isRefreshingBrief: Bool = false
 
-    // MARK: - Mock data (DEBUG only, shown when no real sessions exist)
-
-    #if DEBUG
-    private static let mockSessions: [Session] = {
-        func ago(_ n: Int) -> Date {
-            Calendar.current.date(byAdding: .day, value: -n, to: .now)!
-        }
-        func make(mode: SessionMode, days: Int, score: Int, filler: Int, pace: Int, clarity: Int, structure: Int, vocab: Int, duration: TimeInterval, question: String, feedback: String?, xp: Int) -> Session {
-            let s = Session(mode: mode, difficultyLevel: 5, duration: duration, transcript: "Mock.", overallScore: score, fillerCount: filler, paceScore: pace, clarityScore: clarity, structureScore: structure, vocabularyScore: vocab, question: question, aiCoachFeedback: feedback, xpEarned: xp, wasDailyChallenge: false)
-            s.date = ago(days)
-            return s
-        }
-        return [
-            make(mode: .interview,   days: 0,  score: 82, filler: 2, pace: 8, clarity: 8, structure: 7, vocab: 9, duration: 95,  question: "Tell me about a time you overcame a significant challenge.",                feedback: "Solid STAR structure. Your example was specific and the outcome was clearly tied to your actions. Trim the preamble next time, the first 15 seconds added nothing.",              xp: 45),
-            make(mode: .casual,      days: 1,  score: 75, filler: 4, pace: 7, clarity: 8, structure: 6, vocab: 8, duration: 78,  question: "Explain what you do for work to someone who's never heard of it.",         feedback: "Good energy. Your analogy landed well. Watch the filler words in the second half, they undermine the confident tone you built up early.",                                xp: 35),
-            make(mode: .impromptu,   days: 2,  score: 68, filler: 6, pace: 6, clarity: 7, structure: 6, vocab: 7, duration: 62,  question: "You have 60 seconds: convince someone to try a new hobby.",                  feedback: "You had the right instinct to lead with emotion. The argument structure fell apart in the middle. Commit to one compelling reason rather than listing several weak ones.",          xp: 28),
-            make(mode: .explanation, days: 3,  score: 88, filler: 1, pace: 9, clarity: 9, structure: 8, vocab: 9, duration: 110, question: "Explain how the internet works to a 10-year-old.",                          feedback: "Excellent. The postal service analogy was clear and memorable. Your pacing gave the listener time to follow along. The closing felt abrupt; a single wrap-up sentence would round this off.", xp: 52),
-            make(mode: .interview,   days: 5,  score: 71, filler: 5, pace: 7, clarity: 7, structure: 6, vocab: 7, duration: 88,  question: "Describe a situation where you had to lead under pressure.",                feedback: "The story had real stakes. But you buried the outcome; in an interview context, the result is what the listener is waiting for. Get to it sooner.",                            xp: 32),
-            make(mode: .casual,      days: 7,  score: 79, filler: 3, pace: 8, clarity: 8, structure: 7, vocab: 8, duration: 85,  question: "What's a book you'd recommend, and why?",                                    feedback: "Concise and personal. You gave a specific reason rather than a vague compliment, which made it credible. Slight overrun on pace at the end. Slow down when making your key point.", xp: 40),
-            make(mode: .explanation, days: 8,  score: 90, filler: 1, pace: 9, clarity: 9, structure: 9, vocab: 9, duration: 105, question: "Walk me through how a vaccine works.",                                      feedback: "One of your strongest sessions. The layered explanation held together from start to finish. Vocabulary was precise without being jargon-heavy.",                                  xp: 58),
-            make(mode: .impromptu,   days: 10, score: 74, filler: 5, pace: 7, clarity: 7, structure: 6, vocab: 7, duration: 71,  question: "Describe your ideal workday in under 2 minutes.",                            feedback: "Good instinct to anchor on values early. The middle section repeated the same point twice. Trim it. End on the outcome, not the process.",                                       xp: 33),
-            make(mode: .interview,   days: 12, score: 65, filler: 8, pace: 6, clarity: 6, structure: 6, vocab: 7, duration: 92,  question: "Why do you want to work here?",                                              feedback: "The core answer was solid but the delivery was tentative. Filler words spiked when discussing culture. Prep that section more thoroughly. The closing line landed well.",     xp: 25),
-            make(mode: .explanation, days: 14, score: 86, filler: 2, pace: 8, clarity: 9, structure: 8, vocab: 8, duration: 98,  question: "Explain compound interest to a teenager.",                                  feedback: "Strong analogy in the opening, the snowball image worked. Structure was clean: concept, example, implication. Minor rhythm issue in the middle, but overall very polished.",  xp: 50),
-        ]
-    }()
-    #endif
-
-    private var effectiveSessions: [Session] {
-        #if DEBUG
-        return sessions.isEmpty ? Self.mockSessions : sessions
-        #else
-        return sessions
-        #endif
-    }
-
     private var currentUser: User? { users.first }
 
     // MARK: - Derived data
 
     private var periodSessions: [Session] {
-        viewModel.sessions(effectiveSessions, in: period)
+        viewModel.sessions(sessions, in: period)
     }
 
     private var aggregate: ProgressViewModel.PeriodAggregate {
-        viewModel.aggregate(effectiveSessions, for: period)
+        viewModel.aggregate(sessions, for: period)
     }
 
     private var skillTrends: [ProgressViewModel.SkillTrendItem] {
-        viewModel.skillTrends(effectiveSessions, for: period)
+        viewModel.skillTrends(sessions, for: period)
     }
 
     private var skillCards: [ProgressViewModel.SkillCardModel] {
-        viewModel.skillCards(effectiveSessions, for: period)
+        viewModel.skillCards(sessions, for: period)
     }
 
     private var standout: Session? {
-        viewModel.standout(effectiveSessions, in: period)
+        viewModel.standout(sessions, in: period)
     }
 
     private var allTime: ProgressViewModel.AllTimeStats {
-        viewModel.allTimeStats(effectiveSessions, user: currentUser)
+        viewModel.allTimeStats(sessions, user: currentUser)
     }
 
     private var coachBrief: ProgressViewModel.CoachBrief? {
@@ -84,7 +49,7 @@ struct ProgressTabView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                if effectiveSessions.isEmpty {
+                if sessions.isEmpty {
                     firstLaunchPrimer
                 } else {
                     VStack(spacing: 0) {
@@ -126,7 +91,7 @@ struct ProgressTabView: View {
         defer { isRefreshingBrief = false }
 
         guard let payload = WeeklyBriefAggregator.build(
-            sessions: effectiveSessions,
+            sessions: sessions,
             user: currentUser,
             isPro: subscription.isPro
         ) else {
@@ -150,21 +115,42 @@ struct ProgressTabView: View {
     private var firstLaunchPrimer: some View {
         VStack(spacing: 0) {
             header
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Your progress shows up here after your first session.")
-                    .font(AppFonts.display(20))
-                    .foregroundStyle(AppColors.text)
-                    .lineSpacing(4)
-                Text("Try a 60-second Daily Convo to start.")
-                    .font(AppFonts.body(13))
-                    .foregroundStyle(AppColors.sub)
-                    .padding(.top, 4)
+
+            ProgressEmptyHeroCard {
+                DeepLinkRouter.shared.selectedTab = 0
             }
-            .padding(.top, 32)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 22)
+
+            emptyPreviewSection(
+                title: "Standout moment",
+                description: "Your best session of the period — score, prompt, and a snippet from your transcript."
+            )
+
+            emptyPreviewSection(
+                title: "Skills",
+                description: "Fillers, pace, clarity, structure, vocabulary, persuasion. Tracked across modes and surfaced over time."
+            )
+
+            emptyPreviewSection(
+                title: "Recent sessions",
+                description: "Every session lives here. Tap one to revisit the transcript, score breakdown, and coach feedback."
+            )
+
+            emptyPreviewSection(
+                title: "All-time stats",
+                description: "Sessions, total minutes, current streak, average score."
+            )
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 32)
+    }
+
+    @ViewBuilder
+    private func emptyPreviewSection(title: String, description: String) -> some View {
+        sectionHeader(title: title, meta: nil, topPadding: 18)
+            .padding(.top, 18)
+        ProgressEmptyPreviewCard(description: description)
+            .padding(.top, 12)
     }
 
     // MARK: - Header
@@ -204,11 +190,10 @@ struct ProgressTabView: View {
             )
             .padding(.top, 12)
         } else {
-            Text("Finish a session in this period to see your standout moment.")
-                .font(AppFonts.body(12))
-                .foregroundStyle(AppColors.sub)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.top, 8)
+            ProgressEmptyPreviewCard(
+                description: "Finish a session in this period and your standout moment lands here."
+            )
+            .padding(.top, 12)
         }
     }
 
@@ -223,7 +208,10 @@ struct ProgressTabView: View {
             .padding(.top, 12)
 
         if skillCards.isEmpty {
-            EmptyView()
+            ProgressEmptyPreviewCard(
+                description: "Record a session in this period to start tracking how each skill is moving."
+            )
+            .padding(.top, 12)
         } else {
             VStack(spacing: 10) {
                 ForEach(skillCards) { card in
@@ -256,10 +244,10 @@ struct ProgressTabView: View {
         .padding(.top, 18)
 
         if recent.isEmpty {
-            Text("No sessions yet — start one →")
-                .font(AppFonts.body(13))
-                .foregroundStyle(AppColors.sub)
-                .padding(.top, 12)
+            ProgressEmptyPreviewCard(
+                description: "No sessions in this period yet. Try a different range, or start one from Home."
+            )
+            .padding(.top, 12)
         } else {
             VStack(spacing: 0) {
                 ForEach(Array(recent.enumerated()), id: \.element.id) { idx, session in
