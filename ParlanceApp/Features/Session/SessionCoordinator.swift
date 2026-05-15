@@ -3,6 +3,7 @@ import SwiftData
 
 struct SessionCoordinator: View {
     let state: ActiveSessionState
+    let currentUserID: String?
     let onReshuffleQuestion: ((ExplanationCategory) -> Question?)?
     let onDismiss: () -> Void
     var onEditScenario: ((String) -> Void)? = nil
@@ -16,18 +17,21 @@ struct SessionCoordinator: View {
 
     init(
         state: ActiveSessionState,
+        currentUserID: String?,
         onReshuffleQuestion: ((ExplanationCategory) -> Question?)? = nil,
         onDismiss: @escaping () -> Void,
         onEditScenario: ((String) -> Void)? = nil
     ) {
         self.state = state
+        self.currentUserID = currentUserID
         self.onReshuffleQuestion = onReshuffleQuestion
         self.onDismiss = onDismiss
         self.onEditScenario = onEditScenario
         self._currentQuestion = State(initialValue: state.question)
+        let seededUser = currentUserID.flatMap { PersistenceService.shared.getUser(uid: $0) }
         self._currentTopicCategory = State(
             initialValue: state.mode == .explanation
-                ? (PersistenceService.shared.getUser()?.lastExplanationCategory ?? .any)
+                ? (seededUser?.lastExplanationCategory ?? .any)
                 : nil
         )
     }
@@ -305,7 +309,7 @@ struct SessionCoordinator: View {
         )
 
         // Gamification
-        if let user = persistence.getUser() {
+        if let uid = currentUserID, let user = persistence.getUser(uid: uid) {
             GamificationService.awardXP(
                     to: user,
                     wasDailyChallenge: state.wasDailyChallenge,

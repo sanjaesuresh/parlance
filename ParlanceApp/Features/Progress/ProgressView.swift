@@ -7,6 +7,7 @@ struct ProgressTabView: View {
     @StateObject private var viewModel = ProgressViewModel()
     @StateObject private var briefStore = CoachBriefStore()
     @EnvironmentObject private var subscription: SubscriptionService
+    @EnvironmentObject private var authService: AuthService
 
     @State private var period: PeriodFilter = .month
     @State private var openSkill: MetricKey? = .structure
@@ -14,7 +15,9 @@ struct ProgressTabView: View {
     @State private var showAllSessions: Bool = false
     @State private var isRefreshingBrief: Bool = false
 
-    private var currentUser: User? { users.first }
+    private var currentUser: User? {
+        users.first { $0.supabaseUID == authService.currentUserID }
+    }
 
     // MARK: - Derived data
 

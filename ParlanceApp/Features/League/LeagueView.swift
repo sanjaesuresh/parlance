@@ -7,6 +7,7 @@ struct LeagueView: View {
     @StateObject private var viewModel = LeagueViewModel()
     @StateObject private var socialService = SocialService()
     @EnvironmentObject private var weekCache: SessionWeekCache
+    @EnvironmentObject private var authService: AuthService
     @Binding var openFriendRequests: Bool
     @State private var selectedTab: SocialTab = .leaderboard
     @State private var friendSearchText = ""
@@ -24,7 +25,9 @@ struct LeagueView: View {
         case leaderboard, friends
     }
 
-    private var user: User? { users.first }
+    private var user: User? {
+        users.first { $0.supabaseUID == authService.currentUserID }
+    }
 
     var body: some View {
         NavigationStack {

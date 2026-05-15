@@ -68,8 +68,10 @@ struct ContentView: View {
             } else if let session = activeSession {
                 SessionCoordinator(
                     state: session,
+                    currentUserID: authService.currentUserID,
                     onReshuffleQuestion: { [questionBank] newCategory in
-                        guard let user = PersistenceService.shared.getUser() else { return nil }
+                        guard let uid = authService.currentUserID,
+                              let user = PersistenceService.shared.getUser(uid: uid) else { return nil }
                         let band = session.question.difficultyBand
                         let seenIds = PersistenceService.shared.seenQuestionIds(
                             mode: session.mode,
@@ -109,6 +111,9 @@ struct ContentView: View {
         .environmentObject(permissionsService)
         .environmentObject(weekCache)
         .onAppear {
+            #if DEBUG
+            PersistenceService.shared.cleanUITestResidueIfNeeded()
+            #endif
             PersistenceService.shared.seedAchievementsIfNeeded()
             #if DEBUG
             // Visual-verification harness: seed the curated Progress-tab

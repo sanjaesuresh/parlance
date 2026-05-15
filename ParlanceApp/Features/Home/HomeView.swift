@@ -10,9 +10,12 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @EnvironmentObject private var subscription: SubscriptionService
     @EnvironmentObject private var weekCache: SessionWeekCache
+    @EnvironmentObject private var authService: AuthService
     @ObservedObject private var router = DeepLinkRouter.shared
 
-    private var user: User? { users.first }
+    private var user: User? {
+        users.first { $0.supabaseUID == authService.currentUserID }
+    }
 
     private var thisWeekSessions: [Session] {
         let cal = Calendar.current

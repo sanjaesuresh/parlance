@@ -60,16 +60,43 @@ final class PersistenceService {
 
     // MARK: - User
 
-    func getUser() -> User? {
-        let descriptor = FetchDescriptor<User>()
-        return try? context.fetch(descriptor).first
-    }
-
     func getUser(uid: String) -> User? {
         guard !uid.isEmpty else { return nil }
         let descriptor = FetchDescriptor<User>()
         return try? context.fetch(descriptor).first { $0.supabaseUID == uid }
     }
+
+    #if DEBUG
+    /// Test-only Supabase UIDs seeded by `UITestBootstrap` and `ProgressMockData`.
+    /// Listed here (rather than referenced from those types) so this file
+    /// stays decoupled from the test bootstrap surface.
+    private static let testResidueUIDs: Set<String> = [
+        "11111111-2222-3333-4444-555555555555",
+        "mock-progress-user"
+    ]
+
+    /// Removes orphan `User` rows seeded by UI tests on this simulator's
+    /// shared sandbox. Skipped when the app is currently running under a
+    /// test harness (so tests don't wipe their own seed). Sessions and
+    /// achievements are intentionally left in place — they have no user
+    /// FK, so the read-side UID filter handles them.
+    func cleanUITestResidueIfNeeded() {
+        let args = ProcessInfo.processInfo.arguments
+        let underTest = args.contains("UITesting")
+            || args.contains("--ui-test-seed-pro")
+            || args.contains("-mockProgressData")
+        if underTest { return }
+
+        let descriptor = FetchDescriptor<User>()
+        guard let users = try? context.fetch(descriptor) else { return }
+        var didChange = false
+        for user in users where Self.testResidueUIDs.contains(user.supabaseUID) {
+            context.delete(user)
+            didChange = true
+        }
+        if didChange { try? context.save() }
+    }
+    #endif
 
     func createUser(supabaseUID: String, name: String, username: String = "", location: String? = nil, occupation: String? = nil, avatar: String, practiceLevel: Int = 1) -> User {
         let user = User(supabaseUID: supabaseUID, displayName: name, username: username, location: location, occupation: occupation, avatarEmoji: avatar, practiceLevel: practiceLevel, hasCompletedSetup: true)

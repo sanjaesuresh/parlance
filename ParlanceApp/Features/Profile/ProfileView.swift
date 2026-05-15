@@ -9,13 +9,16 @@ struct ProfileView: View {
     @ObservedObject private var router = DeepLinkRouter.shared
     @EnvironmentObject private var subscription: SubscriptionService
     @EnvironmentObject private var weekCache: SessionWeekCache
+    @EnvironmentObject private var authService: AuthService
     @State private var showSettings = false
     @State private var showEditProfile = false
     @State private var showAvatarPicker = false
     @State private var showPaywall = false
     @AppStorage("appTheme") private var appThemeRaw: String = AppTheme.system.rawValue
 
-    private var user: User? { users.first }
+    private var user: User? {
+        users.first { $0.supabaseUID == authService.currentUserID }
+    }
 
     private let achievementColumns = [
         GridItem(.flexible(), spacing: 8),
