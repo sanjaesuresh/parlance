@@ -120,37 +120,9 @@ struct ProgressTabView: View {
                 DeepLinkRouter.shared.selectedTab = 0
             }
             .padding(.top, 22)
-
-            emptyPreviewSection(
-                title: "Standout moment",
-                description: "Your best session of the period — score, prompt, and a snippet from your transcript."
-            )
-
-            emptyPreviewSection(
-                title: "Skills",
-                description: "Fillers, pace, clarity, structure, vocabulary, persuasion. Tracked across modes and surfaced over time."
-            )
-
-            emptyPreviewSection(
-                title: "Recent sessions",
-                description: "Every session lives here. Tap one to revisit the transcript, score breakdown, and coach feedback."
-            )
-
-            emptyPreviewSection(
-                title: "All-time stats",
-                description: "Sessions, total minutes, current streak, average score."
-            )
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 32)
-    }
-
-    @ViewBuilder
-    private func emptyPreviewSection(title: String, description: String) -> some View {
-        sectionHeader(title: title, meta: nil, topPadding: 18)
-            .padding(.top, 18)
-        ProgressEmptyPreviewCard(description: description)
-            .padding(.top, 12)
     }
 
     // MARK: - Header
