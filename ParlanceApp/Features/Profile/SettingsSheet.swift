@@ -16,161 +16,86 @@ struct SettingsSheet: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 0) {
+                VStack(alignment: .leading, spacing: 24) {
                     if !subscription.isPro {
-                        Button {
-                            dismiss()
-                            showPaywall = true
-                        } label: {
-                            HStack {
-                                Image(systemName: "crown.fill")
-                                    .foregroundStyle(AppColors.gold)
-                                    .frame(width: 24)
-                                    .accessibilityHidden(true)
-                                Text("Upgrade to Pro")
-                                    .font(AppFonts.body(14))
-                                    .foregroundStyle(AppColors.gold)
-                                Spacer()
-                                Text("\u{203A}")
-                                    .font(.system(size: 18))
-                                    .foregroundStyle(AppColors.dim)
-                                    .accessibilityHidden(true)
+                        proUpgradeCard
+                            .padding(.top, 4)
+                    }
+
+                    settingsSection("Preferences") {
+                        groupedCard {
+                            toggleRow(
+                                icon: "bell.fill",
+                                title: "Daily Reminder",
+                                isOn: Binding(
+                                    get: { viewModel.dailyReminderEnabled },
+                                    set: { viewModel.toggleDailyReminder($0) }
+                                )
+                            )
+                            rowDivider
+                            toggleRow(
+                                icon: "speaker.wave.2.fill",
+                                title: "Sound Effects",
+                                isOn: Binding(
+                                    get: { viewModel.soundEffectsEnabled },
+                                    set: { viewModel.toggleSoundEffects($0) }
+                                )
+                            )
+                            rowDivider
+                            appearanceRow
+                        }
+                    }
+
+                    settingsSection("Account") {
+                        groupedCard {
+                            destructiveRow(
+                                icon: "rectangle.portrait.and.arrow.right",
+                                title: "Sign Out",
+                                accessibilityID: "signOutButton"
+                            ) {
+                                showSignOutConfirmation = true
                             }
-                            .padding(.vertical, 12)
-                        }
-
-                        Divider().background(AppColors.border)
-                    }
-
-                    Toggle(isOn: Binding(
-                        get: { viewModel.dailyReminderEnabled },
-                        set: { viewModel.toggleDailyReminder($0) }
-                    )) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "bell.fill")
-                                .foregroundStyle(AppColors.sub)
-                                .frame(width: 24)
-                                .accessibilityHidden(true)
-                            Text("Daily Reminder")
-                                .font(AppFonts.body(14))
-                                .foregroundStyle(AppColors.text)
-                        }
-                    }
-                    .tint(AppColors.gold)
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    Toggle(isOn: Binding(
-                        get: { viewModel.soundEffectsEnabled },
-                        set: { viewModel.toggleSoundEffects($0) }
-                    )) {
-                        HStack(spacing: 8) {
-                            Image(systemName: "speaker.wave.2.fill")
-                                .foregroundStyle(AppColors.sub)
-                                .frame(width: 24)
-                                .accessibilityHidden(true)
-                            Text("Sound Effects")
-                                .font(AppFonts.body(14))
-                                .foregroundStyle(AppColors.text)
-                        }
-                    }
-                    .tint(AppColors.gold)
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    HStack {
-                        Image(systemName: "circle.lefthalf.filled")
-                            .foregroundStyle(AppColors.sub)
-                            .frame(width: 24)
-                            .accessibilityHidden(true)
-                        Text("Appearance")
-                            .font(AppFonts.body(14))
-                            .foregroundStyle(AppColors.text)
-
-                        Spacer()
-
-                        Picker("Appearance", selection: $appThemeRaw) {
-                            ForEach(AppTheme.allCases, id: \.rawValue) { theme in
-                                Text(theme.displayName).tag(theme.rawValue)
+                            rowDivider
+                            destructiveRow(
+                                icon: "trash",
+                                title: "Reset All Data"
+                            ) {
+                                viewModel.showResetConfirmation = true
+                            }
+                            rowDivider
+                            destructiveRow(
+                                icon: "person.crop.circle.badge.minus",
+                                title: "Delete Account",
+                                accessibilityID: "deleteAccountButton"
+                            ) {
+                                showDeleteAccountConfirmation = true
                             }
                         }
-                        .pickerStyle(.menu)
-                        .tint(AppColors.gold)
-                    }
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "rectangle.portrait.and.arrow.right", title: "Sign Out", isDestructive: true) {
-                        showSignOutConfirmation = true
-                    }
-                    .accessibilityIdentifier("signOutButton")
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "trash", title: "Reset All Data", isDestructive: true) {
-                        viewModel.showResetConfirmation = true
                     }
 
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "person.crop.circle.badge.minus", title: "Delete Account", isDestructive: true) {
-                        showDeleteAccountConfirmation = true
-                    }
-                    .accessibilityIdentifier("deleteAccountButton")
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "lock.shield", title: "Privacy Policy") {
-                        safariURL = URL(string: "https://theparlance.app/privacy")
-                        showSafari = true
-                    }
-
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "doc.text", title: "Terms of Service") {
-                        safariURL = URL(string: "https://theparlance.app/terms")
-                        showSafari = true
+                    settingsSection("Legal") {
+                        groupedCard {
+                            linkRow(icon: "lock.shield", title: "Privacy Policy") {
+                                safariURL = URL(string: "https://theparlance.app/privacy")
+                                showSafari = true
+                            }
+                            rowDivider
+                            linkRow(icon: "doc.text", title: "Terms of Service") {
+                                safariURL = URL(string: "https://theparlance.app/terms")
+                                showSafari = true
+                            }
+                            rowDivider
+                            linkRow(icon: "person.2.fill", title: "Community Guidelines") {
+                                safariURL = URL(string: "https://theparlance.app/guidelines")
+                                showSafari = true
+                            }
+                        }
                     }
 
-                    Divider().background(AppColors.border)
-
-                    menuRow(icon: "person.2.fill", title: "Community Guidelines") {
-                        safariURL = URL(string: "https://theparlance.app/guidelines")
-                        showSafari = true
-                    }
-
-                    Divider().background(AppColors.border)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("ABOUT YOUR DATA")
-                            .font(AppFonts.bodyMedium(10))
-                            .foregroundStyle(AppColors.dim)
-                            .kerning(1.0)
-                        Text("Your recording is transcribed on-device by Apple Speech Recognition, then deleted from your device. The transcript is sent over an encrypted connection through our Cloudflare Worker proxy to Google Gemini, which generates your coaching feedback. On Pro, a short audio clip is also sent through the same proxy to Hume AI for vocal tone analysis and is not retained. Session data (scores, transcripts, XP) is stored locally on your device; your profile and aggregate stats sync to Supabase so you can use Parlance across devices.")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.dim)
-                            .lineSpacing(3)
-                    }
-                    .padding(.vertical, 12)
-
-                    Divider().background(AppColors.border)
-
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("ABOUT THE AI")
-                            .font(AppFonts.bodyMedium(10))
-                            .foregroundStyle(AppColors.dim)
-                            .kerning(1.0)
-                        Text("AI scores and feedback are for practice only. They aren't a substitute for professional coaching, therapy, or medical advice.")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.dim)
-                            .lineSpacing(3)
-                    }
-                    .padding(.vertical, 12)
+                    finePrintBlock
                 }
                 .padding(.horizontal, 16)
+                .padding(.bottom, 32)
             }
             .background(AppColors.bg)
             .navigationTitle("Settings")
@@ -223,29 +148,229 @@ struct SettingsSheet: View {
         }
     }
 
-    private func menuRow(emoji: String = "", icon: String = "", title: String, isDestructive: Bool = false, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack {
-                if !emoji.isEmpty {
-                    Text(emoji)
-                        .frame(width: 24)
-                        .accessibilityHidden(true)
-                } else if !icon.isEmpty {
-                    Image(systemName: icon)
-                        .foregroundStyle(isDestructive ? AppColors.red : AppColors.sub)
-                        .frame(width: 24)
-                        .accessibilityHidden(true)
+    // MARK: - Pro upgrade hero
+
+    private var proUpgradeCard: some View {
+        Button {
+            dismiss()
+            showPaywall = true
+        } label: {
+            HStack(alignment: .center, spacing: 14) {
+                ZStack {
+                    Circle()
+                        .fill(AppColors.gold)
+                        .frame(width: 44, height: 44)
+                    Image(systemName: "crown.fill")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundStyle(AppColors.onGold)
                 }
+                .accessibilityHidden(true)
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("Upgrade to Pro")
+                        .font(AppFonts.display(18))
+                        .foregroundStyle(AppColors.text)
+                    Text("Advanced modes, deeper feedback, vocal tone.")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer(minLength: 8)
+
+                Text("Unlock")
+                    .font(AppFonts.bodyBold(11))
+                    .kerning(0.6)
+                    .foregroundStyle(AppColors.onGold)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 7)
+                    .background(AppColors.gold)
+                    .clipShape(Capsule())
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                LinearGradient(
+                    colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 18))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18)
+                    .stroke(AppColors.gold.opacity(0.3), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("Upgrade to Pro. Advanced modes, deeper feedback, vocal tone.")
+    }
+
+    // MARK: - Editorial section header
+
+    private func settingsSection<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Rectangle()
+                .fill(AppColors.border)
+                .frame(height: 1)
+                .padding(.bottom, 18)
+            Text(title)
+                .font(AppFonts.display(18))
+                .foregroundStyle(AppColors.text)
+                .padding(.bottom, 12)
+            content()
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    // MARK: - Grouped card stack
+
+    private func groupedCard<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+        VStack(spacing: 0) {
+            content()
+        }
+        .background(AppColors.card2)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(AppColors.border, lineWidth: 1)
+        )
+    }
+
+    private var rowDivider: some View {
+        Rectangle()
+            .fill(AppColors.border)
+            .frame(height: 1)
+            .padding(.leading, 52)
+    }
+
+    // MARK: - Rows
+
+    private func toggleRow(icon: String, title: String, isOn: Binding<Bool>) -> some View {
+        HStack(spacing: 14) {
+            Image(systemName: icon)
+                .font(.system(size: 15))
+                .foregroundStyle(AppColors.sub)
+                .frame(width: 22, alignment: .center)
+                .accessibilityHidden(true)
+            Toggle(isOn: isOn) {
                 Text(title)
                     .font(AppFonts.body(14))
-                    .foregroundStyle(isDestructive ? AppColors.red : AppColors.text)
+                    .foregroundStyle(AppColors.text)
+            }
+            .tint(AppColors.gold)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+    }
+
+    private var appearanceRow: some View {
+        HStack(spacing: 14) {
+            Image(systemName: "circle.lefthalf.filled")
+                .font(.system(size: 15))
+                .foregroundStyle(AppColors.sub)
+                .frame(width: 22, alignment: .center)
+                .accessibilityHidden(true)
+            Text("Appearance")
+                .font(AppFonts.body(14))
+                .foregroundStyle(AppColors.text)
+            Spacer()
+            Picker("Appearance", selection: $appThemeRaw) {
+                ForEach(AppTheme.allCases, id: \.rawValue) { theme in
+                    Text(theme.displayName).tag(theme.rawValue)
+                }
+            }
+            .pickerStyle(.menu)
+            .tint(AppColors.gold)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 6)
+    }
+
+    private func destructiveRow(icon: String, title: String, accessibilityID: String? = nil, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 14) {
+                Image(systemName: icon)
+                    .font(.system(size: 15))
+                    .foregroundStyle(AppColors.red)
+                    .frame(width: 22, alignment: .center)
+                    .accessibilityHidden(true)
+                Text(title)
+                    .font(AppFonts.body(14))
+                    .foregroundStyle(AppColors.text)
                 Spacer()
-                Text("\u{203A}")
-                    .font(.system(size: 18))
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .semibold))
                     .foregroundStyle(AppColors.dim)
                     .accessibilityHidden(true)
             }
-            .padding(.vertical, 12)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier(accessibilityID ?? "")
+    }
+
+    private func linkRow(icon: String, title: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 14) {
+                Image(systemName: icon)
+                    .font(.system(size: 15))
+                    .foregroundStyle(AppColors.sub)
+                    .frame(width: 22, alignment: .center)
+                    .accessibilityHidden(true)
+                Text(title)
+                    .font(AppFonts.body(14))
+                    .foregroundStyle(AppColors.text)
+                Spacer()
+                Image(systemName: "arrow.up.right")
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundStyle(AppColors.dim)
+                    .accessibilityHidden(true)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - Fine print
+
+    private var finePrintBlock: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Rectangle()
+                .fill(AppColors.border)
+                .frame(height: 1)
+            Text("FINE PRINT")
+                .font(AppFonts.bodyMedium(10))
+                .foregroundStyle(AppColors.dim)
+                .kerning(1.2)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Your data")
+                    .font(AppFonts.bodyBold(11))
+                    .foregroundStyle(AppColors.sub)
+                Text("Your recording is transcribed on-device by Apple Speech Recognition, then deleted from your device. The transcript is sent over an encrypted connection through our Cloudflare Worker proxy to Google Gemini, which generates your coaching feedback. On Pro, a short audio clip is also sent through the same proxy to Hume AI for vocal tone analysis and is not retained. Session data (scores, transcripts, XP) is stored locally on your device; your profile and aggregate stats sync to Supabase so you can use Parlance across devices.")
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("About the AI")
+                    .font(AppFonts.bodyBold(11))
+                    .foregroundStyle(AppColors.sub)
+                Text("AI scores and feedback are for practice only. They aren't a substitute for professional coaching, therapy, or medical advice.")
+                    .font(AppFonts.body(11))
+                    .foregroundStyle(AppColors.dim)
+                    .lineSpacing(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
