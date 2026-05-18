@@ -18,7 +18,9 @@ final class AvatarService {
     // MARK: - Path / URL helpers (pure, unit-tested)
 
     nonisolated static func objectPath(for userId: String) -> String {
-        "\(userId)/avatar.jpg"
+        // Lowercase to match Postgres `auth.uid()::text` in RLS comparisons.
+        // Swift's UUID.uuidString is uppercase; Postgres uuid::text is lowercase.
+        "\(userId.lowercased())/avatar.jpg"
     }
 
     nonisolated static func cacheBustedURL(base: URL, updatedAt: Date?) -> URL {

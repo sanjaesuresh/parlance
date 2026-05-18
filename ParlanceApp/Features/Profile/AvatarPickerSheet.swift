@@ -241,8 +241,9 @@ struct AvatarPickerSheet: View {
                     onDismiss()
                 }
             } catch {
+                print("[AvatarUpload] failed: \(error)")
                 await MainActor.run {
-                    avatarErrorMessage = "Couldn't update photo. Try again."
+                    avatarErrorMessage = "Couldn't update photo: \(error.localizedDescription)"
                     isSavingAvatar = false
                 }
             }

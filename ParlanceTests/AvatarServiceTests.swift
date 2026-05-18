@@ -12,6 +12,13 @@ struct AvatarServiceTests {
         #expect(path == "abc-123/avatar.jpg")
     }
 
+    @Test("objectPath lowercases the user ID to match auth.uid()::text in RLS")
+    func objectPathLowercasesUUID() {
+        // Swift UUID.uuidString is uppercase; Postgres auth.uid()::text is lowercase.
+        let path = AvatarService.objectPath(for: "12345678-ABCD-ABCD-ABCD-1234567890AB")
+        #expect(path == "12345678-abcd-abcd-abcd-1234567890ab/avatar.jpg")
+    }
+
     @Test("publicURL appends ?v= cache-buster from updatedAt epoch")
     func publicURLCacheBuster() {
         let updated = Date(timeIntervalSince1970: 1_700_000_000)
