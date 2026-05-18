@@ -55,6 +55,12 @@ CREATE POLICY "avatars owner delete"
 -- get_public_profile  (was: id, username, avatar_emoji, weekly_xp, tier)
 -- Adds: avatar_url, avatar_updated_at
 -- ============================================================
+-- RETURNS TABLE shape changes, so we must DROP first — Postgres rejects
+-- CREATE OR REPLACE FUNCTION when the OUT-parameter row type changes.
+-- Drop public wrapper before private body (wrapper depends on body).
+
+DROP FUNCTION IF EXISTS public.get_public_profile(uuid);
+DROP FUNCTION IF EXISTS private.get_public_profile(uuid);
 
 CREATE OR REPLACE FUNCTION private.get_public_profile(target_id uuid)
 RETURNS TABLE (
@@ -117,6 +123,9 @@ GRANT EXECUTE ON FUNCTION public.get_public_profile(uuid) TO authenticated;
 -- Adds: avatar_url, avatar_updated_at
 -- Filter preserved verbatim (ILIKE '%' || q || '%' AND p.id <> auth.uid())
 -- ============================================================
+
+DROP FUNCTION IF EXISTS public.search_public_profiles(text);
+DROP FUNCTION IF EXISTS private.search_public_profiles(text);
 
 CREATE OR REPLACE FUNCTION private.search_public_profiles(q text)
 RETURNS TABLE (
@@ -285,6 +294,9 @@ GRANT EXECUTE ON FUNCTION public.get_global_leaderboard(int) TO authenticated;
 -- Adds: actor_avatar_url, actor_avatar_updated_at
 -- Body structure (score_events / pb_events / combined / final SELECT) preserved verbatim.
 -- ============================================================
+
+DROP FUNCTION IF EXISTS public.get_friend_activity(int);
+DROP FUNCTION IF EXISTS private.get_friend_activity(int);
 
 CREATE OR REPLACE FUNCTION private.get_friend_activity(limit_n int DEFAULT 10)
 RETURNS TABLE (
