@@ -74,11 +74,6 @@
     font-weight: 700; margin-bottom: 8px;
     display: flex; align-items: center; gap: 8px;
   }
-  .phone-col .phone-label .planned {
-    font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
-    padding: 1px 6px; border-radius: 4px;
-    background: var(--purple-soft); color: var(--purple);
-  }
   .phone-col .phone-caption {
     font-size: 12px; color: var(--sub);
     line-height: 1.55; margin-bottom: 18px; max-width: 44ch;
@@ -147,9 +142,10 @@
   }
 
   /* ─── 1. Verdict hero ─── */
+  .verdict-block { text-align: center; padding-top: 6px !important; }
   .verdict-block .avg-line {
-    display: flex; gap: 8px; align-items: center;
-    font-size: 11px; color: var(--sub); margin-bottom: 10px;
+    display: inline-flex; gap: 8px; align-items: center;
+    font-size: 11px; color: var(--sub); margin: 14px 0 12px;
   }
   .verdict-block .avg-line .delta {
     font-weight: 700; font-size: 10px;
@@ -158,17 +154,51 @@
   }
   .verdict {
     font-family: 'Playfair Display', serif;
-    font-weight: 500; font-size: 26px;
-    line-height: 1.18; letter-spacing: -0.015em;
+    font-weight: 500; font-size: 24px;
+    line-height: 1.2; letter-spacing: -0.015em;
     color: var(--text); margin: 0 0 10px;
+    max-width: 28ch; margin-left: auto; margin-right: auto;
   }
   .verdict .focus-word { color: var(--red); }
   .verdict-q {
     font-size: 12.5px; color: var(--sub);
     font-style: italic; line-height: 1.5;
-    margin: 0 0 8px;
+    margin: 0 auto 8px; max-width: 36ch;
   }
   .verdict-meta { color: var(--dim); font-size: 11px; }
+
+  /* Score dial — overall score, the anchor for everything below */
+  .score-dial {
+    width: 132px; height: 132px;
+    margin: 0 auto;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .score-dial svg {
+    position: absolute; inset: 0;
+    transform: rotate(-90deg);
+  }
+  .score-dial .track {
+    fill: none; stroke: var(--border);
+    stroke-width: 9;
+  }
+  .score-dial .arc {
+    fill: none;
+    stroke-width: 9;
+    stroke-linecap: round;
+  }
+  .score-dial.gold .arc { stroke: var(--gold); }
+  .score-dial.teal .arc { stroke: var(--teal); }
+  .score-dial.red  .arc { stroke: var(--red);  }
+  .score-dial .num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500; font-size: 44px;
+    letter-spacing: -0.02em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .score-dial.gold .num { color: var(--gold); }
+  .score-dial.teal .num { color: var(--teal); }
+  .score-dial.red  .num { color: var(--red);  }
 
   /* ─── 2. Breakdown (editorial) ─── */
   .a-row {
@@ -527,7 +557,7 @@
   .up-next-card .sub { font-size: 11px; color: var(--dim); margin-top: 2px; }
   .up-next-card .chev { font-size: 20px; color: var(--dim); }
 
-  /* ═══════════ Tone Detail Sheet (planned, right phone) ═══════════ */
+  /* ═══════════ Tone Detail Sheet (right phone) ═══════════ */
   .sheet-handle {
     display: flex; justify-content: center; padding: 8px 0 4px;
   }
@@ -751,9 +781,9 @@
 <body>
 
 <div class="page-head">
-  <div class="crumb">Direction A · reordered</div>
-  <h1>Coach's notes, in the order a reader actually wants them</h1>
-  <p>The verdict tells you how you did. The breakdown tells you what to fix. Everything after that is supporting evidence and reference, in decreasing order of who reads it. Uniform top-rules between sections give the whole scroll one consistent rhythm.</p>
+  <div class="crumb">Direction A · v2</div>
+  <h1>Score dial up top, then coach → moments → response → breakdown</h1>
+  <p>The dial reads the score at a glance. The coach's note gives you the one sentence to walk away with. Moments ground that note in actual quotes from the session. Your response with fillers in red is the evidence. Breakdown is the full scorecard for the people who want the numbers. Tone and Up Next sit at the end.</p>
 </div>
 
 <div class="stage">
@@ -771,15 +801,73 @@
     </div>
     <div class="screen-body">
 
-      <!-- 1. Verdict + question (merged) -->
+      <!-- 1. Verdict hero — dial + headline + question -->
       <section class="verdict-block">
+        <div class="score-dial gold">
+          <svg viewBox="0 0 100 100">
+            <circle class="track" cx="50" cy="50" r="44" />
+            <circle class="arc"   cx="50" cy="50" r="44"
+                    stroke-dasharray="276.46"
+                    stroke-dashoffset="88.47" />
+          </svg>
+          <span class="num">68</span>
+        </div>
         <div class="avg-line">Your average: 62 <span class="delta">+6 from avg</span></div>
         <h2 class="verdict">Room to grow. Focus on <span class="focus-word">delivery confidence</span> first.</h2>
         <p class="verdict-q">"Walk me through your pitch for a Series A in two minutes."</p>
-        <div class="verdict-meta">Level 6 · Polished Speaker · 1:42 · Score 68</div>
+        <div class="verdict-meta">Level 6 · Polished Speaker · 1:42</div>
       </section>
 
-      <!-- 2. Breakdown — most actionable, now second -->
+      <!-- 2. AI Coach paragraph — synthesis comes first -->
+      <section>
+        <div class="coach">
+          <div class="coach-head">
+            <div class="coach-avatar">★</div>
+            <div>
+              <div class="coach-title">From your coach</div>
+              <div class="coach-sub">Pitch · Level 6 · just now</div>
+            </div>
+          </div>
+          <p class="feedback">Strong commercial signal in the middle of the pitch, but the opening took 25 seconds to get to what you actually sell. <span class="accent">Investors decide in the first 15.</span> Open with the problem and the proof. Cut the throat-clearing.</p>
+          <p class="fine">Practice feedback only. Not professional coaching or medical advice.</p>
+        </div>
+      </section>
+
+      <!-- 3. Moments — concrete grounding for the coach's note -->
+      <section>
+        <div class="section-label">Moments</div>
+
+        <div class="moments-row best">
+          <div class="head">
+            <span class="icon">★</span>
+            <span>Strongest moment</span>
+          </div>
+          <p class="quote">"We already have three pilots paying us $50K each."</p>
+          <p class="reason">That's the moment they leaned in. Anchor your pitch there.</p>
+        </div>
+        <div class="moments-row worst">
+          <div class="head">
+            <span class="icon">!</span>
+            <span>Weakest moment</span>
+          </div>
+          <p class="quote">"I think there's a really big market for this."</p>
+          <p class="reason">Too tentative for an investor pitch. Lead with conviction.</p>
+        </div>
+      </section>
+
+      <!-- 4. Your response — transcript with fillers in red -->
+      <section>
+        <div class="transcript-head">
+          <span class="section-label">Your response</span>
+          <span class="filler-tag">11 fillers</span>
+          <span class="expand">Expand</span>
+        </div>
+        <div class="transcript">
+          <p>So <span class="filler">um</span> I want to start by saying that we're <span class="filler">like</span> building a platform for <span class="filler">you know</span> teams who need to coordinate across timezones. <span class="filler">I think</span> there's a really big market for this and <span class="filler">kind of</span> we've been getting strong early signal from...</p>
+        </div>
+      </section>
+
+      <!-- 5. Breakdown — the metric scorecard -->
       <section>
         <div class="section-label">Breakdown</div>
 
@@ -813,48 +901,11 @@
         <div class="see-all">2 more metrics · tap to see all</div>
       </section>
 
-      <!-- 3. Moments — concrete grounding for the breakdown -->
-      <section>
-        <div class="section-label">Moments</div>
-
-        <div class="moments-row best">
-          <div class="head">
-            <span class="icon">★</span>
-            <span>Best moment</span>
-          </div>
-          <p class="quote">"We already have three pilots paying us $50K each."</p>
-          <p class="reason">That's the moment they leaned in. Anchor your pitch there.</p>
-        </div>
-        <div class="moments-row worst">
-          <div class="head">
-            <span class="icon">!</span>
-            <span>Weakest moment</span>
-          </div>
-          <p class="quote">"I think there's a really big market for this."</p>
-          <p class="reason">Too tentative for an investor pitch. Lead with conviction.</p>
-        </div>
-      </section>
-
-      <!-- 4. AI Coach paragraph -->
-      <section>
-        <div class="coach">
-          <div class="coach-head">
-            <div class="coach-avatar">★</div>
-            <div>
-              <div class="coach-title">From your coach</div>
-              <div class="coach-sub">Pitch · Level 6 · just now</div>
-            </div>
-          </div>
-          <p class="feedback">Strong commercial signal in the middle of the pitch, but the opening took 25 seconds to get to what you actually sell. <span class="accent">Investors decide in the first 15.</span> Open with the problem and the proof. Cut the throat-clearing.</p>
-          <p class="fine">Practice feedback only. Not professional coaching or medical advice.</p>
-        </div>
-      </section>
-
-      <!-- 5. Vocal tone (Pro, planned mode-aware) -->
+      <!-- 6. Vocal tone (Pro) -->
       <section>
         <div class="tone">
           <div class="tone-head">
-            <span class="tone-label">Vocal Tone <span class="badge">PLANNED</span></span>
+            <span class="tone-label">Vocal Tone</span>
             <span class="pro-badge">PRO</span>
           </div>
 
@@ -911,16 +962,6 @@
         </div>
       </section>
 
-      <!-- 6. Transcript — reference, near the bottom -->
-      <section>
-        <div class="transcript-head">
-          <span class="section-label">Your response</span>
-          <span class="filler-tag">11 fillers</span>
-          <span class="expand">Expand</span>
-        </div>
-        <p>So <span class="filler">um</span> I want to start by saying that we're <span class="filler">like</span> building a platform for <span class="filler">you know</span> teams who need to coordinate across timezones. <span class="filler">I think</span> there's a really big market for this and <span class="filler">kind of</span> we've been getting strong early signal from...</p>
-      </section>
-
       <!-- 7. Up next -->
       <section>
         <div class="up-next-card">
@@ -939,8 +980,8 @@
 
   <!-- RIGHT PHONE — Tone detail sheet (planned, owned by the other stream) -->
   <div class="phone-col">
-    <div class="phone-label">Tone detail sheet <span class="planned">PLANNED</span></div>
-    <div class="phone-caption">Opens as a full-screen sheet when you tap <em>View tone breakdown →</em> on the Vocal Tone card. Owned by the other stream; rendered here in Direction A's editorial style for context.</div>
+    <div class="phone-label">Tone detail sheet</div>
+    <div class="phone-caption">Opens as a full-screen sheet when you tap <em>See your full tone analysis →</em> on the Vocal Tone card.</div>
   <div class="phone"><div class="phone-screen">
     <div class="status-bar"><span>9:41</span><span class="right">●●●●● 5G 100</span></div>
 

@@ -102,9 +102,12 @@ struct ResultsView: View {
                     ScrollView {
                         VStack(spacing: 0) {
                             resultsSection(showsTopRule: false) { verdictHero }
-                            resultsSection { breakdownSection }
-                            resultsSection { momentsSection }
                             resultsSection { aiCoachCard }
+                            resultsSection { momentsSection }
+                            if session.hasTranscript {
+                                resultsSection { transcriptCard }
+                            }
+                            resultsSection { breakdownSection }
                             resultsSection {
                                 ToneAnalysisCard(
                                     isPro: subscription.isPro,
@@ -113,9 +116,6 @@ struct ResultsView: View {
                                     onUpgrade: { showPaywall = true },
                                     onTapDetails: { showToneDetail = true }
                                 )
-                            }
-                            if session.hasTranscript {
-                                resultsSection { transcriptCard }
                             }
                             resultsSection { upNextCard }
                                 .padding(.bottom, 60)
@@ -366,7 +366,10 @@ struct ResultsView: View {
     }
 
     private var verdictHero: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
+            ScoreRingView(score: session.overallScore, size: 128)
+                .padding(.bottom, 14)
+
             if let avg = cachedPriorAverage {
                 let delta = session.overallScore - avg
                 HStack(spacing: 8) {
@@ -395,14 +398,16 @@ struct ResultsView: View {
                 .italic()
                 .foregroundStyle(AppColors.sub)
                 .lineSpacing(3)
+                .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, 8)
 
-            Text("Level \(session.difficultyLevel) · \(DifficultyLevel.tier(for: session.difficultyLevel)) · \(durationString) · Score \(session.overallScore)")
+            Text("Level \(session.difficultyLevel) · \(DifficultyLevel.tier(for: session.difficultyLevel)) · \(durationString)")
                 .font(AppFonts.body(11))
                 .foregroundStyle(AppColors.dim)
+                .multilineTextAlignment(.center)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity)
     }
 
     private var verdictHeadline: some View {
@@ -462,9 +467,9 @@ struct ResultsView: View {
         }
 
         return headline
-            .multilineTextAlignment(.leading)
+            .multilineTextAlignment(.center)
             .fixedSize(horizontal: false, vertical: true)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .center)
     }
 
     // MARK: - Question Recap Card

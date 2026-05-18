@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ScoreRingView: View {
     let score: Int
+    var size: CGFloat = 160
     @State private var animatedProgress: Double = 0
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
@@ -11,21 +12,24 @@ struct ScoreRingView: View {
         return AppColors.red
     }
 
+    private var lineWidth: CGFloat { size * 0.075 }
+    private var numberSize: CGFloat { size * 0.3 }
+
     var body: some View {
         ZStack {
             Circle()
-                .stroke(AppColors.border, lineWidth: 12)
+                .stroke(AppColors.border, lineWidth: lineWidth)
 
             Circle()
                 .trim(from: 0, to: animatedProgress)
-                .stroke(ringColor, style: StrokeStyle(lineWidth: 12, lineCap: .round))
+                .stroke(ringColor, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))
 
             Text("\(score)")
-                .font(AppFonts.display(48))
+                .font(AppFonts.display(numberSize))
                 .foregroundStyle(ringColor)
         }
-        .frame(width: 160, height: 160)
+        .frame(width: size, height: size)
         .accessibilityElement()
         .accessibilityLabel("Overall score \(score) out of 100")
         .onAppear {
