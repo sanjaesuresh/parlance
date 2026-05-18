@@ -55,9 +55,8 @@ enum GamificationService {
     }
 
     static func scoreBonus(for score: Int) -> Int {
-        if score >= 90 { return AppConstants.excellentScoreXPBonus }
-        if score >= 80 { return AppConstants.highScoreXPBonus }
-        return 0
+        let clamped = min(max(score, 0), 100)
+        return max(0, clamped - 50)
     }
 
     static func difficultyBonus(for level: Int) -> Int {

@@ -24,3 +24,30 @@ struct StreakMultiplierTests {
         #expect(GamificationService.streakMultiplier(streak: 30) == 1.50)
     }
 }
+
+@Suite("GamificationService.scoreBonus")
+struct ScoreBonusTests {
+
+    @Test("zero at or below 50")
+    func zeroBelow50() {
+        #expect(GamificationService.scoreBonus(for: 0) == 0)
+        #expect(GamificationService.scoreBonus(for: 50) == 0)
+    }
+
+    @Test("+1 per point above 50")
+    func linearAbove50() {
+        #expect(GamificationService.scoreBonus(for: 51) == 1)
+        #expect(GamificationService.scoreBonus(for: 75) == 25)
+        #expect(GamificationService.scoreBonus(for: 95) == 45)
+    }
+
+    @Test("caps at +50 at score 100")
+    func capsAt100() {
+        #expect(GamificationService.scoreBonus(for: 100) == 50)
+    }
+
+    @Test("does not exceed +50 for invalid >100 scores")
+    func clampsAbove100() {
+        #expect(GamificationService.scoreBonus(for: 120) == 50)
+    }
+}
