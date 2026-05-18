@@ -23,7 +23,7 @@ final class AvatarService {
 
     nonisolated static func cacheBustedURL(base: URL, updatedAt: Date?) -> URL {
         guard let updatedAt else { return base }
-        var components = URLComponents(url: base, resolvingAgainstBaseURL: false)!
+        guard var components = URLComponents(url: base, resolvingAgainstBaseURL: false) else { return base }
         let stamp = Int(updatedAt.timeIntervalSince1970)
         var items = components.queryItems ?? []
         items.append(URLQueryItem(name: "v", value: String(stamp)))
