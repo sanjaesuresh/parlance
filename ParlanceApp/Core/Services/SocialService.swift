@@ -16,6 +16,7 @@ final class SocialService: ObservableObject {
     @Published private(set) var globalLeaderboard: GlobalLeaderboardSnapshot?
     @Published private(set) var pendingRequestCount: Int = 0
     @Published private(set) var blockedUserIds: Set<UUID> = []
+    @Published private(set) var friendActivity: [ActivityEvent] = []
 
     private let client = SupabaseManager.shared.client
 
@@ -85,6 +86,21 @@ final class SocialService: ObservableObject {
             )
         } catch {
             globalLeaderboard = nil
+        }
+    }
+
+    // MARK: - Friend Activity
+
+    func fetchFriendActivity(limit: Int = 10) async {
+        do {
+            struct Params: Encodable { let limit_n: Int }
+            let rows: [FriendActivityRow] = try await client
+                .rpc("get_friend_activity", params: Params(limit_n: limit))
+                .execute()
+                .value
+            friendActivity = rows.compactMap { $0.toEvent() }
+        } catch {
+            friendActivity = []
         }
     }
 

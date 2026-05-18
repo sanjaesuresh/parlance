@@ -103,6 +103,7 @@ struct LeagueView: View {
             .task {
                 await socialService.fetchFriendsLeaderboard()
                 await socialService.fetchGlobalLeaderboard()
+                await socialService.fetchFriendActivity()
                 await socialService.refreshPendingRequestCount()
             }
             .onChange(of: openFriendRequests) { _, shouldOpen in

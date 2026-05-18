@@ -1,5 +1,6 @@
 // Parlance/Core/Models/SupabaseModels.swift
 import Foundation
+import Supabase
 
 // MARK: - ProfileRow
 
@@ -280,6 +281,60 @@ struct PersonalBestUpsert: Encodable {
         case mode
         case bestScore = "best_score"
         case achievedAt = "achieved_at"
+    }
+}
+
+// MARK: - Friend Activity
+
+struct FriendActivityRow: Codable {
+    let actorId: UUID
+    let actorUsername: String
+    let actorDisplayName: String
+    let actorAvatarEmoji: String
+    let eventType: String
+    let eventAt: Date
+    let payload: AnyJSON
+
+    enum CodingKeys: String, CodingKey {
+        case actorId = "actor_id"
+        case actorUsername = "actor_username"
+        case actorDisplayName = "actor_display_name"
+        case actorAvatarEmoji = "actor_avatar_emoji"
+        case eventType = "event_type"
+        case eventAt = "event_at"
+        case payload
+    }
+
+    func toEvent() -> ActivityEvent? {
+        // Pull mode and score from the payload JSON.
+        guard case .object(let payloadObject) = payload else { return nil }
+
+        let modeString: String? = {
+            if case .string(let s) = payloadObject["mode"] { return s }
+            return nil
+        }()
+        let scoreInt: Int? = {
+            if case .integer(let i) = payloadObject["score"] { return i }
+            if case .double(let d) = payloadObject["score"] { return Int(d) }
+            return nil
+        }()
+
+        let mode = modeString.flatMap(SessionMode.init(rawValue:)) ?? .casual
+        let score = scoreInt ?? 0
+
+        let kind: ActivityEventKind
+        switch eventType {
+        case "score": kind = .score(value: score, mode: mode)
+        case "personal_best": kind = .personalBest(mode: mode, score: score)
+        default: return nil
+        }
+        return ActivityEvent(
+            actorUsername: actorUsername,
+            actorDisplayName: actorDisplayName,
+            actorAvatarEmoji: actorAvatarEmoji,
+            occurredAt: eventAt,
+            kind: kind
+        )
     }
 }
 
