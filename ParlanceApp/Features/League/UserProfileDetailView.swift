@@ -358,6 +358,73 @@ struct UserProfileDetailView: View {
     }
 }
 
+// MARK: - PublicProfileDetailView
+
+struct PublicProfileDetailView: View {
+    let profile: PublicProfile
+    @State private var isAdding = false
+    @State private var addError: String?
+    @StateObject private var socialService = SocialService()
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text(profile.avatarEmoji)
+                .font(.system(size: 56))
+                .frame(width: 96, height: 96)
+                .background(AppColors.faint)
+                .clipShape(Circle())
+
+            Text("@\(profile.username)")
+                .font(AppFonts.display(22))
+                .foregroundStyle(AppColors.text)
+
+            PillBadge(text: "\(profile.tier.displayName) League", color: profile.tier.color, small: true)
+
+            Button {
+                Task { await sendRequest() }
+            } label: {
+                Text(isAdding ? "Sending…" : "Add Friend")
+                    .font(AppFonts.bodyBold(15))
+                    .foregroundStyle(AppColors.onGold)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(AppColors.gold)
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            }
+            .disabled(isAdding)
+            .padding(.horizontal, 24)
+
+            if let addError {
+                Text(addError)
+                    .font(AppFonts.body(12))
+                    .foregroundStyle(AppColors.red)
+            }
+
+            Text("Add as a friend to see their full profile, sessions, and stats.")
+                .font(AppFonts.body(12))
+                .foregroundStyle(AppColors.dim)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 24)
+
+            Spacer()
+        }
+        .padding(.top, 40)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(AppColors.bg)
+    }
+
+    private func sendRequest() async {
+        guard let userId = UUID(uuidString: profile.id) else { return }
+        isAdding = true
+        defer { isAdding = false }
+        do {
+            try await socialService.sendFriendRequest(to: userId)
+        } catch {
+            addError = "Couldn't send request. Try again."
+        }
+    }
+}
+
 // MARK: - ReportUserSheet
 
 private struct ReportUserSheet: View {

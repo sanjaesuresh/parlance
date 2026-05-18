@@ -87,7 +87,7 @@ struct LeagueView: View {
                 UserProfileDetailView(profile: profile)
             }
             .sheet(item: $selectedSearchProfile) { profile in
-                Text("@\(profile.username) — sheet wired in Task 9")
+                PublicProfileDetailView(profile: profile)
             }
             .sheet(isPresented: $showRequestsSheet, onDismiss: {
                 openFriendRequests = false
