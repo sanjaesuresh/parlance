@@ -2,8 +2,21 @@ import Foundation
 
 enum GamificationService {
 
-    static func awardXP(to user: User, wasDailyChallenge: Bool, score: Int, difficultyLevel: Int) {
-        user.xp += xpForSession(wasDailyChallenge: wasDailyChallenge, score: score, difficultyLevel: difficultyLevel)
+    static func awardXP(
+        to user: User,
+        wasDailyChallenge: Bool,
+        score: Int,
+        difficultyLevel: Int,
+        previousBest: Int?,
+        currentStreak: Int
+    ) {
+        user.xp += xpForSession(
+            wasDailyChallenge: wasDailyChallenge,
+            score: score,
+            difficultyLevel: difficultyLevel,
+            previousBest: previousBest,
+            currentStreak: currentStreak
+        )
     }
 
     static func updateStreak(for user: User) {
@@ -47,11 +60,21 @@ enum GamificationService {
         }
     }
 
-    static func xpForSession(wasDailyChallenge: Bool, score: Int, difficultyLevel: Int) -> Int {
-        AppConstants.baseXP
-            + (wasDailyChallenge ? AppConstants.dailyChallengeXP : 0)
+    static func xpForSession(
+        wasDailyChallenge: Bool,
+        score: Int,
+        difficultyLevel: Int,
+        previousBest: Int?,
+        currentStreak: Int
+    ) -> Int {
+        let raw =
+            AppConstants.baseXP
             + scoreBonus(for: score)
             + difficultyBonus(for: difficultyLevel)
+            + (wasDailyChallenge ? AppConstants.dailyChallengeXP : 0)
+            + personalBestBonus(score: score, previousBest: previousBest)
+        let total = Double(raw) * streakMultiplier(streak: currentStreak)
+        return Int(total.rounded())
     }
 
     static func scoreBonus(for score: Int) -> Int {

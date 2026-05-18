@@ -75,3 +75,59 @@ struct PersonalBestBonusTests {
         #expect(GamificationService.personalBestBonus(score: 70, previousBest: 80) == 0)
     }
 }
+
+@Suite("GamificationService.xpForSession")
+struct XPForSessionTests {
+
+    @Test("baseline session — score 60, no daily, level 1, no streak, no PB")
+    func baseline() {
+        // base 120 + score 10 + diff 0 + daily 0 + pb 0 = 130, streak 1.0
+        let xp = GamificationService.xpForSession(
+            wasDailyChallenge: false,
+            score: 60,
+            difficultyLevel: 1,
+            previousBest: 60,
+            currentStreak: 0
+        )
+        #expect(xp == 130)
+    }
+
+    @Test("worked spec example — 95 at L8, streak day 5, no daily, no PB")
+    func specExample() {
+        // (120 + 45 + 40 + 0 + 0) * 1.25 = 256.25 → 256
+        let xp = GamificationService.xpForSession(
+            wasDailyChallenge: false,
+            score: 95,
+            difficultyLevel: 8,
+            previousBest: 95,    // not exceeded — no PB
+            currentStreak: 5
+        )
+        #expect(xp == 256)
+    }
+
+    @Test("daily challenge stacks")
+    func dailyStacks() {
+        // (120 + 30 + 0 + 200 + 0) * 1.0 = 350
+        let xp = GamificationService.xpForSession(
+            wasDailyChallenge: true,
+            score: 80,
+            difficultyLevel: 5,
+            previousBest: 80,
+            currentStreak: 0
+        )
+        #expect(xp == 350)
+    }
+
+    @Test("personal best stacks")
+    func pbStacks() {
+        // base 120 + score 40 + diff 0 + daily 0 + pb 100 = 260, streak 1.0
+        let xp = GamificationService.xpForSession(
+            wasDailyChallenge: false,
+            score: 90,
+            difficultyLevel: 1,
+            previousBest: 85,
+            currentStreak: 0
+        )
+        #expect(xp == 260)
+    }
+}

@@ -283,7 +283,9 @@ struct SessionCoordinator: View {
         let xpEarned = GamificationService.xpForSession(
             wasDailyChallenge: state.wasDailyChallenge,
             score: scoringResult.overallScore,
-            difficultyLevel: state.difficultyLevel
+            difficultyLevel: state.difficultyLevel,
+            previousBest: nil,
+            currentStreak: PersistenceService.shared.getUser(uid: currentUserID ?? "")?.currentStreak ?? 0
         )
 
         let session = Session(
@@ -314,7 +316,9 @@ struct SessionCoordinator: View {
                     to: user,
                     wasDailyChallenge: state.wasDailyChallenge,
                     score: session.overallScore,
-                    difficultyLevel: state.difficultyLevel
+                    difficultyLevel: state.difficultyLevel,
+                    previousBest: nil,
+                    currentStreak: user.currentStreak
                 )
             SoundService.play(.sessionComplete)
             GamificationService.updateStreak(for: user)
