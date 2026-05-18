@@ -106,12 +106,11 @@ struct DifficultyChangeSheet: View {
                 .clipShape(Capsule())
             }
             .padding(.top, 18)
-            .padding(.bottom, 12)
         }
         .padding(.horizontal, 24)
-        .padding(.bottom, 24)
+        .padding(.bottom, 12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .presentationDetents([.fraction(0.65), .large])
+        .presentationDetents([.fraction(0.58)])
         .presentationDragIndicator(.hidden)
         .presentationBackground(AppColors.bg)
     }
