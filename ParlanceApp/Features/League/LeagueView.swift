@@ -596,9 +596,9 @@ struct LeagueView: View {
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "How XP Is Earned")
 
-            VStack(spacing: 2) {
+            VStack(spacing: 0) {
                 ForEach(items, id: \.label) { item in
-                    HStack(alignment: .top, spacing: 10) {
+                    HStack(alignment: .center, spacing: 10) {
                         Text(item.emoji)
                             .font(.system(size: 16))
                             .frame(width: 22)
@@ -617,7 +617,7 @@ struct LeagueView: View {
                             .font(AppFonts.bodyBold(13))
                             .foregroundStyle(AppColors.gold)
                     }
-                    .padding(.vertical, 6)
+                    .frame(minHeight: 44)
                 }
             }
         }
