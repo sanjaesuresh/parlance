@@ -105,6 +105,9 @@ struct ProgressTabView: View {
         do {
             let brief = try await WeeklyBriefClient.fetch(payload: payload)
             briefStore.save(brief, manual: manual)
+        } catch WeeklyBriefError.rateLimited {
+            // Silent: keep showing the prior cached brief; retry on the next day's bucket.
+            briefStore.markAttempt()
         } catch {
             briefStore.markAttempt()
             #if DEBUG
