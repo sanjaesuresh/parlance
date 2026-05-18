@@ -12,4 +12,6 @@ struct ActivityEvent: Identifiable {
     let actorAvatarEmoji: String
     let occurredAt: Date
     let kind: ActivityEventKind
+    let actorAvatarUrl: String?
+    let actorAvatarUpdatedAt: Date?
 }

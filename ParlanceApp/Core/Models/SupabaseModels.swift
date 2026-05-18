@@ -347,7 +347,9 @@ struct FriendActivityRow: Codable {
             actorDisplayName: actorDisplayName,
             actorAvatarEmoji: actorAvatarEmoji,
             occurredAt: eventAt,
-            kind: kind
+            kind: kind,
+            actorAvatarUrl: actorAvatarUrl,
+            actorAvatarUpdatedAt: actorAvatarUpdatedAt
         )
     }
 }
@@ -358,6 +360,8 @@ struct GlobalLeaderboardRow: Codable {
     let id: UUID
     let username: String
     let avatarEmoji: String
+    let avatarUrl: String?
+    let avatarUpdatedAt: Date?
     let weeklyXP: Int
     let rank: Int
     let tier: String
@@ -365,6 +369,8 @@ struct GlobalLeaderboardRow: Codable {
     enum CodingKeys: String, CodingKey {
         case id, username, rank, tier
         case avatarEmoji = "avatar_emoji"
+        case avatarUrl = "avatar_url"
+        case avatarUpdatedAt = "avatar_updated_at"
         case weeklyXP = "weekly_xp"
     }
 
@@ -373,6 +379,8 @@ struct GlobalLeaderboardRow: Codable {
             id: id.uuidString,
             username: username,
             avatarEmoji: avatarEmoji,
+            avatarUrl: avatarUrl,
+            avatarUpdatedAt: avatarUpdatedAt,
             weeklyXP: weeklyXP,
             rank: rank,
             tier: LeagueTier(rawValue: tier) ?? .bronze
