@@ -37,6 +37,8 @@ struct ProfileEditSheet: View {
     }
 
     @State private var profanityError: String?
+    @State private var avatarErrorMessage: String?
+    @State private var isSavingAvatar = false
 
     private var isValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty && username.count >= 3
@@ -155,6 +157,12 @@ struct ProfileEditSheet: View {
                                 if newValue.count > 40 { occupation = String(newValue.prefix(40)) }
                             }
                     }
+                    if let avatarErrorMessage {
+                        Text(avatarErrorMessage)
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.red)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
                 }
                 .padding(.horizontal, 16)
                 .padding(.bottom, 24)
@@ -169,8 +177,8 @@ struct ProfileEditSheet: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") { save() }
-                        .foregroundStyle(isValid ? AppColors.gold : AppColors.dim)
-                        .disabled(!isValid)
+                        .foregroundStyle(isValid && !isSavingAvatar ? AppColors.gold : AppColors.dim)
+                        .disabled(!isValid || isSavingAvatar)
                 }
             }
             .alert(
@@ -259,14 +267,51 @@ struct ProfileEditSheet: View {
         user.location = trimmedLocation.isEmpty ? nil : trimmedLocation
         user.occupation = trimmedOccupation.isEmpty ? nil : trimmedOccupation
 
-        if selectedAvatar == "__photo__" {
-            user.profileImageData = pickedImageData
-        } else {
-            user.profileImageData = nil
-            user.avatarEmoji = selectedAvatar
-        }
+        let isPhotoMode = (selectedAvatar == "__photo__")
+        let photoDataChanged = isPhotoMode && pickedImageData != user.profileImageData
+        let switchedToPhoto  = isPhotoMode && user.avatarUrl == nil
+        let switchedToEmoji  = !isPhotoMode && (user.profileImageData != nil || user.avatarUrl != nil)
+        let uid = user.supabaseUID
 
-        try? PersistenceService.shared.context.save()
-        onDismiss()
+        isSavingAvatar = true
+        avatarErrorMessage = nil
+        Task {
+            do {
+                if isPhotoMode {
+                    if (photoDataChanged || switchedToPhoto), let data = pickedImageData {
+                        let path = try await AvatarService.shared.uploadAvatar(originalData: data, userId: uid)
+                        let stamp = try await AvatarService.shared.updateProfileAvatar(userId: uid, path: path)
+                        await MainActor.run {
+                            user.profileImageData = data
+                            user.avatarUrl = path
+                            user.avatarUpdatedAt = stamp
+                        }
+                    }
+                } else if switchedToEmoji {
+                    try await AvatarService.shared.deleteAvatar(userId: uid)
+                    let stamp = try await AvatarService.shared.updateProfileAvatar(userId: uid, path: nil)
+                    await MainActor.run {
+                        user.profileImageData = nil
+                        user.avatarUrl = nil
+                        user.avatarUpdatedAt = stamp
+                        user.avatarEmoji = selectedAvatar
+                    }
+                } else {
+                    await MainActor.run {
+                        user.avatarEmoji = selectedAvatar
+                    }
+                }
+                await MainActor.run {
+                    try? PersistenceService.shared.context.save()
+                    isSavingAvatar = false
+                    onDismiss()
+                }
+            } catch {
+                await MainActor.run {
+                    avatarErrorMessage = "Couldn't update photo. Try again."
+                    isSavingAvatar = false
+                }
+            }
+        }
     }
 }
