@@ -270,8 +270,15 @@ struct PersonalBestRow: Codable {
 }
 
 struct PersonalBestUpsert: Encodable {
-    let user_id: UUID
+    let userId: UUID
     let mode: String
-    let best_score: Int
-    let achieved_at: Date
+    let bestScore: Int
+    let achievedAt: Date
+
+    enum CodingKeys: String, CodingKey {
+        case userId = "user_id"
+        case mode
+        case bestScore = "best_score"
+        case achievedAt = "achieved_at"
+    }
 }

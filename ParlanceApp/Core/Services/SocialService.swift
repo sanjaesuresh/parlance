@@ -344,10 +344,10 @@ final class SocialService: ObservableObject {
             try await client
                 .from("personal_bests")
                 .upsert(PersonalBestUpsert(
-                    user_id: currentId,
+                    userId: currentId,
                     mode: mode.rawValue,
-                    best_score: score,
-                    achieved_at: .now
+                    bestScore: score,
+                    achievedAt: .now
                 ), onConflict: "user_id,mode")
                 .execute()
         } catch {
