@@ -54,8 +54,11 @@ _docs/plans/
 # Product / planning docs
 PRODUCT.md
 
-# Cloudflare Worker (local dev, deployed separately)
-cloudflare-worker/
+# Cloudflare Worker — source/tests/config are tracked so CI can run them;
+# only local install artifacts are ignored.
+cloudflare-worker/node_modules/
+cloudflare-worker/.wrangler/
+cloudflare-worker/dist/
 
 # Wrangler local cache (created by `wrangler deploy` at repo root)
 .wrangler/

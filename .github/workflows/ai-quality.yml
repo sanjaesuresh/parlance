@@ -1,0 +1,83 @@
+name: AI Quality Harness
+
+# Live-fire harness: hits the production Cloudflare Worker (which proxies to
+# Gemini) and burns API quota. Nightly + manual only — never per-PR. The
+# harness reads RUN_AI_QUALITY=1 to enable; without it the @Suite is inert.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
+
+concurrency:
+  group: ai-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  harness:
+    name: AI Quality Tests
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select destination
+        id: dest
+        run: |
+          SIM_JSON=$(xcrun simctl list devices available -j 2>/dev/null)
+
+          IOS_ID=$(echo "$SIM_JSON" \
+            | jq -r '.devices | to_entries[] | select(.key | test("iOS")) | .value[] | select(.isAvailable and (.name | test("iPhone"))) | .udid' \
+            | head -1)
+
+          if [ -n "$IOS_ID" ]; then
+            DEST="platform=iOS Simulator,id=$IOS_ID"
+          else
+            VISION_ID=$(echo "$SIM_JSON" \
+              | jq -r '.devices | to_entries[] | select(.key | test("visionOS|xrOS")) | .value[] | select(.isAvailable) | .udid' \
+              | head -1)
+            if [ -z "$VISION_ID" ]; then
+              echo "No iOS or visionOS simulator available on this runner." >&2
+              echo "Installed runtimes:" >&2
+              xcrun simctl list runtimes >&2
+              exit 1
+            fi
+            DEST="platform=visionOS Simulator,id=$VISION_ID"
+          fi
+
+          echo "destination=$DEST" >> "$GITHUB_OUTPUT"
+          echo "Selected destination: $DEST"
+
+      - name: Build for testing
+        run: |
+          xcodebuild build-for-testing \
+            -project ParlanceApp/Parlance.xcodeproj \
+            -scheme Parlance \
+            -destination "${{ steps.dest.outputs.destination }}" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}
+
+      - name: Boot simulator
+        run: |
+          ID=$(echo "${{ steps.dest.outputs.destination }}" | grep -oE 'id=[^,]+' | cut -d= -f2)
+          xcrun simctl boot "$ID" 2>/dev/null || true
+
+      - name: Run AI quality harness
+        env:
+          RUN_AI_QUALITY: '1'
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          # Harness hits the live Cloudflare Worker which holds the Gemini key
+          # server-side; GEMINI_API_KEY is exported here only for parity with
+          # the worker-e2e workflow if/when a future fixture needs it.
+          xcodebuild test-without-building \
+            -project ParlanceApp/Parlance.xcodeproj \
+            -scheme Parlance \
+            -destination "${{ steps.dest.outputs.destination }}" \
+            -only-testing:ParlanceTests/AIQualityHarness \
+            RUN_AI_QUALITY=1 \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO | xcpretty && exit ${PIPESTATUS[0]}

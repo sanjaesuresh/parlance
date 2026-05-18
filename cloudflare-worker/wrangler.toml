@@ -1,0 +1,14 @@
+name = "parlance-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+GEMINI_MODEL = "gemini-3-flash-preview"
+
+# KV namespace for per-user rate limiting on /feedback and /emotion.
+# OPERATOR ACTION REQUIRED:
+#   1. Run: wrangler kv:namespace create RATE_LIMIT
+#   2. Copy the returned `id` value and replace REPLACE_WITH_KV_NAMESPACE_ID below.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "b84e14994c034dad89b03dd7f9d87cbd"
