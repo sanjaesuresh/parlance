@@ -1,0 +1,317 @@
+import SwiftUI
+
+/// Scrollable breakdown phase shown after the user taps "See Breakdown".
+/// Stacks the verdict hero, coach feedback, moments, transcript, per-metric
+/// breakdown, tone card, and the up-next CTA.
+///
+/// Section-level state (transcript expand, etc.) lives in the child sections.
+/// Cross-cutting sheet bindings (paywall, tone-detail) come in from the parent.
+struct ResultsBreakdownPhase: View {
+    @Bindable var session: Session
+    @ObservedObject var viewModel: ResultsViewModel
+    let isPro: Bool
+    let toneAnalysisFailed: Bool
+    let cachedPriorAverage: Int?
+    let highlightedTranscript: AttributedString?
+    let onTryAgain: () -> Void
+    @Binding var showPaywall: Bool
+    @Binding var showToneDetail: Bool
+
+    private var durationString: String {
+        let minutes = Int(session.duration) / 60
+        let seconds = Int(session.duration) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+    }
+
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 0) {
+                resultsSection(showsTopRule: false) { verdictHero }
+                resultsSection {
+                    ResultsCoachFeedbackSection(session: session, viewModel: viewModel)
+                }
+                resultsSection {
+                    ResultsMomentsSection(session: session)
+                }
+                if session.hasTranscript {
+                    resultsSection {
+                        ResultsTranscriptSection(
+                            session: session,
+                            highlightedTranscript: highlightedTranscript
+                        )
+                    }
+                }
+                resultsSection { breakdownSection }
+                resultsSection {
+                    ResultsTonePhase(
+                        session: session,
+                        isPro: isPro,
+                        toneAnalysisFailed: toneAnalysisFailed,
+                        showPaywall: $showPaywall,
+                        showToneDetail: $showToneDetail
+                    )
+                }
+                resultsSection { upNextCard }
+                    .padding(.bottom, 60)
+            }
+            .padding(.horizontal, 18)
+        }
+        .background(AppColors.bg)
+    }
+
+    // MARK: - Section wrapper
+
+    @ViewBuilder
+    private func resultsSection<Content: View>(
+        showsTopRule: Bool = true,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        VStack(spacing: 0) {
+            if showsTopRule {
+                Rectangle()
+                    .fill(AppColors.border)
+                    .frame(height: 1)
+            }
+            content()
+                .padding(.vertical, 18)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+
+    // MARK: - Verdict Hero (breakdown view — small ring + rich headline)
+
+    private var verdictHero: some View {
+        VStack(alignment: .center, spacing: 0) {
+            ScoreRingView(score: session.overallScore, size: 128)
+                .padding(.bottom, 14)
+
+            if let avg = cachedPriorAverage {
+                let delta = session.overallScore - avg
+                HStack(spacing: 8) {
+                    Text("Your average: \(avg)")
+                        .font(AppFonts.body(11))
+                        .foregroundStyle(AppColors.sub)
+
+                    if delta != 0 {
+                        Text("\(delta >= 0 ? "+" : "")\(delta) from avg")
+                            .font(AppFonts.bodyBold(10))
+                            .foregroundStyle(delta >= 0 ? AppColors.teal : AppColors.red)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 3)
+                            .background((delta >= 0 ? AppColors.teal : AppColors.red).opacity(0.15))
+                            .clipShape(Capsule())
+                    }
+                }
+                .padding(.bottom, 10)
+            }
+
+            verdictHeadline
+                .padding(.bottom, 10)
+
+            Text("\u{201C}\(session.question)\u{201D}")
+                .font(AppFonts.body(13))
+                .italic()
+                .foregroundStyle(AppColors.sub)
+                .lineSpacing(3)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom, 8)
+
+            Text("Level \(session.difficultyLevel) · \(DifficultyLevel.tier(for: session.difficultyLevel)) · \(durationString)")
+                .font(AppFonts.body(11))
+                .foregroundStyle(AppColors.dim)
+                .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    private var verdictHeadline: some View {
+        let score = session.overallScore
+        let worst = worstMetricName()
+
+        let headline: Text
+        if score >= 80 {
+            let best = bestMetricName()
+            if let best {
+                headline = Text("Strong performance. Your ")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+                    + Text(best)
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.teal)
+                    + Text(" stood out.")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            } else {
+                headline = Text("Strong performance.")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            }
+        } else if score >= 65 {
+            if let worst {
+                headline = Text("Getting there. Work on ")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+                    + Text(worst)
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.gold)
+                    + Text(" next.")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            } else {
+                headline = Text("Getting there.")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            }
+        } else {
+            if let worst {
+                headline = Text("Room to grow. Focus on ")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+                    + Text(worst)
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.red)
+                    + Text(" first.")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            } else {
+                headline = Text("Room to grow.")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+            }
+        }
+
+        return headline
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity, alignment: .center)
+    }
+
+    private func bestMetricName() -> String? {
+        if session.isAIScored {
+            return session.metricScores
+                .filter { $0.value > 0 }
+                .max(by: { $0.value < $1.value })
+                .flatMap { MetricKey(rawValue: $0.key)?.displayName.lowercased() }
+        }
+        let scores: [(String, Int)] = [
+            ("structure", session.structureScore),
+            ("vocabulary", session.vocabularyScore),
+            ("clarity", session.clarityScore),
+            ("pace", session.paceScore),
+            ("filler control", session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1)
+        ].filter { $0.1 > 0 }
+        return scores.max(by: { $0.1 < $1.1 })?.0
+    }
+
+    private func worstMetricName() -> String? {
+        if session.isAIScored {
+            return session.metricScores
+                .min(by: { $0.value < $1.value })
+                .flatMap { MetricKey(rawValue: $0.key)?.displayName.lowercased() }
+        }
+        let scores: [(String, Int)] = [
+            ("structure", session.structureScore),
+            ("vocabulary", session.vocabularyScore),
+            ("clarity", session.clarityScore),
+            ("pace", session.paceScore),
+            ("filler control", session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1)
+        ].filter { $0.1 >= 0 }
+        return scores.min(by: { $0.1 < $1.1 })?.0
+    }
+
+    // MARK: - Breakdown rows
+
+    private struct BreakdownEntry {
+        let name: String
+        let score: Int
+        let tip: String
+    }
+
+    private var breakdownEntries: [BreakdownEntry] {
+        if session.isAIScored {
+            return MetricKey.metrics(for: session.mode).compactMap { key in
+                let score = session.metricScores[key.rawValue] ?? -1
+                guard score >= 0 else { return nil }
+                let tip = session.metricTips[key.rawValue] ?? ""
+                return BreakdownEntry(name: key.displayName, score: score, tip: tip)
+            }
+        }
+        let fillerScore = session.fillerCount >= 0 ? max(0, 10 - session.fillerCount) : -1
+        let rows: [BreakdownEntry] = [
+            BreakdownEntry(name: "Filler Words", score: fillerScore, tip: ""),
+            BreakdownEntry(name: "Pace", score: session.paceScore, tip: ""),
+            BreakdownEntry(name: "Clarity", score: session.clarityScore, tip: ""),
+            BreakdownEntry(name: "Structure", score: session.structureScore, tip: ""),
+            BreakdownEntry(name: "Vocabulary", score: session.vocabularyScore, tip: "")
+        ]
+        return rows.filter { $0.score >= 0 }
+    }
+
+    private var breakdownSection: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            Text("BREAKDOWN")
+                .font(AppFonts.bodyBold(10))
+                .kerning(1.6)
+                .foregroundStyle(AppColors.dim)
+                .padding(.bottom, 12)
+
+            let sorted = breakdownEntries.sorted { $0.score < $1.score }
+            ForEach(Array(sorted.enumerated()), id: \.offset) { _, entry in
+                BreakdownMetricRow(
+                    name: entry.name,
+                    score: entry.score,
+                    tip: entry.tip,
+                    status: BreakdownMetricRow.status(forScore: entry.score)
+                )
+            }
+        }
+    }
+
+    // MARK: - Up Next Card
+
+    private var upNextCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            SectionHeader(title: "Up Next")
+
+            Button(action: onTryAgain) {
+                HStack(spacing: 14) {
+                    // Mode icon container
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(session.mode.accentColor.opacity(0.2))
+                            .frame(width: 44, height: 44)
+
+                        Text(session.mode.emoji)
+                            .font(.system(size: 20))
+                    }
+
+                    // Text column
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Another \(session.mode.displayName) — \(DifficultyLevel.tier(for: session.difficultyLevel))")
+                            .font(AppFonts.bodyMedium(13))
+                            .foregroundStyle(AppColors.text)
+
+                        Text("New question · +\(AppConstants.baseXP) XP")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                    }
+
+                    Spacer()
+
+                    // Chevron
+                    Text("›")
+                        .font(.system(size: 20, weight: .regular))
+                        .foregroundStyle(AppColors.dim)
+                }
+                .padding(15)
+                .background(AppColors.card)
+                .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+                .overlay(
+                    RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                        .stroke(AppColors.border, lineWidth: 1)
+                )
+            }
+        }
+    }
+}
