@@ -38,8 +38,8 @@ struct LeagueView: View {
                     tabSelector
 
                     if selectedTab == .leaderboard {
-                        zoneLegend
-                        leaderboardList
+                        promotionStatusBar
+                        globalLeaderboardSection
                         howXPEarnedCard
                     } else {
                         if socialService.pendingRequestCount > 0 {
@@ -102,6 +102,7 @@ struct LeagueView: View {
             }
             .task {
                 await socialService.fetchFriendsLeaderboard()
+                await socialService.fetchGlobalLeaderboard()
                 await socialService.refreshPendingRequestCount()
             }
             .onChange(of: openFriendRequests) { _, shouldOpen in
@@ -177,12 +178,21 @@ struct LeagueView: View {
                 Spacer()
 
                 VStack(alignment: .trailing, spacing: 2) {
-                    Text("Among friends")
-                        .font(AppFonts.body(11))
-                        .foregroundStyle(AppColors.dim)
-                    Text("#\(userRank)")
-                        .font(AppFonts.display(34))
-                        .foregroundStyle(AppColors.gold)
+                    if selectedTab == .leaderboard, let me = socialService.globalLeaderboard?.me {
+                        Text("Global rank")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                        Text("#\(me.rank)")
+                            .font(AppFonts.display(34))
+                            .foregroundStyle(AppColors.gold)
+                    } else {
+                        Text("Among friends")
+                            .font(AppFonts.body(11))
+                            .foregroundStyle(AppColors.dim)
+                        Text("#\(userRank)")
+                            .font(AppFonts.display(34))
+                            .foregroundStyle(AppColors.gold)
+                    }
                 }
             }
 
@@ -247,149 +257,35 @@ struct LeagueView: View {
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
-    // MARK: - Zone Legend
+    // MARK: - Leaderboard Tab Sections
 
-    private var zoneLegend: some View {
-        HStack(spacing: 8) {
-            zonePill(emoji: "\u{1F53C}", label: "Top 3 Promote", color: AppColors.gold)
-            zonePill(emoji: "\u{1F6E1}", label: "Safe", color: AppColors.teal)
-            zonePill(emoji: "\u{1F53D}", label: "Bottom 3 Demote", color: AppColors.red)
-        }
-    }
-
-    private func zonePill(emoji: String, label: String, color: Color) -> some View {
-        HStack(spacing: 4) {
-            Circle()
-                .fill(color)
-                .frame(width: 6, height: 6)
-            Text(label.uppercased())
-                .font(AppFonts.bodyMedium(9))
-                .kerning(0.6)
-                .foregroundStyle(AppColors.sub)
-                .lineLimit(1)
-                .minimumScaleFactor(0.8)
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 7)
-        .padding(.horizontal, 4)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(label) zone")
-    }
-
-    // MARK: - Leaderboard
-
-    private var leaderboardList: some View {
-        let leaderboard = socialService.friendsLeaderboard
-        let myWeeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
-
-        // Build rank map: merge current user + friends sorted by XP desc
-        var combined: [(id: String, xp: Int)] = [("__me__", myWeeklyXP)]
-        combined += leaderboard.map { (id: $0.id, xp: $0.weeklyXP) }
-        combined.sort { $0.xp > $1.xp }
-        let rankMap: [String: Int] = Dictionary(
-            uniqueKeysWithValues: combined.enumerated().map { ($1.id, $0 + 1) }
+    private var promotionStatusBar: some View {
+        let weeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
+        let tier = LeagueTier.from(weeklyXP: weeklyXP)
+        let secondsToReset = viewModel.secondsUntilReset()
+        let status = LeagueViewModel.promotionStatus(
+            weeklyXP: weeklyXP,
+            tier: tier,
+            secondsToReset: secondsToReset
         )
-        let myRank = rankMap["__me__"] ?? 1
-
-        return VStack(alignment: .leading, spacing: 8) {
-            SectionHeader(title: "This Week")
-
-            if let user {
-                leaderboardRow(
-                    rank: myRank,
-                    name: user.displayName,
-                    emoji: user.avatarEmoji,
-                    xp: myWeeklyXP,
-                    isCurrentUser: true,
-                    onTap: nil
-                )
-            }
-
-            if leaderboard.isEmpty {
-                VStack(spacing: 12) {
-                    Image(systemName: "trophy")
-                        .font(.system(size: 32))
-                        .foregroundStyle(AppColors.sub)
-                    Text("Add friends to see the leaderboard")
-                        .font(AppFonts.body(14))
-                        .foregroundStyle(AppColors.sub)
-                        .multilineTextAlignment(.center)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 32)
-                .cardStyle()
-            } else {
-                ForEach(Array(leaderboard.enumerated()), id: \.element.id) { index, profile in
-                    leaderboardRow(
-                        rank: rankMap[profile.id] ?? index + 2,
-                        name: profile.displayName,
-                        emoji: profile.avatarEmoji,
-                        xp: profile.weeklyXP,
-                        isCurrentUser: false,
-                        onTap: { selectedProfile = profile }
-                    )
-                }
-            }
-        }
+        return PromotionStatusPill(status: status)
     }
 
-    private func leaderboardRow(rank: Int, name: String, emoji: String, xp: Int, isCurrentUser: Bool, onTap: (() -> Void)?) -> some View {
-        let zoneColor: Color = rank <= 3 ? AppColors.gold : rank >= 10 ? AppColors.red : AppColors.text
-
-        return Button {
-            onTap?()
-        } label: {
-            HStack(spacing: 12) {
-                Text("#\(rank)")
-                    .font(AppFonts.bodyBold(14))
-                    .foregroundStyle(zoneColor)
-                    .frame(width: 32, alignment: .leading)
-
-                Text(emoji)
-                    .font(.system(size: 18))
-                    .frame(width: 36, height: 36)
-                    .background(isCurrentUser ? AppColors.gold.opacity(0.2) : AppColors.faint)
-                    .clipShape(Circle())
-
-                VStack(alignment: .leading, spacing: 1) {
-                    HStack(spacing: 4) {
-                        Text(name)
-                            .font(AppFonts.bodyMedium(13))
-                            .foregroundStyle(isCurrentUser ? AppColors.gold : AppColors.text)
-                        if isCurrentUser {
-                            Text("YOU")
-                                .font(AppFonts.bodyBold(8))
-                                .foregroundStyle(.black)
-                                .padding(.horizontal, 5)
-                                .padding(.vertical, 1)
-                                .background(AppColors.gold)
-                                .clipShape(Capsule())
-                        }
-                    }
-                }
-
-                Spacer()
-
-                Text("\(xp) XP")
-                    .font(AppFonts.bodyMedium(12))
-                    .foregroundStyle(AppColors.dim)
-
-                if !isCurrentUser {
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundStyle(AppColors.dim)
-                }
+    @ViewBuilder
+    private var globalLeaderboardSection: some View {
+        if let snapshot = socialService.globalLeaderboard {
+            GlobalLeaderboardSection(snapshot: snapshot)
+        } else {
+            VStack(spacing: 12) {
+                ProgressView()
+                Text("Loading leaderboard…")
+                    .font(AppFonts.body(13))
+                    .foregroundStyle(AppColors.sub)
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
-            .background(isCurrentUser ? AppColors.gold.opacity(0.08) : AppColors.card)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
-            .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(isCurrentUser ? AppColors.gold.opacity(0.4) : AppColors.border, lineWidth: 1)
-            )
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 24)
+            .cardStyle()
         }
-        .disabled(isCurrentUser)
     }
 
     // MARK: - Share Profile Card

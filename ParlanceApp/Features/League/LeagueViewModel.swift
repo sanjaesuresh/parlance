@@ -50,6 +50,17 @@ final class LeagueViewModel: ObservableObject {
         countdownTimer = nil
     }
 
+    func secondsUntilReset() -> TimeInterval {
+        let calendar = Calendar.current
+        let now = Date.now
+        guard let nextMonday = calendar.nextDate(
+            after: now,
+            matching: DateComponents(hour: 0, minute: 0, weekday: 2),
+            matchingPolicy: .nextTime
+        ) else { return 0 }
+        return nextMonday.timeIntervalSince(now)
+    }
+
     func timeUntilReset() -> String {
         let calendar = Calendar.current
         let now = Date.now
