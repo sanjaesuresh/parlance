@@ -15,6 +15,7 @@ enum AppConstants {
     static let waveformBarCount = 38
     static let baseXP = 120
     static let dailyChallengeXP = 200
+    static let personalBestXPBonus = 100
     static let highScoreXPBonus = 30      // awarded when overallScore >= 80
     static let excellentScoreXPBonus = 50 // awarded when overallScore >= 90 (replaces highScore bonus)
     static let difficultyXPBonus = 20     // per difficulty tier above 5 (level 6–7: ×1, 8–9: ×2, 10: ×3)

@@ -69,4 +69,9 @@ enum GamificationService {
         let cappedStreak = min(max(streak, 0), 10)
         return 1.0 + Double(cappedStreak) * 0.05
     }
+
+    static func personalBestBonus(score: Int, previousBest: Int?) -> Int {
+        guard let previousBest else { return 0 }
+        return score > previousBest ? AppConstants.personalBestXPBonus : 0
+    }
 }

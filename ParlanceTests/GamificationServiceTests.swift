@@ -51,3 +51,27 @@ struct ScoreBonusTests {
         #expect(GamificationService.scoreBonus(for: 120) == 50)
     }
 }
+
+@Suite("GamificationService.personalBestBonus")
+struct PersonalBestBonusTests {
+
+    @Test("first-ever session in a mode does not award PB bonus")
+    func firstEver() {
+        #expect(GamificationService.personalBestBonus(score: 85, previousBest: nil) == 0)
+    }
+
+    @Test("beating previous best awards +100")
+    func newBest() {
+        #expect(GamificationService.personalBestBonus(score: 90, previousBest: 80) == 100)
+    }
+
+    @Test("equalling previous best does not award")
+    func tie() {
+        #expect(GamificationService.personalBestBonus(score: 80, previousBest: 80) == 0)
+    }
+
+    @Test("scoring below previous best does not award")
+    func below() {
+        #expect(GamificationService.personalBestBonus(score: 70, previousBest: 80) == 0)
+    }
+}
