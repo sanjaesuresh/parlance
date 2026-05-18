@@ -20,6 +20,7 @@ enum AppConstants {
     static let feedbackTimeout: TimeInterval = 8
     static let scoringTimeout: TimeInterval = 30
     static let humeTimeout: TimeInterval = 45
+    static let humePollBudget: TimeInterval = 90
     static let proProductID = "com.parlance.pro.monthly"
     static var apiBaseURL: URL {
         let fallback = "https://parlance-api.parlance-app.workers.dev"
