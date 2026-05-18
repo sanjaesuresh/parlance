@@ -52,10 +52,10 @@ struct ProgressTabView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                if sessions.isEmpty {
-                    firstLaunchPrimer
-                } else {
-                    VStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    if sessions.isEmpty {
+                        firstLaunchPrimer
+                    } else {
                         header
                         ProgressSegmentedControl(selection: $period)
                             .padding(.top, 18)
@@ -68,16 +68,13 @@ struct ProgressTabView: View {
                         AllTimeStatsCard(stats: allTime)
                             .padding(.top, 22)
                     }
-                    .padding(.horizontal, 16)
-                    .padding(.bottom, 32)
                 }
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 16)
+                .padding(.bottom, 32)
             }
             .background(AppColors.bg)
-            .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
             .navigationBarHidden(true)
-            .refreshable {
-                await refreshBrief(manual: true)
-            }
             .task {
                 if briefStore.shouldAutoRefresh() {
                     await refreshBrief(manual: false)
@@ -125,8 +122,6 @@ struct ProgressTabView: View {
             }
             .padding(.top, 22)
         }
-        .padding(.horizontal, 16)
-        .padding(.bottom, 32)
     }
 
     // MARK: - Header
