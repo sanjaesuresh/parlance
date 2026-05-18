@@ -17,6 +17,9 @@ struct ContentView: View {
     @State private var showSplash = true
     @State private var isAppReady = false
     @State private var isSyncingProfile = false
+    @State private var pendingResumeCandidate: ResumeCandidate?
+    @State private var resumingAudioURL: URL?
+    @State private var didCheckRecovery = false
     @EnvironmentObject private var authService: AuthService
     @EnvironmentObject private var subscription: SubscriptionService
     @Environment(\.scenePhase) private var scenePhase
@@ -91,6 +94,7 @@ struct ContentView: View {
                     onDismiss: {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             activeSession = nil
+                            resumingAudioURL = nil
                         }
                         weekCache.refresh()
                     },
@@ -98,8 +102,10 @@ struct ContentView: View {
                         pendingRealLifeEditText = originalScenario
                         withAnimation(.easeInOut(duration: 0.3)) {
                             activeSession = nil
+                            resumingAudioURL = nil
                         }
-                    }
+                    },
+                    resumedAudioURL: resumingAudioURL
                 )
                 .transition(.move(edge: .bottom))
             } else {
@@ -141,12 +147,44 @@ struct ContentView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isAppReady = true
             }
+            // Sweep orphaned temp recordings off the main thread so launch
+            // perf is unaffected. Excludes the file we're about to recover.
+            let activeAudio = ActiveSessionPersistence.shared.recoveryCandidate()?.audioURL
+            Task.detached(priority: .background) {
+                ActiveSessionPersistence.sweepOrphanedTempRecordings(excluding: activeAudio)
+            }
         }
         .overlay {
             if !networkMonitor.isConnected {
                 NoConnectionView()
                     .transition(.opacity)
             }
+        }
+        .sheet(item: $pendingResumeCandidate) { candidate in
+            SessionRecoverySheet(
+                candidate: candidate,
+                onResume: {
+                    let state = candidate.sessionState
+                    let url = candidate.audioURL
+                    pendingResumeCandidate = nil
+                    resumingAudioURL = url
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        activeSession = state
+                    }
+                },
+                onDiscard: {
+                    let url = candidate.audioURL
+                    pendingResumeCandidate = nil
+                    try? FileManager.default.removeItem(at: url)
+                    ActiveSessionPersistence.shared.clear()
+                }
+            )
+        }
+        .onChange(of: showSplash) { _, hidden in
+            if !hidden { maybeOfferRecovery() }
+        }
+        .onChange(of: hasCompletedSetup) { _, completed in
+            if completed { maybeOfferRecovery() }
         }
         .animation(.easeInOut(duration: 0.3), value: networkMonitor.isConnected)
         .onChange(of: authService.isAuthenticated) { _, isAuthenticated in
@@ -186,6 +224,19 @@ struct ContentView: View {
             if oldPhase != .active && newPhase == .active {
                 Task { await subscription.refreshStatus() }
             }
+        }
+    }
+
+    private func maybeOfferRecovery() {
+        guard !didCheckRecovery,
+              !showSplash,
+              authService.isAuthenticated,
+              hasCompletedSetup,
+              activeSession == nil,
+              pendingResumeCandidate == nil else { return }
+        didCheckRecovery = true
+        if let candidate = ActiveSessionPersistence.shared.recoveryCandidate() {
+            pendingResumeCandidate = candidate
         }
     }
 

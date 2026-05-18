@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import AVFoundation
 
 struct SessionCoordinator: View {
     let state: ActiveSessionState
@@ -15,18 +16,25 @@ struct SessionCoordinator: View {
     @EnvironmentObject private var permissionsService: PermissionsService
     @EnvironmentObject private var subscription: SubscriptionService
 
+    /// When non-nil, the coordinator jumps directly into `.processing` using
+    /// the supplied audio file rather than entering loading → countdown →
+    /// recording. Used by the cold-start recovery path.
+    private let resumedAudioURL: URL?
+
     init(
         state: ActiveSessionState,
         currentUserID: String?,
         onReshuffleQuestion: ((ExplanationCategory) -> Question?)? = nil,
         onDismiss: @escaping () -> Void,
-        onEditScenario: ((String) -> Void)? = nil
+        onEditScenario: ((String) -> Void)? = nil,
+        resumedAudioURL: URL? = nil
     ) {
         self.state = state
         self.currentUserID = currentUserID
         self.onReshuffleQuestion = onReshuffleQuestion
         self.onDismiss = onDismiss
         self.onEditScenario = onEditScenario
+        self.resumedAudioURL = resumedAudioURL
         self._currentQuestion = State(initialValue: state.question)
         let seededUser = currentUserID.flatMap { PersistenceService.shared.getUser(uid: $0) }
         self._currentTopicCategory = State(
@@ -34,6 +42,7 @@ struct SessionCoordinator: View {
                 ? (seededUser?.lastExplanationCategory ?? .any)
                 : nil
         )
+        self._phase = State(initialValue: resumedAudioURL == nil ? .loading : .processing)
     }
 
     enum SessionPhase: Equatable {
@@ -81,7 +90,7 @@ struct SessionCoordinator: View {
                     onReady: {
                         phase = .countdown
                     },
-                    onCancel: { onDismiss() },
+                    onCancel: { dismiss() },
                     currentTopicCategory: currentTopicCategory,
                     onReshuffleTopic: { newCategory in
                         if let newQuestion = onReshuffleQuestion?(newCategory) {
@@ -128,7 +137,7 @@ struct SessionCoordinator: View {
                         Task { await processSession() }
                     },
                     onCancel: {
-                        onDismiss()
+                        dismiss()
                     }
                 )
 
@@ -148,7 +157,7 @@ struct SessionCoordinator: View {
                         .foregroundStyle(AppColors.sub)
                         .multilineTextAlignment(.center)
                     HStack(spacing: 12) {
-                        Button("Discard") { onDismiss() }
+                        Button("Discard") { dismiss() }
                             .font(AppFonts.bodyMedium(14))
                             .foregroundStyle(AppColors.sub)
                             .padding(.horizontal, 20)
@@ -183,7 +192,74 @@ struct SessionCoordinator: View {
             if case .processing = newPhase, state.mode == .realLife {
                 RealLifeScenarioHistoryStore.shared.record(state.question.question)
             }
+            if case .processing = newPhase {
+                ActiveSessionPersistence.shared.updatePhase(.processing)
+            }
         }
+        .onChange(of: recorder.isRecording) { oldValue, newValue in
+            // Persist manifest the moment the file exists on disk — this is
+            // the earliest point at which we have something worth recovering.
+            if !oldValue, newValue, let url = recorder.recordingURL {
+                ActiveSessionPersistence.shared.write(
+                    audioURL: url,
+                    state: state,
+                    phase: .recording
+                )
+            }
+        }
+        .onAppear {
+            if let url = resumedAudioURL {
+                Task { await processResumedSession(audioURL: url) }
+            }
+        }
+    }
+
+    /// Recovery entry point: skip recorder lifecycle, drive the existing
+    /// processing pipeline with audio that already exists on disk.
+    @MainActor
+    private func processResumedSession(audioURL: URL) async {
+        let duration: TimeInterval = {
+            guard let file = try? AVAudioFile(forReading: audioURL) else { return 0 }
+            let sampleRate = file.processingFormat.sampleRate
+            guard sampleRate > 0 else { return 0 }
+            return Double(file.length) / sampleRate
+        }()
+
+        let shouldAnalyzeEmotion = subscription.isPro
+        let apiURL = AppConstants.apiBaseURL
+
+        async let transcriptionTask: TranscriptionResult? = {
+            return try? await SpeechTranscriber.transcribe(url: audioURL)
+        }()
+        async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
+        async let emotionTask: (result: EmotionResult?, failed: Bool) = {
+            guard shouldAnalyzeEmotion else { return (nil, false) }
+            do {
+                let result = try await HumeClient.analyzeEmotion(audioURL: audioURL, workerBaseURL: apiURL)
+                return (result, false)
+            } catch {
+                return (nil, true)
+            }
+        }()
+
+        let (transcriptionResult, audioFeatures, emotionOutcome) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+
+        try? FileManager.default.removeItem(at: audioURL)
+
+        let transcript = transcriptionResult?.transcript ?? ""
+        let segments = transcriptionResult?.segments ?? []
+        let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
+        let fillerCount = transcript.isEmpty ? 0 : SpeechAnalyzer.analyzeFillers(in: transcript).count
+
+        pendingTranscript = transcript
+        pendingDuration = duration
+        pendingTimingStats = timingStats
+        pendingAudioFeatures = audioFeatures
+        pendingFillerCount = fillerCount
+        pendingEmotionResult = emotionOutcome.result
+        pendingEmotionAnalysisFailed = emotionOutcome.failed
+
+        await scoreAndSave()
     }
 
     private func retrySession() {
@@ -195,7 +271,7 @@ struct SessionCoordinator: View {
     @MainActor
     private func processSession() async {
         guard let audioURL = recorder.stopRecording() else {
-            onDismiss()
+            dismiss()
             return
         }
 
@@ -343,7 +419,15 @@ struct SessionCoordinator: View {
             )
         }
 
+        ActiveSessionPersistence.shared.clear()
         phase = .results(session)
+    }
+
+    /// User-cancel from any phase. Clears the recovery manifest so the next
+    /// launch doesn't prompt the user about an aborted recording.
+    private func dismiss() {
+        ActiveSessionPersistence.shared.clear()
+        onDismiss()
     }
 
     // MARK: - Achievements
