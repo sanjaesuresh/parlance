@@ -30,8 +30,14 @@ struct WelcomeBackSplashView: View {
                     Circle()
                         .strokeBorder(AppColors.gold.opacity(0.35), lineWidth: 1.5)
                         .frame(width: 108, height: 108)
-                    Text(user.avatarEmoji)
-                        .font(.system(size: 52))
+                    AvatarView(
+                        avatarUrl: user.avatarUrl,
+                        avatarEmoji: user.avatarEmoji,
+                        avatarUpdatedAt: user.avatarUpdatedAt,
+                        localOverride: user.profileImageData,
+                        size: 80,
+                        emojiFontSize: 52
+                    )
                 }
                 .scaleEffect(avatarVisible ? 1 : 0.55)
                 .opacity(avatarVisible ? 1 : 0)

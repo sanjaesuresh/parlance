@@ -143,22 +143,15 @@ struct ProfileView: View {
                     showAvatarPicker = true
                 } label: {
                     ZStack(alignment: .bottomTrailing) {
-                        Group {
-                            if let data = user.profileImageData, let uiImage = UIImage(data: data) {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 80, height: 80)
-                                    .clipShape(Circle())
-                                    .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
-                            } else {
-                                Circle()
-                                    .fill(AppColors.gold.opacity(0.2))
-                                    .frame(width: 80, height: 80)
-                                    .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
-                                    .overlay(Text(user.avatarEmoji).font(.system(size: 38)))
-                            }
-                        }
+                        AvatarView(
+                            avatarUrl: user.avatarUrl,
+                            avatarEmoji: user.avatarEmoji,
+                            avatarUpdatedAt: user.avatarUpdatedAt,
+                            localOverride: user.profileImageData,
+                            size: 80,
+                            emojiFontSize: 38
+                        )
+                        .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
 
                         Image(systemName: "pencil")
                             .font(.system(size: 11, weight: .bold))

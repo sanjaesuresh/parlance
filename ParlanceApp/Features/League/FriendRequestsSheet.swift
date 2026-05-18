@@ -156,16 +156,17 @@ struct FriendRequestsSheet: View {
         let profile = item.senderProfile
         let username = profile?.username ?? ""
         let displayName = profile?.displayName ?? "Unknown"
-        let avatarEmoji = profile?.avatarEmoji ?? "👤"
         let occupation = profile?.occupation
 
         return HStack(spacing: 12) {
-            Text(avatarEmoji)
-                .font(.system(size: 24))
-                .frame(width: 48, height: 48)
-                .background(AppColors.faint)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(AppColors.border, lineWidth: 1))
+            AvatarView(
+                avatarUrl: profile?.avatarUrl,
+                avatarEmoji: profile?.avatarEmoji ?? "👤",
+                avatarUpdatedAt: profile?.avatarUpdatedAt,
+                size: 48,
+                emojiFontSize: 24
+            )
+            .overlay(Circle().stroke(AppColors.border, lineWidth: 1))
 
             VStack(alignment: .leading, spacing: 3) {
                 Text(displayName)

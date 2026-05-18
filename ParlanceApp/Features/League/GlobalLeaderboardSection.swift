@@ -34,11 +34,13 @@ struct GlobalLeaderboardSection: View {
                 .foregroundStyle(entry.rank <= 3 ? AppColors.gold : AppColors.text)
                 .frame(width: 32, alignment: .leading)
 
-            Text(entry.avatarEmoji)
-                .font(.system(size: 18))
-                .frame(width: 36, height: 36)
-                .background(isMe ? AppColors.gold.opacity(0.2) : AppColors.faint)
-                .clipShape(Circle())
+            AvatarView(
+                avatarUrl: entry.avatarUrl,
+                avatarEmoji: entry.avatarEmoji,
+                avatarUpdatedAt: entry.avatarUpdatedAt,
+                size: 36,
+                emojiFontSize: 18
+            )
 
             HStack(spacing: 6) {
                 Text("@\(entry.username)")

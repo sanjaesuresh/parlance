@@ -439,11 +439,13 @@ struct LeagueView: View {
         let identifier = "searchResult_\(profile.username)"
         return Button { selectedSearchProfile = profile } label: {
             HStack(spacing: 12) {
-                Text(profile.avatarEmoji)
-                    .font(.system(size: 20))
-                    .frame(width: 42, height: 42)
-                    .background(AppColors.faint)
-                    .clipShape(Circle())
+                AvatarView(
+                    avatarUrl: profile.avatarUrl,
+                    avatarEmoji: profile.avatarEmoji,
+                    avatarUpdatedAt: profile.avatarUpdatedAt,
+                    size: 42,
+                    emojiFontSize: 20
+                )
 
                 Text("@\(profile.username)")
                     .font(AppFonts.body(14))
@@ -507,11 +509,13 @@ struct LeagueView: View {
     private func friendRow(profile: SocialProfile) -> some View {
         Button { selectedProfile = profile } label: {
             HStack(spacing: 12) {
-                Text(profile.avatarEmoji)
-                    .font(.system(size: 18))
-                    .frame(width: 40, height: 40)
-                    .background(AppColors.faint)
-                    .clipShape(Circle())
+                AvatarView(
+                    avatarUrl: profile.avatarUrl,
+                    avatarEmoji: profile.avatarEmoji,
+                    avatarUpdatedAt: profile.avatarUpdatedAt,
+                    size: 40,
+                    emojiFontSize: 18
+                )
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(profile.displayName)

@@ -136,16 +136,14 @@ struct UserProfileDetailView: View {
     private var heroSection: some View {
         VStack(spacing: 10) {
             ZStack(alignment: .bottomTrailing) {
-                Circle()
-                    .fill(AppColors.gold.opacity(0.2))
-                    .frame(width: 80, height: 80)
-                    .overlay(
-                        Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2)
-                    )
-                    .overlay(
-                        Text(resolvedProfile.avatarEmoji)
-                            .font(.system(size: 38))
-                    )
+                AvatarView(
+                    avatarUrl: resolvedProfile.avatarUrl,
+                    avatarEmoji: resolvedProfile.avatarEmoji,
+                    avatarUpdatedAt: resolvedProfile.avatarUpdatedAt,
+                    size: 80,
+                    emojiFontSize: 38
+                )
+                .overlay(Circle().stroke(AppColors.gold.opacity(0.5), lineWidth: 2))
 
                 Text("LV \(resolvedProfile.rank.level)")
                     .font(AppFonts.bodyBold(10))
@@ -368,11 +366,13 @@ struct PublicProfileDetailView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text(profile.avatarEmoji)
-                .font(.system(size: 56))
-                .frame(width: 96, height: 96)
-                .background(AppColors.faint)
-                .clipShape(Circle())
+            AvatarView(
+                avatarUrl: profile.avatarUrl,
+                avatarEmoji: profile.avatarEmoji,
+                avatarUpdatedAt: profile.avatarUpdatedAt,
+                size: 96,
+                emojiFontSize: 56
+            )
 
             Text("@\(profile.username)")
                 .font(AppFonts.display(22))
