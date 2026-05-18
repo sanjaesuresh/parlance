@@ -70,4 +70,25 @@ final class LeagueViewModel: ObservableObject {
         sessions.map(\.xpEarned).reduce(0, +)
     }
 
+    nonisolated static func promotionStatus(
+        weeklyXP: Int,
+        tier: LeagueTier,
+        secondsToReset: TimeInterval
+    ) -> PromotionStatus {
+        guard let bandEnd = tier.xpForNextTier else { return .atTop }
+        let bandStart = tier.minXP
+        let bandWidth = max(1, bandEnd - bandStart)
+        let progress = Double(weeklyXP - bandStart) / Double(bandWidth)
+
+        let hoursToReset = secondsToReset / 3600
+
+        if progress >= 0.70 {
+            return .eligibleForPromotion(xpRemaining: max(0, bandEnd - weeklyXP))
+        }
+        if tier != .bronze, progress < 0.30, hoursToReset < 24 {
+            return .atRiskOfDemotion
+        }
+        return .safe
+    }
+
 }
