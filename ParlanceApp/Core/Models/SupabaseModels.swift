@@ -283,6 +283,39 @@ struct PersonalBestUpsert: Encodable {
     }
 }
 
+// MARK: - GlobalLeaderboard
+
+struct GlobalLeaderboardRow: Codable {
+    let id: UUID
+    let username: String
+    let avatarEmoji: String
+    let weeklyXP: Int
+    let rank: Int
+    let tier: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, username, rank, tier
+        case avatarEmoji = "avatar_emoji"
+        case weeklyXP = "weekly_xp"
+    }
+
+    func asEntry() -> GlobalLeaderboardEntry {
+        GlobalLeaderboardEntry(
+            id: id.uuidString,
+            username: username,
+            avatarEmoji: avatarEmoji,
+            weeklyXP: weeklyXP,
+            rank: rank,
+            tier: LeagueTier(rawValue: tier) ?? .bronze
+        )
+    }
+}
+
+struct GlobalLeaderboardResponse: Codable {
+    let top: [GlobalLeaderboardRow]
+    let me: GlobalLeaderboardRow?
+}
+
 // MARK: - PublicProfile RPC row
 
 struct PublicProfileRow: Codable {

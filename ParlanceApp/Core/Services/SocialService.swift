@@ -13,6 +13,7 @@ enum RelationshipState {
 @MainActor
 final class SocialService: ObservableObject {
     @Published private(set) var friendsLeaderboard: [SocialProfile] = []
+    @Published private(set) var globalLeaderboard: GlobalLeaderboardSnapshot?
     @Published private(set) var pendingRequestCount: Int = 0
     @Published private(set) var blockedUserIds: Set<UUID> = []
 
@@ -66,6 +67,24 @@ final class SocialService: ObservableObject {
                 .sorted { $0.weeklyXP > $1.weeklyXP }
         } catch {
             friendsLeaderboard = []
+        }
+    }
+
+    // MARK: - Global Leaderboard
+
+    func fetchGlobalLeaderboard(limit: Int = 10) async {
+        do {
+            struct Params: Encodable { let limit_n: Int }
+            let response: GlobalLeaderboardResponse = try await client
+                .rpc("get_global_leaderboard", params: Params(limit_n: limit))
+                .execute()
+                .value
+            globalLeaderboard = GlobalLeaderboardSnapshot(
+                top: response.top.map { $0.asEntry() },
+                me: response.me?.asEntry()
+            )
+        } catch {
+            globalLeaderboard = nil
         }
     }
 
