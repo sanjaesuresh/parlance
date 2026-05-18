@@ -11,6 +11,8 @@ struct AvatarPickerSheet: View {
     @State private var photoPickerItem: PhotosPickerItem?
     @State private var pickedImageData: Data?
     @State private var pendingCropImage: UIImage?
+    @State private var avatarErrorMessage: String?
+    @State private var isSavingAvatar = false
 
     private let avatars = [
         "\u{1F3A4}", "\u{1F9E0}", "\u{1F680}", "\u{1F4BC}", "\u{1F981}", "\u{1F525}",
@@ -35,6 +37,12 @@ struct AvatarPickerSheet: View {
                     previewSection
                     photoSection
                     emojiSection
+                    if let avatarErrorMessage {
+                        Text(avatarErrorMessage)
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.red)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 16)
@@ -50,8 +58,9 @@ struct AvatarPickerSheet: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") { save() }
-                        .foregroundStyle(AppColors.gold)
+                        .foregroundStyle(isSavingAvatar ? AppColors.dim : AppColors.gold)
                         .fontWeight(.semibold)
+                        .disabled(isSavingAvatar)
                 }
             }
             .onChange(of: photoPickerItem) { _, item in
@@ -192,13 +201,51 @@ struct AvatarPickerSheet: View {
     }
 
     private func save() {
-        if selectedAvatar == "__photo__" {
-            user.profileImageData = pickedImageData
-        } else {
-            user.profileImageData = nil
-            user.avatarEmoji = selectedAvatar
+        let isPhotoMode = (selectedAvatar == "__photo__")
+        let photoDataChanged = isPhotoMode && pickedImageData != user.profileImageData
+        let switchedToPhoto  = isPhotoMode && user.avatarUrl == nil
+        let switchedToEmoji  = !isPhotoMode && (user.profileImageData != nil || user.avatarUrl != nil)
+        let uid = user.supabaseUID
+
+        isSavingAvatar = true
+        avatarErrorMessage = nil
+        Task {
+            do {
+                if isPhotoMode {
+                    if (photoDataChanged || switchedToPhoto), let data = pickedImageData {
+                        let path = try await AvatarService.shared.uploadAvatar(originalData: data, userId: uid)
+                        let stamp = try await AvatarService.shared.updateProfileAvatar(userId: uid, path: path)
+                        await MainActor.run {
+                            user.profileImageData = data
+                            user.avatarUrl = path
+                            user.avatarUpdatedAt = stamp
+                        }
+                    }
+                } else if switchedToEmoji {
+                    try await AvatarService.shared.deleteAvatar(userId: uid)
+                    let stamp = try await AvatarService.shared.updateProfileAvatar(userId: uid, path: nil)
+                    await MainActor.run {
+                        user.profileImageData = nil
+                        user.avatarUrl = nil
+                        user.avatarUpdatedAt = stamp
+                        user.avatarEmoji = selectedAvatar
+                    }
+                } else {
+                    await MainActor.run {
+                        user.avatarEmoji = selectedAvatar
+                    }
+                }
+                await MainActor.run {
+                    try? PersistenceService.shared.context.save()
+                    isSavingAvatar = false
+                    onDismiss()
+                }
+            } catch {
+                await MainActor.run {
+                    avatarErrorMessage = "Couldn't update photo. Try again."
+                    isSavingAvatar = false
+                }
+            }
         }
-        try? PersistenceService.shared.context.save()
-        onDismiss()
     }
 }
