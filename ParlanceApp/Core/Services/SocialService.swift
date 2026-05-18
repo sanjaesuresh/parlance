@@ -22,21 +22,18 @@ final class SocialService: ObservableObject {
 
     // MARK: - User search
 
-    func searchUsers(query: String) async -> [SocialProfile] {
+    func searchUsers(query: String) async -> [PublicProfile] {
         let safe = query.filter { $0.isLetter || $0.isNumber || $0 == " " || $0 == "-" }
             .trimmingCharacters(in: .whitespaces)
-        guard !safe.isEmpty, let currentId = currentUserId else { return [] }
+        guard !safe.isEmpty, currentUserId != nil else { return [] }
         do {
-            let profiles: [ProfileWithStats] = try await client
-                .from("profiles")
-                .select("*, user_stats(*)")
-                .or("username.ilike.%\(safe)%,display_name.ilike.%\(safe)%")
-                .neq("id", value: currentId.uuidString)
-                .limit(20)
+            struct SearchParams: Encodable { let q: String }
+            let rows: [PublicProfileRow] = try await client
+                .rpc("search_public_profiles", params: SearchParams(q: safe))
                 .execute()
                 .value
-            return profiles
-                .map { $0.asSocialProfile() }
+            return rows
+                .map { $0.asPublicProfile() }
                 .filter { !blockedUserIds.contains(UUID(uuidString: $0.id) ?? UUID()) }
         } catch {
             return []

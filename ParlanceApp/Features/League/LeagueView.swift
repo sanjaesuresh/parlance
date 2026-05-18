@@ -11,8 +11,9 @@ struct LeagueView: View {
     @Binding var openFriendRequests: Bool
     @State private var selectedTab: SocialTab = .leaderboard
     @State private var friendSearchText = ""
-    @State private var searchResults: [SocialProfile] = []
+    @State private var searchResults: [PublicProfile] = []
     @State private var selectedProfile: SocialProfile?
+    @State private var selectedSearchProfile: PublicProfile?
     @State private var showRequestsSheet = false
     @State private var isSearching = false
     @FocusState private var isSearchFieldFocused: Bool
@@ -84,6 +85,9 @@ struct LeagueView: View {
                 isSearchFieldFocused = false
             }) { profile in
                 UserProfileDetailView(profile: profile)
+            }
+            .sheet(item: $selectedSearchProfile) { profile in
+                Text("@\(profile.username) — sheet wired in Task 9")
             }
             .sheet(isPresented: $showRequestsSheet, onDismiss: {
                 openFriendRequests = false
@@ -520,9 +524,9 @@ struct LeagueView: View {
         }
     }
 
-    private func searchResultRow(profile: SocialProfile) -> some View {
+    private func searchResultRow(profile: PublicProfile) -> some View {
         let identifier = "searchResult_\(profile.username)"
-        return Button { selectedProfile = profile } label: {
+        return Button { selectedSearchProfile = profile } label: {
             HStack(spacing: 12) {
                 Text(profile.avatarEmoji)
                     .font(.system(size: 20))
@@ -530,34 +534,15 @@ struct LeagueView: View {
                     .background(AppColors.faint)
                     .clipShape(Circle())
 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(profile.displayName)
-                        .font(AppFonts.bodyMedium(14))
-                        .foregroundStyle(AppColors.text)
-                    HStack(spacing: 6) {
-                        Text("@\(profile.username)")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.sub)
-                        if let location = profile.location {
-                            Text("\u{00B7}")
-                                .foregroundStyle(AppColors.dim)
-                            Text(location)
-                                .font(AppFonts.body(11))
-                                .foregroundStyle(AppColors.dim)
-                        }
-                    }
-                }
+                Text("@\(profile.username)")
+                    .font(AppFonts.body(14))
+                    .foregroundStyle(AppColors.sub)
 
                 Spacer()
 
-                VStack(alignment: .trailing, spacing: 2) {
-                    Text("Avg \(profile.avgScore)")
-                        .font(AppFonts.bodyBold(12))
-                        .foregroundStyle(AppColors.scoreColor(profile.avgScore))
-                    Text("\u{1F525} \(profile.currentStreak)")
-                        .font(AppFonts.body(10))
-                        .foregroundStyle(AppColors.dim)
-                }
+                Text(profile.tier.displayName)
+                    .font(AppFonts.bodyBold(11))
+                    .foregroundStyle(profile.tier.color)
             }
         }
         .padding(12)

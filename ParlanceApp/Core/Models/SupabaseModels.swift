@@ -282,3 +282,31 @@ struct PersonalBestUpsert: Encodable {
         case achievedAt = "achieved_at"
     }
 }
+
+// MARK: - PublicProfile RPC row
+
+struct PublicProfileRow: Codable {
+    let id: UUID
+    let username: String
+    let avatarEmoji: String
+    let weeklyXP: Int
+    let tier: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case username
+        case avatarEmoji = "avatar_emoji"
+        case weeklyXP = "weekly_xp"
+        case tier
+    }
+
+    func asPublicProfile() -> PublicProfile {
+        PublicProfile(
+            id: id.uuidString,
+            username: username,
+            avatarEmoji: avatarEmoji,
+            weeklyXP: weeklyXP,
+            tier: LeagueTier(rawValue: tier) ?? .bronze
+        )
+    }
+}
