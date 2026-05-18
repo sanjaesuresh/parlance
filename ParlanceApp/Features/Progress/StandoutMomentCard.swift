@@ -15,7 +15,10 @@ struct StandoutMomentCard: View {
                     .padding(.top, 12)
                 if isExpanded {
                     expandedArea
-                        .transition(.opacity.combined(with: .move(edge: .top)))
+                        .transition(.asymmetric(
+                            insertion: .opacity.animation(.easeOut(duration: 0.18).delay(0.12)),
+                            removal: .opacity.animation(.easeIn(duration: 0.12))
+                        ))
                 }
             }
             .padding(16)
