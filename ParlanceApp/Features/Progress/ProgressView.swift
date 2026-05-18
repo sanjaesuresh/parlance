@@ -73,6 +73,7 @@ struct ProgressTabView: View {
                 }
             }
             .background(AppColors.bg)
+            .scrollBounceBehavior(.basedOnSize, axes: .horizontal)
             .navigationBarHidden(true)
             .refreshable {
                 await refreshBrief(manual: true)
