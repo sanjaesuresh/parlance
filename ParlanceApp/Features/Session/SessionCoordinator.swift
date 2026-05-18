@@ -280,11 +280,15 @@ struct SessionCoordinator: View {
             )
         }
 
+        // Fetch personal best once — used by both xpForSession and awardXP
+        let social = SocialService()
+        let previousBest = await social.fetchPersonalBest(mode: state.mode)
+
         let xpEarned = GamificationService.xpForSession(
             wasDailyChallenge: state.wasDailyChallenge,
             score: scoringResult.overallScore,
             difficultyLevel: state.difficultyLevel,
-            previousBest: nil,
+            previousBest: previousBest,
             currentStreak: PersistenceService.shared.getUser(uid: currentUserID ?? "")?.currentStreak ?? 0
         )
 
@@ -313,17 +317,20 @@ struct SessionCoordinator: View {
         // Gamification
         if let uid = currentUserID, let user = persistence.getUser(uid: uid) {
             GamificationService.awardXP(
-                    to: user,
-                    wasDailyChallenge: state.wasDailyChallenge,
-                    score: session.overallScore,
-                    difficultyLevel: state.difficultyLevel,
-                    previousBest: nil,
-                    currentStreak: user.currentStreak
-                )
+                to: user,
+                wasDailyChallenge: state.wasDailyChallenge,
+                score: session.overallScore,
+                difficultyLevel: state.difficultyLevel,
+                previousBest: previousBest,
+                currentStreak: user.currentStreak
+            )
             SoundService.play(.sessionComplete)
             GamificationService.updateStreak(for: user)
             GamificationService.incrementDailySessionCount(for: user)
             if state.wasDailyChallenge { user.dailyChallengeCompletedDate = .now }
+            if previousBest == nil || session.overallScore > (previousBest ?? -1) {
+                await social.recordPersonalBest(mode: state.mode, score: session.overallScore)
+            }
             checkAchievements(user: user, session: session, persistence: persistence)
         }
 

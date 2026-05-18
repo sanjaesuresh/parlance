@@ -318,4 +318,40 @@ final class SocialService: ObservableObject {
             .insert(NewUserReport(reporterId: currentId, reportedId: userId, reason: reason, details: details))
             .execute()
     }
+
+    // MARK: - Personal Bests
+
+    func fetchPersonalBest(mode: SessionMode) async -> Int? {
+        guard let currentId = currentUserId else { return nil }
+        do {
+            let rows: [PersonalBestRow] = try await client
+                .from("personal_bests")
+                .select()
+                .eq("user_id", value: currentId.uuidString)
+                .eq("mode", value: mode.rawValue)
+                .limit(1)
+                .execute()
+                .value
+            return rows.first?.bestScore
+        } catch {
+            return nil
+        }
+    }
+
+    func recordPersonalBest(mode: SessionMode, score: Int) async {
+        guard let currentId = currentUserId else { return }
+        do {
+            try await client
+                .from("personal_bests")
+                .upsert(PersonalBestUpsert(
+                    user_id: currentId,
+                    mode: mode.rawValue,
+                    best_score: score,
+                    achieved_at: .now
+                ), onConflict: "user_id,mode")
+                .execute()
+        } catch {
+            // Non-fatal — PB tracking is best-effort.
+        }
+    }
 }
