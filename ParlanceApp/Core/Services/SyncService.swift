@@ -98,7 +98,7 @@ final class SyncService {
 
     // MARK: - Post-session sync
 
-    func syncAfterSession(score: Int, mode: SessionMode, level: Int) async {
+    func syncAfterSession(clientSessionId: UUID, score: Int, mode: SessionMode, level: Int) async {
         guard let authUser = client.auth.currentUser else { return }
         let persistence = PersistenceService.shared
         guard let user = persistence.getUser(uid: authUser.id.uuidString) else { return }
@@ -126,25 +126,33 @@ final class SyncService {
             if mode != .realLife {
                 let scoreRow = SessionScoreRow(
                     userId: authUser.id,
+                    clientSessionId: clientSessionId,
                     score: score,
                     mode: mode.rawValue,
                     level: level
                 )
-                try await client.from("session_scores").insert(scoreRow).execute()
+                try await client.from("session_scores")
+                    .upsert(scoreRow, onConflict: "user_id,client_session_id")
+                    .execute()
             }
             clearPendingSync()
         } catch {
             #if DEBUG
             print("[SyncService] syncAfterSession failed, queuing: \(error)")
             #endif
-            storePendingSync(score: score, mode: mode.rawValue, level: level)
+            storePendingSync(clientSessionId: clientSessionId, score: score, mode: mode.rawValue, level: level)
         }
     }
 
     func flushPendingSync() async {
         guard let pending = loadPendingSync(),
               let mode = SessionMode(rawValue: pending.mode) else { return }
-        await syncAfterSession(score: pending.score, mode: mode, level: pending.level)
+        await syncAfterSession(
+            clientSessionId: pending.clientSessionId,
+            score: pending.score,
+            mode: mode,
+            level: pending.level
+        )
     }
 
     func flushIfNeeded() async {
@@ -183,13 +191,14 @@ final class SyncService {
     // MARK: - Offline queue
 
     private struct PendingSync: Codable {
+        let clientSessionId: UUID
         let score: Int
         let mode: String
         let level: Int
     }
 
-    private func storePendingSync(score: Int, mode: String, level: Int) {
-        let pending = PendingSync(score: score, mode: mode, level: level)
+    private func storePendingSync(clientSessionId: UUID, score: Int, mode: String, level: Int) {
+        let pending = PendingSync(clientSessionId: clientSessionId, score: score, mode: mode, level: level)
         if let data = try? JSONEncoder().encode(pending) {
             UserDefaults.standard.set(data, forKey: pendingSyncKey)
         }

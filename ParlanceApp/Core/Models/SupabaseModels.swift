@@ -72,6 +72,7 @@ struct UserStatsRow: Codable {
 struct SessionScoreRow: Codable {
     let id: UUID
     let userId: UUID
+    let clientSessionId: UUID
     let score: Int
     let mode: String
     let level: Int
@@ -80,15 +81,17 @@ struct SessionScoreRow: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case userId = "user_id"
+        case clientSessionId = "client_session_id"
         case score
         case mode
         case level
         case createdAt = "created_at"
     }
 
-    init(userId: UUID, score: Int, mode: String, level: Int) {
+    init(userId: UUID, clientSessionId: UUID, score: Int, mode: String, level: Int) {
         self.id = UUID()
         self.userId = userId
+        self.clientSessionId = clientSessionId
         self.score = score
         self.mode = mode
         self.level = level

@@ -336,6 +336,7 @@ struct SessionCoordinator: View {
 
         Task {
             await SyncService.shared.syncAfterSession(
+                clientSessionId: session.id,
                 score: session.overallScore,
                 mode: state.mode,
                 level: state.difficultyLevel
