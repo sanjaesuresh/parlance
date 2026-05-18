@@ -9,6 +9,8 @@ final class User {
     var location: String?
     var occupation: String?
     var avatarEmoji: String
+    var avatarUrl: String?
+    var avatarUpdatedAt: Date?
     var profileImageData: Data?
     var joinDate: Date
     var xp: Int
@@ -31,6 +33,8 @@ final class User {
         location: String? = nil,
         occupation: String? = nil,
         avatarEmoji: String,
+        avatarUrl: String? = nil,
+        avatarUpdatedAt: Date? = nil,
         joinDate: Date = .now,
         xp: Int = 0,
         currentStreak: Int = 0,
@@ -51,6 +55,8 @@ final class User {
         self.location = location
         self.occupation = occupation
         self.avatarEmoji = avatarEmoji
+        self.avatarUrl = avatarUrl
+        self.avatarUpdatedAt = avatarUpdatedAt
         self.joinDate = joinDate
         self.xp = xp
         self.currentStreak = currentStreak

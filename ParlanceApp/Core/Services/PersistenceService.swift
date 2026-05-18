@@ -119,8 +119,8 @@ final class PersistenceService {
     }
     #endif
 
-    func createUser(supabaseUID: String, name: String, username: String = "", location: String? = nil, occupation: String? = nil, avatar: String, practiceLevel: Int = 1) -> User {
-        let user = User(supabaseUID: supabaseUID, displayName: name, username: username, location: location, occupation: occupation, avatarEmoji: avatar, practiceLevel: practiceLevel, hasCompletedSetup: true)
+    func createUser(supabaseUID: String, name: String, username: String = "", location: String? = nil, occupation: String? = nil, avatar: String, avatarUrl: String? = nil, avatarUpdatedAt: Date? = nil, practiceLevel: Int = 1) -> User {
+        let user = User(supabaseUID: supabaseUID, displayName: name, username: username, location: location, occupation: occupation, avatarEmoji: avatar, avatarUrl: avatarUrl, avatarUpdatedAt: avatarUpdatedAt, practiceLevel: practiceLevel, hasCompletedSetup: true)
         context.insert(user)
         try? context.save()
         return user

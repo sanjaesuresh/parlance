@@ -9,6 +9,8 @@ struct ProfileRow: Codable, Identifiable {
     let displayName: String
     let username: String
     let avatarEmoji: String
+    let avatarUrl: String?
+    let avatarUpdatedAt: Date?
     let location: String?
     let occupation: String?
     let createdAt: Date
@@ -18,6 +20,8 @@ struct ProfileRow: Codable, Identifiable {
         case displayName = "display_name"
         case username
         case avatarEmoji = "avatar_emoji"
+        case avatarUrl = "avatar_url"
+        case avatarUpdatedAt = "avatar_updated_at"
         case location
         case occupation
         case createdAt = "created_at"
@@ -131,6 +135,8 @@ struct ProfileWithStats: Codable {
     let displayName: String
     let username: String
     let avatarEmoji: String
+    let avatarUrl: String?
+    let avatarUpdatedAt: Date?
     let location: String?
     let occupation: String?
     let userStats: UserStatsRow?
@@ -140,6 +146,8 @@ struct ProfileWithStats: Codable {
         case displayName = "display_name"
         case username
         case avatarEmoji = "avatar_emoji"
+        case avatarUrl = "avatar_url"
+        case avatarUpdatedAt = "avatar_updated_at"
         case location
         case occupation
         case userStats = "user_stats"
@@ -152,6 +160,8 @@ struct ProfileWithStats: Codable {
             displayName: displayName,
             username: username,
             avatarEmoji: avatarEmoji,
+            avatarUrl: avatarUrl,
+            avatarUpdatedAt: avatarUpdatedAt,
             location: location,
             occupation: occupation,
             xp: stats?.xp ?? 0,
@@ -291,6 +301,8 @@ struct FriendActivityRow: Codable {
     let actorUsername: String
     let actorDisplayName: String
     let actorAvatarEmoji: String
+    let actorAvatarUrl: String?
+    let actorAvatarUpdatedAt: Date?
     let eventType: String
     let eventAt: Date
     let payload: AnyJSON
@@ -300,6 +312,8 @@ struct FriendActivityRow: Codable {
         case actorUsername = "actor_username"
         case actorDisplayName = "actor_display_name"
         case actorAvatarEmoji = "actor_avatar_emoji"
+        case actorAvatarUrl = "actor_avatar_url"
+        case actorAvatarUpdatedAt = "actor_avatar_updated_at"
         case eventType = "event_type"
         case eventAt = "event_at"
         case payload
@@ -377,6 +391,8 @@ struct PublicProfileRow: Codable {
     let id: UUID
     let username: String
     let avatarEmoji: String
+    let avatarUrl: String?
+    let avatarUpdatedAt: Date?
     let weeklyXP: Int
     let tier: String
 
@@ -384,6 +400,8 @@ struct PublicProfileRow: Codable {
         case id
         case username
         case avatarEmoji = "avatar_emoji"
+        case avatarUrl = "avatar_url"
+        case avatarUpdatedAt = "avatar_updated_at"
         case weeklyXP = "weekly_xp"
         case tier
     }
@@ -393,6 +411,8 @@ struct PublicProfileRow: Codable {
             id: id.uuidString,
             username: username,
             avatarEmoji: avatarEmoji,
+            avatarUrl: avatarUrl,
+            avatarUpdatedAt: avatarUpdatedAt,
             weeklyXP: weeklyXP,
             tier: LeagueTier(rawValue: tier) ?? .bronze
         )
