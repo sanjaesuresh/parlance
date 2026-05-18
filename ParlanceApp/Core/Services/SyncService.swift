@@ -39,6 +39,8 @@ final class SyncService {
                 location: profile.location,
                 occupation: profile.occupation,
                 avatar: profile.avatarEmoji,
+                avatarUrl: profile.avatarUrl,
+                avatarUpdatedAt: profile.avatarUpdatedAt,
                 practiceLevel: 5
             )
             if let stats {
@@ -46,6 +48,24 @@ final class SyncService {
                 user.currentStreak = stats.currentStreak
                 user.longestStreak = stats.longestStreak
                 try? PersistenceService.shared.context.save()
+            }
+
+            // Change 3: one-shot back-fill — user has a local photo but no remote avatar yet.
+            if profile.avatarUrl == nil, let localData = user.profileImageData {
+                let uidForUpload = user.supabaseUID
+                Task {
+                    do {
+                        let path = try await AvatarService.shared.uploadAvatar(originalData: localData, userId: uidForUpload)
+                        let stamp = try await AvatarService.shared.updateProfileAvatar(userId: uidForUpload, path: path)
+                        await MainActor.run {
+                            user.avatarUrl = path
+                            user.avatarUpdatedAt = stamp
+                            try? PersistenceService.shared.context.save()
+                        }
+                    } catch {
+                        // Silent — next launch retries.
+                    }
+                }
             }
         } catch {
             #if DEBUG
