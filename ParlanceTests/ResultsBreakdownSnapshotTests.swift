@@ -241,7 +241,9 @@ private struct ResultsBreakdownSnapshotComposition: View {
                 confidenceScore: 0.64,
                 nervousnessScore: 0.38,
                 enthusiasmScore: 0.72,
-                emotionArc: [0.42, 0.48, 0.55, 0.62, 0.70, 0.85, 0.78, 0.72, 0.68, 0.72]
+                emotionArc: [0.42, 0.48, 0.55, 0.62, 0.70, 0.85, 0.78, 0.72, 0.68, 0.72],
+                topEmotions: nil,
+                emotionTimelines: nil
             ),
             analysisFailed: false,
             onUpgrade: {},

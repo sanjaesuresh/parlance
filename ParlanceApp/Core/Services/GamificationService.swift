@@ -65,4 +65,9 @@ enum GamificationService {
         let multiplier = min((level - 4) / 2, 3)
         return multiplier * AppConstants.difficultyXPBonus
     }
+
+    static func streakMultiplier(streak: Int) -> Double {
+        let cappedStreak = min(max(streak, 0), 10)
+        return 1.0 + Double(cappedStreak) * 0.05
+    }
 }

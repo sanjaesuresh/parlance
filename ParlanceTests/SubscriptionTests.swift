@@ -53,7 +53,9 @@ final class SubscriptionTests: XCTestCase {
             confidenceScore: 0.20,
             nervousnessScore: 0.65,
             enthusiasmScore: 0.30,
-            emotionArc: [0.30, 0.25, 0.20, 0.20]
+            emotionArc: [0.30, 0.25, 0.20, 0.20],
+            topEmotions: nil,
+            emotionTimelines: nil
         )
         let data = try JSONEncoder().encode(result)
         let decoded = try JSONDecoder().decode(EmotionResult.self, from: data)
