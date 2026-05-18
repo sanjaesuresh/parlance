@@ -61,6 +61,9 @@ struct LeagueView: View {
                             if !socialService.friendsLeaderboard.isEmpty {
                                 addedFriendsSection
                             }
+                            if !socialService.friendActivity.isEmpty {
+                                activityFeedSection
+                            }
                             friendsSuggestions
                         }
                     }
@@ -403,6 +406,17 @@ struct LeagueView: View {
 
             ForEach(socialService.friendsLeaderboard) { profile in
                 friendRow(profile: profile)
+            }
+        }
+    }
+
+    // MARK: - Friend Activity Feed
+
+    private var activityFeedSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            SectionHeader(title: "Friend Activity")
+            ForEach(socialService.friendActivity) { event in
+                ActivityFeedRow(event: event)
             }
         }
     }
