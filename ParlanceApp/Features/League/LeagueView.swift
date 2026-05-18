@@ -584,27 +584,41 @@ struct LeagueView: View {
     // MARK: - How XP Is Earned
 
     private var howXPEarnedCard: some View {
-        let xpItems: [(emoji: String, label: String, xp: String)] = [
-            ("\u{1F3A4}", "Session Completed", "+\(AppConstants.baseXP) XP"),
-            ("\u{1F4C5}", "Daily Challenge", "+\(AppConstants.dailyChallengeXP) XP bonus"),
+        let items: [(emoji: String, label: String, hint: String?, value: String)] = [
+            ("🎤", "Session completed", nil, "+\(AppConstants.baseXP) XP"),
+            ("⭐", "Score bonus", "+1 per point above 50", "up to +50"),
+            ("🔥", "Streak bonus", "+5% per day, max 10 days", "up to +50%"),
+            ("🏅", "Personal best", "Beat your top score in a mode", "+\(AppConstants.personalBestXPBonus) XP"),
+            ("📅", "Daily challenge", nil, "+\(AppConstants.dailyChallengeXP) XP"),
+            ("🎯", "Difficulty bonus", "L6 / L8 / L10 = +20 / +40 / +60", "up to +60")
         ]
 
         return VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "How XP Is Earned")
 
-            ForEach(xpItems, id: \.label) { item in
-                HStack {
-                    Text(item.emoji)
-                        .font(.system(size: 16))
-                    Text(item.label)
-                        .font(AppFonts.body(14))
-                        .foregroundStyle(AppColors.text)
-                    Spacer()
-                    Text(item.xp)
-                        .font(AppFonts.bodyBold(13))
-                        .foregroundStyle(AppColors.gold)
+            VStack(spacing: 2) {
+                ForEach(items, id: \.label) { item in
+                    HStack(alignment: .top, spacing: 10) {
+                        Text(item.emoji)
+                            .font(.system(size: 16))
+                            .frame(width: 22)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(item.label)
+                                .font(AppFonts.body(14))
+                                .foregroundStyle(AppColors.text)
+                            if let hint = item.hint {
+                                Text(hint)
+                                    .font(AppFonts.body(11))
+                                    .foregroundStyle(AppColors.dim)
+                            }
+                        }
+                        Spacer()
+                        Text(item.value)
+                            .font(AppFonts.bodyBold(13))
+                            .foregroundStyle(AppColors.gold)
+                    }
+                    .padding(.vertical, 6)
                 }
-                .padding(.vertical, 2)
             }
         }
         .cardStyle()
