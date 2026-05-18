@@ -56,7 +56,6 @@ struct ProgressTabView: View {
                     if sessions.isEmpty {
                         firstLaunchPrimer
                     } else {
-                        header
                         ProgressSegmentedControl(selection: $period)
                             .padding(.top, 18)
                         StatsStripView(aggregate: aggregate)
@@ -75,6 +74,9 @@ struct ProgressTabView: View {
             }
             .background(AppColors.bg)
             .navigationBarHidden(true)
+            .safeAreaInset(edge: .top) {
+                headerView
+            }
             .task {
                 if briefStore.shouldAutoRefresh() {
                     await refreshBrief(manual: false)
@@ -115,8 +117,6 @@ struct ProgressTabView: View {
 
     private var firstLaunchPrimer: some View {
         VStack(spacing: 0) {
-            header
-
             ProgressEmptyHeroCard {
                 DeepLinkRouter.shared.selectedTab = 0
             }
@@ -126,20 +126,21 @@ struct ProgressTabView: View {
 
     // MARK: - Header
 
-    private var header: some View {
-        VStack(alignment: .leading, spacing: 0) {
+    private var headerView: some View {
+        VStack(alignment: .leading, spacing: 2) {
             Text("YOUR JOURNEY")
-                .font(AppFonts.bodyMedium(10))
-                .kerning(1.4)
+                .font(AppFonts.bodyMedium(11))
+                .kerning(1.2)
                 .foregroundStyle(AppColors.dim)
             Text("Progress")
                 .font(AppFonts.display(26))
                 .foregroundStyle(AppColors.text)
-                .padding(.top, 4)
         }
-        .padding(.top, 18)
-        .padding(.bottom, 4)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 16)
+        .padding(.top, 16)
+        .padding(.bottom, 12)
+        .background(AppColors.bg)
     }
 
     // MARK: - Standout
