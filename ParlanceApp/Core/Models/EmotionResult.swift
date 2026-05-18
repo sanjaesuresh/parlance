@@ -8,12 +8,20 @@ struct EmotionResult: Sendable {
     let nervousnessScore: Double
     let enthusiasmScore: Double
     let emotionArc: [Double]
+    let topEmotions: [TopEmotion]?
+    let emotionTimelines: [String: [Double]]?
+
+    struct TopEmotion: Sendable, Codable, Hashable {
+        let name: String
+        let score: Double
+    }
 }
 
 nonisolated extension EmotionResult: Codable {
     private enum CodingKeys: String, CodingKey {
         case dominantEmotion, dominantScore, confidenceScore
         case nervousnessScore, enthusiasmScore, emotionArc
+        case topEmotions, emotionTimelines
     }
 
     init(from decoder: any Decoder) throws {
@@ -24,6 +32,8 @@ nonisolated extension EmotionResult: Codable {
         nervousnessScore = try c.decode(Double.self,   forKey: .nervousnessScore)
         enthusiasmScore  = try c.decode(Double.self,   forKey: .enthusiasmScore)
         emotionArc       = try c.decode([Double].self, forKey: .emotionArc)
+        topEmotions      = try c.decodeIfPresent([TopEmotion].self,       forKey: .topEmotions)
+        emotionTimelines = try c.decodeIfPresent([String: [Double]].self, forKey: .emotionTimelines)
     }
 
     func encode(to encoder: any Encoder) throws {
@@ -34,5 +44,7 @@ nonisolated extension EmotionResult: Codable {
         try c.encode(nervousnessScore, forKey: .nervousnessScore)
         try c.encode(enthusiasmScore,  forKey: .enthusiasmScore)
         try c.encode(emotionArc,       forKey: .emotionArc)
+        try c.encodeIfPresent(topEmotions,      forKey: .topEmotions)
+        try c.encodeIfPresent(emotionTimelines, forKey: .emotionTimelines)
     }
 }

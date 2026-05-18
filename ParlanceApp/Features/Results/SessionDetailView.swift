@@ -7,6 +7,7 @@ struct SessionDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var subscription: SubscriptionService
     @State private var showPaywall = false
+    @State private var showToneDetail = false
     @State private var transcriptExpanded = false
     @State private var cachedHighlightedTranscript: AttributedString? = nil
 
@@ -39,7 +40,7 @@ struct SessionDetailView: View {
                             emotionResult: session.emotionResult,
                             analysisFailed: false,
                             onUpgrade: { showPaywall = true },
-                            onTapDetails: {}
+                            onTapDetails: { showToneDetail = true }
                         )
                     }
                     if session.hasTranscript {
@@ -54,6 +55,11 @@ struct SessionDetailView: View {
         .navigationBarHidden(true)
         .sheet(isPresented: $showPaywall) {
             PaywallView(source: "session-detail")
+        }
+        .sheet(isPresented: $showToneDetail) {
+            if let result = session.emotionResult {
+                ToneDetailSheet(emotionResult: result, sessionDuration: session.duration)
+            }
         }
         .onAppear {
             guard session.hasTranscript, cachedHighlightedTranscript == nil else { return }

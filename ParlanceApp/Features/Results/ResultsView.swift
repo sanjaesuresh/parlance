@@ -14,6 +14,7 @@ struct ResultsView: View {
     @State private var showXPToast = true
     @State private var showPaywall = false
     @State private var showXPBanner = false
+    @State private var showToneDetail = false
 
     private enum ResultsPhase {
         case scoreReveal, breakdown
@@ -110,7 +111,7 @@ struct ResultsView: View {
                                     emotionResult: session.emotionResult,
                                     analysisFailed: toneAnalysisFailed,
                                     onUpgrade: { showPaywall = true },
-                                    onTapDetails: { /* hooked up by the tone-detail-sheet stream */ }
+                                    onTapDetails: { showToneDetail = true }
                                 )
                             }
                             if session.hasTranscript {
@@ -144,6 +145,11 @@ struct ResultsView: View {
         }
         .sheet(isPresented: $showPaywall) {
             PaywallView(source: "results")
+        }
+        .sheet(isPresented: $showToneDetail) {
+            if let result = session.emotionResult {
+                ToneDetailSheet(emotionResult: result, sessionDuration: session.duration)
+            }
         }
         .sensoryFeedback(.success, trigger: revealHaptic)
         .sensoryFeedback(.impact(weight: .light), trigger: breakdownHaptic)

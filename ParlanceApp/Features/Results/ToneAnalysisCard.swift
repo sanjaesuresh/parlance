@@ -202,7 +202,7 @@ struct ToneAnalysisCard: View {
                         Text("See your full tone analysis")
                             .font(AppFonts.bodyBold(14))
                             .foregroundStyle(AppColors.text)
-                        Text("10 emotions · arc over time · peaks & dips")
+                        Text("Tone arc · peaks & dips · emotion breakdown")
                             .font(AppFonts.body(10.5))
                             .foregroundStyle(AppColors.sub)
                     }
