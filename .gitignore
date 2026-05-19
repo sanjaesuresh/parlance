@@ -47,12 +47,37 @@ CLAUDE.md
 .superpowers/
 docs/superpowers/
 
-# Docs — specs and plans (generated, not source of truth)
-_docs/specs/
-_docs/plans/
+# Docs — ignore everything under _docs except hand-written guides
+/_docs/**
+!/_docs/guides/
+!/_docs/guides/**
 
 # Product / planning docs
 PRODUCT.md
+
+# Generated codebase reviews / action lists (local only)
+CODEBASE_REVIEW.md
+TOP_20_ACTION_ITEMS.md
+
+# Editor / IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and OS junk
+*.log
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Secrets / credentials — never commit
+.env
+.env.*
+*.pem
+*.p12
+*.mobileprovision
+*.key
 
 # Cloudflare Worker — source/tests/config are tracked so CI can run them;
 # only local install artifacts are ignored.
