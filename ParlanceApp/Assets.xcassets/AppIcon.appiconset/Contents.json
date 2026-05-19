@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "new_logo_light_mode.png",
+      "filename" : "new_logo_light_mode 2.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "new_logo_dark_mode.png",
+      "filename" : "new_logo_light_mode.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

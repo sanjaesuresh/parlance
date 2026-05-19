@@ -85,10 +85,12 @@ final class SubscriptionService: ObservableObject {
             return
         }
         #endif
-        // TestFlight + StoreKit sandbox: grant Pro automatically until the
-        // subscription product is configured in App Store Connect. Production
-        // App Store builds use "receipt" (not "sandboxReceipt") and fall
-        // through to the real entitlement check below.
+        // TODO: REMOVE BEFORE APP STORE LAUNCH — TestFlight/sandbox free Pro.
+        // Grants Pro automatically when running in TestFlight or StoreKit
+        // sandbox (receipt name "sandboxReceipt"). Production App Store builds
+        // use "receipt" and fall through to the real entitlement check.
+        // This exists only because the Pro subscription product is not yet
+        // configured in App Store Connect. Once it is, delete this block.
         if Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" {
             let previous = isPro
             isPro = true
