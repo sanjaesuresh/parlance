@@ -360,8 +360,10 @@ struct UserProfileDetailView: View {
 
 struct PublicProfileDetailView: View {
     let profile: PublicProfile
-    @State private var isAdding = false
-    @State private var addError: String?
+    @State private var isWorking = false
+    @State private var actionError: String?
+    @State private var relationshipState: RelationshipState = .none
+    @State private var isLoadingRelationship = true
     @StateObject private var socialService = SocialService()
 
     var body: some View {
@@ -380,27 +382,16 @@ struct PublicProfileDetailView: View {
 
             PillBadge(text: "\(profile.tier.displayName) League", color: profile.tier.color, small: true)
 
-            Button {
-                Task { await sendRequest() }
-            } label: {
-                Text(isAdding ? "Sending…" : "Add Friend")
-                    .font(AppFonts.bodyBold(15))
-                    .foregroundStyle(AppColors.onGold)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .background(AppColors.gold)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-            }
-            .disabled(isAdding)
-            .padding(.horizontal, 24)
+            relationshipButton
+                .padding(.horizontal, 24)
 
-            if let addError {
-                Text(addError)
+            if let actionError {
+                Text(actionError)
                     .font(AppFonts.body(12))
                     .foregroundStyle(AppColors.red)
             }
 
-            Text("Add as a friend to see their full profile, sessions, and stats.")
+            Text(helperText)
                 .font(AppFonts.body(12))
                 .foregroundStyle(AppColors.dim)
                 .multilineTextAlignment(.center)
@@ -411,16 +402,131 @@ struct PublicProfileDetailView: View {
         .padding(.top, 40)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(AppColors.bg)
+        .task {
+            guard let userId = UUID(uuidString: profile.id) else {
+                isLoadingRelationship = false
+                return
+            }
+            relationshipState = await socialService.relationshipState(for: userId)
+            isLoadingRelationship = false
+        }
+    }
+
+    @ViewBuilder
+    private var relationshipButton: some View {
+        switch relationshipState {
+        case .none:
+            Button { Task { await sendRequest() } } label: {
+                buttonLabel(text: isWorking ? "Sending…" : "Add Friend", style: .filled)
+            }
+            .disabled(isWorking || isLoadingRelationship)
+            .accessibilityIdentifier("addFriendButton")
+
+        case .pendingSent:
+            Button { Task { await cancelRequest() } } label: {
+                buttonLabel(text: isWorking ? "Cancelling…" : "Pending", style: .outline)
+            }
+            .disabled(isWorking)
+            .accessibilityIdentifier("pendingRequestButton")
+
+        case .pendingReceived:
+            Button { Task { await acceptRequest() } } label: {
+                buttonLabel(text: isWorking ? "Accepting…" : "Accept Request", style: .accent)
+            }
+            .disabled(isWorking)
+            .accessibilityIdentifier("acceptRequestButton")
+
+        case .friends:
+            buttonLabel(text: "Friends", style: .outline)
+                .accessibilityIdentifier("friendsLabel")
+
+        case .isSelf:
+            EmptyView()
+        }
+    }
+
+    private enum ButtonStyleKind { case filled, outline, accent }
+
+    private func buttonLabel(text: String, style: ButtonStyleKind) -> some View {
+        let foreground: Color
+        let background: Color
+        let strokeColor: Color?
+        switch style {
+        case .filled:
+            foreground = AppColors.onGold
+            background = AppColors.gold
+            strokeColor = nil
+        case .outline:
+            foreground = AppColors.sub
+            background = AppColors.card
+            strokeColor = AppColors.border
+        case .accent:
+            foreground = .black
+            background = AppColors.teal
+            strokeColor = nil
+        }
+        return Text(text)
+            .font(AppFonts.bodyBold(15))
+            .foregroundStyle(foreground)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .background(background)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay {
+                if let strokeColor {
+                    RoundedRectangle(cornerRadius: 12).stroke(strokeColor, lineWidth: 1)
+                }
+            }
+    }
+
+    private var helperText: String {
+        switch relationshipState {
+        case .pendingSent: return "Friend request sent. Tap Pending to cancel."
+        case .pendingReceived: return "They sent you a friend request."
+        case .friends: return "You're friends. View their full profile from your friends list."
+        default: return "Add as a friend to see their full profile, sessions, and stats."
+        }
     }
 
     private func sendRequest() async {
+        guard relationshipState == .none else { return }
         guard let userId = UUID(uuidString: profile.id) else { return }
-        isAdding = true
-        defer { isAdding = false }
+        isWorking = true
+        actionError = nil
+        defer { isWorking = false }
         do {
             try await socialService.sendFriendRequest(to: userId)
+            relationshipState = .pendingSent
         } catch {
-            addError = "Couldn't send request. Try again."
+            actionError = "Couldn't send request. Try again."
+        }
+    }
+
+    private func cancelRequest() async {
+        guard relationshipState == .pendingSent else { return }
+        guard let userId = UUID(uuidString: profile.id) else { return }
+        isWorking = true
+        actionError = nil
+        defer { isWorking = false }
+        do {
+            try await socialService.cancelFriendRequest(to: userId)
+            relationshipState = .none
+        } catch {
+            actionError = "Couldn't cancel request. Try again."
+        }
+    }
+
+    private func acceptRequest() async {
+        guard relationshipState == .pendingReceived else { return }
+        guard let userId = UUID(uuidString: profile.id) else { return }
+        isWorking = true
+        actionError = nil
+        defer { isWorking = false }
+        do {
+            try await socialService.acceptRequestFrom(userId)
+            relationshipState = .friends
+        } catch {
+            actionError = "Couldn't accept request. Try again."
         }
     }
 }
