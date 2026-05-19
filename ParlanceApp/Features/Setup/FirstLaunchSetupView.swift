@@ -10,6 +10,7 @@ struct FirstLaunchSetupView: View {
     @State private var name = ""
     @State private var username = ""
     @State private var occupation = ""
+    @State private var location: String? = nil
     @State private var selectedAvatar = "\u{1F3A4}"
     @State private var comfortLevel = 0
     @State private var showPrivacyPolicy = false
@@ -79,6 +80,14 @@ struct FirstLaunchSetupView: View {
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
                 }
+
+                LocationPickerField(
+                    location: $location,
+                    label: "Where are you based?",
+                    hint: "Optional — shown on leaderboards",
+                    placeholder: "Search your city"
+                )
+                .padding(.horizontal, 24)
 
                 VStack(alignment: .leading, spacing: 12) {
                     Text("How comfortable are you with public speaking?")
@@ -257,10 +266,12 @@ struct FirstLaunchSetupView: View {
         }
 
         let uid = authService.currentUserID ?? ""
+        let trimmedLocation = location?.trimmingCharacters(in: .whitespaces)
         let user = PersistenceService.shared.createUser(
             supabaseUID: uid,
             name: trimmedName,
             username: finalUsername,
+            location: (trimmedLocation?.isEmpty ?? true) ? nil : trimmedLocation,
             occupation: occ.isEmpty ? nil : occ,
             avatar: selectedAvatar,
             practiceLevel: comfortLevel

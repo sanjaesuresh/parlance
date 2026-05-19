@@ -8,7 +8,7 @@ struct ProfileEditSheet: View {
 
     @State private var name: String
     @State private var username: String
-    @State private var location: String
+    @State private var location: String?
     @State private var occupation: String
     @State private var selectedAvatar: String  // "__photo__" when a custom photo is active
     @State private var photoPickerItem: PhotosPickerItem?
@@ -30,7 +30,7 @@ struct ProfileEditSheet: View {
         self.onDismiss = onDismiss
         _name = State(initialValue: user.displayName)
         _username = State(initialValue: user.username ?? "")
-        _location = State(initialValue: user.location ?? "")
+        _location = State(initialValue: user.location)
         _occupation = State(initialValue: user.occupation ?? "")
         _selectedAvatar = State(initialValue: user.profileImageData != nil ? "__photo__" : user.avatarEmoji)
         _pickedImageData = State(initialValue: user.profileImageData)
@@ -140,14 +140,12 @@ struct ProfileEditSheet: View {
                             }
                     }
 
-                    field(label: "Location", hint: "Optional") {
-                        TextField("City, Country", text: $location)
-                            .font(AppFonts.body(16))
-                            .foregroundStyle(AppColors.text)
-                            .onChange(of: location) { _, newValue in
-                                if newValue.count > 40 { location = String(newValue.prefix(40)) }
-                            }
-                    }
+                    LocationPickerField(
+                        location: $location,
+                        label: "Location",
+                        hint: "Optional",
+                        placeholder: "Search your city"
+                    )
 
                     field(label: "Occupation", hint: "Optional") {
                         TextField("Your role or field", text: $occupation)
@@ -245,14 +243,13 @@ struct ProfileEditSheet: View {
 
     private func save() {
         let trimmedName = name.trimmingCharacters(in: .whitespaces)
-        let trimmedLocation = location.trimmingCharacters(in: .whitespaces)
+        let trimmedLocation = location?.trimmingCharacters(in: .whitespaces)
         let trimmedOccupation = occupation.trimmingCharacters(in: .whitespaces)
 
         // Profanity check before persisting
         let fieldsToCheck: [(String, String)] = [
             (trimmedName, "Name"),
             (username, "Username"),
-            (trimmedLocation, "Location"),
             (trimmedOccupation, "Occupation")
         ]
         for (value, label) in fieldsToCheck {
@@ -264,7 +261,7 @@ struct ProfileEditSheet: View {
 
         user.displayName = trimmedName
         user.username = username
-        user.location = trimmedLocation.isEmpty ? nil : trimmedLocation
+        user.location = (trimmedLocation?.isEmpty ?? true) ? nil : trimmedLocation
         user.occupation = trimmedOccupation.isEmpty ? nil : trimmedOccupation
 
         let isPhotoMode = (selectedAvatar == "__photo__")
