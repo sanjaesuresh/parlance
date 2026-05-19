@@ -85,6 +85,17 @@ final class SubscriptionService: ObservableObject {
             return
         }
         #endif
+        // TestFlight + StoreKit sandbox: grant Pro automatically until the
+        // subscription product is configured in App Store Connect. Production
+        // App Store builds use "receipt" (not "sandboxReceipt") and fall
+        // through to the real entitlement check below.
+        if Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" {
+            let previous = isPro
+            isPro = true
+            isLoading = false
+            print("[SubscriptionService] refreshStatus: sandbox/TestFlight — granting Pro (was=\(previous))")
+            return
+        }
         var hasPro = false
         var entitlementCount = 0
         for await result in Transaction.currentEntitlements {

@@ -181,6 +181,14 @@ struct PaywallView: View {
 
     private func purchase() async {
         isPurchasing = true
+        // If we're already Pro (e.g. sandbox/TestFlight auto-grant), skip the
+        // StoreKit round-trip — it would error with "product not found" until
+        // the subscription is configured in App Store Connect.
+        if subscription.isPro {
+            isPurchasing = false
+            dismiss()
+            return
+        }
         do {
             try await subscription.purchase()
             dismiss()
