@@ -15,7 +15,7 @@ enum LeagueTier: String, CaseIterable {
         }
     }
 
-    var minXP: Int {
+    nonisolated var minXP: Int {
         switch self {
         case .bronze: 0
         case .silver: 600
@@ -25,7 +25,7 @@ enum LeagueTier: String, CaseIterable {
         }
     }
 
-    var xpForNextTier: Int? {
+    nonisolated var xpForNextTier: Int? {
         switch self {
         case .bronze: 600
         case .silver: 1500

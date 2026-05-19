@@ -22,7 +22,7 @@ enum AppConstants {
     static let humeTimeout: TimeInterval = 45
     static let humePollBudget: TimeInterval = 90
     static let proProductID = "com.parlance.pro.monthly"
-    static var apiBaseURL: URL {
+    nonisolated static var apiBaseURL: URL {
         let fallback = "https://parlance-api.parlance-app.workers.dev"
         let urlString = Bundle.main.object(forInfoDictionaryKey: "ParlanceAPIBaseURL") as? String ?? fallback
         return URL(string: urlString) ?? URL(string: fallback)!

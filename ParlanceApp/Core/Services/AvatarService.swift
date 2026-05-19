@@ -10,8 +10,8 @@ final class AvatarService {
     static let shared = AvatarService()
 
     static let bucketName = "avatars"
-    private static let maxDimension: CGFloat = 512
-    private static let jpegQuality: CGFloat = 0.8
+    nonisolated private static let maxDimension: CGFloat = 512
+    nonisolated private static let jpegQuality: CGFloat = 0.8
 
     private init() {}
 

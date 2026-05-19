@@ -9,7 +9,7 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-struct Endpoint<Request: Encodable, Response> {
+nonisolated struct Endpoint<Request: Encodable, Response> {
     let path: String
     let method: HTTPMethod
     let request: Request?
@@ -35,7 +35,7 @@ struct Endpoint<Request: Encodable, Response> {
 }
 
 extension Endpoint where Response: Decodable {
-    static func json(
+    nonisolated static func json(
         path: String,
         method: HTTPMethod = .post,
         request: Request?,

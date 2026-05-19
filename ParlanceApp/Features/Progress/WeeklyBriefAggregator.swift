@@ -184,7 +184,7 @@ enum WeeklyBriefAggregator {
         let bestSession = sessions.max(by: { $0.overallScore < $1.overallScore })
             .map { Self.sessionRef(for: $0) }
             ?? WeeklyBriefRequest.SessionRef(mode: "", score: 0, question: "", date: "", aiCoachFeedback: nil)
-        let worstSession = sessions.min(by: { $0.overallScore < $1.overallScore }).map(Self.sessionRef(for:))
+        let worstSession = sessions.min(by: { $0.overallScore < $1.overallScore }).map { Self.sessionRef(for: $0) }
 
         return WeeklyBriefRequest.WeekStats(
             sessionCount: range.sessionCount,
