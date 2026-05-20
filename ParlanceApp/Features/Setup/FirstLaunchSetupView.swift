@@ -79,7 +79,7 @@ struct FirstLaunchSetupView: View {
                         }
                 }
 
-                setupField(label: "Job or role", hint: "Optional — helps tailor your practice") {
+                setupField(label: "Job or role", hint: "Optional. Helps tailor your practice.") {
                     TextField("e.g. Software Engineer, Student…", text: $occupation)
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
@@ -88,7 +88,7 @@ struct FirstLaunchSetupView: View {
                 LocationPickerField(
                     location: $location,
                     label: "Where are you based?",
-                    hint: "Optional — shown on leaderboards",
+                    hint: "Optional. Shown on leaderboards.",
                     placeholder: "Search your city"
                 )
                 .padding(.horizontal, 24)
