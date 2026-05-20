@@ -9,8 +9,50 @@ struct CitySuggestion: Identifiable, Equatable {
 
     fileprivate let completion: MKLocalSearchCompletion
 
+    /// Last comma-separated component of the subtitle, which MapKit fills with the country name.
+    var countryName: String? {
+        let last = subtitle.split(separator: ",").last.map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
+        return (last?.isEmpty == false) ? last : nil
+    }
+
+    /// Flag emoji for the suggestion's country, if it can be resolved from the subtitle.
+    var flag: String? {
+        guard let name = countryName else { return nil }
+        return CountryFlag.emoji(forCountryName: name)
+    }
+
     static func == (lhs: CitySuggestion, rhs: CitySuggestion) -> Bool {
         lhs.title == rhs.title && lhs.subtitle == rhs.subtitle
+    }
+}
+
+enum CountryFlag {
+    private static let nameToCode: [String: String] = {
+        var map: [String: String] = [:]
+        let locale = Locale.current
+        for code in Locale.Region.isoRegions.map(\.identifier) where code.count == 2 {
+            if let name = locale.localizedString(forRegionCode: code) {
+                map[name.lowercased()] = code
+            }
+        }
+        return map
+    }()
+
+    static func emoji(forCountryName name: String) -> String? {
+        let key = name.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard let code = nameToCode[key] else { return nil }
+        return emoji(forCountryCode: code)
+    }
+
+    static func emoji(forCountryCode code: String) -> String {
+        let base: UInt32 = 127397
+        var result = ""
+        for scalar in code.uppercased().unicodeScalars {
+            if let flagScalar = UnicodeScalar(base + scalar.value) {
+                result.unicodeScalars.append(flagScalar)
+            }
+        }
+        return result
     }
 }
 
