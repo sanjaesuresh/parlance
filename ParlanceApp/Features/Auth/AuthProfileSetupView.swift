@@ -1,58 +1,5 @@
 import SwiftUI
 import Combine
-import MapKit
-
-// MARK: - Location search completer
-
-@MainActor
-fileprivate final class LocationSearchCompleter: NSObject, ObservableObject {
-    @Published var suggestions: [String] = []
-
-    private let completer = MKLocalSearchCompleter()
-    private weak var delegateProxy: LocationCompleterDelegate?
-
-    override init() {
-        super.init()
-        let proxy = LocationCompleterDelegate(owner: self)
-        self.delegateProxy = proxy
-        completer.delegate = proxy
-        completer.resultTypes = .address
-    }
-
-    func search(_ query: String) {
-        if query.trimmingCharacters(in: .whitespaces).isEmpty {
-            suggestions = []
-        } else {
-            completer.queryFragment = query
-        }
-    }
-}
-
-fileprivate final class LocationCompleterDelegate: NSObject, MKLocalSearchCompleterDelegate {
-    weak var owner: LocationSearchCompleter?
-
-    init(owner: LocationSearchCompleter) {
-        self.owner = owner
-    }
-
-    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        let results = completer.results.prefix(5).map { result -> String in
-            let parts = [result.title, result.subtitle].filter { !$0.isEmpty }
-            return parts.joined(separator: ", ")
-        }
-        Task { @MainActor [weak self] in
-            self?.owner?.suggestions = Array(results)
-        }
-    }
-
-    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
-        Task { @MainActor [weak self] in
-            self?.owner?.suggestions = []
-        }
-    }
-}
-
-// MARK: - View
 
 struct AuthProfileSetupView: View {
     @ObservedObject var viewModel: AuthViewModel
@@ -61,13 +8,11 @@ struct AuthProfileSetupView: View {
     @State private var name = ""
     @State private var username = ""
     @State private var occupation = ""
-    @State private var location = ""
+    @State private var location: String? = nil
     @State private var selectedAvatar = Self.avatars.randomElement()!
     @State private var comfortLevel = 0
 
-    @StateObject private var locationCompleter = LocationSearchCompleter()
-
-    private enum Field: Hashable { case name, username, occupation, location }
+    private enum Field: Hashable { case name, username, occupation }
     @FocusState private var focusedField: Field?
 
     private static let avatars = [
@@ -154,15 +99,21 @@ struct AuthProfileSetupView: View {
                         .foregroundStyle(AppColors.text)
                         .focused($focusedField, equals: .occupation)
                         .submitLabel(.next)
-                        .onSubmit { focusedField = .location }
+                        .onSubmit { focusedField = nil }
                         .padding(14)
                         .background(AppColors.card)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
                 }
 
-                // Location (optional) with autocomplete dropdown
-                locationField
+                // Location (optional) — Apple Maps-backed city autocomplete
+                LocationPickerField(
+                    location: $location,
+                    label: "Where are you based?",
+                    hint: "Optional",
+                    placeholder: "Search your city"
+                )
+                .padding(.horizontal, 24)
 
                 // Comfort level
                 VStack(alignment: .leading, spacing: 12) {
@@ -320,82 +271,6 @@ struct AuthProfileSetupView: View {
                     .foregroundStyle(AppColors.sub)
                 }
             }
-        }
-    }
-
-    // MARK: - Location field with dropdown
-
-    private var locationField: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Where are you based?")
-                .font(AppFonts.bodyMedium(14))
-                .foregroundStyle(AppColors.sub)
-                .padding(.horizontal, 24)
-
-            VStack(spacing: 0) {
-                TextField("City, Country", text: $location)
-                    .font(AppFonts.body(17))
-                    .foregroundStyle(AppColors.text)
-                    .focused($focusedField, equals: .location)
-                    .submitLabel(.done)
-                    .onSubmit { focusedField = nil }
-                    .padding(14)
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: locationCompleter.suggestions.isEmpty || focusedField != .location ? 12 : 12))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(AppColors.border, lineWidth: 1)
-                    )
-                    .onChange(of: location) { _, newValue in
-                        locationCompleter.search(newValue)
-                    }
-
-                if focusedField == .location && !locationCompleter.suggestions.isEmpty {
-                    VStack(spacing: 0) {
-                        ForEach(Array(locationCompleter.suggestions.enumerated()), id: \.offset) { index, suggestion in
-                            Button {
-                                location = suggestion
-                                locationCompleter.suggestions = []
-                                focusedField = nil
-                            } label: {
-                                HStack(spacing: 10) {
-                                    Image(systemName: "mappin")
-                                        .font(.system(size: 12))
-                                        .foregroundStyle(AppColors.dim)
-                                    Text(suggestion)
-                                        .font(AppFonts.body(14))
-                                        .foregroundStyle(AppColors.text)
-                                        .lineLimit(1)
-                                    Spacer()
-                                }
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 11)
-                                .background(AppColors.card)
-                            }
-                            .buttonStyle(.plain)
-
-                            if index < locationCompleter.suggestions.count - 1 {
-                                Divider()
-                                    .background(AppColors.border)
-                                    .padding(.leading, 38)
-                            }
-                        }
-                    }
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(AppColors.border, lineWidth: 1)
-                    )
-                    .padding(.top, 4)
-                }
-            }
-            .padding(.horizontal, 24)
-
-            Text("Optional")
-                .font(AppFonts.body(11))
-                .foregroundStyle(AppColors.dim)
-                .padding(.horizontal, 24)
         }
     }
 

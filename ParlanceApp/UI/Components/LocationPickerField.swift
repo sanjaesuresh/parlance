@@ -62,6 +62,7 @@ struct LocationPickerField: View {
                     .foregroundStyle(AppColors.text)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
+                    .accessibilityIdentifier("locationSelectedDisplay")
                     .onTapGesture {
                         query = ""
                         isFocused = true
@@ -77,12 +78,14 @@ struct LocationPickerField: View {
                         .foregroundStyle(AppColors.dim)
                 }
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("locationClearButton")
             } else {
                 TextField(placeholder, text: $query)
                     .font(AppFonts.body(16))
                     .foregroundStyle(AppColors.text)
                     .focused($isFocused)
                     .autocorrectionDisabled()
+                    .accessibilityIdentifier("locationSearchField")
                     .onChange(of: query) { _, newValue in
                         if network.isConnected {
                             search.search(newValue)
@@ -109,7 +112,7 @@ struct LocationPickerField: View {
 
     private var suggestionsList: some View {
         VStack(spacing: 0) {
-            ForEach(search.suggestions) { suggestion in
+            ForEach(Array(search.suggestions.enumerated()), id: \.element.id) { index, suggestion in
                 Button {
                     Task { await select(suggestion) }
                 } label: {
@@ -135,6 +138,7 @@ struct LocationPickerField: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("locationSuggestion_\(index)")
                 if suggestion.id != search.suggestions.last?.id {
                     Divider().background(AppColors.border).padding(.leading, 40)
                 }
