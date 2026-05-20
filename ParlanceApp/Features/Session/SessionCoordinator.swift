@@ -159,24 +159,13 @@ struct SessionCoordinator: View {
                         .foregroundStyle(AppColors.sub)
                         .multilineTextAlignment(.center)
                     HStack(spacing: 12) {
-                        Button("Discard") { dismiss() }
-                            .font(AppFonts.bodyMedium(14))
-                            .foregroundStyle(AppColors.sub)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 12)
-                            .background(AppColors.card)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                        Button("Retry") {
+                        SecondaryButton(title: "Discard") { dismiss() }
+                        PrimaryButton(title: "Retry") {
                             phase = .processing
                             Task { await scoreAndSave() }
                         }
-                        .font(AppFonts.bodyMedium(14))
-                        .foregroundStyle(AppColors.bg)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 12)
-                        .background(AppColors.gold)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
+                    .padding(.horizontal, 32)
                 }
                 .padding(32)
 
@@ -339,6 +328,30 @@ struct SessionCoordinator: View {
     @MainActor
     private func scoreAndSave() async {
         let client = ClaudeClient(baseURL: AppConstants.apiBaseURL)
+
+        // Pre-flight gate 1: transcript too short.
+        let wordCount = pendingTranscript
+            .split { !$0.isLetter && !$0.isNumber }
+            .count
+        if wordCount < 10 {
+            #if DEBUG
+            print("[Scoring] pre-flight: transcript too short (\(wordCount) words)")
+            #endif
+            ActiveSessionPersistence.shared.clear()
+            phase = .cannotAnalyze(reason: .tooShort)
+            return
+        }
+
+        // Pre-flight gate 2: profanity ratio / slurs.
+        let scan = ProfanityFilter.scanTranscript(pendingTranscript)
+        if scan.containsSlur || scan.ratio >= 0.20 {
+            #if DEBUG
+            print("[Scoring] pre-flight: profanity gate (slur=\(scan.containsSlur), ratio=\(scan.ratio))")
+            #endif
+            ActiveSessionPersistence.shared.clear()
+            phase = .cannotAnalyze(reason: .inappropriateContent)
+            return
+        }
 
         let scoringResult: ScoringResult
         do {
