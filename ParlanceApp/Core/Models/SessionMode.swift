@@ -61,19 +61,14 @@ enum SessionMode: String, CaseIterable, Codable {
         }
     }
 
+    /// Modes map to one of four brand-derived family colors:
+    /// gold = career, teal = communication, purple = performance, red = high stakes.
     var accentColor: Color {
         switch self {
-        case .realLife: Color(hex: "#D44A6F")
-        case .interview: AppColors.gold
-        case .pitch: AppColors.red
-        case .keynote: AppColors.purple
-        case .casual: AppColors.teal
-        case .debate: Color(hex: "#FF6B35")
-        case .storytelling: Color(hex: "#9B59B6")
-        case .explanation: Color(hex: "#3498DB")
-        case .negotiation: Color(hex: "#E67E22")
-        case .impromptu: Color(hex: "#1ABC9C")
-        case .networking: Color(hex: "#8E44AD")
+        case .interview, .pitch: AppColors.gold
+        case .casual, .explanation, .networking: AppColors.teal
+        case .keynote, .debate, .storytelling, .impromptu: AppColors.purple
+        case .realLife, .negotiation: AppColors.red
         }
     }
 

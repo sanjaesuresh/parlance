@@ -289,15 +289,8 @@ struct HomeView: View {
         }
     }
 
-    /// Yellow → red ramp by tier. Starter is gold, expert is red.
     private func bandColor(_ id: Int) -> Color {
-        switch id {
-        case 1: AppColors.gold                            // #E8A838 yellow-gold
-        case 3: Color(hex: "#E89438")                     // amber
-        case 5: Color(hex: "#E87538")                     // orange
-        case 7: Color(hex: "#E55A4A")                     // red-orange
-        default: AppColors.red                            // #E05A4E red
-        }
+        AppColors.difficultyRamp(band: id)
     }
 
     /// Editorial section header: hairline top + Fraunces title.

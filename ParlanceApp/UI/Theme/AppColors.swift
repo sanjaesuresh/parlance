@@ -112,22 +112,12 @@ enum AppColors {
     static let pressed = Color(hex: "#E8A838").opacity(0.25)
 
     // MARK: - Semantic One-Off Colors
+    /// Subtle warm tint used by historical / sample coach surfaces.
+    /// The live Results coach card is matte (AppColors.card) by design.
     static let aiCoachBg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.075, green: 0.071, blue: 0.055, alpha: 1)
             : UIColor(red: 0.949, green: 0.910, blue: 0.776, alpha: 1)
-    })
-
-    static let momentBestBg = Color(UIColor { traits in
-        traits.userInterfaceStyle == .dark
-            ? UIColor(red: 0.055, green: 0.102, blue: 0.078, alpha: 1)
-            : UIColor(red: 0.851, green: 0.910, blue: 0.843, alpha: 1)
-    })
-
-    static let momentWorstBg = Color(UIColor { traits in
-        traits.userInterfaceStyle == .dark
-            ? UIColor(red: 0.102, green: 0.055, blue: 0.055, alpha: 1)
-            : UIColor(red: 0.929, green: 0.831, blue: 0.796, alpha: 1)
     })
 
     static let challengeGradientStart = Color(UIColor { traits in
@@ -142,21 +132,16 @@ enum AppColors {
             : UIColor(red: 0.867, green: 0.780, blue: 0.424, alpha: 1)
     })
 
-    static let challengeIconFg = Color(UIColor { traits in
-        traits.userInterfaceStyle == .dark
-            ? UIColor(red: 0.09, green: 0.07, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.24, green: 0.18, blue: 0.0, alpha: 1)
-    })
-
-    static let leagueBannerStart = Color(UIColor { traits in
-        traits.userInterfaceStyle == .dark
-            ? UIColor(red: 0.102, green: 0.078, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.937, green: 0.878, blue: 0.635, alpha: 1)
-    })
-
-    static let leagueBannerEnd = Color(UIColor { traits in
-        traits.userInterfaceStyle == .dark
-            ? UIColor(red: 0.133, green: 0.102, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.867, green: 0.780, blue: 0.424, alpha: 1)
-    })
+    // MARK: - Difficulty Ramp
+    /// Gold → red ramp across 5 bands. Band 1 = starter, band 9 = expert.
+    /// Same hue family as the rest of the warm palette; never reach into raw blues or greens.
+    static func difficultyRamp(band: Int) -> Color {
+        switch band {
+        case 1: gold
+        case 3: Color(hex: "#E89438")
+        case 5: Color(hex: "#E87538")
+        case 7: Color(hex: "#E55A4A")
+        default: red
+        }
+    }
 }
