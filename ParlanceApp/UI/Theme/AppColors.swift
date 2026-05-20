@@ -5,31 +5,31 @@ enum AppColors {
     static let bg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#121212")
-            : UIColor(hex: "#F5F3EF")
+            : UIColor(hex: "#E4DDCB")
     })
 
     static let card = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#1A1A1A")
-            : UIColor(hex: "#FFFFFF")
+            : UIColor(hex: "#F1EAD6")
     })
 
     static let card2 = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#222222")
-            : UIColor(hex: "#F0EDE8")
+            : UIColor(hex: "#FAF5E5")
     })
 
     static let border = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#2A2A2A")
-            : UIColor(hex: "#E0DDD8")
+            : UIColor(hex: "#D5CCB4")
     })
 
     static let faint = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#2E2E2E")
-            : UIColor(hex: "#EEEBE6")
+            : UIColor(hex: "#FCF7E8")
     })
 
     // MARK: - Text
@@ -42,13 +42,13 @@ enum AppColors {
     static let sub = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#999999")
-            : UIColor(hex: "#666666")
+            : UIColor(hex: "#5C5749")
     })
 
     static let dim = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#666666")
-            : UIColor(hex: "#999999")
+            : UIColor(hex: "#8A8472")
     })
 
     // MARK: - Accents
@@ -104,31 +104,31 @@ enum AppColors {
     static let aiCoachBg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.075, green: 0.071, blue: 0.055, alpha: 1)
-            : UIColor(red: 0.97, green: 0.95, blue: 0.93, alpha: 1)
+            : UIColor(red: 0.949, green: 0.910, blue: 0.776, alpha: 1)
     })
 
     static let momentBestBg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.055, green: 0.102, blue: 0.078, alpha: 1)
-            : UIColor(red: 0.93, green: 0.96, blue: 0.945, alpha: 1)
+            : UIColor(red: 0.851, green: 0.910, blue: 0.843, alpha: 1)
     })
 
     static let momentWorstBg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.102, green: 0.055, blue: 0.055, alpha: 1)
-            : UIColor(red: 0.96, green: 0.93, blue: 0.93, alpha: 1)
+            : UIColor(red: 0.929, green: 0.831, blue: 0.796, alpha: 1)
     })
 
     static let challengeGradientStart = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.094, green: 0.071, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.96, green: 0.93, blue: 0.84, alpha: 1)
+            : UIColor(red: 0.937, green: 0.878, blue: 0.635, alpha: 1)
     })
 
     static let challengeGradientEnd = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.122, green: 0.090, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.93, green: 0.89, blue: 0.75, alpha: 1)
+            : UIColor(red: 0.867, green: 0.780, blue: 0.424, alpha: 1)
     })
 
     static let challengeIconFg = Color(UIColor { traits in
@@ -140,12 +140,12 @@ enum AppColors {
     static let leagueBannerStart = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.102, green: 0.078, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.96, green: 0.93, blue: 0.84, alpha: 1)
+            : UIColor(red: 0.937, green: 0.878, blue: 0.635, alpha: 1)
     })
 
     static let leagueBannerEnd = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.133, green: 0.102, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.93, green: 0.89, blue: 0.75, alpha: 1)
+            : UIColor(red: 0.867, green: 0.780, blue: 0.424, alpha: 1)
     })
 }
