@@ -11,7 +11,7 @@ final class AIQualityTestClient: ScoringClient {
         self.inner = ClaudeClient(baseURL: baseURL, temperature: 0)
     }
 
-    func fetchScoring(prompt: String) async throws -> ScoringResult {
-        try await inner.fetchScoring(prompt: prompt)
+    func fetchScoring(prompt: String, transcript: String) async throws -> ScoringResult {
+        try await inner.fetchScoring(prompt: prompt, transcript: transcript)
     }
 }

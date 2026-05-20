@@ -201,6 +201,6 @@ enum FeedbackGenerator {
             transcript: transcript, timingStats: timingStats,
             audioFeatures: audioFeatures, emotionResult: emotionResult
         )
-        return try await client.fetchScoring(prompt: prompt)
+        return try await client.fetchScoring(prompt: prompt, transcript: transcript)
     }
 }

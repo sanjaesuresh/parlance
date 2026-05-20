@@ -10,7 +10,7 @@ enum ScoringError: Error, Equatable {
 }
 
 protocol ScoringClient {
-    func fetchScoring(prompt: String) async throws -> ScoringResult
+    func fetchScoring(prompt: String, transcript: String) async throws -> ScoringResult
 }
 
 final class ClaudeClient: ScoringClient {
@@ -22,12 +22,13 @@ final class ClaudeClient: ScoringClient {
         self.temperature = temperature
     }
 
-    func fetchScoring(prompt: String) async throws -> ScoringResult {
+    func fetchScoring(prompt: String, transcript: String) async throws -> ScoringResult {
         let endpoint = Endpoint<FeedbackRequest, ScoringResult>(
             path: "feedback",
             request: FeedbackRequest(
                 messages: [.init(role: "user", content: prompt)],
-                temperature: temperature
+                temperature: temperature,
+                transcript: transcript
             ),
             timeout: AppConstants.scoringTimeout,
             decode: Self.decodeScoring
@@ -65,6 +66,7 @@ final class ClaudeClient: ScoringClient {
     private struct FeedbackRequest: Encodable {
         let messages: [Message]
         let temperature: Double?
+        let transcript: String
 
         struct Message: Encodable {
             let role: String

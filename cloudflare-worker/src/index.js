@@ -1,6 +1,6 @@
 // Required env: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY,
 //               APPLE_TEAM_ID, APPLE_BUNDLE_ID, APPLE_KEY_ID, APPLE_P8_PRIVATE_KEY,
-//               GEMINI_API_KEY, HUME_API_KEY
+//               GEMINI_API_KEY, HUME_API_KEY, OPENAI_API_KEY (moderation)
 
 import { generateRealLifePromptAndTips } from "./realLifeTips.js";
 import { generateWeeklyBrief, validateRequest as validateBriefRequest } from "./weeklyBrief.js";
@@ -60,6 +60,47 @@ export default {
     });
   },
 };
+
+/**
+ * Calls OpenAI's moderation endpoint. Returns:
+ *   { flagged: true, categories: [...] }   when content is unsafe,
+ *   { flagged: false }                     when content is clean,
+ *   { flagged: false, error: '...' }       fail-open on upstream failure.
+ *
+ * The API is free; we treat any error as "not flagged" to avoid creating a
+ * new outage vector on top of the Gemini call. Errors are surfaced via the
+ * returned object so callers can log them.
+ */
+export async function moderateTranscript(transcript, apiKey, fetchImpl = fetch) {
+  if (!transcript || transcript.trim().length === 0) return { flagged: false };
+  if (!apiKey) return { flagged: false, error: "missing_api_key" };
+  try {
+    const res = await fetchImpl("https://api.openai.com/v1/moderations", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        input: transcript,
+        model: "omni-moderation-latest",
+      }),
+    });
+    if (!res.ok) return { flagged: false, error: `upstream_${res.status}` };
+    const body = await res.json();
+    const first = body?.results?.[0];
+    if (!first) return { flagged: false, error: "malformed_response" };
+    if (first.flagged) {
+      const cats = Object.entries(first.categories ?? {})
+        .filter(([, v]) => v)
+        .map(([k]) => k);
+      return { flagged: true, categories: cats };
+    }
+    return { flagged: false };
+  } catch (err) {
+    return { flagged: false, error: `exception_${err?.message ?? "unknown"}` };
+  }
+}
 
 // ---------------------------------------------------------------------------
 // Auth helper — verifies Supabase JWT and returns { uid } or { error: Response }
@@ -357,8 +398,36 @@ async function handleFeedback(request, env, corsHeaders) {
   const rlResult = await checkRateLimit(env, uid, "feedback", 20, corsHeaders);
   if (rlResult.error) return rlResult.error;
 
+  let body;
   try {
-    const body = await request.json();
+    body = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ error: "Invalid JSON" }), {
+      status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // 4. Server-side moderation on the user-spoken transcript.
+  // Fail-open: a moderation outage must not break scoring.
+  const transcript = typeof body.transcript === "string" ? body.transcript : "";
+  if (transcript.length > 0) {
+    const mod = await moderateTranscript(transcript, env.OPENAI_API_KEY);
+    if (mod.flagged) {
+      console.log(
+        `[feedback] uid=${uid.slice(0, 8)} moderation_flagged categories=${(mod.categories ?? []).join(",")}`
+      );
+      return new Response(
+        JSON.stringify({ refused: true, reason: "inappropriate_content" }),
+        { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    if (mod.error) {
+      console.log(`[feedback] moderation_error=${mod.error}`);
+    }
+  }
+
+  try {
     const messages = body.messages;
     const temperature = typeof body.temperature === "number" ? body.temperature : 0.3;
 
