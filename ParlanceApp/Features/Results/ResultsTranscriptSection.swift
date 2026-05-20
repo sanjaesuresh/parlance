@@ -48,7 +48,7 @@ struct ResultsTranscriptSection: View {
                     .lineSpacing(5)
                     .lineLimit(transcriptExpanded ? nil : 2)
             } else {
-                Text(session.transcript)
+                Text(TranscriptCensor.censor(session.transcript))
                     .font(AppFonts.body(13))
                     .foregroundStyle(AppColors.dim)
                     .lineSpacing(5)

@@ -1,6 +1,14 @@
 // Parlance/Core/AI/ClaudeClient.swift
 import Foundation
 
+enum ScoringError: Error, Equatable {
+    /// The server returned a `{ refused: true, reason: "..." }` envelope.
+    case refused(reason: String)
+    /// The server returned 200 but the body was unparseable as either
+    /// a `ScoringResult` or a refused envelope.
+    case parseFailure
+}
+
 protocol ScoringClient {
     func fetchScoring(prompt: String) async throws -> ScoringResult
 }
@@ -29,23 +37,29 @@ final class ClaudeClient: ScoringClient {
 
     // Why: Worker sometimes wraps ScoringResult JSON inside a `{ "feedback": "<json>" }` envelope.
     private static func decodeScoring(_ data: Data) throws -> ScoringResult {
+        // 1) Direct ScoringResult.
         if let result = try? JSONDecoder().decode(ScoringResult.self, from: data) {
             return result
         }
-        #if DEBUG
-        print("[ClaudeClient] Direct ScoringResult decode failed. Raw:", String(data: data, encoding: .utf8) ?? "<non-UTF8>")
-        #endif
 
+        // 2) Worker may return a refused envelope: { "refused": true, "reason": "<code>" }
+        struct Refused: Decodable { let refused: Bool; let reason: String? }
+        if let refused = try? JSONDecoder().decode(Refused.self, from: data), refused.refused {
+            throw ScoringError.refused(reason: refused.reason ?? "unknown")
+        }
+
+        // 3) Worker may wrap ScoringResult JSON inside { "feedback": "<json>" }.
         struct Wrapped: Decodable { let feedback: String }
         if let wrapped = try? JSONDecoder().decode(Wrapped.self, from: data),
            let jsonData = wrapped.feedback.data(using: .utf8),
            let result = try? JSONDecoder().decode(ScoringResult.self, from: jsonData) {
             return result
         }
+
         #if DEBUG
-        print("[ClaudeClient] Wrapped ScoringResult decode also failed.")
+        print("[ClaudeClient] Could not decode response. Raw:", String(data: data, encoding: .utf8) ?? "<non-UTF8>")
         #endif
-        throw URLError(.cannotParseResponse)
+        throw ScoringError.parseFailure
     }
 
     private struct FeedbackRequest: Encodable {

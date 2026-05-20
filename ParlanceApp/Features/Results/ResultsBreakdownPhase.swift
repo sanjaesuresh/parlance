@@ -26,7 +26,25 @@ struct ResultsBreakdownPhase: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                resultsSection(showsTopRule: false) { verdictHero }
+                if let relevance = session.relevanceToPrompt, (25..<60).contains(relevance) {
+                    resultsSection(showsTopRule: false) {
+                        HStack(spacing: 10) {
+                            Image(systemName: "exclamationmark.bubble.fill")
+                                .foregroundStyle(AppColors.gold)
+                                .font(.system(size: 14))
+                            Text("This response only partially addressed the prompt — your coach feedback may be limited.")
+                                .font(AppFonts.body(12))
+                                .foregroundStyle(AppColors.sub)
+                        }
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(AppColors.gold.opacity(0.10))
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    resultsSection { verdictHero }
+                } else {
+                    resultsSection(showsTopRule: false) { verdictHero }
+                }
                 resultsSection {
                     ResultsCoachFeedbackSection(session: session, viewModel: viewModel)
                 }

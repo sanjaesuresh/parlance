@@ -17,4 +17,7 @@ struct ScoringResult: Codable {
     let feedback: String?
     let bestMoment: ScoringMoment
     let worstMoment: ScoringMoment
+    /// 0-100. How directly the user's response addressed the prompt asked.
+    /// Optional for backwards compatibility with older payloads.
+    let relevanceToPrompt: Int?
 }

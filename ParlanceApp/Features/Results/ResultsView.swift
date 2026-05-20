@@ -107,9 +107,10 @@ struct ResultsView: View {
                 cachedPriorAverage = Int((Double(sum) / Double(prior.count)).rounded())
             }
             if session.hasTranscript {
-                var attr = AttributedString(session.transcript)
+                let censored = TranscriptCensor.censor(session.transcript)
+                var attr = AttributedString(censored)
                 attr.foregroundColor = AppColors.dim
-                let ranges = SpeechAnalyzer.fillerRanges(in: session.transcript)
+                let ranges = SpeechAnalyzer.fillerRanges(in: censored)
                 for range in ranges {
                     if let attrRange = Range(range, in: attr) {
                         attr[attrRange].foregroundColor = AppColors.red

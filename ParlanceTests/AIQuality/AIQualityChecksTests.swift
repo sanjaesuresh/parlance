@@ -21,7 +21,8 @@ struct AIQualityChecksTests {
             overallScore: overall,
             feedback: feedback,
             bestMoment: ScoringMoment(quote: bestQuote, reason: ""),
-            worstMoment: ScoringMoment(quote: worstQuote, reason: "")
+            worstMoment: ScoringMoment(quote: worstQuote, reason: ""),
+            relevanceToPrompt: nil
         )
     }
 

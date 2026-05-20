@@ -51,6 +51,7 @@ struct SessionCoordinator: View {
         case recording
         case processing
         case scoringFailed
+        case cannotAnalyze(reason: CannotAnalyzeReason)
         case results(Session)
 
         static func == (lhs: SessionPhase, rhs: SessionPhase) -> Bool {
@@ -60,6 +61,7 @@ struct SessionCoordinator: View {
             case (.recording, .recording): return true
             case (.processing, .processing): return true
             case (.scoringFailed, .scoringFailed): return true
+            case let (.cannotAnalyze(a), .cannotAnalyze(b)): return a == b
             case let (.results(a), .results(b)): return a === b
             default: return false
             }
@@ -177,6 +179,13 @@ struct SessionCoordinator: View {
                     }
                 }
                 .padding(32)
+
+            case .cannotAnalyze(let reason):
+                CannotAnalyzeView(
+                    reason: reason,
+                    onRetry: { retrySession() },
+                    onDiscard: { dismiss() }
+                )
 
             case .results(let session):
                 ResultsView(
@@ -343,17 +352,44 @@ struct SessionCoordinator: View {
                 audioFeatures: pendingAudioFeatures,
                 emotionResult: pendingEmotionResult
             )
+        } catch let scoringError as ScoringError {
+            switch scoringError {
+            case .refused(let reason):
+                #if DEBUG
+                print("[Scoring] refused: \(reason)")
+                #endif
+                let mapped: CannotAnalyzeReason
+                switch reason {
+                case "inappropriate_content": mapped = .inappropriateContent
+                default:                      mapped = .modelRefused
+                }
+                ActiveSessionPersistence.shared.clear()
+                phase = .cannotAnalyze(reason: mapped)
+                return
+            case .parseFailure:
+                #if DEBUG
+                print("[Scoring] parse failure")
+                #endif
+                ActiveSessionPersistence.shared.clear()
+                phase = .cannotAnalyze(reason: .modelRefused)
+                return
+            }
         } catch {
             #if DEBUG
-            print("[Scoring] AI unavailable, using local scoring: \(error)")
+            print("[Scoring] network/upstream error: \(error)")
             #endif
-            scoringResult = FeedbackGenerator.localScoringResult(
-                fillerCount: pendingFillerCount,
-                duration: pendingDuration,
-                timingStats: pendingTimingStats,
-                transcript: pendingTranscript,
-                mode: state.mode
-            )
+            ActiveSessionPersistence.shared.clear()
+            phase = .scoringFailed
+            return
+        }
+
+        if let relevance = scoringResult.relevanceToPrompt, relevance < 25 {
+            #if DEBUG
+            print("[Scoring] off-topic: relevance=\(relevance)")
+            #endif
+            ActiveSessionPersistence.shared.clear()
+            phase = .cannotAnalyze(reason: .offTopic)
+            return
         }
 
         // Fetch personal best once — used by both xpForSession and awardXP

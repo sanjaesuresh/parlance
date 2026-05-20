@@ -26,7 +26,8 @@ private func makeSession(daysAgo: Double = 0, score: Int = 75) -> Session {
         overallScore: score,
         feedback: "Test feedback",
         bestMoment: ScoringMoment(quote: "good line", reason: "clear"),
-        worstMoment: ScoringMoment(quote: "bad line", reason: "vague")
+        worstMoment: ScoringMoment(quote: "bad line", reason: "vague"),
+        relevanceToPrompt: nil
     )
     let s = Session(
         mode: .interview,

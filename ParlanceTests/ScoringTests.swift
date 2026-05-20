@@ -18,7 +18,8 @@ private func makeScoringResult(
         overallScore: overallScore,
         feedback: feedback,
         bestMoment: ScoringMoment(quote: bestQuote, reason: "Clear and direct"),
-        worstMoment: ScoringMoment(quote: worstQuote, reason: "Lost structure")
+        worstMoment: ScoringMoment(quote: worstQuote, reason: "Lost structure"),
+        relevanceToPrompt: nil
     )
 }
 
@@ -63,7 +64,8 @@ struct SessionIsAIScoredTests {
             overallScore: 0,
             feedback: nil,
             bestMoment: ScoringMoment(quote: "", reason: ""),
-            worstMoment: ScoringMoment(quote: "", reason: "")
+            worstMoment: ScoringMoment(quote: "", reason: ""),
+            relevanceToPrompt: nil
         )
         let session = Session(
             mode: .interview, difficultyLevel: 1, duration: 30,

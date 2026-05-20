@@ -104,6 +104,7 @@ enum FeedbackGenerator {
         \(metricsJsonTemplate)
           },
           "overallScore": <0-100 int, your holistic judgment — NOT an average>,
+          "relevanceToPrompt": <0-100 int — how directly did the user address the question? 100 = directly on point, 50 = partially, 0 = totally off-topic>,
           "feedback": "<one paragraph, direct coaching: reference the question, name one strength and the most important thing to fix>",
           "bestMoment": { "quote": "<exact phrase from transcript, or empty string if no transcript>", "reason": "<why it worked>" },
           "worstMoment": { "quote": "<exact phrase from transcript, or empty string if no transcript>", "reason": "<what to fix>" }
@@ -180,7 +181,8 @@ enum FeedbackGenerator {
             overallScore: overall,
             feedback: nil,
             bestMoment: ScoringMoment(quote: "", reason: ""),
-            worstMoment: ScoringMoment(quote: "", reason: "")
+            worstMoment: ScoringMoment(quote: "", reason: ""),
+            relevanceToPrompt: nil
         )
     }
 

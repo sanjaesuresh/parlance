@@ -38,6 +38,9 @@ final class Session {
     // MARK: - Emotion analysis (Pro only; nil for free-tier sessions)
     var emotionResultData: Data?
 
+    /// 0-100. Captured at scoring time. nil for legacy sessions.
+    var relevanceToPrompt: Int? = nil
+
     // MARK: - New: AI moments
     var bestMomentQuote: String = ""
     var bestMomentReason: String = ""
@@ -120,6 +123,7 @@ final class Session {
 
         self.overallScore = scoringResult.overallScore
         self.aiCoachFeedback = scoringResult.feedback
+        self.relevanceToPrompt = scoringResult.relevanceToPrompt
 
         let scores = scoringResult.metrics.mapValues(\.score)
         let tips = scoringResult.metrics.mapValues(\.tip)
