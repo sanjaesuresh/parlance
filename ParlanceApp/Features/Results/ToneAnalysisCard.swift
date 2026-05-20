@@ -25,7 +25,7 @@ struct ToneAnalysisCard: View {
             ? "Tone analysis couldn't run"
             : "Tone analysis isn't available for this session"
         let body = isFailure
-            ? "We couldn't reach the tone analysis service for this session — usually a network hiccup. Your next recording will include it."
+            ? "We couldn't reach the tone analysis service for this session, usually a network hiccup. Your next recording will include it."
             : "Sessions recorded before you upgraded to Pro don't include tone analysis. Your next recording will."
         let accent = isFailure ? AppColors.gold : AppColors.purple
         let icon = isFailure ? "wifi.exclamationmark" : "waveform"
@@ -342,7 +342,7 @@ struct ToneAnalysisCard: View {
                         Text("Upgrade to Pro")
                             .font(AppFonts.bodyBold(13))
                     }
-                    .foregroundStyle(.black)
+                    .foregroundStyle(AppColors.onGold)
                     .padding(.horizontal, 18)
                     .padding(.vertical, 10)
                     .background(AppColors.gold)
@@ -390,7 +390,7 @@ struct ToneAnalysisCard: View {
     private var proLabel: some View {
         Text("PRO")
             .font(AppFonts.bodyBold(9))
-            .foregroundStyle(.black)
+            .foregroundStyle(AppColors.onGold)
             .padding(.horizontal, 7)
             .padding(.vertical, 3)
             .background(AppColors.gold)

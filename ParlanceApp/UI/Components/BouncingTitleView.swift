@@ -13,7 +13,7 @@ struct BouncingTitleView: View {
                 .font(AppFonts.display(fontSize))
                 .foregroundStyle(AppColors.text)
             if animated {
-                KeyframeAnimator(initialValue: CGFloat(0), repeating: true) { offset in
+                KeyframeAnimator(initialValue: CGFloat(0), repeating: false) { offset in
                     Text(".")
                         .font(AppFonts.display(fontSize))
                         .foregroundStyle(AppColors.gold)

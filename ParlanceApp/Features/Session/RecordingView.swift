@@ -30,46 +30,31 @@ struct RecordingView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Nav bar
-            HStack {
-                Button {
-                    if recorder.isRecording {
-                        showCancelConfirmation = true
-                    } else {
-                        recorder.deleteRecording()
-                        onCancel?()
+            SessionNavBar(
+                leading: {
+                    BackButton {
+                        if recorder.isRecording {
+                            showCancelConfirmation = true
+                        } else {
+                            recorder.deleteRecording()
+                            onCancel?()
+                        }
                     }
-                } label: {
-                    Text("← Back")
-                        .font(AppFonts.body(13))
-                        .foregroundStyle(AppColors.text)
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 8)
-                        .background(AppColors.card)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                }
-                .accessibilityLabel("Go back")
-
-                Spacer()
-
-                HStack(spacing: 7) {
-                    PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
-                    Text("Lv \(level)")
-                        .font(AppFonts.bodyMedium(10))
-                        .foregroundStyle(AppColors.sub)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 3)
-                        .background(AppColors.card)
-                        .clipShape(Capsule())
-                }
-
-                Spacer()
-
-                Spacer().frame(width: 72)
-            }
-            .padding(.horizontal, 24)
-            .padding(.top, 8)
-            .padding(.bottom, 8)
+                },
+                center: {
+                    HStack(spacing: 7) {
+                        PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
+                        Text("Lv \(level)")
+                            .font(AppFonts.bodyMedium(10))
+                            .foregroundStyle(AppColors.sub)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 3)
+                            .background(AppColors.card)
+                            .clipShape(Capsule())
+                    }
+                },
+                trailing: { EmptyView() }
+            )
 
             ScrollView {
                 VStack(spacing: 0) {
@@ -92,14 +77,8 @@ struct RecordingView: View {
                             .foregroundStyle(AppColors.text)
                             .lineSpacing(6)
                     }
-                    .padding(20)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                            .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
-                    )
+                    .cardStyle(padding: 20, borderColor: mode.accentColor.opacity(0.3))
                     .padding(.horizontal, 24)
                     .padding(.top, 8)
 

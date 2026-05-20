@@ -10,11 +10,11 @@ struct WelcomeSplashView: View {
         case hidden, visible
     }
 
-    private let modes: [(emoji: String, name: String)] = [
-        ("💼", "Job Interview"),
-        ("💬", "Daily Convo"),
-        ("⚡️", "Impromptu"),
-        ("🧠", "Explain a Topic"),
+    private let modes: [(icon: String, name: String)] = [
+        ("briefcase.fill", "Job Interview"),
+        ("bubble.left.and.bubble.right.fill", "Daily Convo"),
+        ("bolt.fill", "Impromptu"),
+        ("book.fill", "Explain a Topic"),
     ]
 
     private var firstName: String {
@@ -47,7 +47,7 @@ struct WelcomeSplashView: View {
                 }
                 .scaleEffect(phase == .visible ? 1 : 0.55)
                 .opacity(phase == .visible ? 1 : 0)
-                .animation(.spring(duration: 0.55, bounce: 0.28).delay(0.08), value: phase)
+                .animation(.spring(duration: 0.3, bounce: 0.22), value: phase)
 
                 Spacer().frame(height: 32)
 
@@ -55,7 +55,7 @@ struct WelcomeSplashView: View {
                 BouncingTitleView(text: "Welcome, \(firstName)", fontSize: 34)
                     .opacity(phase == .visible ? 1 : 0)
                     .offset(y: phase == .visible ? 0 : 18)
-                    .animation(.easeOut(duration: 0.45).delay(0.28), value: phase)
+                    .animation(.easeOut(duration: 0.28).delay(0.05), value: phase)
 
                 Spacer().frame(height: 8)
 
@@ -64,7 +64,7 @@ struct WelcomeSplashView: View {
                     .foregroundStyle(AppColors.sub)
                     .opacity(phase == .visible ? 1 : 0)
                     .offset(y: phase == .visible ? 0 : 14)
-                    .animation(.easeOut(duration: 0.38).delay(0.42), value: phase)
+                    .animation(.easeOut(duration: 0.25).delay(0.1), value: phase)
 
                 Spacer().frame(height: 48)
 
@@ -73,8 +73,9 @@ struct WelcomeSplashView: View {
                     HStack(spacing: 10) {
                         ForEach(Array(modes.enumerated()), id: \.element.name) { i, mode in
                             HStack(spacing: 8) {
-                                Text(mode.emoji)
-                                    .font(.system(size: 17))
+                                Image(systemName: mode.icon)
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(AppColors.gold)
                                 Text(mode.name)
                                     .font(AppFonts.bodyMedium(13))
                                     .foregroundStyle(AppColors.text)
@@ -87,7 +88,7 @@ struct WelcomeSplashView: View {
                             .opacity(phase == .visible ? 1 : 0)
                             .offset(x: phase == .visible ? 0 : 22)
                             .animation(
-                                .easeOut(duration: 0.38).delay(0.58 + Double(i) * 0.08),
+                                .easeOut(duration: 0.22).delay(0.14 + Double(i) * 0.03),
                                 value: phase
                             )
                         }
@@ -99,20 +100,12 @@ struct WelcomeSplashView: View {
                 Spacer()
 
                 // CTA
-                Button(action: onDismiss) {
-                    Text("Start practicing")
-                        .font(AppFonts.bodyBold(17))
-                        .foregroundStyle(.black)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 54)
-                        .background(AppColors.gold)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
-                }
+                PrimaryButton(title: "Start practicing", action: onDismiss)
                 .padding(.horizontal, 24)
                 .padding(.bottom, 44)
                 .opacity(phase == .visible ? 1 : 0)
                 .offset(y: phase == .visible ? 0 : 24)
-                .animation(.easeOut(duration: 0.4).delay(1.0), value: phase)
+                .animation(.easeOut(duration: 0.25).delay(0.22), value: phase)
             }
         }
         .onAppear {

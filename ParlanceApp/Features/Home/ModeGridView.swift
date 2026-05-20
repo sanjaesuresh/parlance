@@ -27,7 +27,7 @@ struct ModeGridView: View {
                 } label: {
                     modeCard(mode: mode, locked: locked)
                 }
-                .accessibilityLabel("\(mode.displayName) practice mode\(locked ? " — Pro required" : "")")
+                .accessibilityLabel("\(mode.displayName) practice mode\(locked ? ", Pro required" : "")")
                 .accessibilityHint(locked ? "Double-tap to view upgrade options" : "Double-tap to start a session")
                 .accessibilityIdentifier("home.modeGrid.\(mode.rawValue)")
             }
@@ -38,8 +38,9 @@ struct ModeGridView: View {
 
     private func modeCard(mode: SessionMode, locked: Bool) -> some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(mode.emoji)
-                .font(.system(size: 22))
+            Image(systemName: mode.systemImageName)
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundStyle(mode.accentColor)
             Text(mode.displayName)
                 .font(AppFonts.bodyMedium(14))
                 .foregroundStyle(AppColors.text)

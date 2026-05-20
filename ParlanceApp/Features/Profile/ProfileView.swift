@@ -314,19 +314,13 @@ struct ProfileView: View {
                     }
                     .padding(20)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        LinearGradient(
-                            colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .background(AppColors.card2)
+                    .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(AppColors.gold.opacity(0.25), lineWidth: 1)
+                        RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                            .stroke(AppColors.border, lineWidth: 1)
                     )
-                    .contentShape(RoundedRectangle(cornerRadius: 20))
+                    .contentShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("Level \(rank.level), \(rank.name). \(user.xp) XP. Tap to view progress.")
@@ -362,7 +356,9 @@ struct ProfileView: View {
 
             if currentStreak > 0 {
                 HStack(spacing: 6) {
-                    Text("🔥").font(.system(size: 13))
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(AppColors.gold)
                     Text("On a ")
                         .font(AppFonts.body(12))
                         .foregroundStyle(AppColors.sub)
@@ -449,6 +445,18 @@ struct ProfileView: View {
     private var badgeRow: some View {
         if !achievements.isEmpty {
             BadgeRowView(achievements: Array(achievements))
+        } else {
+            VStack(alignment: .leading, spacing: 8) {
+                sectionTitle("Achievements")
+                HStack(spacing: 10) {
+                    Image(systemName: "trophy.fill")
+                        .font(.system(size: 16))
+                        .foregroundStyle(AppColors.dim)
+                    Text("Achievements unlock as you practice.")
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.sub)
+                }
+            }
         }
     }
 

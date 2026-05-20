@@ -174,7 +174,7 @@ struct AuthView: View {
                     } label: {
                         Group {
                             if viewModel.isLoading {
-                                ProgressView().tint(.black)
+                                ProgressView().tint(AppColors.onGold)
                             } else {
                                 Text(viewModel.isSignUp ? "Continue" : "Sign In")
                                     .font(AppFonts.bodyBold(16))
@@ -182,7 +182,7 @@ struct AuthView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(AppColors.onGold)
                         .background(disabled ? AppColors.gold.opacity(0.4) : AppColors.gold)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }

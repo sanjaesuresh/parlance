@@ -14,11 +14,11 @@ struct PaywallView: View {
     @State private var showErrorAlert = false
     @State private var errorMessage: String?
 
-    private let benefits: [(icon: String, title: String, detail: String)] = [
-        ("🎭", "All Practice Modes",        "Unlock all modes for every speaking scenario"),
-        ("⚡", "Advanced & Expert Levels", "Access levels 7–10 for elite coaching"),
-        ("🎙️", "Tone & Emotion Analysis",  "Audio analyzed by AI for emotion detection — see Privacy Policy"),
-        ("∞",  "Unlimited Daily Sessions", "Practice as many times as you want, every day")
+    private let benefits: [String] = [
+        "Pitch, Keynote, Debate, Storytelling, Negotiation, Networking. Six more modes.",
+        "Tone analysis. See when your delivery loses energy.",
+        "Advanced and Expert difficulty. Real-stakes prompts.",
+        "Unlimited sessions per day."
     ]
 
     var body: some View {
@@ -27,6 +27,7 @@ struct PaywallView: View {
                 VStack(spacing: 28) {
                     headerSection
                     benefitsSection
+                    trustLine
                     priceSection
                     ctaSection
                     restoreButton
@@ -46,51 +47,43 @@ struct PaywallView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .task { await loadProduct() }
-        .alert("Something went wrong", isPresented: $showErrorAlert) {
+        .alert("Couldn't start your subscription.", isPresented: $showErrorAlert) {
             Button("OK") { errorMessage = nil }
         } message: {
-            Text(errorMessage ?? "")
+            Text("Check your connection and try again.")
         }
     }
 
     // MARK: - Sections
 
     private var headerSection: some View {
-        VStack(spacing: 8) {
-            Text("🎤")
-                .font(.system(size: 52))
-                .padding(.top, 8)
-            Text("Parlance Pro")
-                .font(AppFonts.display(30))
+        VStack(spacing: 10) {
+            Text("The full coach.")
+                .font(AppFonts.display(34))
                 .foregroundStyle(AppColors.text)
-            Text("The full coaching experience.\nNothing held back.")
-                .font(AppFonts.body(15))
-                .foregroundStyle(AppColors.sub)
                 .multilineTextAlignment(.center)
-                .lineSpacing(4)
+            Text("Parlance Pro")
+                .font(AppFonts.bodyBold(11))
+                .foregroundStyle(AppColors.sub)
+                .kerning(1.6)
         }
         .frame(maxWidth: .infinity)
+        .padding(.top, 12)
     }
 
     private var benefitsSection: some View {
         VStack(spacing: 0) {
-            ForEach(Array(benefits.enumerated()), id: \.offset) { index, benefit in
-                HStack(spacing: 14) {
-                    Text(benefit.icon)
-                        .font(.system(size: 22))
-                        .frame(width: 36)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(benefit.title)
-                            .font(AppFonts.bodyMedium(14))
-                            .foregroundStyle(AppColors.text)
-                        Text(benefit.detail)
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.sub)
-                    }
-                    Spacer()
-                    Image(systemName: "checkmark")
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(AppColors.teal)
+            ForEach(Array(benefits.enumerated()), id: \.offset) { index, line in
+                HStack(alignment: .firstTextBaseline, spacing: 14) {
+                    Circle()
+                        .fill(AppColors.gold)
+                        .frame(width: 6, height: 6)
+                        .alignmentGuide(.firstTextBaseline) { d in d[VerticalAlignment.center] + 4 }
+                    Text(line)
+                        .font(AppFonts.body(15))
+                        .foregroundStyle(AppColors.text)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 0)
                 }
                 .padding(.vertical, 14)
                 if index < benefits.count - 1 {
@@ -98,20 +91,23 @@ struct PaywallView: View {
                 }
             }
         }
-        .padding(.horizontal, 16)
-        .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-        .overlay(
-            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                .stroke(AppColors.border, lineWidth: 1)
-        )
+        .cardStyle(padding: 18)
+    }
+
+    private var trustLine: some View {
+        Text("We transcribe locally. Audio is deleted after each session.")
+            .font(AppFonts.body(12))
+            .foregroundStyle(AppColors.sub)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 8)
     }
 
     private var priceSection: some View {
         VStack(spacing: 4) {
             Text(product?.displayPrice ?? "$4.99")
-                .font(AppFonts.display(36))
-                .foregroundStyle(AppColors.gold)
+                .font(AppFonts.bodyBold(20))
+                .foregroundStyle(AppColors.text)
             Text("per month · cancel anytime")
                 .font(AppFonts.body(13))
                 .foregroundStyle(AppColors.sub)
@@ -119,24 +115,13 @@ struct PaywallView: View {
     }
 
     private var ctaSection: some View {
-        Button {
+        PrimaryButton(
+            title: "Start Pro · \(product?.displayPrice ?? "$4.99")/mo",
+            isLoading: isPurchasing,
+            isEnabled: !isRestoring
+        ) {
             Task { await purchase() }
-        } label: {
-            ZStack {
-                if isPurchasing {
-                    SwiftUI.ProgressView().tint(.black)
-                } else {
-                    Text("Start Pro · \(product?.displayPrice ?? "$4.99")/mo")
-                        .font(AppFonts.bodyBold(16))
-                        .foregroundStyle(.black)
-                }
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 52)
-            .background(AppColors.gold)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
         }
-        .disabled(isPurchasing || isRestoring)
     }
 
     private var restoreButton: some View {

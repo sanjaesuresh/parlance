@@ -99,7 +99,7 @@ struct HomeView: View {
                 }
             } message: {
                 Text(subscription.isPro
-                    ? "You've completed 20 sessions today — come back tomorrow to keep your streak going."
+                    ? "You've completed 20 sessions today. Come back tomorrow to keep your streak going."
                     : "Free accounts are limited to \(AppConstants.freeSessionsPerDay) sessions per day. Upgrade to Pro for unlimited sessions."
                 )
             }
@@ -185,7 +185,9 @@ struct HomeView: View {
 
             if let user {
                 HStack(spacing: 6) {
-                    Text("🔥").font(.system(size: 12))
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundStyle(AppColors.gold)
                     Text("\(user.currentStreak)")
                         .font(AppFonts.bodyBold(12))
                         .foregroundStyle(AppColors.gold)
@@ -333,7 +335,7 @@ struct HomeView: View {
                                 showDifficultySheet = true
                             } label: {
                                 HStack(spacing: 4) {
-                                    Text("Change")
+                                    Text("Choose difficulty")
                                         .font(AppFonts.bodyMedium(12))
                                     Image(systemName: "arrow.up.right")
                                         .font(.system(size: 10, weight: .semibold))

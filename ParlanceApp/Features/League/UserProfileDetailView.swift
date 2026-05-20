@@ -147,7 +147,7 @@ struct UserProfileDetailView: View {
 
                 Text("LV \(resolvedProfile.rank.level)")
                     .font(AppFonts.bodyBold(10))
-                    .foregroundStyle(.black)
+                    .foregroundStyle(AppColors.onGold)
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
                     .background(AppColors.gold)
@@ -220,7 +220,7 @@ struct UserProfileDetailView: View {
                 }
             }
             .font(AppFonts.bodyBold(13))
-            .foregroundStyle(.black)
+            .foregroundStyle(AppColors.onGold)
             .padding(.horizontal, 20)
             .padding(.vertical, 9)
             .background(AppColors.gold)
@@ -255,7 +255,7 @@ struct UserProfileDetailView: View {
                 }
             }
             .font(AppFonts.bodyBold(13))
-            .foregroundStyle(.black)
+            .foregroundStyle(AppColors.onAccent)
             .padding(.horizontal, 20)
             .padding(.vertical, 9)
             .background(AppColors.teal)
@@ -267,7 +267,7 @@ struct UserProfileDetailView: View {
                 showUnfriendConfirm = true
             }
             .font(AppFonts.bodyBold(13))
-            .foregroundStyle(.white)
+            .foregroundStyle(AppColors.onAccent)
             .padding(.horizontal, 20)
             .padding(.vertical, 9)
             .background(AppColors.red)
@@ -322,9 +322,19 @@ struct UserProfileDetailView: View {
             SectionHeader(title: "Recent Sessions")
 
             if resolvedProfile.recentScores.isEmpty {
-                Text("No sessions yet")
-                    .font(AppFonts.body(13))
-                    .foregroundStyle(AppColors.sub)
+                VStack(spacing: 10) {
+                    Image(systemName: "mic.slash")
+                        .font(.system(size: 26))
+                        .foregroundStyle(AppColors.dim)
+                    Text("No sessions yet.")
+                        .font(AppFonts.bodyMedium(14))
+                        .foregroundStyle(AppColors.text)
+                    Text("They haven't recorded a session.")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 16)
             } else {
                 ForEach(Array(resolvedProfile.recentScores.enumerated()), id: \.offset) { index, score in
                     HStack {

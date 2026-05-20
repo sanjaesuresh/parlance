@@ -28,25 +28,8 @@ struct SessionRecoverySheet: View {
             }
 
             VStack(spacing: 10) {
-                Button(action: onResume) {
-                    Text("Resume")
-                        .font(AppFonts.bodyMedium(15))
-                        .foregroundStyle(AppColors.bg)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(AppColors.gold)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
-                }
-
-                Button(action: onDiscard) {
-                    Text("Discard")
-                        .font(AppFonts.bodyMedium(15))
-                        .foregroundStyle(AppColors.sub)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(AppColors.card)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
-                }
+                PrimaryButton(title: "Resume", action: onResume)
+                SecondaryButton(title: "Discard", action: onDiscard)
             }
         }
         .padding(28)

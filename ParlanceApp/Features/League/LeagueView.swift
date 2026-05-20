@@ -49,9 +49,13 @@ struct LeagueView: View {
                         friendsSearchSection
                         if !friendSearchText.isEmpty {
                             if isSearching {
-                                ProgressView()
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 20)
+                                VStack(spacing: 10) {
+                                    ForEach(0..<3, id: \.self) { _ in
+                                        leaderboardSkeletonRow
+                                    }
+                                }
+                                .padding(14)
+                                .cardStyle()
                             } else if searchResults.isEmpty {
                                 noResultsView
                             } else {
@@ -170,9 +174,14 @@ struct LeagueView: View {
                         .foregroundStyle(AppColors.gold)
                         .kerning(1.0)
 
-                    Text("\u{1F947} \(tier.displayName) League")
-                        .font(AppFonts.display(24))
-                        .foregroundStyle(AppColors.text)
+                    HStack(spacing: 8) {
+                        Image(systemName: "rosette")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundStyle(tier.color)
+                        Text("\(tier.displayName) League")
+                            .font(AppFonts.display(24))
+                            .foregroundStyle(AppColors.text)
+                    }
 
                     Text(viewModel.countdownText)
                         .font(AppFonts.body(12))
@@ -216,17 +225,11 @@ struct LeagueView: View {
             }
         }
         .padding(20)
-        .background(
-            LinearGradient(
-                colors: [AppColors.leagueBannerStart, AppColors.leagueBannerEnd],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        )
+        .background(AppColors.card2)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                .stroke(AppColors.gold.opacity(0.4), lineWidth: 1)
+                .stroke(AppColors.gold.opacity(0.35), lineWidth: 1)
         )
     }
 
@@ -234,28 +237,32 @@ struct LeagueView: View {
 
     private var tabSelector: some View {
         HStack(spacing: 10) {
-            tabButton(title: "\u{1F3C6} Leaderboard", tab: .leaderboard)
-            tabButton(title: "\u{1F465} Friends", tab: .friends)
+            tabButton(title: "Leaderboard", systemImage: "trophy.fill", tab: .leaderboard)
+            tabButton(title: "Friends", systemImage: "person.2.fill", tab: .friends)
         }
     }
 
-    private func tabButton(title: String, tab: SocialTab) -> some View {
+    private func tabButton(title: String, systemImage: String, tab: SocialTab) -> some View {
         let isSelected = selectedTab == tab
         let identifier = tab == .leaderboard ? "socialTab_leaderboard" : "socialTab_friends"
         return Button {
             selectedTab = tab
         } label: {
-            Text(title)
-                .font(AppFonts.bodyBold(13))
-                .foregroundStyle(isSelected ? AppColors.onGold : AppColors.sub)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 11)
-                .background(isSelected ? AppColors.gold : AppColors.card)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 12)
-                        .stroke(isSelected ? Color.clear : AppColors.border, lineWidth: 1)
-                )
+            HStack(spacing: 6) {
+                Image(systemName: systemImage)
+                    .font(.system(size: 12, weight: .semibold))
+                Text(title)
+                    .font(AppFonts.bodyBold(13))
+            }
+            .foregroundStyle(isSelected ? AppColors.onGold : AppColors.sub)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 11)
+            .background(isSelected ? AppColors.gold : AppColors.card)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(isSelected ? Color.clear : AppColors.border, lineWidth: 1)
+            )
         }
         .accessibilityIdentifier(identifier)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
@@ -280,15 +287,37 @@ struct LeagueView: View {
         if let snapshot = socialService.globalLeaderboard {
             GlobalLeaderboardSection(snapshot: snapshot)
         } else {
-            VStack(spacing: 12) {
-                ProgressView()
-                Text("Loading leaderboard…")
-                    .font(AppFonts.body(13))
-                    .foregroundStyle(AppColors.sub)
+            VStack(spacing: 10) {
+                ForEach(0..<5, id: \.self) { _ in
+                    leaderboardSkeletonRow
+                }
             }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 24)
+            .padding(14)
             .cardStyle()
+        }
+    }
+
+    private var leaderboardSkeletonRow: some View {
+        HStack(spacing: 12) {
+            Circle()
+                .fill(AppColors.card2)
+                .frame(width: 32, height: 32)
+                .shimmering()
+            VStack(alignment: .leading, spacing: 6) {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(AppColors.card2)
+                    .frame(width: 120, height: 10)
+                    .shimmering()
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(AppColors.card2)
+                    .frame(width: 70, height: 8)
+                    .shimmering()
+            }
+            Spacer()
+            RoundedRectangle(cornerRadius: 4)
+                .fill(AppColors.card2)
+                .frame(width: 40, height: 10)
+                .shimmering()
         }
     }
 
@@ -492,14 +521,26 @@ struct LeagueView: View {
     private var friendsSuggestions: some View {
         Group {
             if socialService.friendsLeaderboard.isEmpty {
-                VStack(spacing: 8) {
-                    Text("No friends yet. Search for friends above to get started.")
-                        .font(AppFonts.body(13))
-                        .foregroundStyle(AppColors.sub)
-                        .multilineTextAlignment(.center)
+                VStack(spacing: 14) {
+                    Image(systemName: "person.2.crop.square.stack")
+                        .font(.system(size: 32))
+                        .foregroundStyle(AppColors.gold)
+                    VStack(spacing: 4) {
+                        Text("No friends yet.")
+                            .font(AppFonts.display(18))
+                            .foregroundStyle(AppColors.text)
+                        Text("Find someone you know and compete weekly.")
+                            .font(AppFonts.body(13))
+                            .foregroundStyle(AppColors.sub)
+                            .multilineTextAlignment(.center)
+                    }
+                    PrimaryButton(title: "Find friends") {
+                        isSearchFieldFocused = true
+                    }
+                    .frame(maxWidth: 220)
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
+                .padding(.vertical, 24)
                 .cardStyle()
                 .accessibilityIdentifier("friendsEmptyState")
             }
@@ -556,7 +597,7 @@ struct LeagueView: View {
                         .overlay(
                             Text("\(socialService.pendingRequestCount)")
                                 .font(.system(size: 9, weight: .bold))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(AppColors.onAccent)
                         )
                         .offset(x: 6, y: -6)
                 }
@@ -588,13 +629,13 @@ struct LeagueView: View {
     // MARK: - How XP Is Earned
 
     private var howXPEarnedCard: some View {
-        let items: [(emoji: String, label: String, hint: String?, value: String)] = [
-            ("🎤", "Session completed", nil, "+\(AppConstants.baseXP) XP"),
-            ("⭐", "Score bonus", "+1 per point above 50", "up to +50"),
-            ("🔥", "Streak bonus", "+5% per day, max 10 days", "up to +50%"),
-            ("🏅", "Personal best", "Beat your top score in a mode", "+\(AppConstants.personalBestXPBonus) XP"),
-            ("📅", "Daily challenge", nil, "+\(AppConstants.dailyChallengeXP) XP"),
-            ("🎯", "Difficulty bonus", "L6 / L8 / L10 = +20 / +40 / +60", "up to +60")
+        let items: [(icon: String, label: String, hint: String?, value: String)] = [
+            ("mic.fill", "Session completed", nil, "+\(AppConstants.baseXP) XP"),
+            ("star.fill", "Score bonus", "+1 per point above 50", "up to +50"),
+            ("flame.fill", "Streak bonus", "+5% per day, max 10 days", "up to +50%"),
+            ("rosette", "Personal best", "Beat your top score in a mode", "+\(AppConstants.personalBestXPBonus) XP"),
+            ("target", "Daily challenge", nil, "+\(AppConstants.dailyChallengeXP) XP"),
+            ("arrow.up.right.circle.fill", "Difficulty bonus", "L6 / L8 / L10 = +20 / +40 / +60", "up to +60")
         ]
 
         return VStack(alignment: .leading, spacing: 12) {
@@ -603,8 +644,9 @@ struct LeagueView: View {
             VStack(spacing: 0) {
                 ForEach(items, id: \.label) { item in
                     HStack(alignment: .center, spacing: 10) {
-                        Text(item.emoji)
-                            .font(.system(size: 16))
+                        Image(systemName: item.icon)
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(AppColors.gold)
                             .frame(width: 22)
                         VStack(alignment: .leading, spacing: 1) {
                             Text(item.label)

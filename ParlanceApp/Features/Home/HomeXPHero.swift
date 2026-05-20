@@ -17,14 +17,16 @@ struct HomeXPHero: View {
         if rank.isMaxRank { return "Max rank reached" }
         let next = rank.xpForNextRank ?? user.xp
         let nextName = Rank.forLevel(rank.level + 1)?.name ?? "next level"
-        return "\(user.xp) of \(next) xp to Level \(rank.level + 1) — \(nextName)"
+        return "\(user.xp) of \(next) xp to Level \(rank.level + 1): \(nextName)"
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
-                    Text("🔥").font(.system(size: 13))
+                    Image(systemName: "flame.fill")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(AppColors.gold)
                     Text("\(user.currentStreak)")
                         .font(AppFonts.bodyBold(13))
                         .foregroundStyle(AppColors.text)
@@ -44,7 +46,7 @@ struct HomeXPHero: View {
             }
             .padding(.bottom, 10)
 
-            Text("Day \(max(user.currentStreak, 1)).")
+            Text(user.currentStreak == 0 ? "Welcome back." : "Day \(user.currentStreak).")
                 .font(AppFonts.display(32))
                 .foregroundStyle(AppColors.text)
                 .padding(.bottom, 6)

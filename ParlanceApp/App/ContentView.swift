@@ -11,6 +11,8 @@ struct ContentView: View {
     @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
     @AppStorage("parlance.welcome_back_uid") private var pendingWelcomeBackUID = ""
+    @AppStorage("parlance.has_seen_teach") private var hasSeenTeach = false
+    @State private var teachPracticeLevel: Int = 5
     @State private var activeSession: ActiveSessionState?
     @State private var pendingRealLifeEditText: String? = nil
     @State private var questionBank = QuestionBankService()
@@ -57,7 +59,17 @@ struct ContentView: View {
             } else if !authService.isAuthenticated {
                 AuthView(authService: authService)
             } else if !hasCompletedSetup && !authService.isCompletingSignUp {
-                FirstLaunchSetupView()
+                if !hasSeenTeach {
+                    OnboardingTeachView { level in
+                        teachPracticeLevel = level
+                        withAnimation(.easeInOut(duration: 0.25)) {
+                            hasSeenTeach = true
+                        }
+                    }
+                    .transition(.opacity)
+                } else {
+                    FirstLaunchSetupView(initialPracticeLevel: teachPracticeLevel)
+                }
             } else if shouldShowWelcome, let user = currentUser {
                 WelcomeSplashView(user: user) {
                     pendingWelcomeUID = ""

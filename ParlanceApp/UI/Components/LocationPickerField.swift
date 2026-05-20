@@ -93,7 +93,10 @@ struct LocationPickerField: View {
                     }
 
                 if isResolving {
-                    ProgressView().scaleEffect(0.7)
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(AppColors.card2)
+                        .frame(width: 60, height: 10)
+                        .shimmering()
                 } else if !query.isEmpty {
                     Button {
                         query = ""
@@ -117,10 +120,17 @@ struct LocationPickerField: View {
                     Task { await select(suggestion) }
                 } label: {
                     HStack(spacing: 10) {
-                        Image(systemName: "mappin")
-                            .font(.system(size: 13))
-                            .foregroundStyle(AppColors.sub)
-                            .frame(width: 16)
+                        Group {
+                            if let flag = suggestion.flag {
+                                Text(flag)
+                                    .font(.system(size: 18))
+                            } else {
+                                Image(systemName: "mappin")
+                                    .font(.system(size: 13))
+                                    .foregroundStyle(AppColors.sub)
+                            }
+                        }
+                        .frame(width: 22)
                         VStack(alignment: .leading, spacing: 2) {
                             Text(suggestion.title)
                                 .font(AppFonts.body(15))
@@ -140,7 +150,7 @@ struct LocationPickerField: View {
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("locationSuggestion_\(index)")
                 if suggestion.id != search.suggestions.last?.id {
-                    Divider().background(AppColors.border).padding(.leading, 40)
+                    Divider().background(AppColors.border).padding(.leading, 46)
                 }
             }
         }

@@ -4,39 +4,39 @@ enum AppColors {
     // MARK: - Backgrounds & Surfaces
     static let bg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? UIColor(hex: "#121212")
+            ? UIColor(hex: "#141312")
             : UIColor(hex: "#E4DDCB")
     })
 
     static let card = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? UIColor(hex: "#1A1A1A")
-            : UIColor(hex: "#F1EAD6")
+            ? UIColor(hex: "#1B1A17")
+            : UIColor(hex: "#FBF8F2")
     })
 
     static let card2 = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? UIColor(hex: "#222222")
+            ? UIColor(hex: "#232117")
             : UIColor(hex: "#FAF5E5")
     })
 
     static let border = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? UIColor(hex: "#2A2A2A")
+            ? UIColor(hex: "#2B281D")
             : UIColor(hex: "#D5CCB4")
     })
 
     static let faint = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? UIColor(hex: "#2E2E2E")
+            ? UIColor(hex: "#2F2C20")
             : UIColor(hex: "#FCF7E8")
     })
 
     // MARK: - Text
     static let text = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? .white
-            : UIColor(hex: "#1A1A1A")
+            ? UIColor(hex: "#F5F2EA")
+            : UIColor(hex: "#1A1814")
     })
 
     static let sub = Color(UIColor { traits in
@@ -56,19 +56,12 @@ enum AppColors {
     static let red = Color(hex: "#E05A4E")
 
     // Deeper gold for the bottom of the trend-chart bar gradient.
-    // Approximates oklch(0.62 0.13 80) from the Progress-tab mockup.
     static let goldDeep = Color(hex: "#A57E1B")
 
     // Softer red used for inline negative emphasis in the coach brief.
-    // Approximates oklch(0.78 0.10 28) — lighter than the alarm/danger red.
     static let redSoft = Color(hex: "#E89180")
 
     // MARK: - Badge tiers
-    //
-    // Used by the profile badge row. Bronze and silver are intentionally
-    // a touch muted in dark mode so the gold tier still feels the most
-    // prestigious in the row. All three share warm-to-cool sequencing.
-
     static let bronze = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#B07A4A")
@@ -81,12 +74,12 @@ enum AppColors {
             : UIColor(hex: "#7A8597")
     })
 
-    // (Gold tier uses the existing `gold` token — keeps the brand accent.)
-
     // Foreground for content placed on AppColors.gold (icons, glyphs, text).
-    // Gold is the same in light and dark mode, so this is intentionally a fixed
-    // near-black for contrast in both schemes.
     static let onGold = Color(hex: "#1A1A1A")
+
+    // Foreground for content placed on saturated accent backgrounds (red, teal, purple).
+    // Fixed warm near-white so contrast holds in both light and dark mode.
+    static let onAccent = Color(hex: "#F5F2EA")
 
     static let purple = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
@@ -99,6 +92,24 @@ enum AppColors {
             ? UIColor(hex: "#3BB5A0")
             : UIColor(hex: "#2E9E8B")
     })
+
+    // MARK: - Semantic State Tokens
+    static let success = Color(hex: "#7FBF96")
+    static let warning = Color(hex: "#D9A656")
+    static let error = Color(hex: "#E05A4E")
+    static let info = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#3BB5A0")
+            : UIColor(hex: "#2E9E8B")
+    })
+    static let focused = Color(hex: "#E8A838").opacity(0.4)
+    static let disabled = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#666666")
+            : UIColor(hex: "#8A8472")
+    })
+    static let selected = Color(hex: "#E8A838").opacity(0.15)
+    static let pressed = Color(hex: "#E8A838").opacity(0.25)
 
     // MARK: - Semantic One-Off Colors
     static let aiCoachBg = Color(UIColor { traits in

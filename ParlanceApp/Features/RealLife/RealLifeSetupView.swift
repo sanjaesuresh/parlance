@@ -68,7 +68,8 @@ struct RealLifeSetupView: View {
 
     private var modeChip: some View {
         HStack(spacing: 5) {
-            Text("🎯")
+            Image(systemName: "target")
+                .font(.system(size: 11, weight: .semibold))
             Text("Real Life · L\(level)")
                 .font(AppFonts.bodyMedium(11))
         }

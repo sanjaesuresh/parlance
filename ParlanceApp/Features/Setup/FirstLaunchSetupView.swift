@@ -7,6 +7,10 @@ struct FirstLaunchSetupView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject private var authService: AuthService
 
+    // Practice level pre-selected during teach onboarding. Drives the user's
+    // default difficulty; the comfort picker below still runs.
+    var initialPracticeLevel: Int = 5
+
     @State private var name = ""
     @State private var username = ""
     @State private var occupation = ""
@@ -160,18 +164,9 @@ struct FirstLaunchSetupView: View {
                     }
                 }
 
-                Button {
+                PrimaryButton(title: "Let's go", isEnabled: isValid) {
                     createUser()
-                } label: {
-                    Text("Let's go")
-                        .font(AppFonts.bodyBold(18))
-                        .foregroundStyle(isValid ? AppColors.bg : AppColors.sub)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 52)
-                        .background(isValid ? AppColors.gold : AppColors.border)
-                        .clipShape(RoundedRectangle(cornerRadius: 14))
                 }
-                .disabled(!isValid)
                 .padding(.horizontal, 24)
 
                 Text("AI feedback is for practice. Not professional coaching, therapy, or medical advice.")
@@ -232,10 +227,7 @@ struct FirstLaunchSetupView: View {
                 .foregroundStyle(AppColors.sub)
 
             content()
-                .padding(14)
-                .background(AppColors.card)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .overlay(RoundedRectangle(cornerRadius: 12).stroke(AppColors.border, lineWidth: 1))
+                .cardStyle(padding: 14, radius: 12)
 
             if let hint {
                 Text(hint)
@@ -274,7 +266,7 @@ struct FirstLaunchSetupView: View {
             location: (trimmedLocation?.isEmpty ?? true) ? nil : trimmedLocation,
             occupation: occ.isEmpty ? nil : occ,
             avatar: selectedAvatar,
-            practiceLevel: comfortLevel
+            practiceLevel: initialPracticeLevel
         )
         Task {
             do {

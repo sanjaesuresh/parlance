@@ -2,6 +2,7 @@ import Foundation
 
 enum AppConstants {
     static let cardRadius: CGFloat = 18
+    static let buttonRadius: CGFloat = 14
     static let maxRecordingDuration: TimeInterval = 180
     static let minRecordingDuration: TimeInterval = 5
     static let wrapUpWarningTime: TimeInterval = 165

@@ -48,11 +48,16 @@ struct DailyChallengeCard: View {
 
                 ZStack {
                     Circle()
-                        .fill(completed ? AppColors.teal : AppColors.gold)
-                        .frame(width: 50, height: 50)
+                        .fill(completed ? AppColors.teal : Color.clear)
+                        .frame(width: 44, height: 44)
+                    if !completed {
+                        Circle()
+                            .stroke(AppColors.gold, lineWidth: 1.5)
+                            .frame(width: 44, height: 44)
+                    }
                     Image(systemName: completed ? "checkmark" : "play.fill")
-                        .font(.system(size: 17, weight: .semibold))
-                        .foregroundStyle(AppColors.onGold)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(completed ? AppColors.onGold : AppColors.gold)
                 }
             }
             .padding(20)

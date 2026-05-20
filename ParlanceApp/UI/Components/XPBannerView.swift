@@ -9,8 +9,9 @@ struct XPBannerView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(AppColors.gold)
                     .frame(width: 40, height: 40)
-                Text("⚡")
-                    .font(.system(size: 20))
+                Image(systemName: "bolt.fill")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundStyle(AppColors.onGold)
             }
             VStack(alignment: .leading, spacing: 2) {
                 Text("Parlance")
@@ -24,7 +25,7 @@ struct XPBannerView: View {
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
-        .background(.ultraThinMaterial)
+        .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .overlay(
             RoundedRectangle(cornerRadius: 16)

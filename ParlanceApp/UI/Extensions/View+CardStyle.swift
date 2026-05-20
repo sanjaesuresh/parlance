@@ -1,14 +1,20 @@
 import SwiftUI
 
 extension View {
-    func cardStyle() -> some View {
+    func cardStyle(
+        padding: CGFloat = 16,
+        radius: CGFloat = AppConstants.cardRadius,
+        background: Color = AppColors.card,
+        borderColor: Color = AppColors.border,
+        borderWidth: CGFloat = 1
+    ) -> some View {
         self
-            .padding(16)
-            .background(AppColors.card)
-            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+            .padding(padding)
+            .background(background)
+            .clipShape(RoundedRectangle(cornerRadius: radius))
             .overlay(
-                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                    .stroke(AppColors.border, lineWidth: 1)
+                RoundedRectangle(cornerRadius: radius)
+                    .stroke(borderColor, lineWidth: borderWidth)
             )
     }
 }

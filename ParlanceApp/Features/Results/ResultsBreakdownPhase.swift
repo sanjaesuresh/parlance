@@ -1,11 +1,14 @@
 import SwiftUI
 
 /// Scrollable breakdown phase shown after the user taps "See Breakdown".
-/// Stacks the verdict hero, coach feedback, moments, transcript, per-metric
-/// breakdown, tone card, and the up-next CTA.
+/// Distilled to a guided read: relevance warning → verdict hero → coach
+/// paragraph → best/worst moments (actionable climax) → per-metric rows →
+/// tone (collapsed) → transcript (collapsed). The Up Next CTA lives in a
+/// sticky safe-area footer so retry is always reachable.
 ///
-/// Section-level state (transcript expand, etc.) lives in the child sections.
-/// Cross-cutting sheet bindings (paywall, tone-detail) come in from the parent.
+/// Section-level state (transcript expand, tone expand) lives in the child
+/// sections. Cross-cutting sheet bindings (paywall, tone-detail) come in
+/// from the parent.
 struct ResultsBreakdownPhase: View {
     @Bindable var session: Session
     @ObservedObject var viewModel: ResultsViewModel
@@ -14,6 +17,7 @@ struct ResultsBreakdownPhase: View {
     let cachedPriorAverage: Int?
     let highlightedTranscript: AttributedString?
     let onTryAgain: () -> Void
+    let onGoHome: () -> Void
     @Binding var showPaywall: Bool
     @Binding var showToneDetail: Bool
 
@@ -32,7 +36,7 @@ struct ResultsBreakdownPhase: View {
                             Image(systemName: "exclamationmark.bubble.fill")
                                 .foregroundStyle(AppColors.gold)
                                 .font(.system(size: 14))
-                            Text("This response only partially addressed the prompt — your coach feedback may be limited.")
+                            Text("This response only partially addressed the prompt. Your coach feedback may be limited.")
                                 .font(AppFonts.body(12))
                                 .foregroundStyle(AppColors.sub)
                         }
@@ -51,14 +55,6 @@ struct ResultsBreakdownPhase: View {
                 resultsSection {
                     ResultsMomentsSection(session: session)
                 }
-                if session.hasTranscript {
-                    resultsSection {
-                        ResultsTranscriptSection(
-                            session: session,
-                            highlightedTranscript: highlightedTranscript
-                        )
-                    }
-                }
                 resultsSection { breakdownSection }
                 resultsSection {
                     ResultsTonePhase(
@@ -69,12 +65,22 @@ struct ResultsBreakdownPhase: View {
                         showToneDetail: $showToneDetail
                     )
                 }
-                resultsSection { upNextCard }
-                    .padding(.bottom, 60)
+                if session.hasTranscript {
+                    resultsSection {
+                        ResultsTranscriptSection(
+                            session: session,
+                            highlightedTranscript: highlightedTranscript
+                        )
+                    }
+                }
             }
             .padding(.horizontal, 18)
+            .padding(.bottom, 24)
         }
         .background(AppColors.bg)
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            upNextFooter
+        }
     }
 
     // MARK: - Section wrapper
@@ -286,50 +292,29 @@ struct ResultsBreakdownPhase: View {
         }
     }
 
-    // MARK: - Up Next Card
+    // MARK: - Sticky Up Next footer
 
-    private var upNextCard: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            SectionHeader(title: "Up Next")
+    private var upNextFooter: some View {
+        VStack(spacing: 0) {
+            Rectangle()
+                .fill(AppColors.border)
+                .frame(height: 1)
 
-            Button(action: onTryAgain) {
-                HStack(spacing: 14) {
-                    // Mode icon container
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(session.mode.accentColor.opacity(0.2))
-                            .frame(width: 44, height: 44)
+            VStack(alignment: .leading, spacing: 10) {
+                Text("UP NEXT")
+                    .font(AppFonts.bodyBold(10))
+                    .kerning(1.6)
+                    .foregroundStyle(AppColors.dim)
 
-                        Text(session.mode.emoji)
-                            .font(.system(size: 20))
-                    }
-
-                    // Text column
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text("Another \(session.mode.displayName) — \(DifficultyLevel.tier(for: session.difficultyLevel))")
-                            .font(AppFonts.bodyMedium(13))
-                            .foregroundStyle(AppColors.text)
-
-                        Text("New question · +\(AppConstants.baseXP) XP")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.dim)
-                    }
-
-                    Spacer()
-
-                    // Chevron
-                    Text("›")
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundStyle(AppColors.dim)
+                HStack(spacing: 10) {
+                    SecondaryButton(title: "Back home", action: onGoHome)
+                    PrimaryButton(title: "Try another", action: onTryAgain)
                 }
-                .padding(15)
-                .background(AppColors.card)
-                .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                .overlay(
-                    RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                        .stroke(AppColors.border, lineWidth: 1)
-                )
             }
+            .padding(.horizontal, 18)
+            .padding(.top, 12)
+            .padding(.bottom, 12)
+            .background(AppColors.card2)
         }
     }
 }

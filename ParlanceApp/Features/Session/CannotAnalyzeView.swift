@@ -59,20 +59,8 @@ struct CannotAnalyzeView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 24)
             HStack(spacing: 12) {
-                Button("Discard", action: onDiscard)
-                    .font(AppFonts.bodyMedium(14))
-                    .foregroundStyle(AppColors.sub)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 12)
-                    .background(AppColors.card)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                Button("Try Again", action: onRetry)
-                    .font(AppFonts.bodyMedium(14))
-                    .foregroundStyle(AppColors.bg)
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 12)
-                    .background(AppColors.gold)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                SecondaryButton(title: "Discard", action: onDiscard)
+                PrimaryButton(title: "Try Again", action: onRetry)
             }
         }
         .padding(32)

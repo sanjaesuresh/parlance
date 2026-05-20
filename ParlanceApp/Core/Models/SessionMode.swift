@@ -45,6 +45,22 @@ enum SessionMode: String, CaseIterable, Codable {
         }
     }
 
+    var systemImageName: String {
+        switch self {
+        case .realLife: "target"
+        case .interview: "briefcase.fill"
+        case .pitch: "chart.line.uptrend.xyaxis"
+        case .keynote: "mic.fill"
+        case .casual: "bubble.left.and.bubble.right.fill"
+        case .debate: "figure.2.arms.open"
+        case .storytelling: "text.book.closed.fill"
+        case .explanation: "book.fill"
+        case .negotiation: "arrow.left.and.right.circle.fill"
+        case .impromptu: "bolt.fill"
+        case .networking: "person.2.fill"
+        }
+    }
+
     var accentColor: Color {
         switch self {
         case .realLife: Color(hex: "#D44A6F")

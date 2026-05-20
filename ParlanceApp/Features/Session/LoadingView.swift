@@ -51,43 +51,28 @@ struct LoadingView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Nav bar
-            HStack {
-                if let onCancel {
-                    Button(action: onCancel) {
-                        Text("← Back")
-                            .font(AppFonts.body(13))
-                            .foregroundStyle(AppColors.text)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 8)
-                            .background(AppColors.card)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+            SessionNavBar(
+                leading: {
+                    if let onCancel {
+                        BackButton(action: onCancel)
+                            .accessibilityLabel("Cancel")
                     }
-                    .accessibilityLabel("Cancel")
-                } else {
-                    Spacer().frame(width: 72)
-                }
-
-                Spacer()
-
-                HStack(spacing: 7) {
-                    PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
-                    Text("Lv \(level)")
-                        .font(AppFonts.bodyMedium(10))
-                        .foregroundStyle(AppColors.sub)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 3)
-                        .background(AppColors.card)
-                        .clipShape(Capsule())
-                }
-
-                Spacer()
-
-                Spacer().frame(width: 72)
-            }
-            .padding(.horizontal, 24)
-            .padding(.top, 8)
-            .padding(.bottom, 12)
+                },
+                center: {
+                    HStack(spacing: 7) {
+                        PillBadge(text: mode.displayName, emoji: mode.emoji, color: mode.accentColor, small: true)
+                        Text("Lv \(level)")
+                            .font(AppFonts.bodyMedium(10))
+                            .foregroundStyle(AppColors.sub)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 3)
+                            .background(AppColors.card)
+                            .clipShape(Capsule())
+                    }
+                },
+                trailing: { EmptyView() }
+            )
+            .padding(.bottom, 4)
 
             if mode == .explanation {
                 let category = currentTopicCategory ?? .any
@@ -167,14 +152,8 @@ struct LoadingView: View {
                                         .lineSpacing(6)
                                 }
                             }
-                            .padding(20)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(AppColors.card)
-                            .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                                    .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
-                            )
+                            .cardStyle(padding: 20, borderColor: mode.accentColor.opacity(0.3))
                         }
                     }
                     .padding(.horizontal, 24)
@@ -201,22 +180,10 @@ struct LoadingView: View {
 
             // Start recording button
             if !isUnrecoverable {
-                Button(action: onReady) {
-                    HStack(spacing: 10) {
-                        Image(systemName: "mic.fill")
-                            .font(.system(size: 15, weight: .semibold))
-                        Text("Start Recording")
-                            .font(AppFonts.bodyBold(16))
-                    }
-                    .foregroundStyle(AppColors.bg)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
-                    .background(AppColors.gold)
-                    .clipShape(RoundedRectangle(cornerRadius: 14))
-                }
-                .padding(.horizontal, 24)
-                .padding(.bottom, 32)
-                .accessibilityLabel("Start recording")
+                PrimaryButton(title: "Start Recording", icon: "mic.fill", action: onReady)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 32)
+                    .accessibilityLabel("Start recording")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -327,12 +294,6 @@ struct LoadingView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(20)
-        .background(AppColors.card)
-        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
-        .overlay(
-            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                .stroke(mode.accentColor.opacity(0.3), lineWidth: 1)
-        )
+        .cardStyle(padding: 20, borderColor: mode.accentColor.opacity(0.3))
     }
 }

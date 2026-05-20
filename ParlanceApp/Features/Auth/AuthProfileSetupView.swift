@@ -222,7 +222,7 @@ struct AuthProfileSetupView: View {
                 } label: {
                     Group {
                         if viewModel.isLoading {
-                            ProgressView().tint(.black)
+                            ProgressView().tint(AppColors.onGold)
                         } else {
                             Text("Let's go")
                                 .font(AppFonts.bodyBold(18))
@@ -230,7 +230,7 @@ struct AuthProfileSetupView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: 52)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(AppColors.onGold)
                     .background(disabled ? AppColors.gold.opacity(0.4) : AppColors.gold)
                     .clipShape(RoundedRectangle(cornerRadius: 14))
                 }

@@ -62,6 +62,7 @@ struct ResultsView: View {
                         cachedPriorAverage: cachedPriorAverage,
                         highlightedTranscript: cachedHighlightedTranscript,
                         onTryAgain: onTryAgain,
+                        onGoHome: onGoHome,
                         showPaywall: $showPaywall,
                         showToneDetail: $showToneDetail
                     )

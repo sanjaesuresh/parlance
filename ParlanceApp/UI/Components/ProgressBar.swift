@@ -16,7 +16,7 @@ struct ProgressBar: View {
                 RoundedRectangle(cornerRadius: 99)
                     .fill(color)
                     .frame(width: max(0, geo.size.width * min(pct / 100, 1.0)), height: height)
-                    .animation(.easeOut(duration: 1.1), value: pct)
+                    .animation(.easeOut(duration: 0.25), value: pct)
             }
         }
         .frame(height: height)

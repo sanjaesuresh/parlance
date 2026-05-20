@@ -417,7 +417,7 @@ struct ToneDetailSheet: View {
     private var explainerCard: some View {
         VStack(alignment: .leading, spacing: 8) {
             sectionLabel("HOW THIS IS MEASURED")
-            Text("Tone is sampled every ~2 seconds by Hume AI from the pitch, energy, and rhythm of your voice — not the words themselves. Each point on the arc is how strongly your dominant emotion came through in that segment.")
+            Text("Tone is sampled every ~2 seconds by Hume AI from the pitch, energy, and rhythm of your voice, not the words themselves. Each point on the arc is how strongly your dominant emotion came through in that segment.")
                 .font(AppFonts.body(12))
                 .foregroundStyle(AppColors.sub)
                 .lineSpacing(3)

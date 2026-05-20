@@ -49,7 +49,7 @@ struct GlobalLeaderboardSection: View {
                 if isMe {
                     Text("YOU")
                         .font(AppFonts.bodyBold(8))
-                        .foregroundStyle(.black)
+                        .foregroundStyle(AppColors.onGold)
                         .padding(.horizontal, 5)
                         .padding(.vertical, 1)
                         .background(AppColors.gold)
