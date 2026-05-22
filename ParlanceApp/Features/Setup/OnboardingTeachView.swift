@@ -241,15 +241,16 @@ private struct OnboardingTeachSessionStep: View {
                             }
                             VStack(alignment: .leading, spacing: 12) {
                                 ForEach(Array(tips.enumerated()), id: \.offset) { index, tip in
-                                    HStack(alignment: .firstTextBaseline, spacing: 12) {
+                                    HStack(alignment: .top, spacing: 12) {
                                         Text("\(index + 1)")
-                                            .font(.custom("Fraunces72pt-Bold", size: 20))
+                                            .font(.custom("Fraunces72pt-Bold", size: 18))
                                             .foregroundStyle(AppColors.gold)
                                             .frame(width: 16, alignment: .leading)
                                         Text(tip)
                                             .font(AppFonts.body(13))
                                             .foregroundStyle(AppColors.text.opacity(0.88))
                                             .fixedSize(horizontal: false, vertical: true)
+                                            .padding(.top, 2)
                                     }
                                 }
                             }
