@@ -90,6 +90,8 @@ struct DifficultyChangeSheet: View {
                 }
             }
 
+            Spacer(minLength: 16)
+
             Button {
                 onConfirm(pendingLevel)
                 dismiss()
@@ -105,12 +107,11 @@ struct DifficultyChangeSheet: View {
                 .background(AppColors.gold)
                 .clipShape(Capsule())
             }
-            .padding(.top, 18)
         }
         .padding(.horizontal, 24)
-        .padding(.bottom, 12)
+        .padding(.bottom, 8)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .presentationDetents([.fraction(0.58)])
+        .presentationDetents([.height(540)])
         .presentationDragIndicator(.hidden)
         .presentationBackground(AppColors.bg)
     }
