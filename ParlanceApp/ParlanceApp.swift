@@ -6,6 +6,7 @@ import CoreText
 struct ParlanceApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var authService = AuthService()
+    @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
 
     init() {
         registerFonts()
@@ -28,6 +29,7 @@ struct ParlanceApp: App {
             ContentView()
                 .environmentObject(SubscriptionService.shared)
                 .environmentObject(authService)
+                .preferredColorScheme(AppTheme(rawValue: themeRaw)?.colorScheme)
                 .task {
                     if authService.isAuthenticated {
                         UIApplication.shared.registerForRemoteNotifications()

@@ -8,7 +8,6 @@ struct ContentView: View {
     @StateObject private var networkMonitor = NetworkMonitor()
     @StateObject private var weekCache = SessionWeekCache()
     @ObservedObject private var router = DeepLinkRouter.shared
-    @AppStorage("appTheme") private var themeRaw: String = AppTheme.system.rawValue
     @AppStorage("parlance.welcome_uid") private var pendingWelcomeUID = ""
     @AppStorage("parlance.welcome_back_uid") private var pendingWelcomeBackUID = ""
     @AppStorage("parlance.has_seen_teach") private var hasSeenTeach = false
@@ -124,7 +123,6 @@ struct ContentView: View {
                 mainTabView
             }
         }
-        .preferredColorScheme(AppTheme(rawValue: themeRaw)?.colorScheme)
         .environment(\.font, AppFonts.body(16))
         .environmentObject(permissionsService)
         .environmentObject(weekCache)
