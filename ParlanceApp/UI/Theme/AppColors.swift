@@ -8,28 +8,31 @@ enum AppColors {
             : UIColor(hex: "#E4DDCB")
     })
 
+    // Light mode inverts the usual chrome hierarchy: bg is the lighter cream
+    // "page," cards are darker tan patches on top. Reads more editorial / print
+    // than the conventional white-card-on-grey SaaS layout.
     static let card = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#1B1A17")
-            : UIColor(hex: "#FBF8F2")
+            : UIColor(hex: "#D5CBAE")
     })
 
     static let card2 = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#232117")
-            : UIColor(hex: "#FAF5E5")
+            : UIColor(hex: "#D0C5A4")
     })
 
     static let border = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#2B281D")
-            : UIColor(hex: "#D5CCB4")
+            : UIColor(hex: "#B5A782")
     })
 
     static let faint = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#2F2C20")
-            : UIColor(hex: "#FCF7E8")
+            : UIColor(hex: "#DDD3B6")
     })
 
     // MARK: - Text
@@ -64,8 +67,8 @@ enum AppColors {
     // MARK: - Badge tiers
     static let bronze = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
-            ? UIColor(hex: "#B07A4A")
-            : UIColor(hex: "#8E5A2E")
+            ? UIColor(hex: "#C58547")
+            : UIColor(hex: "#B4783A")
     })
 
     static let silver = Color(UIColor { traits in
@@ -117,19 +120,19 @@ enum AppColors {
     static let aiCoachBg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.075, green: 0.071, blue: 0.055, alpha: 1)
-            : UIColor(red: 0.949, green: 0.910, blue: 0.776, alpha: 1)
+            : UIColor(red: 0.847, green: 0.741, blue: 0.490, alpha: 1)
     })
 
     static let challengeGradientStart = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.094, green: 0.071, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.937, green: 0.878, blue: 0.635, alpha: 1)
+            : UIColor(red: 0.910, green: 0.737, blue: 0.490, alpha: 1)
     })
 
     static let challengeGradientEnd = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(red: 0.122, green: 0.090, blue: 0.0, alpha: 1)
-            : UIColor(red: 0.867, green: 0.780, blue: 0.424, alpha: 1)
+            : UIColor(red: 0.780, green: 0.580, blue: 0.318, alpha: 1)
     })
 
     // MARK: - Difficulty Ramp
