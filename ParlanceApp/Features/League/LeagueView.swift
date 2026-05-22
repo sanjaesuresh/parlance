@@ -132,9 +132,14 @@ struct LeagueView: View {
                 .font(AppFonts.bodyMedium(11))
                 .foregroundStyle(AppColors.dim)
                 .kerning(1.2)
-            Text("Social")
-                .font(AppFonts.display(26))
-                .foregroundStyle(AppColors.text)
+            HStack(spacing: 0) {
+                Text("Social")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+                Text(".")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.gold)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16)

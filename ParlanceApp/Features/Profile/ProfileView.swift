@@ -88,9 +88,14 @@ struct ProfileView: View {
                     .font(AppFonts.bodyMedium(11))
                     .foregroundStyle(AppColors.dim)
                     .kerning(1.2)
-                Text("Profile")
-                    .font(AppFonts.display(26))
-                    .foregroundStyle(AppColors.text)
+                HStack(spacing: 0) {
+                    Text("Profile")
+                        .font(AppFonts.display(26))
+                        .foregroundStyle(AppColors.text)
+                    Text(".")
+                        .font(AppFonts.display(26))
+                        .foregroundStyle(AppColors.gold)
+                }
             }
 
             Spacer()

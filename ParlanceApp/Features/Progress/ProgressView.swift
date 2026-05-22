@@ -135,9 +135,14 @@ struct ProgressTabView: View {
                 .font(AppFonts.bodyMedium(11))
                 .kerning(1.2)
                 .foregroundStyle(AppColors.dim)
-            Text("Progress")
-                .font(AppFonts.display(26))
-                .foregroundStyle(AppColors.text)
+            HStack(spacing: 0) {
+                Text("Progress")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.text)
+                Text(".")
+                    .font(AppFonts.display(26))
+                    .foregroundStyle(AppColors.gold)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16)
