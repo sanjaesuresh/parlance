@@ -59,6 +59,9 @@ PRODUCT.md
 CODEBASE_REVIEW.md
 TOP_20_ACTION_ITEMS.md
 
+# Question bank review scratch (chunks, per-mode notes, meta-review reports)
+_review/
+
 # Editor / IDE
 .idea/
 .vscode/
