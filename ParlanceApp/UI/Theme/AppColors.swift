@@ -5,7 +5,7 @@ enum AppColors {
     static let bg = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#141312")
-            : UIColor(hex: "#E4DDCB")
+            : UIColor(hex: "#EFE8D6")
     })
 
     // Light mode inverts the usual chrome hierarchy: bg is the lighter cream
@@ -14,44 +14,44 @@ enum AppColors {
     static let card = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#1B1A17")
-            : UIColor(hex: "#D5CBAE")
+            : UIColor(hex: "#FBF7EC")
     })
 
     static let card2 = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#232117")
-            : UIColor(hex: "#D0C5A4")
+            : UIColor(hex: "#F5EFDD")
     })
 
     static let border = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#2B281D")
-            : UIColor(hex: "#B5A782")
+            : UIColor(hex: "#C9BE9C")
     })
 
     static let faint = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#2F2C20")
-            : UIColor(hex: "#DDD3B6")
+            : UIColor(hex: "#E6DEC7")
     })
 
     // MARK: - Text
     static let text = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#F5F2EA")
-            : UIColor(hex: "#1A1814")
+            : UIColor(hex: "#15110A")
     })
 
     static let sub = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#999999")
-            : UIColor(hex: "#5C5749")
+            : UIColor(hex: "#6B6452")
     })
 
     static let dim = Color(UIColor { traits in
         traits.userInterfaceStyle == .dark
             ? UIColor(hex: "#666666")
-            : UIColor(hex: "#8A8472")
+            : UIColor(hex: "#9A9382")
     })
 
     // MARK: - Accents
