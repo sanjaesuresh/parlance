@@ -102,6 +102,12 @@ enum SessionMode: String, CaseIterable, Codable {
         return pool[dayOfYear % pool.count]
     }
 
+    static func dailyChallengeExplanationCategory(for date: Date = .now) -> ExplanationCategory {
+        let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: date) ?? 1
+        let all = ExplanationCategory.allCases
+        return all[dayOfYear % all.count]
+    }
+
     /// Modes available on the free tier. All others require Pro.
     static let freeModes: Set<SessionMode> = [.interview, .casual, .impromptu, .explanation, .networking]
 

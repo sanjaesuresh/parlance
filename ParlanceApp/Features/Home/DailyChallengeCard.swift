@@ -37,7 +37,9 @@ struct DailyChallengeCard: View {
 
                     Text(completed
                          ? "Come back tomorrow for a new one"
-                         : "Level \(level) · Fresh question every day"
+                         : mode == .explanation
+                             ? "Level \(level) · \(SessionMode.dailyChallengeExplanationCategory().displayName)"
+                             : "Level \(level) · Fresh question every day"
                     )
                         .font(AppFonts.body(12))
                         .foregroundStyle(AppColors.sub)
