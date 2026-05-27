@@ -200,6 +200,9 @@ struct LoadingView: View {
             .presentationDragIndicator(.hidden)
             .presentationCornerRadius(28)
         }
+        .onChange(of: question.id) { _, _ in
+            if question.mode != .realLife { displayedPrompt = question.question }
+        }
         .task {
             guard mode == .realLife, case .loading = tipsState else { return }
             let result = await tipsClient.fetchTips(
