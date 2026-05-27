@@ -30,6 +30,23 @@ struct LeagueView: View {
         users.first { $0.supabaseUID == authService.currentUserID }
     }
 
+    /// Inputs for FriendsRankChip.
+    /// The friends leaderboard does NOT include self, so we insert the current user
+    /// client-side to compute rank and total. Returns nil only when auth is unavailable.
+    private var friendsRankInputs: (rank: Int?, total: Int, weeklyXP: Int) {
+        let myWeeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
+        let board = socialService.friendsLeaderboard
+        guard !board.isEmpty else {
+            // No friends yet — emit nil rank so the chip renders its empty state.
+            return (rank: nil, total: 1, weeklyXP: myWeeklyXP)
+        }
+        // Insert self into the sorted board to find the correct 1-indexed rank.
+        let myPosition = board.filter { $0.weeklyXP > myWeeklyXP }.count
+        let rank = myPosition + 1
+        let total = board.count + 1  // friends + self
+        return (rank: rank, total: total, weeklyXP: myWeeklyXP)
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -62,6 +79,7 @@ struct LeagueView: View {
                                 searchResultsList
                             }
                         } else {
+                            friendsRankChip
                             if !socialService.friendsLeaderboard.isEmpty {
                                 addedFriendsSection
                             }
@@ -430,6 +448,22 @@ struct LeagueView: View {
                     .stroke(AppColors.border, lineWidth: 1)
             )
         }
+    }
+
+    // MARK: - Friends Rank Chip
+
+    private var friendsRankChip: some View {
+        let inputs = friendsRankInputs
+        return FriendsRankChip(
+            rank: inputs.rank,
+            total: inputs.total,
+            weeklyXP: inputs.weeklyXP,
+            avatarEmoji: user?.avatarEmoji ?? "🎤",
+            avatarUrl: user?.avatarUrl,
+            avatarUpdatedAt: user?.avatarUpdatedAt,
+            displayName: user?.displayName ?? "You",
+            onAddFriendsTapped: { isSearchFieldFocused = true }
+        )
     }
 
     // MARK: - Added Friends
