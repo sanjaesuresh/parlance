@@ -15,6 +15,7 @@ struct LeagueView: View {
     @State private var selectedProfile: SocialProfile?
     @State private var selectedSearchProfile: PublicProfile?
     @State private var showRequestsSheet = false
+    @State private var showRankSheet = false
     @State private var isSearching = false
     @FocusState private var isSearchFieldFocused: Bool
 
@@ -45,6 +46,77 @@ struct LeagueView: View {
         let rank = myPosition + 1
         let total = board.count + 1  // friends + self
         return (rank: rank, total: total, weeklyXP: myWeeklyXP)
+    }
+
+    /// Builds the merged + ranked entry list for the rank sheet by inserting the
+    /// current user into the friends leaderboard and assigning 1-indexed ranks.
+    /// Each entry's 24h rank delta is looked up against the local rank-history snapshot.
+    private var rankedEntries: [FriendsRankSheet.Entry] {
+        let myWeeklyXP = viewModel.weeklyXP(from: weekCache.sessions)
+        let myId = authService.currentUserID ?? user?.supabaseUID ?? ""
+
+        struct Row {
+            let id: String
+            let displayName: String
+            let username: String
+            let avatarEmoji: String
+            let avatarUrl: String?
+            let avatarUpdatedAt: Date?
+            let weeklyXP: Int
+            let isMe: Bool
+        }
+
+        var rows: [Row] = socialService.friendsLeaderboard.map { p in
+            Row(
+                id: p.id,
+                displayName: p.displayName,
+                username: p.username,
+                avatarEmoji: p.avatarEmoji,
+                avatarUrl: p.avatarUrl,
+                avatarUpdatedAt: p.avatarUpdatedAt,
+                weeklyXP: p.weeklyXP,
+                isMe: false
+            )
+        }
+        rows.append(Row(
+            id: myId,
+            displayName: user?.displayName ?? "You",
+            username: user?.username ?? "you",
+            avatarEmoji: user?.avatarEmoji ?? "🎤",
+            avatarUrl: user?.avatarUrl,
+            avatarUpdatedAt: user?.avatarUpdatedAt,
+            weeklyXP: myWeeklyXP,
+            isMe: true
+        ))
+        // Stable sort: higher weeklyXP first; self wins ties so the user sees themselves
+        // promoted above an inactive friend at the same XP — matches the chip's headline.
+        rows.sort { lhs, rhs in
+            if lhs.weeklyXP != rhs.weeklyXP { return lhs.weeklyXP > rhs.weeklyXP }
+            if lhs.isMe != rhs.isMe { return lhs.isMe }
+            return lhs.displayName.localizedCaseInsensitiveCompare(rhs.displayName) == .orderedAscending
+        }
+        return rows.enumerated().map { idx, r in
+            let rank = idx + 1
+            let delta = FriendsRankHistoryService.shared.delta(userId: r.id, currentRank: rank)
+            return FriendsRankSheet.Entry(
+                id: r.id,
+                rank: rank,
+                displayName: r.displayName,
+                username: r.username,
+                avatarEmoji: r.avatarEmoji,
+                avatarUrl: r.avatarUrl,
+                avatarUpdatedAt: r.avatarUpdatedAt,
+                weeklyXP: r.weeklyXP,
+                isMe: r.isMe,
+                delta: delta
+            )
+        }
+    }
+
+    /// Snapshots the current ranking so the 24h rank-delta service has data to compare against.
+    private func recordRankSnapshot() {
+        let rankings = rankedEntries.map { (userId: $0.id, rank: $0.rank) }
+        FriendsRankHistoryService.shared.record(rankings: rankings)
     }
 
     var body: some View {
@@ -114,6 +186,9 @@ struct LeagueView: View {
             .sheet(item: $selectedSearchProfile) { profile in
                 PublicProfileDetailView(profile: profile)
             }
+            .sheet(isPresented: $showRankSheet) {
+                FriendsRankSheet(entries: rankedEntries)
+            }
             .sheet(isPresented: $showRequestsSheet, onDismiss: {
                 openFriendRequests = false
                 Task {
@@ -130,6 +205,8 @@ struct LeagueView: View {
                 await socialService.fetchGlobalLeaderboard()
                 await socialService.fetchFriendActivity()
                 await socialService.refreshPendingRequestCount()
+                // Snapshot current rankings so the 24h delta has something to compare against later.
+                recordRankSnapshot()
             }
             .onChange(of: openFriendRequests) { _, shouldOpen in
                 if shouldOpen {
@@ -472,7 +549,12 @@ struct LeagueView: View {
             avatarUrl: user?.avatarUrl,
             avatarUpdatedAt: user?.avatarUpdatedAt,
             displayName: user?.displayName ?? "You",
-            onAddFriendsTapped: { isSearchFieldFocused = true }
+            onAddFriendsTapped: { isSearchFieldFocused = true },
+            onRankTapped: {
+                // Snapshot at open time so the first viewing also seeds history.
+                recordRankSnapshot()
+                showRankSheet = true
+            }
         )
     }
 

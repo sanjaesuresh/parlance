@@ -22,10 +22,18 @@ struct FriendsRankChip: View {
     let displayName: String
     /// Called when the user taps the "Add friends" CTA in the empty state.
     let onAddFriendsTapped: () -> Void
+    /// Called when the user taps the chip in its ranked state to view the full
+    /// ranked friends list. No-op default keeps existing call sites compiling.
+    var onRankTapped: () -> Void = {}
 
     var body: some View {
         if let rank {
-            rankedView(rank: rank)
+            Button(action: onRankTapped) {
+                rankedView(rank: rank)
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("friendsRankChip")
+            .accessibilityHint("Shows the full ranked list of you and your friends.")
         } else {
             emptyView
         }
