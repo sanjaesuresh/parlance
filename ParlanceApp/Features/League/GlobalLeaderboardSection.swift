@@ -2,13 +2,24 @@ import SwiftUI
 
 struct GlobalLeaderboardSection: View {
     let snapshot: GlobalLeaderboardSnapshot
+    var onTapEntry: ((GlobalLeaderboardEntry) -> Void)? = nil
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             SectionHeader(title: "Global · This Week")
 
             ForEach(snapshot.top) { entry in
-                row(for: entry, isMe: entry.id == snapshot.me?.id)
+                let isMe = entry.id == snapshot.me?.id
+                if isMe {
+                    row(for: entry, isMe: true)
+                } else {
+                    Button {
+                        onTapEntry?(entry)
+                    } label: {
+                        row(for: entry, isMe: false)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
 
             if let me = snapshot.me, me.rank > snapshot.top.count {

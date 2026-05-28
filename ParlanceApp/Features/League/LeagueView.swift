@@ -308,7 +308,17 @@ struct LeagueView: View {
     @ViewBuilder
     private var globalLeaderboardSection: some View {
         if let snapshot = socialService.globalLeaderboard {
-            GlobalLeaderboardSection(snapshot: snapshot)
+            GlobalLeaderboardSection(snapshot: snapshot) { entry in
+                selectedSearchProfile = PublicProfile(
+                    id: entry.id,
+                    username: entry.username,
+                    avatarEmoji: entry.avatarEmoji,
+                    avatarUrl: entry.avatarUrl,
+                    avatarUpdatedAt: entry.avatarUpdatedAt,
+                    weeklyXP: entry.weeklyXP,
+                    tier: entry.tier
+                )
+            }
         } else {
             VStack(spacing: 10) {
                 ForEach(0..<5, id: \.self) { _ in
