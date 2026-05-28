@@ -32,7 +32,7 @@ struct FriendsRankSheet: View {
                 .padding(.bottom, 24)
             }
             .background(AppColors.bg)
-            .navigationTitle("Friends Rank")
+            .navigationTitle("Friends Leaderboard")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
