@@ -7,6 +7,24 @@ struct StandoutMomentCard: View {
     let isExpanded: Bool
     let onTap: () -> Void
 
+    @Environment(\.colorScheme) private var colorScheme
+
+    // Mirror HomeXPHero: deep cinnamon→cocoa in light, near-black warm wash in dark.
+    private var gradientStart: Color {
+        colorScheme == .dark ? Color(hex: "#181200") : Color(hex: "#C7813A")
+    }
+    private var gradientEnd: Color {
+        colorScheme == .dark ? Color(hex: "#1F1700") : Color(hex: "#7A3F12")
+    }
+
+    private var onCardText: Color { Color(hex: "#FBF3E2") }
+    private var onCardSub: Color { Color(hex: "#E8D3A6") }
+    private var onCardAccent: Color { Color(hex: "#F5C45A") }
+    private var onCardDim: Color { Color(hex: "#E8D3A6").opacity(0.7) }
+    private var onCardCellBg: Color { Color.black.opacity(0.28) }
+    private var onCardBorder: Color { Color(hex: "#F5C45A").opacity(0.35) }
+    private var onCardDivider: Color { Color(hex: "#F5C45A").opacity(0.25) }
+
     var body: some View {
         Button(action: onTap) {
             VStack(alignment: .leading, spacing: 0) {
@@ -25,14 +43,14 @@ struct StandoutMomentCard: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 LinearGradient(
-                    colors: [AppColors.challengeGradientStart, AppColors.card],
+                    colors: [gradientStart, gradientEnd],
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
                 )
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(AppColors.gold.opacity(0.25), lineWidth: 1)
+                    .stroke(onCardBorder, lineWidth: 1)
             )
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .contentShape(Rectangle())
@@ -48,10 +66,10 @@ struct StandoutMomentCard: View {
                 Text("BEST SESSION · \(formattedDate)")
                     .font(AppFonts.bodyBold(10))
                     .kerning(1.4)
-                    .foregroundStyle(AppColors.gold)
+                    .foregroundStyle(onCardAccent)
                 Text("\u{201C}\(session.question)\u{201D}")
                     .font(AppFonts.display(16))
-                    .foregroundStyle(AppColors.text)
+                    .foregroundStyle(onCardText)
                     .lineSpacing(2)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 6)
@@ -60,7 +78,7 @@ struct StandoutMomentCard: View {
 
             Text("\(session.overallScore)")
                 .font(AppFonts.display(28))
-                .foregroundStyle(AppColors.gold)
+                .foregroundStyle(onCardAccent)
                 .lineLimit(1)
         }
     }
@@ -71,17 +89,17 @@ struct StandoutMomentCard: View {
         HStack(spacing: 0) {
             Text("\(session.mode.displayName) · \(formattedDuration) · \(session.fillerCount) \(session.fillerCount == 1 ? "filler" : "fillers")")
                 .font(AppFonts.body(11))
-                .foregroundStyle(AppColors.sub)
+                .foregroundStyle(onCardSub)
 
             Spacer()
 
             HStack(spacing: 4) {
                 Text(isExpanded ? "Hide breakdown" : "View breakdown")
                     .font(AppFonts.bodyMedium(11))
-                    .foregroundStyle(AppColors.gold)
+                    .foregroundStyle(onCardAccent)
                 Text("\u{203A}")
                     .font(AppFonts.bodyMedium(11))
-                    .foregroundStyle(AppColors.gold)
+                    .foregroundStyle(onCardAccent)
             }
         }
     }
@@ -91,7 +109,7 @@ struct StandoutMomentCard: View {
     private var expandedArea: some View {
         VStack(alignment: .leading, spacing: 0) {
             Rectangle()
-                .fill(AppColors.gold.opacity(0.2))
+                .fill(onCardDivider)
                 .frame(height: 1)
                 .padding(.top, 14)
 
@@ -108,10 +126,10 @@ struct StandoutMomentCard: View {
                         .font(AppFonts.bodyBold(9))
                         .kerning(1.4)
                         .textCase(.uppercase)
-                        .foregroundStyle(AppColors.gold)
+                        .foregroundStyle(onCardAccent)
                     Text(feedback)
                         .font(AppFonts.body(12))
-                        .foregroundStyle(AppColors.sub)
+                        .foregroundStyle(onCardSub)
                         .lineSpacing(3)
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(.top, 6)
@@ -130,13 +148,13 @@ struct StandoutMomentCard: View {
                 .font(AppFonts.body(8))
                 .kerning(0.6)
                 .textCase(.uppercase)
-                .foregroundStyle(AppColors.dim)
+                .foregroundStyle(onCardDim)
                 .padding(.top, 6)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 8)
         .padding(.horizontal, 4)
-        .background(AppColors.bg.opacity(0.5))
+        .background(onCardCellBg)
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
