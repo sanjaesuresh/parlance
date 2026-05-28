@@ -36,9 +36,10 @@ struct BadgeDetailSheet: View {
         VStack(spacing: 0) {
             content
                 .padding(.horizontal, 24)
-                .padding(.vertical, 28)
+                .padding(.top, 24)
+                .padding(.bottom, 20)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        .frame(maxWidth: .infinity, alignment: .top)
         .background(AppColors.bg)
     }
 

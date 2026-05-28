@@ -64,7 +64,7 @@ struct BadgeRowView: View {
         }
         .sheet(item: $selectedBadge) { selection in
             BadgeDetailSheet(achievement: selection.achievement)
-                .presentationDetents([.height(360), .medium])
+                .presentationDetents([.height(340)])
                 .presentationDragIndicator(.visible)
         }
     }
