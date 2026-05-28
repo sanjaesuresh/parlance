@@ -18,6 +18,8 @@ struct RecordingView: View {
     @State private var recordingDotVisible = true
     @State private var startHaptic = false
     @State private var stopHaptic = false
+    @State private var blockedStopFlash = false
+    @State private var blockedHaptic = false
 
     private var targetProgress: Double {
         guard question.targetDuration > 0 else { return 0 }
@@ -191,12 +193,25 @@ struct RecordingView: View {
 
             // Mic button with target duration ring
             Button {
-                if recorder.isRecording && recorder.canStop {
-                    stopHaptic.toggle()
-                    didManualStop = true
-                    _ = recorder.stopRecording()
-                    onStop()
-                } else if !recorder.isRecording {
+                if recorder.isRecording {
+                    if recorder.canStop {
+                        stopHaptic.toggle()
+                        didManualStop = true
+                        _ = recorder.stopRecording()
+                        onStop()
+                    } else {
+                        blockedHaptic.toggle()
+                        withAnimation(.spring(response: 0.28, dampingFraction: 0.55)) {
+                            blockedStopFlash = true
+                        }
+                        Task { @MainActor in
+                            try? await Task.sleep(nanoseconds: 700_000_000)
+                            withAnimation(.easeOut(duration: 0.25)) {
+                                blockedStopFlash = false
+                            }
+                        }
+                    }
+                } else {
                     startHaptic.toggle()
                     viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService)
                 }
@@ -233,7 +248,6 @@ struct RecordingView: View {
                     }
                 }
             }
-            .disabled(recorder.isRecording && !recorder.canStop)
             .accessibilityLabel(recorder.isRecording ? "Stop recording" : "Start recording")
             .padding(.top, 12)
 
@@ -246,8 +260,9 @@ struct RecordingView: View {
                 if recorder.isRecording && !recorder.canStop {
                     let remaining = Int(AppConstants.minRecordingDuration - recorder.elapsedTime) + 1
                     Text("Stop available in \(max(0, remaining))s")
-                        .font(AppFonts.body(11))
-                        .foregroundStyle(AppColors.sub)
+                        .font(AppFonts.bodyMedium(blockedStopFlash ? 16 : 11))
+                        .foregroundStyle(blockedStopFlash ? AppColors.red : AppColors.sub)
+                        .scaleEffect(blockedStopFlash ? 1.08 : 1.0)
                 } else if recorder.isRecording {
                     Text("Tap to finish & analyze")
                         .font(AppFonts.body(11))
@@ -265,6 +280,7 @@ struct RecordingView: View {
         .background(AppColors.bg.ignoresSafeArea())
         .sensoryFeedback(.impact(weight: .medium), trigger: startHaptic)
         .sensoryFeedback(.impact(weight: .light),  trigger: stopHaptic)
+        .sensoryFeedback(.warning, trigger: blockedHaptic)
         .onAppear {
             if autoStart && !didAutoStart && !recorder.isRecording {
                 didAutoStart = true
