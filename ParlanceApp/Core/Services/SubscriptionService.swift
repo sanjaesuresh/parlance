@@ -86,12 +86,12 @@ final class SubscriptionService: ObservableObject {
         }
         #endif
         // TODO: REMOVE BEFORE APP STORE LAUNCH — TestFlight/sandbox free Pro.
-        // Grants Pro automatically when running in TestFlight or StoreKit
-        // sandbox (receipt name "sandboxReceipt"). Production App Store builds
-        // use "receipt" and fall through to the real entitlement check.
+        // Grants Pro automatically when running in TestFlight, StoreKit sandbox,
+        // or Xcode StoreKit testing. Production App Store builds fall through to
+        // the real entitlement check.
         // This exists only because the Pro subscription product is not yet
         // configured in App Store Connect. Once it is, delete this block.
-        if Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt" {
+        if await isNonProductionEnvironment() {
             let previous = isPro
             isPro = true
             isLoading = false
@@ -133,6 +133,21 @@ final class SubscriptionService: ObservableObject {
         switch result {
         case .unverified: throw SubscriptionError.failedVerification
         case .verified(let value): return value
+        }
+    }
+
+    /// Detects TestFlight, StoreKit sandbox, or Xcode StoreKit-testing via
+    /// `AppTransaction.shared` (replaces the deprecated `appStoreReceiptURL`).
+    private func isNonProductionEnvironment() async -> Bool {
+        do {
+            let result = try await AppTransaction.shared
+            guard case .verified(let appTransaction) = result else { return false }
+            switch appTransaction.environment {
+            case .sandbox, .xcode: return true
+            default: return false
+            }
+        } catch {
+            return false
         }
     }
 }
