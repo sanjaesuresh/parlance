@@ -35,6 +35,12 @@ struct ParlanceApp: App {
                         UIApplication.shared.registerForRemoteNotifications()
                     }
                 }
+                .onAppear {
+                    applyInterfaceStyle(AppTheme(rawValue: themeRaw) ?? .system)
+                }
+                .onChange(of: themeRaw) { _, newValue in
+                    applyInterfaceStyle(AppTheme(rawValue: newValue) ?? .system)
+                }
                 .onChange(of: authService.isAuthenticated) { _, isAuthenticated in
                     if isAuthenticated {
                         UIApplication.shared.registerForRemoteNotifications()
@@ -42,5 +48,25 @@ struct ParlanceApp: App {
                 }
         }
         .modelContainer(PersistenceService.shared.container)
+    }
+
+    // SwiftUI's `.preferredColorScheme` doesn't reliably propagate to UIKit
+    // chrome (UINavigationBar toolbars, UITabBar, picker menus) at runtime,
+    // so the bottom tab bar and the Settings "Done" bar would lag behind a
+    // theme switch. Imperatively overriding the window style forces every
+    // UIKit surface to re-resolve its dynamic colors in lockstep.
+    private func applyInterfaceStyle(_ theme: AppTheme) {
+        let style: UIUserInterfaceStyle
+        switch theme {
+        case .system: style = .unspecified
+        case .dark: style = .dark
+        case .light: style = .light
+        }
+        for scene in UIApplication.shared.connectedScenes {
+            guard let windowScene = scene as? UIWindowScene else { continue }
+            for window in windowScene.windows {
+                window.overrideUserInterfaceStyle = style
+            }
+        }
     }
 }
