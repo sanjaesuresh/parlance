@@ -23,6 +23,14 @@ final class SpeechTranscriber {
 
         let request = SFSpeechURLRecognitionRequest(url: url)
         request.shouldReportPartialResults = false
+        // Prefer on-device recognition when the locale supports it. Without
+        // this flag the request routes through Apple's servers, which makes
+        // transcription fail in offline mode even though recording succeeded.
+        // Falling back to network when the locale lacks an on-device model
+        // is the existing default behavior.
+        if recognizer.supportsOnDeviceRecognition {
+            request.requiresOnDeviceRecognition = true
+        }
 
         return try await withThrowingTaskGroup(of: TranscriptionResult.self) { group in
             group.addTask {

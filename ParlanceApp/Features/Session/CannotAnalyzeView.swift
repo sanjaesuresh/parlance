@@ -6,6 +6,8 @@ enum CannotAnalyzeReason: String, Equatable {
     case inappropriateContent
     case modelRefused
     case offTopic
+    case transcriptionFailed
+    case interrupted
 
     var headline: String {
         switch self {
@@ -13,6 +15,8 @@ enum CannotAnalyzeReason: String, Equatable {
         case .inappropriateContent:  return "This recording can't be coached"
         case .modelRefused:          return "We couldn't analyze this recording"
         case .offTopic:              return "Off-topic recording"
+        case .transcriptionFailed:   return "We couldn't transcribe your recording"
+        case .interrupted:           return "Your recording was interrupted"
         }
     }
 
@@ -26,6 +30,10 @@ enum CannotAnalyzeReason: String, Equatable {
             return "Something about this recording prevented analysis. Please try again."
         case .offTopic:
             return "Your response didn't address the prompt. Try again — the coach can't help if you're not answering the question."
+        case .transcriptionFailed:
+            return "Speech recognition couldn't process the audio. Check your network and microphone, then try again."
+        case .interrupted:
+            return "A phone call or system audio cut your session short. Try again when you're ready."
         }
     }
 
@@ -35,6 +43,8 @@ enum CannotAnalyzeReason: String, Equatable {
         case .inappropriateContent:  return "exclamationmark.shield"
         case .modelRefused:          return "exclamationmark.triangle"
         case .offTopic:              return "questionmark.bubble"
+        case .transcriptionFailed:   return "waveform.slash"
+        case .interrupted:           return "phone.down"
         }
     }
 }

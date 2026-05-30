@@ -3,9 +3,21 @@ import Combine
 
 @MainActor
 final class AudioRecorder: ObservableObject {
+    /// Why the recorder stopped. `nil` while recording or before any
+    /// session. Read by RecordingView to distinguish a user tap from a
+    /// phone-call interruption — the latter should surface a "your call
+    /// interrupted the recording" sheet rather than silently auto-stop into
+    /// processing.
+    enum StopReason: Equatable {
+        case userTap
+        case interruption
+        case maxDuration
+    }
+
     @Published var isRecording = false
     @Published var elapsedTime: TimeInterval = 0
     @Published var audioLevels: [Float] = Array(repeating: 0, count: AppConstants.waveformBarCount)
+    @Published private(set) var stoppedReason: StopReason?
 
     private var recorder: AVAudioRecorder?
     private var timer: Timer?
@@ -46,10 +58,11 @@ final class AudioRecorder: ObservableObject {
             guard let type = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt,
                   type == AVAudioSession.InterruptionType.began.rawValue else { return }
             Task { @MainActor [weak self] in
-                _ = self?.stopRecording()
+                _ = self?.stopRecording(reason: .interruption)
             }
         }
 
+        stoppedReason = nil
         isRecording = true
         startTime = .now
 
@@ -60,7 +73,16 @@ final class AudioRecorder: ObservableObject {
         }
     }
 
-    func stopRecording() -> URL? {
+    /// Stops recording and records `reason` (defaulting to `.userTap`) so the
+    /// caller can distinguish a user tap from an interruption or max-duration
+    /// auto-stop. The first call to set `stoppedReason` wins — re-entry from
+    /// `updateMeters` after an interruption observer fired won't overwrite
+    /// the `.interruption` reason.
+    @discardableResult
+    func stopRecording(reason: StopReason = .userTap) -> URL? {
+        if stoppedReason == nil {
+            stoppedReason = reason
+        }
         timer?.invalidate()
         timer = nil
         recorder?.stop()
@@ -88,7 +110,7 @@ final class AudioRecorder: ObservableObject {
         }
 
         if elapsedTime >= AppConstants.maxRecordingDuration {
-            _ = stopRecording()
+            _ = stopRecording(reason: .maxDuration)
             return
         }
 

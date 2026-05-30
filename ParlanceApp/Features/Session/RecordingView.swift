@@ -9,6 +9,10 @@ struct RecordingView: View {
     var autoStart: Bool = false
     let onStop: () -> Void
     var onCancel: (() -> Void)?
+    /// Called when the recorder stopped itself due to an AVAudioSession
+    /// interruption (phone call, Siri, etc.). The parent should surface
+    /// this explicitly instead of treating it as a normal stop.
+    var onInterrupted: (() -> Void)?
 
     @StateObject private var viewModel = RecordingViewModel()
     @State private var showNudge = false
@@ -291,9 +295,17 @@ struct RecordingView: View {
             showNudge = recorder.shouldShowNudge
         }
         .onChange(of: recorder.isRecording) { oldValue, newValue in
-            // Auto-stop: recorder stopped itself (max duration). Manual stops are handled by the button.
+            // Auto-stop: recorder stopped itself without a manual tap. Distinguish:
+            //   - .interruption (phone call, Siri) → surface explicitly via onInterrupted
+            //     so the coordinator can show a "session was interrupted" state instead
+            //     of silently auto-processing a partial clip
+            //   - .maxDuration or any other → treat as a normal stop
             if oldValue && !newValue && !didManualStop {
-                onStop()
+                if recorder.stoppedReason == .interruption, let onInterrupted {
+                    onInterrupted()
+                } else {
+                    onStop()
+                }
             }
         }
         .alert("Microphone Access", isPresented: $viewModel.showMicPrePrompt) {

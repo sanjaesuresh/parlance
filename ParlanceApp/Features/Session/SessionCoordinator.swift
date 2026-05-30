@@ -78,6 +78,21 @@ struct SessionCoordinator: View {
     @State private var pendingFillerCount: Int = 0
     @State private var pendingEmotionResult: EmotionResult? = nil
     @State private var pendingEmotionAnalysisFailed: Bool = false
+    @State private var pendingTranscriptionFailed: Bool = false
+
+    /// Holds the in-flight processing/scoring work so a user dismiss can
+    /// cancel it. Without this, discarding during `.processing` left the
+    /// Task running to completion and silently committed the session,
+    /// awarded XP, and queued a sync — even though the user had walked
+    /// away. Cancellation checks in `scoreAndSave` bail before any
+    /// persistent write or external side-effect.
+    @State private var scoringTask: Task<Void, Never>?
+
+    /// Set once the session row + XP have been persisted, so a stray
+    /// retry from `.scoringFailed` (which shouldn't happen with the local
+    /// fallback now in place, but is still wired for resilience) can't
+    /// double-commit.
+    @State private var hasCommitted: Bool = false
 
     var body: some View {
         ZStack {
@@ -136,10 +151,19 @@ struct SessionCoordinator: View {
                     autoStart: autoStartRecording,
                     onStop: {
                         phase = .processing
-                        Task { await processSession() }
+                        scoringTask?.cancel()
+                        scoringTask = Task { await processSession() }
                     },
                     onCancel: {
                         dismiss()
+                    },
+                    onInterrupted: {
+                        // Phone call / system interruption stopped the recorder
+                        // mid-session. Surface explicitly rather than silently
+                        // auto-processing a partial clip.
+                        ActiveSessionPersistence.shared.clear()
+                        recorder.deleteRecording()
+                        phase = .cannotAnalyze(reason: .interrupted)
                     }
                 )
 
@@ -162,7 +186,8 @@ struct SessionCoordinator: View {
                         SecondaryButton(title: "Discard") { dismiss() }
                         PrimaryButton(title: "Retry") {
                             phase = .processing
-                            Task { await scoreAndSave() }
+                            scoringTask?.cancel()
+                            scoringTask = Task { await scoreAndSave() }
                         }
                     }
                     .padding(.horizontal, 32)
@@ -207,8 +232,22 @@ struct SessionCoordinator: View {
         }
         .onAppear {
             if let url = resumedAudioURL {
-                Task { await processResumedSession(audioURL: url) }
+                scoringTask = Task { await processResumedSession(audioURL: url) }
             }
+        }
+    }
+
+    /// Wraps the throwing transcribe call so callers can distinguish "user
+    /// stayed silent" (success with empty transcript) from "transcription
+    /// blew up" (network/timeout/recognizer-unavailable). Previously these
+    /// collapsed into the same `try? await` empty-string sentinel and the
+    /// pre-flight word-count gate misreported the latter as `.tooShort`.
+    private static func runTranscription(url: URL) async -> (result: TranscriptionResult?, failed: Bool) {
+        do {
+            let result = try await SpeechTranscriber.transcribe(url: url)
+            return (result, false)
+        } catch {
+            return (nil, true)
         }
     }
 
@@ -226,9 +265,7 @@ struct SessionCoordinator: View {
         let shouldAnalyzeEmotion = subscription.isPro
         let apiURL = AppConstants.apiBaseURL
 
-        async let transcriptionTask: TranscriptionResult? = {
-            return try? await SpeechTranscriber.transcribe(url: audioURL)
-        }()
+        async let transcriptionTask: (result: TranscriptionResult?, failed: Bool) = Self.runTranscription(url: audioURL)
         async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
         async let emotionTask: (result: EmotionResult?, failed: Bool) = {
             guard shouldAnalyzeEmotion else { return (nil, false) }
@@ -240,12 +277,14 @@ struct SessionCoordinator: View {
             }
         }()
 
-        let (transcriptionResult, audioFeatures, emotionOutcome) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+        let (transcriptionOutcome, audioFeatures, emotionOutcome) = await (transcriptionTask, audioFeaturesTask, emotionTask)
 
         try? FileManager.default.removeItem(at: audioURL)
 
-        let transcript = transcriptionResult?.transcript ?? ""
-        let segments = transcriptionResult?.segments ?? []
+        if Task.isCancelled { return }
+
+        let transcript = transcriptionOutcome.result?.transcript ?? ""
+        let segments = transcriptionOutcome.result?.segments ?? []
         let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
         let fillerCount = transcript.isEmpty ? 0 : SpeechAnalyzer.analyzeFillers(in: transcript).count
 
@@ -256,12 +295,19 @@ struct SessionCoordinator: View {
         pendingFillerCount = fillerCount
         pendingEmotionResult = emotionOutcome.result
         pendingEmotionAnalysisFailed = emotionOutcome.failed
+        pendingTranscriptionFailed = transcriptionOutcome.failed && transcript.isEmpty
 
         await scoreAndSave()
     }
 
     private func retrySession() {
-        // Reset recorder state and go back to loading → recording flow
+        // A fresh session — clear the prior commit guard so the next score
+        // can commit, and drop the captured audio so the recorder starts
+        // clean.
+        scoringTask?.cancel()
+        scoringTask = nil
+        hasCommitted = false
+        pendingTranscriptionFailed = false
         recorder.deleteRecording()
         phase = .loading
     }
@@ -283,9 +329,7 @@ struct SessionCoordinator: View {
         let shouldAnalyzeEmotion = subscription.isPro
         let apiURL = AppConstants.apiBaseURL
 
-        async let transcriptionTask: TranscriptionResult? = {
-            return try? await SpeechTranscriber.transcribe(url: audioURL)
-        }()
+        async let transcriptionTask: (result: TranscriptionResult?, failed: Bool) = Self.runTranscription(url: audioURL)
         async let audioFeaturesTask: AudioFeatures = AudioFeatureExtractor.extract(from: audioURL)
         async let emotionTask: (result: EmotionResult?, failed: Bool) = {
             guard shouldAnalyzeEmotion else { return (nil, false) }
@@ -300,13 +344,17 @@ struct SessionCoordinator: View {
             }
         }()
 
+        let transcriptionOutcome: (result: TranscriptionResult?, failed: Bool)
         let emotionOutcome: (result: EmotionResult?, failed: Bool)
-        (transcriptionResult, audioFeatures, emotionOutcome) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+        (transcriptionOutcome, audioFeatures, emotionOutcome) = await (transcriptionTask, audioFeaturesTask, emotionTask)
+        transcriptionResult = transcriptionOutcome.result
         emotionResult = emotionOutcome.result
         emotionFailed = emotionOutcome.failed
 
         // Delete audio file — no longer needed
         recorder.deleteRecording()
+
+        if Task.isCancelled { return }
 
         let transcript = transcriptionResult?.transcript ?? ""
         let segments = transcriptionResult?.segments ?? []
@@ -321,13 +369,33 @@ struct SessionCoordinator: View {
         pendingFillerCount = fillerCount
         pendingEmotionResult = emotionResult
         pendingEmotionAnalysisFailed = emotionFailed
+        pendingTranscriptionFailed = transcriptionOutcome.failed && transcript.isEmpty
 
         await scoreAndSave()
     }
 
     @MainActor
     private func scoreAndSave() async {
+        // Bail if we've already committed this session — protects against a
+        // stray retry tap from the `.scoringFailed` UI re-entering after the
+        // first run had already persisted (the local-fallback path below
+        // means this is rare, but the guard keeps the contract explicit).
+        if hasCommitted { return }
+        if Task.isCancelled { return }
+
         let client = ClaudeClient(baseURL: AppConstants.apiBaseURL)
+
+        // Pre-flight gate 0: transcription itself failed (network/timeout/
+        // recognizer-unavailable). Distinct from "user stayed silent" — the
+        // word-count gate below would have misreported it as `.tooShort`.
+        if pendingTranscriptionFailed {
+            #if DEBUG
+            print("[Scoring] pre-flight: transcription failed")
+            #endif
+            ActiveSessionPersistence.shared.clear()
+            phase = .cannotAnalyze(reason: .transcriptionFailed)
+            return
+        }
 
         // Pre-flight gate 1: transcript too short.
         let wordCount = pendingTranscript
@@ -352,6 +420,8 @@ struct SessionCoordinator: View {
             phase = .cannotAnalyze(reason: .inappropriateContent)
             return
         }
+
+        if Task.isCancelled { return }
 
         let scoringResult: ScoringResult
         do {
@@ -388,12 +458,23 @@ struct SessionCoordinator: View {
                 return
             }
         } catch {
+            // Network / upstream — fall back to a local heuristic score so
+            // the user gets a result rather than a dead-end retry screen.
+            // The Session is saved with `aiCoachFeedback == nil`, which is
+            // the signal for ResultsView and `ResultsViewModel.retryFeedback`
+            // to offer "Retry for full coach feedback" when the network
+            // recovers. The `.scoringFailed` phase is kept for code clarity
+            // but is no longer reachable from this path.
             #if DEBUG
-            print("[Scoring] network/upstream error: \(error)")
+            print("[Scoring] network/upstream error — falling back to local score: \(error)")
             #endif
-            ActiveSessionPersistence.shared.clear()
-            phase = .scoringFailed
-            return
+            scoringResult = FeedbackGenerator.localScoringResult(
+                fillerCount: pendingFillerCount,
+                duration: pendingDuration,
+                timingStats: pendingTimingStats,
+                transcript: pendingTranscript,
+                mode: state.mode
+            )
         }
 
         if let relevance = scoringResult.relevanceToPrompt, relevance < 25 {
@@ -405,9 +486,15 @@ struct SessionCoordinator: View {
             return
         }
 
+        // Last chance to bail before any persistent write or external
+        // side-effect. After this point, the session is committed.
+        if Task.isCancelled { return }
+
         // Fetch personal best once — used by both xpForSession and awardXP
         let social = SocialService()
         let previousBest = await social.fetchPersonalBest(mode: state.mode)
+
+        if Task.isCancelled { return }
 
         let xpEarned = GamificationService.xpForSession(
             wasDailyChallenge: state.wasDailyChallenge,
@@ -430,7 +517,8 @@ struct SessionCoordinator: View {
             emotionResult: pendingEmotionResult
         )
 
-        // Persist
+        // Persist — from here on we treat the session as committed.
+        hasCommitted = true
         let persistence = PersistenceService.shared
         persistence.saveSession(session)
         persistence.markQuestionSeen(
@@ -472,9 +560,15 @@ struct SessionCoordinator: View {
         phase = .results(session)
     }
 
-    /// User-cancel from any phase. Clears the recovery manifest so the next
-    /// launch doesn't prompt the user about an aborted recording.
+    /// User-cancel from any phase. Cancels any in-flight processing/scoring
+    /// Task so it stops before saving, awarding XP, or syncing; clears the
+    /// recovery manifest so the next launch doesn't prompt about an aborted
+    /// recording. Previously the spawned Task ran to completion regardless
+    /// of dismiss, silently committing a session the user thought they
+    /// discarded.
     private func dismiss() {
+        scoringTask?.cancel()
+        scoringTask = nil
         ActiveSessionPersistence.shared.clear()
         onDismiss()
     }
