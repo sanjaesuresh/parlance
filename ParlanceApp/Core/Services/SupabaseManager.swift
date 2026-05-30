@@ -4,8 +4,13 @@ import Supabase
 
 // The Supabase anon key is safe to embed — RLS policies enforce access control server-side.
 // It is not a secret; it identifies the project, not a privileged user.
-@MainActor
-final class SupabaseManager {
+//
+// This wrapper is intentionally **not** `@MainActor`. The underlying
+// `SupabaseClient` is thread-safe, and isolating the wrapper to the main
+// actor previously forced every caller — including non-isolated network
+// actors like `APIClient` — into a useless `await MainActor.run { ... }`
+// hop just to read the client reference.
+final class SupabaseManager: @unchecked Sendable {
     static let shared = SupabaseManager()
 
     let client: SupabaseClient

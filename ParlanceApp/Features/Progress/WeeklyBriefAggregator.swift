@@ -137,7 +137,7 @@ enum WeeklyBriefAggregator {
 
         let proEmotion: WeeklyBriefRequest.ProEmotion? = isPro ? aggregateEmotion(sessions: thisWeekSessions) : nil
 
-        let weekStartIso = ISO8601DateFormatter().string(from: weekStart)
+        let weekStartIso = Self.isoFormatter.string(from: weekStart)
         let userContext = WeeklyBriefRequest.UserContext(
             currentStreak: user?.currentStreak ?? 0,
             rankName: (user?.rank.name) ?? "Newcomer",
@@ -208,12 +208,22 @@ enum WeeklyBriefAggregator {
         )
     }
 
-    private static func dateOnly(_ date: Date) -> String {
+    /// Cached at module scope — `ISO8601DateFormatter` and `DateFormatter`
+    /// both perform ICU initialization on first use, ~5-10ms per call when
+    /// instantiated fresh. `dateOnly` runs once per session in the
+    /// per-session loop, and `isoFormatter` was previously allocated every
+    /// call to `build`.
+    private static let isoFormatter = ISO8601DateFormatter()
+    private static let dateOnlyFormatter: DateFormatter = {
         let fmt = DateFormatter()
         fmt.dateFormat = "yyyy-MM-dd"
         fmt.locale = Locale(identifier: "en_US_POSIX")
         fmt.timeZone = TimeZone(secondsFromGMT: 0)
-        return fmt.string(from: date)
+        return fmt
+    }()
+
+    private static func dateOnly(_ date: Date) -> String {
+        dateOnlyFormatter.string(from: date)
     }
 
     /// Mean of a metric across a session list. Falls back to legacy scores

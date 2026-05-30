@@ -135,6 +135,11 @@ enum AppColors {
             : UIColor(red: 0.780, green: 0.580, blue: 0.318, alpha: 1)
     })
 
+    /// Warm cinnamon start of the tone-card gradient (paired with `.gold`).
+    /// Previously duplicated as `Color(red: 0.95, green: 0.71, blue: 0.28)`
+    /// in `ToneDetailSheet` and `ToneAnalysisCard`.
+    static let cinnamon = Color(red: 0.95, green: 0.71, blue: 0.28)
+
     // MARK: - Difficulty Ramp
     /// Gold → red ramp across 5 bands. Band 1 = starter, band 9 = expert.
     /// Same hue family as the rest of the warm palette; never reach into raw blues or greens.

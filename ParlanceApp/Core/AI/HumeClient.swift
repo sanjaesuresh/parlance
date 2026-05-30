@@ -7,8 +7,8 @@ enum HumeClient {
     /// /emotion/status with exponential backoff until the Hume job completes,
     /// fails, or the total wait exceeds `AppConstants.humePollBudget`.
     static func analyzeEmotion(audioURL: URL, workerBaseURL: URL) async throws -> EmotionResult {
-        let supabaseClient = await MainActor.run { SupabaseManager.shared.client }
-        let accessToken = try await supabaseClient.auth.session.accessToken
+        // SupabaseManager is no longer @MainActor-isolated.
+        let accessToken = try await SupabaseManager.shared.client.auth.session.accessToken
 
         let jobID = try await submit(audioURL: audioURL, workerBaseURL: workerBaseURL, accessToken: accessToken)
         return try await poll(jobID: jobID, workerBaseURL: workerBaseURL, accessToken: accessToken)

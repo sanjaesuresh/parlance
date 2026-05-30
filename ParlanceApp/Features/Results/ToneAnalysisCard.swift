@@ -106,7 +106,7 @@ struct ToneAnalysisCard: View {
                 .padding(.vertical, 3)
                 .background(
                     LinearGradient(
-                        colors: [Color(red: 0.95, green: 0.71, blue: 0.28), AppColors.gold],
+                        colors: [AppColors.cinnamon, AppColors.gold],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )

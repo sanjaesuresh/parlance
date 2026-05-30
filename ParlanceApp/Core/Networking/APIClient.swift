@@ -77,8 +77,9 @@ actor APIClient {
     func send<Req, Res>(_ endpoint: Endpoint<Req, Res>) async throws -> Res {
         let accessToken: String
         do {
-            let supabaseClient = await MainActor.run { SupabaseManager.shared.client }
-            accessToken = try await supabaseClient.auth.session.accessToken
+            // SupabaseManager is no longer @MainActor-isolated, so this is
+            // a direct read — no MainActor.run hop needed.
+            accessToken = try await SupabaseManager.shared.client.auth.session.accessToken
         } catch {
             throw APIError.unauthorized
         }

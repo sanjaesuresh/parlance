@@ -20,13 +20,6 @@ struct ProfileView: View {
         users.first { $0.supabaseUID == authService.currentUserID }
     }
 
-    private let achievementColumns = [
-        GridItem(.flexible(), spacing: 8),
-        GridItem(.flexible(), spacing: 8),
-        GridItem(.flexible(), spacing: 8),
-        GridItem(.flexible(), spacing: 8)
-    ]
-
     private let statsColumns = [
         GridItem(.flexible(), spacing: 10),
         GridItem(.flexible(), spacing: 10)
@@ -460,62 +453,6 @@ struct ProfileView: View {
                     Text("Achievements unlock as you practice.")
                         .font(AppFonts.body(13))
                         .foregroundStyle(AppColors.sub)
-                }
-            }
-        }
-    }
-
-    // The legacy 4-column achievement grid is kept as a private builder for
-    // reference; it is no longer mounted in the main scroll. Tap a single
-    // badge in `badgeRow` to see its detail sheet instead.
-    @ViewBuilder
-    private var achievementsSection: some View {
-        if !achievements.isEmpty {
-            let unlockedCount = achievements.filter(\.isUnlocked).count
-            VStack(alignment: .leading, spacing: 16) {
-                sectionTitle(
-                    "Achievements",
-                    trailing: AnyView(
-                        Text("\(unlockedCount) / \(achievements.count)")
-                            .font(AppFonts.body(11))
-                            .foregroundStyle(AppColors.dim)
-                    )
-                )
-
-                LazyVGrid(columns: achievementColumns, spacing: 8) {
-                    ForEach(achievements, id: \.id) { achievement in
-                        VStack(spacing: 6) {
-                            if achievement.isUnlocked {
-                                Text(achievement.emoji)
-                                    .font(.system(size: 22))
-                            } else {
-                                Text("\u{1F512}")
-                                    .font(.system(size: 22))
-                            }
-
-                            Text(achievement.name)
-                                .font(AppFonts.bodyMedium(9))
-                                .foregroundStyle(AppColors.text)
-                                .multilineTextAlignment(.center)
-                                .lineLimit(2)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(12)
-                        .background(
-                            ZStack {
-                                AppColors.card2
-                                if !achievement.isUnlocked {
-                                    Color.black.opacity(0.3)
-                                }
-                            }
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(achievement.isUnlocked ? AppColors.gold.opacity(0.35) : AppColors.border, lineWidth: 1)
-                        )
-                        .opacity(achievement.isUnlocked ? 1.0 : 0.35)
-                    }
                 }
             }
         }
