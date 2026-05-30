@@ -71,8 +71,25 @@ struct ModeGridView: View {
                     .background(AppColors.gold.opacity(0.15))
                     .clipShape(Capsule())
                     .padding(12)
+            } else if let badge = badgeLabel(for: mode) {
+                Text(badge)
+                    .font(AppFonts.bodyBold(9))
+                    .kerning(1.2)
+                    .foregroundStyle(mode.accentColor)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .overlay(Capsule().stroke(mode.accentColor, lineWidth: 1))
+                    .padding(12)
             }
         }
         .opacity(locked ? 0.7 : 1.0)
+    }
+
+    private func badgeLabel(for mode: SessionMode) -> String? {
+        switch mode {
+        case .realLife: "CUSTOM"
+        case .explanation: "FOCUSED"
+        default: nil
+        }
     }
 }
