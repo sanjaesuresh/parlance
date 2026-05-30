@@ -380,6 +380,14 @@ deno_version = 2
 # [edge_runtime.secrets]
 # secret_key = "env(SECRET_VALUE)"
 
+# Reject unauthenticated calls at the gateway before they hit the function.
+# Inside the handler, `send-push` additionally checks the JWT role/sub so a
+# regular authenticated user can only push to themselves; only the
+# service-role bearer (cron jobs + the friend-request trigger) may target
+# any user.
+[functions.send-push]
+verify_jwt = true
+
 [analytics]
 enabled = true
 port = 54327

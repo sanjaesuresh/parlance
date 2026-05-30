@@ -104,6 +104,33 @@ const supabase = createClient(
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
 );
 
+// ── Caller-auth helper ───────────────────────────────────────────────────────
+//
+// Defense in depth alongside `verify_jwt = true` in `supabase/config.toml`,
+// which makes the Supabase gateway reject any unauthenticated call before
+// the function even runs. Once inside, we still need to decide what the
+// caller is allowed to do:
+//   - service_role (cron + `notify_friend_request` trigger) → may push to any user
+//   - authenticated user (regular session JWT)              → may push only to themselves
+//   - anon                                                  → reject
+//
+// The gateway has already validated the signature, so a no-verify decode of
+// the claims is sufficient for this check.
+
+function decodeJwtClaims(authHeader: string | null): Record<string, unknown> | null {
+  if (!authHeader || !authHeader.toLowerCase().startsWith("bearer ")) return null;
+  const token = authHeader.slice(7);
+  const parts = token.split(".");
+  if (parts.length !== 3) return null;
+  try {
+    const payload = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+    const padded = payload + "=".repeat((4 - (payload.length % 4)) % 4);
+    return JSON.parse(atob(padded)) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
 // ── Main handler ──────────────────────────────────────────────────────────────
 
 Deno.serve(async (req: Request): Promise<Response> => {
@@ -135,6 +162,32 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
   } catch {
     return new Response(JSON.stringify({ error: "Invalid JSON body" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // Caller-auth check. Cron jobs and the friend-request trigger send a
+  // service-role bearer (any userId allowed). Regular users may only push
+  // to themselves. Without this, anyone authenticated could spam pushes to
+  // any user UUID.
+  const claims = decodeJwtClaims(req.headers.get("authorization") ?? req.headers.get("Authorization"));
+  const callerRole = typeof claims?.role === "string" ? (claims.role as string) : null;
+  const callerSub = typeof claims?.sub === "string" ? (claims.sub as string) : null;
+  const isServiceRole = callerRole === "service_role";
+  const isOwnUser = callerRole === "authenticated" && callerSub === userId;
+
+  if (!isServiceRole && !isOwnUser) {
+    console.warn(`[send-push] forbidden caller role=${callerRole ?? "null"} sub=${callerSub?.slice(0, 8) ?? "null"} target=${userId.slice(0, 8)}`);
+    return new Response(JSON.stringify({ error: "Forbidden" }), {
+      status: 403,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  // Sanity caps so a malformed caller can't trigger an APNs reject for size.
+  if (title.length > 120 || body.length > 400) {
+    return new Response(JSON.stringify({ error: "title/body too long" }), {
       status: 400,
       headers: { "Content-Type": "application/json" },
     });

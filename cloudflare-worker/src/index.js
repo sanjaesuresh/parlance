@@ -429,7 +429,11 @@ async function handleFeedback(request, env, corsHeaders) {
 
   try {
     const messages = body.messages;
-    const temperature = typeof body.temperature === "number" ? body.temperature : 0.3;
+    // Clamp client-supplied temperature to a sane range so a modded client
+    // can't push the model into degenerate territory (or burn budget on a
+    // high-thinking sweep). 0.3 stays the default for omitted/invalid input.
+    const rawTemp = typeof body.temperature === "number" ? body.temperature : 0.3;
+    const temperature = Math.max(0, Math.min(1, rawTemp));
 
     if (!messages || !Array.isArray(messages)) {
       return new Response(JSON.stringify({ error: "Invalid request body" }), {
