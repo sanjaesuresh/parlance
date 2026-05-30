@@ -1,6 +1,7 @@
 // Parlance/Core/Services/SubscriptionService.swift
 import Combine
 import Foundation
+import OSLog
 import StoreKit
 
 @MainActor
@@ -10,11 +11,13 @@ final class SubscriptionService: ObservableObject {
     @Published private(set) var isPro: Bool = false
     @Published private(set) var isLoading: Bool = true
 
+    private static let logger = Logger(subsystem: "app.parlance", category: "subscription")
+
     private var transactionUpdateTask: Task<Void, Never>?
 
     private init() {
-        transactionUpdateTask = Task {
-            await self.listenForTransactions()
+        transactionUpdateTask = Task { [weak self] in
+            await self?.listenForTransactions()
         }
         Task { await refreshStatus() }
     }
@@ -30,27 +33,27 @@ final class SubscriptionService: ObservableObject {
     func purchase() async throws {
         let products = try await Product.products(for: [AppConstants.proProductID])
         guard let product = products.first else {
-            print("[SubscriptionService] purchase: product not found for id=\(AppConstants.proProductID)")
+            Self.logger.error("purchase: product not found")
             throw SubscriptionError.productNotFound
         }
         let result = try await product.purchase()
         switch result {
         case .success(let verification):
             let transaction = try checkVerified(verification)
-            print("[SubscriptionService] purchase: success id=\(transaction.productID) txn=\(transaction.id)")
+            Self.logger.log("purchase: success product=\(product.id, privacy: .public) txn=\(transaction.id, privacy: .private)")
             await transaction.finish()
             await refreshStatus()
         case .userCancelled:
-            print("[SubscriptionService] purchase: user cancelled")
+            Self.logger.log("purchase: user cancelled")
         case .pending:
-            print("[SubscriptionService] purchase: pending (deferred — will arrive via Transaction.updates)")
+            Self.logger.log("purchase: pending (deferred)")
         @unknown default:
-            print("[SubscriptionService] purchase: unknown result")
+            Self.logger.log("purchase: unknown result")
         }
     }
 
     func restorePurchases() async {
-        print("[SubscriptionService] restorePurchases: AppStore.sync()")
+        Self.logger.log("restorePurchases: AppStore.sync()")
         try? await AppStore.sync()
         await refreshStatus()
     }
@@ -85,19 +88,6 @@ final class SubscriptionService: ObservableObject {
             return
         }
         #endif
-        // TODO: REMOVE BEFORE APP STORE LAUNCH — TestFlight/sandbox free Pro.
-        // Grants Pro automatically when running in TestFlight, StoreKit sandbox,
-        // or Xcode StoreKit testing. Production App Store builds fall through to
-        // the real entitlement check.
-        // This exists only because the Pro subscription product is not yet
-        // configured in App Store Connect. Once it is, delete this block.
-        if await isNonProductionEnvironment() {
-            let previous = isPro
-            isPro = true
-            isLoading = false
-            print("[SubscriptionService] refreshStatus: sandbox/TestFlight — granting Pro (was=\(previous))")
-            return
-        }
         var hasPro = false
         var entitlementCount = 0
         for await result in Transaction.currentEntitlements {
@@ -108,10 +98,9 @@ final class SubscriptionService: ObservableObject {
                 hasPro = true
             }
         }
-        let previous = isPro
         isPro = hasPro
         isLoading = false
-        print("[SubscriptionService] refreshStatus: entitlements=\(entitlementCount) isPro=\(hasPro) (was=\(previous))")
+        Self.logger.log("refreshStatus: entitlements=\(entitlementCount) isPro=\(hasPro)")
     }
 
     // MARK: - Private
@@ -120,11 +109,11 @@ final class SubscriptionService: ObservableObject {
         for await result in Transaction.updates {
             switch result {
             case .verified(let transaction):
-                print("[SubscriptionService] Transaction.updates: verified id=\(transaction.productID) txn=\(transaction.id)")
+                Self.logger.log("Transaction.updates: verified product=\(transaction.productID, privacy: .public) txn=\(transaction.id, privacy: .private)")
                 await transaction.finish()
                 await refreshStatus()
             case .unverified(_, let error):
-                print("[SubscriptionService] Transaction.updates: unverified — \(error.localizedDescription)")
+                Self.logger.error("Transaction.updates: unverified — \(error.localizedDescription, privacy: .public)")
             }
         }
     }
@@ -133,21 +122,6 @@ final class SubscriptionService: ObservableObject {
         switch result {
         case .unverified: throw SubscriptionError.failedVerification
         case .verified(let value): return value
-        }
-    }
-
-    /// Detects TestFlight, StoreKit sandbox, or Xcode StoreKit-testing via
-    /// `AppTransaction.shared` (replaces the deprecated `appStoreReceiptURL`).
-    private func isNonProductionEnvironment() async -> Bool {
-        do {
-            let result = try await AppTransaction.shared
-            guard case .verified(let appTransaction) = result else { return false }
-            switch appTransaction.environment {
-            case .sandbox, .xcode: return true
-            default: return false
-            }
-        } catch {
-            return false
         }
     }
 }
