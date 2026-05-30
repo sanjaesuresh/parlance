@@ -11,8 +11,16 @@ final class SyncService {
 
     private init() {}
 
-    // MARK: - Profile fetch (called on sign-in when no local user exists)
+    // MARK: - Profile fetch (called on sign-in when local user may or may not exist)
 
+    /// Pulls the Supabase profile + stats and reconciles with the local
+    /// SwiftData User. If the local user does not yet exist, a new one is
+    /// created from the server profile. If the local user already exists
+    /// (e.g. the user signed up offline, practiced, then connected), we
+    /// **merge** rather than overwrite — XP, streak, and best-streak take
+    /// the larger of (local, server) so offline practice is never lost.
+    /// The previous behavior unconditionally clobbered local stats with
+    /// server stats, which destroyed offline-first practice progress.
     func fetchAndImportProfile(uid: String) async {
         guard !uid.isEmpty else { return }
         do {
@@ -32,25 +40,47 @@ final class SyncService {
                 .execute()
                 .value
 
-            let user = PersistenceService.shared.createUser(
-                supabaseUID: uid,
-                name: profile.displayName,
-                username: profile.username,
-                location: profile.location,
-                occupation: profile.occupation,
-                avatar: profile.avatarEmoji,
-                avatarUrl: profile.avatarUrl,
-                avatarUpdatedAt: profile.avatarUpdatedAt,
-                practiceLevel: 5
-            )
-            if let stats {
-                user.xp = stats.xp
-                user.currentStreak = stats.currentStreak
-                user.longestStreak = stats.longestStreak
-                try? PersistenceService.shared.context.save()
+            let persistence = PersistenceService.shared
+            let user: User
+            if let existing = persistence.getUser(uid: uid) {
+                // Merge profile descriptors: prefer non-empty server values
+                // (display name, username) but never erase a local value the
+                // user typed during offline setup.
+                if !profile.displayName.isEmpty { existing.displayName = profile.displayName }
+                if !profile.username.isEmpty { existing.username = profile.username }
+                existing.location = profile.location ?? existing.location
+                existing.occupation = profile.occupation ?? existing.occupation
+                if !profile.avatarEmoji.isEmpty { existing.avatarEmoji = profile.avatarEmoji }
+                if let remoteAvatarURL = profile.avatarUrl { existing.avatarUrl = remoteAvatarURL }
+                if let remoteStamp = profile.avatarUpdatedAt { existing.avatarUpdatedAt = remoteStamp }
+                if let stats {
+                    existing.xp = max(existing.xp, stats.xp)
+                    existing.currentStreak = max(existing.currentStreak, stats.currentStreak)
+                    existing.longestStreak = max(existing.longestStreak, stats.longestStreak)
+                }
+                try? persistence.context.save()
+                user = existing
+            } else {
+                user = persistence.createUser(
+                    supabaseUID: uid,
+                    name: profile.displayName,
+                    username: profile.username,
+                    location: profile.location,
+                    occupation: profile.occupation,
+                    avatar: profile.avatarEmoji,
+                    avatarUrl: profile.avatarUrl,
+                    avatarUpdatedAt: profile.avatarUpdatedAt,
+                    practiceLevel: 5
+                )
+                if let stats {
+                    user.xp = stats.xp
+                    user.currentStreak = stats.currentStreak
+                    user.longestStreak = stats.longestStreak
+                    try? persistence.context.save()
+                }
             }
 
-            // Change 3: one-shot back-fill — user has a local photo but no remote avatar yet.
+            // One-shot avatar back-fill — user has a local photo but no remote avatar yet.
             if profile.avatarUrl == nil, let localData = user.profileImageData {
                 let uidForUpload = user.supabaseUID
                 Task {
@@ -135,28 +165,43 @@ final class SyncService {
                     .upsert(scoreRow, onConflict: "user_id,client_session_id")
                     .execute()
             }
-            clearPendingSync()
+            removePendingSync(clientSessionId: clientSessionId)
         } catch {
             #if DEBUG
             print("[SyncService] syncAfterSession failed, queuing: \(error)")
             #endif
-            storePendingSync(clientSessionId: clientSessionId, score: score, mode: mode.rawValue, level: level)
+            enqueuePendingSync(clientSessionId: clientSessionId, score: score, mode: mode.rawValue, level: level)
         }
     }
 
+    /// Drain the offline queue head-first. Each pending sync re-enters
+    /// `syncAfterSession`, which removes the entry on success or re-queues
+    /// on failure. Stops at the first failure so we don't spin against a
+    /// broken upstream.
     func flushPendingSync() async {
-        guard let pending = loadPendingSync(),
-              let mode = SessionMode(rawValue: pending.mode) else { return }
-        await syncAfterSession(
-            clientSessionId: pending.clientSessionId,
-            score: pending.score,
-            mode: mode,
-            level: pending.level
-        )
+        let queue = loadPendingSyncQueue()
+        for pending in queue {
+            guard let mode = SessionMode(rawValue: pending.mode) else {
+                removePendingSync(clientSessionId: pending.clientSessionId)
+                continue
+            }
+            let before = loadPendingSyncQueue().count
+            await syncAfterSession(
+                clientSessionId: pending.clientSessionId,
+                score: pending.score,
+                mode: mode,
+                level: pending.level
+            )
+            let after = loadPendingSyncQueue().count
+            // Stop if syncAfterSession didn't drain this entry — i.e. the
+            // upstream is still failing — so we don't burn through retries
+            // for nothing on every call.
+            if after >= before { break }
+        }
     }
 
     func flushIfNeeded() async {
-        guard loadPendingSync() != nil else { return }
+        guard !loadPendingSyncQueue().isEmpty else { return }
         await flushPendingSync()
     }
 
@@ -189,6 +234,17 @@ final class SyncService {
     }
 
     // MARK: - Offline queue
+    //
+    // Persisted as a FIFO array of `PendingSync` under `pendingSyncKey`.
+    // Previously this slot held exactly one PendingSync, so a second offline
+    // session silently overwrote the first. With per-session idempotency
+    // enforced server-side by the `session_scores (user_id, client_session_id)`
+    // unique constraint, queuing every offline session is safe — replays
+    // upsert without duplicating rows.
+    //
+    // For back-compat, `loadPendingSyncQueue` accepts both the new array
+    // shape and the legacy single-object shape so a user upgrading mid-flight
+    // doesn't lose their pre-existing queued session.
 
     private struct PendingSync: Codable {
         let clientSessionId: UUID
@@ -197,19 +253,41 @@ final class SyncService {
         let level: Int
     }
 
-    private func storePendingSync(clientSessionId: UUID, score: Int, mode: String, level: Int) {
-        let pending = PendingSync(clientSessionId: clientSessionId, score: score, mode: mode, level: level)
-        if let data = try? JSONEncoder().encode(pending) {
-            UserDefaults.standard.set(data, forKey: pendingSyncKey)
+    private func enqueuePendingSync(clientSessionId: UUID, score: Int, mode: String, level: Int) {
+        var queue = loadPendingSyncQueue()
+        // Drop any prior entry with the same client_session_id so a flapping
+        // upstream doesn't multiply rows. Idempotent in spirit.
+        queue.removeAll { $0.clientSessionId == clientSessionId }
+        queue.append(PendingSync(clientSessionId: clientSessionId, score: score, mode: mode, level: level))
+        savePendingSyncQueue(queue)
+    }
+
+    private func removePendingSync(clientSessionId: UUID) {
+        var queue = loadPendingSyncQueue()
+        queue.removeAll { $0.clientSessionId == clientSessionId }
+        if queue.isEmpty {
+            UserDefaults.standard.removeObject(forKey: pendingSyncKey)
+        } else {
+            savePendingSyncQueue(queue)
         }
     }
 
-    private func loadPendingSync() -> PendingSync? {
-        guard let data = UserDefaults.standard.data(forKey: pendingSyncKey) else { return nil }
-        return try? JSONDecoder().decode(PendingSync.self, from: data)
+    private func loadPendingSyncQueue() -> [PendingSync] {
+        guard let data = UserDefaults.standard.data(forKey: pendingSyncKey) else { return [] }
+        let decoder = JSONDecoder()
+        if let array = try? decoder.decode([PendingSync].self, from: data) {
+            return array
+        }
+        // Legacy single-object payload from before the FIFO migration.
+        if let single = try? decoder.decode(PendingSync.self, from: data) {
+            return [single]
+        }
+        return []
     }
 
-    private func clearPendingSync() {
-        UserDefaults.standard.removeObject(forKey: pendingSyncKey)
+    private func savePendingSyncQueue(_ queue: [PendingSync]) {
+        if let data = try? JSONEncoder().encode(queue) {
+            UserDefaults.standard.set(data, forKey: pendingSyncKey)
+        }
     }
 }

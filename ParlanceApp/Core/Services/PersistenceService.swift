@@ -1,4 +1,5 @@
 import Foundation
+import OSLog
 import SwiftData
 
 @MainActor
@@ -6,6 +7,15 @@ final class PersistenceService {
     static let shared = PersistenceService()
 
     let container: ModelContainer
+    /// True when the persistent store could not be opened even after a wipe
+    /// retry, and we fell back to an in-memory store for this launch. Saves
+    /// during the session work but vanish on relaunch. Surfaced via a
+    /// one-time banner in ContentView so the user understands why their
+    /// history disappeared.
+    let isInMemoryFallback: Bool
+
+    private static let logger = Logger(subsystem: "app.parlance", category: "persistence")
+    private static let storeWipedKey = "parlance.store_wiped"
 
     private init() {
         let schema = Schema([User.self, Session.self, Achievement.self, SeenQuestion.self])
@@ -19,6 +29,7 @@ final class PersistenceService {
             let inMemoryConfig = ModelConfiguration(isStoredInMemoryOnly: true)
             do {
                 container = try ModelContainer(for: schema, configurations: [inMemoryConfig])
+                isInMemoryFallback = false
                 return
             } catch {
                 fatalError("[PersistenceService] In-memory container failed: \(error)")
@@ -29,21 +40,41 @@ final class PersistenceService {
         let persistentConfig = ModelConfiguration(isStoredInMemoryOnly: false)
         do {
             container = try ModelContainer(for: schema, configurations: [persistentConfig])
-            UserDefaults.standard.removeObject(forKey: "parlance.store_wiped")
+            isInMemoryFallback = false
         } catch let firstError {
-            // Migration failed — wipe the store and recreate fresh rather than silently
-            // falling back to in-memory (which causes sessions to vanish on restart).
-            #if DEBUG
-            print("[PersistenceService] Persistent store failed, wiping: \(firstError)")
-            #endif
+            // Migration failed — wipe the store and recreate fresh rather than
+            // silently falling back to in-memory (which causes sessions to
+            // vanish on restart).
+            Self.logger.error("Persistent store failed, wiping: \(firstError.localizedDescription, privacy: .public)")
             Self.wipePersistentStore()
-            UserDefaults.standard.set(true, forKey: "parlance.store_wiped")
+            UserDefaults.standard.set(true, forKey: Self.storeWipedKey)
             do {
                 container = try ModelContainer(for: schema, configurations: [persistentConfig])
-            } catch {
-                fatalError("[PersistenceService] Store unrecoverable after wipe: \(error)")
+                isInMemoryFallback = false
+            } catch let secondError {
+                // Twice-failed: degrade to in-memory so the app launches and
+                // is usable for this session. Sessions written during the
+                // launch vanish on next start; the flag drives a banner so
+                // the user knows why their history is gone.
+                Self.logger.fault("Store unrecoverable after wipe, degrading to in-memory: \(secondError.localizedDescription, privacy: .public)")
+                let inMemoryConfig = ModelConfiguration(isStoredInMemoryOnly: true)
+                container = (try? ModelContainer(for: schema, configurations: [inMemoryConfig])) ?? Self.inMemory()
+                isInMemoryFallback = true
             }
         }
+    }
+
+    // MARK: - Store-wipe notice (for ContentView banner)
+
+    /// True when the previous launch had to wipe (or fall back from) the
+    /// persistent store. Call `acknowledgeStoreWipeNotice()` after surfacing
+    /// the banner to clear the flag so it shows at most once.
+    static var hasPendingStoreWipeNotice: Bool {
+        UserDefaults.standard.bool(forKey: storeWipedKey)
+    }
+
+    static func acknowledgeStoreWipeNotice() {
+        UserDefaults.standard.removeObject(forKey: storeWipedKey)
     }
 
     private static func wipePersistentStore() {
@@ -71,6 +102,7 @@ final class PersistenceService {
 
     private init(container: ModelContainer) {
         self.container = container
+        self.isInMemoryFallback = false
     }
 
     var context: ModelContext { container.mainContext }

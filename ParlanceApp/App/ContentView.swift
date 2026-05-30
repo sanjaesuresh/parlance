@@ -21,6 +21,7 @@ struct ContentView: View {
     @State private var pendingResumeCandidate: ResumeCandidate?
     @State private var resumingAudioURL: URL?
     @State private var didCheckRecovery = false
+    @State private var showStoreWipedAlert = false
     @EnvironmentObject private var authService: AuthService
     @EnvironmentObject private var subscription: SubscriptionService
     @Environment(\.scenePhase) private var scenePhase
@@ -235,6 +236,13 @@ struct ContentView: View {
                 Task { await subscription.refreshStatus() }
             }
         }
+        .alert("Local history was reset", isPresented: $showStoreWipedAlert) {
+            Button("OK") {
+                PersistenceService.acknowledgeStoreWipeNotice()
+            }
+        } message: {
+            Text("We had to reset this device's session history after a storage issue. Your XP, streak, and friends were restored from the cloud, but the per-session details for older recordings could not be recovered.")
+        }
     }
 
     private func maybeOfferRecovery() {
@@ -247,6 +255,14 @@ struct ContentView: View {
         didCheckRecovery = true
         if let candidate = ActiveSessionPersistence.shared.recoveryCandidate() {
             pendingResumeCandidate = candidate
+        }
+        // Surface the one-time "local data was reset" notice. The flag is set
+        // by PersistenceService when a SwiftData migration failure forced a
+        // wipe or an in-memory fallback. Synced stats (XP, streak, friends)
+        // come back from Supabase on this launch; per-session history is
+        // local-only and was lost.
+        if PersistenceService.hasPendingStoreWipeNotice {
+            showStoreWipedAlert = true
         }
     }
 
