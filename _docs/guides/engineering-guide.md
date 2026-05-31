@@ -37,17 +37,25 @@
 **Platform:** iOS 17+ (SwiftUI, portrait-only, no UIKit)
 **Local persistence:** SwiftData (on-device SQLite) — source of truth for sessions, transcripts, achievements, and `SeenQuestion` dedupe.
 **Cloud backend:** Supabase — auth, profile sync, friend graph, leaderboard feed, push tokens. Local SwiftData is reconciled with server-side `profiles`, `user_stats`, `session_scores`, and friendship tables via `SyncService`.
-**AI inference:** Gemini via a Cloudflare Worker proxy (one scoring call per session; Pro users also get an emotion analysis call via Hume AI; Real Life mode fetches AI-generated tips).
+**AI inference:** Gemini via a Cloudflare Worker proxy (one scoring call per session; Pro users also get an emotion analysis call via Hume AI; Real Life mode fetches AI-generated tips; Progress tab fetches a weekly coach brief).
 **Audio:** AVFoundation (recording) + Speech framework (transcription) + Accelerate/vDSP (audio feature extraction).
-**Cloudflare Worker** at `AppConstants.apiBaseURL` (set in Info.plist as `ParlanceAPIBaseURL`). Three endpoints:
-- `POST /feedback` — Gemini scoring
-- `POST /emotion` — Hume AI emotion analysis (Pro)
-- `POST /real-life/tips` — AI-generated tips for Real Life scenarios
-**Questions:** Pre-generated static JSON bundled in the app (`ParlanceApp/Features/Resources/questions.json`, ~1,750 prompts across 10 modes × 5 difficulty bands). Zero network calls for question selection.
+**Networking:** `Core/Networking/APIClient.swift` wraps a typed `Endpoint<Request, Response>` value. `ClaudeClient`, `HumeClient`, `RealLifeTipsClient`, and `WeeklyBriefClient` all share this layer (one place for base URL, headers, JSON encoding, error mapping).
+**Cloudflare Worker** at `AppConstants.apiBaseURL` (set in Info.plist as `ParlanceAPIBaseURL`). Endpoints:
+- `POST /feedback` — Gemini scoring (transcript is OpenAI-moderated server-side before scoring)
+- `POST /emotion/submit` — submit Hume batch job, returns `jobId` (Pro)
+- `POST /emotion/status` — poll for Hume result by `jobId` (Pro)
+- `POST /emotion` — legacy synchronous Hume path (kept for back-compat)
+- `POST /real-life/tips` — AI-generated tips + prompt for Real Life scenarios
+- `POST /coach/weekly-brief` — weekly coach brief (rate-limited; client caches last good copy)
+- `POST /delete-user` — cascades account deletion across all user-owned Supabase rows + auth row
+
+`send-push` Edge Function (Supabase) is JWT-authenticated.
+**Questions:** Pre-generated static JSON bundled in the app (`ParlanceApp/Features/Resources/questions.json`, **3,192 prompts** across 10 modes × 5 difficulty bands; the bank was rewritten 1,748 → 1,200 to drop forced-fiction prompts, then expanded to 3,192). Zero network calls for question selection.
 **Auth:** Sign in with Apple via `AuthService`, which wraps `SupabaseClient.auth`. Account creation is required to use the app; an unauthenticated user sees `AuthView`.
 **Social:** Real, server-backed. Friend requests, accepts, blocks, friend leaderboard, user search — all via `SocialService` against Supabase tables with RLS.
-**Push:** APNs token registration via `PushTokenService`; tokens are stored in Supabase and consumed by Edge Functions for daily reminders and social events.
-**Subscriptions:** `SubscriptionService` manages StoreKit 2 purchases. `isPro` is the gating flag throughout the app.
+**Push:** APNs token registration via `PushTokenService`; tokens are stored in Supabase and consumed by Edge Functions for daily reminders and social events. The `send-push` Edge Function now requires a Supabase JWT — anonymous calls are rejected.
+**Subscriptions:** `SubscriptionService` manages StoreKit 2 purchases. `isPro` is the gating flag throughout the app. Receipt fetching uses `AppTransaction` (the iOS 17+ replacement for the deprecated `appStoreReceiptURL`). The DEBUG-only TestFlight/sandbox auto-grant was removed before submission to App Store Review.
+**Avatars:** `AvatarService` uploads photos to the Supabase `avatars` bucket at a lowercased-user-id path (required for the RLS UUID-match policy). `AvatarView` renders avatars at every call site with photo + emoji fallback. URLs are cache-busted via `avatar_updated_at` so a new upload invalidates `URLCache`. Server enforces size and MIME limits in addition to RLS `WITH CHECK`.
 
 **Navigation model:** TabView (Home / Progress / League / Profile) as the root, gated behind `AuthView`. Sessions take over full-screen via `SessionCoordinator`, hiding the tab bar until the user returns home. `DeepLinkRouter` handles universal links and push-notification opens.
 
@@ -125,6 +133,21 @@ let scoringResult = try await FeedbackGenerator.fetchScoring(...)
 ```
 
 The AI scoring call (step 6) can fail. On failure, the coordinator transitions to `.scoringFailed` (retry/discard UI) rather than saving a zero-score session. Retrying from `.scoringFailed` re-enters `scoreAndSave()` directly (skipping re-transcription) using the stored `pendingTranscript`, `pendingTimingStats`, etc.
+
+The results phase distinguishes:
+- **Transcription failure** — surfaced separately from scoring failure so the user knows whether to retry the AI call or re-record.
+- **Mid-session interruption** — call/route/audio interruptions are reported with a specific message.
+- **Dismiss during scoring** — cancels the in-flight scoring task instead of letting it complete in the background.
+- **Force-quit recovery** — if a recording file survives a force-quit, the next launch detects it and offers to continue to scoring.
+
+`ResultsView` has been decomposed into phase subviews (loading / failure / scored) so the results screen no longer holds all rendering branches in one body.
+
+### Pre-flight gates
+
+Before sending anything to the AI, `SessionCoordinator` (and the worker) reject:
+- Transcripts shorter than the minimum useful length.
+- Transcripts containing profanity that exceeds the `ProfanityFilter` threshold.
+- Server-side: the `/feedback` worker runs OpenAI's `omni-moderation-latest` on every transcript and refuses to score flagged content. Moderation errors fail open (logged) to avoid stacking a new outage surface on top of Gemini.
 
 ---
 
@@ -329,10 +352,11 @@ Timeout: **30 seconds** (`AppConstants.scoringTimeout`) for the scoring call. Th
 ### Emotion analysis (Pro only)
 
 ```
-iOS app → POST /emotion → Cloudflare Worker → Hume AI batch API
+iOS app → POST /emotion/submit → Cloudflare Worker → Hume AI (submit job)
+iOS app → POST /emotion/status (loop)      → Cloudflare Worker → Hume AI (poll)
 ```
 
-`HumeClient.analyzeEmotion(audioURL:workerBaseURL:)` uploads the `.m4a` audio file directly to the `/emotion` endpoint. The worker submits it to Hume's batch inference API, polls until complete, and returns the result. The `EmotionResult` model contains:
+`HumeClient` was reworked to **poll Hume from the client** rather than letting the worker poll. Cloudflare Workers cap a single request at ~30s of wall time, and Hume jobs frequently exceed that. The legacy `POST /emotion` endpoint is still routed for back-compat, but the active path is submit + status loop. The `EmotionResult` model contains:
 - `dominantEmotion: String`
 - `confidenceScore: Double`
 - `nervousnessScore: Double`
@@ -345,18 +369,20 @@ This result is passed into `FeedbackGenerator.fetchScoring()` to enrich the AI p
 
 ## 6. The Cloudflare Worker
 
-**File:** `cloudflare-worker/src/index.js` (gitignored — deployed separately)  
+**File:** `cloudflare-worker/src/index.js` (deployed separately)  
 **Deployed to:** URL stored in `Info.plist` as `ParlanceAPIBaseURL` and exposed as `AppConstants.apiBaseURL`  
 **Config:** `cloudflare-worker/wrangler.toml`
 
-Three endpoints:
+Endpoints:
 
 ### `POST /feedback` — AI scoring
 
-The worker receives:
-```json
-{ "messages": [{ "role": "user", "content": "<prompt>" }] }
-```
+The worker receives `{ messages, transcript }`. It:
+
+1. Runs `moderateTranscript(transcript, OPENAI_API_KEY)` against OpenAI's `omni-moderation-latest`. If flagged, returns a `refused` response and never calls Gemini.
+2. Otherwise proxies the messages to Gemini.
+
+The user's free-text portion of the prompt is sandboxed — moderation isolates the transcript from the rest of the prompt so a flagged transcript cannot exfiltrate or mutate the instruction envelope.
 
 Proxies to Gemini's REST API with:
 - Model: `gemini-3-flash-preview`
@@ -365,11 +391,12 @@ Proxies to Gemini's REST API with:
 
 Returns the raw Gemini JSON response. `ClaudeClient.fetchScoring()` decodes it — it tries two paths: raw decode as `ScoringResult`, then unwrapping a `"feedback"` field (legacy compatibility).
 
-### `POST /emotion` — Hume AI emotion analysis (Pro only)
+### `POST /emotion/submit` + `POST /emotion/status` — Hume AI emotion analysis (Pro only)
 
-Receives multipart form data with the `.m4a` audio file. Submits it to Hume AI's batch inference API (prosody model), polls until the job completes, then returns:
+`submit` receives multipart form data with the `.m4a` audio file, submits it to Hume AI's batch inference API (prosody model), and returns `{ jobId }`. `status` accepts `{ jobId }` and returns one of:
 ```json
 {
+  "status": "COMPLETED",
   "dominantEmotion": "Enthusiasm",
   "confidenceScore": 0.72,
   "nervousnessScore": 0.31,
@@ -377,7 +404,17 @@ Receives multipart form data with the `.m4a` audio file. Submits it to Hume AI's
   "emotionArc": ["Calm", "Enthusiasm", "Joy", "Enthusiasm"]
 }
 ```
+or `{ "status": "PENDING" }` / `{ "status": "FAILED" }`. The iOS client polls until completion. This pattern dodges the Cloudflare Workers ~30s single-request ceiling that the previous synchronous `/emotion` endpoint hit.
+
 Auth: `HUME_API_KEY` (Cloudflare Worker secret).
+
+### `POST /coach/weekly-brief` — weekly progress summary
+
+Generates a short narrative coach brief from the user's last-week session metrics. Rate-limited per user. On rate-limit, the iOS client silently swallows the error and keeps the previously cached brief (`WeeklyBriefClient`).
+
+### `POST /delete-user` — account deletion cascade
+
+Replaces the old per-table cleanup with a single server-side cascade across `profiles`, `user_stats`, `session_scores`, `friendships`, `blocks`, `push_tokens`, plus the `auth.users` row.
 
 ### `POST /real-life/tips` — Real Life scenario tips
 
@@ -389,7 +426,9 @@ Receives a scenario string, calls Gemini with a short prompt asking for 3 mode-a
 
 Timeout client-side is 4s (`RealLifeTipsClient`). On worker-side failure, the client falls back to a static tip set so the session can still launch.
 
-**Secrets:** Set via `wrangler secret put GEMINI_API_KEY` and `wrangler secret put HUME_API_KEY`.
+**Secrets:** Set via `wrangler secret put GEMINI_API_KEY`, `wrangler secret put HUME_API_KEY`, `wrangler secret put OPENAI_API_KEY`, plus the Supabase + Apple keys listed at the top of `cloudflare-worker/src/index.js`.
+
+**CI:** Worker unit tests run on every PR. A nightly AI-quality job exercises the scoring path end-to-end against a fixed transcript fixture.
 
 ---
 
@@ -572,12 +611,14 @@ If `dailyChallengeLockDate` is today, the locked level is used. Otherwise it get
 
 **XP:** Daily challenge awards `baseXP (120) + dailyChallengeXP (200) = 320 XP` total.
 
+**Explain topic of the day:** When the day's challenge mode is Explanation, the home card surfaces the **fixed daily Explain topic** (not "Explain something") so the user knows the specific topic before tapping in. The topic is deterministic per day so it's consistent across users. `SessionCoordinator` syncs `displayedPrompt` if the user reshuffles the Explain sub-category mid-session.
+
 ---
 
 ## 11. Question Bank
 
 **Service:** `ParlanceApp/Core/Services/QuestionBankService.swift`
-**Data:** `ParlanceApp/Features/Resources/questions.json` — static JSON bundled in the app binary (~1,750 entries)
+**Data:** `ParlanceApp/Features/Resources/questions.json` — static JSON bundled in the app binary (**3,192 entries** as of the most recent expansion)
 **Format:**
 
 ```swift
@@ -593,22 +634,7 @@ struct Question: Codable, Identifiable {
 }
 ```
 
-**Counts per mode** (as of the most recent rebalance):
-
-| Mode | Total |
-|------|------:|
-| explanation | 711 |
-| debate | 235 |
-| keynote | 102 |
-| casual | 100 |
-| impromptu | 100 |
-| interview | 100 |
-| negotiation | 100 |
-| networking | 100 |
-| pitch | 100 |
-| storytelling | 100 |
-
-Every `(mode, band)` pair is populated — `selectQuestion` never returns `nil` for a valid combo.
+Every `(mode, band)` pair is populated — `selectQuestion` never returns `nil` for a valid combo. The history of the bank: 1,200 → 1,748 → rewritten down to 1,200 to remove forced-fiction prompts → expanded to **3,192**. A separate pass stripped all 1,129 em dashes for transcription consistency.
 
 **Selection logic** (`QuestionBankService.selectQuestion(mode:band:category:excludingIds:)`):
 
@@ -681,12 +707,13 @@ Social is **fully server-backed via Supabase** with row-level security policies 
 
 | Table | Purpose |
 |-------|---------|
-| `profiles` | Public profile (display name, username, location, occupation, avatar, daily reminder pref) |
-| `user_stats` | XP, level, current streak, longest streak, total sessions |
-| `session_scores` | One row per scoreable session; powers leaderboards (Real Life excluded) |
-| `friendships` | Directed friend requests and accepted friendships |
+| `profiles` | Public profile (display name, username, location, occupation, `avatar_url`, `avatar_updated_at`, daily reminder pref) |
+| `user_stats` | XP, level, current streak, longest streak, total sessions; RLS now restricts writes to the owner |
+| `session_scores` | One row per scoreable session keyed by `client_session_id` for idempotency; powers leaderboards (Real Life excluded) |
+| `friendships` | Directed friend requests and accepted friendships; `unfriend_user` RPC for symmetric removal |
 | `blocks` | One-way user blocks; queries filter against this on both ends |
 | `push_tokens` | APNs device tokens per user, written by `PushTokenService` |
+| `avatars` (storage bucket) | User-uploaded avatar images at `<lowercased-uid>/...`; RLS `WITH CHECK` + size and MIME limits |
 
 ### `SocialService` capabilities
 
@@ -695,12 +722,15 @@ func searchUsers(query: String) async -> [SocialProfile]
 func sendFriendRequest(to userId: UUID) async -> Bool
 func acceptFriendRequest(from userId: UUID) async -> Bool
 func declineFriendRequest(from userId: UUID) async -> Bool
-func removeFriend(_ userId: UUID) async -> Bool
+func removeFriend(_ userId: UUID) async -> Bool   // calls unfriend_user RPC
 func blockUser(_ userId: UUID) async -> Bool
 func unblockUser(_ userId: UUID) async -> Bool
 func relationshipState(with userId: UUID) async -> RelationshipState
 func refreshFriendsLeaderboard() async
+func friendsRankWithDelta() async -> (rank: Int, delta24h: Int)
 ```
+
+The Friends sub-tab renders a tappable **friends rank chip** with a 24-hour delta arrow that opens a ranked sheet. Public profile rows on the global leaderboard are tappable and route into `UserProfileDetailView`. The add-friend button reflects pending request state correctly when viewing another user's public profile.
 
 `RelationshipState` enum: `.none | .pendingSent | .pendingReceived | .friends | .isSelf`.
 
@@ -745,6 +775,12 @@ Singleton `@MainActor` class. All database operations run on the main context (`
 **`SeenQuestion` model:** Tracks which questions the user has seen to prevent repeats. Stores `questionId`, `modeRaw`, `difficultyBand`, and `seenAt`. Queries are capped to `seenQuestionWindow = 50` most recent per mode+band. This means after 50 questions in a mode+band, the oldest are "forgotten" and can repeat — by design.
 
 **`try? context.save()`** is used everywhere. Errors are silently swallowed. In practice, SwiftData on iOS rarely fails to save, but this means data loss on failure is undetected. A future improvement would be to log save errors.
+
+**Migration degrade path.** If the persistent container fails to open and a fresh attempt also fails (e.g. schema mismatch the migrator can't resolve), the service degrades to an **in-memory store** rather than crashing the app. This keeps the session loop usable while the user contacts support; cloud sync will repopulate profile and stats on the next launch with a working store.
+
+**Profile import merges, not overwrites.** `SyncService.fetchAndImportProfile(...)` merges the server profile into the local `User` rather than overwriting unsynced local fields.
+
+**Offline sync queue.** Failed `syncAfterSession(...)` writes are persisted to UserDefaults as a **FIFO queue** under `parlance.pendingSync`. On the next successful sync, queued rows are drained in insertion order before the new write — previously a single pending blob was kept, which dropped older sessions when multiple failed in a row.
 
 **`resetAllData()`** deletes all models from all tables. Used in dev/testing, exposed in the Profile settings debug section.
 
@@ -810,9 +846,32 @@ In DEBUG builds, passing `--ui-test-seed-pro` as a launch argument skips the Sup
 
 ### Failure handling
 
-If `syncAfterSession(...)` fails (network blip, RLS rejection, server error), the score/mode/level are JSON-encoded to UserDefaults under `parlance.pendingSync`. On the next successful sync, the pending row is retried before the new one. There's no exponential backoff — retries happen opportunistically when a sync is next triggered.
+If `syncAfterSession(...)` fails (network blip, RLS rejection, server error), the score/mode/level are JSON-encoded to UserDefaults under `parlance.pendingSync` as a **FIFO queue** (see Persistence section). On the next successful sync, queued rows are drained in insertion order before the new write. There's no exponential backoff — retries happen opportunistically when a sync is next triggered.
+
+### Idempotency
+
+`session_scores` inserts include a `client_session_id` matching the local SwiftData `Session.id`. The table has a uniqueness constraint on this column, so a duplicate retry from the offline queue is a no-op at the DB level — clients can retry safely without producing double leaderboard entries.
+
+### Backend invariants
+
+- `send-push` Edge Function requires a Supabase JWT — anonymous calls are rejected.
+- `/feedback` transcript content is isolated from the surrounding instruction envelope so a flagged or adversarial transcript cannot mutate the prompt shape.
+- `user_stats` RLS was tightened so users cannot write rows they do not own.
+- Weekly XP reset runs on a scheduled job; the server is the source of truth for "this week" rather than relying on a client-side rollover.
+- `unfriend_user` is a committed RPC (one-call symmetric removal across the friendship pair).
 
 ---
+
+## 18a. Theming & Design Tokens
+
+**Files:** `ParlanceApp/UI/Theme/AppColors.swift`, `AppTheme.swift`, `AppFonts.swift`, `AppConstants.swift`
+
+The theme system was reworked into a token-driven warm-editorial palette with explicit mode/difficulty ramps. Highlights:
+
+- **Light mode** rebuilt for stronger card-vs-background contrast and warmer cinnamon→cocoa accents.
+- **`AppTheme`** (System / Light / Dark) is hoisted to the App scene via `preferredColorScheme`. UIKit chrome (status bar, nav bar) is kept in sync via a window-level `overrideUserInterfaceStyle` so a theme switch is fully consistent.
+- **Mode palette + difficulty ramp** are exposed as tokens rather than hard-coded per call site, so a new mode or difficulty band only touches the token table.
+- A teach-first onboarding sweep accompanied the token refactor; canonical components replaced ad-hoc card and badge variants.
 
 ## 19. Real Life Mode
 
@@ -922,19 +981,27 @@ ParlanceApp/                                   main app source (also contains Pa
 │   └── SplashView.swift
 ├── Core/
 │   ├── AI/
-│   │   ├── ClaudeClient.swift                HTTP client → Cloudflare Worker /feedback
+│   │   ├── ClaudeClient.swift                Cloudflare Worker /feedback (via APIClient)
 │   │   ├── FeedbackGenerator.swift           Prompt builder + fetchScoring()
-│   │   ├── HumeClient.swift                  Emotion analysis → Cloudflare Worker /emotion (Pro)
+│   │   ├── HumeClient.swift                  Emotion analysis — client polls /emotion/submit + /emotion/status (Pro)
+│   │   ├── RealLifeContentDenylist.swift     Local denylist for Real Life pre-flight
 │   │   ├── RealLifeScenarioValidator.swift   Local rule-based scenario pre-flight check
-│   │   └── RealLifeTipsClient.swift          AI-generated tips → Cloudflare Worker /real-life/tips
+│   │   ├── RealLifeTipsClient.swift          AI-generated tips → /real-life/tips
+│   │   └── WeeklyBriefClient.swift           Weekly coach brief → /coach/weekly-brief
+│   ├── Networking/
+│   │   └── APIClient.swift                   Typed Endpoint + base URL + JSON encode/decode for every AI client
 │   ├── Models/
 │   │   ├── Achievement.swift                 Achievement definitions + SwiftData model
+│   │   ├── ActivityEvent.swift               Activity feed event (carries avatar_url)
 │   │   ├── AudioFeatures.swift               Pitch/energy summary stats (transient)
 │   │   ├── DifficultyLevel.swift             Level names, tiers, bands
 │   │   ├── EmotionResult.swift               Hume AI response model (Pro-only)
 │   │   ├── ExplanationCategory.swift         Knowledge/industry sub-categories for explanation mode
+│   │   ├── GlobalLeaderboardSnapshot.swift   Leaderboard row DTO (carries avatar_url)
 │   │   ├── LeagueTier.swift                  Bronze–Diamond tiers with XP thresholds
 │   │   ├── MetricKey.swift                   10 metric keys with mode mapping
+│   │   ├── PromotionStatus.swift             Weekly tier promotion/demotion result
+│   │   ├── PublicProfile.swift               Public profile DTO for tappable leaderboard rows
 │   │   ├── Question.swift                    Question struct (from JSON bank)
 │   │   ├── Rank.swift                        10 rank levels with XP thresholds
 │   │   ├── ScoringResult.swift               AI response model (Codable)
@@ -944,28 +1011,29 @@ ParlanceApp/                                   main app source (also contains Pa
 │   │   ├── SocialProfile.swift               Social profile DTO (real users via Supabase)
 │   │   ├── SupabaseModels.swift              Codable row types for Supabase tables
 │   │   ├── TimingStats.swift                 Computed timing stats from word segments
-│   │   ├── User.swift                        User profile (SwiftData, mirrors Supabase profile)
+│   │   ├── User.swift                        User profile (SwiftData, mirrors Supabase profile + avatar_url/avatar_updated_at)
 │   │   └── WordSegment.swift                 Per-word timestamp + duration
 │   └── Services/
 │       ├── AudioFeatureExtractor.swift       vDSP pitch/RMS extraction
-│       ├── AudioRecorder.swift               AVAudioRecorder wrapper
+│       ├── AudioRecorder.swift               AVAudioRecorder wrapper + force-quit recovery
 │       ├── AuthService.swift                 Apple Sign-In + Supabase session state
+│       ├── AvatarService.swift               Upload, delete, cache-busted URL for Supabase avatars
 │       ├── GamificationService.swift         XP, streaks, daily limits
 │       ├── NetworkMonitor.swift              NWPathMonitor wrapper
 │       ├── PermissionsService.swift          Mic + speech recognition permissions
-│       ├── PersistenceService.swift          SwiftData singleton
-│       ├── ProfanityFilter.swift             Username + display-name content filter
+│       ├── PersistenceService.swift          SwiftData singleton; in-memory fallback on twice-failed migration
+│       ├── ProfanityFilter.swift             Username + display-name + pre-flight transcript filter
 │       ├── PushTokenService.swift            APNs token upsert into Supabase
 │       ├── QuestionBankService.swift         Loads + filters questions.json
 │       ├── RealLifeScenarioHistoryStore.swift Recent Real Life scenarios (UserDefaults)
 │       ├── SessionWeekCache.swift            In-memory cache for weekly session queries
-│       ├── SocialService.swift               Friend graph, blocks, leaderboards (Supabase)
+│       ├── SocialService.swift               Friend graph, blocks, leaderboards, rank delta (Supabase)
 │       ├── SoundService.swift                In-app sound effects (optional)
 │       ├── SpeechAnalyzer.swift              Filler detection (scoring removed)
 │       ├── SpeechTranscriber.swift           SFSpeechRecognizer → TranscriptionResult
-│       ├── SubscriptionService.swift         StoreKit 2 purchase + isPro gating
+│       ├── SubscriptionService.swift         StoreKit 2 (AppTransaction) + isPro gating
 │       ├── SupabaseManager.swift             Configured SupabaseClient singleton
-│       ├── SyncService.swift                 Local↔Supabase reconciliation
+│       ├── SyncService.swift                 Local↔Supabase reconciliation + FIFO offline queue + idempotent inserts
 │       └── UITestBootstrap.swift             DEBUG-only seeding for UI tests
 ├── Features/
 │   ├── Auth/
@@ -990,9 +1058,10 @@ ParlanceApp/                                   main app source (also contains Pa
 │   ├── Paywall/
 │   │   └── PaywallView.swift                 Pro subscription purchase screen
 │   ├── Profile/
-│   │   ├── ProfileView.swift                 Level/XP badge, tappable rank card
+│   │   ├── AvatarPickerSheet.swift           Photo + emoji avatar picker, uploads via AvatarService
+│   │   ├── ProfileView.swift                 Level/XP badge, tappable rank card, avatar
 │   │   ├── ProfileViewModel.swift
-│   │   ├── ProfileEditSheet.swift
+│   │   ├── ProfileEditSheet.swift            Name, username, avatar (uploads on save)
 │   │   └── SettingsSheet.swift               Appearance, reminders, sound effects, sign out, delete account
 │   ├── Progress/
 │   │   ├── AllTimeStatsCard.swift
@@ -1010,13 +1079,13 @@ ParlanceApp/                                   main app source (also contains Pa
 │   │   ├── RealLifeSetupView.swift           Scenario input + recent scenarios
 │   │   └── RealLifeSetupViewModel.swift
 │   ├── Resources/
-│   │   ├── questions.json                    ~1,750 bundled questions (static, offline)
+│   │   ├── questions.json                    3,192 bundled questions (static, offline)
 │   │   └── *.ttf                             Bundled fonts (Inter, Fraunces)
 │   ├── Results/
 │   │   ├── MetricCardView.swift              Score bar + tip card
 │   │   ├── MomentCard.swift                  AIMomentCard + MomentCard (best/worst moment UI)
-│   │   ├── ResultsView.swift                 Full results screen (AI + legacy paths)
-│   │   ├── ResultsViewModel.swift            Retry feedback logic
+│   │   ├── ResultsView.swift                 Full results screen (decomposed into phase subviews)
+│   │   ├── ResultsViewModel.swift            Retry feedback logic, transcript censor, failure-state routing
 │   │   ├── ScoreRingView.swift
 │   │   ├── SessionDetailView.swift           Per-session deep dive (from Progress / League)
 │   │   ├── ToneAnalysisCard.swift            Emotion analysis display (Pro-only)
@@ -1032,7 +1101,9 @@ ParlanceApp/                                   main app source (also contains Pa
 ├── UI/
 │   ├── Components/
 │   │   ├── AnimatedWaveformView.swift
-│   │   ├── PillBadge.swift
+│   │   ├── AvatarView.swift                  Photo + emoji fallback, cache-busted URL
+│   │   ├── LocationPickerField.swift         MapKit city autocomplete with country flag (used in auth + profile)
+│   │   ├── PillBadge.swift                   CUSTOM / FOCUSED variants for Real Life + Explanation cards
 │   │   ├── ProgressBar.swift
 │   │   ├── SafariView.swift                  UIViewControllerRepresentable → SFSafariViewController
 │   │   ├── SectionHeader.swift
@@ -1041,6 +1112,7 @@ ParlanceApp/                                   main app source (also contains Pa
 │   │   ├── Color+Hex.swift
 │   │   ├── Score+Color.swift
 │   │   ├── View+CardStyle.swift
+│   │   ├── View+DisableHorizontalScrollBounce.swift
 │   │   └── View+Shimmer.swift                Shimmer loading animation modifier
 │   └── Theme/
 │       ├── AppColors.swift
@@ -1049,8 +1121,12 @@ ParlanceApp/                                   main app source (also contains Pa
 │       └── AppTheme.swift
 └── ParlanceApp.swift                         App entry point + @EnvironmentObject root
 
-cloudflare-worker/                            (gitignored — deployed separately)
-├── src/index.js                              POST /feedback, /emotion, /real-life/tips
+cloudflare-worker/                            (deployed separately)
+├── src/
+│   ├── index.js                              Router + /feedback (Gemini + OpenAI moderation) + /emotion[ /submit | /status ] + /delete-user
+│   ├── realLifeTips.js                       /real-life/tips handler
+│   ├── weeklyBrief.js                        /coach/weekly-brief handler (rate-limited)
+│   └── briefSafety.js                        Shared moderation/safety helpers
 └── wrangler.toml
 
 _docs/

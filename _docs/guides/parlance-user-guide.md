@@ -31,7 +31,7 @@ Parlance uses **Sign in with Apple**. On first launch:
 1. Tap **Continue with Apple** on the welcome screen
 2. Choose whether to share your name and email
 3. Set a display name and username (must be unique)
-4. Optionally add location and occupation — these help personalize coaching context
+4. Optionally add location (city autocomplete via MapKit — shows country name and flag) and occupation. These help personalize coaching context.
 
 Your profile, session history, friend graph, and progress sync across any device you sign into. You can delete your account from **Profile → Settings → Delete Account** at any time; this wipes your data from Parlance's servers.
 
@@ -86,9 +86,9 @@ The loading screen shows:
 - Three coaching tips tailored to the mode and your difficulty tier
 - A **"Tap when ready"** button
 
-Read everything before tapping. Questions are drawn from a bundled bank of roughly 1,750 prompts (10 modes × 5 difficulty bands), deduplicated against your last 50 questions in that mode+band so you rarely repeat.
+Read everything before tapping. Questions are drawn from a bundled bank of roughly 3,200 prompts (10 modes × 5 difficulty bands), deduplicated against your last 50 questions in that mode+band so you rarely repeat.
 
-For **Real Life**, instead of a generated prompt you'll type or paste the scenario you're preparing for. The app validates that what you typed looks like a real speaking situation (a conversation, pitch, talk, etc.) and generates coaching tips tailored to it.
+For **Real Life**, instead of a generated prompt you'll type or paste the scenario you're preparing for. The app validates that what you typed looks like a real speaking situation (a conversation, pitch, talk, etc.) and generates coaching tips tailored to it. Transcripts that are too short or contain disallowed content are stopped before they reach the AI.
 
 ### Step 3 — Countdown
 
@@ -101,6 +101,8 @@ A 3–2–1 countdown runs after you tap ready. Use it to take a breath. Recordi
 - Minimum recording length: **5 seconds** (stop button is locked until then)
 - Maximum recording length: **3 minutes**
 - Tap the stop button when finished
+
+If the app is force-quit or interrupted mid-recording, Parlance recovers the audio on the next launch and lets you continue to scoring instead of losing the take.
 
 ### Step 5 — Results
 
@@ -178,7 +180,7 @@ A streak increments every day you complete at least one session. Your current st
 
 ### Daily Challenge
 
-One featured prompt per day across all modes. Completing it earns bonus XP and counts toward your streak. Resets at midnight.
+One featured prompt per day across all modes. Completing it earns bonus XP and counts toward your streak. Resets at midnight. On Explain days the actual "topic of the day" is shown right on the home card so you know what's coming.
 
 ### Weekly League
 
@@ -219,7 +221,7 @@ The **Progress** tab shows your improvement over time:
 
 Access your profile from the **Profile** tab (bottom-right).
 
-- **Edit Profile** — tap the edit button to update your display name and username
+- **Edit Profile** — tap the edit button to update your display name, username, and avatar (photo or emoji). Avatars upload to Parlance's secure storage and sync to every device you sign into.
 - **Settings** — tap the gear icon to access:
   - **Appearance** — choose System (auto), Light, or Dark mode
   - **Daily Reminder** — toggle a daily notification to keep your streak alive
@@ -234,8 +236,9 @@ Access your profile from the **Profile** tab (bottom-right).
 Shows the current weekly leaderboard. Includes:
 
 - Your current tier badge and rank
-- Global leaderboard (all users by weekly XP)
+- Global leaderboard (all users by weekly XP) — **tap any user** to open their profile
 - Friends leaderboard (people who have accepted your friend request)
+- A live **friends rank chip** on the Friends sub-tab showing your current rank plus a 24-hour delta arrow; tap it for the full ranked sheet
 - Countdown timer to the next weekly reset
 
 ### Friends
@@ -245,6 +248,7 @@ From the League tab you can:
 - **Search users** by display name or username
 - **Send a friend request** from any profile
 - **Accept or decline** incoming requests
+- **Unfriend** an existing friend
 - **Block** users you don't want to see or hear from again — blocked users are hidden from search, leaderboards, and friend suggestions
 
 Friend requests and accepts trigger push notifications if you've granted notification permission.
@@ -265,7 +269,7 @@ Practice prompts and tips are bundled on-device and load instantly — the netwo
 ## Privacy
 
 - Audio recordings are transcribed on-device using Apple's SFSpeechRecognizer. The audio file is deleted immediately after transcription completes.
-- Your transcript and audio features (pitch, pace, energy) are sent to Parlance's AI backend for scoring. They are not stored after the scoring call completes.
+- Your transcript and audio features (pitch, pace, energy) are sent to Parlance's AI backend for scoring. Each transcript passes through an OpenAI moderation check before scoring; flagged content is not sent to the scoring model. None of it is stored after the scoring call completes.
 - **Pro subscribers only:** your audio is also sent to an AI emotion analysis provider (Hume AI) via Parlance's secure backend to generate the Tone Analysis results. The audio is not retained after analysis.
 - Your profile (name, username, location, occupation, XP, level, streak) and session metadata (scores, mode, date, duration) sync to Parlance's Supabase backend so they're available across your devices. Full transcripts and AI feedback paragraphs stay on-device.
 - Friend graph (requests, accepts, blocks) is stored server-side so it works across devices.
