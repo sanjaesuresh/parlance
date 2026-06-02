@@ -5,13 +5,13 @@ import SwiftData
 
 final class SubscriptionTests: XCTestCase {
     func testFreeModesMakesSense() {
-        XCTAssertEqual(SessionMode.freeModes.count, 5)
+        XCTAssertEqual(SessionMode.freeModes.count, 6)
         XCTAssertFalse(SessionMode.interview.isProMode)
         XCTAssertFalse(SessionMode.casual.isProMode)
         XCTAssertFalse(SessionMode.impromptu.isProMode)
         XCTAssertFalse(SessionMode.explanation.isProMode)
         XCTAssertFalse(SessionMode.networking.isProMode)
-        XCTAssertTrue(SessionMode.pitch.isProMode)
+        XCTAssertFalse(SessionMode.pitch.isProMode)
         XCTAssertTrue(SessionMode.keynote.isProMode)
         XCTAssertTrue(SessionMode.debate.isProMode)
         XCTAssertTrue(SessionMode.storytelling.isProMode)

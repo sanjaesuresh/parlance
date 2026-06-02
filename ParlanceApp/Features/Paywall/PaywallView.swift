@@ -15,7 +15,7 @@ struct PaywallView: View {
     @State private var errorMessage: String?
 
     private let benefits: [String] = [
-        "Pitch, Keynote, Debate, Storytelling, Negotiation, Networking. Six more modes.",
+        "Real Life, Keynote, Debate, Storytelling, Negotiation. Five more modes.",
         "Tone analysis. See when your delivery loses energy.",
         "Advanced and Expert difficulty. Real-stakes prompts.",
         "Unlimited sessions per day."

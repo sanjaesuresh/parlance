@@ -109,7 +109,7 @@ enum SessionMode: String, CaseIterable, Codable {
     }
 
     /// Modes available on the free tier. All others require Pro.
-    static let freeModes: Set<SessionMode> = [.interview, .casual, .impromptu, .explanation, .networking]
+    static let freeModes: Set<SessionMode> = [.interview, .casual, .impromptu, .explanation, .networking, .pitch]
 
     var isProMode: Bool { !Self.freeModes.contains(self) }
 }

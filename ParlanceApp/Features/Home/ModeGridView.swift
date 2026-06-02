@@ -13,9 +13,11 @@ struct ModeGridView: View {
     ]
 
     private var orderedModes: [SessionMode] {
-        let free = displayModes
-        let pro = SessionMode.allCases.filter { !free.contains($0) && $0 != .storytelling }
-        return free + pro
+        let candidates = SessionMode.allCases.filter { $0 != .storytelling }
+        let featured = displayModes.filter { candidates.contains($0) }
+        let remaining = candidates.filter { !featured.contains($0) }
+        let combined = featured + remaining
+        return combined.filter { !$0.isProMode } + combined.filter { $0.isProMode }
     }
 
     var body: some View {
