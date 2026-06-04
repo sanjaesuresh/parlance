@@ -135,10 +135,56 @@ enum AppColors {
             : UIColor(red: 0.780, green: 0.580, blue: 0.318, alpha: 1)
     })
 
+    // MARK: - Daily Challenge Card
+    /// Hero CTA on Home. Dark mode keeps the existing card2 patch; light mode
+    /// lifts it out of the surrounding cream/tan field with a warm cream→gold
+    /// gradient so it reads as the page's primary action.
+    static let dailyChallengeBgStart = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#262318")
+            : UIColor(hex: "#FBEFC5")
+    })
+    static let dailyChallengeBgEnd = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#1F1D14")
+            : UIColor(hex: "#F2DC95")
+    })
+    static let dailyChallengeBorder = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#2B281D")
+            : UIColor(hex: "#D9A852")
+    })
+    static let dailyChallengeShadow = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor.clear
+            : UIColor(hex: "#A57E1B").withAlphaComponent(0.18)
+    })
+
     /// Warm cinnamon start of the tone-card gradient (paired with `.gold`).
     /// Previously duplicated as `Color(red: 0.95, green: 0.71, blue: 0.28)`
     /// in `ToneDetailSheet` and `ToneAnalysisCard`.
     static let cinnamon = Color(red: 0.95, green: 0.71, blue: 0.28)
+
+    // MARK: - Coach Cream Surface
+    /// Tokens for the warm coach-card surface used by HomeXPHero and StandoutMomentCard.
+    /// Dark mode: deep near-black warm wash. Light mode: deep cinnamon → cocoa.
+    static let coachCardGradientStart = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#181200")
+            : UIColor(hex: "#C7813A")
+    })
+    static let coachCardGradientEnd = Color(UIColor { traits in
+        traits.userInterfaceStyle == .dark
+            ? UIColor(hex: "#1F1700")
+            : UIColor(hex: "#7A3F12")
+    })
+    static let coachCardText    = Color(hex: "#FBF3E2")
+    static let coachCardSub     = Color(hex: "#E8D3A6")
+    static let coachCardAccent  = Color(hex: "#F5C45A")
+    static let coachCardBorder  = Color(hex: "#F5C45A").opacity(0.35)
+    static let coachCardDivider = Color(hex: "#F5C45A").opacity(0.25)
+    /// Warm-tinted progress track for coach-card surfaces. Avoids Color.black.
+    static let coachCardTrack   = Color(hex: "#3D2A0A").opacity(0.55)
 
     // MARK: - Difficulty Ramp
     /// Gold → red ramp across 5 bands. Band 1 = starter, band 9 = expert.

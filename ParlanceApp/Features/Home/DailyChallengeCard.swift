@@ -11,28 +11,28 @@ struct DailyChallengeCard: View {
             HStack(alignment: .center, spacing: 16) {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 0) {
-                        Text("TODAY'S CHALLENGE")
-                            .font(AppFonts.bodyBold(10))
-                            .kerning(1.8)
+                        Text("Today's challenge")
+                            .font(AppFonts.bodyBold(11))
+                            .kerning(0.4)
                             .foregroundStyle(AppColors.dim)
                         Text(" · ")
-                            .font(AppFonts.bodyBold(10))
+                            .font(AppFonts.bodyBold(11))
                             .foregroundStyle(AppColors.dim)
                         if completed {
-                            Text("COMPLETED")
-                                .font(AppFonts.bodyBold(10))
-                                .kerning(1.8)
+                            Text("Completed")
+                                .font(AppFonts.bodyBold(11))
+                                .kerning(0.4)
                                 .foregroundStyle(AppColors.teal)
                         } else {
                             Text("+\(AppConstants.dailyChallengeXP) XP")
-                                .font(AppFonts.bodyBold(10))
-                                .kerning(1.8)
+                                .font(AppFonts.bodyBold(11))
+                                .kerning(0.4)
                                 .foregroundStyle(AppColors.gold)
                         }
                     }
 
                     Text(mode.displayName)
-                        .font(AppFonts.display(20))
+                        .font(AppFonts.bodyBold(18))
                         .foregroundStyle(AppColors.text)
 
                     Text(completed
@@ -50,26 +50,29 @@ struct DailyChallengeCard: View {
 
                 ZStack {
                     Circle()
-                        .fill(completed ? AppColors.teal : Color.clear)
+                        .fill(completed ? AppColors.teal : AppColors.gold)
                         .frame(width: 44, height: 44)
-                    if !completed {
-                        Circle()
-                            .stroke(AppColors.gold, lineWidth: 1.5)
-                            .frame(width: 44, height: 44)
-                    }
+                        .shadow(color: AppColors.gold.opacity(completed ? 0 : 0.35), radius: 8, x: 0, y: 3)
                     Image(systemName: completed ? "checkmark" : "play.fill")
                         .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(completed ? AppColors.onGold : AppColors.gold)
+                        .foregroundStyle(AppColors.onGold)
                 }
             }
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(AppColors.card2)
+            .background(
+                LinearGradient(
+                    colors: [AppColors.dailyChallengeBgStart, AppColors.dailyChallengeBgEnd],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(AppColors.border, lineWidth: 1)
+                    .stroke(AppColors.dailyChallengeBorder, lineWidth: 1)
             )
+            .shadow(color: AppColors.dailyChallengeShadow, radius: 14, x: 0, y: 6)
         }
         .buttonStyle(.plain)
         .disabled(completed)
