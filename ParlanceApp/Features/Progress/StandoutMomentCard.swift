@@ -9,21 +9,16 @@ struct StandoutMomentCard: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    // Mirror HomeXPHero: deep cinnamon→cocoa in light, near-black warm wash in dark.
-    private var gradientStart: Color {
-        colorScheme == .dark ? Color(hex: "#181200") : Color(hex: "#C7813A")
-    }
-    private var gradientEnd: Color {
-        colorScheme == .dark ? Color(hex: "#1F1700") : Color(hex: "#7A3F12")
-    }
+    private var gradientStart: Color { AppColors.coachCardGradientStart }
+    private var gradientEnd: Color { AppColors.coachCardGradientEnd }
 
-    private var onCardText: Color { Color(hex: "#FBF3E2") }
-    private var onCardSub: Color { Color(hex: "#E8D3A6") }
-    private var onCardAccent: Color { Color(hex: "#F5C45A") }
-    private var onCardDim: Color { Color(hex: "#E8D3A6").opacity(0.7) }
-    private var onCardCellBg: Color { Color.black.opacity(0.28) }
-    private var onCardBorder: Color { Color(hex: "#F5C45A").opacity(0.35) }
-    private var onCardDivider: Color { Color(hex: "#F5C45A").opacity(0.25) }
+    private var onCardText: Color { AppColors.coachCardText }
+    private var onCardSub: Color { AppColors.coachCardSub }
+    private var onCardAccent: Color { AppColors.coachCardAccent }
+    private var onCardDim: Color { AppColors.coachCardSub.opacity(0.7) }
+    private var onCardCellBg: Color { AppColors.coachCardTrack }
+    private var onCardBorder: Color { AppColors.coachCardBorder }
+    private var onCardDivider: Color { AppColors.coachCardDivider }
 
     var body: some View {
         Button(action: onTap) {

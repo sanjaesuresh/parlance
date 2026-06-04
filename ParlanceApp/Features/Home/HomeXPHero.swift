@@ -22,24 +22,14 @@ struct HomeXPHero: View {
         return "\(user.xp) of \(next) xp to Level \(rank.level + 1): \(nextName)"
     }
 
-    // Light mode: deep cinnamon → cocoa so cream text contrasts strongly.
-    // Dark mode: keep the near-black warm wash that already reads well.
-    private var gradientStart: Color {
-        colorScheme == .dark ? Color(hex: "#181200") : Color(hex: "#C7813A")
-    }
-    private var gradientEnd: Color {
-        colorScheme == .dark ? Color(hex: "#1F1700") : Color(hex: "#7A3F12")
-    }
+    private var gradientStart: Color { AppColors.coachCardGradientStart }
+    private var gradientEnd: Color { AppColors.coachCardGradientEnd }
 
-    // Bright warm cream for primary text on both modes — pops on the dark warm bg.
-    private var onCardText: Color { Color(hex: "#FBF3E2") }
-    // Muted cream for secondary lines; still well above 4.5:1 on the deep amber.
-    private var onCardSub: Color { Color(hex: "#E8D3A6") }
-    // Slightly brighter gold so the flame, level pill, and progress fill carry.
-    private var onCardAccent: Color { Color(hex: "#F5C45A") }
-    // Track for the progress bar — a dark espresso so the gold fill stands out.
-    private var onCardTrack: Color { Color.black.opacity(0.28) }
-    private var onCardBorder: Color { Color(hex: "#F5C45A").opacity(0.35) }
+    private var onCardText: Color { AppColors.coachCardText }
+    private var onCardSub: Color { AppColors.coachCardSub }
+    private var onCardAccent: Color { AppColors.coachCardAccent }
+    private var onCardTrack: Color { AppColors.coachCardTrack }
+    private var onCardBorder: Color { AppColors.coachCardBorder }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
