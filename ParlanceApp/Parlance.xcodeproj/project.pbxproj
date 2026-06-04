@@ -41,6 +41,7 @@
 		D472EDFD2FB7CECC00C2C968 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D472F3122FBCD0EB00C2C968 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D48863742FC6D7FE00DBCCEF /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D488654D2FCE978400DBCCEF /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4A2DA1C2FB4A99B00495D69 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4BDC0882F7F971900FE69B7 /* Parlance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parlance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC0952F7F971B00FE69B7 /* ParlanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +151,11 @@
 			sourceTree = "<group>";
 		};
 		D48863782FC6D7FE00DBCCEF /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D48865512FCE978400DBCCEF /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
@@ -315,10 +321,6 @@
 					ProjectRef = D4178D962FAEB61800EB5925 /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D48863782FC6D7FE00DBCCEF /* Products */;
-					ProjectRef = D48863742FC6D7FE00DBCCEF /* Parlance.xcodeproj */;
-				},
-				{
 					ProductGroup = D41793192FB1A60B00EB5925 /* Products */;
 					ProjectRef = D41793152FB1A60B00EB5925 /* Parlance.xcodeproj */;
 				},
@@ -327,16 +329,8 @@
 					ProjectRef = D4705FF32FA99E9B0037F17E /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D41786FE2FAE4FCE00EB5925 /* Products */;
-					ProjectRef = D41786FB2FAE4FCE00EB5925 /* Parlance.xcodeproj */;
-				},
-				{
 					ProductGroup = D41796312FB2D44500EB5925 /* Products */;
 					ProjectRef = D417962D2FB2D44500EB5925 /* Parlance.xcodeproj */;
-				},
-				{
-					ProductGroup = D472EE012FB7CECC00C2C968 /* Products */;
-					ProjectRef = D472EDFD2FB7CECC00C2C968 /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D472F3162FBCD0EB00C2C968 /* Products */;
@@ -347,12 +341,32 @@
 					ProjectRef = D4178EFA2FAFC50C00EB5925 /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D4705CDA2FA9219D0037F17E /* Products */;
-					ProjectRef = D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */;
-				},
-				{
 					ProductGroup = D4A2DA202FB4A99B00495D69 /* Products */;
 					ProjectRef = D4A2DA1C2FB4A99B00495D69 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D48865512FCE978400DBCCEF /* Products */;
+					ProjectRef = D488654D2FCE978400DBCCEF /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D470634A2FA9C65C0037F17E /* Products */;
+					ProjectRef = D47063482FA9C65C0037F17E /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D48863782FC6D7FE00DBCCEF /* Products */;
+					ProjectRef = D48863742FC6D7FE00DBCCEF /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D41786FE2FAE4FCE00EB5925 /* Products */;
+					ProjectRef = D41786FB2FAE4FCE00EB5925 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D472EE012FB7CECC00C2C968 /* Products */;
+					ProjectRef = D472EDFD2FB7CECC00C2C968 /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D4705CDA2FA9219D0037F17E /* Products */;
+					ProjectRef = D4705CD82FA9219D0037F17E /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D41788502FAEAC8D00EB5925 /* Products */;
@@ -361,10 +375,6 @@
 				{
 					ProductGroup = D4DB99672FABC45E000578F8 /* Products */;
 					ProjectRef = D4DB99642FABC45E000578F8 /* Parlance.xcodeproj */;
-				},
-				{
-					ProductGroup = D470634A2FA9C65C0037F17E /* Products */;
-					ProjectRef = D47063482FA9C65C0037F17E /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D4DB95B02FAA5FFC000578F8 /* Products */;

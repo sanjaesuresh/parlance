@@ -33,6 +33,9 @@ struct HomeView: View {
     @State private var startSessionHaptic = false
     @State private var difficultyHaptic = false
     @State private var lockedHaptic = false
+    @State private var streakExpanded = false
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         NavigationStack {
@@ -63,6 +66,27 @@ struct HomeView: View {
             }
             .background(AppColors.bg)
             .navigationBarHidden(true)
+            .onScrollPhaseChange { _, newPhase in
+                if streakExpanded, newPhase == .interacting || newPhase == .tracking {
+                    withAnimation(streakAnimation) {
+                        streakExpanded = false
+                    }
+                }
+            }
+            .overlay {
+                if streakExpanded {
+                    Color.black
+                        .opacity(colorScheme == .dark ? 0.45 : 0.20)
+                        .ignoresSafeArea()
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            withAnimation(streakAnimation) {
+                                streakExpanded = false
+                            }
+                        }
+                        .transition(.opacity)
+                }
+            }
             .safeAreaInset(edge: .top, spacing: 0) {
                 VStack(spacing: 0) {
                     brandRow
@@ -72,6 +96,7 @@ struct HomeView: View {
                         .opacity(sectionVisible[0] ? 1 : 0)
                         .offset(y: sectionVisible[0] ? 0 : 16)
                         .background(AppColors.bg, ignoresSafeAreaEdges: .top)
+                        .zIndex(1)
                     LinearGradient(
                         colors: [AppColors.bg, AppColors.bg.opacity(0)],
                         startPoint: .top,
@@ -145,6 +170,9 @@ struct HomeView: View {
             .sensoryFeedback(.impact(weight: .medium), trigger: startSessionHaptic)
             .sensoryFeedback(.selection, trigger: difficultyHaptic)
             .sensoryFeedback(.warning, trigger: lockedHaptic)
+            .sensoryFeedback(trigger: streakExpanded) { _, newValue in
+                newValue ? .selection : .impact(weight: .light)
+            }
             .onChange(of: pendingRealLifeEditText) { _, newValue in
                 guard let text = newValue, !text.isEmpty else { return }
                 realLifePrefill = text
@@ -152,6 +180,12 @@ struct HomeView: View {
                 pendingRealLifeEditText = nil
             }
         }
+    }
+
+    private var streakAnimation: Animation {
+        reduceMotion
+            ? .easeOut(duration: 0.18)
+            : .spring(response: 0.42, dampingFraction: 0.90)
     }
 
     // MARK: - Entrance Animation
@@ -184,21 +218,12 @@ struct HomeView: View {
             Spacer()
 
             if let user {
-                HStack(spacing: 6) {
-                    Image(systemName: "flame.fill")
-                        .font(.system(size: 12, weight: .semibold))
-                        .foregroundStyle(AppColors.gold)
-                    Text("\(user.currentStreak)")
-                        .font(AppFonts.bodyBold(12))
-                        .foregroundStyle(AppColors.gold)
-                }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .background(AppColors.card)
-                .clipShape(Capsule())
-                .overlay(Capsule().stroke(AppColors.border, lineWidth: 1))
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel("\(user.currentStreak)-day streak")
+                HomeStreakShell(
+                    currentStreak: user.currentStreak,
+                    longestStreak: user.longestStreak,
+                    lastSessionDate: user.lastSessionDate,
+                    isExpanded: $streakExpanded
+                )
             }
         }
     }
