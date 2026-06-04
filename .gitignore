@@ -54,6 +54,8 @@ docs/superpowers/
 
 # Product / planning docs
 PRODUCT.md
+DESIGN.md
+DESIGN.json
 
 # Generated codebase reviews / action lists (local only)
 CODEBASE_REVIEW.md
