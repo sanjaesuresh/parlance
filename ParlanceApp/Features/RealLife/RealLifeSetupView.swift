@@ -16,7 +16,7 @@ struct RealLifeSetupView: View {
     @State private var startHaptic = false
     @State private var snapHaptic = false
 
-    private let accent = Color(hex: "#D44A6F")
+    private let accent = AppColors.gold
 
     var body: some View {
         VStack(spacing: 0) {
@@ -84,9 +84,9 @@ struct RealLifeSetupView: View {
     // MARK: - Header
 
     private var eyebrow: some View {
-        Text("NEW SCENARIO")
+        Text("New scenario")
             .font(AppFonts.bodyBold(10))
-            .kerning(1.6)
+            .kerning(0.4)
             .foregroundStyle(AppColors.dim)
     }
 
@@ -177,7 +177,7 @@ struct RealLifeSetupView: View {
         case .tooShort:
             return "Describe the conversation in a sentence or two."
         case .mostlyNonLetters:
-            return "Use words, not symbols — describe the conversation."
+            return "Use words, not symbols. Describe the conversation."
         case .askingTheAI:
             return "Tell us about a conversation you're about to have, not what to write."
         case .noSpeechActOrAudience:
@@ -232,9 +232,9 @@ struct RealLifeSetupView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 8) {
                 Rectangle().fill(AppColors.border).frame(height: 1)
-                Text("RECENT")
+                Text("Recent")
                     .font(AppFonts.bodyBold(9))
-                    .kerning(1.6)
+                    .kerning(0.4)
                     .foregroundStyle(AppColors.dim)
                     .fixedSize()
                 Rectangle().fill(AppColors.border).frame(height: 1)
