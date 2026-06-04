@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Parlance Pro — Paywall Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Pulled directly from AppColors.swift */
+    --bg-page: #DDD2B6;          /* gallery / background of the world */
+    --bg: #EFE8D6;               /* AppColors.bg */
+    --card: #FBF7EC;             /* AppColors.card */
+    --card2: #F5EFDD;            /* AppColors.card2 */
+    --border: #C9BE9C;           /* AppColors.border */
+    --faint: #E6DEC7;            /* AppColors.faint */
+    --hairline: rgba(21,17,10,0.10);
+    --text: #15110A;             /* AppColors.text */
+    --sub: #6B6452;              /* AppColors.sub */
+    --dim: #9A9382;              /* AppColors.dim */
+    --gold: #E8A838;             /* AppColors.gold */
+    --gold-deep: #A57E1B;        /* AppColors.goldDeep */
+    --cinnamon: #F2B548;         /* AppColors.cinnamon */
+    --on-gold: #1A1A1A;          /* AppColors.onGold */
+    /* Challenge gradient (light mode) */
+    --challenge-start: #E8BC7D;
+    --challenge-end: #C79451;
+  }
+
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg-page);
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 48px 32px 80px;
+  }
+
+  /* Gallery header */
+  .gallery-head {
+    max-width: 1380px;
+    margin: 0 auto 40px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(21,17,10,0.12);
+  }
+  .gallery-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sub);
+    font-weight: 500;
+  }
+  .gallery-title {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin: 8px 0 0;
+    color: var(--text);
+  }
+
+  /* Phone row */
+  .row {
+    max-width: 1380px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+  @media (max-width: 1280px) {
+    .row { grid-template-columns: 1fr; justify-items: center; gap: 64px; }
+  }
+
+  .direction { display: flex; flex-direction: column; align-items: center; }
+  .direction-caption {
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 18px;
+  }
+  .direction-index {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+  }
+  .direction-name {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 6px 0 4px;
+    color: var(--text);
+  }
+  .direction-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--sub);
+  }
+
+  /* iPhone frame */
+  .phone {
+    width: 390px;
+    height: 844px;
+    border-radius: 54px;
+    padding: 12px;
+    background: linear-gradient(160deg, #1f1c14, #0c0a06 60%, #1a1611);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.08) inset,
+      0 24px 50px -20px rgba(0,0,0,0.4),
+      0 60px 80px -40px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  .screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 42px;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg);
+  }
+  .island {
+    position: absolute;
+    top: 11px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 35px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 50;
+  }
+  .status {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px 0;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 40;
+    color: var(--text);
+  }
+  .status .icons { display: flex; gap: 6px; align-items: center; }
+
+  .scroll {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    padding-top: 54px;
+  }
+  .scroll::-webkit-scrollbar { display: none; }
+
+  .navbar {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 22px;
+    font-size: 13px;
+    color: var(--sub);
+  }
+
+  /* Shared "Pro" pill — looks like a Parlance achievement chip */
+  .pro-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px 6px 8px;
+    background: linear-gradient(135deg, var(--cinnamon), var(--gold) 55%, var(--gold-deep));
+    color: var(--on-gold);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 -1px 0 rgba(0,0,0,0.08) inset;
+  }
+  .pro-pill::before {
+    content: "";
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--on-gold);
+    background:
+      radial-gradient(circle at 35% 35%, #4a3a14 0%, #1a1a1a 70%);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.35);
+  }
+
+  /* Shared check (gold) */
+  .check-gold {
+    width: 18px; height: 18px;
+    flex-shrink: 0;
+    color: var(--gold-deep);
+  }
+
+  /* Shared CTA — matches PrimaryButton in the app: solid gold, dark text */
+  .cta {
+    width: calc(100% - 48px);
+    margin: 18px 24px 0;
+    height: 52px;
+    border: none;
+    border-radius: 14px;
+    background: var(--gold);
+    color: var(--on-gold);
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.005em;
+    cursor: pointer;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.45) inset,
+      0 -2px 0 rgba(110,85,17,0.18) inset;
+  }
+  .cta:hover { background: #EFAF3D; }
+
+  .restore {
+    margin: 14px 24px 0;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--sub);
+  }
+  .restore u { text-decoration-color: rgba(107,100,82,0.4); text-underline-offset: 4px; }
+
+  .trust {
+    margin: 18px 24px 0;
+    font-size: 11.5px;
+    color: var(--sub);
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .legal {
+    margin: 14px 24px 32px;
+    font-size: 10px;
+    line-height: 1.65;
+    color: var(--dim);
+    text-align: center;
+  }
+  .legal .links { margin-top: 8px; font-size: 11px; }
+  .legal a { color: var(--sub); text-decoration: none; }
+  .legal .links span { color: var(--dim); margin: 0 8px; }
+
+  /* ============================================================ */
+  /* DIRECTION 1 — PLAIN LIST (warm)                                */
+  /* Cream card with a small Pro pill, four checked benefits, gold CTA. */
+  /* ============================================================ */
+
+  .d1 .hero {
+    margin: 8px 24px 0;
+  }
+  .d1 .hero .title {
+    margin: 12px 0 0;
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .d1 .hero .deck {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--sub);
+  }
+
+  .d1 .card {
+    margin: 24px 22px 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 6px 18px;
+  }
+  .d1 .list { list-style: none; padding: 0; margin: 0; }
+  .d1 .list li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    align-items: start;
+    column-gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(201,190,156,0.55);
+  }
+  .d1 .list li:last-child { border-bottom: none; }
+  .d1 .list .label {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+  }
+  .d1 .list .sub {
+    font-size: 12.5px;
+    color: var(--sub);
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .d1 .pricerow {
+    margin: 22px 24px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .d1 .pricerow .price {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .d1 .pricerow .meta {
+    font-size: 12.5px;
+    color: var(--sub);
+  }
+
+  /* ============================================================ */
+  /* DIRECTION 2 — FREE vs PRO COMPARISON (warm)                    */
+  /* ============================================================ */
+
+  .d2 .hero { margin: 8px 22px 0; }
+  .d2 .hero .title {
+    margin: 12px 0 0;
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .d2 .hero .deck {
+    margin: 10px 0 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--sub);
+  }
+
+  .d2 .table {
+    margin: 22px 22px 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--card);
+    overflow: hidden;
+  }
+  .d2 .thead {
+    display: grid;
+    grid-template-columns: 1fr 78px 88px;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--card2);
+    border-bottom: 1px solid var(--border);
+  }
+  .d2 .thead .col {
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+  }
+  .d2 .thead .col.first { text-align: left; color: var(--sub); }
+  .d2 .thead .col.free { color: var(--sub); }
+  .d2 .thead .col.pro {
+    color: var(--on-gold);
+    background: linear-gradient(135deg, var(--cinnamon), var(--gold) 60%, var(--gold-deep));
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin: -2px -4px;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset;
+  }
+
+  .d2 .trow {
+    display: grid;
+    grid-template-columns: 1fr 78px 88px;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(201,190,156,0.55);
+  }
+  .d2 .trow:last-child { border-bottom: none; }
+  .d2 .trow .feat {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  .d2 .trow .feat .small {
+    display: block;
+    font-size: 11.5px;
+    color: var(--sub);
+    margin-top: 2px;
+    font-weight: 400;
+  }
+  .d2 .trow .cell {
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+  .d2 .trow .cell.dim { color: var(--dim); font-weight: 500; }
+  .d2 .trow .cell.pro { color: var(--gold-deep); }
+  .d2 .trow .cell .check {
+    display: inline-block;
+    width: 18px; height: 18px;
+    vertical-align: middle;
+    color: var(--gold-deep);
+  }
+  .d2 .trow .cell .check.dim { color: var(--dim); }
+
+  .d2 .pricebox {
+    margin: 22px 22px 0;
+    text-align: center;
+  }
+  .d2 .pricebox .price {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--text);
+    letter-spacing: -0.015em;
+  }
+  .d2 .pricebox .meta {
+    font-size: 12.5px;
+    color: var(--sub);
+    margin-top: 4px;
+  }
+
+  /* ============================================================ */
+  /* DIRECTION 3 — WARM HERO + BENEFITS                              */
+  /* Hero is a cinnamon→gold gradient card (like Daily Challenge),  */
+  /* benefits sit on the cream page beneath it.                     */
+  /* ============================================================ */
+
+  .d3 .hero-card {
+    margin: 8px 22px 0;
+    background: linear-gradient(140deg, var(--challenge-start), var(--challenge-end));
+    border-radius: 18px;
+    padding: 22px 22px 24px;
+    color: var(--on-gold);
+    position: relative;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.45) inset,
+      0 -2px 0 rgba(110,85,17,0.20) inset,
+      0 14px 30px -16px rgba(110,85,17,0.45);
+    overflow: hidden;
+  }
+  .d3 .hero-card::after {
+    /* Soft warm wash to add depth without ornament */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 80% at 90% 110%, rgba(26,26,26,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .d3 .pro-pill {
+    background: rgba(26,26,26,0.10);
+    color: var(--on-gold);
+    box-shadow: none;
+    backdrop-filter: blur(0px);
+  }
+  .d3 .pro-pill::before {
+    background: var(--on-gold);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.4);
+  }
+  .d3 .hero-title {
+    margin: 14px 0 0;
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--on-gold);
+  }
+  .d3 .hero-deck {
+    margin: 10px 0 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: rgba(26,26,26,0.75);
+    max-width: 280px;
+  }
+  .d3 .hero-foot {
+    margin-top: 18px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid rgba(26,26,26,0.18);
+  }
+  .d3 .hero-foot .price {
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--on-gold);
+    letter-spacing: -0.01em;
+  }
+  .d3 .hero-foot .meta {
+    font-size: 11.5px;
+    color: rgba(26,26,26,0.65);
+    font-weight: 500;
+  }
+
+  .d3 .section-label {
+    margin: 24px 24px 6px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sub);
+    font-weight: 600;
+  }
+  .d3 .benefits { margin: 0 24px; }
+  .d3 .b {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hairline);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    column-gap: 12px;
+    align-items: start;
+  }
+  .d3 .b:last-child { border-bottom: none; }
+  .d3 .b .num {
+    font-family: "Fraunces", serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--gold-deep);
+    line-height: 1.5;
+  }
+  .d3 .b h3 {
+    margin: 0;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.005em;
+  }
+  .d3 .b p {
+    margin: 2px 0 0;
+    font-size: 12.5px;
+    color: var(--sub);
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+  <header class="gallery-head">
+    <div class="gallery-eyebrow">Parlance · paywall · directions v3</div>
+    <h1 class="gallery-title">On-brand color, restrained structure.</h1>
+  </header>
+
+  <div class="row">
+
+    <!-- ============================================================ -->
+    <!-- DIR 01 — PLAIN LIST (warm)                                     -->
+    <!-- ============================================================ -->
+    <section class="direction">
+      <div class="direction-caption">
+        <div class="direction-index">DIR · 01</div>
+        <div class="direction-name">Plain list, warm card</div>
+        <p class="direction-desc">Pro pill → title → four benefits on a cream card with gold checks → price → gold CTA. Same color rhythm as the rest of the app.</p>
+      </div>
+      <div class="phone">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="status">
+            <span>9:41</span>
+            <span class="icons">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="9" rx="1"/><rect x="15" y="0" width="2" height="11" rx="1" opacity="0.5"/></svg>
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1"><path d="M1 4 a7 7 0 0 1 14 0"/><path d="M3.5 6 a4 4 0 0 1 9 0" opacity="0.6"/><circle cx="8" cy="9" r="1" fill="currentColor"/></svg>
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="currentColor" stroke-opacity="0.5"/><rect x="2" y="2" width="18" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" fill-opacity="0.5"/></svg>
+            </span>
+          </div>
+          <div class="scroll d1">
+            <div class="navbar">Dismiss</div>
+
+            <div class="hero">
+              <span class="pro-pill">Parlance Pro</span>
+              <h1 class="title">Everything in Parlance.</h1>
+              <p class="deck">Unlock all modes, all difficulty levels, and the tone signals your delivery is sending.</p>
+            </div>
+
+            <div class="card">
+              <ul class="list">
+                <li>
+                  <svg class="check-gold" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                  <div>
+                    <div class="label">5 more modes</div>
+                    <div class="sub">Real Life, Keynote, Debate, Storytelling, Negotiation.</div>
+                  </div>
+                </li>
+                <li>
+                  <svg class="check-gold" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                  <div>
+                    <div class="label">Tone analysis</div>
+                    <div class="sub">See when your delivery loses energy.</div>
+                  </div>
+                </li>
+                <li>
+                  <svg class="check-gold" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                  <div>
+                    <div class="label">Advanced &amp; Expert difficulty</div>
+                    <div class="sub">Real-stakes prompts. Levels 7–10.</div>
+                  </div>
+                </li>
+                <li>
+                  <svg class="check-gold" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                  <div>
+                    <div class="label">Unlimited sessions</div>
+                    <div class="sub">No daily cap.</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pricerow">
+              <span class="price">$4.99 / month</span>
+              <span class="meta">cancel anytime</span>
+            </div>
+
+            <button class="cta">Start Pro · $4.99/mo</button>
+            <div class="restore"><u>Restore purchases</u></div>
+
+            <p class="trust">We transcribe on-device. Audio is deleted after each session.</p>
+
+            <div class="legal">
+              $4.99/month, auto-renewing. Cancel at least 24 hours before the renewal date in App Store Settings or it will renew automatically.
+              <div class="links"><a>Terms of Use</a><span>·</span><a>Privacy Policy</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DIR 02 — FREE vs PRO COMPARISON (warm)                          -->
+    <!-- ============================================================ -->
+    <section class="direction">
+      <div class="direction-caption">
+        <div class="direction-index">DIR · 02</div>
+        <div class="direction-name">Free vs Pro</div>
+        <p class="direction-desc">Two-column comparison with the Pro header painted in the gold gradient. Shows exactly what changes when you upgrade — same warm palette throughout.</p>
+      </div>
+      <div class="phone">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="status">
+            <span>9:41</span>
+            <span class="icons">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="9" rx="1"/><rect x="15" y="0" width="2" height="11" rx="1" opacity="0.5"/></svg>
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1"><path d="M1 4 a7 7 0 0 1 14 0"/><path d="M3.5 6 a4 4 0 0 1 9 0" opacity="0.6"/><circle cx="8" cy="9" r="1" fill="currentColor"/></svg>
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="currentColor" stroke-opacity="0.5"/><rect x="2" y="2" width="18" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" fill-opacity="0.5"/></svg>
+            </span>
+          </div>
+          <div class="scroll d2">
+            <div class="navbar">Dismiss</div>
+
+            <div class="hero">
+              <span class="pro-pill">Parlance Pro</span>
+              <h1 class="title">Everything in Parlance.</h1>
+              <p class="deck">Here's what changes when you upgrade.</p>
+            </div>
+
+            <div class="table">
+              <div class="thead">
+                <div class="col first">Feature</div>
+                <div class="col free">Free</div>
+                <div class="col pro">Pro</div>
+              </div>
+
+              <div class="trow">
+                <div class="feat">Practice modes <span class="small">Interview, Pitch, Daily Convo, Impromptu, Networking</span></div>
+                <div class="cell dim">5</div>
+                <div class="cell pro">10</div>
+              </div>
+              <div class="trow">
+                <div class="feat">Difficulty levels <span class="small">Beginner through Expert</span></div>
+                <div class="cell dim">1–6</div>
+                <div class="cell pro">1–10</div>
+              </div>
+              <div class="trow">
+                <div class="feat">Sessions per day</div>
+                <div class="cell dim">3</div>
+                <div class="cell pro">Unlimited</div>
+              </div>
+              <div class="trow">
+                <div class="feat">Tone analysis <span class="small">See when delivery loses energy</span></div>
+                <div class="cell dim">—</div>
+                <div class="cell pro">
+                  <svg class="check" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                </div>
+              </div>
+              <div class="trow">
+                <div class="feat">Filler word &amp; pace analysis</div>
+                <div class="cell">
+                  <svg class="check dim" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                </div>
+                <div class="cell pro">
+                  <svg class="check" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 9 7 13 15 5"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="pricebox">
+              <div class="price">$4.99 / month</div>
+              <div class="meta">cancel anytime</div>
+            </div>
+
+            <button class="cta">Start Pro · $4.99/mo</button>
+            <div class="restore"><u>Restore purchases</u></div>
+
+            <p class="trust">We transcribe on-device. Audio is deleted after each session.</p>
+
+            <div class="legal">
+              $4.99/month, auto-renewing. Cancel at least 24 hours before the renewal date in App Store Settings or it will renew automatically.
+              <div class="links"><a>Terms of Use</a><span>·</span><a>Privacy Policy</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DIR 03 — GOLD HERO + DETAILED BENEFITS                          -->
+    <!-- ============================================================ -->
+    <section class="direction">
+      <div class="direction-caption">
+        <div class="direction-index">DIR · 03</div>
+        <div class="direction-name">Gold hero</div>
+        <p class="direction-desc">Pro is the centerpiece: a gold gradient card (same as the Daily Challenge tile) with the title and price together. Numbered benefits sit beneath on the cream page.</p>
+      </div>
+      <div class="phone">
+        <div class="screen">
+          <div class="island"></div>
+          <div class="status">
+            <span>9:41</span>
+            <span class="icons">
+              <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="5" y="4" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="9" rx="1"/><rect x="15" y="0" width="2" height="11" rx="1" opacity="0.5"/></svg>
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1"><path d="M1 4 a7 7 0 0 1 14 0"/><path d="M3.5 6 a4 4 0 0 1 9 0" opacity="0.6"/><circle cx="8" cy="9" r="1" fill="currentColor"/></svg>
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="currentColor" stroke-opacity="0.5"/><rect x="2" y="2" width="18" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" fill-opacity="0.5"/></svg>
+            </span>
+          </div>
+          <div class="scroll d3">
+            <div class="navbar">Dismiss</div>
+
+            <div class="hero-card">
+              <span class="pro-pill">Parlance Pro</span>
+              <h1 class="hero-title">Unlock the full coach.</h1>
+              <p class="hero-deck">All modes. All levels. The signals your delivery is sending.</p>
+              <div class="hero-foot">
+                <span class="price">$4.99 / month</span>
+                <span class="meta">cancel anytime</span>
+              </div>
+            </div>
+
+            <div class="section-label">What's included</div>
+            <div class="benefits">
+              <div class="b">
+                <span class="num">01</span>
+                <div>
+                  <h3>5 more modes</h3>
+                  <p>Real Life, Keynote, Debate, Storytelling, and Negotiation — mode-specific prompts and feedback.</p>
+                </div>
+              </div>
+              <div class="b">
+                <span class="num">02</span>
+                <div>
+                  <h3>Tone analysis</h3>
+                  <p>Per-session breakdown of energy and emphasis so you can see exactly where you lost the room.</p>
+                </div>
+              </div>
+              <div class="b">
+                <span class="num">03</span>
+                <div>
+                  <h3>Advanced &amp; Expert difficulty</h3>
+                  <p>Levels 7 through 10 — real-stakes prompts that match the rooms you're actually preparing for.</p>
+                </div>
+              </div>
+              <div class="b">
+                <span class="num">04</span>
+                <div>
+                  <h3>Unlimited sessions</h3>
+                  <p>No daily cap. Drill a tough prompt ten times in a row if that's what it takes.</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="cta">Start Pro · $4.99/mo</button>
+            <div class="restore"><u>Restore purchases</u></div>
+
+            <p class="trust">We transcribe on-device. Audio is deleted after each session.</p>
+
+            <div class="legal">
+              $4.99/month, auto-renewing. Cancel at least 24 hours before the renewal date in App Store Settings or it will renew automatically.
+              <div class="links"><a>Terms of Use</a><span>·</span><a>Privacy Policy</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
