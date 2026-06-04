@@ -75,8 +75,8 @@ struct HomeView: View {
             }
             .overlay {
                 if streakExpanded {
-                    Color.black
-                        .opacity(colorScheme == .dark ? 0.45 : 0.20)
+                    AppColors.bg
+                        .opacity(0.6)
                         .ignoresSafeArea()
                         .contentShape(Rectangle())
                         .onTapGesture {
@@ -318,7 +318,7 @@ struct HomeView: View {
         AppColors.difficultyRamp(band: id)
     }
 
-    /// Editorial section header: hairline top + Fraunces title.
+    /// Editorial section header: hairline top + bold title.
     private func sectionTitle(_ title: String) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             Rectangle()
@@ -394,7 +394,7 @@ struct HomeView: View {
                         Text("Expert · Pro")
                     }
                     .font(AppFonts.bodyBold(10))
-                    .kerning(0.6)
+                    .kerning(0.4)
                     .foregroundStyle(AppColors.dim)
                     .padding(.top, 2)
                 }
@@ -495,10 +495,10 @@ struct HomeView: View {
             Text(value)
                 .font(AppFonts.display(22))
                 .foregroundStyle(AppColors.gold)
-            Text(label.uppercased())
+            Text(label)
                 .font(AppFonts.bodyMedium(11))
                 .foregroundStyle(AppColors.dim)
-                .kerning(0.5)
+                .kerning(0.4)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 14)
