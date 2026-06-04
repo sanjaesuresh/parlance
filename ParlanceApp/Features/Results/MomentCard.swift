@@ -56,9 +56,9 @@ struct AIMomentsCard: View {
                         .font(.system(size: 10, weight: .semibold))
                         .foregroundStyle(accentColor)
                 }
-                Text(label)
+                Text(labelCased(label))
                     .font(AppFonts.bodyBold(10))
-                    .kerning(1.2)
+                    .kerning(0.4)
                     .foregroundStyle(accentColor)
             }
 
@@ -80,6 +80,10 @@ struct AIMomentsCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 10)
+    }
+
+    private func labelCased(_ raw: String) -> String {
+        raw.prefix(1).uppercased() + raw.dropFirst().lowercased()
     }
 }
 
@@ -139,9 +143,9 @@ struct MomentsCard: View {
                         .font(.system(size: 10, weight: .semibold))
                         .foregroundStyle(accentColor)
                 }
-                Text(label)
+                Text(labelCased(label))
                     .font(AppFonts.bodyBold(10))
-                    .kerning(1.2)
+                    .kerning(0.4)
                     .foregroundStyle(accentColor)
                 Spacer()
                 Text(timestamp)
@@ -163,5 +167,9 @@ struct MomentsCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, 10)
+    }
+
+    private func labelCased(_ raw: String) -> String {
+        raw.prefix(1).uppercased() + raw.dropFirst().lowercased()
     }
 }

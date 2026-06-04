@@ -23,10 +23,10 @@ struct ResultsTonePhase: View {
                 }
             } label: {
                 HStack {
-                    Text("TONE ANALYSIS")
+                    Text("Tone analysis")
                         .font(AppFonts.bodyBold(10))
                         .foregroundStyle(AppColors.dim)
-                        .kerning(0.8)
+                        .kerning(0.4)
 
                     Spacer()
 

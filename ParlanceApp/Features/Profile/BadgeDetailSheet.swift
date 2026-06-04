@@ -72,15 +72,15 @@ struct BadgeDetailSheet: View {
 
     private var tierEyebrow: some View {
         HStack(spacing: 6) {
-            Text(tierLabel.uppercased())
+            Text(tierLabel)
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.4)
+                .kerning(0.4)
                 .foregroundStyle(tierColor)
             Text("·")
                 .foregroundStyle(AppColors.dim)
-            Text(categoryLabel.uppercased())
+            Text(categoryLabel)
                 .font(AppFonts.bodyMedium(10))
-                .kerning(1.4)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
         }
     }
@@ -105,9 +105,9 @@ struct BadgeDetailSheet: View {
         } else if achievement.goal > 1 {
             VStack(spacing: 8) {
                 HStack {
-                    Text("PROGRESS")
+                    Text("Progress")
                         .font(AppFonts.bodyBold(10))
-                        .kerning(1.4)
+                        .kerning(0.4)
                         .foregroundStyle(AppColors.dim)
                     Spacer()
                     Text("\(progressText) / \(goalText)")
@@ -127,9 +127,9 @@ struct BadgeDetailSheet: View {
                 .frame(height: 6)
             }
         } else {
-            Text("LOCKED")
+            Text("Locked")
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.4)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
         }
     }

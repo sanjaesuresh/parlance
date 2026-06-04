@@ -343,10 +343,10 @@ struct SettingsSheet: View {
             Rectangle()
                 .fill(AppColors.border)
                 .frame(height: 1)
-            Text("FINE PRINT")
+            Text("Fine print")
                 .font(AppFonts.bodyMedium(10))
                 .foregroundStyle(AppColors.dim)
-                .kerning(1.2)
+                .kerning(0.4)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text("Your data")

@@ -57,9 +57,9 @@ struct HomeGreeting: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(eyebrow.uppercased())
+            Text(eyebrow)
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.6)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
 
             (Text(headline)

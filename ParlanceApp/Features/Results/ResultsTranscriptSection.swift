@@ -14,10 +14,10 @@ struct ResultsTranscriptSection: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("YOUR RESPONSE")
+                Text("Your response")
                     .font(AppFonts.bodyBold(10))
                     .foregroundStyle(AppColors.dim)
-                    .kerning(0.8)
+                    .kerning(0.4)
 
                 if session.fillerCount > 0 {
                     Text("\(session.fillerCount) filler\(session.fillerCount == 1 ? "" : "s")")

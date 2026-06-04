@@ -63,9 +63,9 @@ struct StatsStripView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
 
-            Text(label.uppercased())
+            Text(label)
                 .font(AppFonts.body(9))
-                .kerning(0.9)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
                 .padding(.top, 6)
 

@@ -11,10 +11,9 @@ struct CoachBriefView: View {
                 .fill(AppColors.border)
                 .frame(height: 1)
 
-            Text("FROM YOUR COACH")
+            Text("From your coach")
                 .font(AppFonts.bodyMedium(10))
-                .kerning(1.4)
-                .textCase(.uppercase)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
                 .padding(.top, 22)
 

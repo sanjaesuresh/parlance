@@ -92,10 +92,9 @@ struct SkillCardView: View {
                 .padding(.top, 12)
 
             VStack(alignment: .leading, spacing: 6) {
-                Text("COACH'S TIP")
+                Text("Coach's tip")
                     .font(AppFonts.bodyBold(9))
-                    .kerning(1.4)
-                    .textCase(.uppercase)
+                    .kerning(0.4)
                     .foregroundStyle(AppColors.gold)
 
                 Text(card.coachTip)

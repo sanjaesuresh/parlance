@@ -131,9 +131,9 @@ struct ProgressTabView: View {
 
     private var headerView: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text("YOUR JOURNEY")
+            Text("Your journey")
                 .font(AppFonts.bodyMedium(11))
-                .kerning(1.2)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
             HStack(spacing: 0) {
                 Text("Progress")

@@ -76,7 +76,7 @@ struct ModeGridView: View {
             } else if let badge = badgeLabel(for: mode) {
                 Text(badge)
                     .font(AppFonts.bodyBold(9))
-                    .kerning(1.2)
+                    .kerning(0.4)
                     .foregroundStyle(mode.accentColor)
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
@@ -89,8 +89,8 @@ struct ModeGridView: View {
 
     private func badgeLabel(for mode: SessionMode) -> String? {
         switch mode {
-        case .realLife: "CUSTOM"
-        case .explanation: "FOCUSED"
+        case .realLife: "Custom"
+        case .explanation: "Focused"
         default: nil
         }
     }

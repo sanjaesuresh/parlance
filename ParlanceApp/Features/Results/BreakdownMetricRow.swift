@@ -24,9 +24,9 @@ struct BreakdownMetricRow: View {
 
     private var statusLabel: String {
         switch status {
-        case .strong: return "STRONG"
-        case .watch: return "WATCH"
-        case .focus: return "FOCUS"
+        case .strong: return "Strong"
+        case .watch: return "Watch"
+        case .focus: return "Focus"
         }
     }
 
@@ -47,7 +47,7 @@ struct BreakdownMetricRow: View {
                         Spacer()
                         Text(statusLabel)
                             .font(AppFonts.bodyBold(10))
-                            .kerning(1)
+                            .kerning(0.4)
                             .foregroundStyle(statusColor)
                     }
 

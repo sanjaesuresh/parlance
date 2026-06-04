@@ -94,10 +94,10 @@ struct RecordingView: View {
                             Rectangle()
                                 .fill(AppColors.border)
                                 .frame(height: 1)
-                            Text("FOCUS AREAS")
+                            Text("Focus areas")
                                 .font(AppFonts.bodyBold(9))
                                 .foregroundStyle(AppColors.dim)
-                                .kerning(1.3)
+                                .kerning(0.4)
                                 .fixedSize()
                             Rectangle()
                                 .fill(AppColors.border)
@@ -314,7 +314,7 @@ struct RecordingView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("Parlance records your voice on this device. The audio is deleted after the session — only the transcript is sent to our AI for coaching feedback.")
+            Text("Parlance records your voice on this device. The audio is deleted after the session. Only the transcript is sent to our AI for coaching feedback.")
         }
         .alert("Speech Recognition", isPresented: $viewModel.showSpeechPrePrompt) {
             Button("Enable") {

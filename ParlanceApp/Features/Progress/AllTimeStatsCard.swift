@@ -58,8 +58,7 @@ struct AllTimeStatsCard: View {
                 .foregroundStyle(gold ? AppColors.gold : AppColors.text)
             Text(label)
                 .font(AppFonts.body(9))
-                .kerning(0.9)
-                .textCase(.uppercase)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
         }
         .frame(maxWidth: .infinity, alignment: .leading)

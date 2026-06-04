@@ -127,9 +127,9 @@ struct AvatarPickerSheet: View {
 
     private var photoSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("PHOTO")
+            Text("Photo")
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.8)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
 
             PhotosPicker(selection: $photoPickerItem, matching: .images) {
@@ -171,9 +171,9 @@ struct AvatarPickerSheet: View {
 
     private var emojiSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("EMOJI")
+            Text("Emoji")
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.8)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
 
             LazyVGrid(columns: gridColumns, spacing: 14) {

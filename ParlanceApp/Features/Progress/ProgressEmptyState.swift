@@ -7,9 +7,9 @@ struct ProgressEmptyHeroCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("GET STARTED")
+            Text("Get started")
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.8)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.gold)
 
             Text("Record one session, watch this fill in.")

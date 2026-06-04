@@ -229,10 +229,10 @@ struct LoadingView: View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 10) {
                 Rectangle().fill(AppColors.border).frame(height: 1)
-                Text("FOCUS AREAS")
+                Text("Focus areas")
                     .font(AppFonts.bodyBold(9))
                     .foregroundStyle(AppColors.dim)
-                    .kerning(1.3)
+                    .kerning(0.4)
                     .fixedSize()
                 Rectangle().fill(AppColors.border).frame(height: 1)
             }
@@ -269,11 +269,11 @@ struct LoadingView: View {
     }
 
     private func recoverableRefusalCard(reason: String, kind: RealLifeRefusalKind) -> some View {
-        let title = (kind == .notASpeakingPrompt) ? "LET'S TRY AGAIN" : "CAN'T COACH THIS ONE"
+        let title = (kind == .notASpeakingPrompt) ? "Let's try again" : "Can't coach this one"
         return VStack(alignment: .leading, spacing: 14) {
             Text(title)
                 .font(AppFonts.bodyBold(9))
-                .kerning(1.3)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
             Text(reason)
                 .font(AppFonts.body(14))

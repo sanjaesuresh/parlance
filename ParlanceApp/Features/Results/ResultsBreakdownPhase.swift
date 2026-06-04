@@ -274,9 +274,9 @@ struct ResultsBreakdownPhase: View {
 
     private var breakdownSection: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("BREAKDOWN")
+            Text("Breakdown")
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.6)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
                 .padding(.bottom, 12)
 
@@ -301,9 +301,9 @@ struct ResultsBreakdownPhase: View {
                 .frame(height: 1)
 
             VStack(alignment: .leading, spacing: 10) {
-                Text("UP NEXT")
+                Text("Up next")
                     .font(AppFonts.bodyBold(10))
-                    .kerning(1.6)
+                    .kerning(0.4)
                     .foregroundStyle(AppColors.dim)
 
                 HStack(spacing: 10) {

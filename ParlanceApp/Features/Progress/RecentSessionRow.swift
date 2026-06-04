@@ -39,8 +39,7 @@ struct RecentSessionRow: View {
                 .lineLimit(1)
             Text(monthString)
                 .font(AppFonts.body(9))
-                .kerning(1.0)
-                .textCase(.uppercase)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
         }
         .frame(width: 42, alignment: .trailing)
@@ -50,8 +49,7 @@ struct RecentSessionRow: View {
         VStack(alignment: .leading, spacing: 3) {
             Text(session.mode.displayName)
                 .font(AppFonts.body(10))
-                .kerning(0.8)
-                .textCase(.uppercase)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
             Text(session.question)
                 .font(AppFonts.body(13))

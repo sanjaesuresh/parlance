@@ -40,9 +40,9 @@ struct ToneSparklineView: View {
             chart
                 .padding(EdgeInsets(top: 22, leading: 12, bottom: 8, trailing: 12))
 
-            Text("TONE ARC")
+            Text("Tone arc")
                 .font(AppFonts.bodyBold(9))
-                .kerning(1.4)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
                 .padding(.top, 8)
                 .padding(.leading, 12)

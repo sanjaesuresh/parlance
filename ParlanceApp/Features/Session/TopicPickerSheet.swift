@@ -20,8 +20,8 @@ struct TopicPickerSheet: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 22) {
                     section(label: nil, items: [.any])
-                    section(label: "INDUSTRIES", items: industries)
-                    section(label: "KNOWLEDGE", items: knowledge)
+                    section(label: "Industries", items: industries)
+                    section(label: "Knowledge", items: knowledge)
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 6)
@@ -81,7 +81,7 @@ struct TopicPickerSheet: View {
                 HStack(spacing: 8) {
                     Text(label)
                         .font(AppFonts.bodyBold(10))
-                        .kerning(1.4)
+                        .kerning(0.4)
                         .foregroundStyle(AppColors.dim)
                     Rectangle()
                         .fill(AppColors.border)

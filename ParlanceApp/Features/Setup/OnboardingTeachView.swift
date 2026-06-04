@@ -107,7 +107,7 @@ private struct OnboardingTeachModesStep: View {
                     Spacer().frame(height: 12)
 
                     OnboardingTeachHeader(title: "Four ways to practice.",
-                                          meta: "STEP 1 OF 3")
+                                          meta: "Step 1 of 3")
                         .padding(.horizontal, 24)
 
                     VStack(spacing: 10) {
@@ -142,17 +142,12 @@ private struct OnboardingTeachModesStep: View {
                     .font(AppFonts.body(14))
                     .foregroundStyle(AppColors.sub)
                 if isExpanded {
-                    HStack(alignment: .top, spacing: 8) {
-                        Rectangle()
-                            .fill(AppColors.gold)
-                            .frame(width: 2)
-                        Text(mode.example)
-                            .font(AppFonts.body(13))
-                            .foregroundStyle(AppColors.text.opacity(0.85))
-                            .italic()
-                    }
-                    .padding(.top, 4)
-                    .transition(.opacity.combined(with: .move(edge: .top)))
+                    Text(mode.example)
+                        .font(AppFonts.body(13))
+                        .foregroundStyle(AppColors.text.opacity(0.85))
+                        .italic()
+                        .padding(.top, 4)
+                        .transition(.opacity.combined(with: .move(edge: .top)))
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -190,7 +185,7 @@ private struct OnboardingTeachSessionStep: View {
                     Spacer().frame(height: 12)
 
                     OnboardingTeachHeader(title: "A session is 60 to 120 seconds.",
-                                          meta: "STEP 2 OF 3")
+                                          meta: "Step 2 of 3")
                         .padding(.horizontal, 24)
 
                     // Static mock of the recording UI
@@ -232,10 +227,10 @@ private struct OnboardingTeachSessionStep: View {
                         VStack(alignment: .leading, spacing: 14) {
                             HStack(spacing: 10) {
                                 Rectangle().fill(AppColors.border).frame(height: 1)
-                                Text("FOCUS AREAS")
+                                Text("Focus areas")
                                     .font(AppFonts.bodyBold(9))
                                     .foregroundStyle(AppColors.dim)
-                                    .kerning(1.3)
+                                    .kerning(0.4)
                                     .fixedSize()
                                 Rectangle().fill(AppColors.border).frame(height: 1)
                             }
@@ -331,7 +326,7 @@ private struct OnboardingTeachDifficultyStep: View {
                     Spacer().frame(height: 12)
 
                     OnboardingTeachHeader(title: "Where do you want to start?",
-                                          meta: "STEP 3 OF 3")
+                                          meta: "Step 3 of 3")
                         .padding(.horizontal, 24)
 
                     VStack(spacing: 10) {
@@ -419,7 +414,7 @@ private struct OnboardingTeachHeader: View {
                 .padding(.bottom, 12)
             Text(meta)
                 .font(AppFonts.bodyBold(10))
-                .kerning(1.4)
+                .kerning(0.4)
                 .foregroundStyle(AppColors.dim)
                 .padding(.bottom, 10)
             Text(title)

@@ -58,10 +58,10 @@ struct SamplePreviewView: View {
 
     private var questionCard: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("SAMPLE QUESTION")
+            Text("Sample question")
                 .font(AppFonts.bodyBold(9))
                 .foregroundStyle(AppColors.dim)
-                .kerning(1)
+                .kerning(0.4)
 
             Text("Tell me about a time you led a team through a difficult situation.")
                 .font(AppFonts.body(14))
@@ -96,12 +96,12 @@ struct SamplePreviewView: View {
 
     private var aiCoachCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("AI COACH FEEDBACK")
+            Text("From your coach")
                 .font(AppFonts.bodyBold(10))
                 .foregroundStyle(AppColors.gold)
-                .kerning(0.8)
+                .kerning(0.4)
 
-            Text("Solid STAR structure — your example was specific and the outcome tied to your actions. Trim the preamble next time — the first 12 seconds added nothing concrete. Pace was steady; vocabulary was strong without being jargon-heavy.")
+            Text("Solid STAR structure: your example was specific and the outcome tied to your actions. Trim the preamble next time. The first 12 seconds added nothing concrete. Pace was steady; vocabulary was strong without being jargon-heavy.")
                 .font(AppFonts.body(13))
                 .foregroundStyle(AppColors.dim)
                 .lineSpacing(6)
@@ -119,10 +119,10 @@ struct SamplePreviewView: View {
 
     private var metricsSection: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("BREAKDOWN")
+            Text("Breakdown")
                 .font(AppFonts.bodyBold(9))
                 .foregroundStyle(AppColors.dim)
-                .kerning(1)
+                .kerning(0.4)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 4)
 
@@ -135,7 +135,7 @@ struct SamplePreviewView: View {
     // MARK: - Footnote
 
     private var footnote: some View {
-        Text("Practice feedback only — not professional coaching or medical advice.")
+        Text("Practice feedback only. Not professional coaching or medical advice.")
             .font(AppFonts.body(11))
             .italic()
             .foregroundStyle(AppColors.dim)

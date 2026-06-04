@@ -50,10 +50,10 @@ struct ProfileEditSheet: View {
                 VStack(spacing: 24) {
                     // Avatar picker
                     VStack(spacing: 12) {
-                        Text("AVATAR")
+                        Text("Avatar")
                             .font(AppFonts.bodyBold(10))
                             .foregroundStyle(AppColors.dim)
-                            .kerning(1)
+                            .kerning(0.4)
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
@@ -219,10 +219,10 @@ struct ProfileEditSheet: View {
         @ViewBuilder content: () -> Content
     ) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(label.uppercased())
+            Text(label)
                 .font(AppFonts.bodyBold(10))
                 .foregroundStyle(AppColors.dim)
-                .kerning(1)
+                .kerning(0.4)
 
             content()
                 .padding(14)

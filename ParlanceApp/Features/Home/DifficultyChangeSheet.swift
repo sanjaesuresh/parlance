@@ -137,7 +137,7 @@ struct DifficultyChangeSheet: View {
             if locked {
                 Text("PRO")
                     .font(AppFonts.bodyBold(10))
-                    .kerning(1.2)
+                    .kerning(0.5)
                     .foregroundStyle(AppColors.gold)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
