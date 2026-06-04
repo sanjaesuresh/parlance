@@ -93,7 +93,7 @@ struct AuthProfileSetupView: View {
                 }
 
                 // Occupation (optional)
-                setupField(label: "Job or role", hint: "Optional — helps tailor your practice") {
+                setupField(label: "Job or role", hint: "Optional. Helps tailor your practice.") {
                     TextField("e.g. Software Engineer, Student…", text: $occupation)
                         .font(AppFonts.body(17))
                         .foregroundStyle(AppColors.text)
@@ -121,7 +121,7 @@ struct AuthProfileSetupView: View {
                         Text("How comfortable are you with public speaking?")
                             .font(AppFonts.bodyMedium(14))
                             .foregroundStyle(AppColors.sub)
-                        Text("Sets your starting difficulty — you can change this anytime.")
+                        Text("Sets your starting difficulty. You can change this anytime.")
                             .font(AppFonts.body(11))
                             .foregroundStyle(AppColors.dim)
                     }

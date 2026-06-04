@@ -240,7 +240,7 @@ enum ProgressMockData {
             score: 78, duration: 82, filler: 3,
             pace: 7, clarity: 8, structure: 6, vocab: 8,
             question: "Explain what you do for work to someone who's never heard of it.",
-            transcript: "I build software that helps people practice speaking. Imagine a treadmill for talking — you get on, work out, and get feedback.",
+            transcript: "I build software that helps people practice speaking. Imagine a treadmill for talking: you get on, work out, and get feedback.",
             feedback: "Great analogy. The treadmill image is memorable. Fewer fillers in the second half would keep the energy high.",
             xp: 38
         ),
@@ -259,7 +259,7 @@ enum ProgressMockData {
             pace: 8, clarity: 8, structure: 6, vocab: 8,
             question: "You have 60 seconds: convince someone to try a new hobby.",
             transcript: "Pick one thing you've watched but never tried. Give it three sessions. By session three you'll know if it sticks.",
-            feedback: "Strong setup and a clear ask. The middle wandered — commit to a single reason.",
+            feedback: "Strong setup and a clear ask. The middle wandered. Commit to a single reason.",
             xp: 40
         ),
 
@@ -270,7 +270,7 @@ enum ProgressMockData {
             pace: 9, clarity: 9, structure: 8, vocab: 9,
             question: "Walk me through how a vaccine works.",
             transcript: "A vaccine is a rehearsal. You introduce a harmless preview of the threat so your immune system writes the play before opening night.",
-            feedback: "One of your strongest sessions. The layered explanation held together from start to finish — vocabulary was precise without becoming jargon.",
+            feedback: "One of your strongest sessions. The layered explanation held together from start to finish. Vocabulary was precise without becoming jargon.",
             xp: 58
         ),
 
@@ -280,7 +280,7 @@ enum ProgressMockData {
             score: 72, duration: 90, filler: 5,
             pace: 7, clarity: 7, structure: 6, vocab: 7,
             question: "Why do you want to work here?",
-            transcript: "Your culture maps to how I actually want to work — small teams, real ownership, and product decisions made by the people building.",
+            transcript: "Your culture maps to how I actually want to work: small teams, real ownership, and product decisions made by the people building.",
             feedback: "Solid core, but the delivery was tentative. Filler words spiked when discussing culture.",
             xp: 32
         ),
@@ -289,7 +289,7 @@ enum ProgressMockData {
             score: 76, duration: 84, filler: 4,
             pace: 7, clarity: 8, structure: 6, vocab: 8,
             question: "What's a book you'd recommend, and why?",
-            transcript: "The Making of a Manager — it reframes management as a craft you can practice instead of a personality you're born with.",
+            transcript: "The Making of a Manager. It reframes management as a craft you can practice instead of a personality you're born with.",
             feedback: "Specific and personal. A touch fast at the end; slow down on the closing line.",
             xp: 38
         ),

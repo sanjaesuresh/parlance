@@ -23,13 +23,13 @@ enum CannotAnalyzeReason: String, Equatable {
     var body: String {
         switch self {
         case .tooShort:
-            return "Your recording was too short to analyze. Try again — speak for at least a few seconds."
+            return "Your recording was too short to analyze. Try again: speak for at least a few seconds."
         case .inappropriateContent:
             return "We can't analyze recordings with profanity or slurs. Try again with content suited for coaching."
         case .modelRefused:
             return "Something about this recording prevented analysis. Please try again."
         case .offTopic:
-            return "Your response didn't address the prompt. Try again — the coach can't help if you're not answering the question."
+            return "Your response didn't address the prompt. Try again: the coach can't help if you're not answering the question."
         case .transcriptionFailed:
             return "Speech recognition couldn't process the audio. Check your network and microphone, then try again."
         case .interrupted:

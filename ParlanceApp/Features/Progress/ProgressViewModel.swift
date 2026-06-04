@@ -230,7 +230,7 @@ final class ProgressViewModel: ObservableObject {
 
     private func cardNote(for trend: SkillTrendItem, period: PeriodFilter) -> String {
         if period == .allTime {
-            return "\(trend.label) — your lifetime average."
+            return "\(trend.label), your lifetime average."
         }
         guard let delta = trend.deltaVsAllTime else { return "" }
         if delta > 0.5 {
@@ -247,7 +247,7 @@ final class ProgressViewModel: ObservableObject {
         // server-generated brief. Static fallback so the UI always has content.
         switch trend.key {
         case .fillerWords:
-            return "When stakes climb, fillers cluster around transitions. Replace 'so' and 'and like' with a one-beat pause — it reads more confident, not less."
+            return "When stakes climb, fillers cluster around transitions. Replace 'so' and 'and like' with a one-beat pause. It reads more confident, not less."
         case .pace:
             return "Pace creeps up under pressure. A two-second pause before answering buys composure without dead air."
         case .clarity:
