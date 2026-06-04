@@ -37,6 +37,14 @@ enum AppConstants {
         static let xl: CGFloat = 32
     }
 
+    enum Radius {
+        static let xs: CGFloat = 8
+        static let sm: CGFloat = 12
+        static let md: CGFloat = 14
+        static let lg: CGFloat = 18  // matches AppConstants.cardRadius
+        static let xl: CGFloat = 20
+    }
+
     enum IconButton {
         static let size: CGFloat = 36
         static let glyph: CGFloat = 15
