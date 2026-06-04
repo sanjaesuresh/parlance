@@ -64,11 +64,6 @@ struct HomeStreakShell: View {
             )
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
             .compositingGroup()
-            .shadow(
-                color: Color.black.opacity(isExpanded ? 0.22 : 0),
-                radius: isExpanded ? 22 : 0,
-                x: 0, y: 14
-            )
         }
         .buttonStyle(.plain)
         .dynamicTypeSize(...DynamicTypeSize.xLarge)

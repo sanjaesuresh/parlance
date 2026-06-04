@@ -69,17 +69,7 @@ struct ToneDetailSheet: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            ZStack {
-                AppColors.card
-                RadialGradient(
-                    colors: [AppColors.purple.opacity(0.22), .clear],
-                    center: UnitPoint(x: 1.0, y: 0.0),
-                    startRadius: 0,
-                    endRadius: 240
-                )
-            }
-        )
+        .background(AppColors.card2)
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .overlay(
             RoundedRectangle(cornerRadius: 18)
@@ -92,16 +82,10 @@ struct ToneDetailSheet: View {
             Text("✦").font(.system(size: 10))
             Text("PRO").font(AppFonts.bodyBold(9)).kerning(1)
         }
-        .foregroundStyle(AppColors.onGold)
+        .foregroundStyle(AppColors.gold)
         .padding(.horizontal, 8)
         .padding(.vertical, 3)
-        .background(
-            LinearGradient(
-                colors: [AppColors.cinnamon, AppColors.gold],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
+        .background(AppColors.gold.opacity(0.18))
         .clipShape(Capsule())
     }
 
@@ -528,13 +512,7 @@ private struct LargeToneArcView: View {
                             p.addLine(to: CGPoint(x: 0, y: h))
                             p.closeSubpath()
                         }
-                        .fill(
-                            LinearGradient(
-                                colors: [AppColors.teal.opacity(0.28), AppColors.teal.opacity(0.0)],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
-                        )
+                        .fill(AppColors.teal.opacity(0.14))
 
                         Path { p in
                             for (i, v) in pts.enumerated() {

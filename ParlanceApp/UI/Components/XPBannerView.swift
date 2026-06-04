@@ -31,7 +31,6 @@ struct XPBannerView: View {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(AppColors.border, lineWidth: 1)
         )
-        .shadow(color: .black.opacity(0.25), radius: 12, y: 4)
         .padding(.horizontal, 12)
     }
 }

@@ -291,23 +291,12 @@ struct SessionDetailView: View {
             }
         }
         .padding(EdgeInsets(top: 22, leading: 20, bottom: 18, trailing: 20))
-        .background(
-            ZStack {
-                AppColors.aiCoachBg
-                RadialGradient(
-                    colors: [AppColors.gold.opacity(0.10), .clear],
-                    center: .topLeading,
-                    startRadius: 0,
-                    endRadius: 220
-                )
-            }
-        )
+        .background(AppColors.card2)
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .overlay(
             RoundedRectangle(cornerRadius: 18)
                 .stroke(AppColors.gold.opacity(0.5), lineWidth: 1.5)
         )
-        .shadow(color: AppColors.gold.opacity(0.22), radius: 24, x: 0, y: 12)
     }
 
     // MARK: - Transcript

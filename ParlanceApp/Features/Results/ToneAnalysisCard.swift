@@ -100,24 +100,16 @@ struct ToneAnalysisCard: View {
                         .font(AppFonts.bodyBold(9.5))
                         .kerning(1)
                 }
-                .foregroundStyle(AppColors.onGold)
+                .foregroundStyle(AppColors.gold)
                 .padding(.leading, 8)
                 .padding(.trailing, 10)
                 .padding(.vertical, 3)
-                .background(
-                    LinearGradient(
-                        colors: [AppColors.cinnamon, AppColors.gold],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
+                .background(AppColors.gold.opacity(0.18))
                 .clipShape(Capsule())
                 .overlay(
                     Capsule()
-                        .stroke(Color.white.opacity(0.25), lineWidth: 1)
-                        .blendMode(.plusLighter)
+                        .stroke(AppColors.gold.opacity(0.25), lineWidth: 1)
                 )
-                .shadow(color: AppColors.gold.opacity(0.35), radius: 4, x: 0, y: 2)
             }
             .padding(.bottom, 18)
 
@@ -215,47 +207,23 @@ struct ToneAnalysisCard: View {
                 }
                 .padding(EdgeInsets(top: 14, leading: 12, bottom: 14, trailing: 14))
                 .frame(maxWidth: .infinity)
-                .background(
-                    LinearGradient(
-                        colors: [AppColors.purple.opacity(0.24), AppColors.purple.opacity(0.08)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
+                .background(AppColors.card2)
                 .clipShape(RoundedRectangle(cornerRadius: 14))
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
                         .stroke(AppColors.purple.opacity(0.65), lineWidth: 1.5)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14)
-                        .stroke(AppColors.purple.opacity(0.45), lineWidth: 10)
-                        .blur(radius: 12)
-                        .blendMode(.plusLighter)
-                        .mask(RoundedRectangle(cornerRadius: 14))
                 )
             }
             .buttonStyle(.plain)
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            ZStack {
-                AppColors.card
-                RadialGradient(
-                    colors: [AppColors.purple.opacity(0.22), AppColors.purple.opacity(0.06), .clear],
-                    center: UnitPoint(x: 1.0, y: 0.0),
-                    startRadius: 0,
-                    endRadius: 260
-                )
-            }
-        )
+        .background(AppColors.card2)
         .clipShape(RoundedRectangle(cornerRadius: 18))
         .overlay(
             RoundedRectangle(cornerRadius: 18)
                 .stroke(AppColors.purple.opacity(0.55), lineWidth: 1.5)
         )
-        .shadow(color: AppColors.purple.opacity(0.26), radius: 28, x: 0, y: 14)
     }
 
     private func emotionBar(label: String, score: Double, color: Color) -> some View {
@@ -315,10 +283,9 @@ struct ToneAnalysisCard: View {
             mockCardContent
                 .padding(16)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .blur(radius: 5)
                 .allowsHitTesting(false)
 
-            Color.black.opacity(0.45)
+            AppColors.bg.opacity(0.45)
 
             VStack(spacing: 10) {
                 Image(systemName: "lock.fill")
