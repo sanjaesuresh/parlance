@@ -47,7 +47,7 @@ struct WelcomeSplashView: View {
                 }
                 .scaleEffect(phase == .visible ? 1 : 0.55)
                 .opacity(phase == .visible ? 1 : 0)
-                .animation(.spring(duration: 0.3, bounce: 0.22), value: phase)
+                .animation(.easeOut(duration: 0.3), value: phase)
 
                 Spacer().frame(height: 32)
 

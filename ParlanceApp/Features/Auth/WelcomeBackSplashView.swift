@@ -65,7 +65,7 @@ struct WelcomeBackSplashView: View {
     }
 
     private func runSequence() {
-        withAnimation(.spring(duration: 0.55, bounce: 0.28).delay(0.1)) {
+        withAnimation(.easeOut(duration: 0.55).delay(0.1)) {
             avatarVisible = true
         }
 
