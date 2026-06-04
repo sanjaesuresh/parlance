@@ -223,10 +223,10 @@ struct LeagueView: View {
 
     private var headerView: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text("COMPETE & CONNECT")
+            Text("Compete and connect")
                 .font(AppFonts.bodyMedium(11))
                 .foregroundStyle(AppColors.dim)
-                .kerning(1.2)
+                .kerning(0.4)
             HStack(spacing: 0) {
                 Text("Social")
                     .font(AppFonts.display(26))
@@ -269,10 +269,10 @@ struct LeagueView: View {
         return VStack(spacing: 16) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("CURRENT LEAGUE")
+                    Text("Current league")
                         .font(AppFonts.bodyMedium(10))
-                        .foregroundStyle(AppColors.gold)
-                        .kerning(1.0)
+                        .foregroundStyle(AppColors.sub)
+                        .kerning(0.4)
 
                     HStack(spacing: 8) {
                         Image(systemName: "rosette")
@@ -297,14 +297,14 @@ struct LeagueView: View {
                             .foregroundStyle(AppColors.dim)
                         Text("#\(me.rank)")
                             .font(AppFonts.display(34))
-                            .foregroundStyle(AppColors.gold)
+                            .foregroundStyle(AppColors.text)
                     } else {
                         Text("Among friends")
                             .font(AppFonts.body(11))
                             .foregroundStyle(AppColors.dim)
                         Text("#\(userRank)")
                             .font(AppFonts.display(34))
-                            .foregroundStyle(AppColors.gold)
+                            .foregroundStyle(AppColors.text)
                     }
                 }
             }
@@ -318,7 +318,7 @@ struct LeagueView: View {
                         Spacer()
                         Text("\(weeklyXP) / \(tier.xpForNextTier ?? weeklyXP) XP")
                             .font(AppFonts.bodyMedium(11))
-                            .foregroundStyle(AppColors.gold)
+                            .foregroundStyle(AppColors.text)
                     }
                 }
                 ProgressBar(pct: progress, color: AppColors.gold, height: 6, label: "Tier progress")
@@ -440,13 +440,13 @@ struct LeagueView: View {
         return VStack(spacing: 10) {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("YOUR PROFILE LINK")
+                    Text("Your profile link")
                         .font(AppFonts.bodyMedium(10))
                         .foregroundStyle(AppColors.dim)
-                        .kerning(1.0)
+                        .kerning(0.4)
                     Text("@\(username)")
                         .font(AppFonts.bodyBold(15))
-                        .foregroundStyle(AppColors.gold)
+                        .foregroundStyle(AppColors.text)
                 }
                 Spacer()
                 ShareLink(

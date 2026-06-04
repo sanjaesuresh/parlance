@@ -300,10 +300,10 @@ struct UserProfileDetailView: View {
             Text(value)
                 .font(AppFonts.display(22))
                 .foregroundStyle(AppColors.gold)
-            Text(label.uppercased())
+            Text(label)
                 .font(AppFonts.bodyMedium(11))
                 .foregroundStyle(AppColors.dim)
-                .kerning(0.5)
+                .kerning(0.4)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 12)
@@ -360,8 +360,8 @@ struct UserProfileDetailView: View {
     }
 
     private func scoreColor(_ score: Int) -> Color {
-        if score >= 80 { return AppColors.teal }
-        if score >= 60 { return AppColors.gold }
+        if score >= 80 { return AppColors.gold }
+        if score >= 60 { return AppColors.cinnamon }
         return AppColors.red
     }
 }

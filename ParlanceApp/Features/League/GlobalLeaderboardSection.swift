@@ -30,12 +30,16 @@ struct GlobalLeaderboardSection: View {
     }
 
     private var pinnedDivider: some View {
-        Text("— YOUR RANK —")
-            .font(AppFonts.bodyMedium(10))
-            .kerning(1.5)
-            .foregroundStyle(AppColors.dim)
-            .frame(maxWidth: .infinity, alignment: .center)
-            .padding(.vertical, 8)
+        VStack(spacing: 6) {
+            Rectangle()
+                .frame(height: 1)
+                .foregroundColor(AppColors.border)
+            Text("Your rank")
+                .font(AppFonts.bodyBold(11))
+                .foregroundStyle(AppColors.sub)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.vertical, 8)
     }
 
     private func row(for entry: GlobalLeaderboardEntry, isMe: Bool) -> some View {
@@ -56,15 +60,9 @@ struct GlobalLeaderboardSection: View {
             HStack(spacing: 6) {
                 Text("@\(entry.username)")
                     .font(AppFonts.bodyMedium(13))
-                    .foregroundStyle(isMe ? AppColors.gold : AppColors.text)
+                    .foregroundStyle(AppColors.text)
                 if isMe {
-                    Text("YOU")
-                        .font(AppFonts.bodyBold(8))
-                        .foregroundStyle(AppColors.onGold)
-                        .padding(.horizontal, 5)
-                        .padding(.vertical, 1)
-                        .background(AppColors.gold)
-                        .clipShape(Capsule())
+                    PillBadge(text: "YOU", color: AppColors.gold, small: true)
                 }
             }
 
@@ -80,7 +78,7 @@ struct GlobalLeaderboardSection: View {
         .clipShape(RoundedRectangle(cornerRadius: 14))
         .overlay(
             RoundedRectangle(cornerRadius: 14)
-                .stroke(isMe ? AppColors.gold.opacity(0.4) : AppColors.border, lineWidth: 1)
+                .stroke(isMe ? AppColors.gold.opacity(0.35) : AppColors.border, lineWidth: 1)
         )
     }
 }

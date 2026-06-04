@@ -67,13 +67,7 @@ struct FriendsRankSheet: View {
                         .foregroundStyle(AppColors.text)
                         .lineLimit(1)
                     if e.isMe {
-                        Text("YOU")
-                            .font(AppFonts.bodyBold(8))
-                            .foregroundStyle(AppColors.onGold)
-                            .padding(.horizontal, 5)
-                            .padding(.vertical, 2)
-                            .background(AppColors.gold)
-                            .clipShape(Capsule())
+                        PillBadge(text: "YOU", color: AppColors.gold, small: true)
                     }
                 }
                 Text("@\(e.username)")
@@ -98,12 +92,12 @@ struct FriendsRankSheet: View {
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 12)
-        .background(e.isMe ? AppColors.gold.opacity(0.10) : AppColors.card)
+        .background(e.isMe ? AppColors.gold.opacity(0.08) : AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                .stroke(e.isMe ? AppColors.gold.opacity(0.5) : AppColors.border,
-                        lineWidth: e.isMe ? 1.5 : 1)
+                .stroke(e.isMe ? AppColors.gold.opacity(0.35) : AppColors.border,
+                        lineWidth: 1)
         )
         .accessibilityIdentifier("friendsRankRow_\(e.username)")
     }
@@ -112,9 +106,9 @@ struct FriendsRankSheet: View {
     private func deltaBadge(for delta: Int?) -> some View {
         switch delta {
         case .some(let d) where d > 0:
-            badge(symbol: "arrow.up", value: d, color: AppColors.success)
+            badge(symbol: "arrow.up", value: d, color: AppColors.gold)
         case .some(let d) where d < 0:
-            badge(symbol: "arrow.down", value: -d, color: AppColors.error)
+            badge(symbol: "arrow.down", value: -d, color: AppColors.red)
         case .some:
             Image(systemName: "minus")
                 .font(.system(size: 10, weight: .bold))
