@@ -76,17 +76,17 @@ struct SettingsSheet: View {
                     settingsSection("Legal") {
                         groupedCard {
                             linkRow(icon: "lock.shield", title: "Privacy Policy") {
-                                safariURL = URL(string: "https://theparlance.app/privacy")
+                                safariURL = AppURLs.privacy
                                 showSafari = true
                             }
                             rowDivider
                             linkRow(icon: "doc.text", title: "Terms of Service") {
-                                safariURL = URL(string: "https://theparlance.app/terms")
+                                safariURL = AppURLs.terms
                                 showSafari = true
                             }
                             rowDivider
                             linkRow(icon: "person.2.fill", title: "Community Guidelines") {
-                                safariURL = URL(string: "https://theparlance.app/guidelines")
+                                safariURL = AppURLs.guidelines
                                 showSafari = true
                             }
                         }

@@ -204,7 +204,7 @@ struct FirstLaunchSetupView: View {
             }
         }
         .sheet(isPresented: $showPrivacyPolicy) {
-            SafariView(url: URL(string: "https://theparlance.app/privacy")!)
+            SafariView(url: AppURLs.privacy)
         }
         .alert(
             "Content Not Allowed",

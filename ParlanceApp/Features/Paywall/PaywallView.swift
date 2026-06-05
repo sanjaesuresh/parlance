@@ -284,9 +284,9 @@ struct PaywallView: View {
                 .lineSpacing(3)
 
             HStack(spacing: 6) {
-                Link("Terms of Use", destination: URL(string: "https://theparlance.app/terms")!)
+                Link("Terms of Use", destination: AppURLs.terms)
                 Text("·").foregroundStyle(AppColors.dim)
-                Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)
+                Link("Privacy Policy", destination: AppURLs.privacy)
             }
             .font(AppFonts.bodyMedium(11))
             .foregroundStyle(AppColors.sub)

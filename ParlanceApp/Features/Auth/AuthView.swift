@@ -198,9 +198,9 @@ struct AuthView: View {
                     }
 
                     HStack(spacing: 6) {
-                        Link("Privacy Policy", destination: URL(string: "https://theparlance.app/privacy")!)
+                        Link("Privacy Policy", destination: AppURLs.privacy)
                         Text("·").foregroundStyle(AppColors.dim)
-                        Link("Support", destination: URL(string: "https://theparlance.app/support")!)
+                        Link("Support", destination: AppURLs.support)
                     }
                     .font(AppFonts.body(11))
                     .foregroundStyle(AppColors.dim)

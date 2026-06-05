@@ -435,7 +435,7 @@ struct LeagueView: View {
 
     private var shareProfileCard: some View {
         let username = user?.username ?? user?.displayName ?? "parlance user"
-        let inviteURL = URL(string: "https://theparlance.app/invite?user=\(username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? username)")!
+        let inviteURL = AppURLs.invite(username: username)
 
         return VStack(spacing: 10) {
             HStack {
