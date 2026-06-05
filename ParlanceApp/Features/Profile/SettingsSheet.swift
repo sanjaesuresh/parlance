@@ -22,11 +22,6 @@ struct SettingsSheet: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    if !subscription.isPro {
-                        proUpgradeCard
-                            .padding(.top, 4)
-                    }
-
                     settingsSection("Preferences") {
                         groupedCard {
                             toggleRow(
@@ -65,14 +60,16 @@ struct SettingsSheet: View {
                                     }
                                 }
                                 rowDivider
+                                navRow(
+                                    icon: "arrow.clockwise",
+                                    title: isRestoringPurchases ? "Restoring…" : "Restore Purchases"
+                                ) {
+                                    Task { await restorePurchases() }
+                                }
+                                .disabled(isRestoringPurchases)
+                            } else {
+                                upgradeRow
                             }
-                            navRow(
-                                icon: "arrow.clockwise",
-                                title: isRestoringPurchases ? "Restoring…" : "Restore Purchases"
-                            ) {
-                                Task { await restorePurchases() }
-                            }
-                            .disabled(isRestoringPurchases)
                         }
                     }
 
@@ -233,63 +230,45 @@ struct SettingsSheet: View {
         }
     }
 
-    // MARK: - Pro upgrade hero
+    // MARK: - Upgrade row (non-Pro)
 
-    private var proUpgradeCard: some View {
+    /// Single row in the Subscription section that opens the paywall for
+    /// users who aren't subscribed yet. Apple's required Restore Purchases
+    /// affordance for non-subscribers lives on the paywall itself, so this
+    /// row is the only Subscription affordance non-Pro users need here.
+    private var upgradeRow: some View {
         Button {
             dismiss()
             showPaywall = true
         } label: {
-            HStack(alignment: .center, spacing: 14) {
-                ZStack {
-                    Circle()
-                        .fill(AppColors.gold)
-                        .frame(width: 44, height: 44)
-                    Image(systemName: "crown.fill")
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(AppColors.onGold)
-                }
-                .accessibilityHidden(true)
-
-                VStack(alignment: .leading, spacing: 3) {
-                    Text("Upgrade to Pro")
-                        .font(AppFonts.display(18))
+            HStack(spacing: 14) {
+                Image(systemName: "crown.fill")
+                    .font(.system(size: 15))
+                    .foregroundStyle(AppColors.gold)
+                    .frame(width: 28, height: 22, alignment: .center)
+                    .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Parlance Pro")
+                        .font(AppFonts.bodyBold(14))
                         .foregroundStyle(AppColors.text)
-                    Text("Advanced modes, deeper feedback, vocal tone.")
+                    Text("Advanced modes, tone analysis, unlimited sessions.")
                         .font(AppFonts.body(12))
                         .foregroundStyle(AppColors.sub)
                         .lineLimit(2)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-
                 Spacer(minLength: 8)
-
-                Text("Unlock")
-                    .font(AppFonts.bodyBold(11))
-                    .kerning(0.6)
-                    .foregroundStyle(AppColors.onGold)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 7)
-                    .background(AppColors.gold)
-                    .clipShape(Capsule())
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundStyle(AppColors.dim)
+                    .accessibilityHidden(true)
             }
-            .padding(16)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(
-                LinearGradient(
-                    colors: [AppColors.challengeGradientStart, AppColors.challengeGradientEnd],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 18))
-            .overlay(
-                RoundedRectangle(cornerRadius: 18)
-                    .stroke(AppColors.gold.opacity(0.3), lineWidth: 1)
-            )
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("Upgrade to Pro. Advanced modes, deeper feedback, vocal tone.")
+        .accessibilityLabel("Parlance Pro. Advanced modes, tone analysis, unlimited sessions.")
     }
 
     // MARK: - Editorial section header
@@ -327,7 +306,7 @@ struct SettingsSheet: View {
         Rectangle()
             .fill(AppColors.border)
             .frame(height: 1)
-            .padding(.leading, 52)
+            .padding(.leading, 58)
     }
 
     // MARK: - Rows
@@ -337,7 +316,7 @@ struct SettingsSheet: View {
             Image(systemName: icon)
                 .font(.system(size: 15))
                 .foregroundStyle(AppColors.sub)
-                .frame(width: 22, alignment: .center)
+                .frame(width: 28, height: 22, alignment: .center)
                 .accessibilityHidden(true)
             Toggle(isOn: isOn) {
                 Text(title)
@@ -355,7 +334,7 @@ struct SettingsSheet: View {
             Image(systemName: "circle.lefthalf.filled")
                 .font(.system(size: 15))
                 .foregroundStyle(AppColors.sub)
-                .frame(width: 22, alignment: .center)
+                .frame(width: 28, height: 22, alignment: .center)
                 .accessibilityHidden(true)
             Text("Appearance")
                 .font(AppFonts.body(14))
@@ -379,7 +358,7 @@ struct SettingsSheet: View {
                 Image(systemName: icon)
                     .font(.system(size: 15))
                     .foregroundStyle(AppColors.red)
-                    .frame(width: 22, alignment: .center)
+                    .frame(width: 28, height: 22, alignment: .center)
                     .accessibilityHidden(true)
                 Text(title)
                     .font(AppFonts.body(14))
@@ -403,7 +382,7 @@ struct SettingsSheet: View {
             Image(systemName: "checkmark.seal.fill")
                 .font(.system(size: 15))
                 .foregroundStyle(AppColors.gold)
-                .frame(width: 22, alignment: .center)
+                .frame(width: 28, height: 22, alignment: .center)
                 .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
                 Text("Parlance Pro")
@@ -427,7 +406,7 @@ struct SettingsSheet: View {
                 Image(systemName: icon)
                     .font(.system(size: 15))
                     .foregroundStyle(AppColors.sub)
-                    .frame(width: 22, alignment: .center)
+                    .frame(width: 28, height: 22, alignment: .center)
                     .accessibilityHidden(true)
                 Text(title)
                     .font(AppFonts.body(14))
@@ -452,7 +431,7 @@ struct SettingsSheet: View {
                 Image(systemName: icon)
                     .font(.system(size: 15))
                     .foregroundStyle(AppColors.sub)
-                    .frame(width: 22, alignment: .center)
+                    .frame(width: 28, height: 22, alignment: .center)
                     .accessibilityHidden(true)
                 Text(title)
                     .font(AppFonts.body(14))
