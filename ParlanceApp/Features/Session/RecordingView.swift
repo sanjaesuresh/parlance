@@ -217,7 +217,7 @@ struct RecordingView: View {
                     }
                 } else {
                     startHaptic.toggle()
-                    viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService)
+                    viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService, targetDuration: TimeInterval(question.targetDuration))
                 }
             } label: {
                 ZStack {
@@ -288,7 +288,7 @@ struct RecordingView: View {
         .onAppear {
             if autoStart && !didAutoStart && !recorder.isRecording {
                 didAutoStart = true
-                viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService)
+                viewModel.handleRecordTap(recorder: recorder, permissions: permissionsService, targetDuration: TimeInterval(question.targetDuration))
             }
         }
         .onChange(of: recorder.elapsedTime) { _, _ in

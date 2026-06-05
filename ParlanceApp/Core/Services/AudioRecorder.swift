@@ -24,12 +24,18 @@ final class AudioRecorder: ObservableObject {
     private var startTime: Date?
     private(set) var recordingURL: URL?
     private var interruptionObserver: NSObjectProtocol?
+    private var effectiveMaxDuration: TimeInterval = AppConstants.maxRecordingDuration
 
     var canStop: Bool { elapsedTime >= AppConstants.minRecordingDuration }
     var shouldShowNudge: Bool { elapsedTime >= AppConstants.deliberateNudgeTime && elapsedTime < AppConstants.deliberateNudgeTime + 3 }
     var shouldShowWrapUp: Bool { elapsedTime >= AppConstants.wrapUpWarningTime }
 
-    func startRecording() throws {
+    func startRecording(targetDuration: TimeInterval? = nil) throws {
+        if let targetDuration, targetDuration > 0 {
+            effectiveMaxDuration = min(targetDuration, AppConstants.maxRecordingDuration)
+        } else {
+            effectiveMaxDuration = AppConstants.maxRecordingDuration
+        }
         let session = AVAudioSession.sharedInstance()
         try session.setCategory(.record, mode: .default)
         try session.setActive(true)
@@ -109,7 +115,7 @@ final class AudioRecorder: ObservableObject {
             elapsedTime = Date.now.timeIntervalSince(startTime)
         }
 
-        if elapsedTime >= AppConstants.maxRecordingDuration {
+        if elapsedTime >= effectiveMaxDuration {
             _ = stopRecording(reason: .maxDuration)
             return
         }

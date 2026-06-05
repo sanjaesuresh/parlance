@@ -14,7 +14,8 @@ final class RecordingViewModel: ObservableObject {
 
     func handleRecordTap(
         recorder: AudioRecorder,
-        permissions: PermissionsService
+        permissions: PermissionsService,
+        targetDuration: TimeInterval? = nil
     ) {
         if recorder.isRecording {
             return
@@ -42,7 +43,7 @@ final class RecordingViewModel: ObservableObject {
         }
 
         do {
-            try recorder.startRecording()
+            try recorder.startRecording(targetDuration: targetDuration)
         } catch {
             recordingStartFailed = true
         }
