@@ -273,16 +273,14 @@ struct PaywallView: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
-            ZStack(alignment: .topTrailing) {
+            ZStack {
                 AppColors.card2
                 RadialGradient(
-                    colors: [AppColors.purple.opacity(0.32), AppColors.purple.opacity(0)],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: 180
+                    colors: [AppColors.purple.opacity(0.30), AppColors.purple.opacity(0)],
+                    center: UnitPoint(x: 0.95, y: 0.05),
+                    startRadius: 4,
+                    endRadius: 320
                 )
-                .frame(width: 260, height: 260)
-                .offset(x: 80, y: -80)
                 .allowsHitTesting(false)
             }
         )
