@@ -436,7 +436,7 @@ struct LeagueView: View {
 
     private var shareProfileCard: some View {
         let username = user?.username ?? user?.displayName ?? "parlance user"
-        let messageBody = "Join Parlance! \(AppURLs.home.absoluteString)"
+        let messageBody = "Been using this to practice speaking. You'd like it.\n\n\(AppURLs.home.absoluteString)"
 
         return VStack(spacing: 10) {
             HStack {
