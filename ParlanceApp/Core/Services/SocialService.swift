@@ -330,17 +330,6 @@ final class SocialService: ObservableObject {
         await fetchFriendsLeaderboard()
     }
 
-    func unblockUser(_ userId: UUID) async throws {
-        guard let currentId = currentUserId else { return }
-        try await client
-            .from("blocked_users")
-            .delete()
-            .eq("blocker_id", value: currentId.uuidString)
-            .eq("blocked_id", value: userId.uuidString)
-            .execute()
-        blockedUserIds.remove(userId)
-    }
-
     // MARK: - Report
 
     func reportUser(_ userId: UUID, reason: String, details: String?) async throws {
