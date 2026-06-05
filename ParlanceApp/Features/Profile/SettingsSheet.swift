@@ -14,6 +14,8 @@ struct SettingsSheet: View {
     @State private var showDeleteAccountConfirmation = false
     @State private var isStartingPasswordReset = false
     @State private var passwordResetError: String?
+    @State private var isRestoringPurchases = false
+    @State private var restoreMessage: String?
     @State private var deleteAccountError: String?
 
     var body: some View {
@@ -46,6 +48,31 @@ struct SettingsSheet: View {
                             )
                             rowDivider
                             appearanceRow
+                        }
+                    }
+
+                    settingsSection("Subscription") {
+                        groupedCard {
+                            if subscription.isPro {
+                                proStatusRow
+                                rowDivider
+                                navRow(
+                                    icon: "crown.fill",
+                                    title: "Manage Subscription"
+                                ) {
+                                    if let url = URL(string: "https://apps.apple.com/account/subscriptions") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                }
+                                rowDivider
+                            }
+                            navRow(
+                                icon: "arrow.clockwise",
+                                title: isRestoringPurchases ? "Restoring…" : "Restore Purchases"
+                            ) {
+                                Task { await restorePurchases() }
+                            }
+                            .disabled(isRestoringPurchases)
                         }
                     }
 
@@ -155,6 +182,33 @@ struct SettingsSheet: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(passwordResetError ?? "")
+        }
+        .alert("Restore Purchases", isPresented: Binding(
+            get: { restoreMessage != nil },
+            set: { if !$0 { restoreMessage = nil } }
+        )) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(restoreMessage ?? "")
+        }
+    }
+
+    /// Triggered by the Restore Purchases row. Asks StoreKit to re-sync
+    /// the user's transactions from Apple, then refreshes `isPro` from the
+    /// updated entitlement cache. The success message is best-effort — if
+    /// `AppStore.sync()` finds nothing to restore, isPro stays false and we
+    /// say so; if it finds Pro, the row disappears (replaced by Manage).
+    private func restorePurchases() async {
+        isRestoringPurchases = true
+        defer { isRestoringPurchases = false }
+        let wasPro = subscription.isPro
+        await subscription.restorePurchases()
+        if subscription.isPro {
+            restoreMessage = wasPro
+                ? "You're already subscribed to Parlance Pro."
+                : "Welcome back to Parlance Pro."
+        } else {
+            restoreMessage = "No active subscription found on this Apple ID."
         }
     }
 
@@ -342,6 +396,29 @@ struct SettingsSheet: View {
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier(accessibilityID ?? "")
+    }
+
+    private var proStatusRow: some View {
+        HStack(spacing: 14) {
+            Image(systemName: "checkmark.seal.fill")
+                .font(.system(size: 15))
+                .foregroundStyle(AppColors.gold)
+                .frame(width: 22, alignment: .center)
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Parlance Pro")
+                    .font(AppFonts.bodyBold(14))
+                    .foregroundStyle(AppColors.text)
+                if let exp = subscription.expirationDate {
+                    Text("Renews \(exp, format: .dateTime.month(.abbreviated).day().year())")
+                        .font(AppFonts.body(12))
+                        .foregroundStyle(AppColors.sub)
+                }
+            }
+            Spacer()
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
     }
 
     private func navRow(icon: String, title: String, accessibilityID: String? = nil, action: @escaping () -> Void) -> some View {

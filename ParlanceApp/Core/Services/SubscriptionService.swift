@@ -10,6 +10,11 @@ final class SubscriptionService: ObservableObject {
 
     @Published private(set) var isPro: Bool = false
     @Published private(set) var isLoading: Bool = true
+    /// Expiration of the currently-active Pro subscription. For an active
+    /// auto-renewing sub, this is the next renewal date. If the user has
+    /// cancelled but is still inside the paid period it's the date access
+    /// ends. `nil` when `isPro` is false or for non-renewing purchases.
+    @Published private(set) var expirationDate: Date?
 
     private static let logger = Logger(subsystem: "app.parlance", category: "subscription")
 
@@ -89,6 +94,7 @@ final class SubscriptionService: ObservableObject {
         }
         #endif
         var hasPro = false
+        var latestExpiration: Date?
         var entitlementCount = 0
         for await result in Transaction.currentEntitlements {
             entitlementCount += 1
@@ -96,9 +102,15 @@ final class SubscriptionService: ObservableObject {
                transaction.productID == AppConstants.proProductID,
                transaction.revocationDate == nil {
                 hasPro = true
+                // Pick the furthest expiration when multiple entitlements
+                // exist (e.g. after a plan change mid-period).
+                if let exp = transaction.expirationDate {
+                    latestExpiration = max(latestExpiration ?? exp, exp)
+                }
             }
         }
         isPro = hasPro
+        expirationDate = hasPro ? latestExpiration : nil
         isLoading = false
         Self.logger.log("refreshStatus: entitlements=\(entitlementCount) isPro=\(hasPro)")
     }

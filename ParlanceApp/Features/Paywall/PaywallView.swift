@@ -276,8 +276,13 @@ struct PaywallView: View {
     }
 
     private var legalText: some View {
+        // App Store Guideline 3.1.2(a) — auto-renewing subscription disclosure.
+        // Must include: payment-at-confirmation, auto-renewal terms, renewal
+        // window + price, and how to manage. Title (Parlance Pro), length
+        // (monthly), and price are surfaced separately above; Terms + Privacy
+        // links are below.
         VStack(spacing: 10) {
-            Text("\(product?.displayPrice ?? "$4.99")/month, auto-renewing. Cancel at least 24 hours before the renewal date in App Store Settings or it will renew automatically.")
+            Text("Payment will be charged to your Apple ID account at the confirmation of purchase. Your Parlance Pro subscription automatically renews for \(product?.displayPrice ?? "$4.99")/month unless auto-renew is turned off at least 24 hours before the end of the current period. Your account will be charged for renewal within 24 hours prior to the end of the current period. You can manage your subscription or turn off auto-renewal anytime in your Apple ID account settings.")
                 .font(AppFonts.body(10))
                 .foregroundStyle(AppColors.dim)
                 .multilineTextAlignment(.center)
