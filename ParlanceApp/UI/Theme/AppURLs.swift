@@ -18,12 +18,7 @@ enum AppURLs {
     /// Guideline 3.1.2(a) without maintaining our own Terms of Use page.
     static let standardEULA: URL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
 
-    /// Profile invite link with the inviter's username appended as a
-    /// percent-encoded query parameter.
-    static func invite(username: String) -> URL {
-        let encoded = username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? username
-        // The path + scheme are static; only the query param is interpolated,
-        // and addingPercentEncoding has already neutralized any unsafe chars.
-        return URL(string: "\(host)/invite?user=\(encoded)") ?? URL(string: "\(host)/invite")!
-    }
+    /// Marketing homepage. Used as the invite landing target until a
+    /// dedicated /invite page exists.
+    static let home: URL = URL(string: host)!
 }

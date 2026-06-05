@@ -17,6 +17,7 @@ struct LeagueView: View {
     @State private var showRequestsSheet = false
     @State private var showRankSheet = false
     @State private var isSearching = false
+    @State private var showMessageComposer = false
     @FocusState private var isSearchFieldFocused: Bool
 
     init(openFriendRequests: Binding<Bool> = .constant(false)) {
@@ -435,7 +436,7 @@ struct LeagueView: View {
 
     private var shareProfileCard: some View {
         let username = user?.username ?? user?.displayName ?? "parlance user"
-        let inviteURL = AppURLs.invite(username: username)
+        let messageBody = "I'm practicing public speaking on Parlance — join me! @\(username) \(AppURLs.home.absoluteString)"
 
         return VStack(spacing: 10) {
             HStack {
@@ -449,28 +450,10 @@ struct LeagueView: View {
                         .foregroundStyle(AppColors.text)
                 }
                 Spacer()
-                ShareLink(
-                    item: inviteURL,
-                    subject: Text("Join me on Parlance"),
-                    message: Text("I'm practicing public speaking on Parlance — join me! @\(username)")
-                ) {
-                    HStack(spacing: 5) {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 13, weight: .medium))
-                        Text("Invite")
-                            .font(AppFonts.bodyMedium(13))
-                    }
-                    .foregroundStyle(AppColors.gold)
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
-                    .background(AppColors.gold.opacity(0.12))
-                    .clipShape(Capsule())
-                    .overlay(Capsule().stroke(AppColors.gold.opacity(0.4), lineWidth: 1))
-                }
-                .accessibilityIdentifier("shareProfileButton")
+                inviteButton(messageBody: messageBody)
             }
 
-            Text("Friends without the app will be taken to download it.")
+            Text("Sends an iMessage with a link to Parlance.")
                 .font(AppFonts.body(11))
                 .foregroundStyle(AppColors.dim)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -482,6 +465,47 @@ struct LeagueView: View {
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
                 .stroke(AppColors.border, lineWidth: 1)
         )
+        .sheet(isPresented: $showMessageComposer) {
+            MessageComposeView(body: messageBody)
+                .ignoresSafeArea()
+        }
+    }
+
+    @ViewBuilder
+    private func inviteButton(messageBody: String) -> some View {
+        let label = HStack(spacing: 5) {
+            Image(systemName: "message.fill")
+                .font(.system(size: 13, weight: .medium))
+            Text("Invite")
+                .font(AppFonts.bodyMedium(13))
+        }
+        .foregroundStyle(AppColors.gold)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .background(AppColors.gold.opacity(0.12))
+        .clipShape(Capsule())
+        .overlay(Capsule().stroke(AppColors.gold.opacity(0.4), lineWidth: 1))
+
+        if MessageComposeView.canSend {
+            Button {
+                showMessageComposer = true
+            } label: {
+                label
+            }
+            .accessibilityIdentifier("shareProfileButton")
+        } else {
+            // Devices without iMessage (no SIM, simulator, iPad without
+            // Messages) fall back to the system share sheet so the entry
+            // point is never dead.
+            ShareLink(
+                item: AppURLs.home,
+                subject: Text("Join me on Parlance"),
+                message: Text(messageBody)
+            ) {
+                label
+            }
+            .accessibilityIdentifier("shareProfileButton")
+        }
     }
 
     // MARK: - Friends Search
