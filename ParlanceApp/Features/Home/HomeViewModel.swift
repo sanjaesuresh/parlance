@@ -22,8 +22,7 @@ final class HomeViewModel: ObservableObject {
         wasDailyChallenge: Bool,
         isPro: Bool = false
     ) -> ActiveSessionState? {
-        let sessionLimit = isPro ? AppConstants.maxSessionsPerDay : AppConstants.freeSessionsPerDay
-        guard user.dailySessionCount < sessionLimit else {
+        if !isPro, user.dailySessionCount >= AppConstants.freeSessionsPerDay {
             showRateLimitAlert = true
             return nil
         }

@@ -8,7 +8,6 @@ enum AppConstants {
     static let wrapUpWarningTime: TimeInterval = 165
     static let deliberateNudgeTime: TimeInterval = 8
     static let loadingMinDuration: TimeInterval = 0.5
-    static let maxSessionsPerDay = 20
     static let freeSessionsPerDay = 2
     static let maxNameLength = 30
     static let transcriptExcerptLength = 400

@@ -119,14 +119,9 @@ struct HomeView: View {
             }
             .alert("Daily Limit Reached", isPresented: $viewModel.showRateLimitAlert) {
                 Button("OK") {}
-                if !subscription.isPro {
-                    Button("Upgrade to Pro") { showPaywall = true }
-                }
+                Button("Upgrade to Pro") { showPaywall = true }
             } message: {
-                Text(subscription.isPro
-                    ? "You've completed 20 sessions today. Come back tomorrow to keep your streak going."
-                    : "Free accounts are limited to \(AppConstants.freeSessionsPerDay) sessions per day. Upgrade to Pro for unlimited sessions."
-                )
+                Text("Free accounts are limited to \(AppConstants.freeSessionsPerDay) sessions per day. Upgrade to Pro for unlimited sessions.")
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView(source: "session_limit")

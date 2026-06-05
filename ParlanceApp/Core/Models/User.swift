@@ -79,8 +79,6 @@ final class User {
         return Calendar.current.isDateInToday(date)
     }
 
-    var isAtDailyLimit: Bool { dailySessionCount >= AppConstants.maxSessionsPerDay }
-
     var greeting: String {
         let hour = Calendar.current.component(.hour, from: .now)
         switch hour {
