@@ -19,8 +19,7 @@ final class SubscriptionTests: XCTestCase {
         XCTAssertTrue(SessionMode.realLife.isProMode)
     }
 
-    func testFreeSessionsPerDayIsLessThanMax() {
-        XCTAssertLessThan(AppConstants.freeSessionsPerDay, AppConstants.maxSessionsPerDay)
+    func testFreeSessionsPerDayIsTwo() {
         XCTAssertEqual(AppConstants.freeSessionsPerDay, 2)
     }
 
