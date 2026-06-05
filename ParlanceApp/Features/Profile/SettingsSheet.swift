@@ -378,26 +378,38 @@ struct SettingsSheet: View {
     }
 
     private var proStatusRow: some View {
-        HStack(spacing: 14) {
-            Image(systemName: "checkmark.seal.fill")
-                .font(.system(size: 15))
-                .foregroundStyle(AppColors.gold)
-                .frame(width: 28, height: 22, alignment: .center)
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Parlance Pro")
-                    .font(AppFonts.bodyBold(14))
-                    .foregroundStyle(AppColors.text)
-                if let exp = subscription.expirationDate {
-                    Text("Renews \(exp, format: .dateTime.month(.abbreviated).day().year())")
-                        .font(AppFonts.body(12))
-                        .foregroundStyle(AppColors.sub)
+        Button {
+            dismiss()
+            showPaywall = true
+        } label: {
+            HStack(spacing: 14) {
+                Image(systemName: "checkmark.seal.fill")
+                    .font(.system(size: 15))
+                    .foregroundStyle(AppColors.gold)
+                    .frame(width: 28, height: 22, alignment: .center)
+                    .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Parlance Pro")
+                        .font(AppFonts.bodyBold(14))
+                        .foregroundStyle(AppColors.text)
+                    if let exp = subscription.expirationDate {
+                        Text("Renews \(exp, format: .dateTime.month(.abbreviated).day().year())")
+                            .font(AppFonts.body(12))
+                            .foregroundStyle(AppColors.sub)
+                    }
                 }
+                Spacer(minLength: 8)
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundStyle(AppColors.dim)
+                    .accessibilityHidden(true)
             }
-            Spacer()
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .contentShape(Rectangle())
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
+        .buttonStyle(.plain)
+        .accessibilityLabel("Parlance Pro. View benefits.")
     }
 
     private func navRow(icon: String, title: String, accessibilityID: String? = nil, action: @escaping () -> Void) -> some View {

@@ -47,12 +47,6 @@ struct PaywallView: View {
             pro: .text("Unlimited")
         ),
         .init(
-            feature: "Tone analysis",
-            detail: "See when delivery loses energy",
-            free: .dash,
-            pro: .check
-        ),
-        .init(
             feature: "Filler word & pace analysis",
             detail: nil,
             free: .check,
@@ -65,7 +59,8 @@ struct PaywallView: View {
             ScrollView {
                 VStack(spacing: 22) {
                     headerSection
-                    comparisonTable
+                    toneHeroCard
+                    everythingElseSection
                     priceSection
                     ctaSection
                     restoreButton
@@ -228,6 +223,172 @@ struct PaywallView: View {
         }
     }
 
+    private var toneHeroCard: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(alignment: .center) {
+                Text("VOCAL TONE")
+                    .font(AppFonts.bodyBold(10))
+                    .kerning(1.6)
+                    .foregroundStyle(AppColors.purple)
+                Spacer()
+                HStack(spacing: 5) {
+                    Text("✦").font(.system(size: 11))
+                    Text("PRO")
+                        .font(AppFonts.bodyBold(9.5))
+                        .kerning(1)
+                }
+                .foregroundStyle(AppColors.gold)
+                .padding(.horizontal, 9)
+                .padding(.vertical, 3)
+                .background(AppColors.gold.opacity(0.18))
+                .clipShape(Capsule())
+                .overlay(
+                    Capsule().stroke(AppColors.gold.opacity(0.28), lineWidth: 1)
+                )
+            }
+            .padding(.bottom, 12)
+
+            Text("Hear the energy behind your words.")
+                .font(AppFonts.display(20))
+                .foregroundStyle(AppColors.text)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom, 4)
+
+            Text("Confidence, nervousness, enthusiasm — second-by-second, every session.")
+                .font(AppFonts.body(12))
+                .foregroundStyle(AppColors.sub)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom, 14)
+
+            paywallSparkline
+                .frame(height: 42)
+                .padding(.bottom, 14)
+
+            VStack(spacing: 9) {
+                paywallBar(label: "Enthusiasm", score: 0.68, color: AppColors.teal)
+                paywallBar(label: "Determination", score: 0.54, color: AppColors.gold)
+                paywallBar(label: "Nervousness", score: 0.22, color: AppColors.red)
+            }
+        }
+        .padding(18)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            ZStack(alignment: .topTrailing) {
+                AppColors.card2
+                RadialGradient(
+                    colors: [AppColors.purple.opacity(0.32), AppColors.purple.opacity(0)],
+                    center: .center,
+                    startRadius: 0,
+                    endRadius: 180
+                )
+                .frame(width: 260, height: 260)
+                .offset(x: 80, y: -80)
+                .allowsHitTesting(false)
+            }
+        )
+        .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
+        .overlay(
+            RoundedRectangle(cornerRadius: AppConstants.cardRadius)
+                .stroke(AppColors.purple.opacity(0.55), lineWidth: 1.5)
+        )
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Vocal tone analysis, Pro only. Hear the energy behind your words. Confidence, nervousness, and enthusiasm tracked second-by-second every session.")
+    }
+
+    private var paywallSparkline: some View {
+        // Decorative purple curve — illustrative, not real data.
+        GeometryReader { geo in
+            let w = geo.size.width
+            let h = geo.size.height
+            let pts: [(CGFloat, CGFloat)] = [
+                (0.00, 0.78), (0.10, 0.64), (0.20, 0.50), (0.32, 0.44),
+                (0.45, 0.60), (0.55, 0.46), (0.65, 0.30), (0.75, 0.26),
+                (0.85, 0.18), (1.00, 0.10)
+            ]
+            ZStack {
+                Path { p in
+                    guard let first = pts.first else { return }
+                    p.move(to: CGPoint(x: first.0 * w, y: first.1 * h))
+                    for pt in pts.dropFirst() {
+                        p.addLine(to: CGPoint(x: pt.0 * w, y: pt.1 * h))
+                    }
+                    p.addLine(to: CGPoint(x: w, y: h))
+                    p.addLine(to: CGPoint(x: 0, y: h))
+                    p.closeSubpath()
+                }
+                .fill(
+                    LinearGradient(
+                        colors: [AppColors.purple.opacity(0.40), AppColors.purple.opacity(0)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+
+                Path { p in
+                    guard let first = pts.first else { return }
+                    p.move(to: CGPoint(x: first.0 * w, y: first.1 * h))
+                    for pt in pts.dropFirst() {
+                        p.addLine(to: CGPoint(x: pt.0 * w, y: pt.1 * h))
+                    }
+                }
+                .stroke(
+                    AppColors.purple,
+                    style: StrokeStyle(lineWidth: 1.8, lineCap: .round, lineJoin: .round)
+                )
+
+                Circle()
+                    .fill(AppColors.purple)
+                    .frame(width: 6, height: 6)
+                    .position(x: w, y: 0.10 * h)
+            }
+        }
+        .accessibilityHidden(true)
+    }
+
+    private func paywallBar(label: String, score: Double, color: Color) -> some View {
+        VStack(spacing: 4) {
+            HStack {
+                Text(label)
+                    .font(AppFonts.body(11.5))
+                    .foregroundStyle(AppColors.sub)
+                Spacer()
+                Text("\(Int((score * 100).rounded()))%")
+                    .font(AppFonts.bodyMedium(11))
+                    .foregroundStyle(color)
+            }
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 3)
+                        .fill(AppColors.border)
+                        .frame(height: 5)
+                    RoundedRectangle(cornerRadius: 3)
+                        .fill(color)
+                        .frame(width: geo.size.width * CGFloat(min(max(score, 0), 1)), height: 5)
+                }
+            }
+            .frame(height: 5)
+        }
+    }
+
+    private var everythingElseSection: some View {
+        VStack(spacing: 12) {
+            HStack(spacing: 10) {
+                Rectangle()
+                    .fill(AppColors.border)
+                    .frame(height: 1)
+                Text("EVERYTHING ELSE")
+                    .font(AppFonts.bodyBold(9.5))
+                    .kerning(1.4)
+                    .foregroundStyle(AppColors.sub)
+                    .fixedSize()
+                Rectangle()
+                    .fill(AppColors.border)
+                    .frame(height: 1)
+            }
+            comparisonTable
+        }
+    }
+
     private var priceSection: some View {
         VStack(spacing: 4) {
             Text("\(product?.displayPrice ?? "$4.99") / month")
@@ -241,14 +402,41 @@ struct PaywallView: View {
         .padding(.top, 4)
     }
 
+    @ViewBuilder
     private var ctaSection: some View {
-        PrimaryButton(
-            title: "Start Pro · \(product?.displayPrice ?? "$4.99")/mo",
-            isLoading: isPurchasing,
-            isEnabled: !isRestoring
-        ) {
-            Task { await purchase() }
+        if subscription.isPro {
+            subscribedPill
+        } else {
+            PrimaryButton(
+                title: "Start Pro · \(product?.displayPrice ?? "$4.99")/mo",
+                isLoading: isPurchasing,
+                isEnabled: !isRestoring
+            ) {
+                Task { await purchase() }
+            }
         }
+    }
+
+    private var subscribedPill: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "checkmark.seal.fill")
+                .font(.system(size: 15, weight: .semibold))
+            Text("You're subscribed to Pro")
+                .font(AppFonts.bodyBold(16))
+        }
+        .foregroundStyle(AppColors.onGold)
+        .frame(maxWidth: .infinity)
+        .frame(height: 52)
+        .background(
+            LinearGradient(
+                colors: [AppColors.cinnamon, AppColors.gold, AppColors.goldDeep],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: AppConstants.buttonRadius))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("You're subscribed to Parlance Pro.")
     }
 
     private var restoreButton: some View {
