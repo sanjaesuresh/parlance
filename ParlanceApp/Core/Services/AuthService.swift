@@ -32,6 +32,23 @@ final class AuthService: ObservableObject {
     /// finishes or cancels.
     @Published var isPasswordRecovery = false
 
+    /// Profile fields captured during sign-up but not committed until the
+    /// user confirms their email. Lives on the service (not the view model)
+    /// because the AuthView tear-down on `isAuthenticated → true` would
+    /// otherwise drop it. ContentView reads this on the post-confirmation
+    /// `.signedIn` event to actually create the local user + push the
+    /// profile to Supabase.
+    struct PendingProfileSetup {
+        let email: String
+        let name: String
+        let username: String
+        let location: String?
+        let occupation: String?
+        let avatar: String
+        let practiceLevel: Int
+    }
+    @Published var pendingProfileSetup: PendingProfileSetup?
+
     /// Email the password-reset waiting screen displays. Set by
     /// `sendPasswordReset`. Cleared when the user backs out or the
     /// recovery deep link arrives.
@@ -102,12 +119,30 @@ final class AuthService: ObservableObject {
         try await client.auth.signIn(email: email, password: password)
     }
 
-    func signUp(email: String, password: String) async throws {
-        let response = try await client.auth.signUp(email: email, password: password)
-        // Treat account creation as authenticated immediately.
-        // Email confirmation is not enforced yet — TODO before production.
-        currentUser = response.user
-        isAuthenticated = true
+    /// Creates the auth user but does NOT mark the session as authenticated.
+    /// With "Confirm email" enabled in Supabase, the returned response has no
+    /// session — Supabase emits `.signedIn` only after the user opens the
+    /// confirmation link, at which point `listenToAuthChanges` flips
+    /// `isAuthenticated`. The caller is responsible for stashing the
+    /// pending profile data via `pendingProfileSetup` so ContentView can
+    /// finalize it once that event arrives.
+    func signUpWaitingConfirmation(email: String, password: String) async throws {
+        _ = try await client.auth.signUp(
+            email: email,
+            password: password,
+            redirectTo: AppURLs.emailConfirm
+        )
+    }
+
+    /// Re-sends the signup confirmation email. Used by the waiting screen
+    /// after the 60s cooldown expires. Supabase rate-limits these server
+    /// side; we display the SDK error on failure.
+    func resendSignupConfirmation(email: String) async throws {
+        try await client.auth.resend(
+            email: email,
+            type: .signup,
+            emailRedirectTo: AppURLs.emailConfirm
+        )
     }
 
     func signInWithApple(idToken: String, nonce: String) async throws {

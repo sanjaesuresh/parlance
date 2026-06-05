@@ -203,7 +203,35 @@ struct ContentView: View {
         .onChange(of: authService.isAuthenticated) { _, isAuthenticated in
             guard isAuthenticated, !authService.isCompletingSignUp else { return }
             Task {
-                if currentUser == nil {
+                // Brand-new account that just confirmed its email: the auth
+                // session is now live but no local User row or Supabase
+                // profile row exists yet. Run the deferred provisioning the
+                // signup form stashed before routing to the waiting screen.
+                if let pending = authService.pendingProfileSetup,
+                   let uid = authService.currentUserID {
+                    authService.isCompletingSignUp = true
+                    isSyncingProfile = true
+                    let user = PersistenceService.shared.createUser(
+                        supabaseUID: uid,
+                        name: pending.name,
+                        username: pending.username,
+                        location: pending.location,
+                        occupation: pending.occupation,
+                        avatar: pending.avatar,
+                        practiceLevel: pending.practiceLevel
+                    )
+                    UserDefaults.standard.set(uid, forKey: "parlance.welcome_uid")
+                    do {
+                        try await SyncService.shared.createProfile(for: user, authService: authService)
+                    } catch {
+                        #if DEBUG
+                        print("[ContentView] post-confirmation createProfile failed: \(error)")
+                        #endif
+                    }
+                    authService.pendingProfileSetup = nil
+                    authService.isCompletingSignUp = false
+                    withAnimation { isSyncingProfile = false }
+                } else if currentUser == nil {
                     #if DEBUG
                     // UI-test seed already creates the local user synchronously
                     // and has no Supabase session to fetch from; awaiting the

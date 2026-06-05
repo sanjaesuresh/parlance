@@ -11,7 +11,15 @@ final class AuthViewModel: ObservableObject {
     @Published var isSignUp = false
     @Published var isLoading = false
     @Published var errorMessage: String?
-    @Published var resetEmailSent = false
+    /// True once a sign-up or reset-password request has been accepted and
+    /// the user has been routed to the corresponding waiting screen. Used
+    /// by AuthView to push the right navigation destination.
+    @Published var pendingWaitingRoute: WaitingRoute?
+
+    enum WaitingRoute: Hashable {
+        case signupConfirmation
+        case passwordReset
+    }
 
     static let minPasswordLength = 6
 
@@ -52,9 +60,8 @@ final class AuthViewModel: ObservableObject {
 
     func signUpWithProfile(name: String, username: String, location: String?, occupation: String?, avatar: String, comfortLevel: Int) async {
         isLoading = true
-        authService.isCompletingSignUp = true
         errorMessage = nil
-        defer { isLoading = false; authService.isCompletingSignUp = false }
+        defer { isLoading = false }
 
         // Profanity check before touching the network
         let fieldsToCheck: [(String, String)] = [
@@ -71,14 +78,17 @@ final class AuthViewModel: ObservableObject {
         }
 
         do {
-            try await authService.signUp(email: email, password: password)
-            let uid = authService.currentUserID ?? ""
+            try await authService.signUpWaitingConfirmation(email: email, password: password)
             let trimmed = name.trimmingCharacters(in: .whitespaces)
             let finalUsername = username.isEmpty ? Self.makeUsername(from: trimmed) : username
             let loc = location.flatMap { $0.trimmingCharacters(in: .whitespaces).isEmpty ? nil : $0 }
             let occ = occupation.flatMap { $0.trimmingCharacters(in: .whitespaces).isEmpty ? nil : $0 }
-            let user = PersistenceService.shared.createUser(
-                supabaseUID: uid,
+            // Stash the profile fields on the auth service so they survive the
+            // AuthView tear-down that happens when `.signedIn` fires after the
+            // user confirms their email. ContentView reads this and finalizes
+            // user creation + profile upload then.
+            authService.pendingProfileSetup = .init(
+                email: email,
                 name: trimmed,
                 username: finalUsername,
                 location: loc,
@@ -86,11 +96,20 @@ final class AuthViewModel: ObservableObject {
                 avatar: avatar,
                 practiceLevel: comfortLevel
             )
-            UserDefaults.standard.set(uid, forKey: "parlance.welcome_uid")
-            try await SyncService.shared.createProfile(for: user, authService: authService)
+            pendingWaitingRoute = .signupConfirmation
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+
+    func resendSignupConfirmation() async throws {
+        guard let email = authService.pendingProfileSetup?.email else { return }
+        try await authService.resendSignupConfirmation(email: email)
+    }
+
+    func resendPasswordReset() async throws {
+        guard let email = authService.pendingResetEmail else { return }
+        try await authService.sendPasswordReset(email: email)
     }
 
     static func makeUsername(from name: String) -> String {
@@ -107,7 +126,7 @@ final class AuthViewModel: ObservableObject {
         defer { isLoading = false }
         do {
             try await authService.sendPasswordReset(email: email)
-            resetEmailSent = true
+            pendingWaitingRoute = .passwordReset
         } catch {
             errorMessage = error.localizedDescription
         }

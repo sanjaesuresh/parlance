@@ -25,4 +25,11 @@ enum AppURLs {
     /// Universal-link target used in Supabase password-recovery emails.
     /// Matches the AASA component `/reset-password*` hosted at this host.
     static let passwordReset: URL = URL(string: "\(host)/reset-password")!
+
+    /// Universal-link target used in Supabase signup confirmation emails.
+    /// Requires (a) a corresponding `/confirm-email*` AASA component on
+    /// theparlance.app, (b) a fallback web page at this path for users who
+    /// open the email on a device without the app, and (c) this URL in the
+    /// Supabase Auth → URL Configuration → Redirect URLs allow list.
+    static let emailConfirm: URL = URL(string: "\(host)/confirm-email")!
 }

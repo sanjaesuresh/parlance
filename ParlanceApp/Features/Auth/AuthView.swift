@@ -12,11 +12,33 @@ struct AuthView: View {
         _viewModel = StateObject(wrappedValue: AuthViewModel(authService: authService))
     }
 
+    enum Route: Hashable {
+        case profileSetup
+        case waiting(AuthViewModel.WaitingRoute)
+    }
+
     var body: some View {
         NavigationStack(path: $path) {
             authScreen
-                .navigationDestination(for: String.self) { _ in
-                    AuthProfileSetupView(viewModel: viewModel)
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .profileSetup:
+                        AuthProfileSetupView(viewModel: viewModel)
+                    case .waiting(.signupConfirmation):
+                        EmailWaitingView(
+                            title: "Confirm your email",
+                            email: viewModel.email,
+                            bodyCopy: "We sent a confirmation link. Tap it to finish creating your account.",
+                            onResend: { try await viewModel.resendSignupConfirmation() }
+                        )
+                    case .waiting(.passwordReset):
+                        EmailWaitingView(
+                            title: "Check your email",
+                            email: viewModel.email,
+                            bodyCopy: "We sent a link to reset your password. Tap it to choose a new one.",
+                            onResend: { try await viewModel.resendPasswordReset() }
+                        )
+                    }
                 }
         }
         .fullScreenCover(isPresented: $showSamplePreview) {
@@ -27,6 +49,12 @@ struct AuthView: View {
                     viewModel.isSignUp = true
                 }
             )
+        }
+        .onChange(of: viewModel.pendingWaitingRoute) { _, newRoute in
+            guard let newRoute else { return }
+            path.append(Route.waiting(newRoute))
+            // Consume the trigger so re-submitting after a back-nav re-fires.
+            viewModel.pendingWaitingRoute = nil
         }
     }
 
@@ -66,7 +94,6 @@ struct AuthView: View {
                                 withAnimation(.easeInOut(duration: 0.2)) {
                                     viewModel.isSignUp = isSignUp
                                     viewModel.errorMessage = nil
-                                    viewModel.resetEmailSent = false
                                 }
                             } label: {
                                 Text(isSignUp ? "Create account" : "Sign in")
@@ -151,12 +178,7 @@ struct AuthView: View {
                         }
                     }
 
-                    if viewModel.resetEmailSent {
-                        Text("Password reset email sent. Check your inbox.")
-                            .font(AppFonts.body(12))
-                            .foregroundStyle(AppColors.gold)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    } else if let error = viewModel.errorMessage {
+                    if let error = viewModel.errorMessage {
                         Text(error)
                             .font(AppFonts.body(12))
                             .foregroundStyle(AppColors.red)
@@ -167,7 +189,7 @@ struct AuthView: View {
 
                     Button {
                         if viewModel.isSignUp {
-                            path.append("profile")
+                            path.append(Route.profileSetup)
                         } else {
                             Task { await viewModel.submitSignIn() }
                         }
