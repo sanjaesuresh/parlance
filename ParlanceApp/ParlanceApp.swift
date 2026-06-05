@@ -10,6 +10,10 @@ struct ParlanceApp: App {
 
     init() {
         registerFonts()
+        // Sound effects ship ON. ProfileViewModel reads with `object(forKey:) as? Bool ?? true`,
+        // but SoundService.play uses `bool(forKey:)` which defaults to false — registering the
+        // default here keeps both in sync so new users hear the sounds the toggle claims are on.
+        UserDefaults.standard.register(defaults: ["soundEffectsEnabled": true])
     }
 
     private func registerFonts() {

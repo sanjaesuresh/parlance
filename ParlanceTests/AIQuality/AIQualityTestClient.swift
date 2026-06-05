@@ -5,10 +5,10 @@ import Foundation
 /// `ScoringClient` used by the AI quality harness. Always passes `temperature: 0` to the
 /// worker so successive runs are near-deterministic.
 final class AIQualityTestClient: ScoringClient {
-    private let inner: ClaudeClient
+    private let inner: FeedbackClient
 
     init(baseURL: URL = AppConstants.apiBaseURL) {
-        self.inner = ClaudeClient(baseURL: baseURL, temperature: 0)
+        self.inner = FeedbackClient(baseURL: baseURL, temperature: 0)
     }
 
     func fetchScoring(prompt: String, transcript: String) async throws -> ScoringResult {

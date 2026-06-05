@@ -17,6 +17,7 @@
 // ModelContext are deleted before seeding, so re-launching with the flag
 // produces a deterministic UI state.
 
+#if DEBUG
 import Foundation
 import SwiftData
 
@@ -340,3 +341,4 @@ enum ProgressMockData {
         ),
     ]
 }
+#endif

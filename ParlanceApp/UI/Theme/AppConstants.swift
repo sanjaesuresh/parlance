@@ -22,6 +22,11 @@ enum AppConstants {
     static let scoringTimeout: TimeInterval = 30
     static let humeTimeout: TimeInterval = 45
     static let humePollBudget: TimeInterval = 90
+    // The app bundle ID is `org.Parlance` but the IAP product ID lives in the
+    // `com.parlance.*` namespace. StoreKit keys subscriptions by the App Store
+    // Connect record, not by bundle-ID prefix, so this works — leaving the
+    // mismatch as a note rather than renaming the bundle (which would break
+    // existing installs and provisioning).
     static let proProductID = "com.parlance.pro.monthly"
     nonisolated static var apiBaseURL: URL {
         let fallback = "https://parlance-api.parlance-app.workers.dev"

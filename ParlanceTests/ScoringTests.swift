@@ -187,7 +187,7 @@ struct ScoringResultDecodingTests {
         #expect(result.feedback == nil)
     }
 
-    @Test("ClaudeClient wrapped-decode path works — worker may envelope JSON in feedback key")
+    @Test("FeedbackClient wrapped-decode path works — worker may envelope JSON in feedback key")
     func decodes_wrappedWorkerEnvelope() throws {
         let inner = """
         {"metrics":{"clarity":{"score":7,"tip":"Clear"}},"overallScore":68,"feedback":null,"bestMoment":{"quote":"great hook","reason":"Direct"},"worstMoment":{"quote":"lost track","reason":"Structure"}}

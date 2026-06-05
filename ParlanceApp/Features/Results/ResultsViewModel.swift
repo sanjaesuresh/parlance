@@ -10,7 +10,7 @@ final class ResultsViewModel: ObservableObject {
         isRetryingFeedback = true
         defer { isRetryingFeedback = false }
 
-        let client = ClaudeClient(baseURL: AppConstants.apiBaseURL)
+        let client = FeedbackClient(baseURL: AppConstants.apiBaseURL)
 
         // Derive approximate timing from the stored transcript so the AI
         // doesn't see "0 words" and fall back to scoring everything 1-2.

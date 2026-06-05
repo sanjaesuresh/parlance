@@ -1,4 +1,9 @@
-// Parlance/Core/AI/ClaudeClient.swift
+// Parlance/Core/AI/FeedbackClient.swift
+//
+// Talks to the Cloudflare Worker's /feedback endpoint, which proxies to
+// Google Gemini (configured via wrangler.toml `GEMINI_MODEL`). The name is
+// provider-agnostic so swapping the upstream model later doesn't trigger
+// another rename pass.
 import Foundation
 
 enum ScoringError: Error, Equatable {
@@ -13,7 +18,7 @@ protocol ScoringClient {
     func fetchScoring(prompt: String, transcript: String) async throws -> ScoringResult
 }
 
-final class ClaudeClient: ScoringClient {
+final class FeedbackClient: ScoringClient {
     private let baseURL: URL
     private let temperature: Double?
 
@@ -58,7 +63,7 @@ final class ClaudeClient: ScoringClient {
         }
 
         #if DEBUG
-        print("[ClaudeClient] Could not decode response. Raw:", String(data: data, encoding: .utf8) ?? "<non-UTF8>")
+        print("[FeedbackClient] Could not decode response. Raw:", String(data: data, encoding: .utf8) ?? "<non-UTF8>")
         #endif
         throw ScoringError.parseFailure
     }

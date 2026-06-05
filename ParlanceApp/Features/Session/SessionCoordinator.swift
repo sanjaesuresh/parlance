@@ -50,7 +50,6 @@ struct SessionCoordinator: View {
         case countdown
         case recording
         case processing
-        case scoringFailed
         case cannotAnalyze(reason: CannotAnalyzeReason)
         case results(Session)
 
@@ -60,7 +59,6 @@ struct SessionCoordinator: View {
             case (.countdown, .countdown): return true
             case (.recording, .recording): return true
             case (.processing, .processing): return true
-            case (.scoringFailed, .scoringFailed): return true
             case let (.cannotAnalyze(a), .cannotAnalyze(b)): return a == b
             case let (.results(a), .results(b)): return a === b
             default: return false
@@ -70,7 +68,7 @@ struct SessionCoordinator: View {
 
     @State private var autoStartRecording = false
 
-    // Stored so scoringFailed can retry without re-transcribing
+    // Carries transcription output from processSession into scoreAndSave.
     @State private var pendingTranscript: String = ""
     @State private var pendingDuration: TimeInterval = 0
     @State private var pendingTimingStats: TimingStats = .empty
@@ -89,9 +87,7 @@ struct SessionCoordinator: View {
     @State private var scoringTask: Task<Void, Never>?
 
     /// Set once the session row + XP have been persisted, so a stray
-    /// retry from `.scoringFailed` (which shouldn't happen with the local
-    /// fallback now in place, but is still wired for resilience) can't
-    /// double-commit.
+    /// re-entry into scoreAndSave can't double-commit.
     @State private var hasCommitted: Bool = false
 
     var body: some View {
@@ -169,30 +165,6 @@ struct SessionCoordinator: View {
 
             case .processing:
                 AnalyzingView()
-
-            case .scoringFailed:
-                VStack(spacing: 20) {
-                    Image(systemName: "exclamationmark.triangle")
-                        .font(.system(size: 40))
-                        .foregroundStyle(AppColors.red)
-                    Text("Scoring unavailable")
-                        .font(AppFonts.display(20))
-                        .foregroundStyle(AppColors.text)
-                    Text("Couldn't reach the scoring service.\nCheck your connection and try again.")
-                        .font(AppFonts.body(14))
-                        .foregroundStyle(AppColors.sub)
-                        .multilineTextAlignment(.center)
-                    HStack(spacing: 12) {
-                        SecondaryButton(title: "Discard") { dismiss() }
-                        PrimaryButton(title: "Retry") {
-                            phase = .processing
-                            scoringTask?.cancel()
-                            scoringTask = Task { await scoreAndSave() }
-                        }
-                    }
-                    .padding(.horizontal, 32)
-                }
-                .padding(32)
 
             case .cannotAnalyze(let reason):
                 CannotAnalyzeView(
@@ -361,7 +333,7 @@ struct SessionCoordinator: View {
         let timingStats = TimingStats.compute(from: segments, totalDuration: duration)
         let fillerCount = transcript.isEmpty ? 0 : SpeechAnalyzer.analyzeFillers(in: transcript).count
 
-        // Store for retry from scoringFailed state
+        // Stash for scoreAndSave.
         pendingTranscript = transcript
         pendingDuration = duration
         pendingTimingStats = timingStats
@@ -376,14 +348,12 @@ struct SessionCoordinator: View {
 
     @MainActor
     private func scoreAndSave() async {
-        // Bail if we've already committed this session — protects against a
-        // stray retry tap from the `.scoringFailed` UI re-entering after the
-        // first run had already persisted (the local-fallback path below
-        // means this is rare, but the guard keeps the contract explicit).
+        // Bail if we've already committed this session — guards against any
+        // stray re-entry double-committing.
         if hasCommitted { return }
         if Task.isCancelled { return }
 
-        let client = ClaudeClient(baseURL: AppConstants.apiBaseURL)
+        let client = FeedbackClient(baseURL: AppConstants.apiBaseURL)
 
         // Pre-flight gate 0: transcription itself failed (network/timeout/
         // recognizer-unavailable). Distinct from "user stayed silent" — the
@@ -463,8 +433,7 @@ struct SessionCoordinator: View {
             // The Session is saved with `aiCoachFeedback == nil`, which is
             // the signal for ResultsView and `ResultsViewModel.retryFeedback`
             // to offer "Retry for full coach feedback" when the network
-            // recovers. The `.scoringFailed` phase is kept for code clarity
-            // but is no longer reachable from this path.
+            // recovers.
             #if DEBUG
             print("[Scoring] network/upstream error — falling back to local score: \(error)")
             #endif
