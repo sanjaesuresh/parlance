@@ -57,7 +57,13 @@ struct ContentView: View {
                     authService.isDeletingAccount = false
                 }
                 .transition(.opacity)
-            } else if !authService.isAuthenticated {
+            } else if !authService.isAuthenticated
+                        || (authService.isPasswordRecovery && authService.isUnauthenticatedReset) {
+                // Keep the user on the login screen during a
+                // forgot-password recovery so the ChangePasswordSheet
+                // (presented below) appears over AuthView rather than
+                // dropping them into the main app while their session
+                // is technically active.
                 AuthView(authService: authService)
             } else if !hasCompletedSetup && !authService.isCompletingSignUp {
                 if !hasSeenTeach {

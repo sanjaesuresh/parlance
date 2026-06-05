@@ -54,6 +54,14 @@ final class AuthService: ObservableObject {
     /// recovery deep link arrives.
     @Published var pendingResetEmail: String?
 
+    /// True when the in-flight password reset was initiated from the
+    /// signed-out login screen ("Forgot password?"). Drives the
+    /// ContentView gate that keeps the user on the login screen even
+    /// after the recovery session is established, and triggers a
+    /// sign-out after the new password is set so the user has to sign
+    /// in again with their new credentials.
+    @Published var isUnauthenticatedReset = false
+
     private let client = SupabaseManager.shared.client
 
     init() {

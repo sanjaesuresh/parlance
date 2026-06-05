@@ -126,6 +126,11 @@ final class AuthViewModel: ObservableObject {
         defer { isLoading = false }
         do {
             try await authService.sendPasswordReset(email: email)
+            // Flag the in-flight reset as login-initiated so ContentView
+            // keeps the user on AuthView once the recovery deep link
+            // establishes a session, instead of dropping them into the
+            // main app behind the change-password sheet.
+            authService.isUnauthenticatedReset = true
             pendingWaitingRoute = .passwordReset
         } catch {
             errorMessage = error.localizedDescription

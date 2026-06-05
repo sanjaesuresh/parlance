@@ -26,11 +26,17 @@ struct ChangePasswordSheet: View {
         newPassword.count >= Self.minLength && newPassword == confirmPassword && !isLoading
     }
 
+    private var isResetFromLogin: Bool {
+        authService.isUnauthenticatedReset
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Choose a new password for your account. You'll stay signed in on this device.")
+                    Text(isResetFromLogin
+                         ? "Choose a new password for your account. You'll be asked to sign in with it on the next screen."
+                         : "Choose a new password for your account. You'll stay signed in on this device.")
                         .font(AppFonts.body(13))
                         .foregroundStyle(AppColors.sub)
                         .lineSpacing(3)
@@ -92,17 +98,24 @@ struct ChangePasswordSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("Cancel") { dismiss() }
-                        .foregroundStyle(AppColors.sub)
+                    Button("Cancel") {
+                        Task { await cancel() }
+                    }
+                    .foregroundStyle(AppColors.sub)
                 }
             }
             .alert("Password updated", isPresented: $didSucceed) {
-                Button("OK", role: .cancel) { dismiss() }
+                Button("OK", role: .cancel) {
+                    Task { await finishSuccess() }
+                }
             } message: {
-                Text("Use your new password the next time you sign in.")
+                Text(isResetFromLogin
+                     ? "Sign in below with your new password to continue."
+                     : "Use your new password the next time you sign in.")
             }
         }
         .presentationDetents([.medium, .large])
+        .interactiveDismissDisabled(isResetFromLogin)
     }
 
     private func field(
@@ -165,5 +178,32 @@ struct ChangePasswordSheet: View {
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+
+    /// Forgot-password (login-initiated) recovery: tear down the
+    /// recovery session so the user has to sign in fresh with the new
+    /// password. Sign out BEFORE clearing isPasswordRecovery so
+    /// ContentView never briefly shows the main app between the two
+    /// state flips. The settings-initiated flow stays signed in.
+    private func finishSuccess() async {
+        if isResetFromLogin {
+            try? await authService.signOut()
+            authService.isUnauthenticatedReset = false
+        }
+        authService.isPasswordRecovery = false
+        dismiss()
+    }
+
+    /// Cancel from the login-initiated recovery flow also tears down
+    /// the recovery session — otherwise the user would land in the
+    /// main app with a temporary recovery session and no way to use
+    /// their existing password.
+    private func cancel() async {
+        if isResetFromLogin {
+            try? await authService.signOut()
+            authService.isUnauthenticatedReset = false
+        }
+        authService.isPasswordRecovery = false
+        dismiss()
     }
 }

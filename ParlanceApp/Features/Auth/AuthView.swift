@@ -3,12 +3,14 @@ import AuthenticationServices
 
 struct AuthView: View {
     @StateObject private var viewModel: AuthViewModel
+    @ObservedObject private var authService: AuthService
     @State private var path = NavigationPath()
     @State private var showPassword = false
     @State private var showSamplePreview = false
     @Environment(\.colorScheme) private var colorScheme
 
     init(authService: AuthService) {
+        self.authService = authService
         _viewModel = StateObject(wrappedValue: AuthViewModel(authService: authService))
     }
 
@@ -55,6 +57,16 @@ struct AuthView: View {
             path.append(Route.waiting(newRoute))
             // Consume the trigger so re-submitting after a back-nav re-fires.
             viewModel.pendingWaitingRoute = nil
+        }
+        .onChange(of: authService.isPasswordRecovery) { _, isRecovery in
+            // When the recovery deep link fires while we're still on
+            // AuthView (forgot-password flow), pop the email-waiting
+            // screen so the ChangePasswordSheet appears over the login
+            // form. Also clear the password field that the user may
+            // have typed during a failed sign-in attempt.
+            guard isRecovery, authService.isUnauthenticatedReset else { return }
+            path = NavigationPath()
+            viewModel.password = ""
         }
     }
 
