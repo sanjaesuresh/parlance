@@ -46,6 +46,10 @@ export default {
       return handleEmotionStatus(request, env, corsHeaders);
     }
 
+    if (url.pathname === "/apple/register") {
+      return handleAppleRegister(request, env, corsHeaders);
+    }
+
     if (url.pathname === "/delete-user") {
       return handleDeleteUser(request, env, corsHeaders);
     }
@@ -220,17 +224,19 @@ async function handleDeleteUser(request, env, corsHeaders) {
       const appleIdentity = identities.find((i) => i.provider === "apple");
 
       if (appleIdentity) {
-        // Try to find a refresh token. Supabase may expose it in identity_data or
-        // raw_user_meta_data.provider_refresh_token.
-        // NOTE: Supabase does not currently persist Apple refresh tokens server-side
-        // via the standard Sign in with Apple flow. This path will typically log a
-        // warning and skip the revoke step (graceful degradation). To enable revoke,
-        // the iOS app would need to capture and store the Apple refresh token at
-        // sign-in time — that is out of scope for this task.
-        const refreshToken =
-          appleIdentity.identity_data?.refresh_token ??
-          userData.raw_user_meta_data?.provider_refresh_token ??
-          null;
+        // Look up our server-side stored Apple refresh token. We persist it at
+        // sign-in time via /apple/register so revoke actually works on delete
+        // (App Store Guideline 5.1.1(v)). The legacy lookup in Supabase identity
+        // fields was never populated by Supabase and is gone.
+        const tokenRes = await fetch(
+          `${env.SUPABASE_URL}/rest/v1/apple_refresh_tokens?user_id=eq.${uid}&select=refresh_token`,
+          { headers: adminHeaders }
+        );
+        let refreshToken = null;
+        if (tokenRes.ok) {
+          const rows = await tokenRes.json();
+          refreshToken = rows?.[0]?.refresh_token ?? null;
+        }
 
         if (refreshToken) {
           try {
@@ -275,6 +281,7 @@ async function handleDeleteUser(request, env, corsHeaders) {
   };
 
   const tableDeletes = [
+    `apple_refresh_tokens?user_id=eq.${uid}`,
     `push_tokens?user_id=eq.${uid}`,
     `blocked_users?blocker_id=eq.${uid}`,
     `blocked_users?blocked_id=eq.${uid}`,
@@ -318,6 +325,136 @@ async function handleDeleteUser(request, env, corsHeaders) {
   }
 
   return new Response(JSON.stringify({ success: true, appleRevoked }), {
+    status: 200,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
+}
+
+// ---------------------------------------------------------------------------
+// /apple/register — exchange an Apple authorization code for a refresh token
+// and persist it in apple_refresh_tokens so /delete-user can revoke it later.
+//
+// Apple only emits authorizationCode on the FIRST Sign in with Apple from a
+// given device; the iOS client calls this endpoint fire-and-forget right
+// after Supabase sign-in succeeds. This is required to comply with App Store
+// Guideline 5.1.1(v) — account deletion must actually revoke Apple tokens.
+//
+// Required env vars: SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY,
+//                    APPLE_TEAM_ID, APPLE_BUNDLE_ID, APPLE_KEY_ID, APPLE_P8_PRIVATE_KEY
+// ---------------------------------------------------------------------------
+
+async function handleAppleRegister(request, env, corsHeaders) {
+  // 1. Auth — never trust a client-supplied user id
+  const authResult = await requireUser(request, env, corsHeaders);
+  if (authResult.error) return authResult.error;
+  const { uid } = authResult;
+
+  // 2. Body size cap — payload is just a short auth code
+  const contentLength = parseInt(request.headers.get("content-length") ?? "0", 10);
+  if (contentLength > 2048) {
+    return new Response(JSON.stringify({ error: "Request too large" }), {
+      status: 413,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // 3. Rate limit — registering happens at most a couple of times per device
+  // pairing; 5/min is generous.
+  const rlResult = await checkRateLimit(env, uid, "apple-register", 5, corsHeaders);
+  if (rlResult.error) return rlResult.error;
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return new Response(JSON.stringify({ error: "Invalid JSON" }), {
+      status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  const code = typeof body.authorization_code === "string" ? body.authorization_code : "";
+  if (code.length === 0 || code.length > 8192) {
+    return new Response(JSON.stringify({ error: "Invalid authorization_code" }), {
+      status: 400,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // 4. Exchange authorization code with Apple for a refresh token
+  let refreshToken;
+  try {
+    const clientSecret = await signAppleClientSecret(env);
+    const tokenBody = new URLSearchParams({
+      grant_type: "authorization_code",
+      code,
+      client_id: env.APPLE_BUNDLE_ID,
+      client_secret: clientSecret,
+    });
+    const tokenRes = await fetch("https://appleid.apple.com/auth/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: tokenBody.toString(),
+    });
+
+    if (!tokenRes.ok) {
+      // Log status + body for diagnostics but do not echo Apple's error
+      // payload to the client (it can leak detail).
+      const errText = await tokenRes.text();
+      console.warn(`[apple-register] Apple token exchange returned ${tokenRes.status}: ${errText}`);
+      return new Response(JSON.stringify({ error: "apple_token_exchange_failed" }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const tokenJson = await tokenRes.json();
+    refreshToken = typeof tokenJson?.refresh_token === "string" ? tokenJson.refresh_token : "";
+    if (!refreshToken) {
+      console.warn(`[apple-register] Apple token response missing refresh_token for uid=${uid}`);
+      return new Response(JSON.stringify({ error: "no_refresh_token_in_response" }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+  } catch (err) {
+    console.warn(`[apple-register] Apple token exchange threw: ${err}`);
+    return new Response(JSON.stringify({ error: "apple_token_exchange_failed" }), {
+      status: 502,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  // 5. Upsert into apple_refresh_tokens via service-role REST
+  try {
+    const upsertRes = await fetch(`${env.SUPABASE_URL}/rest/v1/apple_refresh_tokens`, {
+      method: "POST",
+      headers: {
+        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
+        "Content-Type": "application/json",
+        Prefer: "resolution=merge-duplicates,return=minimal",
+      },
+      body: JSON.stringify([{ user_id: uid, refresh_token: refreshToken }]),
+    });
+
+    if (!upsertRes.ok) {
+      const errText = await upsertRes.text();
+      console.warn(`[apple-register] Supabase upsert returned ${upsertRes.status}: ${errText}`);
+      return new Response(JSON.stringify({ error: "persist_failed" }), {
+        status: 502,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+  } catch (err) {
+    console.warn(`[apple-register] Supabase upsert threw: ${err}`);
+    return new Response(JSON.stringify({ error: "persist_failed" }), {
+      status: 502,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+  }
+
+  return new Response(JSON.stringify({ success: true }), {
     status: 200,
     headers: { ...corsHeaders, "Content-Type": "application/json" },
   });

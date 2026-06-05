@@ -142,6 +142,24 @@ final class AuthViewModel: ObservableObject {
                 if !formattedName.isEmpty {
                     authService.pendingAppleDisplayName = formattedName
                 }
+                // Best-effort: persist the Apple authorization code server-side so
+                // account deletion can revoke the refresh token (App Store
+                // Guideline 5.1.1(v)). Apple only emits authorizationCode on the
+                // FIRST sign-in from a device, so this is one-shot — failures are
+                // logged but never surface to the user (the sign-in itself
+                // already succeeded). Must run AFTER signInWithApple so the JWT
+                // is valid.
+                if let codeData = credential.authorizationCode,
+                   let code = String(data: codeData, encoding: .utf8),
+                   !code.isEmpty {
+                    do {
+                        try await authService.registerAppleAuthorizationCode(code)
+                    } catch {
+                        #if DEBUG
+                        print("[AuthViewModel] registerAppleAuthorizationCode failed: \(error)")
+                        #endif
+                    }
+                }
             } catch {
                 errorMessage = error.localizedDescription
             }

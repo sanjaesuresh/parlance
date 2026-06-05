@@ -97,6 +97,27 @@ final class AuthService: ObservableObject {
         ))
     }
 
+    /// Sends the Apple authorization code to the worker so it can exchange it
+    /// for a refresh token and persist it server-side. The refresh token is
+    /// required to actually revoke Apple Sign-in during account deletion per
+    /// App Store Guideline 5.1.1(v). Best-effort: Apple only emits the
+    /// authorization code on the FIRST sign-in from a device, so if this call
+    /// fails we cannot retry for the same user. Must be called AFTER
+    /// `signInWithApple` so the Supabase JWT is valid.
+    func registerAppleAuthorizationCode(_ code: String) async throws {
+        let session = try await client.auth.session
+        let endpoint = AppConstants.apiBaseURL.appendingPathComponent("apple/register")
+        var request = URLRequest(url: endpoint, timeoutInterval: 15)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(session.accessToken)", forHTTPHeaderField: "Authorization")
+        request.httpBody = try JSONSerialization.data(withJSONObject: ["authorization_code": code])
+        let (_, response) = try await URLSession.shared.data(for: request)
+        guard let http = response as? HTTPURLResponse, http.statusCode == 200 else {
+            throw URLError(.badServerResponse)
+        }
+    }
+
     func signOut() async throws {
         // Delete the push token first while we still have an authenticated session.
         await PushTokenService.shared.deleteToken()
