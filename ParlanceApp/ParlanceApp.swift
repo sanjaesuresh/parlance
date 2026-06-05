@@ -50,6 +50,16 @@ struct ParlanceApp: App {
                         UIApplication.shared.registerForRemoteNotifications()
                     }
                 }
+                .onOpenURL { url in
+                    // Reset-password universal links land here. The SDK
+                    // exchanges the recovery token for a session and emits
+                    // `.passwordRecovery`, which flips `isPasswordRecovery`.
+                    Task { await authService.handleOpenURL(url) }
+                }
+                .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
+                    guard let url = activity.webpageURL else { return }
+                    Task { await authService.handleOpenURL(url) }
+                }
         }
         .modelContainer(PersistenceService.shared.container)
     }

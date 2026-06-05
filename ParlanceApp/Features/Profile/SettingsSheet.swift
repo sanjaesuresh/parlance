@@ -1,4 +1,5 @@
 import SwiftUI
+import Supabase
 
 struct SettingsSheet: View {
     @Binding var showPaywall: Bool
@@ -11,6 +12,8 @@ struct SettingsSheet: View {
     @State private var safariURL: URL?
     @State private var showSignOutConfirmation = false
     @State private var showDeleteAccountConfirmation = false
+    @State private var isStartingPasswordReset = false
+    @State private var passwordResetError: String?
     @State private var deleteAccountError: String?
 
     var body: some View {
@@ -61,6 +64,16 @@ struct SettingsSheet: View {
                                 title: "Reset All Data"
                             ) {
                                 viewModel.showResetConfirmation = true
+                            }
+                            if authService.hasPasswordIdentity {
+                                rowDivider
+                                navRow(
+                                    icon: "key.fill",
+                                    title: isStartingPasswordReset ? "Sending email…" : "Change Password"
+                                ) {
+                                    Task { await startPasswordReset() }
+                                }
+                                .disabled(isStartingPasswordReset)
                             }
                             rowDivider
                             destructiveRow(
@@ -134,6 +147,35 @@ struct SettingsSheet: View {
             if let url = safariURL {
                 SafariView(url: url)
             }
+        }
+        .alert("Couldn't send email", isPresented: Binding(
+            get: { passwordResetError != nil },
+            set: { if !$0 { passwordResetError = nil } }
+        )) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(passwordResetError ?? "")
+        }
+    }
+
+    /// Triggered by the Change Password row. Sends a password-reset email to
+    /// the signed-in user's address; on success, dismisses Settings so the
+    /// root waiting sheet (driven by `authService.pendingResetEmail`) can
+    /// take over. The actual password update only happens AFTER the user
+    /// taps the email link — Supabase's `.passwordRecovery` event then
+    /// presents `ChangePasswordSheet` from ContentView.
+    private func startPasswordReset() async {
+        guard let email = authService.currentUser?.email, !email.isEmpty else {
+            passwordResetError = "We couldn't find an email on your account. Sign out and back in, then try again."
+            return
+        }
+        isStartingPasswordReset = true
+        defer { isStartingPasswordReset = false }
+        do {
+            try await authService.sendPasswordReset(email: email)
+            dismiss()
+        } catch {
+            passwordResetError = error.localizedDescription
         }
     }
 
@@ -283,6 +325,31 @@ struct SettingsSheet: View {
                 Image(systemName: icon)
                     .font(.system(size: 15))
                     .foregroundStyle(AppColors.red)
+                    .frame(width: 22, alignment: .center)
+                    .accessibilityHidden(true)
+                Text(title)
+                    .font(AppFonts.body(14))
+                    .foregroundStyle(AppColors.text)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundStyle(AppColors.dim)
+                    .accessibilityHidden(true)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier(accessibilityID ?? "")
+    }
+
+    private func navRow(icon: String, title: String, accessibilityID: String? = nil, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 14) {
+                Image(systemName: icon)
+                    .font(.system(size: 15))
+                    .foregroundStyle(AppColors.sub)
                     .frame(width: 22, alignment: .center)
                     .accessibilityHidden(true)
                 Text(title)

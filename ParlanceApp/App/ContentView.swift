@@ -238,6 +238,46 @@ struct ContentView: View {
                 Task { await subscription.refreshStatus() }
             }
         }
+        .sheet(isPresented: $authService.isPasswordRecovery) {
+            ChangePasswordSheet()
+                .environmentObject(authService)
+        }
+        // Authenticated users who tapped Settings → Change Password trigger
+        // a password-reset email; this sheet shows the waiting state until
+        // the user opens the email and the universal link fires
+        // `.passwordRecovery`. AuthView's signed-out flow has its own
+        // in-NavigationStack waiting screen, so this is gated on
+        // `isAuthenticated` to avoid double-presenting.
+        .sheet(isPresented: Binding(
+            get: {
+                authService.isAuthenticated &&
+                authService.pendingResetEmail != nil &&
+                !authService.isPasswordRecovery
+            },
+            set: { if !$0 { authService.pendingResetEmail = nil } }
+        )) {
+            NavigationStack {
+                EmailWaitingView(
+                    title: "Check your email",
+                    email: authService.pendingResetEmail ?? "",
+                    bodyCopy: "We sent a link to reset your password. Tap it to choose a new one.",
+                    onResend: {
+                        guard let email = authService.pendingResetEmail else { return }
+                        try await authService.sendPasswordReset(email: email)
+                    }
+                )
+                .navigationTitle("Reset password")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Cancel") {
+                            authService.pendingResetEmail = nil
+                        }
+                        .foregroundStyle(AppColors.sub)
+                    }
+                }
+            }
+        }
         .alert("Local history was reset", isPresented: $showStoreWipedAlert) {
             Button("OK") {
                 PersistenceService.acknowledgeStoreWipeNotice()

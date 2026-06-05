@@ -26,6 +26,16 @@ final class AuthService: ObservableObject {
     @Published var isCompletingSignUp = false
     @Published var isDeletingAccount = false
     @Published var didJustSignIn = false
+    /// Set to true when Supabase emits a `.passwordRecovery` event after the
+    /// reset-password universal link opens the app. The root view watches
+    /// this flag and presents `ChangePasswordSheet`. Cleared once the user
+    /// finishes or cancels.
+    @Published var isPasswordRecovery = false
+
+    /// Email the password-reset waiting screen displays. Set by
+    /// `sendPasswordReset`. Cleared when the user backs out or the
+    /// recovery deep link arrives.
+    @Published var pendingResetEmail: String?
 
     private let client = SupabaseManager.shared.client
 
@@ -70,6 +80,17 @@ final class AuthService: ObservableObject {
             case .signedOut:
                 currentUser = nil
                 isAuthenticated = false
+            case .passwordRecovery:
+                // Supabase has already established a recovery session for the
+                // user. Surface the flag so the root view can present the
+                // change-password sheet, and clear the waiting-screen email
+                // so any pending in-app waiting sheet dismisses cleanly.
+                if let session {
+                    currentUser = session.user
+                    isAuthenticated = true
+                }
+                pendingResetEmail = nil
+                isPasswordRecovery = true
             default:
                 break
             }
@@ -125,7 +146,69 @@ final class AuthService: ObservableObject {
     }
 
     func sendPasswordReset(email: String) async throws {
-        try await client.auth.resetPasswordForEmail(email)
+        try await client.auth.resetPasswordForEmail(email, redirectTo: AppURLs.passwordReset)
+        pendingResetEmail = email
+    }
+
+    /// Called from `.onOpenURL` / `.onContinueUserActivity` when an auth
+    /// universal link opens the app. Handles two URL shapes:
+    ///
+    /// 1. Direct-verify URLs from our custom email templates:
+    ///    `https://theparlance.app/<path>?token_hash=…&type=signup|recovery`.
+    ///    These bypass Supabase's `/auth/v1/verify` redirect so the click
+    ///    lands directly on a domain iOS claims for the app. We call
+    ///    `verifyOTP` to consume the token. Email templates MUST use this
+    ///    shape — the default `{{ .ConfirmationURL }}` template variable
+    ///    routes through Supabase first and Safari swallows the universal
+    ///    link before it can reach the app.
+    ///
+    /// 2. PKCE callback URLs (`?code=…`) and implicit-grant fragment URLs.
+    ///    Handed to `session(from:)`. Currently only OAuth flows would hit
+    ///    this branch since our email templates use shape (1).
+    ///
+    /// The SDK's `verifyOTP` emits `.signedIn` regardless of `type`, so
+    /// for `type=recovery` we manually flip `isPasswordRecovery` here.
+    func handleOpenURL(_ url: URL) async {
+        #if DEBUG
+        print("[AuthService] handleOpenURL: \(url.absoluteString)")
+        #endif
+
+        let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems ?? []
+        if let tokenHash = queryItems.first(where: { $0.name == "token_hash" })?.value,
+           let typeRaw = queryItems.first(where: { $0.name == "type" })?.value,
+           let type = EmailOTPType(rawValue: typeRaw) {
+            do {
+                _ = try await client.auth.verifyOTP(tokenHash: tokenHash, type: type)
+                if type == .recovery {
+                    pendingResetEmail = nil
+                    isPasswordRecovery = true
+                }
+            } catch {
+                #if DEBUG
+                print("[AuthService] verifyOTP failed: \(error)")
+                #endif
+            }
+            return
+        }
+
+        do {
+            try await client.auth.session(from: url)
+        } catch {
+            #if DEBUG
+            print("[AuthService] session(from:) failed: \(error)")
+            #endif
+        }
+    }
+
+    func updatePassword(newPassword: String) async throws {
+        try await client.auth.update(user: UserAttributes(password: newPassword))
+    }
+
+    /// True if the signed-in user has an email/password identity (i.e. can have a password to change).
+    /// Apple-only users return false.
+    var hasPasswordIdentity: Bool {
+        guard let identities = currentUser?.identities else { return false }
+        return identities.contains { $0.provider == "email" }
     }
 
     func deleteAccount() async throws {

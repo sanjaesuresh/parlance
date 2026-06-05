@@ -21,4 +21,8 @@ enum AppURLs {
     /// Marketing homepage. Used as the invite landing target until a
     /// dedicated /invite page exists.
     static let home: URL = URL(string: host)!
+
+    /// Universal-link target used in Supabase password-recovery emails.
+    /// Matches the AASA component `/reset-password*` hosted at this host.
+    static let passwordReset: URL = URL(string: "\(host)/reset-password")!
 }
