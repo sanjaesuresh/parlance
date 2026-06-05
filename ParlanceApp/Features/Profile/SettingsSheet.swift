@@ -79,16 +79,6 @@ struct SettingsSheet: View {
                                 safariURL = AppURLs.privacy
                                 showSafari = true
                             }
-                            rowDivider
-                            linkRow(icon: "doc.text", title: "Terms of Service") {
-                                safariURL = AppURLs.terms
-                                showSafari = true
-                            }
-                            rowDivider
-                            linkRow(icon: "person.2.fill", title: "Community Guidelines") {
-                                safariURL = AppURLs.guidelines
-                                showSafari = true
-                            }
                         }
                     }
 

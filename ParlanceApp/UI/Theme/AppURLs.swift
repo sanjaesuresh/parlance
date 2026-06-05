@@ -12,9 +12,11 @@ enum AppURLs {
     private static let host = "https://theparlance.app"
 
     static let privacy: URL = URL(string: "\(host)/privacy")!
-    static let terms: URL = URL(string: "\(host)/terms")!
     static let support: URL = URL(string: "\(host)/support")!
-    static let guidelines: URL = URL(string: "\(host)/guidelines")!
+
+    /// Apple's standard EULA. Used on the Pro paywall to satisfy App Store
+    /// Guideline 3.1.2(a) without maintaining our own Terms of Use page.
+    static let standardEULA: URL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
 
     /// Profile invite link with the inviter's username appended as a
     /// percent-encoded query parameter.

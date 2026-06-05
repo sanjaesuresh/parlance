@@ -284,7 +284,7 @@ struct PaywallView: View {
                 .lineSpacing(3)
 
             HStack(spacing: 6) {
-                Link("Terms of Use", destination: AppURLs.terms)
+                Link("Terms of Use", destination: AppURLs.standardEULA)
                 Text("·").foregroundStyle(AppColors.dim)
                 Link("Privacy Policy", destination: AppURLs.privacy)
             }
