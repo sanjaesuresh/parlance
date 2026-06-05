@@ -1045,18 +1045,21 @@ export function summarizeEmotions(predictions) {
     );
   }
 
-  // Confidence arc kept for backwards compat with the card's sparkline
+  // Arc tracks the dominant emotion's timeline so the sparkline always
+  // reflects the user's strongest signal. Falls back to Determination
+  // (Hume's closest analogue to "confidence") if dominant has no timeline.
   const emotionArc =
-    emotionTimelines["Confidence"] ??
+    emotionTimelines[dominantEmotion] ??
+    emotionTimelines["Determination"] ??
     segments.map(
-      (s) => (s.emotions ?? []).find((e) => e.name === "Confidence")?.score ?? 0
+      (s) => (s.emotions ?? []).find((e) => e.name === dominantEmotion)?.score ?? 0
     );
 
   return {
     dominantEmotion,
     dominantScore,
-    confidenceScore: averaged["Confidence"] ?? 0,
-    nervousnessScore: averaged["Nervousness"] ?? 0,
+    confidenceScore: averaged["Determination"] ?? 0,
+    nervousnessScore: averaged["Anxiety"] ?? 0,
     enthusiasmScore: averaged["Excitement"] ?? 0,
     emotionArc,
     topEmotions,

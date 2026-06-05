@@ -37,12 +37,12 @@ describe("summarizeEmotions", () => {
   test("averages emotions across segments and picks the dominant one", () => {
     const result = summarizeEmotions(
       makePredictions([
-        segment({ Confidence: 0.8, Nervousness: 0.2, Excitement: 0.5 }),
-        segment({ Confidence: 0.6, Nervousness: 0.4, Excitement: 0.3 }),
+        segment({ Determination: 0.8, Anxiety: 0.2, Excitement: 0.5 }),
+        segment({ Determination: 0.6, Anxiety: 0.4, Excitement: 0.3 }),
       ])
     );
 
-    expect(result.dominantEmotion).toBe("Confidence");
+    expect(result.dominantEmotion).toBe("Determination");
     expect(result.confidenceScore).toBeCloseTo(0.7, 5);
     expect(result.nervousnessScore).toBeCloseTo(0.3, 5);
     expect(result.enthusiasmScore).toBeCloseTo(0.4, 5);
@@ -71,38 +71,39 @@ describe("summarizeEmotions", () => {
 
   test("emotionTimelines has one arc per top emotion, length = segment count", () => {
     const segs = [
-      segment({ Confidence: 0.1, Excitement: 0.9 }),
-      segment({ Confidence: 0.5, Excitement: 0.5 }),
-      segment({ Confidence: 0.9, Excitement: 0.1 }),
+      segment({ Determination: 0.1, Excitement: 0.9 }),
+      segment({ Determination: 0.5, Excitement: 0.5 }),
+      segment({ Determination: 0.9, Excitement: 0.1 }),
     ];
     const result = summarizeEmotions(makePredictions(segs));
 
     expect(Object.keys(result.emotionTimelines).sort()).toEqual([
-      "Confidence",
+      "Determination",
       "Excitement",
     ]);
-    expect(result.emotionTimelines.Confidence).toEqual([0.1, 0.5, 0.9]);
+    expect(result.emotionTimelines.Determination).toEqual([0.1, 0.5, 0.9]);
     expect(result.emotionTimelines.Excitement).toEqual([0.9, 0.5, 0.1]);
   });
 
-  test("emotionArc still tracks Confidence over time (backwards compat)", () => {
+  test("emotionArc tracks the dominant emotion's timeline", () => {
     const result = summarizeEmotions(
       makePredictions([
-        segment({ Confidence: 0.2 }),
-        segment({ Confidence: 0.6 }),
-        segment({ Confidence: 0.9 }),
+        segment({ Determination: 0.2, Excitement: 0.05 }),
+        segment({ Determination: 0.6, Excitement: 0.05 }),
+        segment({ Determination: 0.9, Excitement: 0.05 }),
       ])
     );
+    expect(result.dominantEmotion).toBe("Determination");
     expect(result.emotionArc).toEqual([0.2, 0.6, 0.9]);
   });
 
   test("missing emotion in a segment is treated as 0 in its timeline", () => {
     const result = summarizeEmotions(
       makePredictions([
-        segment({ Confidence: 0.8, Nervousness: 0.1 }),
-        segment({ Confidence: 0.6 }), // no Nervousness
+        segment({ Determination: 0.8, Anxiety: 0.1 }),
+        segment({ Determination: 0.6 }), // no Anxiety
       ])
     );
-    expect(result.emotionTimelines.Nervousness).toEqual([0.1, 0]);
+    expect(result.emotionTimelines.Anxiety).toEqual([0.1, 0]);
   });
 });
