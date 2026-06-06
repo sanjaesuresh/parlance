@@ -245,6 +245,18 @@ final class AuthService: ObservableObject {
 
     func updatePassword(newPassword: String) async throws {
         try await client.auth.update(user: UserAttributes(password: newPassword))
+        // Supabase does not revoke other refresh tokens on password change by
+        // default, which means a stolen device stays signed in after the
+        // legitimate owner resets their password. Revoke every session except
+        // this one; best-effort so a transient failure here doesn't surface
+        // as a password-change error after the password itself already changed.
+        do {
+            try await client.auth.signOut(scope: .others)
+        } catch {
+            #if DEBUG
+            print("[AuthService] signOut(scope: .others) after password change failed: \(error)")
+            #endif
+        }
     }
 
     /// True if the signed-in user has an email/password identity (i.e. can have a password to change).
