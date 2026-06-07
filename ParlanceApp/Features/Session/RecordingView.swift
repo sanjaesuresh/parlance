@@ -317,7 +317,7 @@ struct RecordingView: View {
             Text("Parlance records your voice on this device. The audio is deleted after the session. Only the transcript is sent to our AI for coaching feedback.")
         }
         .alert("Speech Recognition", isPresented: $viewModel.showSpeechPrePrompt) {
-            Button("Enable") {
+            Button("Continue") {
                 Task { await viewModel.requestSpeechPermission(permissions: permissionsService) }
             }
             Button("Cancel", role: .cancel) {}
