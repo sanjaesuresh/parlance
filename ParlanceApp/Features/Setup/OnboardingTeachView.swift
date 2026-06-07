@@ -171,6 +171,7 @@ private struct OnboardingTeachSessionStep: View {
 
     @State private var ringProgress: CGFloat = 0
     @State private var didAnimate = false
+    @State private var didRequestMic = false
 
     private let tips: [String] = [
         "Open with one clear sentence.",
@@ -276,21 +277,35 @@ private struct OnboardingTeachSessionStep: View {
                 ringProgress = 0.7
             }
         }
+        .task {
+            guard !didRequestMic,
+                  permissions.microphoneStatus == .undetermined else { return }
+            didRequestMic = true
+            try? await Task.sleep(nanoseconds: 800_000_000)
+            guard permissions.microphoneStatus == .undetermined else { return }
+            _ = await permissions.requestMicrophone()
+        }
     }
 
     @ViewBuilder
     private var micPermissionBlock: some View {
         switch permissions.microphoneStatus {
         case .granted:
-            EmptyView()
+            HStack(spacing: 6) {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(AppColors.gold)
+                Text("Microphone ready")
+                    .font(AppFonts.body(12))
+                    .foregroundStyle(AppColors.dim)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         case .denied:
             SecondaryButton(title: "You can change this in Settings") {
                 permissions.openSettings()
             }
         case .undetermined:
-            PrimaryButton(title: "Allow microphone") {
-                Task { _ = await permissions.requestMicrophone() }
-            }
+            EmptyView()
         @unknown default:
             EmptyView()
         }
