@@ -1,5 +1,6 @@
 import SwiftUI
 import AVFoundation
+import Speech
 import UIKit
 
 // Three-step teach flow shown once before FirstLaunchSetupView. Teaches modes,
@@ -171,7 +172,7 @@ private struct OnboardingTeachSessionStep: View {
 
     @State private var ringProgress: CGFloat = 0
     @State private var didAnimate = false
-    @State private var didRequestMic = false
+    @State private var didRequestPermissions = false
 
     private let tips: [String] = [
         "Open with one clear sentence.",
@@ -252,7 +253,7 @@ private struct OnboardingTeachSessionStep: View {
                             }
                         }
 
-                        Text("We transcribe locally. Audio is deleted after the session.")
+                        Text("Parlance uses your microphone and Apple's speech recognition to transcribe what you say. Audio is deleted after the session.")
                             .font(AppFonts.body(12))
                             .foregroundStyle(AppColors.dim)
                             .multilineTextAlignment(.leading)
@@ -278,12 +279,22 @@ private struct OnboardingTeachSessionStep: View {
             }
         }
         .task {
-            guard !didRequestMic,
-                  permissions.microphoneStatus == .undetermined else { return }
-            didRequestMic = true
+            guard !didRequestPermissions else { return }
+            didRequestPermissions = true
+
+            // Let the priming UI render before any system prompt appears.
             try? await Task.sleep(nanoseconds: 800_000_000)
-            guard permissions.microphoneStatus == .undetermined else { return }
-            _ = await permissions.requestMicrophone()
+
+            if permissions.microphoneStatus == .undetermined {
+                _ = await permissions.requestMicrophone()
+            }
+
+            // Only ask for speech if mic was granted — without mic, transcription
+            // is moot. Brief gap so the two system alerts don't feel stacked.
+            guard permissions.microphoneStatus == .granted,
+                  permissions.speechStatus == .notDetermined else { return }
+            try? await Task.sleep(nanoseconds: 400_000_000)
+            _ = await permissions.requestSpeechRecognition()
         }
     }
 
