@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D49DCB3D2FD9E6BD00A8E2DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49DCB3C2FD9E6BD00A8E2DC /* StoreKit.framework */; };
 		D4DB98C52FAAFDA1000578F8 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = D4DB98C42FAAFDA1000578F8 /* Supabase */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,8 @@
 		D472F3122FBCD0EB00C2C968 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D48863742FC6D7FE00DBCCEF /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D488654D2FCE978400DBCCEF /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D49DCA3C2FD34D1A00A8E2DC /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
+		D49DCB3C2FD9E6BD00A8E2DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D4A2DA1C2FB4A99B00495D69 /* Parlance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Parlance.xcodeproj; sourceTree = "<group>"; };
 		D4BDC0882F7F971900FE69B7 /* Parlance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parlance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BDC0952F7F971B00FE69B7 /* ParlanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParlanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4DB98C52FAAFDA1000578F8 /* Supabase in Frameworks */,
+				D49DCB3D2FD9E6BD00A8E2DC /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +164,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D49DCA402FD34D1A00A8E2DC /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D49DCB3B2FD9E6BD00A8E2DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D49DCB3C2FD9E6BD00A8E2DC /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4A2DA202FB4A99B00495D69 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
@@ -172,6 +189,7 @@
 				D4BDC08A2F7F971900FE69B7 /* . */,
 				D4BDC0982F7F971B00FE69B7 /* ../ParlanceTests */,
 				D4BDC0A22F7F971B00FE69B7 /* ../ParlanceUITests */,
+				D49DCB3B2FD9E6BD00A8E2DC /* Frameworks */,
 				D4BDC0892F7F971900FE69B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -317,6 +335,10 @@
 					ProjectRef = D4DBA31A2FAD813A000578F8 /* Parlance.xcodeproj */;
 				},
 				{
+					ProductGroup = D49DCA402FD34D1A00A8E2DC /* Products */;
+					ProjectRef = D49DCA3C2FD34D1A00A8E2DC /* Parlance.xcodeproj */;
+				},
+				{
 					ProductGroup = D4178D992FAEB61800EB5925 /* Products */;
 					ProjectRef = D4178D962FAEB61800EB5925 /* Parlance.xcodeproj */;
 				},
@@ -345,12 +367,12 @@
 					ProjectRef = D4A2DA1C2FB4A99B00495D69 /* Parlance.xcodeproj */;
 				},
 				{
-					ProductGroup = D48865512FCE978400DBCCEF /* Products */;
-					ProjectRef = D488654D2FCE978400DBCCEF /* Parlance.xcodeproj */;
-				},
-				{
 					ProductGroup = D470634A2FA9C65C0037F17E /* Products */;
 					ProjectRef = D47063482FA9C65C0037F17E /* Parlance.xcodeproj */;
+				},
+				{
+					ProductGroup = D48865512FCE978400DBCCEF /* Products */;
+					ProjectRef = D488654D2FCE978400DBCCEF /* Parlance.xcodeproj */;
 				},
 				{
 					ProductGroup = D48863782FC6D7FE00DBCCEF /* Products */;
