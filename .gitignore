@@ -47,6 +47,9 @@ CLAUDE.md
 .superpowers/
 docs/superpowers/
 
+# Marketing assets — large image set + generated mocks, not source code
+marketing_parlance/
+
 # Docs — ignore everything under _docs except hand-written guides
 /_docs/**
 !/_docs/guides/
