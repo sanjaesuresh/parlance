@@ -179,18 +179,14 @@ final class SocialService: ObservableObject {
     // MARK: - Accept/decline
 
     func acceptRequest(_ requestId: UUID, fromUserId: UUID) async throws {
-        guard let currentId = currentUserId else { return }
+        guard currentUserId != nil else { return }
+        // Friendship creation goes through the accept_friend_request RPC, which
+        // verifies (server-side) that this is a pending request addressed to the
+        // caller before writing the symmetric friendship rows. Clients can no
+        // longer INSERT friendships directly (forged-friendship privacy bypass).
+        struct AcceptParams: Encodable { let request_id: String }
         try await client
-            .from("friend_requests")
-            .update(["status": "accepted"])
-            .eq("id", value: requestId.uuidString)
-            .execute()
-        try await client
-            .from("friendships")
-            .insert([
-                NewFriendship(userId1: currentId, userId2: fromUserId),
-                NewFriendship(userId1: fromUserId, userId2: currentId)
-            ])
+            .rpc("accept_friend_request", params: AcceptParams(request_id: requestId.uuidString))
             .execute()
         await refreshPendingRequestCount()
     }
