@@ -284,8 +284,18 @@ struct ToneAnalysisCard: View {
                 .padding(16)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .allowsHitTesting(false)
+                .blur(radius: 18)
+                .opacity(0.55)
 
-            AppColors.bg.opacity(0.45)
+            AppColors.bg.opacity(0.55)
+
+            RadialGradient(
+                colors: [AppColors.bg.opacity(0.55), .clear],
+                center: .center,
+                startRadius: 12,
+                endRadius: 180
+            )
+            .blendMode(.plusDarker)
 
             VStack(spacing: 10) {
                 Image(systemName: "lock.fill")
@@ -314,10 +324,21 @@ struct ToneAnalysisCard: View {
                     .padding(.vertical, 10)
                     .background(AppColors.gold)
                     .clipShape(Capsule())
+                    .shadow(color: AppColors.gold.opacity(0.45), radius: 12, y: 4)
                 }
                 .padding(.top, 4)
             }
-            .padding(20)
+            .padding(22)
+            .background(
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(AppColors.card2.opacity(0.92))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18)
+                            .stroke(AppColors.gold.opacity(0.45), lineWidth: 1)
+                    )
+                    .shadow(color: .black.opacity(0.35), radius: 18, y: 6)
+            )
+            .padding(.horizontal, 24)
         }
         .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
