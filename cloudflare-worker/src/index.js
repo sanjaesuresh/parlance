@@ -37,10 +37,6 @@ export default {
       return handleRealLifeTips(request, env, corsHeaders);
     }
 
-    if (url.pathname === "/emotion") {
-      return handleEmotion(request, env, corsHeaders);
-    }
-
     if (url.pathname === "/emotion/submit") {
       return handleEmotionSubmit(request, env, corsHeaders);
     }
@@ -721,112 +717,6 @@ async function handleRealLifeTips(request, env, corsHeaders) {
       JSON.stringify({ error: "Upstream API error", details: result.error }),
       { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
-  } catch (error) {
-    return new Response(JSON.stringify({ error: "Internal server error" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-}
-
-// ---------------------------------------------------------------------------
-// /emotion — proxy to Hume AI batch API
-// ---------------------------------------------------------------------------
-
-async function handleEmotion(request, env, corsHeaders) {
-  if (!env.HUME_API_KEY) {
-    return new Response(JSON.stringify({ error: "HUME_API_KEY not configured" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-
-  // 1. Auth
-  const authResult = await requireUser(request, env, corsHeaders);
-  if (authResult.error) return authResult.error;
-  const { uid } = authResult;
-
-  // 2. Body size cap — 30 MB
-  const contentLength = parseInt(request.headers.get("content-length") ?? "0", 10);
-  if (contentLength > 31457280) {
-    return new Response(JSON.stringify({ error: "Request too large" }), {
-      status: 413,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-
-  // 3. Rate limit — 10 requests per minute per user
-  const rlResult = await checkRateLimit(env, uid, "emotion", 10, corsHeaders);
-  if (rlResult.error) return rlResult.error;
-
-  try {
-    const audioBytes = await request.arrayBuffer();
-
-    // Step 1: Submit batch job to Hume
-    const formData = new FormData();
-    formData.append(
-      "json",
-      JSON.stringify({ models: { prosody: {} } }),
-      { type: "application/json", filename: "config.json" }
-    );
-    formData.append(
-      "file",
-      new Blob([audioBytes], { type: "audio/mp4" }),
-      "recording.m4a"
-    );
-
-    const submitRes = await fetch("https://api.hume.ai/v0/batch/jobs", {
-      method: "POST",
-      headers: { "X-Hume-Api-Key": env.HUME_API_KEY },
-      body: formData,
-    });
-
-    if (!submitRes.ok) {
-      const text = await submitRes.text();
-      return new Response(JSON.stringify({ error: "Hume submission failed", details: text }), {
-        status: 502,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    const { job_id } = await submitRes.json();
-
-    // Step 2: Poll for completion — up to 8 retries × 2s = 16s max
-    // Cloudflare Workers have a 30s wall-clock limit; 16s leaves headroom for submit + predict fetches.
-    for (let i = 0; i < 8; i++) {
-      await new Promise((r) => setTimeout(r, 2000));
-
-      const statusRes = await fetch(`https://api.hume.ai/v0/batch/jobs/${job_id}`, {
-        headers: { "X-Hume-Api-Key": env.HUME_API_KEY },
-      });
-      const statusBody = await statusRes.json();
-      const status = statusBody?.state?.status;
-
-      if (status === "COMPLETED") {
-        const predRes = await fetch(
-          `https://api.hume.ai/v0/batch/jobs/${job_id}/predictions`,
-          { headers: { "X-Hume-Api-Key": env.HUME_API_KEY } }
-        );
-        const predictions = await predRes.json();
-        const summary = summarizeEmotions(predictions);
-        return new Response(JSON.stringify(summary), {
-          status: 200,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-
-      if (status === "FAILED") {
-        return new Response(JSON.stringify({ error: "Hume job failed" }), {
-          status: 502,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-    }
-
-    return new Response(JSON.stringify({ error: "Emotion analysis timed out" }), {
-      status: 504,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
   } catch (error) {
     return new Response(JSON.stringify({ error: "Internal server error" }), {
       status: 500,
