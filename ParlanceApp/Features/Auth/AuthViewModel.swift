@@ -193,12 +193,24 @@ final class AuthViewModel: ObservableObject {
     }
 
     private func randomNonceString(length: Int = 32) -> String {
+        // Full unreserved set (note: previously missing 'W').
         let charset: [Character] = Array(
-            "0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._"
+            "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-._"
         )
-        var bytes = [UInt8](repeating: 0, count: length)
-        _ = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
-        return String(bytes.map { charset[Int($0) % charset.count] })
+        let count = charset.count
+        // Largest multiple of `count` that fits in a byte. Bytes at/above this
+        // are rejected so the modulo mapping is unbiased (256 % count != 0).
+        let limit = 256 - (256 % count)
+        var result = ""
+        result.reserveCapacity(length)
+        var byte: [UInt8] = [0]
+        while result.count < length {
+            guard SecRandomCopyBytes(kSecRandomDefault, 1, &byte) == errSecSuccess else { continue }
+            let value = Int(byte[0])
+            if value >= limit { continue }
+            result.append(charset[value % count])
+        }
+        return result
     }
 
     private func sha256(_ input: String) -> String {

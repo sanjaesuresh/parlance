@@ -304,7 +304,9 @@ struct ProfileEditSheet: View {
                     onDismiss()
                 }
             } catch {
+                #if DEBUG
                 print("[AvatarUpload] failed: \(error)")
+                #endif
                 await MainActor.run {
                     avatarErrorMessage = "Couldn't update photo: \(error.localizedDescription)"
                     isSavingAvatar = false
