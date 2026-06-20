@@ -107,6 +107,21 @@ final class PersistenceService {
 
     var context: ModelContext { container.mainContext }
 
+    /// Persists the model context, logging (rather than silently swallowing) any
+    /// failure. A failed save means in-memory changes — XP, completed sessions,
+    /// streaks — were not written; surfacing it via OSLog makes that diagnosable
+    /// instead of invisible data loss.
+    @discardableResult
+    func persistChanges(_ caller: StaticString = #function) -> Bool {
+        do {
+            try context.save()
+            return true
+        } catch {
+            Self.logger.error("Save failed in \(String(describing: caller), privacy: .public): \(error.localizedDescription, privacy: .public)")
+            return false
+        }
+    }
+
     // MARK: - User
 
     func getUser(uid: String) -> User? {
@@ -147,14 +162,14 @@ final class PersistenceService {
             context.delete(user)
             didChange = true
         }
-        if didChange { try? context.save() }
+        if didChange { persistChanges() }
     }
     #endif
 
     func createUser(supabaseUID: String, name: String, username: String = "", location: String? = nil, occupation: String? = nil, avatar: String, avatarUrl: String? = nil, avatarUpdatedAt: Date? = nil, practiceLevel: Int = 1) -> User {
         let user = User(supabaseUID: supabaseUID, displayName: name, username: username, location: location, occupation: occupation, avatarEmoji: avatar, avatarUrl: avatarUrl, avatarUpdatedAt: avatarUpdatedAt, practiceLevel: practiceLevel, hasCompletedSetup: true)
         context.insert(user)
-        try? context.save()
+        persistChanges()
         return user
     }
 
@@ -162,7 +177,7 @@ final class PersistenceService {
 
     func saveSession(_ session: Session) {
         context.insert(session)
-        try? context.save()
+        persistChanges()
     }
 
     func recentSessions(limit: Int = 16) -> [Session] {
@@ -250,7 +265,7 @@ final class PersistenceService {
                 context.insert(achievement)
             }
         }
-        try? context.save()
+        persistChanges()
     }
 
     func unlockAchievement(id: String) {
@@ -260,7 +275,7 @@ final class PersistenceService {
         achievement.isUnlocked = true
         achievement.unlockedDate = .now
         achievement.progress = achievement.goal
-        try? context.save()
+        persistChanges()
     }
 
     func updateAchievementProgress(id: String, progress: Int) {
@@ -271,7 +286,7 @@ final class PersistenceService {
             achievement.isUnlocked = true
             achievement.unlockedDate = .now
         }
-        try? context.save()
+        persistChanges()
     }
 
     // MARK: - Seen Questions
@@ -279,7 +294,7 @@ final class PersistenceService {
     func markQuestionSeen(questionId: String, mode: SessionMode, band: String) {
         let seen = SeenQuestion(questionId: questionId, mode: mode, difficultyBand: band)
         context.insert(seen)
-        try? context.save()
+        persistChanges()
     }
 
     func seenQuestionIds(mode: SessionMode, band: String) -> Set<String> {
@@ -303,7 +318,7 @@ final class PersistenceService {
         try? context.delete(model: Achievement.self)
         try? context.delete(model: SeenQuestion.self)
         try? context.delete(model: User.self)
-        try? context.save()
+        persistChanges()
         RealLifeScenarioHistoryStore.shared.clear()
     }
 }
