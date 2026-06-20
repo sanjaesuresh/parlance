@@ -1009,9 +1009,8 @@ async function handleWeeklyBrief(request, env, corsHeaders) {
   // Schema check (lets us bail out before calling Gemini for under-2 sessions etc.)
   const validation = validateBriefRequest(payload);
   if (!validation.ok) {
-    const status = validation.error === "insufficient_data" ? 400 : 400;
     return new Response(JSON.stringify({ error: validation.error }), {
-      status,
+      status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }

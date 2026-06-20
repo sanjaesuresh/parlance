@@ -17,7 +17,6 @@ enum AppConstants {
     static let dailyChallengeXP = 200
     static let personalBestXPBonus = 100
     static let difficultyXPBonus = 20     // per difficulty tier above 5 (level 6–7: ×1, 8–9: ×2, 10: ×3)
-    static let feedbackTimeout: TimeInterval = 8
     static let scoringTimeout: TimeInterval = 30
     static let humeTimeout: TimeInterval = 45
     static let humePollBudget: TimeInterval = 90
