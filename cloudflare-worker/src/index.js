@@ -7,8 +7,11 @@ import { generateWeeklyBrief, validateRequest as validateBriefRequest } from "./
 
 export default {
   async fetch(request, env) {
+    // This API is consumed by the native iOS app, which sends no Origin header,
+    // so no CORS grant is needed. We intentionally do NOT send
+    // Access-Control-Allow-Origin (previously "null", which is granted to
+    // sandboxed/file:// browser contexts) — browsers get blocked by default.
     const corsHeaders = {
-      "Access-Control-Allow-Origin": "null",
       "Access-Control-Allow-Methods": "POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
     };
@@ -579,14 +582,23 @@ async function handleFeedback(request, env, corsHeaders) {
       });
     }
 
-    // Concatenate all message content into a single prompt for Gemini
-    const prompt = messages.map((m) => m.content).join("\n");
+    // Concatenate all message content into a single prompt for Gemini.
+    // Only string content is included so a malformed/typed-confused payload
+    // cannot inject `undefined` (or objects) into the prompt.
+    const prompt = messages
+      .map((m) => (typeof m?.content === "string" ? m.content : ""))
+      .join("\n");
     const model = env.GEMINI_MODEL || "gemini-3-flash-preview";
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.GEMINI_API_KEY}`;
+    // Pass the API key in a header, not the query string, so it can't leak via
+    // request logs / upstream error echoes.
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
     const geminiResponse = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": env.GEMINI_API_KEY,
+      },
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: { temperature, maxOutputTokens: 2048 },
@@ -594,8 +606,11 @@ async function handleFeedback(request, env, corsHeaders) {
     });
 
     if (!geminiResponse.ok) {
+      // Log upstream detail server-side; never surface it to the client (it can
+      // contain quota/config/internal request IDs).
       const errorText = await geminiResponse.text();
-      return new Response(JSON.stringify({ error: "Upstream API error", details: errorText }), {
+      console.error("Gemini /feedback upstream error:", geminiResponse.status, errorText);
+      return new Response(JSON.stringify({ error: "Upstream API error" }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -871,8 +886,10 @@ async function handleEmotionSubmit(request, env, corsHeaders) {
     });
 
     if (!submitRes.ok) {
+      // Log upstream detail server-side; do not surface it to the client.
       const text = await submitRes.text();
-      return new Response(JSON.stringify({ error: "Hume submission failed", details: text }), {
+      console.error("Hume submit upstream error:", submitRes.status, text);
+      return new Response(JSON.stringify({ error: "Hume submission failed" }), {
         status: 502,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
@@ -925,7 +942,9 @@ async function handleEmotionStatus(request, env, corsHeaders) {
   }
 
   const jobId = body?.job_id;
-  if (typeof jobId !== "string" || jobId.length === 0 || jobId.length > 128) {
+  // Strict charset so the id can never alter the upstream Hume URL path
+  // (no '/', '..', '?', '#'); Hume job ids are UUID-like tokens.
+  if (typeof jobId !== "string" || !/^[A-Za-z0-9_-]{1,128}$/.test(jobId)) {
     return new Response(JSON.stringify({ error: "Missing or invalid job_id" }), {
       status: 400,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -951,7 +970,8 @@ async function handleEmotionStatus(request, env, corsHeaders) {
   }
 
   try {
-    const statusRes = await fetch(`https://api.hume.ai/v0/batch/jobs/${jobId}`, {
+    const safeJobId = encodeURIComponent(jobId);
+    const statusRes = await fetch(`https://api.hume.ai/v0/batch/jobs/${safeJobId}`, {
       headers: { "X-Hume-Api-Key": env.HUME_API_KEY },
     });
     const statusBody = await statusRes.json();
@@ -959,7 +979,7 @@ async function handleEmotionStatus(request, env, corsHeaders) {
 
     if (status === "COMPLETED") {
       const predRes = await fetch(
-        `https://api.hume.ai/v0/batch/jobs/${jobId}/predictions`,
+        `https://api.hume.ai/v0/batch/jobs/${safeJobId}/predictions`,
         { headers: { "X-Hume-Api-Key": env.HUME_API_KEY } }
       );
       const predictions = await predRes.json();
