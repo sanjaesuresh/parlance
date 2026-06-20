@@ -98,6 +98,17 @@ final class AudioRecorder: ObservableObject {
             interruptionObserver = nil
         }
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        // The recording contains the user's speech (PII). Once finalized, protect
+        // it at rest so it's encrypted while the device is locked. `.completeUnlessOpen`
+        // keeps the immediate (foreground) read+upload working while still
+        // protecting the file if it lingers across a lock. Best-effort: a failure
+        // here must not affect the recording flow.
+        if let url = recordingURL {
+            try? FileManager.default.setAttributes(
+                [.protectionKey: FileProtectionType.completeUnlessOpen],
+                ofItemAtPath: url.path
+            )
+        }
         return recordingURL
     }
 
