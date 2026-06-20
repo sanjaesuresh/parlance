@@ -79,6 +79,12 @@ final class User {
         return Calendar.current.isDateInToday(date)
     }
 
+    var sessionsToday: Int {
+        guard let date = lastDailySessionDate,
+              Calendar.current.isDateInToday(date) else { return 0 }
+        return dailySessionCount
+    }
+
     var greeting: String {
         let hour = Calendar.current.component(.hour, from: .now)
         switch hour {

@@ -66,7 +66,12 @@ final class SubscriptionTests: XCTestCase {
     @MainActor
     func testFreeUserSessionLimitIsEnforced() async {
         let persistence = PersistenceService.forTesting()
-        let user = User(displayName: "Test", avatarEmoji: "😀", dailySessionCount: AppConstants.freeSessionsPerDay)
+        let user = User(
+            displayName: "Test",
+            avatarEmoji: "😀",
+            dailySessionCount: AppConstants.freeSessionsPerDay,
+            lastDailySessionDate: .now
+        )
         persistence.context.insert(user)
         let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
         let result = vm.startSession(
@@ -81,9 +86,36 @@ final class SubscriptionTests: XCTestCase {
     }
 
     @MainActor
+    func testFreeUserLimitResetsAfterMidnight() async {
+        let persistence = PersistenceService.forTesting()
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .now)!
+        let user = User(
+            displayName: "Test",
+            avatarEmoji: "😀",
+            dailySessionCount: AppConstants.freeSessionsPerDay,
+            lastDailySessionDate: yesterday
+        )
+        persistence.context.insert(user)
+        let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
+        let _ = vm.startSession(
+            mode: .interview,
+            user: user,
+            persistence: persistence,
+            wasDailyChallenge: false,
+            isPro: false
+        )
+        XCTAssertFalse(vm.showRateLimitAlert, "Yesterday's count should not block today's first session")
+    }
+
+    @MainActor
     func testProUserExceedsFreeLimit() async {
         let persistence = PersistenceService.forTesting()
-        let user = User(displayName: "Pro", avatarEmoji: "😎", dailySessionCount: AppConstants.freeSessionsPerDay)
+        let user = User(
+            displayName: "Pro",
+            avatarEmoji: "😎",
+            dailySessionCount: AppConstants.freeSessionsPerDay,
+            lastDailySessionDate: .now
+        )
         persistence.context.insert(user)
         let vm = HomeViewModel(questionBank: QuestionBankService(questions: []))
         let _ = vm.startSession(
