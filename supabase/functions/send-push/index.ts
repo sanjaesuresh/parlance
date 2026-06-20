@@ -211,14 +211,18 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
   const deviceToken: string = tokenRow.token;
 
-  // Build the APNs payload.
+  // Build the APNs payload. Custom data is spread FIRST and `aps` last, so a
+  // caller-supplied `data.aps` (or non-object data) can never override the
+  // server-built notification envelope.
+  const customData =
+    data && typeof data === "object" && !Array.isArray(data) ? data : {};
   const apnsPayload = {
+    ...customData,
     aps: {
       alert: { title, body },
       sound: "default",
       badge: 1, // TODO: reflect actual unread count per user
     },
-    ...(data ?? {}),
   };
 
   // Sign and send.
