@@ -3,6 +3,10 @@ name: Cloudflare Worker E2E Tests
 # Hits the live Gemini API and burns quota — manual-only. Requires
 # GEMINI_API_KEY in repo secrets; the job no-ops gracefully when absent.
 
+# Least-privilege token: this workflow only reads the repo.
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
 

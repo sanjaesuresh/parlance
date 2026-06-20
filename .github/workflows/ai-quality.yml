@@ -4,6 +4,10 @@ name: AI Quality Harness
 # Gemini) and burns API quota. Nightly + manual only — never per-PR. The
 # harness reads RUN_AI_QUALITY=1 to enable; without it the @Suite is inert.
 
+# Least-privilege token: this workflow only reads the repo.
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
   schedule:

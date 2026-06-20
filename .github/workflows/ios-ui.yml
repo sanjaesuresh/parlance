@@ -5,6 +5,10 @@ name: iOS UI Tests
 # when explicitly investigating a UI regression. Per-PR smoke coverage
 # is handled by the launch-tests step in ios.yml.
 
+# Least-privilege token: this workflow only reads the repo.
+permissions:
+  contents: read
+
 on:
   workflow_dispatch:
 

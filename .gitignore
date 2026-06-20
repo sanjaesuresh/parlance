@@ -3,6 +3,10 @@
 *~
 *.swp
 
+# Editor local history (VS Code "Local History" extension) — may contain
+# timestamped snapshots of edited source; never commit.
+.history/
+
 # Xcode
 build/
 DerivedData/
