@@ -32,7 +32,7 @@ struct PaywallView: View {
             feature: "Practice modes",
             detail: "Interview, Pitch, Daily Convo, Impromptu, Explain, Networking",
             free: .text("6"),
-            pro: .text("11")
+            pro: .text("10")
         ),
         .init(
             feature: "Difficulty levels",
