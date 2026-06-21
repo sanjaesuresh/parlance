@@ -279,100 +279,73 @@ struct ToneAnalysisCard: View {
     }
 
     private var teaserCard: some View {
-        ZStack {
-            mockCardContent
-                .padding(16)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .allowsHitTesting(false)
-                .blur(radius: 18)
-                .opacity(0.55)
+        VStack(spacing: 10) {
+            Image(systemName: "lock.fill")
+                .font(.system(size: 20))
+                .foregroundStyle(Color(hex: "E9D5FF"))
 
-            AppColors.bg.opacity(0.55)
+            Text("Tone Analysis")
+                .font(AppFonts.display(17))
+                .foregroundStyle(AppColors.text)
 
-            RadialGradient(
-                colors: [AppColors.bg.opacity(0.55), .clear],
-                center: .center,
-                startRadius: 12,
-                endRadius: 180
-            )
-            .blendMode(.plusDarker)
+            Text("How confident, nervous, and enthusiastic you actually sounded")
+                .font(AppFonts.body(12))
+                .foregroundStyle(AppColors.text.opacity(0.78))
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
 
-            VStack(spacing: 10) {
-                Image(systemName: "lock.fill")
-                    .font(.system(size: 20))
-                    .foregroundStyle(AppColors.gold)
-
-                Text("Tone Analysis")
-                    .font(AppFonts.display(17))
-                    .foregroundStyle(AppColors.text)
-
-                Text("How confident, nervous, and enthusiastic you actually sounded")
-                    .font(AppFonts.body(12))
-                    .foregroundStyle(AppColors.sub)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-
-                Button(action: onUpgrade) {
-                    HStack(spacing: 5) {
-                        Image(systemName: "crown.fill")
-                            .font(.system(size: 11))
-                        Text("Upgrade to Pro")
-                            .font(AppFonts.bodyBold(13))
-                    }
-                    .foregroundStyle(AppColors.onGold)
-                    .padding(.horizontal, 18)
-                    .padding(.vertical, 10)
-                    .background(AppColors.gold)
-                    .clipShape(Capsule())
-                    .shadow(color: AppColors.gold.opacity(0.45), radius: 12, y: 4)
+            Button(action: onUpgrade) {
+                HStack(spacing: 5) {
+                    Image(systemName: "crown.fill")
+                        .font(.system(size: 11))
+                    Text("Upgrade to Pro")
+                        .font(AppFonts.bodyBold(13))
                 }
-                .padding(.top, 4)
+                .foregroundStyle(.white)
+                .padding(.horizontal, 18)
+                .padding(.vertical, 10)
+                .background(Color.white.opacity(0.16))
+                .clipShape(Capsule())
+                .overlay(
+                    Capsule()
+                        .stroke(Color.white.opacity(0.35), lineWidth: 1)
+                )
             }
-            .padding(22)
-            .background(
-                RoundedRectangle(cornerRadius: 18)
-                    .fill(AppColors.card2.opacity(0.92))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 18)
-                            .stroke(AppColors.gold.opacity(0.45), lineWidth: 1)
-                    )
-                    .shadow(color: .black.opacity(0.35), radius: 18, y: 6)
-            )
-            .padding(.horizontal, 24)
+            .padding(.top, 4)
         }
-        .background(AppColors.card)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 30)
+        .padding(.horizontal, 26)
+        .background(teaserGradient)
         .clipShape(RoundedRectangle(cornerRadius: AppConstants.cardRadius))
         .overlay(
             RoundedRectangle(cornerRadius: AppConstants.cardRadius)
-                .stroke(AppColors.gold.opacity(0.3), lineWidth: 1)
+                .stroke(Color(hex: "C4B5FD").opacity(0.32), lineWidth: 1)
         )
     }
 
-    private var mockCardContent: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            HStack {
-                Text("TONE ANALYSIS")
-                    .font(AppFonts.bodyBold(10))
-                    .foregroundStyle(AppColors.purple)
-                    .kerning(0.8)
-                Spacer()
-                proLabel
-            }
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Dominant: Confidence")
-                    .font(AppFonts.bodyMedium(14))
-                    .foregroundStyle(AppColors.text)
-                Text("Score: 72%")
-                    .font(AppFonts.body(11))
-                    .foregroundStyle(AppColors.sub)
-            }
-            VStack(spacing: 8) {
-                emotionBar(label: "Confidence", score: 0.72, color: AppColors.teal)
-                emotionBar(label: "Nervousness", score: 0.31, color: AppColors.red)
-                emotionBar(label: "Enthusiasm", score: 0.45, color: AppColors.gold)
-            }
-        }
-        .accessibilityHidden(true)
+    private var teaserGradient: some View {
+        LinearGradient(
+            colors: [Color(hex: "3730A3"), Color(hex: "6B21A8")],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .overlay(
+            RadialGradient(
+                colors: [Color(hex: "818CF8").opacity(0.40), .clear],
+                center: .topLeading,
+                startRadius: 0,
+                endRadius: 220
+            )
+        )
+        .overlay(
+            RadialGradient(
+                colors: [Color(hex: "EC4899").opacity(0.32), .clear],
+                center: .bottom,
+                startRadius: 0,
+                endRadius: 200
+            )
+        )
     }
 
     private var proLabel: some View {
