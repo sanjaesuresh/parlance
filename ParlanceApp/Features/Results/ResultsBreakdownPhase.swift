@@ -30,7 +30,7 @@ struct ResultsBreakdownPhase: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                if let relevance = session.relevanceToPrompt, (25..<60).contains(relevance) {
+                if let relevance = session.relevanceToPrompt, (12..<60).contains(relevance) {
                     resultsSection(showsTopRule: false) {
                         HStack(spacing: 10) {
                             Image(systemName: "exclamationmark.bubble.fill")

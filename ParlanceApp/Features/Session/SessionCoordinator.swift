@@ -446,7 +446,7 @@ struct SessionCoordinator: View {
             )
         }
 
-        if let relevance = scoringResult.relevanceToPrompt, relevance < 25 {
+        if let relevance = scoringResult.relevanceToPrompt, relevance < 12 {
             #if DEBUG
             print("[Scoring] off-topic: relevance=\(relevance)")
             #endif
